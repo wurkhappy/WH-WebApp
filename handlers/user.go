@@ -1,10 +1,11 @@
 package handlers
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"github.com/gorilla/sessions"
 	"net/http"
-	"bytes"
 )
 
 func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
