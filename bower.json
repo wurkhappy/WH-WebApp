@@ -1,0 +1,23 @@
+{
+  "name": "Wurk Happy",
+  "version" : "0.0.1",
+  "main": "",
+  "ignore": [
+    "**/.*",
+    "**/*.txt",
+    "node_modules"
+  ],
+  "dependencies": {
+    "backbone": "~1.0.0",
+    "handlebars": "~1.0.0-rc.4",
+    "requirejs": "~2.1.6",
+    "requirejs-text": "~2.0.6",
+    "underscore": "~1.4.4",
+    "backbone.marionette": "~1.0.2",
+    "formalize": "git://github.com/nathansmith/formalize",
+    "modernizr": "~2.6.2",
+    "jquery": "~2.0.0",
+    "prism": "gh-pages",
+    "Element.details": "termi/Element.details"
+  }
+}

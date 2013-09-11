@@ -1,0 +1,35 @@
+# from original
+dist/
+src/scripts/vendors
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+#idea
+.idea
+# Thumbnails
+._*
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+log.txt
+
+#from team sass
+node_modules
+/components
+.www
+.sass-cache
+.compass/lib
+.compass/stylesheets
+.compass/templates
+export
+*.gem
+
+#from backbone
+node_modules
+dist
+test/temp
+.sass-cache
+app/bower_components
+.tmp
+test/bower_components/

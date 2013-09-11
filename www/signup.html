@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico" />
+
+                                                                                <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+                                                                                <![endif]-->
+  <script data-main="scripts/main"
+          data-root="/wh-frontend/src/"
+          src="scripts/vendors/requirejs/require.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="{{ static_url("css/screen.css") }}" media="all" />
+  <link rel="stylesheet" type="text/css" href="{{ static_url("css/ui/jquery-ui-1.8.23.custom.css") }}" />
+
+  <script type="text/javascript" src="{{ static_url('scripts/libs/modernizr.custom.07798.js') }}"></script>
+
+  <script type="text/javascript" src="https://use.typekit.com/wwb5mzu.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript">var actions=[];</script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24101674-2']);
+    _gaq.push(['_setDomainName', 'beta.wurkhappy.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+ {% block styles-custom %}
+ {% end %}
+</head>
+<body>
+
+### Redefine the main block
+{% block main %}
+
+
+{% set slug = { "_xsrf": data['_xsrf'], "authorizeURL": data['dwolla']['authorizeURL'], "redirectURL": data.get('redirectURL', '/') } %}
+
+{% module Slug(slug) %}
+
+
+<div class="container">
+  {% block navigation %}
+  {% end %}
+
+  {% block header %}
+  {% end %}
+
+  <div id="content" class="clear">
+    <div id="password-container" class="tab-content">
+      {% if data['password'] is True %}
+      <h2>Thank You!</h2>
+      <p>Your email address has been verified. Just enter your password to continue setting up your Wurk Happy account.</p>
+
+      <form action="#" method="POST" id="login_form" class="js-form">
+        <fieldset>
+          <label for="password">Password</label>
+          <input type="password" name="password" size="75" />
+          <input type="hidden" name="email" value="{{ data['email'] }}" />
+        </fieldset>
+        <div class="column-one-fourth">
+          <ul class="action-button">
+            <li><a href="#" rel="nofollow" id="login" class="top js-button">Set up my account</a></li>
+          </ul>
+        </div>
+      </form>
+      {% else %}
+      <h2>Hello,</h2>
+      <p>To get started with Wurk Happy, please choose a password for you Wurk Happy account.</p>
+
+      <form action="#" method="POST" id="set-pw_form" class="js-form">
+        <fieldset>
+          <label for="password">Password</label>
+          <input type="password" name="password" size="75" />
+          <input type="hidden" name="t" value="{{ data['token'] }}" />
+        </fieldset>
+        <div class="column-one-fourth">
+          <ul class="action-button">
+            <li><a href="#" rel="nofollow" id="set-pw" class="top js-button">Set up my account</a></li>
+          </ul>
+        </div>
+      </form>
+      {% end %}
+    </div>
+
+    <div id="details-container" class="tab-content" style="display: none;">
+      <h2>Add Personal Information</h2>
+      <form action="/user/me/account" enctype="multipart/form-data" method="POST" class="js-replace-action" id="profile-edit_form">
+        <fieldset>
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" size="75" value="{{ data['firstName'] or '' }}" />
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" size="75" value="{{ data['lastName'] or '' }}" />
+          <label for="profilePhoto">Photo</label>
+          <input type="file" class="upload" name="profilePhoto" />
+          <label for="email">Email</label>
+          <input type="email" name="email" size="75" value="{{ data['email'] or '' }}" />
+          <label for="telephone">Phone Number</label>
+          <input type="tel" name="telephone" size="75" value="{{ data['telephone'] or '' }}" />
+          <label>Terms of Use</label>
+          <input type="checkbox" name="agree" id="agree" /> <label for="agree" style="display: inline">I agree to the <a href="/legal/terms">Terms of Use</a>.</label>
+        </fieldset>
+        <div class="column-one-fourth">
+          <ul class="action-button">
+            <li><a href="#" rel="nofollow" id="profile-edit" class="top js-button">Save and Continue</a></li>
+          </ul>
+        </div>
+        <!-- <fieldset class="submit-buttons">
+          <input type="submit" value="Save Personal Details" />
+        </fieldset> -->
+      </form>
+    </div>
+  </div>
+
+  {% module Footer() %}
+</div>
+{% end %}
+
+
+
+{% block navigation %}
+<div id="navigation" class="clear">
+  <div class="column-one-half">
+    <p class="logo"><a href="#">Wurk Happy</a></p>
+  </div>
+</div>
+{% end %}
+
+
+
+{% block header %}
+<div id="intro" class="clear">
+  <div class="column-three-fourth">
+    <h1>Welcome to Wurk Happy!</h1>
+  </div>
+</div>
+{% end %}
+
+
+
+{% block scripts-custom %}
+<script src="{{ static_url('scripts/libs/jquery-autosuggest-1.4.js') }}" type="text/javascript"></script>
+<script src="{{ static_url('scripts/quickstart.js') }}" type="text/javascript" ></script>
+{% end %}
+
+<button id="feedback-button" style="position: fixed; bottom: 5px; right: 5px;">Contact Us</button>
+
+<div id="contact-view" style="position: fixed; bottom: 50px; right: 5px; display: none; border: 1px solid #DDD; width: 300px; padding: 20px; background-color: #FFF; text-align: left;">
+  <form id="contact">
+    <div id="mode-toggle">
+      <input type="radio" name="feedback-mode" id="contact-help" checked /><label for="contact-help">Get Help</label>
+      <input type="radio" name="feedback-mode" id="contact-feedback" /><label for="contact-feedback">Give Feedback</label>
+    </div>
+
+    <div id="help-view">
+      <label for="attemptedTask">What were you trying to do?</label>
+      <textarea name="attemptedTask" class="limited-length" data-min-length="20" data-max-length="400" style="width: 100%; height:100px"></textarea>
+
+      <label for="expectedResult">What did you expect would happen?</label>
+      <textarea name="expectedResult" class="limited-length" data-min-length="20" data-max-length="400" style="width: 100%; height:100px"></textarea>
+
+      <label for="actualResult">What actually happened?</label>
+      <textarea name="actualResult" class="limited-length" data-min-length="20" data-max-length="400" style="width: 100%; height:100px"></textarea>
+
+      <input type="checkbox" name="discloseUser" value="true" checked />
+      <label for="discloseUser">Send user information</label><br />
+      <p style="font-size: 13px; line-height: 1.3em;">
+        Your name and user ID help us solve your problem quickly and allow us to follow
+        up personally if we need more information.</p>
+    </div>
+    <div id="feedback-view" style="display: none;">
+      <label for="comments">What&rsquo;s on your mind?</label>
+      <p style="margin: 0; padding: 0; font-size: 13px; line-height: 1.3em;">
+        Do you have a suggestion? Is there something we can do to make the Wurk Happy
+        experience better? We love hearing from you.</p>
+      <textarea name="comments" class="limited-length" data-min-length="20" data-max-length="800" style="width: 100%; height:100px"></textarea>
+      <br />
+      <input type="checkbox" name="discloseUser" value="true" checked />
+      <label for="discloseUser">Send user information</label><br />
+      <p style="font-size: 13px; line-height: 1.3em;">
+        Including your name and email address allows us to respond personally to your
+        comments.</p>
+    </div>
+    <button id="contact-close">Close</button>
+    <button id="contact-submit">Submit</button>
+  </form>
+</div>
+<!-- Javascript at the bottom for fast page loading -->
+<!-- Eventually we need to minify this and host it on a CDN -->
+<script src="{{ static_url("scripts/libs/jquery-1.7.2.min.js") }}" type="text/javascript"></script>
+<script src="{{ static_url("scripts/libs/jquery-form-2.84.js") }}" type="text/javascript"></script>
+<script src="{{ static_url("scripts/libs/jquery-ui-1.8.23.custom.min.js") }}" type="text/javascript"></script>
+
+<!-- scripts concatenated and minified via ant build script-->
+<script src="{{ static_url("scripts/application.js") }}"></script>
+<!-- end concatenated and minified scripts-->
+
+<script type="text/javascript">
+  $(window).unload(function() {
+    _gaq.push(['_trackEvent', 'Unload']);
+  });
+</script>
+
+{% block scripts-custom %}
+{% end %}
+</body>
+</html>
+
+</body>
+</html>
