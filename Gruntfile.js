@@ -112,9 +112,9 @@ module.exports = function (grunt) {
          * Compile Sass to CSS using Compass.
          */
         compass: {
-            options: {
-                bundleExec: true
-            },
+            //options: {
+
+            //},
             dist: {
                 options: {
                     httpPath: '/',
@@ -123,6 +123,8 @@ module.exports = function (grunt) {
                     imagesDir: '<%= config.webroot %>/img',
                     javascriptsDir: '<%= config.webroot %>/js',
                     outputStyle: 'expanded',
+                    require: ['sass', 'compass', 'style-prototypes'], //used to manage compass plugins in grunt without having a typical config.rb file
+                    bundleExec: true, // bundler will be used to find dependencies in the load path given by the gemfile
                     relativeAssets: true,
                     noLineComments: false,
                     force: true,
