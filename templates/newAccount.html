@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="images/ico" href="/static/favicon.ico?v=af9c2">
+	<link href="/static/index.css" rel="stylesheet">
+</head>
+<body>
+	<!-- Libraries -->
+	<script src="/static/jquery-1.9.1.min.js"></script>
+	<script src="/static/underscore-min.js"></script>
+	<script src="/static/backbone-min.js"></script>
+	<script src="/static/backbone-forms.min.js"></script>
+	<script type="text/javascript" src="/static/handlebars.js"></script>
+
+	<script id="loginFormTpl" type="text/x-handlebars-template">
+	<section class="container">
+	<div class="login">
+	<h1>Login to Web App</h1>
+	<p><input type="text" name="Email" value="" placeholder="Email"></p>
+	<p><input type="password" name="Password" value="" placeholder="Password"></p>
+	<p><input type="text" name="FirstName" value="" placeholder="First Name"></p>
+	<p><input type="text" name="LastName" value="" placeholder="Last Name"></p>
+	<p class="submit"><button id="createAccount">Create Account</button></p>
+	</div>
+	</section>
+	</script>
+
+	<script >
+	var User = Backbone.Model.extend({
+		url:function(){
+			if (this.id) {return "http://localhost:4000/user/"+this.id;}
+			return "http://localhost:4000/user"
+		}
+	});
+
+	var user = new User();
+	var LoginFormView = Backbone.View.extend({
+		model:user,
+		initialize:function(options){
+		},
+		render:function(){
+			var source   = $("#loginFormTpl").html();
+			var template = Handlebars.compile(source);
+			this.$el.html(template({}))
+		},
+		events:{
+			'blur input, textarea' : 'updateField',
+			'change input[type="radio"]':'updateField',
+			'change input[type="file"]':'updateFile',
+			'click #createAccount':'createAccount'
+		},
+		updateField:function(event){
+			this.model.set(event.target.name, event.target.value);
+		},
+		updateFile:function(event){
+			var input = event.target;
+			if (input.files && input.files[0]) {
+				var that = this;
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					that.model.set(event.target.name, e.target.result);          
+				};
+				reader.readAsDataURL(input.files[0]);
+			}
+		},
+		createAccount:function(event){
+			var that = this;
+			this.model.save({},{
+				success:function(model,response){
+					console.log(response)
+					window.location = response["redirectURL"];
+				},
+				error:function(model,response){
+					console.log("error")
+					that.$el.remove();
+				},
+			});
+		}
+	})
+var loginFormView = new LoginFormView();
+loginFormView.render();
+$('body').append(loginFormView.$el);
+
+</script>
+
+
+
+</body>
+</html>
+
