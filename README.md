@@ -26,23 +26,30 @@ architecture that employs the latest best practices in designing in browser.
 Environment Setup:
 
 Make sure to have the following installed (in order):
+
 Ruby (comes default on mac)
 
-Install Bundler:
+To install Bundler:
+
 $ gem install bundler
 
-Install node (along with np):
+To install node (along with np):
+
 http://nodejs.org/
 
-grunt and bower:
+To install grunt and bower:
+
 $ npm install -g grunt-cli bower
 
-To generate dependencies run in root:
+To generate dependencies run in root of file:
+
 npm install
+
 Bower install
+
 Bundler install
 
-During development run:
+To start development environment run:
 
 grunt
 
