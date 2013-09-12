@@ -82,7 +82,7 @@ module.exports = function (grunt) {
                 livereload: 35729 // Default livereload listening port.
             },
             html: {
-                files: ['<%= config.webroot %>/html/*.html'],
+                files: ['<%= config.webroot %>/html/**/*.html'],
                 tasks: [
                     'includereplace'
                 ]
@@ -203,8 +203,12 @@ module.exports = function (grunt) {
                 // perform replacements and includes with.
                 files: [
                     {'<%= config.webroot %>/': '<%= config.webroot %>/html/landing.html'},
-                    {'<%= config.webroot %>/': '<%= config.webroot %>/html/styleguide.html'},
-                  {'<%= config.webroot %>/': '<%= config.webroot %>/html/styleguide/components.html'}
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/styleguide.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/components.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/colors.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/elements.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/style-tile.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/typography.html'}
                 ]
             }
         },
