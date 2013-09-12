@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Page 2</title>
+        <!-- Mobile viewport optimization http://goo.gl/b9SaQ -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #create {
+                padding: 1em;
+                margin: 1em 0 0;
+                background: #eee;
+            }
+            .is-editable {
+                display: none;
+            }
+            .is-editable-shown {
+                display: block;
+                background: #eee;
+                padding: 0.5em;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="page">
+
+            <header role="banner">
+                <h1>Create, Read, Update and Delete items in a list.</h1>
+                <a href="/index.html">Go to Page 1</a>
+            </header>
+
+            <div id="create">
+                <label for="input-create1">Name: </label>
+                <input id="input-create1" class="input-create" type="text" name="input-create1">
+                <button id="btn-create">Create new item</button>
+            </div>
+
+            <ul id="read" role="main" aria-live="polite"></ul>
+
+            <footer id="footer" role="contentinfo"></footer>
+
+        </div>
+
+        <script data-main="/js/config" src="/js/lib/require.js"></script>
+        <script>
+            // Load common code that includes config, then load the app logic for
+            // this page. Do the require calls here instead of a separate file
+            // so after a build there are only 2 HTTP requests instead of three.
+            require(['config'], function(config) {
+                // baseUrl is js/ so we can just ask for `app/subpage` here instead of `js/app/subpage`.
+                require(['app/subpage']);
+            });
+        </script>
+    </body>
+</html>

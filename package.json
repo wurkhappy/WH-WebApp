@@ -1,0 +1,25 @@
+{
+  "name": "wurk-happy",
+  "version": "0.0.1",
+  "description": "Internal Node package for use in development",
+  "main": "Gruntfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-yuidoc": "~0.4.0",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-include-replace": "~0.4.0",
+    "grunt-grunticon": "~0.3.3",
+    "grunt-karma": "~0.4.4",
+    "karma": "~0.8.5",
+    "jasmine-sinon": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-imagemin": "~0.1.4"
+  }
+}

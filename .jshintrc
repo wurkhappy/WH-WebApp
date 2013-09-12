@@ -1,0 +1,77 @@
+
+// from grunt-frontend
+{
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "trailing": true,
+  "browser": true,
+  "globals": {
+    "$": true,
+    "jQuery": true,
+    "Backbone": true,
+    "console": true,
+    "module": true,
+    "document": true,
+    "define": true,
+    "require": true
+  }
+
+
+  // from backbone
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 4,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "jquery": true
+}
+
+// from team sass
+{
+  "browser": true,
+  "bitwise": true,
+  "devel": true,
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "immed": true,
+  "indent": 2,
+  "jquery": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": true,
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "trailing": true,
+  "smarttabs": true,
+  "predef": [
+  "Drupal",
+  "Modernizr"
+  ]
+}
