@@ -112,6 +112,9 @@ module.exports = function (grunt) {
          * Compile Sass to CSS using Compass.
          */
         compass: {
+            options: {
+                bundleExec: true
+            },
             dist: {
                 options: {
                     httpPath: '/',
@@ -121,7 +124,6 @@ module.exports = function (grunt) {
                     javascriptsDir: '<%= config.webroot %>/js',
                     outputStyle: 'expanded',
                     relativeAssets: true,
-                    bundleExec: true,
                     noLineComments: false,
                     force: true,
                     raw: 'Sass::Script::Number.precision = 15\n' // Use `raw` since it's not directly available.
@@ -400,7 +402,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
-
 
     // The default (DEV) task can be run just by typing "grunt" on the command line.
     grunt.registerTask('default', [

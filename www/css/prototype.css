@@ -1,5 +1,5 @@
 /*
-Syntax error: File to import not found or unreadable: normalize.
+Syntax error: File to import not found or unreadable: compass-normalize.
               Load paths:
                 /Users/marcojelli/WebstormProjects/wh/www/scss
                 /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/blueprint/stylesheets
@@ -69,4 +69,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: File to import not found or unreadable: normalize.\A               Load paths:\A                 /Users/marcojelli/WebstormProjects/wh/www/scss\A                 /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/blueprint/stylesheets\A                 /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets\A                 Compass::SpriteImporter\A         on line 13 of /Users/marcojelli/WebstormProjects/wh/www/scss/global/_base.scss\A         from line 22 of /Users/marcojelli/WebstormProjects/wh/www/scss/_wurk-happy-style-guide.scss\A         from line 7 of /Users/marcojelli/WebstormProjects/wh/www/scss/prototype.scss"; }
+  content: "Syntax error: File to import not found or unreadable: compass-normalize.\A               Load paths:\A                 /Users/marcojelli/WebstormProjects/wh/www/scss\A                 /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/blueprint/stylesheets\A                 /Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets\A                 Compass::SpriteImporter\A         on line 13 of /Users/marcojelli/WebstormProjects/wh/www/scss/global/_base.scss\A         from line 22 of /Users/marcojelli/WebstormProjects/wh/www/scss/_wurk-happy-style-guide.scss\A         from line 7 of /Users/marcojelli/WebstormProjects/wh/www/scss/prototype.scss"; }
