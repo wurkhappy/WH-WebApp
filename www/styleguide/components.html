@@ -25,17 +25,16 @@
 
 <meta name="viewport" content="width=device-width">
 
-                                              <!-- Prototype CSS -->
+<!-- Prototype CSS -->
 
 <link rel="stylesheet" href="../css/prototype.css">
 
-                                              <!-- Wurk Happy CSS-->
+<!-- Wurk Happy CSS-->
 <!--<link rel="stylesheet" href="css/landing.css">-->
 
 
 <!-- Async Webfonts -->
 <!-- Modernizr stays in the head -->
-<script src="/page/components/modernizr/modernizr.js"></script>
 </head>
 
 <body>
@@ -85,112 +84,52 @@
 
 <main>
   <div class="content-wrapper">
-
-
     <article class="messaging">
       <header>
         <h2>Messages</h2>
       </header>
-
       <!-- @group messages-->
       <div class="messages group">
   <ul component-list>
     <li>
       <div class="messages status">
-        <h2 class="element-invisisble">status message</h2>
+        <h2 class="element-invisible">status message</h2>
         <p>This is a <em>status</em> message.</p>
       </div>
-      <details>
-        <summary>HTML Source</summary>
-        <pre class="example"><code class="language-markup">&lt;div class="messages status"&gt;
-                                                           &lt;h2 class="element-invisisble"&gt;status message&lt;/h2&gt;
-                                                           &lt;p>This is a &lt;em&gt;status&lt;/em&gt; message.&lt;/p&gt;
-                                                           &lt;/div&gt;</code></pre>
-      </details>
     </li>
     <li>
       <div class="messages warning">
-        <h2 class="element-invisisble">warning message</h2>
+        <h2 class="element-invisible">warning message</h2>
         <p>This is a <em>warning</em> message.</p>
       </div>
-      <details>
-        <summary>HTML Source</summary>
-        <pre class="example"><code class="language-markup">&lt;div class="messages warning"&gt;
-                                                           &lt;h2 class="element-invisisble"&gt;warning message&lt;/h2&gt;
-                                                           &lt;p>This is a &lt;em&gt;warning&lt;/em&gt; message.&lt;/p&gt;
-                                                           &lt;/div&gt;</code></pre>
-      </details>
     </li>
     <li>
       <div class="messages error">
-        <h2 class="element-invisisble">error message</h2>
+        <h2 class="element-invisible">error message</h2>
         <p>This is a <em>error</em> message.</p>
       </div>
-      <details>
-        <summary>HTML Source</summary>
-        <pre class="example"><code class="language-markup">&lt;div class="messages error"&gt;
-                                                           &lt;h2 class="element-invisisble"&gt;error message&lt;/h2&gt;
-                                                           &lt;p>This is a &lt;em&gt;error&lt;/em&gt; message.&lt;/p&gt;
-                                                           &lt;/div&gt;</code></pre>
-      </details>
     </li>
 </div>
-
     </article>
-
       <!-- @group buttons-->
         <div class="buttons group">
     <ul component-list>
-
-
       <li>
         <a class="call-to-action" href="#">Call to Action</a>
-
-        <details>
-          <summary>HTML Source</summary>
-          <pre class="example"><code class="language-markup">&lt;a class="call-to-action" href="#"&gt;Call to Action&lt;/a&gt;</code></pre>
-        </details>
-
-
       </li>
-
-
-
       <li>
         <a class="big-button" href="#">Big Button</a>
-
-        <details>
-          <summary>HTML Source</summary>
-          <pre class="example"><code class="language-markup">&lt;a class="big-button" href="#"&gt;Big Button&lt;/a&gt;</code></pre>
-        </details>
-
-
       </li>
-
-
-
       <li>
         <a class="big-button red" href="#">Warning Button</a>
-
-        <details>
-          <summary>HTML Source</summary>
-          <pre class="example"><code class="language-markup">&lt;a class="big-button red" href="#"&gt;Warning Button&lt;/a&gt;</code></pre>
-        </details>
-
-
       </li>
-
-
     </ul>
   </div>
-
     </article>
-
     <article class="pagers">
       <header>
         <h2>Pagers</h2>
       </header>
-
       <!-- @group pagers-->
         <div class="pagers group">
     <ul class="pager">
@@ -216,36 +155,7 @@
         <a href="#" title="Go to the last page"> Last »</a>
       </li>
     </ul>
-
-    <details>
-      <summary>HTML Source</summary>
-    <pre class="example"><code class="language-markup">&lt;ul class="pager"&gt;
-                                                       &lt;li class="pager-first"&gt;
-                                                       &lt;a href="#" title="Go to the first page"&gt; « First&lt;/a&gt;
-                                                       &lt;/li&gt;
-                                                       &lt;li class="pager-previous"&gt;
-                                                       &lt;a href="#" title="Go to the previous page"&gt; ‹ Previous&lt;/a&gt;
-                                                       &lt;/li&gt;
-                                                       &lt;li class="pager-item"&gt;
-                                                       &lt;a href="#" title="Go to page 1"&gt;1&lt;/a&gt;
-                                                       &lt;/li&gt;
-                                                       &lt;li class="pager-item"&gt;
-                                                       &lt;a href="#" title="Go to page 2"&gt;2&lt;/a&gt;
-                                                       &lt;/li&gt;
-                                                       &lt;li class="pager-item"&gt;
-                                                       &lt;a href="#" title="Go to page 3"&gt;3&lt;/a&gt;
-                                                       &lt;/li&gt;
-                                                       &lt;li class="pager-next"&gt;
-                                                       &lt;a href="#" title="Go to the next page"&gt; Next ›&lt;/a&gt;
-                                                       &lt;/li&gt;
-                                                       &lt;li class="pager-last"&gt;
-                                                       &lt;a href="#" title="Go to the last page"&gt; Last »&lt;/a&gt;
-                                                       &lt;/li&gt;
-                                                       &lt;/ul&gt;</code></pre>
-    </details>
-
   </div>
-
     </article>
   </div>
 </main>
@@ -260,7 +170,7 @@
   // so after a build there are only 2 HTTP requests instead of three.
   require(['config'], function(config) {
     // baseUrl is js/ so we can just ask for `app/main` here instead of `js/app/main`.
-    require(['app/mainpage']);
+    require(['app/styleguide']);
   });
 </script>
 </body>

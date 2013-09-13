@@ -26,6 +26,7 @@ require.config({
         jquery: 'lib/jquery/jquery',
         underscore: 'lib/underscore/underscore',
         backbone: 'lib/backbone/backbone',
+        modernizr: 'lib/modernizr/modernizr',
 
         // Templating.
         handlebars: 'lib/handlebars/handlebars',
