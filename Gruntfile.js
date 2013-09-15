@@ -91,7 +91,7 @@ module.exports = function (grunt) {
                 files: ['<%= config.webroot %>/scss/**/*.scss'],
                 tasks: [
                     'compass',
-                    'csslint'
+                    //'csslint'
                 ]
             },
             js: {
@@ -208,7 +208,21 @@ module.exports = function (grunt) {
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/colors.html'},
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/elements.html'},
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/style-tile.html'},
-                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/typography.html'}
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/typography.html'},
+                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/personal.html'},
+                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/password.html'},
+                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/payment.html'},
+                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/bankaccount.html'},
+                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/creditcard.html'},
+                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/password.html'},
+                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/personal.html'},
+                    {'<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/client_home.html'},
+                    {'<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/freelancer_home.html'},
+                    {'<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/client_perspective.html'},
+                    {'<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/freelancer_perspective.html'},
+                  {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/scopeofwork.html'},
+                  {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/paymentschedule.html'},
+                  {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/recipientdetails.html'}
                 ]
             }
         },

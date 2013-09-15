@@ -1,7 +1,7 @@
 //////////////////////////////
-// Style Guide
 //
-// This is your style guide. There are many like it, but this one is yours. All of the styling that you would like to be exported into your final Style Guide should either be written in here or imported into here from global or partials
+// Wurk Happy Base Style
+//
 //////////////////////////////
 
 //////////////////////////////
@@ -19,4 +19,4 @@ $legacy-support-for-mozilla: false !default;
 //////////////////////////////
 // Import Global
 //////////////////////////////
-@import "global/base";
+@import "bases/base";

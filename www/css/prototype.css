@@ -270,6 +270,12 @@ img, video {
   clear: both;
 }
 
+/* this uses color schemer
+$black:     tint-stack(#333);
+$primary:   tint-stack(cs-primary());
+$secondary: tint-stack(cs-secondary());
+$tertiary:  tint-stack(cs-tertiary());
+$quadrary:  tint-stack(cs-quadrary());*/
 /* line 36, ../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before, nav ul, .content-wrapper {
   -webkit-box-sizing: border-box;
@@ -424,27 +430,27 @@ img, video {
 
 /* line 23, ../scss/prototype.scss */
 .color-0 {
-  background: #333333;
+  background: #666666;
 }
 
 /* line 27, ../scss/prototype.scss */
 .color-1 {
-  background: #c0ff33;
+  background: #0099dd;
 }
 
 /* line 31, ../scss/prototype.scss */
 .color-2 {
-  background: #33f3ff;
+  background: #88cc55;
 }
 
 /* line 35, ../scss/prototype.scss */
 .color-3 {
-  background: #ffd333;
+  background: white;
 }
 
 /* line 39, ../scss/prototype.scss */
 .color-4 {
-  background: #ff33b8;
+  background: white;
 }
 
 /* line 21, ../scss/.prototype/_color-guide.scss */
@@ -469,43 +475,42 @@ img, video {
 @media (min-width: 500px) and (max-width: 805px) {
   /* line 26, ../scss/.prototype/_color-guide.scss */
   .color-guide li {
-    width: 33.33333333333333%;
+    width: 200%;
     clear: right;
     float: left;
     margin-left: 0;
     margin-right: 0%;
   }
   /* line 41, ../scss/.prototype/_color-guide.scss */
-  .color-guide li:nth-child(3n) {
-    width: 33.33333333333333%;
+  .color-guide li:nth-child(0.5n) {
+    width: 200%;
     clear: right;
     float: right;
     margin-right: 0;
   }
   /* line 46, ../scss/.prototype/_color-guide.scss */
-  .color-guide li:nth-child(6n) {
+  .color-guide li:nth-child(1n) {
     margin-bottom: 1em;
   }
 }
 @media (min-width: 805px) {
   /* line 26, ../scss/.prototype/_color-guide.scss */
   .color-guide li {
-    width: 16.666666666666664%;
+    width: 100%;
     clear: right;
-    float: left;
-    margin-left: 0;
-    margin-right: 0%;
+    float: right;
+    margin-right: 0;
   }
   /* line 56, ../scss/.prototype/_color-guide.scss */
-  .color-guide li:nth-child(6n) {
-    width: 16.666666666666664%;
+  .color-guide li:nth-child(1n) {
+    width: 100%;
     clear: right;
     float: right;
     margin-right: 0;
   }
 }
 /* line 64, ../scss/.prototype/_color-guide.scss */
-.color-guide li:before, .color-guide li:after, .color-guide li:nth-child(6n):before, .color-guide li:nth-child(6n):after {
+.color-guide li:before, .color-guide li:after, .color-guide li:nth-child(1n):before, .color-guide li:nth-child(1n):after {
   position: absolute;
   height: 1.25em;
   width: 100%;
@@ -527,7 +532,7 @@ img, video {
 }
 /* line 97, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(1) {
-  background-color: #333333;
+  background-color: #666666;
 }
 /* line 126, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(1):before, .color-guide li:nth-child(1):after {
@@ -535,7 +540,7 @@ img, video {
 }
 /* line 129, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(1):before {
-  content: "#333333";
+  content: "#666666";
 }
 /* line 132, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(1):after {
@@ -543,7 +548,7 @@ img, video {
 }
 /* line 97, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(2) {
-  background-color: #666666;
+  background-color: #0099dd;
 }
 /* line 126, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(2):before, .color-guide li:nth-child(2):after {
@@ -551,7 +556,7 @@ img, video {
 }
 /* line 129, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(2):before {
-  content: "#666666";
+  content: "#0099dd";
 }
 /* line 132, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(2):after {
@@ -559,7 +564,7 @@ img, video {
 }
 /* line 97, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(3) {
-  background-color: #999999;
+  background-color: #88cc55;
 }
 /* line 126, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(3):before, .color-guide li:nth-child(3):after {
@@ -567,7 +572,7 @@ img, video {
 }
 /* line 129, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(3):before {
-  content: "#999999";
+  content: "#88cc55";
 }
 /* line 132, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(3):after {
@@ -575,7 +580,7 @@ img, video {
 }
 /* line 97, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(4) {
-  background-color: #cccccc;
+  background-color: white;
 }
 /* line 126, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(4):before, .color-guide li:nth-child(4):after {
@@ -583,7 +588,7 @@ img, video {
 }
 /* line 129, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(4):before {
-  content: "#cccccc";
+  content: "white";
 }
 /* line 132, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(4):after {
@@ -591,7 +596,7 @@ img, video {
 }
 /* line 97, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(5) {
-  background-color: #e0e0e0;
+  background-color: white;
 }
 /* line 126, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(5):before, .color-guide li:nth-child(5):after {
@@ -599,410 +604,10 @@ img, video {
 }
 /* line 129, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(5):before {
-  content: "#e0e0e0";
+  content: "white";
 }
 /* line 132, ../scss/.prototype/_color-guide.scss */
 .color-guide li:nth-child(5):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(6) {
-  background-color: #eaeaea;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(6):before, .color-guide li:nth-child(6):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(6):before {
-  content: "#eaeaea";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(6):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(7) {
-  background-color: #c0ff33;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(7):before, .color-guide li:nth-child(7):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(7):before {
-  content: "#c0ff33";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(7):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(8) {
-  background-color: #cfff66;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(8):before, .color-guide li:nth-child(8):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(8):before {
-  content: "#cfff66";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(8):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(9) {
-  background-color: #dfff99;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(9):before, .color-guide li:nth-child(9):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(9):before {
-  content: "#dfff99";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(9):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(10) {
-  background-color: #efffcc;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(10):before, .color-guide li:nth-child(10):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(10):before {
-  content: "#efffcc";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(10):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(11) {
-  background-color: #f5ffe0;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(11):before, .color-guide li:nth-child(11):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(11):before {
-  content: "#f5ffe0";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(11):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(12) {
-  background-color: #f8ffea;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(12):before, .color-guide li:nth-child(12):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(12):before {
-  content: "#f8ffea";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(12):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(13) {
-  background-color: #33f3ff;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(13):before, .color-guide li:nth-child(13):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(13):before {
-  content: "#33f3ff";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(13):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(14) {
-  background-color: #66f6ff;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(14):before, .color-guide li:nth-child(14):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(14):before {
-  content: "#66f6ff";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(14):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(15) {
-  background-color: #99f9ff;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(15):before, .color-guide li:nth-child(15):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(15):before {
-  content: "#99f9ff";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(15):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(16) {
-  background-color: #ccfcff;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(16):before, .color-guide li:nth-child(16):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(16):before {
-  content: "#ccfcff";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(16):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(17) {
-  background-color: #e0fdff;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(17):before, .color-guide li:nth-child(17):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(17):before {
-  content: "#e0fdff";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(17):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(18) {
-  background-color: #eafdff;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(18):before, .color-guide li:nth-child(18):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(18):before {
-  content: "#eafdff";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(18):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(19) {
-  background-color: #ffd333;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(19):before, .color-guide li:nth-child(19):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(19):before {
-  content: "#ffd333";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(19):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(20) {
-  background-color: #ffde66;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(20):before, .color-guide li:nth-child(20):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(20):before {
-  content: "#ffde66";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(20):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(21) {
-  background-color: #ffe999;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(21):before, .color-guide li:nth-child(21):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(21):before {
-  content: "#ffe999";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(21):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(22) {
-  background-color: #fff4cc;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(22):before, .color-guide li:nth-child(22):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(22):before {
-  content: "#fff4cc";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(22):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(23) {
-  background-color: #fff8e0;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(23):before, .color-guide li:nth-child(23):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(23):before {
-  content: "#fff8e0";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(23):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(24) {
-  background-color: #fffaea;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(24):before, .color-guide li:nth-child(24):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(24):before {
-  content: "#fffaea";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(24):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(25) {
-  background-color: #ff33b8;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(25):before, .color-guide li:nth-child(25):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(25):before {
-  content: "#ff33b8";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(25):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(26) {
-  background-color: #ff66c9;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(26):before, .color-guide li:nth-child(26):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(26):before {
-  content: "#ff66c9";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(26):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(27) {
-  background-color: #ff99db;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(27):before, .color-guide li:nth-child(27):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(27):before {
-  content: "#ff99db";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(27):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(28) {
-  background-color: #ffcced;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(28):before, .color-guide li:nth-child(28):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(28):before {
-  content: "#ffcced";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(28):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(29) {
-  background-color: #ffe0f4;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(29):before, .color-guide li:nth-child(29):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(29):before {
-  content: "#ffe0f4";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(29):after {
-  content: attr(data-sass);
-}
-/* line 97, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(30) {
-  background-color: #ffeaf7;
-}
-/* line 126, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(30):before, .color-guide li:nth-child(30):after {
-  color: black;
-}
-/* line 129, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(30):before {
-  content: "#ffeaf7";
-}
-/* line 132, ../scss/.prototype/_color-guide.scss */
-.color-guide li:nth-child(30):after {
   content: attr(data-sass);
 }
 

@@ -1,0 +1,30 @@
+
+
+
+
+/* NAVIGATION - From original (main app)
+================================================================================ */
+
+#navigation ul {
+  margin: 0;
+  padding: 0;
+}
+
+#navigation ul li {
+  display: block;
+  float: left;
+}
+
+#navigation ul li a {
+  display: block;
+  float: left;
+  padding: 20px;
+}
+
+#navigation ul#admin li {
+  float: right;
+}
+
+#navigation ul li.current a {
+  color: rgb(84,90,96);
+}

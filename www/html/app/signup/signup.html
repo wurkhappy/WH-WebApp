@@ -1,49 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico" />
-
-                                                                                <!--[if IE]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-                                                                                <![endif]-->
-  <script data-main="scripts/main"
-          data-root="/wh-frontend/src/"
-          src="scripts/vendors/requirejs/require.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="{{ static_url("css/screen.css") }}" media="all" />
-  <link rel="stylesheet" type="text/css" href="{{ static_url("css/ui/jquery-ui-1.8.23.custom.css") }}" />
-
-  <script type="text/javascript" src="{{ static_url('scripts/libs/modernizr.custom.07798.js') }}"></script>
-
-  <script type="text/javascript" src="https://use.typekit.com/wwb5mzu.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script type="text/javascript">var actions=[];</script>
-
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-24101674-2']);
-    _gaq.push(['_setDomainName', 'beta.wurkhappy.com']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script');
-      ga.type = 'text/javascript';
-      ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
- {% block styles-custom %}
- {% end %}
-</head>
-<body>
 
 ### Redefine the main block
 {% block main %}
