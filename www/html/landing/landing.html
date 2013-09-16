@@ -1,50 +1,9 @@
-<!DOCTYPE html>
-<head>
+<!-- @include('partials/landing_head.html', {
+    "dir": "ltr",
+    "lang": "en"}
+) -->
 
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-
-  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
-  <!--<title>Wurk Happy - Our work agreements get you paid faster.</title>-->
-
-  <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
-
-  <!--[if IE]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
-  <link rel="stylesheet" type="text/css" href="css/landing.css" media="all" />
-
-  <script type="text/javascript" src="https://use.typekit.com/wwb5mzu.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-24101674-1']);
-    _gaq.push(['_setDomainName', '.wurkhappy.com']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
-  <noscript>
-    <style>
-      .dim {opacity: .5;}
-      #logindiv {display:none}
-    </style>
-    <div class="noscriptmsg">
-      <p>Wurk Happy requires javascript to function properly. <a href="http://www.enable-javascript.com/" target="_blank">Please enable javascript</a> in your web browser.</p>
-    </div>
-  </noscript>
-</head>
-
-<div>
-  <body>
-	<div id="navigation" class="clear">
+<div id="navigation" class="clear">
 		<div class="container">
 			<div class="column-one-half">
 				<p><a href="/">Wurk Happy</a></p>
@@ -148,50 +107,7 @@
 			</div>
 		</div>
 	</div>
-	
-	<div id="logindiv" class="login">
-		<div class="container">
-			<div class="column-one-third">
-				<form action="/account/create" method="POST" accept-charset="utf-8" id="login_form" class="js-form">
-					<fieldset>
-						<div id="server_error"></div>
-						<label class="clear" id="email-label" for="email">Email: <span class="validation" id="email-validation"></span></label>
-						<div class="input-box">
-							<input type="email" name="email"  id="target" class="text-field input" placeholder="name@website.com" required >
-						</div>
-						<label for="email">Password:</label>
-	         	<input type="password" name="password" value="" id="password" class="text-field" required id="password-validation" />
-						<p class="faux-label"><span><a href="/user/me/password">Forgot your password?</a></span></p>
-					</fieldset>
-					<fieldset>
-						<input type="submit" value="Log In" class="submit-button">
-					</fieldset>
-				</form>
-			</div>
-		</div>
-	</div>
 
-  <div id="copyright" class="clear">
-    <div class="container">
-      <p>Copyright &#169; 2013 Wurk Happy. All Rights Reserved &nbsp; &bull; &nbsp;
-        <a href="legal/terms.html">Terms of Service</a> &nbsp; &bull; &nbsp;
-        <a href="legal/privacy.html">PrivacyPolicy</a>&nbsp; &bull; &nbsp;<a href="help/faq.html">FAQ</a></p>
-    </div>
-  </div>
-
-<!-- Javascript at the bottom for fast page loading -->
-
-  <script src="js/lib/jquery/jquery.js"></script>
-
-  <!-- scripts concatenated and minified via ant build script -->
-  <script src="js/landing.js"></script>
-<!-- end concatenated and minified scripts-->
-  <script type="text/javascript">
-    $(window).unload(function() {
-      _gaq.push(['_trackEvent', 'Unload']);
-    });
-  </script>
-
-  </body>
-</div>
-</html>
+  <!-- @include('partials/landing_footer.html', {
+     "appfile": "landing"
+  }) -->

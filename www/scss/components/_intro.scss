@@ -2,8 +2,12 @@
 ================================================================================ */
 
 
+/* INTRO
+================================================================================ */
+
+
 #intro {
-  background: rgb(0,122,177) url(../_images/shade-intro.png) repeat-x top;
+  background: rgb(0,122,177) url(../img/shade-intro.png) repeat-x top;
   color: rgb(191,229,246);
   -webkit-border-top-left-radius: 10px;
   -webkit-border-top-right-radius: 10px;
@@ -52,7 +56,7 @@
   -moz-box-shadow: 0 0 3px rgba(0,0,0,.5);
   box-shadow: 0 0 3px rgba(0,0,0,.5);
   text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-  background-image: url(../_images/shade-button.png);
+  background-image: url(../img/shade-button.png);
   background-repeat: repeat-x;
   background-position: center;
   -webkit-border-radius: 5px;

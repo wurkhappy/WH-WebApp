@@ -40,7 +40,7 @@ $legacy-support-for-mozilla: false !default;
 
 //////////////////////////////
 // BASES
-@import "bases/landing";
+@import "bases/common";
 //////////////////////////////
 
 //////////////////////////////
@@ -50,7 +50,8 @@ $legacy-support-for-mozilla: false !default;
 @import "components/intro";
 @import "components/internal";
 @import "components/maincontent";
-@import "components/landingcopyright";
+@import "components/footer";
+@import "components/copyright";
 /* @import "components/link";
 @import "components/heading";
 @import "components/form";

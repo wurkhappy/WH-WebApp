@@ -1,0 +1,69 @@
+/* LANDING INTERNAL
+================================================================================ */
+
+
+#internal {
+  background: #CEEAF3;
+  border-top: 1px solid white;
+  background: rgb(220,224,228) url(../images/bg.png);
+  border-bottom: 1px solid rgb(184,190,196);
+}
+
+#internal ul {
+  padding: 0;
+  margin: 0;
+}
+
+#internal ul li {
+  list-style: none;
+  display: block;
+  float: left;
+  /*outline: 1px solid white;*/
+}
+
+#internal ul li a {
+  display: block;
+  float: left;
+  padding: 20px;
+  font-weight: bold;
+}
+
+#internal ul li.current a {
+  outline: 1px solid white;
+  background: rgb(255,255,255);
+  outline: 1px solid white;
+}
+
+#internal ul li.action-button {
+  padding: 10px 0;
+  margin: 0;
+  float: right;
+}
+
+#internal ul li.action-button a {
+  display: block;
+  text-align: center;
+  padding: 10px 20px;
+  color: rgb(255,255,255);
+  text-decoration: none;
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,1);
+  -moz-box-shadow: 0 0 3px rgba(0,0,0,1);
+  box-shadow: 0 0 3px rgba(0,0,0,1);
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  background-image: url(../images/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: top center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#internal ul li.action-button a:link,
+#internal ul li.action-button a:visited {
+  background-color: rgb(136,204,85);
+}
+
+#internal ul li.action-button a:hover,
+#internal ul li.action-button a:active {
+  background-color: rgb(122,183,76);
+}

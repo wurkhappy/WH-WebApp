@@ -46,11 +46,11 @@ $legacy-support-for-mozilla: false !default;
 //////////////////////////////
 // COMPONENTS
 @import "components/noscript";
-@import "components/landing_navigation";
-@import "components/intro";
-@import "components/internal";
+@import "components/landingnavigation";
+@import "components/landingintro";
+@import "components/landinginternal";
 @import "components/landingcontent";
-@import "components/copyright";
+@import "components/landingcopyright";
 /* @import "components/link";
 @import "components/heading";
 @import "components/form";

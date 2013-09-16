@@ -60,9 +60,14 @@ table {
   border-spacing: 0;
 }
 
+/* line 56, ../scss/bases/_landing.scss */
+img, video {
+  max-width: 320px;
+}
+
 /* COMMON
 ================================================================================ */
-/* line 59, ../scss/bases/_landing.scss */
+/* line 63, ../scss/bases/_landing.scss */
 body {
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -70,44 +75,44 @@ body {
   color: #646464;
 }
 
-/* line 67, ../scss/bases/_landing.scss */
+/* line 71, ../scss/bases/_landing.scss */
 a:link,
 a:visited {
   text-decoration: none;
   color: #0099dd;
 }
 
-/* line 73, ../scss/bases/_landing.scss */
+/* line 77, ../scss/bases/_landing.scss */
 a:hover,
 a:active {
   text-decoration: underline;
   color: #0089c6;
 }
 
-/* line 78, ../scss/bases/_landing.scss */
+/* line 82, ../scss/bases/_landing.scss */
 p, ul, ol, dl {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-/* line 83, ../scss/bases/_landing.scss */
+/* line 87, ../scss/bases/_landing.scss */
 ul, ol {
   margin-left: 30px;
 }
 
-/* line 87, ../scss/bases/_landing.scss */
+/* line 91, ../scss/bases/_landing.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 91, ../scss/bases/_landing.scss */
+/* line 95, ../scss/bases/_landing.scss */
 h1, h2, h3 {
   color: black;
   padding: 0 20px;
   font-family: "Museo", Helvetica, Arial, sans-serif;
 }
 
-/* line 97, ../scss/bases/_landing.scss */
+/* line 101, ../scss/bases/_landing.scss */
 h1 {
   font-size: 40px;
   line-height: 60px;
@@ -115,7 +120,7 @@ h1 {
   margin: 0;
 }
 
-/* line 104, ../scss/bases/_landing.scss */
+/* line 108, ../scss/bases/_landing.scss */
 h2 {
   font-size: 24px;
   line-height: 30px;
@@ -123,7 +128,7 @@ h2 {
   font-weight: 100;
 }
 
-/* line 111, ../scss/bases/_landing.scss */
+/* line 115, ../scss/bases/_landing.scss */
 h3 {
   font-weight: 300;
   font-size: 1.4em;
@@ -131,7 +136,7 @@ h3 {
   margin: 20px 0 10px 0;
 }
 
-/* line 118, ../scss/bases/_landing.scss */
+/* line 122, ../scss/bases/_landing.scss */
 h4 {
   font-weight: bold;
   font-size: 1em;
@@ -158,21 +163,21 @@ h4 {
 
 /* NAVIGATION (landing)
 ================================================================================ */
-/* line 4, ../scss/components/_landing_navigation.scss */
+/* line 4, ../scss/components/_landingnavigation.scss */
 #navigation ul {
   margin: 0;
   padding: 0;
   float: right;
 }
 
-/* line 10, ../scss/components/_landing_navigation.scss */
+/* line 10, ../scss/components/_landingnavigation.scss */
 #navigation ul li {
   display: block;
   float: left;
   padding: 15px 0 15px 10px;
 }
 
-/* line 17, ../scss/components/_landing_navigation.scss */
+/* line 17, ../scss/components/_landingnavigation.scss */
 #navigation ul li a:link,
 #navigation ul li a:visited {
   display: block;
@@ -193,14 +198,14 @@ h4 {
   border: 1px solid #e6eaee;
 }
 
-/* line 36, ../scss/components/_landing_navigation.scss */
+/* line 36, ../scss/components/_landingnavigation.scss */
 #navigation ul li a:hover,
 #navigation ul li a:active {
   background: #e6eaee;
   border: 1px solid #f0f4f8;
 }
 
-/* line 42, ../scss/components/_landing_navigation.scss */
+/* line 42, ../scss/components/_landingnavigation.scss */
 #navigation p {
   font-family: "Museo", Helvetica, Arial, sans-serif;
   font-size: 24px;
@@ -212,7 +217,7 @@ h4 {
   float: left;
 }
 
-/* line 54, ../scss/components/_landing_navigation.scss */
+/* line 54, ../scss/components/_landingnavigation.scss */
 #navigation p a:link,
 #navigation p a:visited {
   color: black;
@@ -221,150 +226,92 @@ h4 {
   text-decoration: none;
 }
 
-/* line 62, ../scss/components/_landing_navigation.scss */
+/* line 62, ../scss/components/_landingnavigation.scss */
 #navigation p a:hover,
 #navigation p a:active {
   color: #646464;
 }
 
-/* MAIN Intro Header/ main action
+/* LANDING INTRO
 ================================================================================ */
-/* line 5, ../scss/components/_intro.scss */
+/* line 5, ../scss/components/_landingintro.scss */
 #intro {
-  background: #007ab1 url(../_images/shade-intro.png) repeat-x top;
+  background: #007ab1 url(../images/shade-intro.png) repeat-x top;
   color: #bfe5f6;
-  -webkit-border-top-left-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  -moz-border-radius-topleft: 10px;
-  -moz-border-radius-topright: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   border-bottom: 1px solid #007ab1;
-  padding: 0 0 10px 0;
+  padding: 20px 0 20px 0;
+  color: #cde6f0;
 }
 
-/* line 18, ../scss/components/_intro.scss */
-#intro h1 {
-  color: white;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+/* line 13, ../scss/components/_landingintro.scss */
+#intro .dot {
+  border: 5px solid white;
+  border-radius: 200px;
+  width: 250px;
+  height: 250px;
+  box-shadow: 2px 2px 20px #555;
+  display: block;
+  margin: 20px 0 0 0;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* line 23, ../scss/components/_intro.scss */
+/* line 28, ../scss/components/_landingintro.scss */
+#intro h2,
+#intro h3,
 #intro p {
-  line-height: 40px;
-  margin-bottom: 10px;
-}
-
-/* line 28, ../scss/components/_intro.scss */
-#intro p span {
-  color: white;
-}
-
-/* line 32, ../scss/components/_intro.scss */
-#intro ul.action-button {
-  margin: 10px 20px 10px 20px;
-  padding: 0;
-}
-
-/* line 37, ../scss/components/_intro.scss */
-#intro ul.action-button li {
-  list-style: none;
-  padding: 10px 0 0 0;
-  margin: 0;
-}
-
-/* line 43, ../scss/components/_intro.scss */
-#intro ul.action-button li a {
-  display: block;
-  font-weight: bold;
   text-align: center;
-  padding: 0 10px;
+}
+
+/* line 32, ../scss/components/_landingintro.scss */
+#intro h1 {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   color: white;
-  text-decoration: none;
-  line-height: 40px;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
-  background-image: url(../_images/shade-button.png);
-  background-repeat: repeat-x;
-  background-position: center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 0;
 }
 
-/* line 64, ../scss/components/_intro.scss */
-#intro ul.action-button a:link,
-#intro ul.action-button a:visited {
-  background-color: #88cc55;
+/* line 39, ../scss/components/_landingintro.scss */
+#intro h2 {
+  font-family: "Museo-Sans", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  color: white;
+  margin: 0 0 18px 0;
 }
 
-/* line 69, ../scss/components/_intro.scss */
-#intro ul.action-button a:hover,
-#intro ul.action-button a:active {
-  background-color: #7ab74c;
+/* line 46, ../scss/components/_landingintro.scss */
+#intro h3 {
+  font-weight: 300;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  color: white;
+  margin: 20px 0 8px 0;
 }
 
-/* line 74, ../scss/components/_intro.scss */
-#intro ul.action-button a.cancel:link,
-#intro ul.action-button a.cancel:visited {
-  background-color: #be3557;
-}
-
-/* line 79, ../scss/components/_intro.scss */
-#intro ul.action-button a.cancel:hover,
-#intro ul.action-button a.cancel:active {
-  background-color: #972a45;
-}
-
-/* INTERNAL   (Main)
-================================================================================ */
-/* line 5, ../scss/components/_internal.scss */
-#internal {
-  background-color: #dff5ff;
-}
-
-/* line 9, ../scss/components/_internal.scss */
-#internal ul {
-  padding: 0;
-  margin: 0;
-}
-
-/* line 14, ../scss/components/_internal.scss */
-#internal ul li {
-  list-style: none;
-  display: block;
-  float: left;
-}
-
-/* line 20, ../scss/components/_internal.scss */
-#internal ul li a {
-  display: block;
-  float: left;
+/* line 53, ../scss/components/_landingintro.scss */
+#intro small {
+  margin-left: 320px;
+  font-style: italic;
   padding: 20px;
 }
 
-/* line 26, ../scss/components/_internal.scss */
-#internal ul li.current a {
-  background-color: white;
-}
-
-/* line 31, ../scss/components/_internal.scss */
+/* LANDING INTERNAL
+================================================================================ */
+/* line 5, ../scss/components/_landinginternal.scss */
 #internal {
   background: #CEEAF3;
   border-top: 1px solid white;
-  background: #dce0e4 url(../img/bg.png);
+  background: #dce0e4 url(../images/bg.png);
   border-bottom: 1px solid #b8bec4;
 }
 
-/* line 38, ../scss/components/_internal.scss */
+/* line 12, ../scss/components/_landinginternal.scss */
 #internal ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 43, ../scss/components/_internal.scss */
+/* line 17, ../scss/components/_landinginternal.scss */
 #internal ul li {
   list-style: none;
   display: block;
@@ -372,7 +319,7 @@ h4 {
   /*outline: 1px solid white;*/
 }
 
-/* line 50, ../scss/components/_internal.scss */
+/* line 24, ../scss/components/_landinginternal.scss */
 #internal ul li a {
   display: block;
   float: left;
@@ -380,21 +327,21 @@ h4 {
   font-weight: bold;
 }
 
-/* line 57, ../scss/components/_internal.scss */
+/* line 31, ../scss/components/_landinginternal.scss */
 #internal ul li.current a {
   outline: 1px solid white;
   background: white;
   outline: 1px solid white;
 }
 
-/* line 63, ../scss/components/_internal.scss */
+/* line 37, ../scss/components/_landinginternal.scss */
 #internal ul li.action-button {
   padding: 10px 0;
   margin: 0;
   float: right;
 }
 
-/* line 69, ../scss/components/_internal.scss */
+/* line 43, ../scss/components/_landinginternal.scss */
 #internal ul li.action-button a {
   display: block;
   text-align: center;
@@ -405,7 +352,7 @@ h4 {
   -moz-box-shadow: 0 0 3px black;
   box-shadow: 0 0 3px black;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
-  background-image: url(../img/shade-button.png);
+  background-image: url(../images/shade-button.png);
   background-repeat: repeat-x;
   background-position: top center;
   -webkit-border-radius: 5px;
@@ -413,13 +360,13 @@ h4 {
   border-radius: 5px;
 }
 
-/* line 88, ../scss/components/_internal.scss */
+/* line 62, ../scss/components/_landinginternal.scss */
 #internal ul li.action-button a:link,
 #internal ul li.action-button a:visited {
   background-color: #88cc55;
 }
 
-/* line 93, ../scss/components/_internal.scss */
+/* line 67, ../scss/components/_landinginternal.scss */
 #internal ul li.action-button a:hover,
 #internal ul li.action-button a:active {
   background-color: #7ab74c;
@@ -846,13 +793,17 @@ div.faqcontent h2 {
 
 /* COPYRIGHT
 ================================================================================ */
-/* line 7, ../scss/components/_copyright.scss */
+/* line 5, ../scss/components/_landingcopyright.scss */
+#copyright {
+  border-top: 1px solid #b8bec4;
+}
+
+/* line 9, ../scss/components/_landingcopyright.scss */
 #copyright p {
   margin: 0;
   padding: 20px;
-  font-size: .75em;
-  color: #545a60;
-  text-align: center;
+  font-size: 12px;
+  color: #7c8288;
 }
 
 /* @import "components/link";

@@ -68,12 +68,12 @@
           <a href="/">Wurk Happy</a>
         </p>
       </li>
-      <li class="current">
+      <li>
         <a href="../home/freelancer_home.html">
           <strong>Client Agreements</strong>
         </a>
       </li>
-      <li class="current">
+      <li>
         <a href="../home/client_home.html">
           <strong>Freelancer Agreements</strong>
         </a>
@@ -84,7 +84,7 @@
   <div class="column-one-fourth">
     <ul id="admin" class="clear">
       <li><a href="/logout">Log Out</a></li>
-      <li class="current"><a href="../account/personal.html">Account</a></li>
+      <li <!-- @account_current? --><a href="../account/personal.html">Account</a></li>
          <!--<li><a href="#">Preferences</a></li>-->
     </ul>
   </div>
@@ -123,7 +123,8 @@
               <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td class="meta" style="margin:0;">
-                    <span><img id="profile_image" src="{{ data['profileURL'][1] }}" alt="Profile photo" width="150" height="150" /></span>
+                    <span><img id="profile_image" src="../img/people/obama-face.png" alt="Profile photo" width="150"
+                               height="150" /></span>
                   </td>
                 </tr>
               </table>
