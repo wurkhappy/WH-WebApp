@@ -1,7 +1,49 @@
-<!-- @include('partials/landing-header.html', {
-    "dir": "ltr",
-    "lang": "en"}
-) -->
+<!DOCTYPE html>
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
+  <!--<title>Wurk Happy - Our work agreements get you paid faster.</title>-->
+
+  <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
+
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="../css/new_landing.css" media="all" />
+
+  <script type="text/javascript" src="https://use.typekit.com/wwb5mzu.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24101674-1']);
+    _gaq.push(['_setDomainName', '.wurkhappy.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  <noscript>
+    <style>
+      .dim {opacity: .5;}
+      #logindiv {display:none}
+    </style>
+    <div class="noscriptmsg">
+      <p>Wurk Happy requires javascript to function properly. <a href="http://www.enable-javascript.com/" target="_blank">Please enable javascript</a> in your web browser.</p>
+    </div>
+  </noscript>
+</head>
+
+<div>
+  <body>
 
   <div id="navigation" class="clear">
 		<div class="container">
@@ -110,6 +152,45 @@
 
  </div>  <!-- class fade2 -->
 
-  <!-- @include('partials/landing-footer.html', {
-     "appfile": "mainlanding"
-  }) -->
+  
+<div id="copyright" class="clear">
+  <div class="container">
+    <p>Copyright &#169; 2013 Wurk Happy. All Rights Reserved &nbsp; &bull; &nbsp;
+      <a href="../legal/terms.html">Terms of Service</a> &nbsp; &bull; &nbsp;
+      <a href="../legal/privacy.html">Privacy Policy</a>&nbsp; &bull; &nbsp;
+      <a href="../help/faq.html">FAQ</a>
+    </p>
+  </div>
+</div>
+
+<!-- Javascript at the bottom for fast page loading -->
+
+<!--<script src="js/lib/jquery/jquery.js"></script>-->
+
+<!-- scripts concatenated and minified via ant build script -->
+<!--<script src="js/mainlanding.js"></script>-->
+<!-- end concatenated and minified scripts-->
+
+
+<script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
+<script>
+  // Load common code that includes config, then load the app logic for
+  // this page. Do the require calls here instead of a separate file
+  // so after a build there are only 2 HTTP requests instead of three.
+  require(['config'], function(config) {
+    // baseUrl is js/ so we can just ask for `app/main` here instead of `js/app/main`.
+    require(['app/mainlanding']);
+  });
+</script>
+<!--<script type="text/javascript"> TODO: Enable this code?
+  $(window).unload(function() {
+    _gaq.push(['_trackEvent', 'Unload']);
+  });
+</script>-->
+
+
+
+
+</body>
+</div>
+</html>

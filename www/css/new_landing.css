@@ -236,7 +236,7 @@ h4 {
 ================================================================================ */
 /* line 5, ../scss/components/_landingintro.scss */
 #intro {
-  background: #007ab1 url(../images/shade-intro.png) repeat-x top;
+  background: #007ab1 url(../img/shade-intro.png) repeat-x top;
   color: #bfe5f6;
   border-bottom: 1px solid #007ab1;
   padding: 20px 0 20px 0;
@@ -301,7 +301,7 @@ h4 {
 #internal {
   background: #CEEAF3;
   border-top: 1px solid white;
-  background: #dce0e4 url(../images/bg.png);
+  background: #dce0e4 url(../img/bg.png);
   border-bottom: 1px solid #b8bec4;
 }
 
@@ -352,7 +352,7 @@ h4 {
   -moz-box-shadow: 0 0 3px black;
   box-shadow: 0 0 3px black;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
-  background-image: url(../images/shade-button.png);
+  background-image: url(../img/shade-button.png);
   background-repeat: repeat-x;
   background-position: top center;
   -webkit-border-radius: 5px;
@@ -789,6 +789,11 @@ div.faqcontent h2 {
 /* line 368, ../scss/components/_landingcontent.scss */
 .invalid {
   padding-bottom: 25px;
+}
+
+/* line 6, ../scss/components/_landinglogin.scss */
+.login, #log_out {
+  display: none;
 }
 
 /* COPYRIGHT

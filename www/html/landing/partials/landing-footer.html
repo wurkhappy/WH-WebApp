@@ -1,45 +1,41 @@
-<div id="logindiv" class="login">
-  <div class="container">
-    <div class="column-one-third">
-      <form action="/account/create" method="POST" accept-charset="utf-8" id="login_form" class="js-form">
-        <fieldset>
-          <div id="server_error"></div>
-          <label class="clear" id="email-label" for="email">Email: <span class="validation" id="email-validation"></span></label>
-          <div class="input-box">
-            <input type="email" name="email"  id="target" class="text-field input" placeholder="name@website.com" required >
-          </div>
-          <label for="email">Password:</label>
-          <input type="password" name="password" value="" id="password" class="text-field" required id="password-validation" />
-          <p class="faux-label"><span><a href="/user/me/password">Forgot your password?</a></span></p>
-        </fieldset>
-        <fieldset>
-          <input type="submit" value="Log In" class="submit-button">
-        </fieldset>
-      </form>
-    </div>
-  </div>
-</div>
 
 <div id="copyright" class="clear">
   <div class="container">
     <p>Copyright &#169; 2013 Wurk Happy. All Rights Reserved &nbsp; &bull; &nbsp;
-      <a href="legal/terms.html">Terms of Service</a> &nbsp; &bull; &nbsp;
-      <a href="legal/privacy.html">PrivacyPolicy</a>&nbsp; &bull; &nbsp;<a href="help/faq.html">FAQ</a></p>
+      <a href="../legal/terms.html">Terms of Service</a> &nbsp; &bull; &nbsp;
+      <a href="../legal/privacy.html">Privacy Policy</a>&nbsp; &bull; &nbsp;
+      <a href="../help/faq.html">FAQ</a>
+    </p>
   </div>
 </div>
 
 <!-- Javascript at the bottom for fast page loading -->
 
-<script src="js/lib/jquery/jquery.js"></script>
+<!--<script src="js/lib/jquery/jquery.js"></script>-->
 
 <!-- scripts concatenated and minified via ant build script -->
-<script src="js/landing.js"></script>
+<!--<script src="js/mainlanding.js"></script>-->
 <!-- end concatenated and minified scripts-->
-<script type="text/javascript">
+
+
+<script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
+<script>
+  // Load common code that includes config, then load the app logic for
+  // this page. Do the require calls here instead of a separate file
+  // so after a build there are only 2 HTTP requests instead of three.
+  require(['config'], function(config) {
+    // baseUrl is js/ so we can just ask for `app/main` here instead of `js/app/main`.
+    require(['app/<!-- @appfile -->']);
+  });
+</script>
+<!--<script type="text/javascript"> TODO: Enable this code?
   $(window).unload(function() {
     _gaq.push(['_trackEvent', 'Unload']);
   });
-</script>
+</script>-->
+
+
+
 
 </body>
 </div>

@@ -32,7 +32,8 @@ require.config({
         handlebars: 'lib/handlebars/handlebars',
 
         // Plugins.
-        text : 'lib/requirejs-text/text',
+        text: 'lib/requirejs-text/text',
+        //landing: 'lib/landing.js',
 
         // Custom AMD modules.
         // utils: 'app/utils',

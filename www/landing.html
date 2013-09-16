@@ -44,7 +44,8 @@
 
 <div>
   <body>
-	<div id="navigation" class="clear">
+
+  <div id="navigation" class="clear">
 		<div class="container">
 			<div class="column-one-half">
 				<p><a href="/">Wurk Happy</a></p>
@@ -55,13 +56,13 @@
 					<!--<li><a href="/about">About Us</a></li>-->
 					<li><a href="mailto:contact@wurkhappy.com">Contact Us</a></li>
 					<!--<li><a href="">Create Your Free Account</a></li>-->
-        	<li id="log_in"><a id="login" href="#">Log In</a></li>
-					<li id="log_out"><a id="cancel" href="#">Cancel</a></li>
+        	<li id="log_in"><a id="login" href="#/login">Log In</a></li>
+					<li id="log_out" style="display:none;"><a id="cancel" href="#">Cancel</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
+<div class="fade2">
 	<div id="intro" class="clear fade">
 		<div class="container">
 	  	<div class="clear">
@@ -95,8 +96,8 @@
 	<div id="internal" class="clear fade">
 		<div class="container">
 			<ul>
-				<li class="tab current" id="about-button"><a href="#">About</a></li>
-      	<li class="tab" id="pricing-button"><a href="#">Pricing</a></li>
+				<li class="tab current" id="about-button"><a href="#/about">About</a></li>
+      	<li class="tab" id="pricing-button"><a href="#/pricing">Pricing</a></li>
 				<!--
 				<li class="tab current" id="proposals-button"><a href="#">Proposals &amp; Estimates</a></li>
 								<li class="tab" id="relationships-button"><a href="#">Relationship Management</a></li>
@@ -108,14 +109,13 @@
 	</div>
 
 	<div id="content" class="clear fade">
+
 		<div class="container tab-content" id="about-container"> <!-- Start "about" tab -->
-			
     	<div id="about" class="column-two-third">
       	<h2>What is Wurk Happy?</h2>
       	<p>Wurk Happy is an online platform that facilitates simple agreement, billing, and payment for freelancers and their clients.</p>
 				<p>We make the payment process fast and transparent by improving communication, reducing administration, and decreasing payment processing times.</p>
     	</div>
-
 		</div> <!-- End "about" tab -->
 	
 		<div class="container tab-content hidden" id="pricing-container"> <!-- Start "pricing" tab -->
@@ -147,53 +147,48 @@
 				</form>
 			</div>
 		</div>
-	</div>
-	
-	<div id="logindiv" class="login">
-		<div class="container">
-			<div class="column-one-third">
-				<form action="/account/create" method="POST" accept-charset="utf-8" id="login_form" class="js-form">
-					<fieldset>
-						<div id="server_error"></div>
-						<label class="clear" id="email-label" for="email">Email: <span class="validation" id="email-validation"></span></label>
-						<div class="input-box">
-							<input type="email" name="email"  id="target" class="text-field input" placeholder="name@website.com" required >
-						</div>
-						<label for="email">Password:</label>
-	         	<input type="password" name="password" value="" id="password" class="text-field" required id="password-validation" />
-						<p class="faux-label"><span><a href="/user/me/password">Forgot your password?</a></span></p>
-					</fieldset>
-					<fieldset>
-						<input type="submit" value="Log In" class="submit-button">
-					</fieldset>
-				</form>
-			</div>
-		</div>
+
 	</div>
 
-  <div id="copyright" class="clear">
-    <div class="container">
-      <p>Copyright &#169; 2013 Wurk Happy. All Rights Reserved &nbsp; &bull; &nbsp;
-        <a href="html/legal/terms.html">Terms of Service</a> &nbsp; &bull; &nbsp;
-        <a href="html/legal/privacy.html">PrivacyPolicy</a>&nbsp; &bull; &nbsp;
-        <a href="html/help/faq.html">FAQ</a>
-      </p>
-    </div>
+ </div>  <!-- class fade2 -->
+
+  
+<div id="copyright" class="clear">
+  <div class="container">
+    <p>Copyright &#169; 2013 Wurk Happy. All Rights Reserved &nbsp; &bull; &nbsp;
+      <a href="legal/terms.html">Terms of Service</a> &nbsp; &bull; &nbsp;
+      <a href="legal/privacy.html">PrivacyPolicy</a>&nbsp; &bull; &nbsp;<a href="help/faq.html">FAQ</a></p>
   </div>
+</div>
 
 <!-- Javascript at the bottom for fast page loading -->
 
-  <script src="js/lib/jquery/jquery.js"></script>
+<!--<script src="js/lib/jquery/jquery.js"></script>-->
 
-  <!-- scripts concatenated and minified via ant build script -->
-  <script src="js/landing.js"></script>
+<!-- scripts concatenated and minified via ant build script -->
+<!--<script src="js/mainlanding.js"></script>-->
 <!-- end concatenated and minified scripts-->
-  <script type="text/javascript">
-    $(window).unload(function() {
-      _gaq.push(['_trackEvent', 'Unload']);
-    });
-  </script>
 
-  </body>
+
+<script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
+<script>
+  // Load common code that includes config, then load the app logic for
+  // this page. Do the require calls here instead of a separate file
+  // so after a build there are only 2 HTTP requests instead of three.
+  require(['config'], function(config) {
+    // baseUrl is js/ so we can just ask for `app/main` here instead of `js/app/main`.
+    require(['app/mainlanding']);
+  });
+</script>
+<!--<script type="text/javascript"> TODO: Enable this code?
+  $(window).unload(function() {
+    _gaq.push(['_trackEvent', 'Unload']);
+  });
+</script>-->
+
+
+
+
+</body>
 </div>
 </html>

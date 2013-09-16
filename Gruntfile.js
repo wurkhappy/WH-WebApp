@@ -202,7 +202,10 @@ module.exports = function (grunt) {
                 // destination directory, and its value is the source file to 
                 // perform replacements and includes with.
                 files: [
-                    {'<%= config.webroot %>/': '<%= config.webroot %>/html/landing.html'},
+                    {'<%= config.webroot %>/landing/': '<%= config.webroot %>/html/landing/landing.html'},
+                    {'<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/privacy.html'},
+                    {'<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/terms.html'},
+                    {'<%= config.webroot %>/help': '<%= config.webroot %>/html/help/faq.html'},
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/styleguide.html'},
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/components.html'},
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/colors.html'},
@@ -220,9 +223,9 @@ module.exports = function (grunt) {
                     {'<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/freelancer_home.html'},
                     {'<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/client_perspective.html'},
                     {'<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/freelancer_perspective.html'},
-                  {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/scopeofwork.html'},
-                  {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/paymentschedule.html'},
-                  {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/recipientdetails.html'}
+                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/scopeofwork.html'},
+                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/paymentschedule.html'},
+                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/recipientdetails.html'}
                 ]
             }
         },

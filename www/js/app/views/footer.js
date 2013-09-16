@@ -4,7 +4,7 @@
 
 define(['backbone', 'handlebars', 'text!templates/footer.html'],
 
-        function(Backbone, Handlebars, footerTemplate) {
+        function (Backbone, Handlebars, footerTemplate) {
 
             'use strict';
 

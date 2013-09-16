@@ -50,7 +50,9 @@ $legacy-support-for-mozilla: false !default;
 @import "components/landingintro";
 @import "components/landinginternal";
 @import "components/landingcontent";
+@import "components/landinglogin";
 @import "components/landingcopyright";
+
 /* @import "components/link";
 @import "components/heading";
 @import "components/form";
