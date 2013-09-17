@@ -1,0 +1,254 @@
+<!-- This is the header for the styleguide-->
+
+<!DOCTYPE html>
+
+<!--[if IEMobile 7]>                     <html class="no-js iem7 oldie"  lang="en" dir="ltr"><![endif]-->
+<!--[if lt IE 7]>                        <html class="no-js ie6 oldie"   lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]>             <html class="no-js ie7 oldie"   lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]>             <html class="no-js ie8 oldie"   lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->                   <html class="no-js"             lang="en" dir="ltr"><!--<![endif]-->                                                                                             <!--[if (gte IE 9)|(gt IEMobile 7)]><!-->
+<html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+  Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Wurk Happy Style Guide">
+  <meta name="author" content="Marcus Ellison">
+  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
+  <!--[if lte IE 8]>         <html class="no-js lte-ie8"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Wurk Happy CSS -->
+
+  <link rel="stylesheet" href="../css/main_app.css">
+
+  <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico" />
+
+  <script type="text/javascript" src="https://use.typekit.com/wwb5mzu.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript">var actions=[];</script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24101674-2']);
+    _gaq.push(['_setDomainName', 'beta.wurkhappy.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</head>
+<body>
+
+<div class="container">
+  <!-- adds background -->
+
+
+  <!-- Top Navigation -->
+
+  <div id="navigation" class="clear">
+  <div class="column-three-fourth">
+    <ul class="clear">
+      <li>
+        <p class="logo-sm">
+          <a href="/">Wurk Happy</a>
+        </p>
+      </li>
+      <li>
+        <a href="../home/freelancer_home.html">
+          <strong>Client Agreements</strong>
+        </a>
+      </li>
+      <li>
+        <a href="../home/client_home.html">
+          <strong>Freelancer Agreements</strong>
+        </a>
+      </li>
+         <!--<li><a href="/templates">Templates</a></li>-->
+    </ul>
+  </div>
+  <div class="column-one-fourth">
+    <ul id="admin" class="clear">
+      <li><a href="/logout">Log Out</a></li>
+      <li <!-- @account_current? --><a href="../account/personal.html">Account</a></li>
+         <!--<li><a href="#">Preferences</a></li>-->
+    </ul>
+  </div>
+</div>
+
+  <!-- Title Header -->
+  <div id="intro" class="clear">
+    <div class="column-three-fourth">
+      <h1>Account</h1>
+    </div>
+  </div>
+
+
+
+  <!-- Sub-navigation for main content -->
+  <div id="internal" class="clear">
+    <ul>
+      <!-- need to put in javascript so this is smooth instead of hard links-->
+      <li class="tab current" id="details-button">
+        <a href="personal.html" class="top">Personal Details</a></li>
+      <li class="tab" id="password-button">
+        <a href="password.html" class="">Change Your Password</a></li>
+      <li class="tab" id="payment-button">
+        <a href="payment.html" class="">Payment Information</a></li>
+    </ul>
+  </div>
+
+
+
+  <!-- Main Content -->
+  <div id="content" class="clear">
+    <div id="details-container" class="tab-content">
+      <div id="profile_preview">
+        <h2>Personal Details</h2>
+        <form action="/user/me/account" enctype="multipart/form-data" method="POST" class="js-replace-action" id="profile_update" style="padding:0">
+					<span class="column-one-fourth">
+						<div class="data-table">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="meta" style="margin:0;">
+                    <span><img id="profile_image" src="{{ data['profileURL'][1] }}" alt="Profile photo" width="150" height="150" /></span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+						<div id="profile_photo_upload" style="display:none;padding-left:20px;">
+              <fieldset>
+                <label for="profilePhoto">Replace Photo</label>
+                <input type="file" class="upload" name="profilePhoto" />
+              </fieldset>
+            </div>
+					</span>
+					<span class="column-three-fourth">
+						<div class="data-table" id="profile_info">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <h3><a href="/user/me/profile" id="profile_full_name">Marcus Ellison</a></h3>
+                    <p id="profile_email">marcus@wurkhappy.com</p>
+                    <p id="profile_telephone">(917) 972-3943</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+						<ul class="action-button" id="user_info_edit_ul" style="width:200px;">
+              <li><a href="#" rel="nofollow" id="user_info_edit" class="top js-button">Edit</a></li>
+            </ul>
+						<div id="profile_form" style="display:none;padding-left:20px;">
+              <fieldset>
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" value="{{ data['firstName'] or '' }}" size="80" />
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" value="{{ data['lastName'] or '' }}" size="80" />
+                <label for="email">Email</label>
+                <input type="email" name="email" value="{{ data['email'] }}" size="80" />
+                <label for="telephone">Phone Number</label>
+                <input type="tel" name="telephone" value="{{ data['telephone'] }}" size="80" />
+              </fieldset>
+              <fieldset class="submit-buttons" style="padding-bottom:20px;">
+                <input type="submit" value="Save Personal Details" />
+              </fieldset>
+            </div>
+					</span>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+<!-- main app footer-->
+
+<div id="footer" class="clear">
+
+  <div class="column-one-fourth">
+
+    <h3>Archives</h3>
+
+    <ul>
+      <li><a href="">All Client Agreements</a></li>
+      <li><a href="">All Vendor Agreements</a></li>
+      <li><a href="">All People</a></li>
+    </ul>
+
+  </div>
+
+  <div class="column-one-fourth">
+
+    <h3>Section 2</h3>
+
+    <ul>
+      <li><a href="#">Links</a></li>
+      <li><a href="#">Links</a></li>
+      <li><a href="#">Links</a></li>
+    </ul>
+
+  </div>
+
+  <div class="column-one-fourth">
+
+    <h3>Section 3</h3>
+
+    <ul>
+      <li><a href="#">Links</a></li>
+      <li><a href="#">Links</a></li>
+      <li><a href="#">Links</a></li>
+    </ul>
+
+  </div>
+
+  <div class="column-one-fourth">
+
+    <h3>Section 4</h3>
+
+    <ul>
+      <li><a href="#">Links</a></li>
+      <li><a href="#">Links</a></li>
+      <li><a href="#">Links</a></li>
+    </ul>
+
+  </div>
+
+</div>
+
+
+<div id="copyright" class="clear">
+
+  <p>Powered by Wurk Happy &mdash; Copyright &#169; Wurk Happy &mdash; All Rights Reserved</p>
+
+</div>
+
+</div>
+
+
+<script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
+<script>
+  // Load common code that includes config, then load the app logic for
+  // this page. Do the require calls here instead of a separate file
+  // so after a build there are only 2 HTTP requests instead of three.
+  require(['config'], function(config) {
+    // baseUrl is js/ so we can just ask for `app/main` here instead of `js/app/main`.
+    require(['app/styleguide']);
+  });
+</script>
+<script type="text/javascript">
+  $(window).unload(function() {
+    _gaq.push(['_trackEvent', 'Unload']);
+  });
+</script>
+</body>
+</html>

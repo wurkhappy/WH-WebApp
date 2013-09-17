@@ -1,0 +1,29 @@
+//////////////////////////////
+// Layouts
+// Add your layouts here.
+//////////////////////////////
+
+
+// Current layout
+.container {
+  margin: 0 auto;
+  width: 960px;
+  text-align: left;
+}
+
+.clear {
+  float: left;
+  width: 100%;
+  clear: both;
+}
+
+.column-three-fourth { width: 720px; }
+.column-two-third { width: 640px; }
+.column-one-half { width: 480px; }
+.column-one-third { width: 320px; }
+.column-one-fourth { width: 240px; }
+
+.column-one-fourth, .column-one-third, .column-one-half,
+.column-two-third,.column-three-fourth {
+  float: left;
+}

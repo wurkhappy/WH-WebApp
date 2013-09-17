@@ -1,0 +1,57 @@
+/* LANDING INTRO
+================================================================================ */
+
+
+#intro {
+  background: rgb(0,122,177) url(../img/shade-intro.png) repeat-x top;
+  color: rgb(191,229,246);
+  border-bottom: 1px solid rgb(0,122,177);
+  padding: 20px 0 20px 0;
+  color: rgb(205,230,240);
+}
+
+#intro .dot {
+  border: 5px solid white;
+  border-radius: 200px;
+  width: 250px;
+  height: 250px;
+  box-shadow: 2px 2px 20px #555;
+  display: block;
+  margin: 20px 0 0 0;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#intro h2,
+#intro h3,
+#intro p {
+  text-align: center;
+}
+
+#intro h1 {
+  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  color: rgb(255,255,255);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#intro h2 {
+  font-family: "Museo-Sans", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  color: rgb(255,255,255);
+  margin: 0 0 18px 0;
+}
+
+#intro h3 {
+  font-weight: 300;
+  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  color: rgb(255,255,255);
+  margin: 20px 0 8px 0;
+}
+
+#intro small {
+  margin-left: 320px;
+  font-style: italic;
+  padding: 20px;
+}

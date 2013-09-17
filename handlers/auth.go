@@ -1,11 +1,14 @@
 package handlers
 
 import (
+	"bytes"
 	"fmt"
 	"github.com/gorilla/sessions"
+	"html/template"
 	"net/http"
-	"bytes"
 )
+
+var templates = template.Must(template.ParseFiles("templates/login.html", "templates/newAccount.html"))
 
 func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
@@ -21,4 +24,17 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	w.Write(buf.Bytes())
 }
 
+func GetLogin(w http.ResponseWriter, req *http.Request) {
 
+	err := templates.ExecuteTemplate(w, "login.html", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func GetCreateAccount(w http.ResponseWriter, req *http.Request) {
+	err := templates.ExecuteTemplate(w, "newAccount.html", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
