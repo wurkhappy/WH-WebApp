@@ -1,0 +1,118 @@
+/* FORMS
+================================================================================ */
+
+
+#content form {
+  padding: 0 20px 20px 20px;
+}
+
+#content form p.add-more {
+  margin: 20px 0 0 0;
+  padding: 0 0 0 20px;
+  background: url(../_images/icons/add-16x16.png) no-repeat left;
+}
+
+#content form fieldset label,
+#content form fieldset p.faux-label {
+  display: block;
+  padding: 20px 0 5px 0;
+  margin: 0;
+}
+
+#content form fieldset label span {
+  display: block;
+  font-size: .75em;
+  color: rgb(150,150,150);
+}
+
+#content form fieldset label.checkbox {
+  border: none;
+  margin: 0;
+  padding: 5px 0;
+}
+
+#content form fieldset input,
+#content form fieldset textarea {
+  border: 1px solid rgb(150,150,150);
+  padding: 3px;
+  margin: 0;
+  font-size: 100%;
+  font: inherit;
+  display: block;
+}
+
+#content form fieldset input[disabled] {
+  color: rgb(100,100,100);
+  border: 1px solid rgb(200,200,200);
+  background-color: rgb(245,245,245);
+}
+
+#content form fieldset input[type=checkbox],
+#content form fieldset input[type=radio] {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+#content form fieldset input.upload {
+  border: none;
+}
+
+#content form fieldset select {
+  margin: 0 10px 0 0;
+}
+
+#content form fieldset p.action {
+  margin: 5px 0 0 0;
+  padding: 0;
+  font-size: .75em;
+}
+
+#content form fieldset p.security-detail {
+  margin: 10px 0 0 0;
+  padding: 10px 10px 10px 30px;
+  font-size: .875em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: rgb(245,245,245) url(../_images/lock.png) no-repeat 1% 50%;
+}
+
+#content form fieldset {
+  border-top: 1px solid rgb(245,245,245);
+  padding: 0 0 20px 0;
+}
+
+#content form fieldset.submit-buttons {
+  padding: 20px 0 0 0;
+}
+
+#content form fieldset.submit-buttons a {
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 0 20px;
+  font-weight: bold;
+  color: rgb(255,255,255);
+  text-decoration: none;
+  line-height: 40px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-shadow: 0 -1px 0 rgb(113,31,52);
+  -webkit-box-shadow: 0 1px 2px rgb(100,100,100);
+  -moz-box-shadow: 0 1px 2px rgb(100,100,100);
+  box-shadow: 0 1px 2px rgb(100,100,100);
+  background-image: url(../_images/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+#content form fieldset.submit-buttons a:link,
+#content form fieldset.submit-buttons a:visited {
+  background-color: rgb(190,53,87);
+}
+
+#content form fieldset.submit-buttons a:hover,
+#content form fieldset.submit-buttons a:active {
+  background-color: rgb(151,42,69);
+}

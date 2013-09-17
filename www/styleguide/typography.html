@@ -1,25 +1,40 @@
-<!--[if lte IE 8]>         <html class="no-js lte-ie8"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!-- This is the header for the styleguide-->
+
+<!doctype html>
+
+<!--[if IEMobile 7]>                     <html class="no-js iem7 oldie"  lang="en" dir="ltr"><![endif]-->
+<!--[if lt IE 7]>                        <html class="no-js ie6 oldie"   lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]>             <html class="no-js ie7 oldie"   lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]>             <html class="no-js ie8 oldie"   lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->                   <html class="no-js"             lang="en" dir="ltr"><!--<![endif]-->
+                                                                                             <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html class="no-js"             lang="en" dir="ltr"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+  Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Typography Sample | Wurk Happy Style Prototype</title>
+  <meta name="description" content="Wurk Happy Style Guide">
+  <meta name="author" content="Marcus Ellison">
 
-  <meta name="viewport" content="width=device-width">
+  <!--[if lte IE 8]>         <html class="no-js lte-ie8"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-  <!-- Prototype CSS -->
-  <link rel="stylesheet" href="/page/css/prototype.css">
-  <!-- Prism CSS -->
-  <link rel="stylesheet" href="/page/components/prism/prism-okaidia.css">
+<title>Wurk Happy Style</title>
 
-  <!-- Async Webfonts -->
+<meta name="viewport" content="width=device-width">
+
+<!-- Prototype CSS -->
+
+<link rel="stylesheet" href="../css/prototype.css">
+
+<!-- Wurk Happy CSS-->
+<!--<link rel="stylesheet" href="css/landing.css">-->
 
 
-
-
-  <!-- Modernizr stays in the head -->
-  <script src="/page/components/modernizr/modernizr.js"></script>
+<!-- Async Webfonts -->
+<!-- Modernizr stays in the head -->
 </head>
 
 <body>
@@ -32,10 +47,10 @@
 
       </div>
       <aside id="page-id">
-        <h2 class="section-name">Typography Sample</h2>
+        <h2 class="section-name"></h2>
         <div class="page-info">
-          <p>Wurk Happy Style Prototype</p>
-          <p>Version 0.0.0</p>
+          <p>Wurk Happy Style</p>
+          <p>Version 0.0.1</p>
         </div>
       </aside>
     </header>
@@ -43,27 +58,32 @@
   </div>
 </div>
 
+<!-- @group nav-->
+<!-- This is the styleguide nav-->
 <div id="prototype-nav">
   <div class="content-wrapper">
     <nav role="navigation">
       <div role="menubar">
 
-        <a href="/" role="menuitem">Home</a>
+        <a href="/styleguide/styleguide.html" role="menuitem">Home</a>
 
-        <a href="/style-tile" role="menuitem">Style Tile</a>
+        <a href="/styleguide/style-tile.html" role="menuitem">Style Tile</a>
 
-        <a href="/elements" role="menuitem">Elements</a>
+        <a href="/styleguide/elements.html" role="menuitem">Elements</a>
 
-        <a href="/typography" role="menuitem">Typography</a>
+        <a href="/styleguide/typography.html" role="menuitem">Typography</a>
 
-        <a href="/components" role="menuitem">Components</a>
+        <a href="/styleguide/components.html" role="menuitem">Components</a>
 
-        <a href="/colors" role="menuitem">Colors</a>
+        <a href="/styleguide/colors.html" role="menuitem">Colors</a>
 
       </div>
     </nav>
   </div>
 </div>
+
+
+<!-- This is the main style guide file [home or index]-->
 
 <main>
   <div class="content-wrapper">
@@ -139,12 +159,18 @@
   </div>
 </main>
 
-<!-- JavaScript goes in the footer! -->
-<!-- Prism JavaScript -->
-<script src="/page/components/prism/prism.js"></script>
-<!-- Polyfill for Details element -->
-<script src="/page/components/Element.details/__COMPILE/Element.details.js"></script>
 
+<!-- styleguide footer-->
 
+<script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
+<script>
+  // Load common code that includes config, then load the app logic for
+  // this page. Do the require calls here instead of a separate file
+  // so after a build there are only 2 HTTP requests instead of three.
+  require(['config'], function(config) {
+    // baseUrl is js/ so we can just ask for `app/main` here instead of `js/app/main`.
+    require(['app/styleguide']);
+  });
+</script>
 </body>
 </html>

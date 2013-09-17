@@ -1,10 +1,9 @@
 //////////////////////////////
 // Color Stacks
 //
-// We can utalize [Color Schemer](https://github.com/scottkellum/color-schemer)
-//   to build us awesome color guides.
+// Utilizing [Color Schemer](https://github.com/Team-Sass/color-schemer)
 //////////////////////////////
-$cs-primary:            #c0ff33;
+$cs-primary:            #0099dd;
 // Primary color, can be any color you can use in CSS, plus CMYK from Color Schemer
 $cs-scheme:             accented-analogic;
 // Options: mono, complement, triad, tetrad, analogic, accented-analogic
@@ -17,8 +16,17 @@ $cs-color-model:        ryb;
 
 
 
+/* this uses color schemer
 $black:     tint-stack(#333);
 $primary:   tint-stack(cs-primary());
 $secondary: tint-stack(cs-secondary());
 $tertiary:  tint-stack(cs-tertiary());
-$quadrary:  tint-stack(cs-quadrary());
+$quadrary:  tint-stack(cs-quadrary());*/
+
+
+// Custom
+$black:     #666666;
+$primary:   #0099dd;
+$secondary: #88cc55;
+$tertiary:  #ffffff;
+$quadrary:  #ffffff;

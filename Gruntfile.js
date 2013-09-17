@@ -82,7 +82,7 @@ module.exports = function (grunt) {
                 livereload: 35729 // Default livereload listening port.
             },
             html: {
-                files: ['<%= config.webroot %>/html/*.html'],
+                files: ['<%= config.webroot %>/html/**/*.html'],
                 tasks: [
                     'includereplace'
                 ]
@@ -91,7 +91,7 @@ module.exports = function (grunt) {
                 files: ['<%= config.webroot %>/scss/**/*.scss'],
                 tasks: [
                     'compass',
-                    'csslint'
+                    //'csslint'
                 ]
             },
             js: {
@@ -112,9 +112,9 @@ module.exports = function (grunt) {
          * Compile Sass to CSS using Compass.
          */
         compass: {
-            options: {
-                bundleExec: true
-            },
+            //options: {
+
+            //},
             dist: {
                 options: {
                     httpPath: '/',
@@ -123,6 +123,8 @@ module.exports = function (grunt) {
                     imagesDir: '<%= config.webroot %>/img',
                     javascriptsDir: '<%= config.webroot %>/js',
                     outputStyle: 'expanded',
+                    require: ['sass', 'compass', 'style-prototypes'], //used to manage compass plugins in grunt without having a typical config.rb file
+                    bundleExec: true, // bundler will be used to find dependencies in the load path given by the gemfile
                     relativeAssets: true,
                     noLineComments: false,
                     force: true,
@@ -200,9 +202,30 @@ module.exports = function (grunt) {
                 // destination directory, and its value is the source file to 
                 // perform replacements and includes with.
                 files: [
-                    {'<%= config.webroot %>/': '<%= config.webroot %>/html/landing.html'},
-                    {'<%= config.webroot %>/': '<%= config.webroot %>/html/styleguide.html'},
-                  {'<%= config.webroot %>/': '<%= config.webroot %>/html/styleguide/components.html'}
+                    {'<%= config.webroot %>/landing/': '<%= config.webroot %>/html/landing/landing.html'},
+                    {'<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/privacy.html'},
+                    {'<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/terms.html'},
+                    {'<%= config.webroot %>/help': '<%= config.webroot %>/html/help/faq.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/styleguide.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/components.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/colors.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/elements.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/style-tile.html'},
+                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/typography.html'},
+                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/personal.html'},
+                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/password.html'},
+                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/payment.html'},
+                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/bankaccount.html'},
+                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/creditcard.html'},
+                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/password.html'},
+                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/personal.html'},
+                    {'<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/client_home.html'},
+                    {'<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/freelancer_home.html'},
+                    {'<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/client_perspective.html'},
+                    {'<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/freelancer_perspective.html'},
+                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/scopeofwork.html'},
+                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/paymentschedule.html'},
+                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/recipientdetails.html'}
                 ]
             }
         },

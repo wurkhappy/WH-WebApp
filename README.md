@@ -45,9 +45,9 @@ To generate dependencies run in root of file:
 
 npm install
 
-Bower install
+bower install
 
-Bundler install
+bundle install
 
 To start development environment run:
 

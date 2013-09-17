@@ -1,0 +1,67 @@
+//////////////////////////////
+//
+// Wurk Happy Landing Base Style
+//
+//////////////////////////////
+
+//////////////////////////////
+// Set up Legacy Support
+//
+// Legacy support variables are set up here so we ensure they cascade over everything in our files.
+// Set up using !default so we can change them on a per-project basis by redeclaring them at the top of our final working project's Sass file.
+//////////////////////////////
+$legacy-support-for-ie6: false !default;
+$legacy-support-for-ie7: false !default;
+$legacy-support-for-ie8: false !default;
+
+$legacy-support-for-mozilla: false !default;
+
+////////////////////////
+// CSS Reset
+// @import "normalize"; currently using the meyer reset
+////////////////////////
+
+////////////////////////
+// Compass Extensions
+@import "toolkit";
+@import "breakpoint";
+@import "singularitygs"; // currently still on old grid system
+@import "modular-scale";
+@import "color-schemer";
+////////////////////////
+
+//////////////////////////////
+// GLOBALS
+@import "global/variables";
+@import "global/functions";
+@import "global/mixins";
+@import "global/extends";
+//////////////////////////////
+
+//////////////////////////////
+// BASES
+@import "bases/landing";
+//////////////////////////////
+
+//////////////////////////////
+// COMPONENTS
+@import "components/noscript";
+@import "components/landingnavigation";
+@import "components/landingintro";
+@import "components/landinginternal";
+@import "components/landingcontent";
+@import "components/landinglogin";
+@import "components/landingcopyright";
+
+/* @import "components/link";
+@import "components/heading";
+@import "components/form";
+@import "components/message";
+@import "components/button";
+@import "components/pager";*/
+//////////////////////////////
+
+//////////////////////////////
+// LAYOUTS
+@import "layouts/layout";
+//////////////////////////////
