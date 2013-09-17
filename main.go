@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-WebApp/handlers"
 	"net/http"
+	"time"
 )
 
 var secretKey string = "pnoy9JBBKwB2mPq5"
@@ -36,6 +37,7 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session, err := store.Get(req, "WebAppSessions")
 	if err != nil {
 	}
+	session.Options.MaxAge = 24 * time.Hour
 
 	if _, ok := session.Values["id"]; ok {
 		h(w, req)
@@ -56,5 +58,6 @@ func (h loginHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session, err := store.Get(req, "WebAppSessions")
 	if err != nil {
 	}
+	session.Options.MaxAge = 24 * time.Hour
 	h(w, req, session)
 }
