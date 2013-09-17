@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-var templates = template.Must(template.ParseFiles("templates/login.html", "templates/newAccount.html"))
+var authTemplates = template.Must(template.ParseFiles("templates/login.html", "templates/newAccount.html"))
 
 func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
@@ -26,14 +26,14 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 
 func GetLogin(w http.ResponseWriter, req *http.Request) {
 
-	err := templates.ExecuteTemplate(w, "login.html", nil)
+	err := authTemplates.ExecuteTemplate(w, "login.html", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
 
 func GetCreateAccount(w http.ResponseWriter, req *http.Request) {
-	err := templates.ExecuteTemplate(w, "newAccount.html", nil)
+	err := authTemplates.ExecuteTemplate(w, "newAccount.html", nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

@@ -29,6 +29,8 @@ func main() {
 	r.HandleFunc("/login", handlers.GetLogin).Methods("GET")
 	r.HandleFunc("/user/new", handlers.GetCreateAccount).Methods("GET")
 	r.Handle("/user", loginHandler(handlers.CreateUser)).Methods("POST")
+	r.Handle("/agreements", baseHandler(handlers.GetAgreements)).Methods("GET")
+	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	http.Handle("/", r)
 	http.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, r.URL.Path[1:])

@@ -26,7 +26,7 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	session.Values["id"] = requestData["ID"].(string)
 	session.Save(req, w)
 
-	requestData["redirectURL"] = "/home"
+	requestData["redirectURL"] = "/agreements"
 	d, _ := json.Marshal(requestData)
 	w.Write(d)
 }
