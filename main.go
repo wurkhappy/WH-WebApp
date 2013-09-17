@@ -8,7 +8,6 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"time"
 )
 
 var secretKey string = "pnoy9JBBKwB2mPq5"
@@ -21,7 +20,14 @@ func serveSingle(pattern string, filename string) {
 }
 
 func hello(w http.ResponseWriter, req *http.Request) {
-	template.Must(template.ParseFiles("templates/index.html")).Execute(w, nil)
+	m := map[string]interface{}{
+		"appName": "mainlanding",
+	}
+	var index = template.Must(template.ParseFiles(
+		"templates/_base.html",
+		"templates/landing.html",
+	))
+	index.Execute(w, m)
 }
 
 func main() {
@@ -31,9 +37,11 @@ func main() {
 	r.HandleFunc("/user/new", handlers.GetCreateAccount).Methods("GET")
 	r.Handle("/user", loginHandler(handlers.CreateUser)).Methods("POST")
 	http.Handle("/", r)
-	http.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/www/", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, r.URL.Path[1:])
 	})
+	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	http.ListenAndServe(":4000", nil)
 }
 
@@ -48,7 +56,7 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session, err := store.Get(req, "WebAppSessions")
 	if err != nil {
 	}
-	session.Options.MaxAge = 24 * time.Hour
+	session.Options.MaxAge = 24 * 60 * 60
 
 	if _, ok := session.Values["id"]; ok {
 		h(w, req, session)
@@ -69,6 +77,6 @@ func (h loginHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session, err := store.Get(req, "WebAppSessions")
 	if err != nil {
 	}
-	session.Options.MaxAge = 24 * time.Hour
+	session.Options.MaxAge = 24 * 60 * 60
 	h(w, req, session)
 }
