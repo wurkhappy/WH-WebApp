@@ -1,5 +1,5 @@
 /*
- * Footer View.
+ * About View.
  */
 
 define(['backbone', 'handlebars', 'text!templates/landing/about.html'],
