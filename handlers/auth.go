@@ -37,5 +37,13 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	session.Values["id"] = requestData["id"].(string)
 	session.Save(req, w)
 
-	w.Write([]byte(`{"redirectURL":"/home"}`))
+	w.Write([]byte(`{"redirectURL":"/home/freelancer"}`))
+}
+
+func Logout(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+
+	session.Options.MaxAge = -1
+	session.Save(req, w)
+
+	http.Redirect(w, req, "/", http.StatusFound)
 }

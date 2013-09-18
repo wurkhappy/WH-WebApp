@@ -2,7 +2,8 @@ package handlers
 
 import (
 	"github.com/gorilla/sessions"
-	// "html/template"
+	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -20,7 +21,15 @@ func GetFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 	// buf := new(bytes.Buffer)
 	// buf.ReadFrom(resp.Body)
 	// w.Write(buf.Bytes())
-	// agreementTemplates.ExecuteTemplate(w, "agreements.html", nil)
+	log.Print("hi")
+	m := map[string]interface{}{
+		"appName": "mainhome",
+	}
+	var index = template.Must(template.ParseFiles(
+		"templates/_baseApp.html",
+		"templates/freelancer_home.html",
+	))
+	index.Execute(w, m)
 }
 
 func CreateAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {

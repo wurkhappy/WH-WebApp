@@ -34,6 +34,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", hello).Methods("GET")
 	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
+	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
 	r.Handle("/home/freelancer", baseHandler(handlers.GetFreelanceAgrmt)).Methods("GET")
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
@@ -63,7 +64,7 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	if _, ok := session.Values["id"]; ok {
 		h(w, req, session)
 	} else {
-		http.Redirect(w, req, "/login", http.StatusFound)
+		http.Redirect(w, req, "/", http.StatusFound)
 	}
 
 }
