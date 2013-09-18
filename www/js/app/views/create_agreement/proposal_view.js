@@ -10,8 +10,7 @@
 
     var ProposalView = Backbone.View.extend({
 
-      attributes:{"id":"content"},
-      className:'clear',
+      el:'#content',
 
       template: Handlebars.compile(scopeTemplate),
 
@@ -22,7 +21,7 @@
 
       render: function () {
 
-        $(this.el).html(this.template());
+        this.$el.html(this.template());
 
         return this;
 

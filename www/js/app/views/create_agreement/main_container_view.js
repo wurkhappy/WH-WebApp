@@ -20,7 +20,7 @@ define(['backbone', 'handlebars'],
           (this.model.id) ? this.model.destroy() : window.location = "/freelancer/home";
         },
         switchToView: function(view){
-          this.$('#contentWrapper').empty().append(view.$el);
+          this.$('#contentWrapper').empty().append(view.delegateEvents().$el);
         }
 
       });

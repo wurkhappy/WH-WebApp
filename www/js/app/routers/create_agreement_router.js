@@ -23,10 +23,11 @@ define(['backbone', 'models/agreement', 'views/create_agreement/proposal_view', 
         proposal: function () {
           if (!this.proposalView) this.proposalView = new ProposalView({router:this, model: this.model});
           this.mainContainer.switchToView(this.proposalView);
+          console.log(this.proposalView.el);
         },
 
         estimate: function () {
-          if (!this.estimateView) this.estimateView = new estimateView({router:this});
+          if (!this.estimateView) this.estimateView = new EstimateView({router:this});
           this.mainContainer.switchToView(this.estimateView);
         },
 

@@ -10,7 +10,8 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/schedule.html
 
       var PaymentScheduleView = Backbone.View.extend({
 
-        el: '#content',
+        attributes:{"id":"content"},
+      className:'clear',
 
         // Compile our footer template.
         template: Handlebars.compile(scheduleTemplate),
