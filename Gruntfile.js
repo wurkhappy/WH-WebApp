@@ -212,6 +212,7 @@ module.exports = function (grunt) {
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/elements.html'},
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/style-tile.html'},
                     {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/typography.html'},
+                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/signup.html'},
                     {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/personal.html'},
                     {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/password.html'},
                     {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/payment.html'},

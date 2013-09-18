@@ -1,15 +1,4 @@
-<!-- @include('../partials/app-header.html', {
-    "dir": "ltr",
-    "lang": "en"}
-) -->
-
-<div class="container">
-  <!-- adds background -->
-
-
-  <!-- Top Navigation -->
-
-  <!-- @include('../partials/app-navigation.html') -->
+{{define "content"}}
 
   <!-- Title Header -->
   <div id="intro" class="clear">
@@ -23,13 +12,10 @@
   <!-- Sub-navigation for main content -->
   <div id="internal" class="clear">
     <ul>
-      <!-- need to put in javascript so this is smooth instead of hard links-->
-      <li class="tab current" id="details-button">
-        <a href="#/personal.html" class="top">Personal Details</a></li>
-      <li class="tab" id="password-button">
-        <a href="password.html" class="">Change Your Password</a></li>
-      <li class="tab" id="payment-button">
-        <a href="#/payment.html" class="">Payment Information</a></li>
+      <li class="current"><a href="personal.html">Personal Details</a></li>
+      <li><a href="password.html">Change Your Password</a></li>
+      <li><a href="creditcard.html">Credit Card Details</a></li>
+      <li><a href="bankaccount.html">Bank Account Details</a></li>
     </ul>
   </div>
 
@@ -46,7 +32,8 @@
               <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td class="meta" style="margin:0;">
-                    <span><img id="profile_image" src="{{ data['profileURL'][1] }}" alt="Profile photo" width="150" height="150" /></span>
+                    <span><img id="profile_image" src="../img/people/obama-face.png" alt="Profile photo" width="150"
+                               height="150" /></span>
                   </td>
                 </tr>
               </table>
@@ -87,12 +74,15 @@
               <fieldset class="submit-buttons" style="padding-bottom:20px;">
                 <input type="submit" value="Save Personal Details" />
               </fieldset>
+              <!-- Added different color buttons -->
+              <fieldset class="submit-buttons">
+                <a href="" class="single">Save Personal Details</a>
+              </fieldset>
             </div>
 					</span>
         </form>
       </div>
     </div>
+
   </div>
-  <!-- @include('../partials/app-footer.html', {
-  "appfile": "mainsignup"
-}) -->
+{{end}}

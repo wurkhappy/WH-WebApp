@@ -1,46 +1,35 @@
-<!-- @include('../partials/app-header.html', {
-    "dir": "ltr",
-    "lang": "en"}
-) -->
+{{define "content"}}
 
-<div class="container">
-  <!-- adds background -->
-
-
-  <!-- Top Navigation -->
-
-  <!-- @include('../partials/app-navigation.html') -->
-
-  <!-- Title Header -->
-  <div id="intro" class="clear">
-    <div class="column-three-fourth">
-      <h1>Account</h1>
-    </div>
+<!-- Title Header -->
+<div id="intro" class="clear">
+  <div class="column-three-fourth">
+    <h1>Signup</h1>
   </div>
+</div>
 
 
 
-  <!-- Sub-navigation for main content -->
-  <div id="internal" class="clear">
-    <ul>
-      <!-- need to put in javascript so this is smooth instead of hard links-->
-      <li class="tab current" id="details-button">
-        <a href="#/personal.html" class="top">Personal Details</a></li>
-      <li class="tab" id="password-button">
-        <a href="password.html" class="">Change Your Password</a></li>
-      <li class="tab" id="payment-button">
-        <a href="#/payment.html" class="">Payment Information</a></li>
-    </ul>
-  </div>
+<!-- Sub-navigation for main content -->
+<div id="internal" class="clear">
+  <ul>
+    <!-- need to put in javascript so this is smooth instead of hard links-->
+    <li class="tab current" id="details-button">
+      <a href="#/personal.html" class="top">Personal Details</a></li>
+    <li class="tab" id="password-button">
+      <a href="password.html" class="">Change Your Password</a></li>
+    <li class="tab" id="payment-button">
+      <a href="#/payment.html" class="">Payment Information</a></li>
+  </ul>
+</div>
 
 
 
-  <!-- Main Content -->
-  <div id="content" class="clear">
-    <div id="details-container" class="tab-content">
-      <div id="profile_preview">
-        <h2>Personal Details</h2>
-        <form action="/user/me/account" enctype="multipart/form-data" method="POST" class="js-replace-action" id="profile_update" style="padding:0">
+<!-- Main Content -->
+<div id="content" class="clear">
+  <div id="details-container" class="tab-content">
+    <div id="profile_preview">
+      <h2>Personal Details</h2>
+      <form action="/user/me/account" enctype="multipart/form-data" method="POST" class="js-replace-action" id="profile_update" style="padding:0">
 					<span class="column-one-fourth">
 						<div class="data-table">
               <table border="0" cellspacing="0" cellpadding="0">
@@ -89,10 +78,8 @@
               </fieldset>
             </div>
 					</span>
-        </form>
-      </div>
+      </form>
     </div>
   </div>
-  <!-- @include('../partials/app-footer.html', {
-  "appfile": "mainsignup"
-}) -->
+</div>
+{{end}}
