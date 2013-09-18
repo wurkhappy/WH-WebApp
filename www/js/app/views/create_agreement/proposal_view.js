@@ -29,6 +29,7 @@
       },
       events: {
         "blur input": "updateField",
+        "blur textarea": "updateField",
         "click .submit-buttons > a" : "saveAndContinue"
       },
 
