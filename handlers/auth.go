@@ -2,13 +2,14 @@ package handlers
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"github.com/gorilla/sessions"
-	"html/template"
+	// "html/template"
 	"net/http"
 )
 
-var authTemplates = template.Must(template.ParseFiles("templates/login.html", "templates/newAccount.html"))
+// var authTemplates = template.Must(template.ParseFiles("templates/login.html", "templates/newAccount.html"))
 
 func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
@@ -19,22 +20,22 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 		fmt.Printf("Error : %s", err)
 	}
 
+	if resp.StatusCode >= 400 {
+		errorBuf := new(bytes.Buffer)
+		errorBuf.ReadFrom(resp.Body)
+		errorBytes := errorBuf.Bytes()
+		http.Error(w, string(errorBytes), resp.StatusCode)
+		return
+	}
+
+	var requestData map[string]interface{}
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
-	w.Write(buf.Bytes())
-}
+	respBytes := buf.Bytes()
+	json.Unmarshal(respBytes, &requestData)
 
-func GetLogin(w http.ResponseWriter, req *http.Request) {
+	session.Values["id"] = requestData["id"].(string)
+	session.Save(req, w)
 
-	err := authTemplates.ExecuteTemplate(w, "login.html", nil)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-}
-
-func GetCreateAccount(w http.ResponseWriter, req *http.Request) {
-	err := authTemplates.ExecuteTemplate(w, "newAccount.html", nil)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	w.Write([]byte(`{"redirectURL":"/home"}`))
 }

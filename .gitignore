@@ -13,3 +13,4 @@ log.txt
 .sass-cache
 *.gem
 .tmp
+www/js/lib
