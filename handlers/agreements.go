@@ -1,10 +1,13 @@
 package handlers
 
 import (
+	"bytes"
+	"encoding/json"
+	"fmt"
 	"github.com/gorilla/sessions"
 	"html/template"
-	"log"
 	"net/http"
+	"log"
 )
 
 // var agreementTemplates = template.Must(template.ParseFiles("templates/agreements.html", "templates/createAgreements.html"))
@@ -21,7 +24,6 @@ func GetFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 	// buf := new(bytes.Buffer)
 	// buf.ReadFrom(resp.Body)
 	// w.Write(buf.Bytes())
-	log.Print("hi")
 	m := map[string]interface{}{
 		"appName": "mainhome",
 	}
@@ -32,50 +34,43 @@ func GetFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 	index.Execute(w, m)
 }
 
-func CreateAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
-	// client := &http.Client{}
-	// r, _ := http.NewRequest("POST", "http://localhost:3000/user", req.Body)
-	// resp, err := client.Do(r)
-	// if err != nil {
-	// 	fmt.Printf("Error : %s", err)
-	// }
+	data := make(map[string]interface{})
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	reqBytes := buf.Bytes()
+	json.Unmarshal(reqBytes, &data)
 
-	// var requestData map[string]interface{}
-	// buf := new(bytes.Buffer)
-	// buf.ReadFrom(resp.Body)
-	// data := buf.Bytes()
-	// json.Unmarshal(data, &requestData)
+	data["id"] = session.Values["id"]
+	data["clientID"] = session.Values["id"]
+	log.Print(data)
 
-	// session.Values["id"] = requestData["ID"].(string)
-	// session.Save(req, w)
+	b, _ := json.Marshal(data)
+	body := bytes.NewReader(b)
 
-	// requestData["redirectURL"] = "/agreements"
-	// d, _ := json.Marshal(requestData)
-	// w.Write(d)
+	client := &http.Client{}
+	r, _ := http.NewRequest("POST", "http://localhost:4050/agreements", body)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	buf = new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	buf.String()
+	w.Write(buf.Bytes())
 }
 
 func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
-	// client := &http.Client{}
-	// r, _ := http.NewRequest("POST", "http://localhost:3000/user", req.Body)
-	// resp, err := client.Do(r)
-	// if err != nil {
-	// 	fmt.Printf("Error : %s", err)
-	// }
-
-	// var requestData map[string]interface{}
-	// buf := new(bytes.Buffer)
-	// buf.ReadFrom(resp.Body)
-	// data := buf.Bytes()
-	// json.Unmarshal(data, &requestData)
-
-	// session.Values["id"] = requestData["ID"].(string)
-	// session.Save(req, w)
-
-	// requestData["redirectURL"] = "/agreements"
-	// d, _ := json.Marshal(requestData)
-	// w.Write(d)
-	// agreementTemplates.ExecuteTemplate(w, "createAgreements.html", nil)
+	m := map[string]interface{}{
+		"appName": "maincreateagreement",
+	}
+	var index = template.Must(template.ParseFiles(
+		"templates/_baseApp.html",
+		"templates/create_agreement.html",
+	))
+	index.Execute(w, m)
 
 }

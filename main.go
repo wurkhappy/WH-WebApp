@@ -33,15 +33,18 @@ func hello(w http.ResponseWriter, req *http.Request) {
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", hello).Methods("GET")
+
 	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
 	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
+
 	r.Handle("/home/freelancer", baseHandler(handlers.GetFreelanceAgrmt)).Methods("GET")
+
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
+	r.Handle("/agreement", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
 	http.Handle("/", r)
-	// http.HandleFunc("/www/", func(w http.ResponseWriter, r *http.Request) {
-	// 	http.ServeFile(w, r, r.URL.Path[1:])
-	// })
+
+	//static content
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
