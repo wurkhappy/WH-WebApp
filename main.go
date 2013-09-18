@@ -39,8 +39,9 @@ func main() {
 	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
 
 	r.Handle("/home/freelancer", baseHandler(handlers.GetFreelanceAgrmt)).Methods("GET")
-	
+
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
+	r.Handle("/agreement", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
 	http.Handle("/", r)
 
 	//static content

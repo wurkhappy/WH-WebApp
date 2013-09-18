@@ -1,39 +1,55 @@
 /*
- * Payment Schedule - Create Agreement View.
+ * Scope of Work - Create Agreement View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/create_agreement/schedule.html'],
+ define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/estimate_tpl.html'],
 
-    function (Backbone, Handlebars, scheduleTemplate) {
+  function (Backbone, Handlebars, _, estimateTemplate) {
 
-      'use strict';
+    'use strict';
 
-      var PaymentScheduleView = Backbone.View.extend({
+    var EstimateView = Backbone.View.extend({
 
-        attributes:{"id":"content"},
       className:'clear',
+      attributes:{'id':'content'},
 
-        // Compile our footer template.
-        template: Handlebars.compile(scheduleTemplate),
+      template: Handlebars.compile(estimateTemplate),
 
-        initialize: function () {
+      initialize: function (options) {
+        this.router = options.router;
+        this.render();
+      },
 
-          this.render();
+      render: function () {
 
-        },
+        this.$el.html(this.template());
 
-        render: function () {
+        return this;
 
-          // Update el with the cached template.
-          $(this.el).html(this.template());
+      },
+      events: {
+        "blur input": "updateField",
+        "click .submit-buttons > a" : "saveAndContinue"
+      },
 
-          return this;
+      updateField: function(event){
+        this.model.set(event.target.name, event.target.value)
+      },
+      saveAndContinue:function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        this.router.navigate('recipient', {trigger:true})
 
-        }
+          // this.model.save({},{
+          //   success:_.bind(function(model, response){
+          //     this.router.navigate('estimate', {trigger:true})
+          //   }, this)
+          // });
+  }
 
-      });
+});
 
-      return PaymentScheduleView;
+    return EstimateView;
 
-    }
-);
+  }
+  );

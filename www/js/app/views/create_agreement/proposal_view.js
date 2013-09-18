@@ -2,7 +2,7 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/scope.html'],
+ define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/proposal_tpl.html'],
 
   function (Backbone, Handlebars, _, scopeTemplate) {
 
@@ -10,7 +10,8 @@
 
     var ProposalView = Backbone.View.extend({
 
-      el:'#content',
+      className:'clear',
+      attributes:{'id':'content'},
 
       template: Handlebars.compile(scopeTemplate),
 
@@ -37,16 +38,15 @@
       saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();
-        this.router.navigate('estimate', {trigger:true})
 
-          // this.model.save({},{
-          //   success:_.bind(function(model, response){
-          //     this.router.navigate('estimate', {trigger:true})
-          //   }, this)
-          // });
-  }
+        this.model.save({},{
+          success:_.bind(function(model, response){
+            this.router.navigate('estimate', {trigger:true})
+          }, this)
+        });
+      }
 
-});
+    });
 
     return ProposalView;
 
