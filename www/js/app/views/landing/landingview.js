@@ -3,9 +3,10 @@
  * Landing main View.
  */
 
-define(['backbone', 'handlebars', 'jquery', 'views/landing/loginview', 'text!templates/landing/landingview.html'],
+define(['backbone', 'handlebars', 'jquery', 'views/landing/loginview', 
+  'text!templates/landing/landingview.html', 'text!templates/landing/about.html', 'text!templates/landing/pricing.html'],
 
-    function(Backbone, Handlebars, $, LoginView, landingTemplate) {
+    function(Backbone, Handlebars, $, LoginView, landingTemplate, aboutTemplate, pricingTemplate) {
 
       'use strict';
 
@@ -17,8 +18,9 @@ define(['backbone', 'handlebars', 'jquery', 'views/landing/loginview', 'text!tem
 
         events: {
           "click #login": "triggerLogin",
-          "click #cancel": "cancelLogin"
-
+          "click #cancel": "cancelLogin",
+          "click #pricing-button": 'switchToPricing',
+          "click #about-button": 'switchToAbout'
         },
 
         initialize: function () {
@@ -97,9 +99,19 @@ define(['backbone', 'handlebars', 'jquery', 'views/landing/loginview', 'text!tem
             $('input#email-field').removeClass('border');
 
         },
-
-
-
+        switchToAbout: function(event){
+          this.switchTab(aboutTemplate)
+          $("#about-button").addClass("current");
+        },
+        switchToPricing: function(event){
+          this.switchTab(pricingTemplate)
+          $("#pricing-button").addClass("current");
+        },
+        switchTab:function(template){
+          var tpl = Handlebars.compile(template);
+          $('#about-container').empty().append(tpl());
+          $(".tab").removeClass("current"); 
+        }
 
       });
 
