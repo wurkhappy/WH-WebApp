@@ -20,19 +20,31 @@ func serveSingle(pattern string, filename string) {
 }
 
 func hello(w http.ResponseWriter, req *http.Request) {
-	template.Must(template.ParseFiles("templates/index.html")).Execute(w, nil)
+	m := map[string]interface{}{
+		"appName": "mainlanding",
+	}
+	var index = template.Must(template.ParseFiles(
+		"templates/_baseLanding.html",
+		"templates/landing.html",
+	))
+	index.Execute(w, m)
 }
 
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", hello).Methods("GET")
-	r.HandleFunc("/login", handlers.GetLogin).Methods("GET")
-	r.HandleFunc("/user/new", handlers.GetCreateAccount).Methods("GET")
-	r.Handle("/user", loginHandler(handlers.CreateUser)).Methods("POST")
+	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
+	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
+	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
+	r.Handle("/home/freelancer", baseHandler(handlers.GetFreelanceAgrmt)).Methods("GET")
+	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	http.Handle("/", r)
-	http.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, r.URL.Path[1:])
-	})
+	// http.HandleFunc("/www/", func(w http.ResponseWriter, r *http.Request) {
+	// 	http.ServeFile(w, r, r.URL.Path[1:])
+	// })
+	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	http.ListenAndServe(":4000", nil)
 }
 
@@ -47,11 +59,12 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session, err := store.Get(req, "WebAppSessions")
 	if err != nil {
 	}
+	session.Options.MaxAge = 24 * 60 * 60
 
 	if _, ok := session.Values["id"]; ok {
 		h(w, req, session)
 	} else {
-		http.Redirect(w, req, "/login", http.StatusFound)
+		http.Redirect(w, req, "/", http.StatusFound)
 	}
 
 }
@@ -67,5 +80,6 @@ func (h loginHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session, err := store.Get(req, "WebAppSessions")
 	if err != nil {
 	}
+	session.Options.MaxAge = 24 * 60 * 60
 	h(w, req, session)
 }

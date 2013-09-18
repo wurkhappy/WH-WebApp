@@ -2,9 +2,9 @@
  * Login View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/landing/login.html'],
+define(['backbone', 'handlebars', 'text!templates/landing/login.html', 'models/user'],
 
-    function (Backbone, Handlebars, loginTemplate) {
+    function (Backbone, Handlebars, loginTemplate, UserModel) {
 
       'use strict';
 
@@ -12,11 +12,15 @@ define(['backbone', 'handlebars', 'text!templates/landing/login.html'],
 
         // Compile our footer template.
         template: Handlebars.compile(loginTemplate),
+        model: new UserModel(),
+
+        events:{
+          "blur input" : "updateModel",
+          "click input[type=submit]" : "submitModel"
+        },
 
         initialize: function () {
-
-          //this.render();
-
+          this.model.url = "/user/login";
         },
 
         render: function () {
@@ -26,6 +30,21 @@ define(['backbone', 'handlebars', 'text!templates/landing/login.html'],
 
           return this;
 
+        },
+        updateModel: function(event){
+          this.model.set(event.target.name, event.target.value);
+        },
+        submitModel: function(event){
+          event.preventDefault();
+          event.stopPropagation();
+          this.model.save({}, {
+            success:function(model, response){
+              if (response["redirectURL"]) window.location = response["redirectURL"];
+            },
+            error:function(model, response){
+
+            }
+          })
         }
 
       });
