@@ -18,7 +18,7 @@
  *
  */
 
-require.config({
+ require.config({
 
     paths: {
 
@@ -27,6 +27,7 @@ require.config({
         underscore: 'lib/underscore/underscore',
         backbone: 'lib/backbone/backbone',
         modernizr: 'lib/modernizr/modernizr',
+        'backbone-relational' : 'lib/backbone-relational/backbone-relational',
 
         // Templating.
         handlebars: 'lib/handlebars/handlebars',
@@ -57,6 +58,9 @@ require.config({
         },
         handlebars: {
             exports: 'Handlebars'
+        },
+        'backbone-relational' : {
+            deps: ['backbone']
         }
     }
 });

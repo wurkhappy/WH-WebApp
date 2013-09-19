@@ -42,6 +42,7 @@ func main() {
 
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	r.Handle("/agreement", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
+	r.Handle("/agreement/{id}", baseHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
 	http.Handle("/", r)
 
 	//static content

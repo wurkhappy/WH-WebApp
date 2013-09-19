@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/sessions"
+	"github.com/gorilla/mux"
 	"html/template"
 	"net/http"
-	"log"
 )
 
 // var agreementTemplates = template.Must(template.ParseFiles("templates/agreements.html", "templates/createAgreements.html"))
@@ -42,9 +42,7 @@ func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessi
 	reqBytes := buf.Bytes()
 	json.Unmarshal(reqBytes, &data)
 
-	data["id"] = session.Values["id"]
-	data["clientID"] = session.Values["id"]
-	log.Print(data)
+	data["freelancerID"] = session.Values["id"]
 
 	b, _ := json.Marshal(data)
 	body := bytes.NewReader(b)
@@ -57,6 +55,22 @@ func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessi
 	}
 
 	buf = new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	buf.String()
+	w.Write(buf.Bytes())
+}
+
+func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+
+	client := &http.Client{}
+	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreements/"+vars["id"], req.Body)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	buf := new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
 	buf.String()
 	w.Write(buf.Bytes())
