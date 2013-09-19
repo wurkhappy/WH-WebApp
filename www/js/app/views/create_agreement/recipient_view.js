@@ -28,23 +28,23 @@
 
       },
       events: {
-        "blur input": "updateField",
+        "blur input, textarea": "updateField",
         "click .submit-buttons > a" : "saveAndContinue"
       },
 
       updateField: function(event){
         this.model.set(event.target.name, event.target.value)
       },
+      
       saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();
-        this.router.navigate('estimate', {trigger:true})
 
-          // this.model.save({},{
-          //   success:_.bind(function(model, response){
-          //     this.router.navigate('estimate', {trigger:true})
-          //   }, this)
-          // });
+          this.model.save({},{
+            success:_.bind(function(model, response){
+              if (response["redirectURL"]) window.location = response["redirectURL"];
+            }, this)
+          });
   }
 
 });

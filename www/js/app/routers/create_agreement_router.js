@@ -27,7 +27,6 @@
       proposal: function () {
         if (!this.proposalView) this.proposalView = new ProposalView({router:this, model: this.model});
         this.mainContainer.switchToView(this.proposalView);
-        console.log(this.proposalView.el);
       },
 
       estimate: function () {
@@ -36,7 +35,6 @@
           this.estimateView.render();
         }
         this.mainContainer.switchToView(this.estimateView);
-        console.log(this.estimateView.el);
       },
       recipient: function () {
         if (!this.recipientView) this.recipientView = new RecipientView({router:this, model: this.model});
