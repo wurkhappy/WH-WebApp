@@ -33,7 +33,9 @@
             </td>
             <td>
               <h3><a href="/agreement/{{.id}}">{{.title}}</a></h3>
-              <p>Sent on April 24, 2011</p>
+              {{with index .statusHistory 0}}
+              <p>{{.statusType}} on {{format .date}}</p>
+              {{end}}
             </td>
             <td class="progress">
               <span style="background-position: -200px 0px;"><img src="../img/progress-small.png"></span>

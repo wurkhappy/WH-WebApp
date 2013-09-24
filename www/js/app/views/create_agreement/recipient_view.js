@@ -42,7 +42,7 @@
 
           this.model.save({},{
             success:_.bind(function(model, response){
-              if (response["redirectURL"]) window.location = response["redirectURL"];
+              window.location = "/home";
             }, this)
           });
   }

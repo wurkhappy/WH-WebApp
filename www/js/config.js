@@ -44,7 +44,8 @@
         models: 'app/models',
         routers: 'app/routers',
         templates: 'app/templates',
-        views: 'app/views'
+        views: 'app/views',
+        moment: 'lib/momentjs/moment'
     },
 
     // Dependencies for scripts that are not wrapped as AMD modules.

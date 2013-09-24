@@ -4,19 +4,20 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/sessions"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/sessions"
 	"html/template"
+	// "log"
 	"net/http"
-	"log"
+	"time"
 )
 
 // var agreementTemplates = template.Must(template.ParseFiles("templates/agreements.html", "templates/createAgreements.html"))
 
-func GetFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", "http://localhost:4050/agreements?userID=" + session.Values["id"].(string), nil)
+	r, _ := http.NewRequest("GET", "http://localhost:4050/agreements?userID="+session.Values["id"].(string), nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -26,16 +27,22 @@ func GetFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 	buf.ReadFrom(resp.Body)
 	var agreementsData []map[string]interface{}
 	json.Unmarshal(buf.Bytes(), &agreementsData)
-	log.Print(len(agreementsData))
+
 	m := map[string]interface{}{
-		"appName": "mainhome",
+		"appName":    "mainhome",
 		"agreements": agreementsData,
 	}
-	var index = template.Must(template.ParseFiles(
+	format := func(date string) string {
+		t, _ := time.Parse(time.RFC3339, date)
+		return t.Format("Jan 2, 2006")
+	}
+	tpl, err := template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
 		"templates/_baseApp.html",
 		"templates/freelancer_home.html",
-	))
-	index.Execute(w, m)
+	)
+	template.Must(tpl, err)
+
+	tpl.Execute(w, m)
 }
 
 func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
@@ -96,12 +103,25 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
 	m := map[string]interface{}{
-		// "appName": "maincreateagreement",
+	// "appName": "maincreateagreement",
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
-		"templates/client_perspective_agreement.html",
+		"templates/freelancer_perspective_agreement.html",
 	))
 	index.Execute(w, m)
 
 }
+
+// func BuildTemplate(dir string, funcMap template.FuncMap) (*template.Template, error) {
+//     fs, err := ioutil.ReadDir(dir)
+//     if err != nil {
+//         fmt.Printf("Can't read template folder: %s\n", dir)
+//         return nil, err
+//     }
+//     files := make([]string, len(fs))
+//     for i, f := range (fs) {
+//         files[i] = path.Join(dir, f.Name())
+//     }
+//     return template.Must(template.New("Template").Funcs(funcMap).ParseFiles(files...)), nil
+// }

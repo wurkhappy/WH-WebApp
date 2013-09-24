@@ -1,6 +1,6 @@
-define(['backbone','backbone-relational', 'models/scope_item', 'collections/scope_items'],
+define(['backbone','backbone-relational', 'models/scope_item', 'collections/scope_items', 'models/status', 'collections/status'],
 
-    function(Backbone, Relational, ScopeItemModel, ScopeItemCollection) {
+    function(Backbone, Relational, ScopeItemModel, ScopeItemCollection, StatusModel, StatusCollection) {
 
         'use strict';
 
@@ -10,7 +10,14 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 key: 'scopeItems',
                 relatedModel: ScopeItemModel,
                 collectionType: ScopeItemCollection,
-            }],
+            },
+            {
+                type: Backbone.HasMany,
+                key: 'statusHistory',
+                relatedModel: StatusModel,
+                collectionType: StatusCollection,
+            }
+            ],
         });
 
         return Payment;
