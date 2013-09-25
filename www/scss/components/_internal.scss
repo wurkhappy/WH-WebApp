@@ -2,27 +2,27 @@
 ================================================================================ */
 
 
-#internal {
+.internal {
   background-color: rgb(223,245,255);
 }
 
-#internal ul {
+.internal ul {
   padding: 0;
   margin: 0;
 }
 
-#internal ul li {
+.internal li {
   list-style: none;
   display: block;
   float: left;
 }
 
-#internal ul li a {
+.internal a {
   display: block;
   float: left;
   padding: 20px;
 }
 
-#internal ul li.current a {
+.internal .current a {
   background-color: rgb(255,255,255);
 }

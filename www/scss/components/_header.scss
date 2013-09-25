@@ -1,0 +1,27 @@
+
+/* Header - Main App
+================================================================================ */
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  display: block;
+  float: left;
+}
+
+.navigation a {
+  display: block;
+  float: left;
+  padding: 20px;
+}
+
+.admin_nav li {
+	float: right;
+}
+
+.current {
+  color: rgb(84,90,96);
+}
