@@ -6,10 +6,14 @@
   padding: 0 20px 20px 20px;
 }
 
+#addMoreButton {
+  width: 290px;
+}
+
 #content form p.add-more {
   margin: 20px 0 0 0;
   padding: 0 0 0 20px;
-  background: url(../_images/icons/add-16x16.png) no-repeat left;
+  background: url(../img/icons/add-16x16.png) no-repeat left;
 }
 
 #content form fieldset label,
@@ -74,7 +78,7 @@
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: rgb(245,245,245) url(../_images/lock.png) no-repeat 1% 50%;
+  background: rgb(245,245,245) url(../img/lock.png) no-repeat 1% 50%;
 }
 
 #content form fieldset {
@@ -102,12 +106,12 @@
   -webkit-box-shadow: 0 1px 2px rgb(100,100,100);
   -moz-box-shadow: 0 1px 2px rgb(100,100,100);
   box-shadow: 0 1px 2px rgb(100,100,100);
-  background-image: url(../_images/shade-button.png);
+  background-image: url(../img/shade-button.png);
   background-repeat: repeat-x;
   background-position: center;
 }
 
-#content form fieldset.submit-buttons a:link,
+#content form fieldset.submit-buttons a,
 #content form fieldset.submit-buttons a:visited {
   background-color: rgb(190,53,87);
 }

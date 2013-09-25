@@ -36,7 +36,7 @@
 
         this.model.save({},{
           success:_.bind(function(model, response){
-            this.router.navigate('estimate', {trigger:true})
+            this.router.navigate('recipient', {trigger:true})
           }, this)
         });
       }
@@ -46,4 +46,4 @@
     return EstimateView;
 
   }
-  );
+  ); 

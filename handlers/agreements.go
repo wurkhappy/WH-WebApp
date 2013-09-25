@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/sessions"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/sessions"
 	"html/template"
 	"net/http"
 )

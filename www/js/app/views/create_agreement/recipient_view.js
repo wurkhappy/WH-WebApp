@@ -1,5 +1,5 @@
 /*
- * Scope of Work - Create Agreement View.
+ * Scope of Work - Create Agreement View. 
  */
 
  define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/recipient_tpl.html'],
@@ -27,6 +27,7 @@
         return this;
 
       },
+      
       events: {
         "blur input": "updateField",
         "click .submit-buttons > a" : "saveAndContinue"
@@ -50,6 +51,6 @@
 });
 
     return RecipientView;
-
+ 
   }
   );

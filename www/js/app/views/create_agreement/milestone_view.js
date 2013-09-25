@@ -1,11 +1,11 @@
 /*
  * Scope of Work - Create Agreement View.
- */
+ */ 
 
- define(['backbone', 'handlebars', 'underscore',
+ define(['backbone', 'handlebars', 'underscore', 'kalendae',
   'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
 
-  function (Backbone, Handlebars, _, estimateTemplate, PaymentScopeView) {
+  function (Backbone, Handlebars, _, Kalendae, estimateTemplate, PaymentScopeView) {
 
     'use strict';
 
@@ -18,6 +18,7 @@
       initialize: function (options) {
         this.router = options.router;
         this.render();
+        
       },
 
       render: function () {
@@ -27,7 +28,7 @@
         var paymentScopeView = new PaymentScopeView({model: this.model, collection:this.model.get('scopeItems')});
         paymentScopeView.render();
         this.$el.append(paymentScopeView.$el);
-        console.log(paymentScopeView.$el);
+        console.log(paymentScopeView.$el);        
 
         return this;
 

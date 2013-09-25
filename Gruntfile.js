@@ -81,12 +81,13 @@ module.exports = function (grunt) {
                 // Reload assets live in the browser.
                 livereload: 35729 // Default livereload listening port.
             },
-            html: {
-                files: ['<%= config.webroot %>/html/**/*.html'],
-                tasks: [
-                    'includereplace'
-                ]
-            },
+            
+            //html: {
+            //    files: ['<%= config.webroot %>/html/**/*.html'],
+            //    tasks: [
+            //        'includereplace'
+            //    ]
+            //},
             css: {
                 files: ['<%= config.webroot %>/scss/**/*.scss'],
                 tasks: [
@@ -429,7 +430,7 @@ module.exports = function (grunt) {
 
     // The default (DEV) task can be run just by typing "grunt" on the command line.
     grunt.registerTask('default', [
-        'includereplace',
+        //'includereplace', Disable live reload
         'compass',
         //'csslint',
         //'jshint',
@@ -441,7 +442,7 @@ module.exports = function (grunt) {
 
     // The optimized production build would be run by typing "grunt dist" on the command line.
     grunt.registerTask('dist', [
-        'includereplace',
+        //'includereplace',
         'compass',
         'grunticon',
         'csslint',
