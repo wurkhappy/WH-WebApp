@@ -13,6 +13,9 @@
  		marionette : {
  			deps : ['jquery', 'underscore', 'backbone'],
  			exports : 'Marionette'
+ 		},
+ 		kalendae : {
+ 			exports : 'Kalendae'
  		}
  	}
  });

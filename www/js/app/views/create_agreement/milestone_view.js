@@ -1,4 +1,4 @@
-/*
+/* 
  * Scope of Work - Create Agreement View.
  */ 
 
@@ -19,7 +19,6 @@
       initialize: function (options) {
         this.router = options.router;
         this.render();
-        
       },
 
       render: function () {
@@ -35,13 +34,16 @@
 
       },
       events: {
-        "blur input":"updateFields"
+        "blur input":"updateFields",
+        "focus .auto-kal": "triggerCalender"
       },
       updateFields: function(event){
         this.model.set(event.target.name, event.target.value)
+      },
+
+      triggerCalender: function (event) {
+        this.$(".auto-kal").kalendae();
       }
-
-
 });
 
     return MilestoneView;
