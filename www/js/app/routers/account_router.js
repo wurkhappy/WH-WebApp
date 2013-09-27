@@ -2,75 +2,66 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'views/account/accountview', 'views/account/personal_accountview', 'views/account/credit_card_accountview', 'views/account/bank_account_accountview', 'views/account/password_accountview'],
-
-    function (Backbone, AccountView, PersonalView, CreditCardView, BankAccountView, PasswordView) {
+define([
+  'backbone',
+  'views/account/main_container_view',
+  'views/account/personal_view',
+  'views/account/credit_card_view',
+  'views/account/bank_account_view',
+  'views/account/password_view'],
+  function (Backbone, MainContainer, PersonalView, CreditCardView, BankAccountView, PasswordView) {
 
       'use strict';
 
       var AccountRouter = Backbone.Router.extend({
 
         routes: {
-          '': 'index',
-          'personal': 'showPersonal',
-          'password': 'showPassword',
-          'creditcard': 'showCreditCard',
-          'bankaccount': 'showBankAccount'
+          'personal': 'personal',
+          'password': 'password',
+          'creditcard': 'creditCard',
+          'bankaccount': 'bankAccount'
         },
 
         initialize: function () {
+          // model stuff here. Let's get this working after setting up basic views
+          //this.model = new AgreementModel();
+          //this.model.set("payments", [{title:"Wireframe", amount:10.5}]);
 
-          // Setup the root-level application View.
-          this.mainView = new AccountView();
-
-
-          // Initialize other Views.
-          this.bankAccountView = new BankAccountView();
-          this.personalView = new PersonalView();
-          this.creditCardView = new CreditCardView();
-          this.passwordView = new PasswordView();
+          // Initialize main View.
+          this.mainContainer = new MainContainer({router:this});
 
         },
 
-        index: function () {
-
-          // Render the about view.
-          this.personalView.render().el;
-
+        personal: function () {
+          if (!this.personalView) {
+            // need to add in model stuff
+            this.personalView = new PersonalView();
+          }
+          this.mainContainer.switchToView(this.personalView);
         },
 
-        showPersonal: function () {
-
-          //var personalView = new PersonalView();
-
-          // render about view
-          this.personalView.render().el;
-
+        password: function () {
+          if (!this.passwordView) {
+            // need to add in model stuff
+            this.passwordView = new PasswordView();
+          }
+          this.mainContainer.switchToView(this.passwordView);
         },
 
-        showPassword: function () {
-
-          //var paymentView = new PaymentView();
-
-          // render the pricing view
-          this.passwordView.render().el;
+        creditCard: function () {
+          if (!this.creditCardView) {
+            // need to add in model stuff
+            this.creditCardView = new CreditCardView();
+          }
+          this.mainContainer.switchToView(this.creditCardView);
         },
 
-        showCreditCard: function () {
-
-          //var personalView = new PersonalView();
-
-          // render about view
-          this.creditCardViewView.render().el;
-
-        },
-
-        showBankAccount: function () {
-
-          //var paymentView = new PaymentView();
-
-          // render the pricing view
-          this.bankAccount.render().el;
+        bankAccount: function () {
+          if (!this.bankAccountView) {
+            // need to add in model stuff
+            this.bankAccountView = new BankAccountView();
+          }
+          this.mainContainer.switchToView(this.bankAccountView);
         }
 
       });

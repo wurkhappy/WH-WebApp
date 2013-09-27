@@ -12,13 +12,14 @@ define(['backbone', 'handlebars'],
 
         el: '#mainContainer',
 
-        events:{
+        events: {
           "click #cancelAgreement" : "cancelAgreement"
         },
 
         cancelAgreement: function(event){
           (this.model.id) ? this.model.destroy() : window.location = "/freelancer/home";
         },
+        
         switchToView: function(view){
           view.delegateEvents();
           this.$('#contentWrapper').empty().append(view.$el);

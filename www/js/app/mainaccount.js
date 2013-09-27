@@ -1,23 +1,33 @@
 /*
- * Initialize App for `Account Page`.
+ * Initialize App for `Create Agreement Page`.
  *
  */
+ require.config({
 
-define(function (require) {
+ 	paths: {
+ 		marionette: 'lib/backbone.marionette/lib/backbone.marionette',
+ 	},
 
-  'use strict';
+ 	shim: {
+ 		marionette : {
+ 			deps : ['jquery', 'underscore', 'backbone'],
+ 			exports : 'Marionette'
+ 		}
+ 	}
+ });
+ define(function (require) {
 
-  var AccountRouter = require('../app/routers/account_router');
+ 	'use strict';
 
-  $(function () {
+ 	var AccountRouter = require('../app/routers/account_router');
+ 	$(function () {
+	    // Initialize the application router.
+	    var Account = new AccountRouter();
 
-    // Initialize the application router.
-    var Account = new AccountRouter();
-
-    Backbone.history.start({
-      pushState: false
+	    Backbone.history.start({
+	    	pushState: false
     });
 
-  });
-
 });
+
+ });

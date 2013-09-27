@@ -3,7 +3,7 @@ package handlers
 import (
 	//"bytes"
 	//"encoding/json"
-	"fmt"
+	//"fmt"
 	//"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
@@ -23,7 +23,7 @@ func GetAccount(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	// buf.ReadFrom(resp.Body)
 	// w.Write(buf.Bytes())
 	m := map[string]interface{}{
-		"appName": "maincreateagreement",
+		"appName": "mainaccount",
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
