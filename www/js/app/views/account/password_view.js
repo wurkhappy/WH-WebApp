@@ -26,8 +26,7 @@ define(['backbone', 'handlebars', 'text!templates/account/password.html'],
         }
 
       });
-
+      
       return PasswordView;
-
     }
 );
