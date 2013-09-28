@@ -18,6 +18,10 @@
 
       itemView: MilestoneView,
 
+      initialize: function (options) {
+        this.router = options.router;
+      },
+
       events:{
         "click #addMoreButton" : "addMilestone",
         "click .submit-buttons > a" : "saveAndContinue"

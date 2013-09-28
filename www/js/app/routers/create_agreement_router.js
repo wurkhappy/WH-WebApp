@@ -39,7 +39,9 @@
         console.log(this.estimateView.el);
       },
       recipient: function () {
-        if (!this.recipientView) this.recipientView = new RecipientView({router:this, model: this.model});
+        if (!this.recipientView) {
+          this.recipientView = new RecipientView({router:this, model: this.model});
+        } 
         this.mainContainer.switchToView(this.recipientView);
       }
 

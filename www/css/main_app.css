@@ -82,37 +82,38 @@ a:hover,
 a:active {
   text-decoration: underline;
   color: #0089c6;
+  cursor: pointer;
 }
 
-/* line 71, ../scss/bases/_common.scss */
+/* line 72, ../scss/bases/_common.scss */
 p, ul, ol, dl {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-/* line 76, ../scss/bases/_common.scss */
+/* line 77, ../scss/bases/_common.scss */
 ul, ol {
   margin-left: 30px;
 }
 
-/* line 80, ../scss/bases/_common.scss */
+/* line 81, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 84, ../scss/bases/_common.scss */
+/* line 85, ../scss/bases/_common.scss */
 h1, h2, h3 {
   color: black;
   padding: 0 20px;
   font-family: Museo;
 }
 
-/* line 90, ../scss/bases/_common.scss */
+/* line 91, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 94, ../scss/bases/_common.scss */
+/* line 95, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
   line-height: 40px;
@@ -120,7 +121,7 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-/* line 101, ../scss/bases/_common.scss */
+/* line 102, ../scss/bases/_common.scss */
 h2 {
   font-size: 24px;
   line-height: 30px;
@@ -128,7 +129,7 @@ h2 {
   font-weight: 100;
 }
 
-/* line 108, ../scss/bases/_common.scss */
+/* line 109, ../scss/bases/_common.scss */
 h3 {
   font-size: 16px;
   line-height: 20px;
@@ -136,7 +137,7 @@ h3 {
   font-weight: 500;
 }
 
-/* line 116, ../scss/bases/_common.scss */
+/* line 117, ../scss/bases/_common.scss */
 .preview p {
   background: #fff7cc url(../img/icons/note-32x32.png) no-repeat 20px 20px;
   color: #7f6a00;
@@ -364,8 +365,9 @@ fieldset {
   padding: 10px 0 0 0;
   margin: 0;
 }
-/* line 40, ../scss/components/_intro.scss */
-.action_button_container a {
+
+/* line 42, ../scss/components/_intro.scss */
+.button:link, .button:visited {
   display: block;
   font-weight: bold;
   text-align: center;
@@ -373,28 +375,32 @@ fieldset {
   color: white;
   text-decoration: none;
   line-height: 40px;
+  background-image: url(../img/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: center;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
-  background-image: url(../img/shade-button.png);
-  background-repeat: repeat-x;
-  background-position: center;
-  background-color: #88cc55;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 59, ../scss/components/_intro.scss */
-.action_button_container a:hover {
+
+/* line 63, ../scss/components/_intro.scss */
+.action_button {
+  background-color: #88cc55;
+}
+/* line 65, ../scss/components/_intro.scss */
+.action_button:hover {
   background-color: #7ab74c;
 }
 
-/* line 65, ../scss/components/_intro.scss */
+/* line 70, ../scss/components/_intro.scss */
 .cancel {
   background-color: #be3557;
 }
-/* line 67, ../scss/components/_intro.scss */
+/* line 72, ../scss/components/_intro.scss */
 .cancel:hover {
   background-color: #972a45;
 }
