@@ -1,6 +1,6 @@
-define(['backbone','backbone-relational', 'models/payment', 'collections/payments'],
+define(['backbone','backbone-relational', 'models/payment', 'collections/payments', 'models/status', 'collections/status'],
 
-    function(Backbone, Relational, PaymentModel, PaymentCollection) {
+    function(Backbone, Relational, PaymentModel, PaymentCollection, StatusModel, StatusCollection) {
 
         'use strict';
 
@@ -10,15 +10,49 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 key: 'payments',
                 relatedModel: PaymentModel,
                 collectionType: PaymentCollection,
-            }],
-            url:function(){
-                if (this.id) {return "/agreement/"+this.id;}
-                return "/agreement"
+                reverseRelation: {
+                    key: 'parent',
+                    includeInJSON: false
+                }
+            },
+            {
+                type: Backbone.HasMany,
+                key: 'statusHistory',
+                relatedModel: StatusModel,
+                collectionType: StatusCollection,
+                reverseRelation: {
+                    key: 'ownerModel',
+                    includeInJSON: false
+                }
+            }
+            ],
+            urlRoot:function(){
+                return "/agreement";
+            },
+            submit: function(){
+                this.updateStatus("submitted");
+            },
+            accept: function(){
+                this.updateStatus("accepted");
+            },
+            reject: function(){
+                this.updateStatus("rejected");
+            },
+            updateStatus:function(action){
+                $.ajax({
+                  type: "POST",
+                  url: "/agreement/"+this.id+"/status?action="+action,
+                  contentType: "application/json",
+                  dataType: "json",
+                  success: _.bind(function(response){
+                    this.get("statusHistory").add(response);
+                }, this)
+              });
             }
         });
 
-        return Agreement;
+return Agreement;
 
-    }
+}
 
-    );
+);

@@ -18,6 +18,7 @@
     "modernizr": "~2.6.2",
     "jquery": "~2.0.0",
     "backbone-relational": "~0.8.6",
+    "momentjs": "~2.2.1"
     "kalendae": "~0.4.1"
   }
 }

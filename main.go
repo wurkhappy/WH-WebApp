@@ -38,19 +38,23 @@ func main() {
 	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
 
-	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
+	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
 
-	r.Handle("/account", loginHandler(handlers.GetAccount)).Methods("GET")
-
-	r.Handle("/home/freelancer", baseHandler(handlers.GetFreelanceAgrmt)).Methods("GET")
+	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.CreatePaymentStatus)).Methods("POST")
+	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.UpdatePaymentStatus)).Methods("PUT")
+	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.CreateAgreementStatus)).Methods("POST")
+	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.UpdateAgreementStatus)).Methods("PUT")
 
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	r.Handle("/agreement", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
 	r.Handle("/agreement/{id}", baseHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
+	r.Handle("/agreement/{id}", baseHandler(handlers.GetAgreementDetails)).Methods("GET")
 	http.Handle("/", r)
 
 	//static content
+	serveSingle("/favicon.ico", "favicon.ico")
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
+	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	http.ListenAndServe(":4000", nil)

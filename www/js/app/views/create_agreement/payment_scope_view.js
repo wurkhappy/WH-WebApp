@@ -23,7 +23,10 @@
       },
 
       addOnEnter: function(event){
-        if (event.keyCode == 13) this.collection.add({text:event.target.value});
+        if (event.keyCode == 13) {
+          this.collection.add({text:event.target.value});
+          event.target.value = null;
+        }
       }
 
     });

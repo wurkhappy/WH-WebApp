@@ -27,6 +27,10 @@
         "click .submit-buttons > a" : "saveAndContinue"
       },
 
+      initialize: function(options){
+        this.router = options.router;
+      },
+
       appendHtml: function(collectionView, itemView, index){
         itemView.$el.insertBefore(collectionView.$('#addMoreButton'));
       },
@@ -34,6 +38,7 @@
       addMilestone:function(event){
         this.collection.add({});
       },
+      
       saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();

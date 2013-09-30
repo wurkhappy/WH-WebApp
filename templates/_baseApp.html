@@ -1,4 +1,4 @@
-<!-- This is the header for the styleguide--> 
+<!-- This is the header for the styleguide-->
 
 <!DOCTYPE html>
 
@@ -14,8 +14,8 @@
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
   Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="Wurk Happy">
-  <meta name="author" content="Wurk Happy">
+  <meta name="description" content="Wurk Happy Style Guide">
+  <meta name="author" content="Marcus Ellison">
   <title>Wurk Happy | Simple Agreement Billing and Payment</title>
   <!--[if lte IE 8]>         <html class="no-js lte-ie8"> <![endif]-->
   <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
@@ -23,9 +23,10 @@
   <meta name="viewport" content="width=device-width">
 
   <!-- Wurk Happy CSS -->
+
   <link rel="stylesheet" href="../css/main_app.css">
 
-  <link rel="Shortcut Icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico" />
 
   <script type="text/javascript" src="https://use.typekit.com/wwb5mzu.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -52,77 +53,97 @@
 <body>
   <div class="container">
 
-    <div class="clear navigation">
+    <div id="navigation" class="clear">
       <div class="column-three-fourth">
-        <div class="main_top_padding column-one-fourth">
-              <a class="logo" href="/">Wurk Happy</a>
-        </div>
-        <ul class="navigation_links column-one-half">
+        <ul class="clear">
           <li>
-            <a href="/home/freelancer">
-              <strong>Client Agreements</strong>
-            </a>
-          </li>
-          <li>
-            <a href="/home/client">
-              <strong>Freelancer Agreements</strong>
-            </a>
+            <p class="logo-sm">
+              <a href="/home">Wurk Happy</a>
+            </p>
           </li>
           <!--<li><a href="/templates">Templates</a></li>-->
         </ul>
       </div>
       <div class="column-one-fourth">
-        <ul class="clear admin_nav navigation_links">
-          <li><a  href="/user/logout">Log Out</a></li>
-          <li> <a href="/account">Account</a></li>
+        <ul id="admin" class="clear">
+          <li><a href="/logout">Log Out</a></li>
+          <li> <a href="../account/personal.html">Account</a></li>
           <!--<li><a href="#">Preferences</a></li>-->
         </ul>
       </div>
     </div>
 
     {{ template "content" .}}
-    
+
+  </div>
+</div>
+
+
+
   <!-- main app footer-->
 
-    <div class="clear footer">
-      <div class="column-one-fourth">
-        <h3>Archives</h3>
-        <ul>
-          <li><a href="">All Client Agreements</a></li>
-          <li><a href="">All Vendor Agreements</a></li>
-          <li><a href="">All People</a></li>
-        </ul>
-      </div>
-      <div class="column-one-fourth">
-        <h3>Section 2</h3>
-        <ul>
-          <li><a href="#">Links</a></li>
-          <li><a href="#">Links</a></li>
-          <li><a href="#">Links</a></li>
-        </ul>
-      </div>
-      <div class="column-one-fourth">
-        <h3>Section 3</h3>
-        <ul>
-          <li><a href="#">Links</a></li>
-          <li><a href="#">Links</a></li>
-          <li><a href="#">Links</a></li>
-        </ul>
-      </div>
-      <div class="column-one-fourth">
-        <h3>Section 4</h3>
-        <ul>
-          <li><a href="#">Links</a></li>
-          <li><a href="#">Links</a></li>
-          <li><a href="#">Links</a></li>
-        </ul>
-      </div>
+  <div id="footer" class="clear">
+
+    <div class="column-one-fourth">
+
+      <h3>Archives</h3>
+
+      <ul>
+        <li><a href="">All Client Agreements</a></li>
+        <li><a href="">All Vendor Agreements</a></li>
+        <li><a href="">All People</a></li>
+      </ul>
+
     </div>
+
+    <div class="column-one-fourth">
+
+      <h3>Section 2</h3>
+
+      <ul>
+        <li><a href="#">Links</a></li>
+        <li><a href="#">Links</a></li>
+        <li><a href="#">Links</a></li>
+      </ul>
+
+    </div>
+
+    <div class="column-one-fourth">
+
+      <h3>Section 3</h3>
+
+      <ul>
+        <li><a href="#">Links</a></li>
+        <li><a href="#">Links</a></li>
+        <li><a href="#">Links</a></li>
+      </ul>
+
+    </div>
+
+    <div class="column-one-fourth">
+
+      <h3>Section 4</h3>
+
+      <ul>
+        <li><a href="#">Links</a></li>
+        <li><a href="#">Links</a></li>
+        <li><a href="#">Links</a></li>
+      </ul>
+
+    </div>
+
   </div>
 
 
+<<<<<<< HEAD
   <div class="copyright clear">
     <p>Powered by Wurk Happy &mdash; Copyright &#169; 2013 Wurk Happy &mdash; All Rights Reserved</p>
+=======
+  <div id="copyright" class="clear">
+
+    <p>Powered by Wurk Happy &mdash; Copyright &#169; Wurk Happy &mdash; All Rights Reserved</p>
+
+>>>>>>> 458bc098f0a756d00f68085a55949640c43a19de
   </div>
 
 
@@ -137,11 +158,10 @@
   });
   </script>
   <script type="text/javascript">
-  // Google analytics code to be re-inserted later.
-  /*$(window).unload(function() {
+  $(window).unload(function() {
     _gaq.push(['_trackEvent', 'Unload']);
-  });*/
-
+  });
   </script>
 </body>
 </html>
+

@@ -15,23 +15,21 @@
  		}
  	}
  });
- define(function (require) {
+define(function (require) {
 
+  'use strict';
 
+  var AgreementRouter = require('../app/routers/agreement_router');
 
- 	'use strict';
-
- 	var HomeRouter = require('../app/routers/home_router');
-
- 	$(function () {
+  $(function () {
 
     // Initialize the application router.
-    var Router = new HomeRouter();
+    var Router = new AgreementRouter();
 
     Backbone.history.start({
-    	pushState: false
+      pushState: false
     });
 
-});
+  });
 
- });
+});

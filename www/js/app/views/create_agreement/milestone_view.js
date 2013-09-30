@@ -22,20 +22,21 @@
       },
 
       render: function () {
-        console.log("hi");
-
         this.$el.html(this.template(this.model.toJSON()));
         var paymentScopeView = new PaymentScopeView({model: this.model, collection:this.model.get('scopeItems')});
         paymentScopeView.render();
         this.$el.append(paymentScopeView.$el);
-        console.log(paymentScopeView.$el);        
 
         return this;
 
       },
       events: {
         "blur input":"updateFields",
+        "blur .paymentAmount":"updateAmount",
         "focus .auto-kal": "triggerCalender"
+      },
+      updateAmount: function(event){
+        this.model.set(event.target.name, parseFloat(event.target.value));
       },
       updateFields: function(event){
         this.model.set(event.target.name, event.target.value)

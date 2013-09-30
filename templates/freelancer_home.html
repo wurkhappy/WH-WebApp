@@ -1,68 +1,51 @@
 {{define "content"}}
-  <div class="clear intro">
+<script>
+var agreements = {{.agreements}};
+var user = {{.user}};
+</script>
+<div id="intro" class="clear">
 
-    <div class="column-three-fourth">
+  <div class="column-three-fourth">
 
-      <h1>6 Client Agreements</h1>
+    <h1>6 Client Agreements</h1>
 
-    </div>
-    <div class="column-one-fourth">
+  </div>
+  <div class="column-one-fourth">
 
-      <ul class="action_button_container">
-        <li><a href="../agreements/new" class="button action_button">Create Agreement</a></li>
-      </ul>
-
-    </div>
+    <ul class="action-button">
+      <li><a href="../agreements/new" class="single">Create Agreement</a></li>
+    </ul>
 
   </div>
 
+</div>
 
-  <div id="content" class="clear">
 
-    <div class="clear">
+<div id="content" class="clear">
 
+  <div class="clear">
+    <div id="waitingSection">
       <h2>Waiting for Response</h2>
       <div class="data-table">
 
         <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td class="meta">
-              <span><img src="../img/people/kristen-face.png"></span>
-            </td>
-            <td>
-              <h3><a href="detail.html">Ecommerce Website Design</a></h3>
-              <p>Sent on April 24, 2011</p>
-            </td>
-            <td class="progress">
-              <span style="background-position: -200px 0px;"><img src="../img/progress-small.png"></span>
-              <p>Waiting for Agreement</p>
-            </td>
         </table>
 
       </div>
-
+    </div>
+    <div id="progressSection">
       <h2>In Progress</h2>
       <div class="data-table">
 
         <table border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td class="meta">
-              <span><img src="../img/people/jason-face.png"></span>
-            </td>
-            <td>
-              <h3><a href="detail.html">Icecream Shop Website</a></h3>
-              <p>Milestone (2 of 3) marked as complete on April 12, 2011</p>
-            </td>
-            <td class="progress">
-              <span style="background-position: -68px 0px;"><img src="../img/progress-small.png"></span>
-              <p>Waiting for Payment (2 of 3)</p>
-            </td>
-          </tr>
         </table>
 
       </div>
-
     </div>
 
+
   </div>
-	{{end}}
+
+</div>
+{{end}}
+

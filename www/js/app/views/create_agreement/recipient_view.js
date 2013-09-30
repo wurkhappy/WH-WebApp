@@ -1,5 +1,5 @@
 /*
- * Scope of Work - Create Agreement View. 
+ * Scope of Work - Create Agreement View.
  */
 
  define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/recipient_tpl.html'],
@@ -27,30 +27,30 @@
         return this;
 
       },
-      
       events: {
-        "blur input": "updateField",
+        "blur input, textarea": "updateField",
         "click .submit-buttons > a" : "saveAndContinue"
       },
 
-      updateField: function(event) {
+      updateField: function(event){
         this.model.set(event.target.name, event.target.value)
       },
-      saveAndContinue:function(event) {
+      
+      saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();
-        this.router.navigate('estimate', {trigger:true})
 
-          // this.model.save({},{
-          //   success:_.bind(function(model, response){
-          //     this.router.navigate('estimate', {trigger:true})
-          //   }, this)
-          // });
-      }
+          this.model.save({},{
+            success:_.bind(function(model, response){
+              window.location = "/home";
+            }, this)
+          });
+  }
 
 });
 
     return RecipientView;
- 
+
   }
   );
+
