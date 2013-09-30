@@ -53,21 +53,19 @@
 <body>
   <div class="container">
 
-    <div id="navigation" class="clear">
+    <div id="navigation" class="clear navigation">
       <div class="column-three-fourth">
-        <ul class="clear">
-          <li>
-            <p class="logo-sm">
-              <a href="/home">Wurk Happy</a>
-            </p>
-          </li>
+        <div class="main_top_padding">
+            <a class="logo" href="/home">Wurk Happy</a>
+        </div>
+        <ul class="clear column-one-half navigation_links">
           <!--<li><a href="/templates">Templates</a></li>-->
         </ul>
       </div>
       <div class="column-one-fourth">
-        <ul id="admin" class="clear">
+        <ul id="admin" class="clear admin_nav navigation_links">
           <li><a href="/logout">Log Out</a></li>
-          <li> <a href="../account/personal.html">Account</a></li>
+          <li> <a href="/account">Account</a></li>
           <!--<li><a href="#">Preferences</a></li>-->
         </ul>
       </div>
@@ -75,14 +73,13 @@
 
     {{ template "content" .}}
 
-  </div>
-</div>
+  
 
 
 
   <!-- main app footer-->
 
-  <div id="footer" class="clear">
+  <div id="footer" class="clear footer">
 
     <div class="column-one-fourth">
 
@@ -133,17 +130,9 @@
     </div>
 
   </div>
-
-
-<<<<<<< HEAD
+  </div>
   <div class="copyright clear">
     <p>Powered by Wurk Happy &mdash; Copyright &#169; 2013 Wurk Happy &mdash; All Rights Reserved</p>
-=======
-  <div id="copyright" class="clear">
-
-    <p>Powered by Wurk Happy &mdash; Copyright &#169; Wurk Happy &mdash; All Rights Reserved</p>
-
->>>>>>> 458bc098f0a756d00f68085a55949640c43a19de
   </div>
 
 

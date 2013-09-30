@@ -40,6 +40,10 @@ func main() {
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
 
+	r.Handle("/account", loginHandler(handlers.GetAccount)).Methods("GET")
+
+	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
+
 	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.CreatePaymentStatus)).Methods("POST")
 	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.UpdatePaymentStatus)).Methods("PUT")
 	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.CreateAgreementStatus)).Methods("POST")
