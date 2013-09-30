@@ -33,10 +33,10 @@
         "click .submit-buttons > a" : "saveAndContinue"
       },
 
-      updateField: function(event){
+      updateField: function(event) {
         this.model.set(event.target.name, event.target.value)
       },
-      saveAndContinue:function(event){
+      saveAndContinue:function(event) {
         event.preventDefault();
         event.stopPropagation();
         this.router.navigate('estimate', {trigger:true})
@@ -46,7 +46,7 @@
           //     this.router.navigate('estimate', {trigger:true})
           //   }, this)
           // });
-  }
+      }
 
 });
 

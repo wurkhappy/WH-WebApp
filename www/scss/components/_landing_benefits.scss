@@ -2,7 +2,7 @@
 ================================================================================ */
 
 
-#intro {
+.intro_container {
   background: rgb(0,122,177) url(../img/shade-intro.png) repeat-x top;
   color: rgb(191,229,246);
   border-bottom: 1px solid rgb(0,122,177);
@@ -10,7 +10,7 @@
   color: rgb(205,230,240);
 }
 
-#intro .dot {
+.benefit {
   border: 5px solid white;
   border-radius: 200px;
   width: 250px;
@@ -23,35 +23,30 @@
   margin-right: auto;
 }
 
-#intro h2,
-#intro h3,
-#intro p {
+.headline,
+.subline,
+.benefit_title {
   text-align: center;
+  color: rgb(255,255,255);
 }
 
-#intro h1 {
+.headline {
   text-shadow: 0 1px 0 rgba(0,0,0,.5);
-  color: rgb(255,255,255);
-  text-align: center;
   margin-bottom: 0;
 }
 
-#intro h2 {
+.subline {
   font-family: "Museo-Sans", Helvetica, Arial, sans-serif;
   font-weight: 100;
-  color: rgb(255,255,255);
   margin: 0 0 18px 0;
 }
 
-#intro h3 {
-  font-weight: 300;
-  text-shadow: 0 1px 0 rgba(0,0,0,.5);
-  color: rgb(255,255,255);
-  margin: 20px 0 8px 0;
+.benefit_description {
+  text-align: center;
 }
 
-#intro small {
-  margin-left: 320px;
-  font-style: italic;
-  padding: 20px;
+.benefit_title {
+  font-weight: 300;
+  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  margin: 20px 0 8px 0;
 }

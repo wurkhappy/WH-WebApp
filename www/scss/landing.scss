@@ -47,20 +47,14 @@ $legacy-support-for-mozilla: false !default;
 // COMPONENTS
 @import "components/forms";
 @import "components/header";
-@import "components/intro";
 @import "components/buttons";
-@import "components/internal";
+@import "components/landing_benefits";
+@import "components/landing_sub_navigation";
 @import "components/maincontent";
-@import "components/kalendae";
-@import "components/create_work_item";
+@import "components/landinglogin";
 @import "components/footer";
 @import "components/copyright";
-/* @import "components/link";
-@import "components/heading";
-@import "components/form";
-@import "components/message";
-@import "components/button";
-@import "components/pager";*/
+@import "components/landingcopyright";
 //////////////////////////////
 
 //////////////////////////////
