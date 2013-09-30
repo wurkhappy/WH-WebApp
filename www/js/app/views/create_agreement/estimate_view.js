@@ -26,11 +26,6 @@
         "click #addMoreButton" : "addMilestone",
         "click .submit-buttons > a" : "saveAndContinue"
       },
-
-      initialize: function(options){
-        this.router = options.router;
-      },
-
       appendHtml: function(collectionView, itemView, index){
         itemView.$el.insertBefore(collectionView.$('#addMoreButton'));
       },
