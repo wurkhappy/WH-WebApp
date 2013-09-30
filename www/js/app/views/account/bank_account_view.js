@@ -4,30 +4,25 @@
 
 define(['backbone', 'handlebars', 'text!templates/account/bankaccount.html'],
 
-    function (Backbone, Handlebars, bankaccountTemplate) {
+    function (Backbone, Handlebars, bankAccountTemplate) {
 
       'use strict';
 
       var BankAccountView = Backbone.View.extend({
 
-        el: '#content',
+        className:'clear',
 
-        // Compile our footer template.
-        template: Handlebars.compile(bankaccountTemplate),
+        attributes:{'id':'content'},
+
+        template: Handlebars.compile(bankAccountTemplate),
 
         initialize: function () {
-
           this.render();
-
         },
 
         render: function () {
-
-          // Update el with the cached template.
-          $(this.el).html(this.template());
-
+          this.$el.html(this.template());
           return this;
-
         }
 
       });

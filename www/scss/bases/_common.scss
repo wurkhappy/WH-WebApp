@@ -52,7 +52,7 @@ table {
 body {
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: rgb(220,224,228) url(../_images/bg.png) fixed;
+  background: rgb(220,224,228) url(../img/bg.png) fixed;
   color: rgb(100,100,100);
 }
 
@@ -66,6 +66,7 @@ a:hover,
 a:active {
   text-decoration: underline;
   color: rgb(0,137,198);
+  cursor: pointer;
 }
 
 p, ul, ol, dl {
@@ -112,14 +113,8 @@ h3 {
   font-weight: 500;
 }
 
-// Don't know what this refers to. Looks like it doesn't...
-.preview p {
-  background: rgb(255,247,204) url(../_images/icons/note-32x32.png) no-repeat 20px 20px;
-  color: rgb(127,106,0);
-  padding: 20px 20px 20px 72px;
-  margin: 0 20px 20px 20px;
-  font-style: italic;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+/* COMMON UI classes
+================================================================================ */
+.hide {
+  display: none;
 }

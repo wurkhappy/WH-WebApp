@@ -1,0 +1,74 @@
+
+/* Header - Common
+================================================================================ */
+
+.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  display: block;
+  float: left;
+}
+
+.admin_nav li {
+	float: right;
+  display: block;
+}
+
+.logo {
+  font-family: "Museo", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 38px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  background: transparent url(../img/logo.png) no-repeat left;
+  color: rgb(0,0,0);
+  display: block;
+  padding-left:70px;
+  text-decoration: none;
+  &:visited {
+    color: hsl(0,0,0);
+  }
+  &:hover, &:active {
+    text-decoration: none;
+    color: rgb(100,100,100);
+  } 
+}
+
+/* Header - Main App
+================================================================================ */
+
+.main_top_padding {
+  padding-top: 13px;
+}
+
+.navigation_links a {
+  display: block;
+  float: left;
+  padding: 20px;
+}
+
+/* Header - Landing
+================================================================================ */
+
+.landing_navigation_links {
+  padding-left: 85px;
+  line-height: 38px;
+	display: block;
+ 	float: left;
+  padding-top: 23px;
+}
+
+.top_padding {
+  padding-top: 20px;
+}
+
+.create_account {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

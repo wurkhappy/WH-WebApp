@@ -4,30 +4,25 @@
 
 define(['backbone', 'handlebars', 'text!templates/account/creditcard.html'],
 
-    function (Backbone, Handlebars, creditcardTemplate) {
+    function (Backbone, Handlebars, creditCardTemplate) {
 
       'use strict';
 
       var CreditCardView = Backbone.View.extend({
 
-        el: '#content',
+        className:'clear',
 
-        // Compile our footer template.
-        template: Handlebars.compile(creditcardTemplate),
+        attributes:{'id':'content'},
+
+        template: Handlebars.compile(creditCardTemplate),
 
         initialize: function () {
-
           this.render();
-
         },
 
         render: function () {
-
-          // Update el with the cached template.
-          $(this.el).html(this.template());
-
+          this.$el.html(this.template());
           return this;
-
         }
 
       });

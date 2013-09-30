@@ -2,11 +2,7 @@
 ================================================================================ */
 
 
-/* INTRO
-================================================================================ */
-
-
-#intro {
+.intro {
   background: rgb(0,122,177) url(../img/shade-intro.png) repeat-x top;
   color: rgb(191,229,246);
   -webkit-border-top-left-radius: 10px;
@@ -19,67 +15,16 @@
   padding: 0 0 10px 0;
 }
 
-#intro h1 {
+.intro h1 {
   color: rgb(255,255,255);
   text-shadow: 0 1px 0 rgba(0,0,0,.5);
 }
 
-#intro p {
+.intro p {
   line-height: 40px;
   margin-bottom: 10px;
 }
 
-#intro p span {
+.intro p span {
   color: rgb(255,255,255);
-}
-
-#intro ul.action-button {
-  margin: 10px 20px 10px 20px;
-  padding: 0;
-}
-
-#intro ul.action-button li {
-  list-style: none;
-  padding: 10px 0 0 0;
-  margin: 0;
-}
-
-#intro ul.action-button li a {
-  display: block;
-  font-weight: bold;
-  text-align: center;
-  padding: 0 10px;
-  color: rgb(255,255,255);
-  text-decoration: none;
-  line-height: 40px;
-  -webkit-box-shadow: 0 0 3px rgba(0,0,0,.5);
-  -moz-box-shadow: 0 0 3px rgba(0,0,0,.5);
-  box-shadow: 0 0 3px rgba(0,0,0,.5);
-  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-  background-image: url(../img/shade-button.png);
-  background-repeat: repeat-x;
-  background-position: center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-#intro ul.action-button a:link,
-#intro ul.action-button a:visited {
-  background-color: rgb(136,204,85);
-}
-
-#intro ul.action-button a:hover,
-#intro ul.action-button a:active {
-  background-color: rgb(122,183,76);
-}
-
-#intro ul.action-button a.cancel:link,
-#intro ul.action-button a.cancel:visited {
-  background-color: rgb(190,53,87);
-}
-
-#intro ul.action-button a.cancel:hover,
-#intro ul.action-button a.cancel:active {
-  background-color: rgb(151,42,69);
 }

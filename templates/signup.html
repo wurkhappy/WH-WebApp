@@ -1,85 +1,47 @@
 {{define "content"}}
-
-<!-- Title Header -->
-<div id="intro" class="clear">
-  <div class="column-three-fourth">
-    <h1>Signup</h1>
-  </div>
-</div>
-
-
-
-<!-- Sub-navigation for main content -->
-<div id="internal" class="clear">
-  <ul>
-    <!-- need to put in javascript so this is smooth instead of hard links-->
-    <li class="tab current" id="details-button">
-      <a href="#/personal.html" class="top">Personal Details</a></li>
-    <li class="tab" id="password-button">
-      <a href="password.html" class="">Change Your Password</a></li>
-    <li class="tab" id="payment-button">
-      <a href="#/payment.html" class="">Payment Information</a></li>
-  </ul>
-</div>
-
-
-
-<!-- Main Content -->
-<div id="content" class="clear">
-  <div id="details-container" class="tab-content">
-    <div id="profile_preview">
-      <h2>Personal Details</h2>
-      <form action="/user/me/account" enctype="multipart/form-data" method="POST" class="js-replace-action" id="profile_update" style="padding:0">
-					<span class="column-one-fourth">
-						<div class="data-table">
-              <table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td class="meta" style="margin:0;">
-                    <span><img id="profile_image" src="{{ data['profileURL'][1] }}" alt="Profile photo" width="150" height="150" /></span>
-                  </td>
-                </tr>
-              </table>
-            </div>
-						<div id="profile_photo_upload" style="display:none;padding-left:20px;">
-              <fieldset>
-                <label for="profilePhoto">Replace Photo</label>
-                <input type="file" class="upload" name="profilePhoto" />
-              </fieldset>
-            </div>
-					</span>
-					<span class="column-three-fourth">
-						<div class="data-table" id="profile_info">
-              <table border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td>
-                    <h3><a href="/user/me/profile" id="profile_full_name">Marcus Ellison</a></h3>
-                    <p id="profile_email">marcus@wurkhappy.com</p>
-                    <p id="profile_telephone">(917) 972-3943</p>
-                  </td>
-                </tr>
-              </table>
-            </div>
-						<ul class="action-button" id="user_info_edit_ul" style="width:200px;">
-              <li><a href="#" rel="nofollow" id="user_info_edit" class="top js-button">Edit</a></li>
-            </ul>
-						<div id="profile_form" style="display:none;padding-left:20px;">
-              <fieldset>
-                <label for="firstName">First Name</label>
-                <input type="text" name="firstName" value="{{ data['firstName'] or '' }}" size="80" />
-                <label for="lastName">Last Name</label>
-                <input type="text" name="lastName" value="{{ data['lastName'] or '' }}" size="80" />
-                <label for="email">Email</label>
-                <input type="email" name="email" value="{{ data['email'] }}" size="80" />
-                <label for="telephone">Phone Number</label>
-                <input type="tel" name="telephone" value="{{ data['telephone'] }}" size="80" />
-              </fieldset>
-              <fieldset class="submit-buttons" style="padding-bottom:20px;">
-                <input type="submit" value="Save Personal Details" />
-              </fieldset>
-            </div>
-					</span>
-      </form>
+<div id="mainContainer"> <!-- div for main container -->
+  <div class="clear intro">
+    <div class="column-three-fourth">
+      <h1>Signup</h1>
     </div>
   </div>
-</div>
+
+  <div id="contentWrapper"> <!-- div for content -->
+    <div id="content" class="clear">
+      <h2 class="steps">
+        Personal Information <span>Step 1 of 3 &mdash; Next: Bank Account</span>
+      </h2>
+      <h2>Profile Preview</h2>
+      <div class="data-table">
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="meta">
+              <span><img src="../img/people/obama-face.png"></span>
+            </td>
+            <td>
+              <h3><a href="detail.html">Joe Smith</a></h3>
+              <p>email@domain.com &mdash; (480) 329-7537</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h2>Personal Details</h2>
+      <form action="#" method="get" accept-charset="utf-8">
+        <fieldset>
+          <label for="">Name</label>
+          <input type="text" name="" placeholder="Joe Smith" id="" size="50">
+          <label for="">Photo</label>
+          <input type="file" class="upload">
+          <label for="">Email</label>
+          <input type="text" name="" placeholder="email@domain.com" id="" size="50">
+          <label for="">Phone Number</label>
+          <input type="text" name="" placeholder="(480) 329-7537" id="" size="50">
+        </fieldset>
+        <fieldset class="submit-buttons">
+          <a href="personal" class="single">Save and Continue</a>
+        </fieldset>
+      </form>
+    </div>
+  </div> <!-- end div for main content -->
+</div> <!-- end main container -->
 {{end}}

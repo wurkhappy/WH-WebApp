@@ -2,7 +2,7 @@
 ================================================================================ */
 
 
-#footer {
+.footer {
   background: rgb(140,150,160) url(../img/shade-footer.png) repeat-x bottom;
   -webkit-border-bottom-right-radius: 10px;
   -webkit-border-bottom-left-radius: 10px;
@@ -13,19 +13,16 @@
   border-top: 1px solid rgb(125,125,125);
 }
 
-#footer h3 {
+.footer h3 {
   color: rgb(220,225,230);
   text-shadow: 0 1px 0 rgba(0,0,0,.5);
 }
 
-#footer a {
+.footer a {
   color: rgb(255,255,255);
 }
 
-#footer ul {
+.footer ul {
   margin-left: 0;
-}
-
-#footer ul li {
-  list-style: none;
+  list-style-type: none;
 }

@@ -2,59 +2,61 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'views/signup/signupview', 'views/signup/personal_signupview', 'views/signup/payment_signupview'],
-
-    function (Backbone, SignupView, PersonalView, PaymentView) {
+define([
+  'backbone',
+  'views/signup/main_container_view',
+  'views/signup/personal_view',
+  'views/signup/credit_card_view',
+  'views/signup/bank_account_view'],
+  function (Backbone, MainContainer, PersonalView, CreditCardView, BankAccountView) {
 
       'use strict';
 
-      var SignupRouter = Backbone.Router.extend({
+      var AccountRouter = Backbone.Router.extend({
 
         routes: {
-          '': 'index',
-          'personal': 'showPersonal',
-          'payment': 'showPayment'
+          'personal': 'personal',
+          'bankaccount': 'bankAccount',
+          'creditcard': 'creditCard'
         },
 
         initialize: function () {
+          // model stuff here. Let's get this working after setting up basic views
+          //this.model = new AgreementModel();
+          //this.model.set("payments", [{title:"Wireframe", amount:10.5}]);
 
-          // Setup the root-level application View.
-          this.mainView = new SignupView();
-
-
-          // Initialize other Views.
-          this.paymentView = new PaymentView();
-          this.personalView = new PersonalView();
+          // Initialize main View.
+          this.mainContainer = new MainContainer();
 
         },
 
-        index: function () {
-
-          // Render the about view.
-          this.personalView.render().el;
-
+        personal: function () {
+          if (!this.personalView) {
+            // need to add in model stuff
+            this.personalView = new PersonalView({router:this});
+          }
+          this.mainContainer.switchToView(this.personalView);
         },
 
-        showPersonal: function () {
-
-          //var personalView = new PersonalView();
-
-          // render about view
-          this.personalView.render().el;
-
+        creditCard: function () {
+          if (!this.creditCardView) {
+            // need to add in model stuff
+            this.creditCardView = new CreditCardView({router:this});
+          }
+          this.mainContainer.switchToView(this.creditCardView);
         },
 
-        showPayment: function () {
-
-          //var paymentView = new PaymentView();
-
-          // render the pricing view
-         this.paymentView.render().el;
+        bankAccount: function () {
+          if (!this.bankAccountView) {
+            // need to add in model stuff
+            this.bankAccountView = new BankAccountView({router:this});
+          }
+          this.mainContainer.switchToView(this.bankAccountView);
         }
 
       });
 
-      return SignupRouter;
+      return AccountRouter;
 
     }
 );

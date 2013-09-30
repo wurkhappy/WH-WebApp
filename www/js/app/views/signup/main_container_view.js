@@ -1,5 +1,5 @@
 /*
- * Create Agreement Main - Create Agreement View.
+ * signup main container view View.
  */
 
 define(['backbone', 'handlebars'],
@@ -12,16 +12,13 @@ define(['backbone', 'handlebars'],
 
         el: '#mainContainer',
 
-        events: {
-          "click #cancelAgreement" : "cancelAgreement"
+        initialize: function () {
+          
         },
 
-        cancelAgreement: function(event){
-          (this.model.id) ? this.model.destroy() : window.location = "/freelancer/home";
-        },
-        
-        switchToView: function(view){
+        switchToView: function (view) {
           view.delegateEvents();
+
           this.$('#contentWrapper').empty().append(view.$el);
         }
 

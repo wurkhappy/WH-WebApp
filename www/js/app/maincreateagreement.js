@@ -1,17 +1,21 @@
 /*
- * Initialize App for `Account Page`.
+ * Initialize App for `Create Agreement Page`.
  *
  */
  require.config({
 
  	paths: {
  		marionette: 'lib/backbone.marionette/lib/backbone.marionette',
+ 		kalendae: 'lib/kalendae/build/kalendae.standalone.min'
  	},
 
  	shim: {
  		marionette : {
  			deps : ['jquery', 'underscore', 'backbone'],
  			exports : 'Marionette'
+ 		},
+ 		kalendae : {
+ 			exports : 'Kalendae'
  		}
  	}
  });

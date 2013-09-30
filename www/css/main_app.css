@@ -1,11 +1,11 @@
-/* line 36, ../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
+/* line 36, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 4, ../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
+/* line 4, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
 img, video {
   max-width: 100%;
   height: auto;
@@ -66,7 +66,7 @@ table {
 body {
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #dce0e4 url(../_images/bg.png) fixed;
+  background: #dce0e4 url(../img/bg.png) fixed;
   color: #646464;
 }
 
@@ -82,37 +82,38 @@ a:hover,
 a:active {
   text-decoration: underline;
   color: #0089c6;
+  cursor: pointer;
 }
 
-/* line 71, ../scss/bases/_common.scss */
+/* line 72, ../scss/bases/_common.scss */
 p, ul, ol, dl {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-/* line 76, ../scss/bases/_common.scss */
+/* line 77, ../scss/bases/_common.scss */
 ul, ol {
   margin-left: 30px;
 }
 
-/* line 80, ../scss/bases/_common.scss */
+/* line 81, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 84, ../scss/bases/_common.scss */
+/* line 85, ../scss/bases/_common.scss */
 h1, h2, h3 {
   color: black;
   padding: 0 20px;
   font-family: Museo;
 }
 
-/* line 90, ../scss/bases/_common.scss */
+/* line 91, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 94, ../scss/bases/_common.scss */
+/* line 95, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
   line-height: 40px;
@@ -120,7 +121,7 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-/* line 101, ../scss/bases/_common.scss */
+/* line 102, ../scss/bases/_common.scss */
 h2 {
   font-size: 24px;
   line-height: 30px;
@@ -128,7 +129,7 @@ h2 {
   font-weight: 100;
 }
 
-/* line 108, ../scss/bases/_common.scss */
+/* line 109, ../scss/bases/_common.scss */
 h3 {
   font-size: 16px;
   line-height: 20px;
@@ -136,57 +137,60 @@ h3 {
   font-weight: 500;
 }
 
-/* line 116, ../scss/bases/_common.scss */
-.preview p {
-  background: #fff7cc url(../_images/icons/note-32x32.png) no-repeat 20px 20px;
-  color: #7f6a00;
-  padding: 20px 20px 20px 72px;
-  margin: 0 20px 20px 20px;
-  font-style: italic;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+/* COMMON UI classes
+================================================================================ */
+/* line 118, ../scss/bases/_common.scss */
+.hide {
+  display: none;
 }
 
 /* FORMS
 ================================================================================ */
 /* line 5, ../scss/components/_forms.scss */
-#content form {
+form {
   padding: 0 20px 20px 20px;
 }
 
 /* line 9, ../scss/components/_forms.scss */
-#content form p.add-more {
-  margin: 20px 0 0 0;
-  padding: 0 0 0 20px;
-  background: url(../_images/icons/add-16x16.png) no-repeat left;
+.addMoreButton {
+  width: 290px;
 }
 
-/* line 16, ../scss/components/_forms.scss */
-#content form fieldset label,
-#content form fieldset p.faux-label {
+/* line 13, ../scss/components/_forms.scss */
+.add-more {
+  margin: 20px 0 0 0;
+  padding: 0 0 0 20px;
+  background: url(../img/icons/add-16x16.png) no-repeat left;
+}
+
+/* line 19, ../scss/components/_forms.scss */
+.milestone-divider {
+  border-bottom: 1px solid #dedede;
+}
+
+/* line 23, ../scss/components/_forms.scss */
+label, .faux-label {
   display: block;
   padding: 20px 0 5px 0;
   margin: 0;
 }
 
-/* line 22, ../scss/components/_forms.scss */
-#content form fieldset label span {
+/* line 31, ../scss/components/_forms.scss */
+label span {
   display: block;
   font-size: .75em;
   color: #969696;
 }
 
-/* line 28, ../scss/components/_forms.scss */
-#content form fieldset label.checkbox {
+/* line 37, ../scss/components/_forms.scss */
+.checkbox {
   border: none;
   margin: 0;
   padding: 5px 0;
 }
 
-/* line 35, ../scss/components/_forms.scss */
-#content form fieldset input,
-#content form fieldset textarea {
+/* line 43, ../scss/components/_forms.scss */
+input, textarea {
   border: 1px solid #969696;
   padding: 3px;
   margin: 0;
@@ -195,61 +199,61 @@ h3 {
   display: block;
 }
 
-/* line 44, ../scss/components/_forms.scss */
-#content form fieldset input[disabled] {
+/* line 52, ../scss/components/_forms.scss */
+input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 51, ../scss/components/_forms.scss */
-#content form fieldset input[type=checkbox],
-#content form fieldset input[type=radio] {
+/* line 59, ../scss/components/_forms.scss */
+input[type=checkbox],
+input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 56, ../scss/components/_forms.scss */
-#content form fieldset input.upload {
+/* line 64, ../scss/components/_forms.scss */
+.upload {
   border: none;
 }
 
-/* line 60, ../scss/components/_forms.scss */
-#content form fieldset select {
+/* line 68, ../scss/components/_forms.scss */
+select {
   margin: 0 10px 0 0;
 }
 
-/* line 64, ../scss/components/_forms.scss */
-#content form fieldset p.action {
+/* line 72, ../scss/components/_forms.scss */
+.action {
   margin: 5px 0 0 0;
   padding: 0;
   font-size: .75em;
 }
 
-/* line 70, ../scss/components/_forms.scss */
-#content form fieldset p.security-detail {
+/* line 78, ../scss/components/_forms.scss */
+.security-detail {
   margin: 10px 0 0 0;
   padding: 10px 10px 10px 30px;
   font-size: .875em;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: whitesmoke url(../_images/lock.png) no-repeat 1% 50%;
+  background: whitesmoke url(../img/lock.png) no-repeat 1% 50%;
 }
 
-/* line 80, ../scss/components/_forms.scss */
-#content form fieldset {
+/* line 88, ../scss/components/_forms.scss */
+fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
 }
 
-/* line 85, ../scss/components/_forms.scss */
-#content form fieldset.submit-buttons {
+/* line 93, ../scss/components/_forms.scss */
+.submit-buttons {
   padding: 20px 0 0 0;
 }
 
-/* line 89, ../scss/components/_forms.scss */
-#content form fieldset.submit-buttons a {
+/* line 97, ../scss/components/_forms.scss */
+.submit-buttons a {
   display: block;
   float: left;
   text-align: center;
@@ -265,60 +269,108 @@ h3 {
   -webkit-box-shadow: 0 1px 2px #646464;
   -moz-box-shadow: 0 1px 2px #646464;
   box-shadow: 0 1px 2px #646464;
-  background-image: url(../_images/shade-button.png);
+  background-image: url(../img/shade-button.png);
   background-repeat: repeat-x;
   background-position: center;
 }
 
-/* line 111, ../scss/components/_forms.scss */
-#content form fieldset.submit-buttons a:link,
-#content form fieldset.submit-buttons a:visited {
+/* line 119, ../scss/components/_forms.scss */
+.submit-buttons a,
+.submit-buttons a:visited {
   background-color: #be3557;
 }
 
-/* line 116, ../scss/components/_forms.scss */
-#content form fieldset.submit-buttons a:hover,
-#content form fieldset.submit-buttons a:active {
+/* line 123, ../scss/components/_forms.scss */
+.submit-buttons a:hover, .submit-buttons a:active {
   background-color: #972a45;
 }
 
-/* NAVIGATION - From original (main app)
+/* Header - Common
 ================================================================================ */
-/* line 8, ../scss/components/_navigation.scss */
-#navigation ul {
+/* line 5, ../scss/components/_header.scss */
+.navigation ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 13, ../scss/components/_navigation.scss */
-#navigation ul li {
+/* line 11, ../scss/components/_header.scss */
+.navigation li {
   display: block;
   float: left;
 }
 
-/* line 18, ../scss/components/_navigation.scss */
-#navigation ul li a {
+/* line 16, ../scss/components/_header.scss */
+.admin_nav li {
+  float: right;
+  display: block;
+}
+
+/* line 21, ../scss/components/_header.scss */
+.logo {
+  font-family: "Museo", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 38px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  background: transparent url(../img/logo.png) no-repeat left;
+  color: black;
+  display: block;
+  padding-left: 70px;
+  text-decoration: none;
+}
+/* line 34, ../scss/components/_header.scss */
+.logo:visited {
+  color: black;
+}
+/* line 37, ../scss/components/_header.scss */
+.logo:hover, .logo:active {
+  text-decoration: none;
+  color: #646464;
+}
+
+/* Header - Main App
+================================================================================ */
+/* line 46, ../scss/components/_header.scss */
+.main_top_padding {
+  padding-top: 13px;
+}
+
+/* line 50, ../scss/components/_header.scss */
+.navigation_links a {
   display: block;
   float: left;
   padding: 20px;
 }
 
-/* line 24, ../scss/components/_navigation.scss */
-#navigation ul#admin li {
-  float: right;
+/* Header - Landing
+================================================================================ */
+/* line 59, ../scss/components/_header.scss */
+.landing_navigation_links {
+  padding-left: 85px;
+  line-height: 38px;
+  display: block;
+  float: left;
+  padding-top: 23px;
 }
 
-/* line 28, ../scss/components/_navigation.scss */
-#navigation ul li.current a {
-  color: #545a60;
+/* line 67, ../scss/components/_header.scss */
+.top_padding {
+  padding-top: 20px;
+}
+
+/* line 71, ../scss/components/_header.scss */
+.create_account {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* MAIN Intro Header/ main action
 ================================================================================ */
-/* INTRO
-================================================================================ */
-/* line 9, ../scss/components/_intro.scss */
-#intro {
+/* line 5, ../scss/components/_intro.scss */
+.intro {
   background: #007ab1 url(../img/shade-intro.png) repeat-x top;
   color: #bfe5f6;
   -webkit-border-top-left-radius: 10px;
@@ -331,38 +383,37 @@ h3 {
   padding: 0 0 10px 0;
 }
 
-/* line 22, ../scss/components/_intro.scss */
-#intro h1 {
+/* line 18, ../scss/components/_intro.scss */
+.intro h1 {
   color: white;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* line 27, ../scss/components/_intro.scss */
-#intro p {
+/* line 23, ../scss/components/_intro.scss */
+.intro p {
   line-height: 40px;
   margin-bottom: 10px;
 }
 
-/* line 32, ../scss/components/_intro.scss */
-#intro p span {
+/* line 28, ../scss/components/_intro.scss */
+.intro p span {
   color: white;
 }
 
-/* line 36, ../scss/components/_intro.scss */
-#intro ul.action-button {
+/* line 1, ../scss/components/_buttons.scss */
+.action_button_container {
   margin: 10px 20px 10px 20px;
   padding: 0;
-}
-
-/* line 41, ../scss/components/_intro.scss */
-#intro ul.action-button li {
   list-style: none;
+}
+/* line 5, ../scss/components/_buttons.scss */
+.action_button_container li {
   padding: 10px 0 0 0;
   margin: 0;
 }
 
-/* line 47, ../scss/components/_intro.scss */
-#intro ul.action-button li a {
+/* line 11, ../scss/components/_buttons.scss */
+.button, .button:visited {
   display: block;
   font-weight: bold;
   text-align: center;
@@ -370,72 +421,77 @@ h3 {
   color: white;
   text-decoration: none;
   line-height: 40px;
+  background-image: url(../img/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: center;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
-  background-image: url(../img/shade-button.png);
-  background-repeat: repeat-x;
-  background-position: center;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
 
-/* line 68, ../scss/components/_intro.scss */
-#intro ul.action-button a:link,
-#intro ul.action-button a:visited {
-  background-color: #88cc55;
+/* line 32, ../scss/components/_buttons.scss */
+.button:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
-/* line 73, ../scss/components/_intro.scss */
-#intro ul.action-button a:hover,
-#intro ul.action-button a:active {
+/* line 37, ../scss/components/_buttons.scss */
+.action_button {
+  background-color: #88cc55;
+}
+/* line 39, ../scss/components/_buttons.scss */
+.action_button:hover {
   background-color: #7ab74c;
 }
 
-/* line 78, ../scss/components/_intro.scss */
-#intro ul.action-button a.cancel:link,
-#intro ul.action-button a.cancel:visited {
+/* line 44, ../scss/components/_buttons.scss */
+.cancel {
   background-color: #be3557;
 }
-
-/* line 83, ../scss/components/_intro.scss */
-#intro ul.action-button a.cancel:hover,
-#intro ul.action-button a.cancel:active {
+/* line 46, ../scss/components/_buttons.scss */
+.cancel:hover {
   background-color: #972a45;
 }
 
 /* INTERNAL   (Main)
 ================================================================================ */
 /* line 5, ../scss/components/_internal.scss */
-#internal {
+.internal {
   background-color: #dff5ff;
 }
 
 /* line 9, ../scss/components/_internal.scss */
-#internal ul {
+.internal ul {
   padding: 0;
   margin: 0;
 }
 
 /* line 14, ../scss/components/_internal.scss */
-#internal ul li {
+.internal li {
   list-style: none;
   display: block;
   float: left;
 }
 
 /* line 20, ../scss/components/_internal.scss */
-#internal ul li a {
+.internal a {
   display: block;
   float: left;
   padding: 20px;
 }
 
 /* line 26, ../scss/components/_internal.scss */
-#internal ul li.current a {
+.internal .current a {
   background-color: white;
+}
+
+/* line 30, ../scss/components/_internal.scss */
+.current {
+  color: #53595f;
 }
 
 /* CONTENT
@@ -446,7 +502,7 @@ h3 {
 }
 
 /* line 9, ../scss/components/_maincontent.scss */
-h2.steps span {
+.steps span {
   background-color: #eef0f2;
   color: #646464;
   -webkit-border-radius: 5px;
@@ -459,7 +515,7 @@ h2.steps span {
 }
 
 /* line 21, ../scss/components/_maincontent.scss */
-#content p.meta {
+.meta {
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 20px;
 }
@@ -690,10 +746,436 @@ h2.steps span {
   width: 900px;
 }
 
+/** Base container **/
+/* line 2, ../scss/components/_kalendae.scss */
+.kalendae {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  background: #eee;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 11px;
+  font-family: 'Helvetica Neue', 'Helvetica';
+  cursor: default;
+  position: relative;
+}
+
+/** Popup Container for Kalendae.Input **/
+/* line 17, ../scss/components/_kalendae.scss */
+.kalendae.k-floating {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  z-index: 100000;
+  margin: 0;
+  width: 260px;
+  border: 1px solid #dedede;
+  margin-top: 10px;
+}
+
+/** Kalendae.Input's popup close button **/
+/* line 32, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-close {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 2px solid #ccc;
+  color: #999;
+  line-height: 15px;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* line 49, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-close:after {
+  content: "\2716";
+}
+
+/* line 50, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-close:hover {
+  color: #7EA0E2;
+  background: white;
+  border-color: #7EA0E2;
+}
+
+/** Month Container **/
+/* line 57, ../scss/components/_kalendae.scss */
+.kalendae .k-calendar {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  width: 240px;
+  vertical-align: top;
+  font-family: 'Helvetica Neue', 'Helvetica';
+}
+
+/** Month Separator **/
+/* line 67, ../scss/components/_kalendae.scss */
+.kalendae .k-separator {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  width: 2px;
+  vertical-align: top;
+  background: #ddd;
+  height: 155px;
+  margin: 0px 10px;
+}
+
+/** Month Title Row **/
+/* line 70, ../scss/components/_kalendae.scss */
+.kalendae .k-title {
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  color: white;
+  background: #008bcc;
+  border-radius: 5px;
+}
+
+/* line 78, ../scss/components/_kalendae.scss */
+.kalendae .k-caption {
+  font-size: 18px;
+  line-height: 30px;
+  font-family: 'museo', 'helvetica-neue', 'sans-serif';
+  letter-spacing: 1px;
+}
+
+/** Month and Year Buttons **/
+/* line 90, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-previous-month,
+.kalendae .k-btn-next-month,
+.kalendae .k-btn-previous-year,
+.kalendae .k-btn-next-year {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  color: white;
+  font-size: 26px;
+  line-height: 18px;
+  font-weight: bold;
+  font-family: 'museo', Verdana, Arial, sans-serif;
+  text-decoration: none;
+}
+
+/* line 104, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-previous-year {
+  left: 5px;
+}
+
+/* line 107, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-previous-month {
+  left: 21px;
+}
+
+/* line 110, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-next-month {
+  right: 21px;
+}
+
+/* line 113, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-next-year {
+  right: 5px;
+}
+
+/* line 117, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-previous-month:after {
+  content: "\2039";
+}
+
+/* line 118, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-next-month:after {
+  content: "\203A";
+}
+
+/* line 120, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-previous-year:after {
+  content: "\00AB";
+}
+
+/* line 121, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-next-year:after {
+  content: "\00BB";
+}
+
+/* line 124, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-previous-month:hover,
+.kalendae .k-btn-next-month:hover {
+  color: #7EA0E2;
+}
+
+/* line 127, ../scss/components/_kalendae.scss */
+.kalendae .k-btn-previous-year:hover,
+.kalendae .k-btn-next-year:hover {
+  color: #6FDF81;
+}
+
+/** Remove extra buttons when calendar shows multiple months **/
+/* line 137, ../scss/components/_kalendae.scss */
+.kalendae .k-first-month .k-btn-next-month,
+.kalendae .k-middle-month .k-btn-next-month,
+.kalendae .k-middle-month .k-btn-previous-month,
+.kalendae .k-last-month .k-btn-previous-month,
+.kalendae .k-first-month .k-btn-next-year,
+.kalendae .k-middle-month .k-btn-next-year,
+.kalendae .k-middle-month .k-btn-previous-year,
+.kalendae .k-last-month .k-btn-previous-year {
+  display: none;
+}
+
+/** Disable year nav option **/
+/* line 141, ../scss/components/_kalendae.scss */
+.kalendae .k-title.k-disable-year-nav .k-btn-next-year,
+.kalendae .k-title.k-disable-year-nav .k-btn-previous-year {
+  display: none;
+}
+
+/* line 142, ../scss/components/_kalendae.scss */
+.kalendae .k-title.k-disable-year-nav .k-btn-next-month {
+  right: 0;
+}
+
+/* line 143, ../scss/components/_kalendae.scss */
+.kalendae .k-title.k-disable-year-nav .k-btn-previous-month {
+  left: 0;
+}
+
+/** Force specific width for month container contents **/
+/* line 148, ../scss/components/_kalendae.scss */
+.kalendae .k-title,
+.kalendae .k-header,
+.kalendae .k-days {
+  width: 240px;
+  display: block;
+  overflow: hidden;
+}
+
+/* line 154, ../scss/components/_kalendae.scss */
+.k-days {
+  height: 130px;
+}
+
+/** Hide unusable buttons **/
+/* line 163, ../scss/components/_kalendae.scss */
+.kalendae.k-disable-next-month-btn .k-btn-next-month,
+.kalendae.k-disable-previous-month-btn .k-btn-previous-month,
+.kalendae.k-disable-next-year-btn .k-btn-next-year,
+.kalendae.k-disable-previous-year-btn .k-btn-previous-year {
+  display: none;
+}
+
+/** Week columns and day cells **/
+/* line 169, ../scss/components/_kalendae.scss */
+.kalendae .k-header span,
+.kalendae .k-days span {
+  float: left;
+  margin: 1px 1px;
+}
+
+/* line 174, ../scss/components/_kalendae.scss */
+.kalendae .k-header span {
+  text-align: center;
+  font-weight: bold;
+  width: 32px;
+  padding: 1px 0;
+  font-size: 15px;
+  color: #636363;
+}
+
+/* line 183, ../scss/components/_kalendae.scss */
+.kalendae .k-days span {
+  text-align: center;
+  width: 32px;
+  height: 25px;
+  font-size: 15px;
+  line-height: 13px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #2e6d9e;
+}
+
+/** Today **/
+/* line 198, ../scss/components/_kalendae.scss */
+.kalendae .k-today {
+  text-decoration: underline;
+}
+
+/** Days inside of the month view **/
+/* line 203, ../scss/components/_kalendae.scss */
+.kalendae .k-days span.k-in-month.k-active {
+  border: none;
+  background-color: #fff;
+  color: #88b8dd;
+}
+
+/** Days outside of the month view (before the first day of the month, after the last day of the month) **/
+/* line 209, ../scss/components/_kalendae.scss */
+.kalendae .k-days span.k-out-of-month {
+  color: #cccccc;
+}
+
+/** Selectable  **/
+/* line 214, ../scss/components/_kalendae.scss */
+.kalendae .k-days span.k-active {
+  cursor: pointer;
+}
+
+/** Selected day, when outside the selectable area **/
+/* line 219, ../scss/components/_kalendae.scss */
+.kalendae .k-days span.k-selected {
+  color: #1072A5;
+}
+
+/** Selected day, when inside the selectable area **/
+/* line 224, ../scss/components/_kalendae.scss */
+.kalendae .k-days span.k-selected.k-active {
+  background: #88b8dd;
+  color: white;
+}
+
+/** Days between the start and end points on a range, outside of the selectable area **/
+/* line 230, ../scss/components/_kalendae.scss */
+.kalendae .k-days span.k-range {
+  background: none;
+  border-color: #6DD4FE;
+}
+
+/** Days between the start and end points on a range, inside of the selectable area **/
+/* line 236, ../scss/components/_kalendae.scss */
+.kalendae .k-days span.k-range.k-in-month {
+  background: #C4D4F1;
+  border-color: #19AEFE;
+  color: #333;
+}
+
+/** Selectable day, hovered **/
+/* line 243, ../scss/components/_kalendae.scss */
+.kalendae .k-days span.k-active:hover {
+  border-color: #666;
+}
+
+/*-------------------------------------IE8 ONLY CODE BELOW THIS LINE--------------------------------------------*/
+/* line 250, ../scss/components/_kalendae.scss */
+.kalendae.ie8.k-floating {
+  border: 1px solid #ccc;
+}
+
+/* line 254, ../scss/components/_kalendae.scss */
+.kalendae.ie8 .k-btn-close {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: url("close.png") no-repeat top left;
+}
+
+/* line 260, ../scss/components/_kalendae.scss */
+.kalendae.ie8 .k-btn-close:after {
+  display: none;
+}
+
+/* line 265, ../scss/components/_kalendae.scss */
+.kalendae.ie8 .k-btn-previous-month,
+.kalendae.ie8 .k-btn-next-month,
+.kalendae.ie8 .k-btn-previous-year,
+.kalendae.ie8 .k-btn-next-year {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background: #777777 url("arrows.png") no-repeat center left;
+  position: absolute;
+  top: 0;
+}
+
+/* line 268, ../scss/components/_kalendae.scss */
+.kalendae.ie8 .k-btn-next-month,
+.kalendae.ie8 .k-btn-next-year {
+  background-position: center right;
+}
+
+/* line 271, ../scss/components/_kalendae.scss */
+.kalendae.ie8 .k-btn-previous-month:hover,
+.kalendae.ie8 .k-btn-next-month:hover {
+  background-color: #7EA0E2;
+}
+
+/* line 274, ../scss/components/_kalendae.scss */
+.kalendae.ie8 .k-btn-previous-year,
+.kalendae.ie8 .k-btn-next-year {
+  background-color: #333;
+}
+
+/* line 277, ../scss/components/_kalendae.scss */
+.kalendae.ie8 .k-btn-previous-year:hover,
+.kalendae.ie8 .k-btn-next-year:hover {
+  background-color: #6FDF81;
+}
+
+/* line 282, ../scss/components/_kalendae.scss */
+.kalendae.ie8 .k-btn-previous-month:after,
+.kalendae.ie8 .k-btn-next-month:after,
+.kalendae.ie8 .k-btn-previous-year:after,
+.kalendae.ie8 .k-btn-next-year:after {
+  display: none;
+}
+
+/* line 1, ../scss/components/_create_work_item.scss */
+.create_scope_item_container {
+  margin-left: 40px;
+  margin-top: 20px;
+  list-style-type: none;
+  width: 375px;
+  padding-left: 0;
+}
+
+/* line 9, ../scss/components/_create_work_item.scss */
+.create_scope_item {
+  position: relative;
+  border: 1px solid #dedede;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+/* line 16, ../scss/components/_create_work_item.scss */
+.create_scope_label {
+  display: inline;
+}
+
+/* line 21, ../scss/components/_create_work_item.scss */
+.create_scope_item_delete {
+  color: #972b46;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 29, ../scss/components/_create_work_item.scss */
+.create_scope_item_delete:hover {
+  color: #972b46;
+  text-decoration: none;
+}
+
 /* FOOTER
 ================================================================================ */
 /* line 5, ../scss/components/_footer.scss */
-#footer {
+.footer {
   background: #8c96a0 url(../img/shade-footer.png) repeat-x bottom;
   -webkit-border-bottom-right-radius: 10px;
   -webkit-border-bottom-left-radius: 10px;
@@ -705,30 +1187,26 @@ h2.steps span {
 }
 
 /* line 16, ../scss/components/_footer.scss */
-#footer h3 {
+.footer h3 {
   color: #dce1e6;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* line 21, ../scss/components/_footer.scss */
-#footer a {
+.footer a {
   color: white;
 }
 
 /* line 25, ../scss/components/_footer.scss */
-#footer ul {
+.footer ul {
   margin-left: 0;
-}
-
-/* line 29, ../scss/components/_footer.scss */
-#footer ul li {
-  list-style: none;
+  list-style-type: none;
 }
 
 /* COPYRIGHT
 ================================================================================ */
 /* line 7, ../scss/components/_copyright.scss */
-#copyright p {
+.copyright {
   margin: 0;
   padding: 20px;
   font-size: .75em;

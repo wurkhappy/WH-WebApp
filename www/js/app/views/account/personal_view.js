@@ -1,8 +1,8 @@
 /*
- * Personal Signup View.
+ * Personal Account View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/signup/personal.html'],
+define(['backbone', 'handlebars', 'text!templates/account/personal.html'],
 
     function (Backbone, Handlebars, personalTemplate) {
 
@@ -10,24 +10,19 @@ define(['backbone', 'handlebars', 'text!templates/signup/personal.html'],
 
       var PersonalView = Backbone.View.extend({
 
-        el: '#content',
+        className:'clear',
 
-        // Compile our footer template.
+        attributes:{'id':'content'},
+
         template: Handlebars.compile(personalTemplate),
 
         initialize: function () {
-
           this.render();
-
         },
 
         render: function () {
-
-          // Update el with the cached template.
-          $(this.el).html(this.template());
-
+          this.$el.html(this.template());
           return this;
-
         }
 
       });
