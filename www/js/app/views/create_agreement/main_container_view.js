@@ -4,7 +4,7 @@
 
 define(['backbone', 'handlebars'],
 
-    function (Backbone, Handlebars, createTemplate) {
+    function (Backbone, Handlebars) {
 
       'use strict';
 

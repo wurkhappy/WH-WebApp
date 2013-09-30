@@ -10,29 +10,44 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 key: 'payments',
                 relatedModel: PaymentModel,
                 collectionType: PaymentCollection,
+                reverseRelation: {
+                    key: 'parent',
+                    includeInJSON: false
+                }
             },
             {
                 type: Backbone.HasMany,
                 key: 'statusHistory',
                 relatedModel: StatusModel,
                 collectionType: StatusCollection,
-            },
-            {
-                type: Backbone.HasMany,
-                key: 'completeHistory',
-                relatedModel: StatusModel,
-                collectionType: StatusCollection,
+                reverseRelation: {
+                    key: 'ownerModel',
+                    includeInJSON: false
+                }
             }
             ],
-            url:function(){
-                if (this.id) {return "/agreement/"+this.id;}
-                return "/agreement"
+            urlRoot:function(){
+                return "/agreement";
             },
-            updateCompleteHistory:function(){
-                this.get("payments").each(_.bind(function(payment){
-                    this.get("completeHistory").add(payment.get("statusHistory").models);
-                },this));
-                this.get("completeHistory").add(this.get("statusHistory").models);
+            submit: function(){
+                this.updateStatus("submitted");
+            },
+            accept: function(){
+                this.updateStatus("accepted");
+            },
+            reject: function(){
+                this.updateStatus("rejected");
+            },
+            updateStatus:function(action){
+                $.ajax({
+                  type: "POST",
+                  url: "/agreement/"+this.id+"/status?action="+action,
+                  contentType: "application/json",
+                  dataType: "json",
+                  success: _.bind(function(response){
+                    this.get("statusHistory").add(response);
+                }, this)
+              });
             }
         });
 

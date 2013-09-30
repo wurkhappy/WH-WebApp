@@ -40,6 +40,11 @@ func main() {
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
 
+	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.CreatePaymentStatus)).Methods("POST")
+	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.UpdatePaymentStatus)).Methods("PUT")
+	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.CreateAgreementStatus)).Methods("POST")
+	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.UpdateAgreementStatus)).Methods("PUT")
+
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	r.Handle("/agreement", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
 	r.Handle("/agreement/{id}", baseHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
@@ -47,6 +52,7 @@ func main() {
 	http.Handle("/", r)
 
 	//static content
+	serveSingle("/favicon.ico", "favicon.ico")
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))

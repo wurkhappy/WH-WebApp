@@ -12,16 +12,41 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 collectionType: ScopeItemCollection,
             },
             {
-                type: Backbone.HasMany,
-                key: 'statusHistory',
+                type: Backbone.HasOne,
+                key: 'currentStatus',
                 relatedModel: StatusModel,
                 collectionType: StatusCollection,
             }
             ],
+            urlRoot:function(){
+                return "/agreement/"+this.collection.parent.id+"/payment";
+            },
+
+            submit: function(){
+                this.updateStatus("submitted");
+            },
+            accept: function(){
+                this.updateStatus("accepted");
+            },
+            reject: function(){
+                this.updateStatus("rejected");
+            },
+            updateStatus:function(action){
+                $.ajax({
+                  type: "POST",
+                  url: "/agreement/"+this.collection.parent.id+"/payment/"+this.id+"/status?action="+action,
+                  contentType: "application/json",
+                  dataType: "json",
+                  success: _.bind(function(response){
+                    this.collection.parent.get("statusHistory").add(response);
+                    this.set("currentStatus",this.collection.parent.get("statusHistory").at(0));
+                }, this)
+              });
+            }
         });
 
-        return Payment;
+return Payment;
 
-    }
+}
 
-    );
+);

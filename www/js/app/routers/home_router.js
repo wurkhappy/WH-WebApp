@@ -2,9 +2,9 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'collections/agreements', 'views/create_agreement/proposal_view', 'moment'],
+ define(['backbone', 'collections/agreements', 'views/home/home_section_view', 'moment'],
 
-  function (Backbone, AgreementCollection, view, moment) {
+  function (Backbone, AgreementCollection, SectionView, moment) {
 
     'use strict';
 
@@ -18,15 +18,25 @@
 
       initialize: function () {
         this.collection = new AgreementCollection(window.agreements);
-        this.collection.each(function(agreement){
-          agreement.updateCompleteHistory();
-        })
-        this.collection.at(0).get("completeHistory").add({date:moment()});
         console.log(this.collection);
+        
       },
 
       AllAgreements: function () {
+        //need to to views
+        //same view with different title and different models
+        var sortedAgreements = this.collection.sortByStatus();
 
+        var waitingView = new SectionView({
+          title:"Waiting for Response", 
+          collection: sortedAgreements.waitingOnRespAgrmnts, 
+          el:'#waitingSection'
+        });
+        var progressView = new SectionView({
+          title:"In Progress", 
+          collection: sortedAgreements.inProgressAgrmnts, 
+          el:'#progressSection'
+        });
       },
 
       FreelancerAgreements: function () {
@@ -38,7 +48,7 @@
 
     });
 
-    return HomeRouter;
+return HomeRouter;
 
-  }
-  );
+}
+);

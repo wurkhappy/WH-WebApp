@@ -1,18 +1,29 @@
 {{define "content"}}
+<script>
+var agreement = {{.agreement}};
+var otherUser = {{.otherUser}};
+var thisUser = {{.thisUser}};
+</script>
 <div id="content" class="clear">
 
   <div id="agreement-profile" class="data-table">
 
     <table border="0" cellspacing="0" cellpadding="0">
+      {{if .otherUser}}
+      {{with .otherUser}}
       <tr>
         <td class="meta">
-          <span><img src="../img/people/obama-face.png"></span>
+          <span><img src="{{.avatarURL}}"></span>
         </td>
         <td>
-          <h3><a href="detail.html">Joe Smith</a></h3>
-          <p>joe@rockstar.com &mdash; (480) 329-7537</p>
+          <h3><a href="detail.html">{{.firstName}} {{.lastName}}</a></h3>
+          <p>{{.email}} {{if .phoneNumber}}&mdash; {{.phoneNumber}}{{end}}</p>
         </td>
       </tr>
+      {{end}}
+      {{else}}
+      Has not been sent to client yet
+      {{end}}
     </table>
 
   </div>
@@ -23,12 +34,12 @@
       <span style="background-position: -900px 0px;"><img src="../img/progress-large.png"></span>
     </div>
 
-    <h2>Payment Milestones for $3000</h2>
+    <h2>Payment Milestones</h2>
 
     <ul>
-      <li><strong>$1000</strong> &mdash; Initial Deposit to Get Started on June 28, 2011</li>
-      <li><strong>$1000</strong> &mdash; Wireframes Delivered on July 12, 2011</li>
-      <li><strong>$1000</strong> &mdash; Final Payment on July 12, 2011</li>
+      {{range .agreement.payments}}
+      <li><strong>{{.amount}}</strong> &mdash; {{.title}} <!-- on June 28, 2011 --></li>
+      {{end}}
     </ul>
 
   </div>
@@ -36,16 +47,15 @@
   <div class="column-one-half">
 
     <h2>Proposed Services</h2>
-    <p>We propose to develop a completely custom, e-commerce enabled web site for you, with the goal of increasing sales and positioning you as the online leader in their industry.</p>
+    <p>{{.agreement.proposedServices}}</p>
 
 
   </div>
 
   <div class="column-one-half">
-
     <h2>Refund Policies</h2>
 
-    <p>We do not offer refunds.</p>
+    <p>{{.agreement.refundPolicy}}</p>
 
   </div>
 
@@ -53,13 +63,6 @@
 
     <h2>Agreement History</h2>
 
-    <ul reversed="reversed">
-      <li>Marked as complete on April 29, 2011</li>
-      <li>Accepted by <a href="../people/detail.html">Joe Smith</a> on April 18, 2011</li>
-      <li>Edited and resent on April 16, 2011</li>
-      <li>Declined by <a href="../people/detail.html">Joe Smith</a> on April 14, 2011</li>
-      <li>Sent to <a href="../people/detail.html">Joe Smith</a> on April 12, 2011</li>
-    </ul>
 
     <p>If, for whatever reason, you feel this agreement is no longer valid, you can <a href="void.html">void the agreement</a>.</p>
 

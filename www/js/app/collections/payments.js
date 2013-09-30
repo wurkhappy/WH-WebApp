@@ -13,8 +13,9 @@ define(['backbone', 'models/payment'],
             // Reference to this collection's model.
             model: Model,
 
-            // URL where to fetch the data.
-            url: '../api/index.php/items'
+            getTotalAmount:function(){
+                return this.reduce(function(memo, value) { return memo + value.get("amount") }, 0);
+            }
 
         });
 

@@ -2,9 +2,9 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/proposal_tpl.html'],
+ define(['backbone', 'handlebars', 'underscore', 'moment', 'text!templates/create_agreement/proposal_tpl.html'],
 
-  function (Backbone, Handlebars, _, scopeTemplate) {
+  function (Backbone, Handlebars, _, moment, scopeTemplate) {
 
     'use strict';
 
@@ -39,6 +39,7 @@
       saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();
+        this.model.get("statusHistory").add({statusType:"created", date:moment()});
 
         this.model.save({},{
           success:_.bind(function(model, response){

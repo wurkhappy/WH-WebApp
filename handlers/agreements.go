@@ -28,9 +28,14 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	var agreementsData []map[string]interface{}
 	json.Unmarshal(buf.Bytes(), &agreementsData)
 
+	user := map[string]interface{}{
+		"id": session.Values["id"],
+	}
+
 	m := map[string]interface{}{
 		"appName":    "mainhome",
 		"agreements": agreementsData,
+		"user":       user,
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
@@ -83,7 +88,6 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
-	buf.String()
 	w.Write(buf.Bytes())
 }
 
@@ -101,9 +105,27 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 }
 
 func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	id := vars["id"]
+	r, _ := http.NewRequest("GET", "http://localhost:4050/agreements/"+id, nil)
+	respData, _ := sendRequest(r)
+
+	userID := session.Values["id"]
+	otherID, _ := respData["freelancerID"]
+	if otherID == userID {
+		otherID = respData["clientID"]
+	}
+	var otherUser map[string]interface{}
+	if otherID != "" {
+		otherUser = getUserInfo(otherID.(string))
+	}
+	thisUser := getUserInfo(userID.(string))
 
 	m := map[string]interface{}{
-	// "appName": "maincreateagreement",
+		"appName":   "mainagreement",
+		"agreement": respData,
+		"otherUser": otherUser,
+		"thisUser":  thisUser,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
@@ -113,15 +135,73 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 
 }
 
-// func BuildTemplate(dir string, funcMap template.FuncMap) (*template.Template, error) {
-//     fs, err := ioutil.ReadDir(dir)
-//     if err != nil {
-//         fmt.Printf("Can't read template folder: %s\n", dir)
-//         return nil, err
-//     }
-//     files := make([]string, len(fs))
-//     for i, f := range (fs) {
-//         files[i] = path.Join(dir, f.Name())
-//     }
-//     return template.Must(template.New("Template").Funcs(funcMap).ParseFiles(files...)), nil
-// }
+func getUserInfo(id string) map[string]interface{} {
+	if id == "" {
+		return make(map[string]interface{})
+	}
+	client := &http.Client{}
+	r, _ := http.NewRequest("GET", "http://localhost:3000/user/search?userid="+id, nil)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+	clientBuf := new(bytes.Buffer)
+	clientBuf.ReadFrom(resp.Body)
+	var clientData []map[string]interface{}
+	json.Unmarshal(clientBuf.Bytes(), &clientData)
+	if len(clientData) > 0 {
+		return clientData[0]
+	}
+	return nil
+}
+
+func sendRequest(r *http.Request) (map[string]interface{}, []byte) {
+	client := &http.Client{}
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+	respBuf := new(bytes.Buffer)
+	respBuf.ReadFrom(resp.Body)
+	var respData map[string]interface{}
+	json.Unmarshal(respBuf.Bytes(), &respData)
+	return respData, respBuf.Bytes()
+}
+
+func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	req.ParseForm()
+	vars := mux.Vars(req)
+	id := vars["agreementID"]
+	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/status?action="+req.FormValue("action"), nil)
+	_, respBytes := sendRequest(r)
+	w.Write(respBytes)
+}
+
+func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	req.ParseForm()
+	vars := mux.Vars(req)
+	id := vars["agreementID"]
+	paymentID := vars["paymentID"]
+	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/payment/"+paymentID+"/status?action="+req.FormValue("action"), nil)
+	_, respBytes := sendRequest(r)
+	w.Write(respBytes)
+}
+
+func UpdateAgreementStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	req.ParseForm()
+	vars := mux.Vars(req)
+	id := vars["agreementID"]
+	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreement/"+id+"/status", req.Body)
+	_, respBytes := sendRequest(r)
+	w.Write(respBytes)
+}
+
+func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	req.ParseForm()
+	vars := mux.Vars(req)
+	id := vars["agreementID"]
+	paymentID := vars["paymentID"]
+	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreement/"+id+"/payment/"+paymentID+"/status", req.Body)
+	_, respBytes := sendRequest(r)
+	w.Write(respBytes)
+}

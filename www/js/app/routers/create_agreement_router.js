@@ -20,7 +20,6 @@
       initialize: function () {
         this.model = new AgreementModel();
         this.model.set("payments", [{title:"Wireframe", amount:10.5}]);
-        console.log(this.model);
         this.mainContainer = new MainContainerView({model: this.model});
       },
 
@@ -32,8 +31,8 @@
       estimate: function () {
         if (!this.estimateView) {
           this.estimateView = new EstimateView({router:this, model: this.model, collection:this.model.get("payments")});
-          this.estimateView.render();
         }
+        this.estimateView.render();
         this.mainContainer.switchToView(this.estimateView);
       },
       recipient: function () {
@@ -43,7 +42,7 @@
 
     });
 
-    return CreateAgreementRouter;
+return CreateAgreementRouter;
 
-  }
-  );
+}
+);

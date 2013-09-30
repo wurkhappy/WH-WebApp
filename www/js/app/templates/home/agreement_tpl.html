@@ -1,0 +1,15 @@
+            <td class="meta">
+              <span><img src="../img/people/kristen-face.png"></span>
+            </td>
+            <td>
+              {{#with model}}
+              <h3><a href="/agreement/{{id}}">{{title}}</a></h3>
+              {{/with}}
+              {{#with status}}
+              <p>{{statusType}} on {{date}}</p>
+              {{/with}}
+            </td>
+            <td class="progress">
+              <span style="background-position: -200px 0px;"><img src="../img/progress-small.png"></span>
+              <p>Waiting for Agreement</p>
+            </td>
