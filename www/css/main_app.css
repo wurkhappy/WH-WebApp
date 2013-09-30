@@ -457,41 +457,38 @@ fieldset {
   background-color: #972a45;
 }
 
-/* INTERNAL   (Main)
+/* Sub- Navigation
 ================================================================================ */
-/* line 5, ../scss/components/_internal.scss */
-.internal {
+/* line 5, ../scss/components/_sub_navigation.scss */
+.sub_navigation {
   background-color: #dff5ff;
 }
 
-/* line 9, ../scss/components/_internal.scss */
-.internal ul {
+/* line 9, ../scss/components/_sub_navigation.scss */
+.sub_navigation ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 14, ../scss/components/_internal.scss */
-.internal li {
+/* line 14, ../scss/components/_sub_navigation.scss */
+.sub_navigation li {
   list-style: none;
   display: block;
   float: left;
 }
 
-/* line 20, ../scss/components/_internal.scss */
-.internal a {
+/* line 20, ../scss/components/_sub_navigation.scss */
+.sub_navigation a {
   display: block;
   float: left;
   padding: 20px;
+  color: #009adb;
 }
 
-/* line 26, ../scss/components/_internal.scss */
-.internal .current a {
-  background-color: white;
-}
-
-/* line 30, ../scss/components/_internal.scss */
-.current {
-  color: #53595f;
+/* line 27, ../scss/components/_sub_navigation.scss */
+.current a {
+  background: white;
+  color: #009adb;
 }
 
 /* CONTENT

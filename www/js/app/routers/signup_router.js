@@ -15,6 +15,7 @@ define([
       var AccountRouter = Backbone.Router.extend({
 
         routes: {
+          '': 'personal',
           'personal': 'personal',
           'bankaccount': 'bankAccount',
           'creditcard': 'creditCard'
@@ -51,6 +52,7 @@ define([
             // need to add in model stuff
             this.bankAccountView = new BankAccountView({router:this});
           }
+          console.log(this.bankAccountView)
           this.mainContainer.switchToView(this.bankAccountView);
         }
 

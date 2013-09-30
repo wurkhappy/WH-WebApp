@@ -1,12 +1,9 @@
-/* LANDING INTERNAL
+/* Sub- Navigation
 ================================================================================ */
 
 
 .sub_navigation {
-  background: #CEEAF3;
-  border-top: 1px solid white;
-  background: rgb(220,224,228) url(../img/bg.png);
-  border-bottom: 1px solid rgb(184,190,196);
+  background-color: rgb(223,245,255);
 }
 
 .sub_navigation ul {
@@ -18,18 +15,16 @@
   list-style: none;
   display: block;
   float: left;
-  /*outline: 1px solid white;*/
 }
 
 .sub_navigation a {
   display: block;
   float: left;
   padding: 20px;
-  font-weight: bold;
+  color: hsl(198, 100%, 43%);
 }
 
-.sub_navigation ul li.current a {
-  outline: 1px solid white;
+.current a {
   background: rgb(255,255,255);
-  outline: 1px solid white;
+  color: hsl(198, 100%, 43%);
 }

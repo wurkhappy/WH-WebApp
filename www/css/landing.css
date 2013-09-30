@@ -482,43 +482,38 @@ fieldset {
   margin: 20px 0 8px 0;
 }
 
-/* LANDING INTERNAL
+/* Sub- Navigation
 ================================================================================ */
-/* line 5, ../scss/components/_landing_sub_navigation.scss */
+/* line 5, ../scss/components/_sub_navigation.scss */
 .sub_navigation {
-  background: #CEEAF3;
-  border-top: 1px solid white;
-  background: #dce0e4 url(../img/bg.png);
-  border-bottom: 1px solid #b8bec4;
+  background-color: #dff5ff;
 }
 
-/* line 12, ../scss/components/_landing_sub_navigation.scss */
+/* line 9, ../scss/components/_sub_navigation.scss */
 .sub_navigation ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 17, ../scss/components/_landing_sub_navigation.scss */
+/* line 14, ../scss/components/_sub_navigation.scss */
 .sub_navigation li {
   list-style: none;
   display: block;
   float: left;
-  /*outline: 1px solid white;*/
 }
 
-/* line 24, ../scss/components/_landing_sub_navigation.scss */
+/* line 20, ../scss/components/_sub_navigation.scss */
 .sub_navigation a {
   display: block;
   float: left;
   padding: 20px;
-  font-weight: bold;
+  color: #009adb;
 }
 
-/* line 31, ../scss/components/_landing_sub_navigation.scss */
-.sub_navigation ul li.current a {
-  outline: 1px solid white;
+/* line 27, ../scss/components/_sub_navigation.scss */
+.current a {
   background: white;
-  outline: 1px solid white;
+  color: #009adb;
 }
 
 /* CONTENT
