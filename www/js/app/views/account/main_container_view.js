@@ -27,7 +27,7 @@ define(['backbone', 'handlebars'],
           var navigatePage = event.target.getAttribute("href");
 
           $(".nav_menu").removeClass("current");
-          event.target.parentNode.setAttribute("class","current nav_menu");
+          event.target.parentNode.setAttribute("class","current nav_menu sub_navigation_tab");
 
           this.router.navigate(navigatePage, {trigger:true});
 

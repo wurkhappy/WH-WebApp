@@ -1,4 +1,4 @@
-/* Sub- Navigation
+/* Sub- Navigation 
 ================================================================================ */
 
 
@@ -6,18 +6,18 @@
   background-color: rgb(223,245,255);
 }
 
-.sub_navigation ul {
+.sub_navigation_container {
   padding: 0;
   margin: 0;
 }
 
-.sub_navigation li {
+.sub_navigation_tab {
   list-style: none;
   display: block;
   float: left;
 }
 
-.sub_navigation a {
+.sub_navigation_link {
   display: block;
   float: left;
   padding: 20px;

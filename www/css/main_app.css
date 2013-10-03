@@ -60,7 +60,7 @@ table {
   border-spacing: 0;
 }
 
-/* COMMON
+/* Typography
 ================================================================================ */
 /* line 52, ../scss/bases/_common.scss */
 body {
@@ -71,7 +71,7 @@ body {
 }
 
 /* line 60, ../scss/bases/_common.scss */
-a:link,
+a,
 a:visited {
   text-decoration: none;
   color: #0099dd;
@@ -137,59 +137,28 @@ h3 {
   font-weight: 500;
 }
 
-/* COMMON UI classes
+/* Forms
 ================================================================================ */
-/* line 118, ../scss/bases/_common.scss */
-.hide {
-  display: none;
-}
-
-/* FORMS
-================================================================================ */
-/* line 5, ../scss/components/_forms.scss */
+/* line 120, ../scss/bases/_common.scss */
 form {
   padding: 0 20px 20px 20px;
 }
 
-/* line 9, ../scss/components/_forms.scss */
-.addMoreButton {
-  width: 290px;
-}
-
-/* line 13, ../scss/components/_forms.scss */
-.add-more {
-  margin: 20px 0 0 0;
-  padding: 0 0 0 20px;
-  background: url(../img/icons/add-16x16.png) no-repeat left;
-}
-
-/* line 19, ../scss/components/_forms.scss */
-.milestone-divider {
-  border-bottom: 1px solid #dedede;
-}
-
-/* line 23, ../scss/components/_forms.scss */
+/* line 124, ../scss/bases/_common.scss */
 label, .faux-label {
   display: block;
   padding: 20px 0 5px 0;
   margin: 0;
 }
 
-/* line 31, ../scss/components/_forms.scss */
+/* line 130, ../scss/bases/_common.scss */
 label span {
   display: block;
   font-size: .75em;
   color: #969696;
 }
 
-/* line 37, ../scss/components/_forms.scss */
-.checkbox {
-  border: none;
-  margin: 0;
-  padding: 5px 0;
-}
-
-/* line 43, ../scss/components/_forms.scss */
+/* line 136, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
@@ -199,38 +168,48 @@ input, textarea {
   display: block;
 }
 
-/* line 52, ../scss/components/_forms.scss */
+/* line 145, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 59, ../scss/components/_forms.scss */
+/* line 152, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 64, ../scss/components/_forms.scss */
-.upload {
-  border: none;
-}
-
-/* line 68, ../scss/components/_forms.scss */
+/* line 157, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
 }
 
-/* line 72, ../scss/components/_forms.scss */
+/* line 161, ../scss/bases/_common.scss */
+fieldset {
+  border-top: 1px solid whitesmoke;
+  padding: 0 0 20px 0;
+}
+
+/* COMMON UI classes
+================================================================================ */
+/* line 168, ../scss/bases/_common.scss */
+.hide {
+  display: none;
+}
+
+/* FORMS
+================================================================================ */
+/* line 4, ../scss/components/_forms.scss */
 .action {
   margin: 5px 0 0 0;
   padding: 0;
   font-size: .75em;
 }
 
-/* line 78, ../scss/components/_forms.scss */
+/* line 12, ../scss/components/_forms.scss */
 .security-detail {
   margin: 10px 0 0 0;
   padding: 10px 10px 10px 30px;
@@ -241,48 +220,16 @@ select {
   background: whitesmoke url(../img/lock.png) no-repeat 1% 50%;
 }
 
-/* line 88, ../scss/components/_forms.scss */
-fieldset {
-  border-top: 1px solid whitesmoke;
-  padding: 0 0 20px 0;
+/* line 23, ../scss/components/_forms.scss */
+.checkbox {
+  border: none;
+  margin: 0;
+  padding: 5px 0;
 }
 
-/* line 93, ../scss/components/_forms.scss */
-.submit-buttons {
-  padding: 20px 0 0 0;
-}
-
-/* line 97, ../scss/components/_forms.scss */
-.submit-buttons a {
-  display: block;
-  float: left;
-  text-align: center;
-  padding: 0 20px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  line-height: 40px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  text-shadow: 0 -1px 0 #711f34;
-  -webkit-box-shadow: 0 1px 2px #646464;
-  -moz-box-shadow: 0 1px 2px #646464;
-  box-shadow: 0 1px 2px #646464;
-  background-image: url(../img/shade-button.png);
-  background-repeat: repeat-x;
-  background-position: center;
-}
-
-/* line 119, ../scss/components/_forms.scss */
-.submit-buttons a,
-.submit-buttons a:visited {
-  background-color: #be3557;
-}
-
-/* line 123, ../scss/components/_forms.scss */
-.submit-buttons a:hover, .submit-buttons a:active {
-  background-color: #972a45;
+/* line 30, ../scss/components/_forms.scss */
+.upload {
+  border: none;
 }
 
 /* Header - Common
@@ -320,12 +267,13 @@ fieldset {
   display: block;
   padding-left: 70px;
   text-decoration: none;
+  width: 210px;
 }
-/* line 34, ../scss/components/_header.scss */
+/* line 35, ../scss/components/_header.scss */
 .logo:visited {
   color: black;
 }
-/* line 37, ../scss/components/_header.scss */
+/* line 38, ../scss/components/_header.scss */
 .logo:hover, .logo:active {
   text-decoration: none;
   color: #646464;
@@ -333,12 +281,12 @@ fieldset {
 
 /* Header - Main App
 ================================================================================ */
-/* line 46, ../scss/components/_header.scss */
+/* line 47, ../scss/components/_header.scss */
 .main_top_padding {
   padding-top: 13px;
 }
 
-/* line 50, ../scss/components/_header.scss */
+/* line 51, ../scss/components/_header.scss */
 .navigation_links a {
   display: block;
   float: left;
@@ -347,7 +295,7 @@ fieldset {
 
 /* Header - Landing
 ================================================================================ */
-/* line 59, ../scss/components/_header.scss */
+/* line 60, ../scss/components/_header.scss */
 .landing_navigation_links {
   padding-left: 85px;
   line-height: 38px;
@@ -356,12 +304,12 @@ fieldset {
   padding-top: 23px;
 }
 
-/* line 67, ../scss/components/_header.scss */
+/* line 68, ../scss/components/_header.scss */
 .top_padding {
   padding-top: 20px;
 }
 
-/* line 71, ../scss/components/_header.scss */
+/* line 72, ../scss/components/_header.scss */
 .create_account {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -437,27 +385,102 @@ fieldset {
 .button:hover {
   text-decoration: none;
   cursor: pointer;
+  color: white;
 }
 
-/* line 37, ../scss/components/_buttons.scss */
+/* line 38, ../scss/components/_buttons.scss */
 .action_button {
   background-color: #88cc55;
 }
-/* line 39, ../scss/components/_buttons.scss */
+/* line 40, ../scss/components/_buttons.scss */
 .action_button:hover {
   background-color: #7ab74c;
 }
 
-/* line 44, ../scss/components/_buttons.scss */
+/* line 45, ../scss/components/_buttons.scss */
 .cancel {
   background-color: #be3557;
 }
-/* line 46, ../scss/components/_buttons.scss */
+/* line 47, ../scss/components/_buttons.scss */
 .cancel:hover {
   background-color: #972a45;
 }
 
-/* Sub- Navigation
+/* line 52, ../scss/components/_buttons.scss */
+.submit-button {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  border: none;
+  width: 200px;
+  color: white;
+  background-color: #007ab1;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  background-image: url(../img/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: top center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+/* line 73, ../scss/components/_buttons.scss */
+.submit-button:hover,
+.submit-button:focus {
+  outline: none;
+  background-color: #0091d2;
+}
+
+/* line 78, ../scss/components/_buttons.scss */
+.login_button {
+  margin-top: -20px;
+  width: 200px;
+  left: 50%;
+  margin-left: -150px;
+}
+
+/* line 86, ../scss/components/_buttons.scss */
+.submit-buttons {
+  padding: 20px 0 0 0;
+}
+
+/* line 90, ../scss/components/_buttons.scss */
+.submit-buttons a {
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 0 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  line-height: 40px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-shadow: 0 -1px 0 #711f34;
+  -webkit-box-shadow: 0 1px 2px #646464;
+  -moz-box-shadow: 0 1px 2px #646464;
+  box-shadow: 0 1px 2px #646464;
+  background-image: url(../img/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+/* line 112, ../scss/components/_buttons.scss */
+.submit-buttons a,
+.submit-buttons a:visited {
+  background-color: #be3557;
+}
+
+/* line 116, ../scss/components/_buttons.scss */
+.submit-buttons a:hover, .submit-buttons a:active {
+  background-color: #972a45;
+}
+
+/* Sub- Navigation 
 ================================================================================ */
 /* line 5, ../scss/components/_sub_navigation.scss */
 .sub_navigation {
@@ -465,20 +488,20 @@ fieldset {
 }
 
 /* line 9, ../scss/components/_sub_navigation.scss */
-.sub_navigation ul {
+.sub_navigation_container {
   padding: 0;
   margin: 0;
 }
 
 /* line 14, ../scss/components/_sub_navigation.scss */
-.sub_navigation li {
+.sub_navigation_tab {
   list-style: none;
   display: block;
   float: left;
 }
 
 /* line 20, ../scss/components/_sub_navigation.scss */
-.sub_navigation a {
+.sub_navigation_link {
   display: block;
   float: left;
   padding: 20px;
@@ -493,66 +516,66 @@ fieldset {
 
 /* CONTENT
 ================================================================================ */
-/* line 5, ../scss/components/_maincontent.scss */
+/* line 4, ../scss/components/_content.scss */
 #content {
   background-color: white;
 }
 
-/* line 9, ../scss/components/_maincontent.scss */
-.steps span {
+/* line 8, ../scss/components/_content.scss */
+.steps {
   background-color: #eef0f2;
   color: #646464;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  font-size: .65em;
+  font-size: 1.1em;
   display: block;
   float: right;
   padding: 0 10px;
 }
 
-/* line 21, ../scss/components/_maincontent.scss */
+/* line 20, ../scss/components/_content.scss */
 .meta {
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 20px;
 }
 
-/* line 26, ../scss/components/_maincontent.scss */
+/* line 25, ../scss/components/_content.scss */
 #content #agreement-profile {
   border-bottom: 1px solid #e1e1e1;
 }
 
-/* line 30, ../scss/components/_maincontent.scss */
+/* line 29, ../scss/components/_content.scss */
 #content #agreement-profile.data-table {
   padding: 10px 20px 0 20px;
 }
 
-/* line 34, ../scss/components/_maincontent.scss */
+/* line 33, ../scss/components/_content.scss */
 #content #payment-schedule {
   border-bottom: 1px solid #e1e1e1;
 }
 
-/* line 38, ../scss/components/_maincontent.scss */
+/* line 37, ../scss/components/_content.scss */
 #content #payment-schedule h2 {
   background: url(../img/progress.png) no-repeat right;
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-/* line 44, ../scss/components/_maincontent.scss */
+/* line 43, ../scss/components/_content.scss */
 #content #payment-schedule ul {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-/* line 49, ../scss/components/_maincontent.scss */
+/* line 48, ../scss/components/_content.scss */
 #content #payment-schedule ul li {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 56, ../scss/components/_maincontent.scss */
+/* line 55, ../scss/components/_content.scss */
 #content #payment-schedule ul li a,
 #content #payment-schedule ul li span {
   -webkit-border-radius: 5px;
@@ -565,52 +588,52 @@ fieldset {
   text-decoration: none;
 }
 
-/* line 67, ../scss/components/_maincontent.scss */
+/* line 66, ../scss/components/_content.scss */
 #content #payment-schedule ul li span {
   background-color: #eef0f2;
   color: #646464;
 }
 
-/* line 73, ../scss/components/_maincontent.scss */
+/* line 72, ../scss/components/_content.scss */
 #content #payment-schedule ul li a:link,
 #content #payment-schedule ul li a:visited {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 79, ../scss/components/_maincontent.scss */
+/* line 78, ../scss/components/_content.scss */
 #content #payment-schedule ul li a:hover,
 #content #payment-schedule ul li a:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 84, ../scss/components/_maincontent.scss */
+/* line 83, ../scss/components/_content.scss */
 #content #agreement-profile.data-table table tr td {
   border-top: none;
   padding-bottom: 20px;
 }
 
-/* line 89, ../scss/components/_maincontent.scss */
+/* line 88, ../scss/components/_content.scss */
 #content #agreement-history {
   background-color: #f9fafb;
   border-top: 1px solid #e1e1e1;
 }
 
-/* line 94, ../scss/components/_maincontent.scss */
+/* line 93, ../scss/components/_content.scss */
 #content #agreement-history ul {
   margin: 0 20px 0 20px;
   padding: 0;
 }
 
-/* line 99, ../scss/components/_maincontent.scss */
+/* line 98, ../scss/components/_content.scss */
 #content #agreement-history ul li {
   border-bottom: 1px solid #e1e1e1;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 105, ../scss/components/_maincontent.scss */
+/* line 104, ../scss/components/_content.scss */
 #content #agreement-history p {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -624,35 +647,35 @@ fieldset {
   border-bottom-left-radius: 3px;
 }
 
-/* line 118, ../scss/components/_maincontent.scss */
+/* line 117, ../scss/components/_content.scss */
 #content .data-table {
   padding: 0 20px 10px 20px;
 }
 
-/* line 122, ../scss/components/_maincontent.scss */
+/* line 121, ../scss/components/_content.scss */
 #content .data-table table {
   width: 100%;
 }
 
-/* line 126, ../scss/components/_maincontent.scss */
+/* line 125, ../scss/components/_content.scss */
 #content .data-table table tr td {
   border-top: 1px solid whitesmoke;
   padding: 10px 20px 10px 0;
   vertical-align: top;
 }
 
-/* line 132, ../scss/components/_maincontent.scss */
+/* line 131, ../scss/components/_content.scss */
 #content .data-table table tr td h3 {
   margin: 10px 0 0 0;
   padding: 0;
 }
 
-/* line 137, ../scss/components/_maincontent.scss */
+/* line 136, ../scss/components/_content.scss */
 #content .data-table table tr td h3.less {
   margin-top: 0;
 }
 
-/* line 141, ../scss/components/_maincontent.scss */
+/* line 140, ../scss/components/_content.scss */
 #content .data-table table tr td p {
   margin: 0;
   padding: 0;
@@ -660,26 +683,26 @@ fieldset {
   color: #969696;
 }
 
-/* line 148, ../scss/components/_maincontent.scss */
+/* line 147, ../scss/components/_content.scss */
 #content .data-table table tr td p.remove {
   background: url(../img/icons/cross-16x16.png) no-repeat left;
   padding-left: 20px;
 }
 
-/* line 153, ../scss/components/_maincontent.scss */
+/* line 152, ../scss/components/_content.scss */
 #content .data-table table tr td.action {
   width: 150px;
   padding: 10px 0;
   text-align: right;
 }
 
-/* line 159, ../scss/components/_maincontent.scss */
+/* line 158, ../scss/components/_content.scss */
 #content .data-table table tr td.meta {
   width: 80px;
   padding: 10px 0;
 }
 
-/* line 164, ../scss/components/_maincontent.scss */
+/* line 163, ../scss/components/_content.scss */
 #content .data-table table tr td.meta span {
   display: block;
   border: 1px solid #e1e1e1;
@@ -691,20 +714,20 @@ fieldset {
   border-radius: 3px;
 }
 
-/* line 175, ../scss/components/_maincontent.scss */
+/* line 174, ../scss/components/_content.scss */
 #content .data-table table tr td.meta span img {
   display: block;
   width: 50px;
 }
 
-/* line 180, ../scss/components/_maincontent.scss */
+/* line 179, ../scss/components/_content.scss */
 #content .data-table table tr td.progress {
   width: 200px;
   padding: 10px 0;
   text-align: center;
 }
 
-/* line 186, ../scss/components/_maincontent.scss */
+/* line 185, ../scss/components/_content.scss */
 #content .data-table table tr td.progress span {
   display: block;
   margin: 14px 0 13px 0;
@@ -713,13 +736,13 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 194, ../scss/components/_maincontent.scss */
+/* line 193, ../scss/components/_content.scss */
 #content .data-table table tr td.progress span img {
   display: block;
   width: 200px;
 }
 
-/* line 199, ../scss/components/_maincontent.scss */
+/* line 198, ../scss/components/_content.scss */
 #content .progress-large {
   margin: 20px;
   padding: 10px;
@@ -729,7 +752,7 @@ fieldset {
   background-color: #f9fafb;
 }
 
-/* line 208, ../scss/components/_maincontent.scss */
+/* line 207, ../scss/components/_content.scss */
 #content .progress-large span {
   display: block;
   background-color: #dce0e4;
@@ -737,7 +760,7 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 215, ../scss/components/_maincontent.scss */
+/* line 214, ../scss/components/_content.scss */
 #content .progress-large span img {
   display: block;
   width: 900px;
@@ -1131,6 +1154,23 @@ fieldset {
   display: none;
 }
 
+/* line 1, ../scss/components/_create_estimate.scss */
+.addMoreButton {
+  width: 290px;
+}
+
+/* line 5, ../scss/components/_create_estimate.scss */
+.add-more {
+  margin: 20px 0 0 0;
+  padding: 0 0 0 20px;
+  background: url(../img/icons/add-16x16.png) no-repeat left;
+}
+
+/* line 11, ../scss/components/_create_estimate.scss */
+.milestone-divider {
+  border-bottom: 1px solid #dedede;
+}
+
 /* line 1, ../scss/components/_create_work_item.scss */
 .create_scope_item_container {
   margin-left: 40px;
@@ -1184,18 +1224,22 @@ fieldset {
 }
 
 /* line 16, ../scss/components/_footer.scss */
-.footer h3 {
+.footer_title {
   color: #dce1e6;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* line 21, ../scss/components/_footer.scss */
-.footer a {
+.footer_link {
+  color: white;
+}
+/* line 23, ../scss/components/_footer.scss */
+.footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 25, ../scss/components/_footer.scss */
-.footer ul {
+/* line 28, ../scss/components/_footer.scss */
+.footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
@@ -1211,12 +1255,6 @@ fieldset {
   text-align: center;
 }
 
-/* @import "components/link";
-@import "components/heading";
-@import "components/form";
-@import "components/message";
-@import "components/button";
-@import "components/pager";*/
 /* line 8, ../scss/layouts/_layout.scss */
 .container {
   margin: 0 auto;

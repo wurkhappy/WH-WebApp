@@ -1,80 +1,14 @@
 /* FORMS
 ================================================================================ */
 
-
-form { //was #content form
-  padding: 0 20px 20px 20px;
-}
-
-.addMoreButton {
-  width: 290px;
-}
-
-.add-more { // was #content form p.add-more
-  margin: 20px 0 0 0;
-  padding: 0 0 0 20px;
-  background: url(../img/icons/add-16x16.png) no-repeat left;
-}
-
-.milestone-divider {
-  border-bottom: 1px solid hsl(0, 0, 87%);
-}
-
-label, .faux-label { // was #content form fieldset label, #content form fieldset p.faux-label
-  display: block;
-  padding: 20px 0 5px 0;
-  margin: 0;
-}
-
-//Here so far in refactoring.
-
-label span {
-  display: block;
-  font-size: .75em;
-  color: rgb(150,150,150);
-}
-
-.checkbox { // was #content form fieldset label
-  border: none;
-  margin: 0;
-  padding: 5px 0;
-}
-
-input, textarea {
-  border: 1px solid rgb(150,150,150);
-  padding: 3px;
-  margin: 0;
-  font-size: 100%;
-  font: inherit;
-  display: block;
-}
-
-input[disabled] {
-  color: rgb(100,100,100);
-  border: 1px solid rgb(200,200,200);
-  background-color: rgb(245,245,245);
-}
-
-input[type=checkbox],
-input[type=radio] {
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.upload {
-  border: none;
-}
-
-select {
-  margin: 0 10px 0 0;
-}
-
 .action {
   margin: 5px 0 0 0;
   padding: 0;
   font-size: .75em;
 }
 
+
+// Account page
 .security-detail {
   margin: 10px 0 0 0;
   padding: 10px 10px 10px 30px;
@@ -85,41 +19,15 @@ select {
   background: rgb(245,245,245) url(../img/lock.png) no-repeat 1% 50%;
 }
 
-fieldset {
-  border-top: 1px solid rgb(245,245,245);
-  padding: 0 0 20px 0;
+
+.checkbox {
+  border: none;
+  margin: 0;
+  padding: 5px 0;
 }
 
-.submit-buttons {
-  padding: 20px 0 0 0;
+//account
+.upload {
+  border: none;
 }
 
-.submit-buttons a {
-  display: block;
-  float: left;
-  text-align: center;
-  padding: 0 20px;
-  font-weight: bold;
-  color: rgb(255,255,255);
-  text-decoration: none;
-  line-height: 40px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  text-shadow: 0 -1px 0 rgb(113,31,52);
-  -webkit-box-shadow: 0 1px 2px rgb(100,100,100);
-  -moz-box-shadow: 0 1px 2px rgb(100,100,100);
-  box-shadow: 0 1px 2px rgb(100,100,100);
-  background-image: url(../img/shade-button.png);
-  background-repeat: repeat-x;
-  background-position: center;
-}
-
-.submit-buttons a,
-.submit-buttons a:visited {
-  background-color: rgb(190,53,87);
-}
-
-.submit-buttons a:hover, .submit-buttons a:active {
-  background-color: rgb(151,42,69);
-}

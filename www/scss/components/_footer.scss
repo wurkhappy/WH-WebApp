@@ -13,16 +13,19 @@
   border-top: 1px solid rgb(125,125,125);
 }
 
-.footer h3 {
+.footer_title {
   color: rgb(220,225,230);
   text-shadow: 0 1px 0 rgba(0,0,0,.5);
 }
 
-.footer a {
+.footer_link {
   color: rgb(255,255,255);
+  &:visited, &:active {
+    color: rgb(255,255,255);
+  }
 }
 
-.footer ul {
+.footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }

@@ -1,0 +1,217 @@
+/* CONTENT
+================================================================================ */
+
+#content {
+  background-color: rgb(255,255,255);
+}
+
+.steps {
+  background-color: rgb(238,240,242);
+  color: rgb(100,100,100);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  display: block;
+  float: right;
+  padding: 0 10px;
+}
+
+.meta {
+  border-bottom: 1px solid rgb(240,240,240);
+  padding-bottom: 20px;
+}
+
+#content #agreement-profile {
+  border-bottom: 1px solid rgb(225,225,225);
+}
+
+#content #agreement-profile.data-table {
+  padding: 10px 20px 0 20px;
+}
+
+#content #payment-schedule {
+  border-bottom: 1px solid rgb(225,225,225);
+}
+
+#content #payment-schedule h2 {
+  background: url(../img/progress.png) no-repeat right;
+  padding: 0;
+  margin: 20px 20px 10px 20px;
+}
+
+#content #payment-schedule ul {
+  margin: 0 20px 10px 20px;
+  padding: 0;
+}
+
+#content #payment-schedule ul li {
+  border-top: 1px solid rgb(245,245,245);
+  padding: 10px 0;
+  list-style: none;
+}
+
+#content #payment-schedule ul li a,
+#content #payment-schedule ul li span {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: .875em;
+  display: block;
+  float: right;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+#content #payment-schedule ul li span {
+  background-color: rgb(238,240,242);
+  color: rgb(100,100,100);
+}
+
+#content #payment-schedule ul li a:link,
+#content #payment-schedule ul li a:visited {
+  background-color: rgb(136,204,85);
+  color: rgb(255,255,255);
+}
+
+#content #payment-schedule ul li a:hover,
+#content #payment-schedule ul li a:active {
+  background-color: rgb(122,183,76);
+  color: rgb(255,255,255);
+}
+
+#content #agreement-profile.data-table table tr td {
+  border-top: none;
+  padding-bottom: 20px;
+}
+
+#content #agreement-history {
+  background-color: rgb(249,250,251);
+  border-top: 1px solid rgb(225,225,225);
+}
+
+#content #agreement-history ul {
+  margin: 0 20px 0 20px;
+  padding: 0;
+}
+
+#content #agreement-history ul li {
+  border-bottom: 1px solid rgb(225,225,225);
+  padding: 10px 0;
+  list-style: none;
+}
+
+#content #agreement-history p {
+  margin: 0 20px 20px 20px;
+  padding: 10px;
+  background-color: rgb(238,240,242);
+  text-align: center;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+#content .data-table {
+  padding: 0 20px 10px 20px;
+}
+
+#content .data-table table {
+  width: 100%;
+}
+
+#content .data-table table tr td {
+  border-top: 1px solid rgb(245,245,245);
+  padding: 10px 20px 10px 0;
+  vertical-align: top;
+}
+
+#content .data-table table tr td h3 {
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+#content .data-table table tr td h3.less {
+  margin-top: 0;
+}
+
+#content .data-table table tr td p {
+  margin: 0;
+  padding: 0;
+  font-size: .875em;
+  color: rgb(150,150,150);
+}
+
+#content .data-table table tr td p.remove {
+  background: url(../img/icons/cross-16x16.png) no-repeat left;
+  padding-left: 20px;
+}
+
+#content .data-table table tr td.action {
+  width: 150px;
+  padding: 10px 0;
+  text-align: right;
+}
+
+#content .data-table table tr td.meta {
+  width: 80px;
+  padding: 10px 0;
+}
+
+#content .data-table table tr td.meta span {
+  display: block;
+  border: 1px solid rgb(225,225,225);
+  background-color: rgb(249,250,251);
+  padding: 4px;
+  margin: 0 20px 0 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#content .data-table table tr td.meta span img {
+  display: block;
+  width: 50px;
+}
+
+#content .data-table table tr td.progress {
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+#content .data-table table tr td.progress span {
+  display: block;
+  margin: 14px 0 13px 0;
+  background-color: rgb(220,224,228);
+  background-image: url(../img/progress-bar-small.png);
+  background-repeat: no-repeat;
+}
+
+#content .data-table table tr td.progress span img {
+  display: block;
+  width: 200px;
+}
+
+#content .progress-large {
+  margin: 20px;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: rgb(249,250,251);
+}
+
+#content .progress-large span {
+  display: block;
+  background-color: rgb(220,224,228);
+  background-image: url(../img/progress-bar-large.png);
+  background-repeat: no-repeat;
+}
+
+#content .progress-large span img {
+  display: block;
+  width: 900px;
+}

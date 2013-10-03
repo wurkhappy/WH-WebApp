@@ -45,7 +45,7 @@ table {
 }
 
 
-/* COMMON
+/* Typography
 ================================================================================ */
 
 
@@ -56,7 +56,7 @@ body {
   color: rgb(100,100,100);
 }
 
-a:link,
+a,
 a:visited {
   text-decoration: none;
   color: rgb(0,153,221);
@@ -111,6 +111,56 @@ h3 {
   line-height: 20px;
   margin: 20px 0 10px 0;
   font-weight: 500;
+}
+
+/* Forms
+================================================================================ */
+
+
+form {
+  padding: 0 20px 20px 20px;
+}
+
+label, .faux-label {
+  display: block;
+  padding: 20px 0 5px 0;
+  margin: 0;
+}
+
+label span {
+  display: block;
+  font-size: .75em;
+  color: rgb(150,150,150);
+}
+
+input, textarea {
+  border: 1px solid rgb(150,150,150);
+  padding: 3px;
+  margin: 0;
+  font-size: 100%;
+  font: inherit;
+  display: block;
+}
+
+input[disabled] {
+  color: rgb(100,100,100);
+  border: 1px solid rgb(200,200,200);
+  background-color: rgb(245,245,245);
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+select {
+  margin: 0 10px 0 0;
+}
+
+fieldset {
+  border-top: 1px solid rgb(245,245,245);
+  padding: 0 0 20px 0;
 }
 
 /* COMMON UI classes

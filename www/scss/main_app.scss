@@ -50,17 +50,12 @@ $legacy-support-for-mozilla: false !default;
 @import "components/intro";
 @import "components/buttons";
 @import "components/sub_navigation";
-@import "components/maincontent";
+@import "components/content";
 @import "components/kalendae";
+@import "components/create_estimate";
 @import "components/create_work_item";
 @import "components/footer";
 @import "components/copyright";
-/* @import "components/link";
-@import "components/heading";
-@import "components/form";
-@import "components/message";
-@import "components/button";
-@import "components/pager";*/
 //////////////////////////////
 
 //////////////////////////////

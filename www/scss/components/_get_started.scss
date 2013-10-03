@@ -1,0 +1,91 @@
+.get_started_container {
+  padding: 20px 0;
+  background: $white;
+}
+
+.features li {
+  background: transparent url(../img/thumb_up-16x16.png) no-repeat left;
+  padding: 10px 10px 10px 25px;
+  list-style: none;
+  border-top: 1px solid rgb(245,245,245);
+}
+
+.create_account_form {
+  position: relative;
+  border: 1px solid #ddd;
+  background-color: rgb(253,253,253);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin: 0;
+  padding: 20px 10px;
+}
+
+.create_account_legend {
+  font-size: 24px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  font-family: "Museo", Helvetica, Arial, sans-serif;
+  color: rgb(0,0,0);
+}
+
+.secure {
+  padding: 0 0 0 26px;
+  background-image: url(../img/lock-16x16.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.features {
+  margin: 0 0 15px 0;
+}
+
+
+fieldset {
+  margin: 0;
+  padding: 10px 0 0 0;
+}
+
+label {
+  display: block;
+  padding: 10px 0 5px 0;
+  color: rgb(0,0,0);
+  font-weight: bold;
+}
+
+.input-box {
+  margin: 0;
+  padding: 0;
+}
+
+.text-field {
+  margin: 0;
+  padding: 5px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 1px solid rgb(200,200,200);
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.text-field:focus {
+  outline: none;
+  border: 1px solid rgb(100,100,100);
+}
+
+.validation {
+  display: inline-block;
+  width: 70%;
+  font-size: 14px;
+  color: red;
+  text-align: right;
+  font-weight: normal;
+}
+
+.border {
+  border: 1px solid red !important;
+}

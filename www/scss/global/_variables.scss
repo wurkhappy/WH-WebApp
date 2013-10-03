@@ -4,4 +4,27 @@
 // All of your variables should go in this file.
 ////////////////////////
 
+
+//Button/Graphic
 $red: hsl(345, 56%, 38%);
+$green_dark: hsl(94, 54%, 57%);
+$green_light: hsl(94, 54%, 57%);
+
+// Background
+$blue_background: hsl(199, 100%, 35%);
+$light_blue_background: hsl(199, 100%, 94%);
+$white_transparent_background: hsla(0, 0%, 0%, 0);
+$grey_background: hsl(0, 0%, 49%); // Footer
+
+
+
+
+// Text
+$blue_text_light: hsl(198, 100%, 43%); //normal link
+$blue_text_dark: hsl(198, 100%, 39%); // hover link
+$black: hsl(0, 0%, 0%); // header text
+$black_light: hsl(0, 0%, 39%); // body text
+$white: hsl(0, 100%, 100%); // header text on normal/dark backgrounds
+$grey:  hsl(0, 0%, 59%); // help text
+$grey_light: hsl(0, 0%, 39%); // active (hover) text that was black
+$grey_blue: hsl(210, 17%, 88%); // header in footer

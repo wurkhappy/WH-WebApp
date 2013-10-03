@@ -46,12 +46,13 @@ $legacy-support-for-mozilla: false !default;
 //////////////////////////////
 // COMPONENTS
 @import "components/forms";
+@import "components/form_feedback";
 @import "components/header";
 @import "components/buttons";
-@import "components/landing_benefits";
+@import "components/benefits";
 @import "components/sub_navigation";
-@import "components/landingcontent";
-@import "components/landinglogin";
+@import "components/get_started";
+@import "components/login";
 @import "components/footer";
 @import "components/copyright";
 //////////////////////////////
