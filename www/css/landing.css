@@ -523,254 +523,192 @@ fieldset {
 
 /* CONTENT
 ================================================================================ */
-/* line 5, ../scss/components/_maincontent.scss */
+/* line 4, ../scss/components/_landingcontent.scss */
 #content {
   background-color: white;
+  padding: 20px 0;
 }
 
-/* line 9, ../scss/components/_maincontent.scss */
-.steps span {
-  background-color: #eef0f2;
-  color: #646464;
+/* line 9, ../scss/components/_landingcontent.scss */
+.features {
+  margin: 0 0 15px 0;
+}
+
+/* line 13, ../scss/components/_landingcontent.scss */
+.features li {
+  background: transparent url(../img/thumb_up-16x16.png) no-repeat left;
+  padding: 10px 10px 10px 25px;
+  list-style: none;
+  border-top: 1px solid whitesmoke;
+}
+
+/* line 20, ../scss/components/_landingcontent.scss */
+.create_account_form {
+  position: relative;
+  border: 1px solid #ddd;
+  background-color: #fdfdfd;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  font-size: .65em;
-  display: block;
-  float: right;
-  padding: 0 10px;
+  margin: 0;
+  padding: 20px 10px;
 }
 
-/* line 21, ../scss/components/_maincontent.scss */
-.meta {
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 20px;
-}
-
-/* line 26, ../scss/components/_maincontent.scss */
-#content #agreement-profile {
-  border-bottom: 1px solid #e1e1e1;
-}
-
-/* line 30, ../scss/components/_maincontent.scss */
-#content #agreement-profile.data-table {
-  padding: 10px 20px 0 20px;
-}
-
-/* line 34, ../scss/components/_maincontent.scss */
-#content #payment-schedule {
-  border-bottom: 1px solid #e1e1e1;
-}
-
-/* line 38, ../scss/components/_maincontent.scss */
-#content #payment-schedule h2 {
-  background: url(../img/progress.png) no-repeat right;
-  padding: 0;
-  margin: 20px 20px 10px 20px;
-}
-
-/* line 44, ../scss/components/_maincontent.scss */
-#content #payment-schedule ul {
-  margin: 0 20px 10px 20px;
-  padding: 0;
-}
-
-/* line 49, ../scss/components/_maincontent.scss */
-#content #payment-schedule ul li {
-  border-top: 1px solid whitesmoke;
-  padding: 10px 0;
-  list-style: none;
-}
-
-/* line 56, ../scss/components/_maincontent.scss */
-#content #payment-schedule ul li a,
-#content #payment-schedule ul li span {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-size: .875em;
-  display: block;
-  float: right;
-  padding: 0 10px;
-  text-decoration: none;
-}
-
-/* line 67, ../scss/components/_maincontent.scss */
-#content #payment-schedule ul li span {
-  background-color: #eef0f2;
-  color: #646464;
-}
-
-/* line 73, ../scss/components/_maincontent.scss */
-#content #payment-schedule ul li a:link,
-#content #payment-schedule ul li a:visited {
-  background-color: #88cc55;
-  color: white;
-}
-
-/* line 79, ../scss/components/_maincontent.scss */
-#content #payment-schedule ul li a:hover,
-#content #payment-schedule ul li a:active {
-  background-color: #7ab74c;
-  color: white;
-}
-
-/* line 84, ../scss/components/_maincontent.scss */
-#content #agreement-profile.data-table table tr td {
-  border-top: none;
-  padding-bottom: 20px;
-}
-
-/* line 89, ../scss/components/_maincontent.scss */
-#content #agreement-history {
-  background-color: #f9fafb;
-  border-top: 1px solid #e1e1e1;
-}
-
-/* line 94, ../scss/components/_maincontent.scss */
-#content #agreement-history ul {
-  margin: 0 20px 0 20px;
-  padding: 0;
-}
-
-/* line 99, ../scss/components/_maincontent.scss */
-#content #agreement-history ul li {
-  border-bottom: 1px solid #e1e1e1;
-  padding: 10px 0;
-  list-style: none;
-}
-
-/* line 105, ../scss/components/_maincontent.scss */
-#content #agreement-history p {
-  margin: 0 20px 20px 20px;
-  padding: 10px;
-  background-color: #eef0f2;
-  text-align: center;
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-/* line 118, ../scss/components/_maincontent.scss */
-#content .data-table {
-  padding: 0 20px 10px 20px;
-}
-
-/* line 122, ../scss/components/_maincontent.scss */
-#content .data-table table {
-  width: 100%;
-}
-
-/* line 126, ../scss/components/_maincontent.scss */
-#content .data-table table tr td {
-  border-top: 1px solid whitesmoke;
-  padding: 10px 20px 10px 0;
-  vertical-align: top;
-}
-
-/* line 132, ../scss/components/_maincontent.scss */
-#content .data-table table tr td h3 {
-  margin: 10px 0 0 0;
-  padding: 0;
-}
-
-/* line 137, ../scss/components/_maincontent.scss */
-#content .data-table table tr td h3.less {
-  margin-top: 0;
-}
-
-/* line 141, ../scss/components/_maincontent.scss */
-#content .data-table table tr td p {
+/* line 31, ../scss/components/_landingcontent.scss */
+.create_account_legend {
+  font-size: 24px;
+  line-height: 30px;
   margin: 0;
   padding: 0;
-  font-size: .875em;
-  color: #969696;
+  font-weight: 100;
+  font-family: "Museo", Helvetica, Arial, sans-serif;
+  color: black;
 }
 
-/* line 148, ../scss/components/_maincontent.scss */
-#content .data-table table tr td p.remove {
-  background: url(../img/icons/cross-16x16.png) no-repeat left;
-  padding-left: 20px;
+/* line 41, ../scss/components/_landingcontent.scss */
+.secure {
+  padding: 0 0 0 26px;
+  background-image: url(../img/lock-16x16.png);
+  background-repeat: no-repeat;
+  background-position: left center;
 }
 
-/* line 153, ../scss/components/_maincontent.scss */
-#content .data-table table tr td.action {
-  width: 150px;
-  padding: 10px 0;
+/* line 48, ../scss/components/_landingcontent.scss */
+fieldset {
+  margin: 0;
+  padding: 10px 0 0 0;
+}
+
+/* line 53, ../scss/components/_landingcontent.scss */
+label {
+  display: block;
+  padding: 10px 0 5px 0;
+  color: black;
+  font-weight: bold;
+}
+
+/* line 60, ../scss/components/_landingcontent.scss */
+.input-box {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 65, ../scss/components/_landingcontent.scss */
+.text-field {
+  margin: 0;
+  padding: 5px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 1px solid #c8c8c8;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* line 76, ../scss/components/_landingcontent.scss */
+.text-field:focus {
+  outline: none;
+  border: 1px solid #646464;
+}
+
+/* line 81, ../scss/components/_landingcontent.scss */
+.submit-button {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  border: none;
+  width: 200px;
+  color: white;
+  background-color: #007ab1;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  background-image: url(../img/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: top center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+/* line 102, ../scss/components/_landingcontent.scss */
+.submit-button:hover,
+.submit-button:focus {
+  outline: none;
+  background-color: #0091d2;
+}
+
+/* line 107, ../scss/components/_landingcontent.scss */
+.validation {
+  display: inline-block;
+  width: 70%;
+  font-size: 14px;
+  color: red;
   text-align: right;
+  font-weight: normal;
 }
 
-/* line 159, ../scss/components/_maincontent.scss */
-#content .data-table table tr td.meta {
-  width: 80px;
-  padding: 10px 0;
+/* line 116, ../scss/components/_landingcontent.scss */
+.border {
+  border: 1px solid red !important;
 }
 
-/* line 164, ../scss/components/_maincontent.scss */
-#content .data-table table tr td.meta span {
+/* line 120, ../scss/components/_landingcontent.scss */
+.fixed {
+  position: fixed;
+  bottom: 0;
+}
+
+/* line 125, ../scss/components/_landingcontent.scss */
+.line {
+  border-bottom: 1px solid #b8bec4;
+}
+
+/* line 129, ../scss/components/_landingcontent.scss */
+#what {
   display: block;
-  border: 1px solid #e1e1e1;
-  background-color: #f9fafb;
-  padding: 4px;
-  margin: 0 20px 0 0px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
 }
 
-/* line 175, ../scss/components/_maincontent.scss */
-#content .data-table table tr td.meta span img {
+/* line 133, ../scss/components/_landingcontent.scss */
+#introduction {
   display: block;
-  width: 50px;
 }
 
-/* line 180, ../scss/components/_maincontent.scss */
-#content .data-table table tr td.progress {
-  width: 200px;
-  padding: 10px 0;
-  text-align: center;
+/* line 137, ../scss/components/_landingcontent.scss */
+.box {
+  border: 1px solid black;
+  margin: 15px;
+  padding: 5px;
+  width: 525px;
 }
 
-/* line 186, ../scss/components/_maincontent.scss */
-#content .data-table table tr td.progress span {
-  display: block;
-  margin: 14px 0 13px 0;
-  background-color: #dce0e4;
-  background-image: url(../img/progress-bar-small.png);
-  background-repeat: no-repeat;
+/* line 144, ../scss/components/_landingcontent.scss */
+.title {
+  color: black;
+  background: #ddd;
+  opacity: .5;
 }
 
-/* line 194, ../scss/components/_maincontent.scss */
-#content .data-table table tr td.progress span img {
-  display: block;
-  width: 200px;
+/* line 150, ../scss/components/_landingcontent.scss */
+.title a:hover {
+  color: black;
 }
 
-/* line 199, ../scss/components/_maincontent.scss */
-#content .progress-large {
-  margin: 20px;
-  padding: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #f9fafb;
+/* line 154, ../scss/components/_landingcontent.scss */
+#log_out {
+  display: none;
 }
 
-/* line 208, ../scss/components/_maincontent.scss */
-#content .progress-large span {
-  display: block;
-  background-color: #dce0e4;
-  background-image: url(../img/progress-bar-large.png);
-  background-repeat: no-repeat;
+/* line 158, ../scss/components/_landingcontent.scss */
+#server_error {
+  color: red;
 }
 
-/* line 215, ../scss/components/_maincontent.scss */
-#content .progress-large span img {
-  display: block;
-  width: 900px;
+/* line 162, ../scss/components/_landingcontent.scss */
+.invalid {
+  padding-bottom: 25px;
 }
 
 /* line 1, ../scss/components/_landinglogin.scss */
@@ -887,7 +825,7 @@ fieldset {
 
 /* line 103, ../scss/components/_landinglogin.scss */
 .login {
-  height: 200px;
+  height: 250px;
   width: 220px;
   position: absolute;
   top: 25%;
@@ -907,7 +845,7 @@ fieldset {
 
 /* line 121, ../scss/components/_landinglogin.scss */
 #logindiv.login form {
-  height: 205px;
+  height: 250px;
   width: 298px;
   position: fixed;
   top: 35%;
@@ -958,24 +896,9 @@ fieldset {
 .copyright {
   margin: 0;
   padding: 20px;
-  font-size: .75em;
+  font-size: 13px;
   color: #545a60;
   text-align: center;
-}
-
-/* COPYRIGHT
-================================================================================ */
-/* line 5, ../scss/components/_landingcopyright.scss */
-#copyright {
-  border-top: 1px solid #b8bec4;
-}
-
-/* line 9, ../scss/components/_landingcopyright.scss */
-#copyright p {
-  margin: 0;
-  padding: 20px;
-  font-size: 12px;
-  color: #7c8288;
 }
 
 /* line 8, ../scss/layouts/_layout.scss */

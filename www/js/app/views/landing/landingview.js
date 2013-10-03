@@ -67,7 +67,7 @@ define(['backbone', 'handlebars', 'jquery', 'views/landing/loginview',
           // hide stuff, show stuff, add class, fade stuff
           $('#log_in').hide();
           $('#log_out').show();
-          $('#copyright').addClass('fixed');
+          $('.copyright').addClass('fixed');
           $('#navigation').addClass('line');
           $('.fade').fadeOut('fast');
 
@@ -88,7 +88,7 @@ define(['backbone', 'handlebars', 'jquery', 'views/landing/loginview',
           //Do the same thing as triggerLogin but opposite
             $('#log_out').hide();
             $('#log_in').show();
-            $('#copyright').removeClass('fixed');
+            $('.copyright').removeClass('fixed');
             $('#navigation').removeClass('line');
             $('.login').fadeOut('fast');
             $('.fade').fadeIn('slow');

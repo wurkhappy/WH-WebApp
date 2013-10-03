@@ -1,15 +1,6 @@
 /* CONTENT
 ================================================================================ */
 
-p {
-  text-align: left;
-  width: 500px; /*to maximize readability - 66-75 characters per line*/
-}
-
-h4 {
-  width: 520px;
-}
-
 #content {
   background-color: rgb(255,255,255);
   padding: 20px 0;
@@ -26,7 +17,7 @@ h4 {
   border-top: 1px solid rgb(245,245,245);
 }
 
-form {
+.create_account_form {
   position: relative;
   border: 1px solid #ddd;
   background-color: rgb(253,253,253);
@@ -37,7 +28,7 @@ form {
   padding: 20px 10px;
 }
 
-legend {
+.create_account_legend {
   font-size: 24px;
   line-height: 30px;
   margin: 0;
@@ -45,7 +36,6 @@ legend {
   font-weight: 100;
   font-family: "Museo", Helvetica, Arial, sans-serif;
   color: rgb(0,0,0);
-
 }
 
 .secure {
