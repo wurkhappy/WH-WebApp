@@ -2,9 +2,9 @@
  * Login View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/landing/login.html', 'models/user'],
+define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html', 'models/user'],
 
-    function (Backbone, Handlebars, loginTemplate, UserModel) {
+    function (Backbone, Handlebars, parsley, loginTemplate, UserModel) {
 
       'use strict';
 

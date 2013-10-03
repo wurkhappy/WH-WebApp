@@ -3,10 +3,10 @@
  * Landing main View.
  */
 
-define(['backbone', 'handlebars', 'jquery', 'views/landing/loginview', 
+define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview', 
   'text!templates/landing/landingview.html', 'text!templates/landing/about.html', 'text!templates/landing/pricing.html'],
 
-    function(Backbone, Handlebars, $, LoginView, landingTemplate, aboutTemplate, pricingTemplate) {
+    function (Backbone, Handlebars, $, parsley, LoginView, landingTemplate, aboutTemplate, pricingTemplate) {
 
       'use strict';
 
