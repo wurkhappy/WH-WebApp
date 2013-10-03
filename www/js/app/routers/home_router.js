@@ -37,6 +37,11 @@
           collection: sortedAgreements.inProgressAgrmnts, 
           el:'#progressSection'
         });
+        var draftView = new SectionView({
+          title:"Drafts", 
+          collection: sortedAgreements.draftAgrmnts, 
+          el:'#draftSection'
+        });
       },
 
       FreelancerAgreements: function () {

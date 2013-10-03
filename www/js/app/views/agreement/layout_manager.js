@@ -16,7 +16,8 @@
       regions: {
         profile: "#agreement-profile",
         paymentSchedule: "#payment-schedule",
-        agreementHistory: "#agreement-history"
+        agreementHistory: "#agreement-history",
+        header: "#header-section"
       },
 
       initialize: function(){

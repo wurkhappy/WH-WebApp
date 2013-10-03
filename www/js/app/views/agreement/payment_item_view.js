@@ -15,13 +15,6 @@
 
       initialize:function(){
         this.collection = this.model.get("scopeItems");
-      },
-      events:{
-        "click":"submit"
-      },
-      submit:function(){
-        console.log("accept");
-        this.model.accept();
       }
 
     });

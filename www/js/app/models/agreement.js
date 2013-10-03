@@ -29,16 +29,16 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
             urlRoot:function(){
                 return "/agreement";
             },
-            submit: function(){
-                this.updateStatus("submitted");
+            submit: function(successCallback){
+                this.updateStatus("submitted", successCallback);
             },
-            accept: function(){
-                this.updateStatus("accepted");
+            accept: function(successCallback){
+                this.updateStatus("accepted", successCallback);
             },
-            reject: function(){
-                this.updateStatus("rejected");
+            reject: function(successCallback){
+                this.updateStatus("rejected", successCallback);
             },
-            updateStatus:function(action){
+            updateStatus:function(action, successCallback){
                 $.ajax({
                   type: "POST",
                   url: "/agreement/"+this.id+"/status?action="+action,
@@ -46,6 +46,7 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                   dataType: "json",
                   success: _.bind(function(response){
                     this.get("statusHistory").add(response);
+                    successCallback();
                 }, this)
               });
             }

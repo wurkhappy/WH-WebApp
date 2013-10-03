@@ -37,7 +37,7 @@
       saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();
-        this.model.get("statusHistory").add({statusType:"created", date:moment()});
+        // this.model.get("statusHistory").add({statusType:"created", date:moment()});
 
         this.model.save({},{
           success:_.bind(function(model, response){

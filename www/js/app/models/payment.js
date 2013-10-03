@@ -21,6 +21,18 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             urlRoot:function(){
                 return "/agreement/"+this.collection.parent.id+"/payment";
             },
+            set: function( key, value, options ) {
+                Backbone.RelationalModel.prototype.set.apply( this, arguments );
+
+                //amount has to be a float or integer. Backend won't accept number as string.
+                if (typeof key === 'object') {
+                    if (_.has(key, "amount")) {
+                        this.attributes.amount = parseFloat(key["amount"]);
+                    }
+                } else if (key === 'amount'){
+                    this.attributes.amount = parseFloat(value);
+                }
+            },
 
             submit: function(){
                 this.updateStatus("submitted");

@@ -1,36 +1,43 @@
 /*
- * Collection.
- */
+* Collection.
+*/
 
- define(['backbone', 'models/agreement'],
+define(['backbone', 'models/agreement'],
 
- 	function(Backbone, Model) {
+      function(Backbone, Model) {
 
- 		'use strict';
+            'use strict';
 
- 		var Collection = Backbone.Collection.extend({
+            var Collection = Backbone.Collection.extend({
 
-            // Reference to this collection's model.
-            model: Model,
+                  model: Model,
 
-            sortByStatus: function(){
-            	var waitingOnRespAgrmnts = new Collection();
-            	var inProgressAgrmnts = new Collection();
-            	this.each(function(model){
-            		var status = model.get("statusHistory").at(0);
-            		(status.get("action") === status.StatusSubmitted) ? waitingOnRespAgrmnts.add(model) : inProgressAgrmnts.add(model);
-            	});
+                  sortByStatus: function(){
+                        var waitingOnRespAgrmnts = new Collection();
+                        var inProgressAgrmnts = new Collection();
+                        var draftAgrmnts = new Collection();
+                        this.each(function(model){
+                              var status = model.get("statusHistory").at(0);
+                              switch (status.get("action")){
+                                    case status.StatusSubmitted:
+                                    waitingOnRespAgrmnts.add(model);
+                                    break;
+                                    case status.StatusCreated:
+                                    draftAgrmnts.add(model);
+                                    break;
+                                    default:
+                                    inProgressAgrmnts.add(model);
+                              }
+                        });
+                        return {
+                              waitingOnRespAgrmnts: waitingOnRespAgrmnts,
+                              inProgressAgrmnts: inProgressAgrmnts,
+                              draftAgrmnts: draftAgrmnts
+                        };
+                  }
 
-            	return {
-            		waitingOnRespAgrmnts: waitingOnRespAgrmnts,
-            		inProgressAgrmnts: inProgressAgrmnts
-            	};
-            }
+            });
 
-        });
+return Collection;
 
- 		return Collection;
-
- 	}
-
- 	);
+});

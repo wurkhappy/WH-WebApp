@@ -3,16 +3,19 @@
  */
 
  define(['backbone', 'models/agreement', 'views/agreement/layout_manager',
-  'views/agreement/payments_read_view', 'views/agreement/agreement_history_view', 'views/agreement/user_view'],
+  'views/agreement/payments_read_view', 'views/agreement/agreement_history_view', 'views/agreement/user_view',
+  'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view'],
 
-  function (Backbone, AgreementModel, LayoutView, PaymentsReadView, AgrmntHistoryView, UserView) {
+  function (Backbone, AgreementModel, LayoutView, PaymentsReadView, AgrmntHistoryView, UserView,
+    UserEditView, HeaderEditView, PaymentEditView) {
 
     'use strict';
 
-    var HomeRouter = Backbone.Router.extend({
+    var AgreementRouter = Backbone.Router.extend({
 
       routes: {
-        '': 'readAgreement'
+        '': 'readAgreement',
+        'edit': 'editAgreement'
       },
 
       initialize: function () {
@@ -25,11 +28,18 @@
         this.layout.paymentSchedule.show(new PaymentsReadView({model: this.model}));
         this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
         this.layout.profile.show(new UserView());
+      },
+      editAgreement :function(){
+
+        this.layout.paymentSchedule.show(new PaymentEditView({model: this.model}));
+        this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
+        this.layout.profile.show(new UserEditView({model: this.model}));
+        this.layout.header.show(new HeaderEditView({model: this.model}));
       }
 
     });
 
-return HomeRouter;
+return AgreementRouter;
 
 }
 );
