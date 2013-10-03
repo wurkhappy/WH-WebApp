@@ -17,13 +17,14 @@ define(['backbone', 'models/agreement'],
                         var inProgressAgrmnts = new Collection();
                         var draftAgrmnts = new Collection();
                         this.each(function(model){
+                              if (model.get("draft")){
+                                    draftAgrmnts.add(model);
+                                    return;
+                              }
                               var status = model.get("statusHistory").at(0);
                               switch (status.get("action")){
                                     case status.StatusSubmitted:
                                     waitingOnRespAgrmnts.add(model);
-                                    break;
-                                    case status.StatusCreated:
-                                    draftAgrmnts.add(model);
                                     break;
                                     default:
                                     inProgressAgrmnts.add(model);

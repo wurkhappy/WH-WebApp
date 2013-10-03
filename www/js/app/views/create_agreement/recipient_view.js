@@ -39,15 +39,16 @@
       saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();
+        this.model.set("draft", false)
+        this.model.save({},{success:_.bind(function(model, response){
+          var submitSuccess = function(){
+            window.location = "/home"
+          };
+          this.model.submit(submitSuccess);
+        },this)});
+      }
 
-          this.model.save({},{
-            success:_.bind(function(model, response){
-              window.location = "/home";
-            }, this)
-          });
-  }
-
-});
+    });
 
     return RecipientView;
 

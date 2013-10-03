@@ -38,7 +38,7 @@
         event.preventDefault();
         event.stopPropagation();
         // this.model.get("statusHistory").add({statusType:"created", date:moment()});
-
+        this.model.set("draft", true);
         this.model.save({},{
           success:_.bind(function(model, response){
             this.router.navigate('estimate', {trigger:true})

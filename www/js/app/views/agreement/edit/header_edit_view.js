@@ -18,11 +18,13 @@ define(['backbone', 'handlebars', 'text!templates/agreement/edit/header_tpl.html
         "click #submit-button":"submit"
       },
       save: function(){
+        this.model.set("draft", true);
         this.model.save({},{success:function(model, response){
           window.location = "/home";
         }});
       },
       submit: function(){
+        this.model.set("draft", false);
         this.model.save({},{success:_.bind(function(model, response){
           var submitSuccess = function(){
             window.location = "/home"
