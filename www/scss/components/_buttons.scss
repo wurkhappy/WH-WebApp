@@ -13,7 +13,7 @@
   font-weight: bold;
   text-align: center;
   padding: 0 10px;
-  color: rgb(255,255,255);
+  color: $white;
   text-decoration: none;
   line-height: 40px;
   background-image: url(../img/shade-button.png);
@@ -32,6 +32,7 @@
 .button:hover {
   text-decoration:none;
   cursor: pointer;
+  color: $white;
 }
 
 .action_button {
@@ -46,4 +47,72 @@
   &:hover {
     background-color: rgb(151,42,69);
   }
+}
+
+.submit-button {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  border: none;
+  width: 200px;
+  color: rgb(255,255,255);
+  background-color: rgb(0,122,177);
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  background-image: url(../img/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: top center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  outline: none;
+  background-color: rgb(0,145,210);
+}
+
+.login_button {
+  margin-top: -20px;
+  width: 200px;
+  left: 50%;
+  margin-left: -150px;
+}
+
+
+.submit-buttons {
+  padding: 20px 0 0 0;
+}
+
+.submit-buttons a {
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 0 20px;
+  font-weight: bold;
+  color: rgb(255,255,255);
+  text-decoration: none;
+  line-height: 40px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-shadow: 0 -1px 0 rgb(113,31,52);
+  -webkit-box-shadow: 0 1px 2px rgb(100,100,100);
+  -moz-box-shadow: 0 1px 2px rgb(100,100,100);
+  box-shadow: 0 1px 2px rgb(100,100,100);
+  background-image: url(../img/shade-button.png);
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+.submit-buttons a,
+.submit-buttons a:visited {
+  background-color: rgb(190,53,87);
+}
+
+.submit-buttons a:hover, .submit-buttons a:active {
+  background-color: rgb(151,42,69);
 }

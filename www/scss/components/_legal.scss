@@ -55,6 +55,28 @@ div.faqcontent h2 {
   width: 550px;
 }
 
+.box {
+  border:1px solid black;
+  margin:15px;
+  padding:5px;
+  width: 525px;
+}
+
+
 .section {
   display: none;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+}
+
+.title {
+  color: black;
+  background: #ddd;
+  opacity: .5;
+  a:hover {
+    color: black;
+  }
 }

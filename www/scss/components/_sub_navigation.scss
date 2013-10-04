@@ -1,32 +1,30 @@
-/* INTERNAL   (Main)
+/* Sub- Navigation 
 ================================================================================ */
 
 
-.internal {
+.sub_navigation {
   background-color: rgb(223,245,255);
 }
 
-.internal ul {
+.sub_navigation_container {
   padding: 0;
   margin: 0;
 }
 
-.internal li {
+.sub_navigation_tab {
   list-style: none;
   display: block;
   float: left;
 }
 
-.internal a {
+.sub_navigation_link {
   display: block;
   float: left;
   padding: 20px;
+  color: hsl(198, 100%, 43%);
 }
 
-.internal .current a {
-  background-color: rgb(255,255,255);
-}
-
-.current {
-  color: hsl(210, 7%, 35%);
+.current a {
+  background: rgb(255,255,255);
+  color: hsl(198, 100%, 43%);
 }

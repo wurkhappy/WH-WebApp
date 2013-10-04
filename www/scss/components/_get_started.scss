@@ -1,13 +1,6 @@
-/* CONTENT
-================================================================================ */
-
-#content {
-  background-color: rgb(255,255,255);
+.get_started_container {
   padding: 20px 0;
-}
-
-.features {
-  margin: 0 0 15px 0;
+  background: $white;
 }
 
 .features li {
@@ -45,6 +38,11 @@
   background-position: left center;
 }
 
+.features {
+  margin: 0 0 15px 0;
+}
+
+
 fieldset {
   margin: 0;
   padding: 10px 0 0 0;
@@ -73,35 +71,10 @@ label {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+
 .text-field:focus {
   outline: none;
   border: 1px solid rgb(100,100,100);
-}
-
-.submit-button {
-  font-size: 1em;
-  padding: 10px 20px;
-  margin-top: 10px;
-  font-weight: bold;
-  border: none;
-  width: 200px;
-  color: rgb(255,255,255);
-  background-color: rgb(0,122,177);
-  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-  background-image: url(../img/shade-button.png);
-  background-repeat: repeat-x;
-  background-position: top center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  float: right;
-}
-
-.submit-button:hover,
-.submit-button:focus {
-  outline: none;
-  background-color: rgb(0,145,210);
 }
 
 .validation {
@@ -115,50 +88,4 @@ label {
 
 .border {
   border: 1px solid red !important;
-}
-
-.fixed {
-  position: fixed;
-  bottom: 0;
-}
-
-.line {
-  border-bottom: 1px solid rgb(184, 190, 196);
-}
-
-#what {
-  display: block;
-}
-
-#introduction {
-  display: block;
-}
-
-.box {
-  border:1px solid black;
-  margin:15px;
-  padding:5px;
-  width: 525px;
-}
-
-.title {
-  color: black;
-  background: #ddd;
-  opacity: .5;
-}
-
-.title a:hover {
-  color: black;
-}
-
-#log_out {
-  display: none;
-}
-
-#server_error {
-  color: red;
-}
-
-.invalid {
-  padding-bottom: 25px;
 }

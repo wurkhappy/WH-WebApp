@@ -3,6 +3,20 @@
  *
  */
 
+
+ require.config({
+
+ 	paths: {
+ 		parsley: 'lib/parsleyjs/dis/parsley.min.js',
+ 	},
+
+ 	shim: {
+ 		parsley : {
+ 			deps : ['jquery']
+ 		}
+ 	}
+ });
+
 define(function (require) {
 
   'use strict';

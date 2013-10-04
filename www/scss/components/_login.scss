@@ -1,0 +1,40 @@
+.login_form {
+  position: relative;
+  border: 1px solid #ddd;
+  background-color: rgb(253,253,253);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 250px;
+  width: 298px;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  margin-left: -149px;
+  margin-top: -119px;
+}
+
+.login_form_container {
+  height: 250px;
+  width: 220px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-left: -149px;
+  margin-top: -119px;
+}
+
+.forgot_password {
+  display: block;
+  font-size: .75em;
+  color: rgb(150,150,150);
+  padding: 0px;
+  margin-bottom:22px;
+}
+
+
+
+
