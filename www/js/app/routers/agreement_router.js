@@ -35,7 +35,7 @@
         this.layout.paymentSchedule.show(new PaymentEditView({model: this.model}));
         this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
         this.layout.profile.show(new UserEditView({model: this.model}));
-        this.layout.header.show(new HeaderEditView({model: this.model}));
+        this.layout.header.show(new HeaderView({model: this.model}));
       }
 
     });

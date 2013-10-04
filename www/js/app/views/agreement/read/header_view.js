@@ -1,38 +1,64 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html'],
+define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html',
+  'views/agreement/read/header_states/accepted_state', 'views/agreement/read/header_states/created_state',
+  'views/agreement/read/header_states/submitted_state', 'views/agreement/read/header_states/rejected_state',
+  'views/agreement/read/header_states/draft_state'],
 
-  function (Backbone, Handlebars, userTemplate) {
+  function (Backbone, Handlebars, userTemplate, AcceptedState,
+    CreatedState, SubmittedState, RejectedState, DraftState) {
 
     'use strict';
 
     var HeaderView = Backbone.View.extend({
       template: Handlebars.compile(userTemplate),
 
+      initialize:function(){
+        this.listenTo(this.model.get("statusHistory"), 'add', this.changeState);
+        this.changeState();
+      },
+
       render:function(){
-        this.$el.html(this.template(this.model.toJSON()));
+        this.$el.html(this.template({
+          model: this.model.toJSON(), 
+          button1Title: this.state.button1Title,
+          button2Title: this.state.button2Title
+        }));
 
         return this;
       },
       events:{
-        "click #edit-button":"edit",
-        "click #submit-button":"submit"
+        "click #action-button1":"button1",
+        "click #action-button2":"button2"
       },
-      edit: function(){
-        this.checkVersion();
-        window.location.hash = "edit";
+      button1:function(event){
+        this.state.button1();
       },
-      checkVersion: function(){
-        if (!this.model.get("draft")) {
-          var version  = this.model.get("version");
-          this.model.set("version", version + 1);
-          this.model.unset("id");
-          console.log(this.model);
+      button2:function(event){
+        this.state.button2();
+      },
+      changeState:function(){
+        var status = this.model.get("statusHistory").at(0);
+        switch (status.get("action")){
+          case status.StatusCreated:
+          this.state = new CreatedState({model: this.model});
+          break;
+          case status.StatusSubmitted:
+          this.state = new SubmittedState({model: this.model});
+          break;
+          case status.StatusAccepted:
+          this.state = new AcceptedState({model: this.model});
+          break;
+          case status.StatusRejected:
+          this.state = new RejectedState({model: this.model});
+          break;
+          default:
         }
+        if (this.model.get("draft")) this.state = new DraftState({model: this.model});
       }
 
     });
 
-    return HeaderView;
+return HeaderView;
 
-  }
-  );
+}
+);

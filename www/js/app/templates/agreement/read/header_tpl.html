@@ -1,2 +1,17 @@
-<h3>{{title}}</h3>
-<div id="edit-button">EDIT</div>
+<div id="intro" class="clear intro">
+
+	<div class="column-three-fourth">
+
+		<h1>{{model.title}}</h1>
+
+	</div>
+	<div class="column-one-fourth">
+
+		<ul class="action_button_container">
+			{{#if button1Title}}<li><a id="action-button1" class="button action_button">{{button1Title}}</a></li>{{/if}}
+			{{#if button2Title}}<li><a id="action-button2" class="button action_button">{{button2Title}}</a></li>{{/if}}
+		</ul>
+
+	</div>
+
+</div>

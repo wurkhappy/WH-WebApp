@@ -5,11 +5,11 @@
               {{#with model}}
               <h3><a href="/agreement/{{id}}">{{title}}</a></h3>
               {{/with}}
-              {{#with status}}
-              <p>{{action}} on {{date}}</p>
-              {{/with}}
+              {{#with statusInfo}}
+              <p>{{lastAction}}</p>
             </td>
             <td class="progress">
               <span style="background-position: -200px 0px;"><img src="../img/progress-small.png"></span>
-              <p>Waiting for Agreement</p>
+              <p>{{currentState}}</p>
+              {{/with}}
             </td>
