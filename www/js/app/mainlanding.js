@@ -7,12 +7,13 @@
  require.config({
 
  	paths: {
- 		parsley: 'lib/parsleyjs/dis/parsley.min.js',
+ 		parsley: 'lib/parsleyjs/dist/parsley.min'
  	},
 
  	shim: {
  		parsley : {
- 			deps : ['jquery']
+ 			deps : ['jquery'],
+ 			exports : 'parsley'
  		}
  	}
  });

@@ -67,12 +67,13 @@
         <form action="/user/new" method="POST" id="create_form" class="create_account_form" accept-charset="utf-8">
           <fieldset>
             <legend class="create_account_legend" id="form-header">Get Started</legend>
+
             <label id="email-label" for="email">Your Email: <span class="validation" id="email-validation"></span></label>
-            <div class="input-box">
-              <input type="email" name="email" id="email-field" class="text-field" placeholder="name@website.com" required >
-            </div>
+            <input type="email" data-type="email" data-required="true" data-trigger="change" name="email" id="email-field" class="text-field" placeholder="name@website.com">
+            
             <label for="email">Choose a password:</label>
-            <input type="password" name="password" value="" id="password" class="text-field" required >
+                  <input type="password"  data-required="true" data-trigger="change" name="password" id="password" class="text-field">
+          
           </fieldset>
           <fieldset>
             <input type="submit" value="Create Free Account" class="button action_button">

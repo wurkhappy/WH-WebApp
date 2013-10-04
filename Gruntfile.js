@@ -95,12 +95,12 @@ module.exports = function (grunt) {
                     //'csslint'
                 ]
             },
-            js: {
-                files: ['<%= config.webroot %>/js/app/**/*.js'],
-                tasks: [
-                    'jshint'
-                ]
-            },
+            //js: {
+            //    files: ['<%= config.webroot %>/js/app/**/*.js'],
+            //    tasks: [
+            //        'jshint'
+            //    ]
+            //},
             // Run unit tests with karma (server needs to be already running).
             karma: {
                 files: ['<%= config.testroot %>/spec/*Spec.js'],
