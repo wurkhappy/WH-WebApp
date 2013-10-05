@@ -54,6 +54,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
           default:
         }
         if (this.model.get("draft")) this.state = new DraftState({model: this.model});
+        this.render();
       }
 
     });

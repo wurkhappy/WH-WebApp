@@ -15,6 +15,18 @@ define(['backbone', 'models/payment'],
 
             getTotalAmount:function(){
                 return this.reduce(function(memo, value) { return memo + value.get("amount") }, 0);
+            },
+            findSubmittedPayment:function(){
+                var paymentArray = this.filter(function(model){
+                    return model.get("currentStatus") && model.get("currentStatus").get("action") === 'submitted';
+                });
+                return paymentArray[0];
+            },
+            findFirstOutstandingPayment:function(){
+                var paymentArray = this.filter(function(model){
+                    return !model.get("currentStatus") || model.get("currentStatus").get("action") !== 'accepted';
+                });
+                return paymentArray[0];
             }
 
         });

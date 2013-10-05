@@ -12,7 +12,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         this.button2Title = (this.userIsClient) ? null : "Edit Agreement"; 
       },
       button1:function(event){
-          //find payment that has a current status of submitted and pay that one
+          this.model.get("payments").findFirstOutstandingPayment().submit();
       },
       button2:function(event){
         this.edit()

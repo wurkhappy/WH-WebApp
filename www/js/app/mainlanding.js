@@ -7,7 +7,7 @@
  require.config({
 
  	paths: {
- 		parsley: 'lib/parsleyjs/dis/parsley.min.js',
+ 		parsley: 'lib/parsleyjs/dist/parsley.min',
  	},
 
  	shim: {

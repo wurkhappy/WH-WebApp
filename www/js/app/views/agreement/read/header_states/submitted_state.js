@@ -9,12 +9,12 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       initialize:function(){
         BaseState.prototype.initialize.apply(this);
         this.button1Title = (this.userIsClient) ? "Accept " + this.statusType : null; 
-        this.button2Title = (this.userIsClient) ? "Reject " + this.statusType : null; 
+        this.button2Title = (this.userIsClient) ? "Reject " + this.statusType : null;
       },
       button1:function(event){
         //we don't check for userIsClient here because if title is null then button doesn't call action
         if (this.statusType === 'payment') {
-          //find payment that has a current status of submitted and pay that one
+          this.model.get("payments").findSubmittedPayment().accept();
         }
         else{
           this.model.accept();
@@ -22,7 +22,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       },
       button2:function(event){
         if (this.statusType === 'payment') {
-          //find payment that has a current status of submitted and pay that one
+          this.model.get("payments").findSubmittedPayment().reject();
         }
         else{
           this.model.reject();
