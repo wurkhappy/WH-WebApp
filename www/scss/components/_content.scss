@@ -30,29 +30,27 @@
   padding: 10px 20px 0 20px;
 }
 
-#content #payment-schedule {
+.payment_schedule {
   border-bottom: 1px solid rgb(225,225,225);
 }
 
-#content #payment-schedule h2 {
-  background: url(../img/progress.png) no-repeat right;
+.agreement_title {
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-#content #payment-schedule ul {
+.payment_milestone_container {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-#content #payment-schedule ul li {
+.payment_milestone {
   border-top: 1px solid rgb(245,245,245);
   padding: 10px 0;
   list-style: none;
 }
 
-#content #payment-schedule ul li a,
-#content #payment-schedule ul li span {
+.payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -61,21 +59,18 @@
   float: right;
   padding: 0 10px;
   text-decoration: none;
-}
-
-#content #payment-schedule ul li span {
   background-color: rgb(238,240,242);
   color: rgb(100,100,100);
 }
 
-#content #payment-schedule ul li a:link,
-#content #payment-schedule ul li a:visited {
+.make_payment:link,
+.make_payment:visited {
   background-color: rgb(136,204,85);
   color: rgb(255,255,255);
 }
 
-#content #payment-schedule ul li a:hover,
-#content #payment-schedule ul li a:active {
+.make_payment:hover,
+.make_payment:active {
   background-color: rgb(122,183,76);
   color: rgb(255,255,255);
 }
@@ -85,23 +80,16 @@
   padding-bottom: 20px;
 }
 
-#content #agreement-history {
-  background-color: rgb(249,250,251);
-  border-top: 1px solid rgb(225,225,225);
+.scope_items_container {
+  list-style-type: none;
+  margin: 0;
 }
 
-#content #agreement-history ul {
-  margin: 0 20px 0 20px;
+.scope_item {
   padding: 0;
 }
 
-#content #agreement-history ul li {
-  border-bottom: 1px solid rgb(225,225,225);
-  padding: 10px 0;
-  list-style: none;
-}
-
-#content #agreement-history p {
+.void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
   background-color: rgb(238,240,242);

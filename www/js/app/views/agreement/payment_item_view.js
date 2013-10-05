@@ -11,7 +11,7 @@
       template: Handlebars.compile(paymentItemTemplate),
 
       itemView: ScopeItemView,
-      itemViewContainer:'.scope-items-container',
+      itemViewContainer:'.scope_items_container',
 
       initialize:function(){
         this.collection = this.model.get("scopeItems");

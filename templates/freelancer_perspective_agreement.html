@@ -4,6 +4,24 @@ var agreement = {{.agreement}};
 var otherUser = {{.otherUser}};
 var thisUser = {{.thisUser}};
 </script>
+
+
+  <!-- Title Header -->
+  <div id="intro" class="clear intro">
+    <div class="column-three-fourth">
+      <h1>{{.agreement.title}}</h1>
+      <p><span>Last Activity:</span> Sent to Joe Smith on April 12, 2011</p>
+    </div>
+    <div class="column-one-fourth">
+      <ul class="action_button_container">
+        <li><a class="button action_button" href="">Milestone Complete</a></li>
+        <li><a class="button action_button" href="new.html">Edit Agreement</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
 <div id="content" class="clear">
 
   <div id="agreement-profile" class="data-table">
@@ -29,43 +47,33 @@ var thisUser = {{.thisUser}};
   </div>
 
   <div id="payment-schedule" class="clear">
-
     <div class="progress-large">
       <span style="background-position: -900px 0px;"><img src="../img/progress-large.png"></span>
     </div>
-
     <h2>Payment Milestones</h2>
-
     <ul>
       {{range .agreement.payments}}
       <li><strong>{{.amount}}</strong> &mdash; {{.title}} <!-- on June 28, 2011 --></li>
       {{end}}
     </ul>
-
   </div>
 
   <div class="column-one-half">
-
     <h2>Proposed Services</h2>
     <p>{{.agreement.proposedServices}}</p>
-
-
   </div>
 
   <div class="column-one-half">
     <h2>Refund Policies</h2>
-
     <p>{{.agreement.refundPolicy}}</p>
-
   </div>
 
-  <div id="agreement-history" class="clear">
-
+  <div id="agreement-history" class="clear agreement_history">
     <h2>Agreement History</h2>
+  </div>
 
-
-    <p>If, for whatever reason, you feel this agreement is no longer valid, you can <a href="void.html">void the agreement</a>.</p>
-
+  <div class="clear">
+    <p class="void_agreement">If, for whatever reason, you feel this agreement is no longer valid, you can <a href="void.html">void the agreement</a>.</p>
   </div>
 
 </div>

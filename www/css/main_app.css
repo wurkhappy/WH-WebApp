@@ -551,33 +551,31 @@ fieldset {
 }
 
 /* line 33, ../scss/components/_content.scss */
-#content #payment-schedule {
+.payment_schedule {
   border-bottom: 1px solid #e1e1e1;
 }
 
 /* line 37, ../scss/components/_content.scss */
-#content #payment-schedule h2 {
-  background: url(../img/progress.png) no-repeat right;
+.agreement_title {
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-/* line 43, ../scss/components/_content.scss */
-#content #payment-schedule ul {
+/* line 42, ../scss/components/_content.scss */
+.payment_milestone_container {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-/* line 48, ../scss/components/_content.scss */
-#content #payment-schedule ul li {
+/* line 47, ../scss/components/_content.scss */
+.payment_milestone {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 55, ../scss/components/_content.scss */
-#content #payment-schedule ul li a,
-#content #payment-schedule ul li span {
+/* line 53, ../scss/components/_content.scss */
+.payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -586,55 +584,43 @@ fieldset {
   float: right;
   padding: 0 10px;
   text-decoration: none;
-}
-
-/* line 66, ../scss/components/_content.scss */
-#content #payment-schedule ul li span {
   background-color: #eef0f2;
   color: #646464;
 }
 
-/* line 72, ../scss/components/_content.scss */
-#content #payment-schedule ul li a:link,
-#content #payment-schedule ul li a:visited {
+/* line 67, ../scss/components/_content.scss */
+.make_payment:link,
+.make_payment:visited {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 78, ../scss/components/_content.scss */
-#content #payment-schedule ul li a:hover,
-#content #payment-schedule ul li a:active {
+/* line 73, ../scss/components/_content.scss */
+.make_payment:hover,
+.make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 83, ../scss/components/_content.scss */
+/* line 78, ../scss/components/_content.scss */
 #content #agreement-profile.data-table table tr td {
   border-top: none;
   padding-bottom: 20px;
 }
 
-/* line 88, ../scss/components/_content.scss */
-#content #agreement-history {
-  background-color: #f9fafb;
-  border-top: 1px solid #e1e1e1;
+/* line 83, ../scss/components/_content.scss */
+.scope_items_container {
+  list-style-type: none;
+  margin: 0;
 }
 
-/* line 93, ../scss/components/_content.scss */
-#content #agreement-history ul {
-  margin: 0 20px 0 20px;
+/* line 88, ../scss/components/_content.scss */
+.scope_item {
   padding: 0;
 }
 
-/* line 98, ../scss/components/_content.scss */
-#content #agreement-history ul li {
-  border-bottom: 1px solid #e1e1e1;
-  padding: 10px 0;
-  list-style: none;
-}
-
-/* line 104, ../scss/components/_content.scss */
-#content #agreement-history p {
+/* line 92, ../scss/components/_content.scss */
+.void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
   background-color: #eef0f2;
@@ -647,35 +633,35 @@ fieldset {
   border-bottom-left-radius: 3px;
 }
 
-/* line 117, ../scss/components/_content.scss */
+/* line 105, ../scss/components/_content.scss */
 #content .data-table {
   padding: 0 20px 10px 20px;
 }
 
-/* line 121, ../scss/components/_content.scss */
+/* line 109, ../scss/components/_content.scss */
 #content .data-table table {
   width: 100%;
 }
 
-/* line 125, ../scss/components/_content.scss */
+/* line 113, ../scss/components/_content.scss */
 #content .data-table table tr td {
   border-top: 1px solid whitesmoke;
   padding: 10px 20px 10px 0;
   vertical-align: top;
 }
 
-/* line 131, ../scss/components/_content.scss */
+/* line 119, ../scss/components/_content.scss */
 #content .data-table table tr td h3 {
   margin: 10px 0 0 0;
   padding: 0;
 }
 
-/* line 136, ../scss/components/_content.scss */
+/* line 124, ../scss/components/_content.scss */
 #content .data-table table tr td h3.less {
   margin-top: 0;
 }
 
-/* line 140, ../scss/components/_content.scss */
+/* line 128, ../scss/components/_content.scss */
 #content .data-table table tr td p {
   margin: 0;
   padding: 0;
@@ -683,26 +669,26 @@ fieldset {
   color: #969696;
 }
 
-/* line 147, ../scss/components/_content.scss */
+/* line 135, ../scss/components/_content.scss */
 #content .data-table table tr td p.remove {
   background: url(../img/icons/cross-16x16.png) no-repeat left;
   padding-left: 20px;
 }
 
-/* line 152, ../scss/components/_content.scss */
+/* line 140, ../scss/components/_content.scss */
 #content .data-table table tr td.action {
   width: 150px;
   padding: 10px 0;
   text-align: right;
 }
 
-/* line 158, ../scss/components/_content.scss */
+/* line 146, ../scss/components/_content.scss */
 #content .data-table table tr td.meta {
   width: 80px;
   padding: 10px 0;
 }
 
-/* line 163, ../scss/components/_content.scss */
+/* line 151, ../scss/components/_content.scss */
 #content .data-table table tr td.meta span {
   display: block;
   border: 1px solid #e1e1e1;
@@ -714,20 +700,20 @@ fieldset {
   border-radius: 3px;
 }
 
-/* line 174, ../scss/components/_content.scss */
+/* line 162, ../scss/components/_content.scss */
 #content .data-table table tr td.meta span img {
   display: block;
   width: 50px;
 }
 
-/* line 179, ../scss/components/_content.scss */
+/* line 167, ../scss/components/_content.scss */
 #content .data-table table tr td.progress {
   width: 200px;
   padding: 10px 0;
   text-align: center;
 }
 
-/* line 185, ../scss/components/_content.scss */
+/* line 173, ../scss/components/_content.scss */
 #content .data-table table tr td.progress span {
   display: block;
   margin: 14px 0 13px 0;
@@ -736,13 +722,13 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 193, ../scss/components/_content.scss */
+/* line 181, ../scss/components/_content.scss */
 #content .data-table table tr td.progress span img {
   display: block;
   width: 200px;
 }
 
-/* line 198, ../scss/components/_content.scss */
+/* line 186, ../scss/components/_content.scss */
 #content .progress-large {
   margin: 20px;
   padding: 10px;
@@ -752,7 +738,7 @@ fieldset {
   background-color: #f9fafb;
 }
 
-/* line 207, ../scss/components/_content.scss */
+/* line 195, ../scss/components/_content.scss */
 #content .progress-large span {
   display: block;
   background-color: #dce0e4;
@@ -760,7 +746,7 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 214, ../scss/components/_content.scss */
+/* line 202, ../scss/components/_content.scss */
 #content .progress-large span img {
   display: block;
   width: 900px;
@@ -1207,6 +1193,25 @@ fieldset {
 .create_scope_item_delete:hover {
   color: #972b46;
   text-decoration: none;
+}
+
+/* line 1, ../scss/components/_agreement_history.scss */
+.agreement_history {
+  background-color: #f9fafb;
+  border-top: 1px solid #e1e1e1;
+}
+
+/* line 6, ../scss/components/_agreement_history.scss */
+.agreement_history_items_container {
+  margin: 0 20px;
+  padding: 0;
+}
+
+/* line 11, ../scss/components/_agreement_history.scss */
+.agreement_history_items {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 10px 0;
+  list-style: none;
 }
 
 /* FOOTER
