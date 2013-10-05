@@ -21,6 +21,7 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
 
         initialize: function () {
           this.model.url = "/user/login";
+
         },
 
         render: function () {

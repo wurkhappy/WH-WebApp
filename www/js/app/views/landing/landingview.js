@@ -29,6 +29,7 @@ define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview'
           this.$login = $(".fade2");
           $('#logindiv').hide();
           $('#log_out').hide();
+          $('#create_form').parsley(); //initialize form validation
 
         },
 
@@ -41,6 +42,8 @@ define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview'
 
           var t1 = setTimeout(function () {
             $('#logindiv').fadeIn('fast');
+            $('#login_form').parsley(); //initialize form validation
+          console.log("parsley form initialized");
           }, 200);
 
           var t2 = setTimeout(function () {
@@ -59,11 +62,6 @@ define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview'
           $('#navigation').addClass('line');
           $('.fade').fadeOut('fast');
 
-          //hide error messages from other form
-          $('#server_error').html('');
-          $('.validation').html('');
-          $('input#email-field').removeClass('border');
-
         },
 
         cancelLogin: function () {
@@ -79,11 +77,6 @@ define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview'
             $('#navigation').removeClass('line');
             $('#logindiv').fadeOut('fast');
             $('.fade').fadeIn('slow');
-
-            //hide error messages from other form
-            $('#server_error').html('');
-            $('.validation').html('');
-            $('input#email-field').removeClass('border');
 
         },
         switchToAbout: function(event){
