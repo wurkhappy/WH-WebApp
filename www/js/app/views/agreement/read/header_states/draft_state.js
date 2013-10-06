@@ -12,10 +12,20 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         this.button2Title = (this.userIsClient) ? null : "Save Draft"; 
       },
       button1:function(event){
+        this.model.set("draft", false);
+        this.model.save({},{success:_.bind(function(model, response){
+          var submitSuccess = function(){
+            window.location = "/home"
+          };
+          this.model.submit(submitSuccess);
+        },this)});      
       },
       button2:function(event){
-        this.model.save();
-      }
+        this.model.set("draft", true);
+        this.model.save({},{success:function(model, response){
+          window.location = "/home";
+        }});      
+      },
 
     });
 

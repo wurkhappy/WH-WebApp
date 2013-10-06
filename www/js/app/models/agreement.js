@@ -46,7 +46,7 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                   dataType: "json",
                   success: _.bind(function(response){
                     this.get("statusHistory").add(response);
-                    successCallback();
+                    if (_.isFunction(successCallback)) successCallback();
                 }, this)
               });
             }

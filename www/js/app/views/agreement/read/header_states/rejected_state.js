@@ -15,7 +15,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       button1:function(event){
         //we don't check for userIsClient here because if title is null then button doesn't call action
         if (this.statusType === 'payment') {
-          //find payment that has a current status of submitted and submit that one
+          this.model.get("payments").findFirstOutstandingPayment().submit();
         }
         else{
           this.edit()
