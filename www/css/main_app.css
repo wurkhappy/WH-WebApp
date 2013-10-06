@@ -517,7 +517,7 @@ fieldset {
 /* CONTENT
 ================================================================================ */
 /* line 4, ../scss/components/_content.scss */
-#content {
+.content {
   background-color: white;
 }
 
@@ -535,46 +535,171 @@ fieldset {
 }
 
 /* line 20, ../scss/components/_content.scss */
+#agreement-profile {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+/* line 24, ../scss/components/_content.scss */
+#agreement-profile.data-table {
+  padding: 10px 20px 0 20px;
+}
+
+/* line 28, ../scss/components/_content.scss */
+#agreement-profile.data-table table tr td {
+  border-top: none;
+  padding-bottom: 20px;
+}
+
+/* line 33, ../scss/components/_content.scss */
+.data-table {
+  padding: 0 20px 10px 20px;
+}
+
+/* line 37, ../scss/components/_content.scss */
+.data-table table {
+  width: 100%;
+}
+
+/* line 41, ../scss/components/_content.scss */
+.data-table table tr td {
+  border-top: 1px solid whitesmoke;
+  padding: 10px 20px 10px 0;
+  vertical-align: top;
+}
+
+/* line 47, ../scss/components/_content.scss */
+.data-table table tr td h3 {
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+/* line 52, ../scss/components/_content.scss */
+.data-table table tr td h3.less {
+  margin-top: 0;
+}
+
+/* line 56, ../scss/components/_content.scss */
+.data-table table tr td p {
+  margin: 0;
+  padding: 0;
+  font-size: .875em;
+  color: #969696;
+}
+
+/* line 63, ../scss/components/_content.scss */
+.data-table table tr td p.remove {
+  background: url(../img/icons/cross-16x16.png) no-repeat left;
+  padding-left: 20px;
+}
+
+/* line 68, ../scss/components/_content.scss */
+.data-table table tr td.action {
+  width: 150px;
+  padding: 10px 0;
+  text-align: right;
+}
+
+/* line 74, ../scss/components/_content.scss */
+.data-table table tr td.meta {
+  width: 80px;
+  padding: 10px 0;
+}
+
+/* line 79, ../scss/components/_content.scss */
+.data-table table tr td.meta span {
+  display: block;
+  border: 1px solid #e1e1e1;
+  background-color: #f9fafb;
+  padding: 4px;
+  margin: 0 20px 0 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 90, ../scss/components/_content.scss */
+.data-table table tr td.meta span img {
+  display: block;
+  width: 50px;
+}
+
+/* line 95, ../scss/components/_content.scss */
+.data-table table tr td.progress {
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* line 101, ../scss/components/_content.scss */
+.data-table table tr td.progress span {
+  display: block;
+  margin: 14px 0 13px 0;
+  background-color: #dce0e4;
+  background-image: url(../img/progress-bar-small.png);
+  background-repeat: no-repeat;
+}
+
+/* line 109, ../scss/components/_content.scss */
+.data-table table tr td.progress span img {
+  display: block;
+  width: 200px;
+}
+
+/* line 114, ../scss/components/_content.scss */
+.progress-large {
+  margin: 20px;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #f9fafb;
+}
+
+/* line 123, ../scss/components/_content.scss */
+.progress-large span {
+  display: block;
+  background-color: #dce0e4;
+  background-image: url(../img/progress-bar-large.png);
+  background-repeat: no-repeat;
+}
+
+/* line 130, ../scss/components/_content.scss */
+.progress-large span img {
+  display: block;
+  width: 900px;
+}
+
+/* line 2, ../scss/components/_agreement.scss */
 .meta {
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 20px;
 }
 
-/* line 25, ../scss/components/_content.scss */
-#content #agreement-profile {
-  border-bottom: 1px solid #e1e1e1;
-}
-
-/* line 29, ../scss/components/_content.scss */
-#content #agreement-profile.data-table {
-  padding: 10px 20px 0 20px;
-}
-
-/* line 33, ../scss/components/_content.scss */
+/* line 7, ../scss/components/_agreement.scss */
 .payment_schedule {
   border-bottom: 1px solid #e1e1e1;
 }
 
-/* line 37, ../scss/components/_content.scss */
+/* line 11, ../scss/components/_agreement.scss */
 .agreement_title {
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-/* line 42, ../scss/components/_content.scss */
+/* line 16, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-/* line 47, ../scss/components/_content.scss */
+/* line 21, ../scss/components/_agreement.scss */
 .payment_milestone {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 53, ../scss/components/_content.scss */
+/* line 27, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -588,38 +713,32 @@ fieldset {
   color: #646464;
 }
 
-/* line 67, ../scss/components/_content.scss */
+/* line 41, ../scss/components/_agreement.scss */
 .make_payment:link,
 .make_payment:visited {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 73, ../scss/components/_content.scss */
+/* line 47, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 78, ../scss/components/_content.scss */
-#content #agreement-profile.data-table table tr td {
-  border-top: none;
-  padding-bottom: 20px;
-}
-
-/* line 83, ../scss/components/_content.scss */
+/* line 52, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 88, ../scss/components/_content.scss */
+/* line 57, ../scss/components/_agreement.scss */
 .scope_item {
   padding: 0;
 }
 
-/* line 92, ../scss/components/_content.scss */
+/* line 61, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -631,125 +750,6 @@ fieldset {
   -moz-border-radius-bottomleft: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-}
-
-/* line 105, ../scss/components/_content.scss */
-#content .data-table {
-  padding: 0 20px 10px 20px;
-}
-
-/* line 109, ../scss/components/_content.scss */
-#content .data-table table {
-  width: 100%;
-}
-
-/* line 113, ../scss/components/_content.scss */
-#content .data-table table tr td {
-  border-top: 1px solid whitesmoke;
-  padding: 10px 20px 10px 0;
-  vertical-align: top;
-}
-
-/* line 119, ../scss/components/_content.scss */
-#content .data-table table tr td h3 {
-  margin: 10px 0 0 0;
-  padding: 0;
-}
-
-/* line 124, ../scss/components/_content.scss */
-#content .data-table table tr td h3.less {
-  margin-top: 0;
-}
-
-/* line 128, ../scss/components/_content.scss */
-#content .data-table table tr td p {
-  margin: 0;
-  padding: 0;
-  font-size: .875em;
-  color: #969696;
-}
-
-/* line 135, ../scss/components/_content.scss */
-#content .data-table table tr td p.remove {
-  background: url(../img/icons/cross-16x16.png) no-repeat left;
-  padding-left: 20px;
-}
-
-/* line 140, ../scss/components/_content.scss */
-#content .data-table table tr td.action {
-  width: 150px;
-  padding: 10px 0;
-  text-align: right;
-}
-
-/* line 146, ../scss/components/_content.scss */
-#content .data-table table tr td.meta {
-  width: 80px;
-  padding: 10px 0;
-}
-
-/* line 151, ../scss/components/_content.scss */
-#content .data-table table tr td.meta span {
-  display: block;
-  border: 1px solid #e1e1e1;
-  background-color: #f9fafb;
-  padding: 4px;
-  margin: 0 20px 0 0px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-/* line 162, ../scss/components/_content.scss */
-#content .data-table table tr td.meta span img {
-  display: block;
-  width: 50px;
-}
-
-/* line 167, ../scss/components/_content.scss */
-#content .data-table table tr td.progress {
-  width: 200px;
-  padding: 10px 0;
-  text-align: center;
-}
-
-/* line 173, ../scss/components/_content.scss */
-#content .data-table table tr td.progress span {
-  display: block;
-  margin: 14px 0 13px 0;
-  background-color: #dce0e4;
-  background-image: url(../img/progress-bar-small.png);
-  background-repeat: no-repeat;
-}
-
-/* line 181, ../scss/components/_content.scss */
-#content .data-table table tr td.progress span img {
-  display: block;
-  width: 200px;
-}
-
-/* line 186, ../scss/components/_content.scss */
-#content .progress-large {
-  margin: 20px;
-  padding: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #f9fafb;
-}
-
-/* line 195, ../scss/components/_content.scss */
-#content .progress-large span {
-  display: block;
-  background-color: #dce0e4;
-  background-image: url(../img/progress-bar-large.png);
-  background-repeat: no-repeat;
-}
-
-/* line 202, ../scss/components/_content.scss */
-#content .progress-large span img {
-  display: block;
-  width: 900px;
 }
 
 /** Base container **/

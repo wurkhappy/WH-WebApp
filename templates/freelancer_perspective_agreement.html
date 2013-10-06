@@ -10,19 +10,18 @@ var thisUser = {{.thisUser}};
   <div id="intro" class="clear intro">
     <div class="column-three-fourth">
       <h1>{{.agreement.title}}</h1>
-      <p><span>Last Activity:</span> Sent to Joe Smith on April 12, 2011</p>
     </div>
     <div class="column-one-fourth">
       <ul class="action_button_container">
-        <li><a class="button action_button" href="">Milestone Complete</a></li>
-        <li><a class="button action_button" href="new.html">Edit Agreement</a></li>
+        <li><a class="button action_button" href=""></a></li>
+        <li><a class="button action_button" href=""></a></li>
       </ul>
     </div>
   </div>
 
 
 
-<div id="content" class="clear">
+<div id="content" class="clear content">
 
   <div id="agreement-profile" class="data-table">
 
@@ -46,14 +45,14 @@ var thisUser = {{.thisUser}};
 
   </div>
 
-  <div id="payment-schedule" class="clear">
+  <div id="payment-schedule" class="clear payment_schedule">
     <div class="progress-large">
       <span style="background-position: -900px 0px;"><img src="../img/progress-large.png"></span>
     </div>
-    <h2>Payment Milestones</h2>
-    <ul>
+    <h2>Payment Milestones for</h2>
+    <ul class="payment_milestone_container">
       {{range .agreement.payments}}
-      <li><strong>{{.amount}}</strong> &mdash; {{.title}} <!-- on June 28, 2011 --></li>
+      <li class="payment_milestone"><strong>${{.amount}}</strong> &mdash; {{.title}} <!-- on June 28, 2011 --></li>
       {{end}}
     </ul>
   </div>
