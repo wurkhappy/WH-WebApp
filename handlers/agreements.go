@@ -30,6 +30,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		"agreements": agreementsData,
 		"user":       user,
 		"otherUsers": requestedUsers,
+		"agreementCount": len(agreementsData),
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
