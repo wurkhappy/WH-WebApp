@@ -15,8 +15,16 @@
 
       itemView: AgreementView,
       itemViewContainer:'table',
+      itemViewOptions: function(){
+        return {
+          otherUsers: this.otherUsers,
+          currentUser: this.currentUser
+        }
+      },
       initialize:function(options){
         this.title = options.title;
+        this.otherUsers = options.otherUsers;
+        this.currentUser = options.currentUser;
         this.render();
       },
       onRender:function(){

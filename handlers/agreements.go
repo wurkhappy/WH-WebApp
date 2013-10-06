@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
-	// "log"
+	"log"
 	"net/http"
 	"time"
 )
@@ -15,18 +15,11 @@ import (
 // var agreementTemplates = template.Must(template.ParseFiles("templates/agreements.html", "templates/createAgreements.html"))
 
 func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	userID := session.Values["id"]
+	agreementsData := getCurrentAgreements(userID.(string))
 
-	client := &http.Client{}
-	r, _ := http.NewRequest("GET", "http://localhost:4050/agreements?userID="+session.Values["id"].(string), nil)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
-	}
-
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(resp.Body)
-	var agreementsData []map[string]interface{}
-	json.Unmarshal(buf.Bytes(), &agreementsData)
+	requestedUsers := getOtherUsers(agreementsData, userID.(string))
+	log.Print(requestedUsers)
 
 	user := map[string]interface{}{
 		"id": session.Values["id"],
@@ -36,6 +29,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		"appName":    "mainhome",
 		"agreements": agreementsData,
 		"user":       user,
+		"otherUsers": requestedUsers,
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
@@ -48,6 +42,55 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	template.Must(tpl, err)
 
 	tpl.Execute(w, m)
+}
+
+func getCurrentAgreements(userID string) []map[string]interface{} {
+	client := &http.Client{}
+	r, _ := http.NewRequest("GET", "http://localhost:4050/agreements?userID="+userID, nil)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	var agreementsData []map[string]interface{}
+	json.Unmarshal(buf.Bytes(), &agreementsData)
+	return agreementsData
+}
+
+func getOtherUsers(agreements []map[string]interface{}, userID string) []map[string]interface{} {
+	requestString := buildOtherUsersRequest(agreements, userID)
+	log.Print(requestString)
+	client := &http.Client{}
+	r, _ := http.NewRequest("GET", "http://localhost:3000/user/search?"+requestString, nil)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+	usersBuf := new(bytes.Buffer)
+	usersBuf.ReadFrom(resp.Body)
+	var users []map[string]interface{}
+	json.Unmarshal(usersBuf.Bytes(), &users)
+	return users
+}
+
+func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) string {
+	var requestedUsers string
+	for _, agreement := range agreements {
+		clientID, _ := agreement["clientID"]
+		freelancerID, _ := agreement["freelancerID"]
+		if clientID != "" && clientID != userID {
+			log.Print("client id")
+			requestedUsers += "userid=" + clientID.(string) + "&"
+		} else {
+			log.Print("freelancer id")
+			requestedUsers += "userid=" + freelancerID.(string) + "&"
+
+		}
+	}
+
+	return requestedUsers
 }
 
 func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {

@@ -1,0 +1,42 @@
+/*
+ * Initialize App for `Landing Page`.
+ *
+ */
+
+
+ require.config({
+
+ 	paths: {
+<<<<<<< HEAD
+ 		parsley: 'lib/parsleyjs/dist/parsley.min',
+=======
+ 		parsley: 'lib/parsleyjs/dist/parsley.min'
+>>>>>>> 25949a16aa865380f7717a55649eaac225026089
+ 	},
+
+ 	shim: {
+ 		parsley : {
+ 			deps : ['jquery'],
+ 			exports : 'parsley'
+ 		}
+ 	}
+ });
+
+define(function (require) {
+
+  'use strict';
+
+  var LandingRouter = require('../app/routers/landing_router');
+
+  $(function () {
+
+    // Initialize the application router.
+    var Landing = new LandingRouter();
+
+    Backbone.history.start({
+      pushState: false
+    });
+
+  });
+
+});

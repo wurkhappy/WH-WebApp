@@ -37,15 +37,23 @@
       template: Handlebars.compile(agreementTpl),
 
       initialize: function (options) {
+        this.currentUser = options.currentUser;
+        this.userIsClient = this.model.get("clientID") === this.currentUser.id;
+        var otherUserID = (otherUserID) ? this.model.get("freelancerID") : this.model.get("clientID");
+        this.otherUser = options.otherUsers.get(otherUserID);
       },
 
       render: function () {
         var status = this.model.get("statusHistory").at(0);
-        var client = this.model.get("clientID") == window.user.id;
 
-        var statusInfo = createStatusInfo(status, client);
+        var statusInfo = createStatusInfo(status, this.userIsClient);
 
-        this.$el.html(this.template({model: this.model.toJSON(), statusInfo: statusInfo, client:client}));
+        this.$el.html(this.template({
+          model: this.model.toJSON(),
+          statusInfo: statusInfo,
+          client:this.userIsClient,
+          otherUser: this.otherUser
+        }));
         return this;
 
       }

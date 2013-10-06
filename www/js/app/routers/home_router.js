@@ -2,9 +2,9 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'collections/agreements', 'views/home/home_section_view', 'moment'],
+ define(['backbone', 'collections/agreements', 'collections/users', 'models/user', 'views/home/home_section_view', 'moment'],
 
-  function (Backbone, AgreementCollection, SectionView, moment) {
+  function (Backbone, AgreementCollection, UserCollection, UserModel, SectionView, moment) {
 
     'use strict';
 
@@ -18,8 +18,9 @@
 
       initialize: function () {
         this.collection = new AgreementCollection(window.agreements);
+        this.otherUsers = new UserCollection(window.otherUsers);
+        this.currentUser = new UserModel(window.currentUser);
         console.log(this.collection);
-        
       },
 
       AllAgreements: function () {
@@ -29,17 +30,23 @@
 
         var waitingView = new SectionView({
           title:"Waiting for Response", 
-          collection: sortedAgreements.waitingOnRespAgrmnts, 
+          collection: sortedAgreements.waitingOnRespAgrmnts,
+          otherUsers: this.otherUsers, 
+          currentUser: this.currentUser, 
           el:'#waitingSection'
         });
         var progressView = new SectionView({
           title:"In Progress", 
-          collection: sortedAgreements.inProgressAgrmnts, 
+          collection: sortedAgreements.inProgressAgrmnts,
+          otherUsers: this.otherUsers,
+          currentUser: this.currentUser, 
           el:'#progressSection'
         });
         var draftView = new SectionView({
           title:"Drafts", 
           collection: sortedAgreements.draftAgrmnts, 
+          otherUsers: this.otherUsers,
+          currentUser: this.currentUser, 
           el:'#draftSection'
         });
       },
