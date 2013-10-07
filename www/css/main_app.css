@@ -522,63 +522,50 @@ fieldset {
 }
 
 /* line 8, ../scss/components/_content.scss */
-.steps {
-  background-color: #eef0f2;
-  color: #646464;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-size: 1.1em;
-  display: block;
-  float: right;
-  padding: 0 10px;
-}
-
-/* line 20, ../scss/components/_content.scss */
 #agreement-profile {
   border-bottom: 1px solid #e1e1e1;
 }
 
-/* line 24, ../scss/components/_content.scss */
+/* line 12, ../scss/components/_content.scss */
 #agreement-profile.data-table {
   padding: 10px 20px 0 20px;
 }
 
-/* line 28, ../scss/components/_content.scss */
+/* line 16, ../scss/components/_content.scss */
 #agreement-profile.data-table table tr td {
   border-top: none;
   padding-bottom: 20px;
 }
 
-/* line 33, ../scss/components/_content.scss */
+/* line 21, ../scss/components/_content.scss */
 .data-table {
   padding: 0 20px 10px 20px;
 }
 
-/* line 37, ../scss/components/_content.scss */
+/* line 25, ../scss/components/_content.scss */
 .data-table table {
   width: 100%;
 }
 
-/* line 41, ../scss/components/_content.scss */
+/* line 29, ../scss/components/_content.scss */
 .data-table table tr td {
   border-top: 1px solid whitesmoke;
   padding: 10px 20px 10px 0;
   vertical-align: top;
 }
 
-/* line 47, ../scss/components/_content.scss */
+/* line 35, ../scss/components/_content.scss */
 .data-table table tr td h3 {
   margin: 10px 0 0 0;
   padding: 0;
 }
 
-/* line 52, ../scss/components/_content.scss */
+/* line 40, ../scss/components/_content.scss */
 .data-table table tr td h3.less {
   margin-top: 0;
 }
 
-/* line 56, ../scss/components/_content.scss */
+/* line 44, ../scss/components/_content.scss */
 .data-table table tr td p {
   margin: 0;
   padding: 0;
@@ -586,26 +573,26 @@ fieldset {
   color: #969696;
 }
 
-/* line 63, ../scss/components/_content.scss */
+/* line 51, ../scss/components/_content.scss */
 .data-table table tr td p.remove {
   background: url(../img/icons/cross-16x16.png) no-repeat left;
   padding-left: 20px;
 }
 
-/* line 68, ../scss/components/_content.scss */
+/* line 56, ../scss/components/_content.scss */
 .data-table table tr td.action {
   width: 150px;
   padding: 10px 0;
   text-align: right;
 }
 
-/* line 74, ../scss/components/_content.scss */
+/* line 62, ../scss/components/_content.scss */
 .data-table table tr td.meta {
   width: 80px;
   padding: 10px 0;
 }
 
-/* line 79, ../scss/components/_content.scss */
+/* line 67, ../scss/components/_content.scss */
 .data-table table tr td.meta span {
   display: block;
   border: 1px solid #e1e1e1;
@@ -617,20 +604,20 @@ fieldset {
   border-radius: 3px;
 }
 
-/* line 90, ../scss/components/_content.scss */
+/* line 78, ../scss/components/_content.scss */
 .data-table table tr td.meta span img {
   display: block;
   width: 50px;
 }
 
-/* line 95, ../scss/components/_content.scss */
+/* line 83, ../scss/components/_content.scss */
 .data-table table tr td.progress {
   width: 200px;
   padding: 10px 0;
   text-align: center;
 }
 
-/* line 101, ../scss/components/_content.scss */
+/* line 89, ../scss/components/_content.scss */
 .data-table table tr td.progress span {
   display: block;
   margin: 14px 0 13px 0;
@@ -639,13 +626,13 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 109, ../scss/components/_content.scss */
+/* line 97, ../scss/components/_content.scss */
 .data-table table tr td.progress span img {
   display: block;
   width: 200px;
 }
 
-/* line 114, ../scss/components/_content.scss */
+/* line 102, ../scss/components/_content.scss */
 .progress-large {
   margin: 20px;
   padding: 10px;
@@ -655,7 +642,7 @@ fieldset {
   background-color: #f9fafb;
 }
 
-/* line 123, ../scss/components/_content.scss */
+/* line 111, ../scss/components/_content.scss */
 .progress-large span {
   display: block;
   background-color: #dce0e4;
@@ -663,10 +650,23 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 130, ../scss/components/_content.scss */
+/* line 118, ../scss/components/_content.scss */
 .progress-large span img {
   display: block;
   width: 900px;
+}
+
+/* line 1, ../scss/components/_create_agreement.scss */
+.steps {
+  background-color: #eef0f2;
+  color: #646464;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  display: block;
+  float: right;
+  padding: 0 10px;
 }
 
 /* line 2, ../scss/components/_agreement.scss */
