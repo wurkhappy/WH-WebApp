@@ -1,0 +1,20 @@
+.progress-large {
+  margin: 20px;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: rgb(249,250,251);
+}
+
+.progress-large span {
+  display: block;
+  background-color: rgb(220,224,228);
+  background-image: url(../img/progress-bar-large.png);
+  background-repeat: no-repeat;
+}
+
+.progress-large span img {
+  display: block;
+  width: 900px;
+}

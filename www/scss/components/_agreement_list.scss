@@ -1,0 +1,83 @@
+/* Agreement List Style ( used in homepage agreement list and profile)
+================================================================================ */
+
+.data-table {
+  padding: 0 20px 10px 20px;
+}
+
+.data-table table {
+  width: 100%;
+}
+
+.data-table table tr td {
+  border-top: 1px solid rgb(245,245,245);
+  padding: 10px 20px 10px 0;
+  vertical-align: top;
+}
+
+.data-table table tr td h3 {
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+.data-table table tr td h3.less {
+  margin-top: 0;
+}
+
+.data-table table tr td p {
+  margin: 0;
+  padding: 0;
+  font-size: .875em;
+  color: rgb(150,150,150);
+}
+
+.data-table table tr td p.remove {
+  background: url(../img/icons/cross-16x16.png) no-repeat left;
+  padding-left: 20px;
+}
+
+.data-table table tr td.action {
+  width: 150px;
+  padding: 10px 0;
+  text-align: right;
+}
+
+.data-table table tr td.meta {
+  width: 80px;
+  padding: 10px 0;
+}
+
+.data-table table tr td.meta span {
+  display: block;
+  border: 1px solid rgb(225,225,225);
+  background-color: rgb(249,250,251);
+  padding: 4px;
+  margin: 0 20px 0 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.data-table table tr td.meta span img {
+  display: block;
+  width: 50px;
+}
+
+.data-table table tr td.progress {
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.data-table table tr td.progress span {
+  display: block;
+  margin: 14px 0 13px 0;
+  background-color: rgb(220,224,228);
+  background-image: url(../img/progress-bar-small.png);
+  background-repeat: no-repeat;
+}
+
+.data-table table tr td.progress span img {
+  display: block;
+  width: 200px;
+}

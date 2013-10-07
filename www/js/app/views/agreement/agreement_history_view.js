@@ -11,6 +11,9 @@
 
     var PaymentItemView = Backbone.Marionette.CompositeView.extend({
 
+      tagName: 'ul',
+      className: 'agreement_history_items_container',
+
       template: Handlebars.compile(agreementHistoryTemplate),
 
       itemView: StatusView,

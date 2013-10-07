@@ -4,9 +4,26 @@ var agreement = {{.agreement}};
 var otherUser = {{.otherUser}};
 var thisUser = {{.thisUser}};
 </script>
-<div id="content" class="clear">
 
-  <div id="agreement-profile" class="data-table">
+
+  <!-- Title Header -->
+  <div id="intro" class="clear intro">
+    <div class="column-three-fourth">
+      <h1>{{.agreement.title}}</h1>
+    </div>
+    <div class="column-one-fourth">
+      <ul class="action_button_container">
+        <li><a class="button action_button" href=""></a></li>
+        <li><a class="button action_button" href=""></a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+<div id="content" class="clear content">
+
+  <div id="agreement-profile" class="data-table agreement_profile">
 
     <table border="0" cellspacing="0" cellpadding="0">
       {{if .otherUser}}
@@ -28,44 +45,34 @@ var thisUser = {{.thisUser}};
 
   </div>
 
-  <div id="payment-schedule" class="clear">
-
+  <div id="payment-schedule" class="clear payment_schedule">
     <div class="progress-large">
       <span style="background-position: -900px 0px;"><img src="../img/progress-large.png"></span>
     </div>
-
-    <h2>Payment Milestones</h2>
-
-    <ul>
+    <h2>Payment Milestones for</h2>
+    <ul class="payment_milestone_container">
       {{range .agreement.payments}}
-      <li><strong>{{.amount}}</strong> &mdash; {{.title}} <!-- on June 28, 2011 --></li>
+      <li class="payment_milestone"><strong>${{.amount}}</strong> &mdash; {{.title}} <!-- on June 28, 2011 --></li>
       {{end}}
     </ul>
-
   </div>
 
   <div class="column-one-half">
-
     <h2>Proposed Services</h2>
     <p>{{.agreement.proposedServices}}</p>
-
-
   </div>
 
   <div class="column-one-half">
     <h2>Refund Policies</h2>
-
     <p>{{.agreement.refundPolicy}}</p>
-
   </div>
 
-  <div id="agreement-history" class="clear">
-
+  <div id="agreement-history" class="clear agreement_history">
     <h2>Agreement History</h2>
+  </div>
 
-
-    <p>If, for whatever reason, you feel this agreement is no longer valid, you can <a href="void.html">void the agreement</a>.</p>
-
+  <div class="clear">
+    <p class="void_agreement">If, for whatever reason, you feel this agreement is no longer valid, you can <a href="void.html">void the agreement</a>.</p>
   </div>
 
 </div>

@@ -196,6 +196,11 @@ fieldset {
 /* COMMON UI classes
 ================================================================================ */
 /* line 168, ../scss/bases/_common.scss */
+.content {
+  background-color: white;
+}
+
+/* line 172, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }

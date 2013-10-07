@@ -13,7 +13,6 @@
 $legacy-support-for-ie6: false !default;
 $legacy-support-for-ie7: false !default;
 $legacy-support-for-ie8: false !default;
-
 $legacy-support-for-mozilla: false !default;
 
 ////////////////////////
@@ -50,10 +49,15 @@ $legacy-support-for-mozilla: false !default;
 @import "components/intro";
 @import "components/buttons";
 @import "components/sub_navigation";
-@import "components/content";
+@import "components/agreement_list";
+@import "components/create_agreement";
+@import "components/agreement";
+@import "components/agreement_profile";
+@import "components/progress_bars";
 @import "components/kalendae";
 @import "components/create_estimate";
 @import "components/create_work_item";
+@import "components/agreement_history";
 @import "components/footer";
 @import "components/copyright";
 //////////////////////////////

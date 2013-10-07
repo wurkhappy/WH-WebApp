@@ -10,6 +10,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'moment',
 
       template: Handlebars.compile(statusTemplate),
       tagName:'li',
+      className: 'agreement_history_items',
 
       itemView: CommentView,
       itemViewContainer:'.comments-container',
