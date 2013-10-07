@@ -26,10 +26,10 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	}
 
 	m := map[string]interface{}{
-		"appName":    "mainhome",
-		"agreements": agreementsData,
-		"user":       user,
-		"otherUsers": requestedUsers,
+		"appName":        "mainhome",
+		"agreements":     agreementsData,
+		"user":           user,
+		"otherUsers":     requestedUsers,
 		"agreementCount": len(agreementsData),
 	}
 	format := func(date string) string {
