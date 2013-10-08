@@ -16,6 +16,7 @@ import (
 
 func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	userID := session.Values["id"]
+
 	agreementsData := getCurrentAgreements(userID.(string))
 
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
@@ -25,17 +26,21 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		"id": session.Values["id"],
 	}
 
+	thisUser := getUserInfo(userID.(string))
+
 	m := map[string]interface{}{
 		"appName":        "mainhome",
 		"agreements":     agreementsData,
 		"user":           user,
 		"otherUsers":     requestedUsers,
+		"thisUser":       thisUser,
 		"agreementCount": len(agreementsData),
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
 		return t.Format("Jan 2, 2006")
 	}
+
 	tpl, err := template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
 		"templates/_baseApp.html",
 		"templates/freelancer_home.html",
@@ -185,14 +190,17 @@ func getUserInfo(id string) map[string]interface{} {
 	}
 	client := &http.Client{}
 	r, _ := http.NewRequest("GET", "http://localhost:3000/user/search?userid="+id, nil)
+	log.Print(r)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
 	}
 	clientBuf := new(bytes.Buffer)
 	clientBuf.ReadFrom(resp.Body)
+	log.Print(string(clientBuf.Bytes()))
 	var clientData []map[string]interface{}
 	json.Unmarshal(clientBuf.Bytes(), &clientData)
+	log.Print(clientData)
 	if len(clientData) > 0 {
 		return clientData[0]
 	}

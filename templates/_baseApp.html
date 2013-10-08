@@ -32,22 +32,22 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <script type="text/javascript">var actions=[];</script>
 
+  <script src="/js/lib/analytics/analytics.min.js"></script>
+  <script src="/js/lib/jquery/jquery.js"></script>
+
   <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-24101674-2']);
-  _gaq.push(['_setDomainName', 'beta.wurkhappy.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script');
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(ga, s);
-  })();
+    analytics.initialize({
+      'Google Analytics' : 'UA-24101674-3',
+      'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
+      'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d'
+    });
   </script>
+
+  <script type="text/javascript">
+  analytics.track('Page viewed', {
+    date: new Date()
+  });
+</script>
 
 </head>
 <body>
@@ -131,6 +131,41 @@
     require(['app/{{.appName}}']);
   });
   </script>
+
+  <!-- identify our users on every page they're logged in -->
+  {{if .thisUser}}
+      
+      <script>
+        analytics.identify({{.user.id}}, {
+          {{with .thisUser}}
+          email            : {{.email}},
+          created          : {{.dateCreated}},
+          //name             : {{.firstName}} {{.lastName}},
+          //phoneNumber      : {{.phone}},
+          {{end}}
+          agreementCount   : {{.agreementCount}}
+          
+        });
+        
+      </script>
+      
+  {{end}}
+
+  <script>
+    $( document ).ready(function() {
+        var createAgreement = $('.button');
+        var tracks = analytics.trackLink(createAgreement, 'Clicked Create Agreement Button', {
+          plan : 'Enterprise'
+        });
+
+        analytics.track('On Home Page', {
+        revenue        : 39.95,
+        shippingMethod : '2-day'
+        });
+        console.log({{.thisUser}});
+    });
+  </script>
+
 </body>
 </html>
 

@@ -20,6 +20,7 @@
     "backbone-relational": "~0.8.6",
     "momentjs": "~2.2.1",
     "kalendae": "~0.4.1",
-    "parsleyjs": "1.1.18"
+    "parsleyjs": "1.1.18",
+    "analytics": "0.17.6"
   }
 }
