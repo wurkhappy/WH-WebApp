@@ -21,7 +21,7 @@ define(['backbone', 'views/landing/landingview'],
         },
 
         index: function () {
-
+          if (!this.landingView) this.landingView = new LandingView({router:this, model: this.model});
         },
 
       });
