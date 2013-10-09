@@ -279,17 +279,15 @@ fieldset {
 
 /* line 11, ../scss/components/_header.scss */
 .navigation li {
-  display: block;
   float: left;
 }
 
-/* line 16, ../scss/components/_header.scss */
+/* line 15, ../scss/components/_header.scss */
 .admin_nav li {
   float: right;
-  display: block;
 }
 
-/* line 21, ../scss/components/_header.scss */
+/* line 19, ../scss/components/_header.scss */
 .logo {
   font-family: "Museo", Helvetica, Arial, sans-serif;
   font-size: 24px;
@@ -305,11 +303,11 @@ fieldset {
   text-decoration: none;
   width: 210px;
 }
-/* line 35, ../scss/components/_header.scss */
+/* line 33, ../scss/components/_header.scss */
 .logo:visited {
   color: black;
 }
-/* line 38, ../scss/components/_header.scss */
+/* line 36, ../scss/components/_header.scss */
 .logo:hover, .logo:active {
   text-decoration: none;
   color: #646464;
@@ -317,12 +315,12 @@ fieldset {
 
 /* Header - Main App
 ================================================================================ */
-/* line 47, ../scss/components/_header.scss */
+/* line 45, ../scss/components/_header.scss */
 .main_top_padding {
   padding-top: 13px;
 }
 
-/* line 51, ../scss/components/_header.scss */
+/* line 49, ../scss/components/_header.scss */
 .navigation_links a {
   display: block;
   float: left;
@@ -331,21 +329,20 @@ fieldset {
 
 /* Header - Landing
 ================================================================================ */
-/* line 60, ../scss/components/_header.scss */
+/* line 58, ../scss/components/_header.scss */
 .landing_navigation_links {
   padding-left: 85px;
   line-height: 38px;
-  display: block;
   float: left;
   padding-top: 23px;
 }
 
-/* line 68, ../scss/components/_header.scss */
+/* line 65, ../scss/components/_header.scss */
 .top_padding {
   padding-top: 20px;
 }
 
-/* line 72, ../scss/components/_header.scss */
+/* line 69, ../scss/components/_header.scss */
 .create_account {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -393,11 +390,11 @@ fieldset {
 
 /* line 38, ../scss/components/_buttons.scss */
 .action_button {
-  background-color: #88cc55;
+  background-color: #89cd56;
 }
 /* line 40, ../scss/components/_buttons.scss */
 .action_button:hover {
-  background-color: #7ab74c;
+  background-color: #89cd56;
 }
 
 /* line 45, ../scss/components/_buttons.scss */

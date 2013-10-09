@@ -36,9 +36,9 @@
 }
 
 .action_button {
-  background-color: rgb(136,204,85);
+  background-color: $green_light;
   &:hover {
-        background-color: rgb(122,183,76);
+        background-color: $green_dark;
       }
 }
 
