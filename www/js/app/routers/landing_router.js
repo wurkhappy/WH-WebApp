@@ -17,11 +17,12 @@ define(['backbone', 'views/landing/landingview'],
         initialize: function () {
 
           // Setup the root-level application View.
-          this.mainView = new LandingView();
+          this.landingView = new LandingView();
         },
 
         index: function () {
-          if (!this.landingView) this.landingView = new LandingView({router:this, model: this.model});
+
+          this.landingView = new LandingView({router:this, model: this.model});
         },
 
       });

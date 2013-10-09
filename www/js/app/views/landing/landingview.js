@@ -17,8 +17,8 @@ define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview'
         template: Handlebars.compile(landingTemplate),
 
         events: {
-          "click #login": "triggerLogin",
-          "click #cancel": "cancelLogin",
+          "click #login": "showLogin",
+          "click #cancel": "hideLogin",
           "click #pricing-button": 'switchToPricing',
           "click #about-button": 'switchToAbout'
         },
@@ -31,48 +31,31 @@ define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview'
         },
 
 
-        triggerLogin: function () {
+        showLogin: function () {
 
           var loginView = new LoginView();
 
           this.$login.html(loginView.render().el);
 
-          var t1 = setTimeout(function () {
-            $('#logindiv').fadeIn('fast');
-            $('#login_form').parsley(); //initialize form validation
-          }, 200);
-
-          var t2 = setTimeout(function () {
-            $('#target').focus();
-          }, 300);
-
-          // delay the focus function on the email input so that the function isn't called until
-          // after the login appears.
-          // wrap it in setTimeout because delay is limited
-          // set an identifier to SetTimeout so that it can be cleared later on.
-
-          // hide stuff, show stuff, add class, fade stuff
+          $('#logindiv').fadeIn('slow');
+          $('#target').focus();
+          $('#login_form').parsley(); //initialize form validation
           $('#log_in').hide();
           $('#log_out').show();
-          $('.copyright').addClass('fixed');
-          $('#navigation').addClass('line');
-          $('.fade').fadeOut('fast');
 
         },
 
-        cancelLogin: function () {
+        hideLogin: function () {
 
           this.$login.html(this.template());
+          $('#create_form').parsley();
           this.$login.hide();
           this.$login.fadeIn('fast');
 
           //Do the same thing as triggerLogin but opposite
             $('#log_out').hide();
             $('#log_in').show();
-            $('.copyright').removeClass('fixed');
-            $('#navigation').removeClass('line');
             $('#logindiv').fadeOut('fast');
-            $('.fade').fadeIn('slow');
 
         },
         switchToAbout: function(event){
@@ -80,6 +63,7 @@ define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview'
           $("#about-button").addClass("current");
         },
         switchToPricing: function(event){
+          console.log("something happening");
           this.switchTab(pricingTemplate)
           $("#pricing-button").addClass("current");
         },
