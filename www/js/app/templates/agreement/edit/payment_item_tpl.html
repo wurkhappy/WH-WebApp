@@ -1,15 +1,12 @@
 <div>
-	<div class="amount" contenteditable style="display:inline-block;">
-		<strong>${{amount}}</strong>
-	</div> &mdash; 
-	<div contenteditable style="display:inline-block;" class="title">{{title}}
-	</div>
+	<input class="amount" contenteditable ${{amount}} value="${{amount}}" style="display:inline-block;width:214px;">
+	<input contenteditable style="display:inline-block;" value="{{title}}" class="title">
 	{{#if date}}on {{this}}{{/if}}
 </div>
-<input type="text" name="" value="" placeholder="Add work item" id="" size="50">
-<div class="scope_items_container"></div>
+<input class="edit_work_item" type="text" name="" value="" placeholder="Add work item" id="" size="50">
+<ul class="scope_items_container create_scope_item_container"></ul>
 <fieldset class="removeButton">
-	<p class="add-more">
-		<a>Remove payment</a>
+	<p class="remove_icon">
+		<a>Remove milestone</a>
 	</p>
 </fieldset>

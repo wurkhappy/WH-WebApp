@@ -674,8 +674,8 @@ fieldset {
 }
 
 /* line 41, ../scss/components/_agreement.scss */
-.make_payment:link,
-.make_payment:visited {
+.make_payment,
+.make_payment {
   background-color: #88cc55;
   color: white;
 }
@@ -710,6 +710,12 @@ fieldset {
   -moz-border-radius-bottomleft: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+
+/* line 74, ../scss/components/_agreement.scss */
+.edit_work_item {
+  margin-top: 20px;
+  width: 394px;
 }
 
 /* line 1, ../scss/components/_agreement_profile.scss */
@@ -1153,6 +1159,13 @@ fieldset {
 }
 
 /* line 11, ../scss/components/_create_estimate.scss */
+.remove_icon {
+  margin: 20px 0 0 0;
+  padding: 0 0 0 20px;
+  background: url(../img/icons/cross-16x16.png) no-repeat left;
+}
+
+/* line 17, ../scss/components/_create_estimate.scss */
 .milestone-divider {
   border-bottom: 1px solid #dedede;
 }

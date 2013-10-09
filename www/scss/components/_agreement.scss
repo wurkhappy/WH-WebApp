@@ -37,8 +37,8 @@
   color: rgb(100,100,100);
 }
 
-.make_payment:link,
-.make_payment:visited {
+.make_payment,
+.make_payment {
   background-color: rgb(136,204,85);
   color: rgb(255,255,255);
 }
@@ -69,4 +69,9 @@
   -moz-border-radius-bottomleft: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+
+.edit_work_item {
+  margin-top: 20px;
+  width: 394px;
 }

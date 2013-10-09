@@ -20,7 +20,6 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	agreementsData := getCurrentAgreements(userID.(string))
 
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
-	log.Print(requestedUsers)
 
 	user := map[string]interface{}{
 		"id": session.Values["id"],
@@ -67,7 +66,6 @@ func getCurrentAgreements(userID string) []map[string]interface{} {
 
 func getOtherUsers(agreements []map[string]interface{}, userID string) []map[string]interface{} {
 	requestString := buildOtherUsersRequest(agreements, userID)
-	log.Print(requestString)
 	client := &http.Client{}
 	r, _ := http.NewRequest("GET", "http://localhost:3000/user/search?"+requestString, nil)
 	resp, err := client.Do(r)
@@ -176,12 +174,19 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		"otherUser": otherUser,
 		"thisUser":  thisUser,
 	}
-	var index = template.Must(template.ParseFiles(
+
+	format := func(date string) string {
+		t, _ := time.Parse(time.RFC3339, date)
+		return t.Format("Jan 2, 2006")
+	}
+
+	tpl, err := template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
 		"templates/_baseApp.html",
 		"templates/freelancer_perspective_agreement.html",
-	))
-	index.Execute(w, m)
+	)
+	template.Must(tpl, err)
 
+	tpl.Execute(w, m)
 }
 
 func getUserInfo(id string) map[string]interface{} {

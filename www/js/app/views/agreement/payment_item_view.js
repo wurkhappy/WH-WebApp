@@ -54,17 +54,17 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       },
       defaultState:function(){
         if (!this.userIsClient && !this.blockRequests){
-          this.$('.paymentStatus').html('<div style="background-color:green;" class="request-button">Request Payment</div>');
+          this.$('.paymentStatus').html('<span class="request-button payment_status make_payment">Request Payment</span>');
         }
         else{
           this.$('.paymentStatus').html('');
         }
       },
       submittedState:function(){
-        this.$('.paymentStatus').html('<span>Payment Pending</span>');
+        this.$('.paymentStatus').html('<span class="payment_status">Payment Pending</span>');
       },
       acceptedState:function(){
-        this.$('.paymentStatus').html('<span>Payment Made</span>');
+        this.$('.paymentStatus').html('<span class="payment_status">Payment Made</span>');
       },
       submitPayment:function(){
         console.log("submit payment");
