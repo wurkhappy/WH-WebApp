@@ -2,7 +2,7 @@
  * Collection.
  */
 
-define(['backbone', 'models/status'],
+ define(['backbone', 'models/status'],
 
     function(Backbone, Model) {
 
@@ -13,6 +13,12 @@ define(['backbone', 'models/status'],
             model: Model,
             comparator:function(item){
             	return -item.get("date").valueOf();
+            },
+            filterByPaymentID:function(paymentID){
+                var filtered = this.filter(function(model){
+                    return model.get("paymentID") == paymentID;
+                });
+                return new Collection(filtered);
             }
 
         });
@@ -21,4 +27,4 @@ define(['backbone', 'models/status'],
 
     }
 
-);
+    );

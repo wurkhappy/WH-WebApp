@@ -1,6 +1,8 @@
-define(['backbone','backbone-relational', 'models/payment', 'collections/payments', 'models/status', 'collections/status'],
+define(['backbone','backbone-relational', 'models/payment', 'collections/payments',
+    'models/status', 'collections/status',  'models/comment', 'collections/comments'],
 
-    function(Backbone, Relational, PaymentModel, PaymentCollection, StatusModel, StatusCollection) {
+    function(Backbone, Relational, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
+        CommentModel, CommentCollection) {
 
         'use strict';
 
@@ -22,6 +24,17 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 collectionType: StatusCollection,
                 reverseRelation: {
                     key: 'ownerModel',
+                    includeInJSON: false
+                }
+            },
+            {
+                type: Backbone.HasMany,
+                key: 'comments',
+                relatedModel: CommentModel,
+                collectionType: CommentCollection,
+                includeInJSON: false,
+                reverseRelation: {
+                    key: 'agreement',
                     includeInJSON: false
                 }
             }

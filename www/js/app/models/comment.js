@@ -1,15 +1,18 @@
 define(['backbone','backbone-relational'],
 
-    function(Backbone, Relational) {
+	function(Backbone, Relational) {
 
-        'use strict';
+		'use strict';
 
-        var Comment = Backbone.RelationalModel.extend({
-        	url:"/agreement/comment"
-        });
+		var Comment = Backbone.RelationalModel.extend({
+			url:function(){
+				console.log(this.collection);
+				return "/agreement/"+this.collection.agreement.get("agreementID")+"/comments";
+			}
+		});
 
-        return Comment;
+		return Comment;
 
-    }
+	}
 
-    );
+	);

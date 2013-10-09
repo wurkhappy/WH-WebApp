@@ -17,7 +17,8 @@
         profile: "#agreement-profile",
         paymentSchedule: "#payment-schedule",
         agreementHistory: "#agreement-history",
-        header: "#header-section"
+        header: "#header-section",
+        discussion: "#discussion"
       },
 
       initialize: function(){

@@ -7,7 +7,6 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
-	"log"
 	"net/http"
 	"time"
 )
@@ -85,10 +84,8 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 		clientID, _ := agreement["clientID"]
 		freelancerID, _ := agreement["freelancerID"]
 		if clientID != "" && clientID != userID {
-			log.Print("client id")
 			requestedUsers += "userid=" + clientID.(string) + "&"
 		} else {
-			log.Print("freelancer id")
 			requestedUsers += "userid=" + freelancerID.(string) + "&"
 
 		}
@@ -154,13 +151,16 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["id"]
-	r, _ := http.NewRequest("GET", "http://localhost:4050/agreements/"+id, nil)
-	respData, _ := sendRequest(r)
+	agrmntReq, _ := http.NewRequest("GET", "http://localhost:4050/agreements/"+id, nil)
+	agrmntData, _ := sendRequest(agrmntReq)
+
+	commentReq, _ := http.NewRequest("GET", "http://localhost:5050/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
+	commentsData, _ := sendRequestArray(commentReq)
 
 	userID := session.Values["id"]
-	otherID, _ := respData["freelancerID"]
+	otherID, _ := agrmntData["freelancerID"]
 	if otherID == userID {
-		otherID = respData["clientID"]
+		otherID = agrmntData["clientID"]
 	}
 	var otherUser map[string]interface{}
 	if otherID != "" {
@@ -170,9 +170,10 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 
 	m := map[string]interface{}{
 		"appName":   "mainagreement",
-		"agreement": respData,
+		"agreement": agrmntData,
 		"otherUser": otherUser,
 		"thisUser":  thisUser,
+		"comments": commentsData,
 	}
 
 	format := func(date string) string {
@@ -195,17 +196,14 @@ func getUserInfo(id string) map[string]interface{} {
 	}
 	client := &http.Client{}
 	r, _ := http.NewRequest("GET", "http://localhost:3000/user/search?userid="+id, nil)
-	log.Print(r)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
 	}
 	clientBuf := new(bytes.Buffer)
 	clientBuf.ReadFrom(resp.Body)
-	log.Print(string(clientBuf.Bytes()))
 	var clientData []map[string]interface{}
 	json.Unmarshal(clientBuf.Bytes(), &clientData)
-	log.Print(clientData)
 	if len(clientData) > 0 {
 		return clientData[0]
 	}
@@ -221,6 +219,19 @@ func sendRequest(r *http.Request) (map[string]interface{}, []byte) {
 	respBuf := new(bytes.Buffer)
 	respBuf.ReadFrom(resp.Body)
 	var respData map[string]interface{}
+	json.Unmarshal(respBuf.Bytes(), &respData)
+	return respData, respBuf.Bytes()
+}
+
+func sendRequestArray(r *http.Request) ([]map[string]interface{}, []byte) {
+	client := &http.Client{}
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+	respBuf := new(bytes.Buffer)
+	respBuf.ReadFrom(resp.Body)
+	var respData []map[string]interface{}
 	json.Unmarshal(respBuf.Bytes(), &respData)
 	return respData, respBuf.Bytes()
 }
@@ -259,6 +270,14 @@ func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 	id := vars["agreementID"]
 	paymentID := vars["paymentID"]
 	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreement/"+id+"/payment/"+paymentID+"/status", req.Body)
+	_, respBytes := sendRequest(r)
+	w.Write(respBytes)
+}
+
+func CreateComment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	id := vars["agreementID"]
+	r, _ := http.NewRequest("POST", "http://localhost:5050/agreement/"+id+"/comments", req.Body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }

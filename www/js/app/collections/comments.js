@@ -2,20 +2,23 @@
  * Collection.
  */
 
-define(['backbone', 'models/comment'],
+ define(['backbone', 'models/comment'],
 
-    function(Backbone, Model) {
+ 	function(Backbone, Model) {
 
-        'use strict';
+ 		'use strict';
 
-        var Collection = Backbone.Collection.extend({
+ 		var Collection = Backbone.Collection.extend({
 
-            model: Model,
+ 			model: Model,
+ 			comparator:function(item){
+ 				return -item.get("dateCreated").valueOf();
+ 			}
 
-        });
+ 		});
 
-        return Collection;
+ 		return Collection;
 
-    }
+ 	}
 
-);
+ 	);

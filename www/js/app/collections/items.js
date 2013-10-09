@@ -10,11 +10,8 @@ define(['backbone', 'models/item'],
 
         var Collection = Backbone.Collection.extend({
 
-            // Reference to this collection's model.
             model: Model,
 
-            // URL where to fetch the data.
-            url: '../api/index.php/items'
 
         });
 

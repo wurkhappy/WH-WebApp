@@ -1,6 +1,6 @@
-define(['backbone','backbone-relational', 'moment', 'models/comment', 'collections/comments'],
+define(['backbone','backbone-relational', 'moment'],
 
-    function(Backbone, Relational, moment, CommentModel, CommentCollection) {
+    function(Backbone, Relational, moment) {
 
         'use strict';
 
@@ -10,14 +10,6 @@ define(['backbone','backbone-relational', 'moment', 'models/comment', 'collectio
             StatusAccepted:"accepted",
             StatusRejected:"rejected",
 
-            relations: [{
-                type: Backbone.HasMany,
-                key: 'comments',
-                relatedModel: CommentModel,
-                collectionType: CommentCollection,
-            }
-            ],
-            
             set: function( key, value, options ) {
                 Backbone.RelationalModel.prototype.set.apply( this, arguments );
 

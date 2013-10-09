@@ -3,6 +3,7 @@
 var agreement = {{.agreement}};
 var otherUser = {{.otherUser}};
 var thisUser = {{.thisUser}};
+var comments = {{.comments}};
 </script>
 
 <div id="content" class="clear content">
@@ -49,6 +50,10 @@ var thisUser = {{.thisUser}};
   <div class="column-one-half">
     <h2>Refund Policies</h2>
     <p>{{.agreement.refundPolicy}}</p>
+  </div>
+
+  <div id="discussion" class="clear">
+    <h2>Discuss</h2>
   </div>
 
   <div id="agreement-history" class="clear agreement_history">
