@@ -17,6 +17,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       itemViewContainer:'ul',
       events: {
         "keypress input":"addComment",
+        "click .send_comment": "addComment",
         "change #milestoneSelect":"updateMilestone",
         "change #actionSelect":"updateStatus"
       },
@@ -36,9 +37,11 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
       },
       addComment: function(event){
-        if (event.keyCode == 13) {
+        var $text = $('input.enter_comment_input');
+
+        if (event.keyCode == 13 || event.type == "click") {
           var model = new this.collection.model({
-            text:event.target.value,
+            text: $text.val(),
             dateCreated: moment(),
             authorID:window.thisUser.id,
             milestoneID: this.milestone,
@@ -46,7 +49,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
           })
           this.collection.add(model);
           model.save();
-          event.target.value = null;
+          $text.val('');
+          $text.focus();
         }
       },
       updateMilestone: function(event){

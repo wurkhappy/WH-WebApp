@@ -390,11 +390,11 @@ fieldset {
 
 /* line 38, ../scss/components/_buttons.scss */
 .action_button {
-  background-color: #89cd56;
+  background-color: #87cb52;
 }
 /* line 40, ../scss/components/_buttons.scss */
 .action_button:hover {
-  background-color: #89cd56;
+  background-color: #7bb84c;
 }
 
 /* line 45, ../scss/components/_buttons.scss */
