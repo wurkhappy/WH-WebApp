@@ -11,19 +11,13 @@ import (
 )
 
 func GetAccount(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	userID := session.Values["id"]
 
-	// client := &http.Client{}
-	// r, _ := http.NewRequest("POST", "http://localhost:3000/auth/login", req.Body)
-	// resp, err := client.Do(r)
-	// if err != nil {
-	// 	fmt.Printf("Error : %s", err)
-	// }
+	user := getUserInfo(userID.(string))
 
-	// buf := new(bytes.Buffer)
-	// buf.ReadFrom(resp.Body)
-	// w.Write(buf.Bytes())
 	m := map[string]interface{}{
 		"appName": "mainaccount",
+		"user": user,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

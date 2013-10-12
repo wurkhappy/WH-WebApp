@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"log"
 	"net/http"
@@ -40,4 +41,20 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	session.Save(req, w)
 
 	http.Redirect(w, req, "/home/freelancer", http.StatusFound)
+}
+
+func UpdateUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+
+	client := &http.Client{}
+	r, _ := http.NewRequest("PUT", "http://localhost:3000/user/"+vars["id"], req.Body)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	buf.String()
+	w.Write(buf.Bytes())
 }

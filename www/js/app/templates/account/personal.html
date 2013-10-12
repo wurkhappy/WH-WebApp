@@ -1,30 +1,32 @@
 <h2>Profile Preview</h2>
-    <div class="data-table">
-      <table border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td class="meta">
-            <span><img src="../img/people/obama-face.png"></span>
-          </td>
-          <td>
-            <h3><a href="detail.html">Joe Smith</a></h3>
-            <p>email@domain.com &mdash; (480) 329-7537</p>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <h2>Personal Details</h2>
-    <form action="#" method="get" accept-charset="utf-8">
-      <fieldset>
-        <label for="">Name</label>
-        <input type="text" name="" placeholder="Joe Smith" id="" size="50">
-        <label for="">Photo</label>
-        <input type="file" class="upload">
-        <label for="">Email</label>
-        <input type="text" name="" placeholder="email@domain.com" id="" size="50">
-        <label for="">Phone Number</label>
-        <input type="text" name="" placeholder="(480) 329-7537" id="" size="50">
-      </fieldset>
-      <fieldset class="submit-buttons">
-        <a href="" class="single">Save Personal Details</a>
-      </fieldset>
-    </form>
+<div class="data-table">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="meta">
+        <span><img src="{{avatarURL}}"></span>
+      </td>
+      <td>
+        <h3><a href="detail.html">{{firstName}} {{lastName}}</a></h3>
+        <p>{{email}} &mdash; {{phoneNumber}}</p>
+      </td>
+    </tr>
+  </table>
+</div>
+<h2>Personal Details</h2>
+<form action="#" method="get" accept-charset="utf-8">
+  <fieldset>
+    <label for="">First Name</label>
+    <input type="text" name="firstName" placeholder="Joe" id="" size="50" value="{{firstName}}">
+    <label for="">Last Name</label>
+    <input type="text" name="lastName" placeholder="Smith" id="" size="50" value="{{lastName}}">
+    <label for="">Photo</label>
+    <input type="file" name="avatarData" class="upload">
+    <label for="">Email</label>
+    <input type="text" name="email" placeholder="email@domain.com" id="" size="50" value="{{email}}">
+    <label for="">Phone Number</label>
+    <input type="text" name="phoneNumber" placeholder="(480) 329-7537" id="" size="50" value="{{phoneNumber}}">
+  </fieldset>
+  <fieldset class="submit-buttons">
+    <a id="save-button" class="single">Save Personal Details</a>
+  </fieldset>
+</form>

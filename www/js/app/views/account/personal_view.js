@@ -2,32 +2,59 @@
  * Personal Account View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/account/personal.html'],
+ define(['backbone', 'handlebars', 'text!templates/account/personal.html'],
 
-    function (Backbone, Handlebars, personalTemplate) {
+  function (Backbone, Handlebars, personalTemplate) {
 
-      'use strict';
+    'use strict';
 
-      var PersonalView = Backbone.View.extend({
+    var PersonalView = Backbone.View.extend({
 
-        className:'clear',
+      className:'clear',
 
-        attributes:{'id':'content'},
+      attributes:{'id':'content'},
 
-        template: Handlebars.compile(personalTemplate),
+      template: Handlebars.compile(personalTemplate),
 
-        initialize: function () {
-          this.render();
-        },
+      events: {
+        'blur input[type="text"]':'updateFields',
+        'change input[type="file"]':'updateFile',
+        "click #save-button":"save"
+      },
 
-        render: function () {
-          this.$el.html(this.template());
-          return this;
+      initialize: function () {
+        this.render();
+      },
+
+      render: function () {
+        this.$el.html(this.template(this.model.toJSON()));
+        return this;
+      },
+      updateFields: function(event){
+        this.model.set(event.target.name, event.target.value);
+        console.log(this.model);
+      },
+      updateFile:function(event){
+        var input = event.target;
+        if (input.files && input.files[0]) {
+          var that = this;
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            that.model.set(event.target.name, e.target.result);
+            console.log(that.model);      
+          };
+          reader.readAsDataURL(input.files[0]);
         }
+      },
+      save:function(){
+        this.model.save({},{success:function(model, response){
+          console.log(model);
+        }});
+      }
 
-      });
+    });
 
-      return PersonalView;
+    return PersonalView;
 
-    }
-);
+  }
+  );
