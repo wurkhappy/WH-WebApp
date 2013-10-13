@@ -37,7 +37,7 @@ func main() {
 	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
 	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
-	r.Handle("/user/{id}", loginHandler(handlers.UpdateUser)).Methods("PUT")
+	r.Handle("/user/{id}/cards", loginHandler(handlers.SaveCard)).Methods("POST")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
 

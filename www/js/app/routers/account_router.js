@@ -6,7 +6,7 @@ define([
   'backbone',
   'views/account/main_container_view',
   'views/account/personal_view',
-  'views/account/credit_card_view',
+  'views/account/credit_card_layout',
   'views/account/bank_account_view',
   'views/account/password_view',
   'models/user'],
@@ -45,7 +45,7 @@ define([
 
         creditCard: function () {
           if (!this.creditCardView) {
-            this.creditCardView = new CreditCardView();
+            this.creditCardView = new CreditCardView({model: this.model});
           }
           this.mainContainer.switchToView(this.creditCardView);
         },

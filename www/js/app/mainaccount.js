@@ -18,7 +18,7 @@
  define(function (require) {
 
  	'use strict';
-
+ 	balanced.init('/v1/marketplaces/TEST-MP5kRhj1xxrj7c4mhT1xcMOK');
  	var AccountRouter = require('../app/routers/account_router');
  	$(function () {
 	    // Initialize the application router.
