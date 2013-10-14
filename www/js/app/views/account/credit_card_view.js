@@ -10,7 +10,7 @@ define(['backbone', 'handlebars', 'text!templates/account/creditcard.html'],
 
       var CreditCardView = Backbone.View.extend({
 
-        className:'clear',
+        className:'clear content',
 
         attributes:{'id':'content'},
 

@@ -10,7 +10,7 @@
 
     var PersonalView = Backbone.View.extend({
 
-      className:'clear',
+      className:'clear content',
 
       attributes:{'id':'content'},
 

@@ -10,7 +10,7 @@ define(['backbone', 'handlebars', 'text!templates/account/bankaccount.html'],
 
       var BankAccountView = Backbone.View.extend({
 
-        className:'clear',
+        className:'clear content',
 
         attributes:{'id':'content'},
 
