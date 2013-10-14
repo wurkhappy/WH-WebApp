@@ -1,5 +1,8 @@
 {{define "content" }}
-<script>var thisUser = {{.user}}</script>
+<script>
+var thisUser = {{.user}};
+var cards = {{.cards}}
+</script>
 <script type="text/javascript" src="https://js.balancedpayments.com/v1/balanced.js"></script>
 <div id="mainContainer"> <!-- div for main container -->
   <!-- Title Header -->

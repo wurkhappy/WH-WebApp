@@ -17,9 +17,11 @@
         "change select":"updateFields"
       },
 
-      initialize: function () {
+      initialize: function (options) {
         this.render();
         this.card = {"expiration_month":1, "expiration_year":2013};
+        this.user = options.user;
+        console.log(this.user);
       },
 
       render: function () {
@@ -28,30 +30,21 @@
       },
       updateFields:function(event){
         this.card[event.target.name] = event.target.value;
-        console.log(this.card)
       },
       saveCard:function(event){
-        console.log("click")
         var that = this;
         balanced.card.create(this.card, function (response) {
           if(response.status === 201) {
-            console.log(that.card);
-            $.ajax({
-              type: "POST",
-              url: "/user/"+that.model.id+"/cards",
-              contentType: "application/json",
-              dataType: "json",
-              data:JSON.stringify(response.data),
-              success: _.bind(function(resp){
-                console.log(resp);
-              }, this)
-            });
+            delete response.data.id;
+            console.log(that.user.get("cards"));
+            var model = new that.user.attributes["cards"].model(response.data);
+            that.user.get("cards").add(model);
+            model.save();
 
           } else {
             console.log(response);
-                // Failed to tokenize, your error logic here
-              }
-            });
+          }
+        });
       }
 
     });

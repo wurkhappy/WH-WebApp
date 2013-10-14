@@ -27,6 +27,8 @@ define([
         initialize: function () {
           this.mainContainer = new MainContainer({router:this});
           this.model = new UserModel(window.thisUser);
+          this.model.set("cards", window.cards);
+          console.log(this.model);
         },
 
         personal: function () {

@@ -1,7 +1,7 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/account/creditcard_layout.html', 'views/account/new_card_view'],
+  'text!templates/account/creditcard_layout.html', 'views/account/new_card_view', 'views/account/stored_cards_view'],
 
-  function (Backbone, Handlebars, _, Marionette, layoutTpl, NewCardView) {
+  function (Backbone, Handlebars, _, Marionette, layoutTpl, NewCardView, StoredCardsView) {
 
     'use strict';
 
@@ -20,7 +20,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.render();
       },
       onRender:function(){
-        this.newCard.show(new NewCardView({model: this.model}));
+        this.newCard.show(new NewCardView({user: this.model}));
+        this.storedCards.show(new StoredCardsView({collection: this.model.get("cards")}));
       }
     });
 

@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/sessions"
 	// "html/template"
 	"net/http"
+	"log"
 )
 
 // var authTemplates = template.Must(template.ParseFiles("templates/login.html", "templates/newAccount.html"))
@@ -21,6 +22,7 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	}
 
 	if resp.StatusCode >= 400 {
+		log.Print("error")
 		errorBuf := new(bytes.Buffer)
 		errorBuf.ReadFrom(resp.Body)
 		errorBytes := errorBuf.Bytes()

@@ -38,6 +38,7 @@ func main() {
 	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
 	r.Handle("/user/{id}/cards", loginHandler(handlers.SaveCard)).Methods("POST")
+	r.Handle("/user/{id}/cards/{cardID}", loginHandler(handlers.DeleteCard)).Methods("DELETE")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
 
