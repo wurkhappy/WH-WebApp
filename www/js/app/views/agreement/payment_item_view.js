@@ -37,10 +37,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
           this.defaultState();
           return;
         }
-        //payment accepted = accepted
-        //payment pending = submitted
-        //null = not submitted or accepted
-        //request payment = is freelancer and not submitted or accepted and agreement isn't in submitted state
         switch (status.get("action")){
           case status.StatusSubmitted:
           this.submittedState();

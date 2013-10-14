@@ -5,7 +5,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
     'use strict';
 
-    var DraftState = BaseState.extend({
+    var EditState = BaseState.extend({
       initialize:function(){
         BaseState.prototype.initialize.apply(this);
         this.button1Title = (this.userIsClient) ? null : "Submit Agreement"; 
@@ -21,12 +21,15 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         },this)});      
       },
       button2:function(event){
-        window.location.hash = "edit";     
-      }
+        this.model.set("draft", true);
+        this.model.save({},{success:function(model, response){
+          window.location = "/home";
+        }});      
+      },
 
     });
 
-    return DraftState;
+    return EditState;
 
   }
   );
