@@ -45,6 +45,7 @@
 
       render: function () {
         var status = this.model.get("statusHistory").at(0);
+        console.log(status);
 
         var statusInfo = createStatusInfo(status, this.userIsClient);
 
