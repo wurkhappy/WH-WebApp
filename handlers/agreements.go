@@ -207,25 +207,6 @@ func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 	w.Write(respBytes)
 }
 
-func UpdateAgreementStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	req.ParseForm()
-	vars := mux.Vars(req)
-	id := vars["agreementID"]
-	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreement/"+id+"/status", req.Body)
-	_, respBytes := sendRequest(r)
-	w.Write(respBytes)
-}
-
-func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	req.ParseForm()
-	vars := mux.Vars(req)
-	id := vars["agreementID"]
-	paymentID := vars["paymentID"]
-	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreement/"+id+"/payment/"+paymentID+"/status", req.Body)
-	_, respBytes := sendRequest(r)
-	w.Write(respBytes)
-}
-
 func CreateComment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["agreementID"]

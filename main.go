@@ -48,9 +48,7 @@ func main() {
 	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
 
 	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.CreatePaymentStatus)).Methods("POST")
-	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.UpdatePaymentStatus)).Methods("PUT")
 	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.CreateAgreementStatus)).Methods("POST")
-	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.UpdateAgreementStatus)).Methods("PUT")
 	r.Handle("/agreement/{agreementID}/comments", baseHandler(handlers.CreateComment)).Methods("POST")
 
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
