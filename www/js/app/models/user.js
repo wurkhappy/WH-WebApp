@@ -13,16 +13,16 @@ define(['backbone', 'collections/cards', 'models/card', 'collections/bank_accoun
                 reverseRelation: {
                     key: 'user',
                     includeInJSON: false
-                }}
-                // {           
-                // type: Backbone.HasMany,
-                // key: 'bank_accounts',
-                // relatedModel: AccountModel,
-                // collectionType: AccountCollection,
-                // reverseRelation: {
-                //     key: 'user',
-                //     includeInJSON: false
-                // }
+                }},
+                 {           
+                 type: Backbone.HasMany,
+                 key: 'bank_accounts',
+                 relatedModel: AccountModel,
+                 collectionType: AccountCollection,
+                 reverseRelation: {
+                     key: 'user',
+                     includeInJSON: false
+                 }}
                 ],
 
                 url:function(){
