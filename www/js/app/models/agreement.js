@@ -54,9 +54,10 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
             updateStatus:function(action, successCallback){
                 $.ajax({
                   type: "POST",
-                  url: "/agreement/"+this.id+"/status?action="+action,
+                  url: "/agreement/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
+                  data:JSON.stringify({"action":action}),
                   success: _.bind(function(response){
                     this.get("statusHistory").add(response);
                     if (_.isFunction(successCallback)) successCallback();
