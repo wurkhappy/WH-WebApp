@@ -33,6 +33,7 @@
 
       updateField: function(event){
         this.model.set(event.target.name, event.target.value)
+        console.log(this.model);
       },
       saveAndContinue:function(event){
         event.preventDefault();
