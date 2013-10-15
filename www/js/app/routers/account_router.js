@@ -28,7 +28,7 @@ define([
           this.mainContainer = new MainContainer({router:this});
           this.model = new UserModel(window.thisUser);
           this.model.set("cards", window.cards);
-          this.model.set("bank_account", window.bank_account);
+          this.model.set("bank_accounts", window.bank_account);
           console.log(this.model);
         },
 

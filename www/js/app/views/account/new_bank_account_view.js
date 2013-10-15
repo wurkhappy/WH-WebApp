@@ -19,8 +19,9 @@
 
       initialize: function (options) {
         this.render();
-        this.account; // = {"expiration_month":1, "expiration_year":2013};
         this.user = options.user;
+        var name = this.user.attributes.firstName + ' ' + this.user.attributes.lastName;
+        this.account = { name: name};
         console.log(this.user);
       },
 
@@ -32,13 +33,14 @@
         this.account[event.target.name] = event.target.value;
       },
       saveBankAccount:function(event){
+        event.preventDefault();
         var that = this;
         balanced.bankAccount.create(this.account, function (response) {
           if(response.status === 201) {
             delete response.data.id;
-            console.log(that.user.get("bank_account"));
-            var model = new that.user.attributes["bank_account"].model(response.data);
-            that.user.get("bank_account").add(model);
+            console.log(that.user.get("bank_accounts"));
+            var model = new that.user.attributes["bank_accounts"].model(response.data);
+            that.user.get("bank_accounts").add(model);
             model.save();
 
           } else {
