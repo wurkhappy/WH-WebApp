@@ -14,6 +14,66 @@
   <div id="discussion" class="clear">
     <h2>Discuss</h2>
   </div>
+
+  <div id="overlay" class="overlay hide">
+    <div class="cover"></div>
+    <div id="panel" class="panel">
+      <header class="bottom_divider pay_header_container">
+        <div class="close">X</div>
+        <h2 class="pay_header">Payment Options</h2>
+        <span class="helper_text">Manage stored payment methods in the <a href="/account">account</a> section.</span>
+        <input type="radio" name="payment_type" value="credit_card">Pay with stored credit card<br>
+          <ul class="payment_select_container">
+            <li>
+              <input type="radio" name="select_credit_card" value="">
+              <p class="payment_select_info first_select_info"><span>Card NickName:</span> Personal</p>
+              <p class="payment_select_info">**** **** **** 8765</p>
+              <p class="payment_select_info"><span>Expiration:</span> January, 2014</p>
+              <p class="payment_select_info"><span>Zip Code:</span> 01748</p>
+            </li>
+            <li>
+              <input type="radio" name="select_credit_card" value="">
+              <p class="payment_select_info first_select_info"><span>Card NickName:</span> Personal</p>
+              <p class="payment_select_info">**** **** **** 8765</p>
+              <p class="payment_select_info"><span>Expiration:</span> January, 2014</p>
+              <p class="payment_select_info"><span>Zip Code:</span> 01748</p>
+            </li>
+          </ul>
+        <input type="radio" name="payment_type" value="bank_account">Pay with stored bank account<br>
+          <ul class="payment_select_container">
+            <li>
+              <input type="radio" name="select_bank_account" value="">
+              <p class="payment_select_info first_select_info"><span>Account NickName:</span> Personal</p>
+              <p class="payment_select_info"><span>Routing:</span> **** **** **** 8765</p>
+              <p class="payment_select_info"><span>Account:</span> **** **** **** 8765</p>
+            </li>
+            <li>
+              <input type="radio" name="select_bank_account" value="">
+              <p class="payment_select_info first_select_info"><span>Account NickName:</span> Personal</p>
+              <p class="payment_select_info"><span>Routing:</span> **** **** **** 8765</p>
+              <p class="payment_select_info"><span>Account:</span> **** **** **** 8765</p>
+            </li>
+          </ul>
+      </header>
+      <article>
+        <div class="line"></div>
+        <h2 class="pay_header pay_milestone">Pay Milestone "Deposit"</h2>
+        <div>
+          <ul class="line_item_container">
+            <li class="line_item"><span class="line_item_title line_item_title_small">Milestone Cost:</span> $2000.00</li>
+            <li class="line_item"><span class="line_item_title line_item_title_small">Wurk Happy Fee:</span> $15.00</li>
+            <li class="line_item line_item_total"><span class="line_item_title">Total:</span> $2015.00</li>
+          </ul>
+        </div>
+        <a id="pay-button" class="button action_button pay_button">Pay</a>
+      </article>
+    </div>
+  </div>
+      
+      <div class="payment"></div>
+    </div>
+
+  </div>
   
   <div class="clear agreement_history">
    <h2 class="agreement_title">Agreement History</h2>
