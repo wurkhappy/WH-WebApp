@@ -152,7 +152,7 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	agrmntReq, _ := http.NewRequest("GET", "http://localhost:4050/agreements/"+id, nil)
 	agrmntData, _ := sendRequest(agrmntReq)
 
-	commentReq, _ := http.NewRequest("GET", "http://localhost:5050/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
+	commentReq, _ := http.NewRequest("GET", "http://localhost:5050/agreement/"+agrmntData["versionlessID"].(string)+"/comments", nil)
 	commentsData, _ := sendRequestArray(commentReq)
 
 	userID := session.Values["id"]
@@ -189,39 +189,24 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 }
 
 func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	req.ParseForm()
 	vars := mux.Vars(req)
 	id := vars["agreementID"]
-	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/status?action="+req.FormValue("action"), nil)
+	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/status", req.Body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }
 
 func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	req.ParseForm()
 	vars := mux.Vars(req)
 	id := vars["agreementID"]
 	paymentID := vars["paymentID"]
-	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/payment/"+paymentID+"/status?action="+req.FormValue("action"), nil)
-	_, respBytes := sendRequest(r)
-	w.Write(respBytes)
-}
 
-func UpdateAgreementStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	req.ParseForm()
-	vars := mux.Vars(req)
-	id := vars["agreementID"]
-	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreement/"+id+"/status", req.Body)
-	_, respBytes := sendRequest(r)
-	w.Write(respBytes)
-}
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	reqBytes := buf.Bytes()
+	body := bytes.NewReader(reqBytes)
 
-func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	req.ParseForm()
-	vars := mux.Vars(req)
-	id := vars["agreementID"]
-	paymentID := vars["paymentID"]
-	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreement/"+id+"/payment/"+paymentID+"/status", req.Body)
+	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/payment/"+paymentID+"/status", body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }

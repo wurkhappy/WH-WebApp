@@ -63,7 +63,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.$('.paymentStatus').html('<span class="payment_status">Payment Made</span>');
       },
       submitPayment:function(){
-        console.log("submit payment");
         this.model.submit();
       }
 
