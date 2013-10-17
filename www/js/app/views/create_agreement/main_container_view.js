@@ -17,7 +17,7 @@ define(['backbone', 'handlebars'],
         },
 
         cancelAgreement: function(event){
-          (this.model.id) ? this.model.destroy() : window.location = "/freelancer/home";
+          (this.model.id) ? this.model.destroy() : window.location = "/home";
         },
         
         switchToView: function(view){
