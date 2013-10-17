@@ -205,6 +205,15 @@ fieldset {
   display: none;
 }
 
+/* line 176, ../scss/bases/_common.scss */
+.checkmark {
+  background-image: url("../img/checkmark.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  background-size: 16px;
+  background-position: 0px 4px;
+}
+
 /* FORMS
 ================================================================================ */
 /* line 4, ../scss/components/_forms.scss */

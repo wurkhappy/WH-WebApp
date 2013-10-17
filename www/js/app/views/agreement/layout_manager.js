@@ -16,7 +16,7 @@
       regions: {
         profile: "#agreement-profile",
         paymentSchedule: "#payment-schedule",
-        independentStatus:"#independent-status",
+        clauses:"#clauses",
         agreementHistory: "#agreement-history",
         header: "#header-section",
         discussion: "#discussion"

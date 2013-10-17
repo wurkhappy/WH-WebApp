@@ -172,3 +172,11 @@ fieldset {
 .hide {
   display: none;
 }
+
+.checkmark {
+  background-image: url("../img/checkmark.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  background-size: 16px;
+  background-position: 0px 4px;
+}
