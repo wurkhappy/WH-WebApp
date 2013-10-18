@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	// "html/template"
-	"net/http"
 	"log"
+	"net/http"
 )
 
 // var authTemplates = template.Must(template.ParseFiles("templates/login.html", "templates/newAccount.html"))
@@ -37,6 +38,7 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	json.Unmarshal(respBytes, &requestData)
 
 	session.Values["id"] = requestData["id"].(string)
+	session.Values["isVerified"] = requestData["isVerified"].(string)
 	session.Save(req, w)
 
 	w.Write([]byte(`{"redirectURL":"/home"}`))
@@ -48,4 +50,25 @@ func Logout(w http.ResponseWriter, req *http.Request, session *sessions.Session)
 	session.Save(req, w)
 
 	http.Redirect(w, req, "/", http.StatusFound)
+}
+
+func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	req.ParseForm()
+	vars := mux.Vars(req)
+	id := vars["id"]
+
+	m := map[string]string{
+		"path":      req.URL.Path,
+		"signature": req.FormValue("signature"),
+	}
+	jsonData, _ := json.Marshal(m)
+	body := bytes.NewReader(jsonData)
+	r, _ := http.NewRequest("POST", "http://localhost:3000/user/"+id+"/sign/verify", body)
+	requestData, _ := sendRequest(r)
+
+	session.Values["id"] = requestData["id"].(string)
+	session.Values["isVerified"] = requestData["isVerified"].(string)
+	session.Save(req, w)
+	http.Redirect(w, req, "/account", http.StatusFound)
+
 }

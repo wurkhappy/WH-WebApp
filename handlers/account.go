@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
-	// "log"
+	"log"
 	"net/http"
 )
 
@@ -31,7 +31,7 @@ func GetAccount(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 }
 
 func SaveCard(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-
+	log.Print("save card")
 	vars := mux.Vars(req)
 	id := vars["id"]
 
