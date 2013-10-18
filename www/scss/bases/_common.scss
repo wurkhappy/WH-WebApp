@@ -51,7 +51,7 @@ table {
 
 body {
   text-align: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: museo_sans;
   background: rgb(220,224,228) url(../img/bg.png) fixed;
   color: rgb(100,100,100);
 }
@@ -85,7 +85,7 @@ strong {
 h1, h2, h3 {
   color: rgb(0,0,0);
   padding: 0 20px;
-  font-family: Museo;
+  font-family: museo;
 }
 
 h1 strong, h2 strong {
@@ -171,4 +171,12 @@ fieldset {
 
 .hide {
   display: none;
+}
+
+.checkmark {
+  background-image: url("../img/checkmark.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  background-size: 16px;
+  background-position: 0px 4px;
 }

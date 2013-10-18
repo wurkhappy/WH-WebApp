@@ -1,0 +1,8 @@
+ {{#if independent_status}}
+    <h2 class="agreement_title">Clauses</h2>
+    <p class="checkmark">{{firstName}} {{lastName}} is an independent contractor, not an employee. {{thisUser.firstName}} is solely responsible for all taxes, withholdings, insurance, and any other obligations that may apply to an independent contractor.</p>
+
+  {{else}}
+      <h2 class="agreement_title">Clauses</h2>
+      <p class="checkmark">{{firstName}} {{lastName}} hasn't added any additional clauses.</p>
+  {{/if}}

@@ -12,7 +12,7 @@
     var MilestoneView = Backbone.View.extend({
 
       tagName:'fieldset',
-      className: 'milestone-divider',
+      className: 'bottom_divider',
 
       template: Handlebars.compile(estimateTemplate),
 

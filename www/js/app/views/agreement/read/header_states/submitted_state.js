@@ -14,7 +14,10 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       button1:function(event){
         //we don't check for userIsClient here because if title is null then button doesn't call action
         if (this.statusType === 'payment') {
-          this.model.get("payments").findSubmittedPayment().accept();
+
+          $('#overlay').fadeIn('slow');
+
+          //this.model.get("payments").findSubmittedPayment().accept();
         }
         else{
           this.model.accept();
