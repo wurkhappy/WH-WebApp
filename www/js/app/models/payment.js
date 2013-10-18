@@ -49,7 +49,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                   url: "/agreement/"+this.collection.parent.id+"/payment/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
-                  data:JSON.stringify({"action":action, "debitURI":"test"}),
+                  data:JSON.stringify({"action":action, "debitSourceURI":"/v1/marketplaces/TEST-MP1f775iSL82BucxjmR83cOk/cards/CCSVhsO6dB9hY7mVwAJ6xBe"}),
                   success: _.bind(function(response){
                     this.collection.parent.get("statusHistory").add(response);
                     this.set("currentStatus",this.collection.parent.get("statusHistory").at(0));

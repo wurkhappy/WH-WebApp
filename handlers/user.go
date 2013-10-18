@@ -38,6 +38,7 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	json.Unmarshal(respBytes, &requestData)
 
 	session.Values["id"] = requestData["id"].(string)
+	session.Values["isVerified"] = requestData["isVerified"].(string)
 	session.Save(req, w)
 
 	http.Redirect(w, req, "/home/freelancer", http.StatusFound)

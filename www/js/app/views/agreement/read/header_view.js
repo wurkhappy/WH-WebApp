@@ -15,6 +15,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
       initialize:function(){
         this.listenTo(this.model.get("statusHistory"), 'add', this.changeState);
         this.changeState();
+        this.user = options.user;
       },
 
       render:function(){
@@ -31,9 +32,15 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         "click #action-button2":"button2"
       },
       button1:function(event){
+        if !this.user.get("isVerified"){
+          return
+        }
         this.state.button1();
       },
       button2:function(event){
+        if !this.user.get("isVerified"){
+          return
+        }
         this.state.button2();
       },
       changeState:function(){

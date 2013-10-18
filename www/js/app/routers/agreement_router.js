@@ -5,10 +5,10 @@
  define(['backbone', 'models/agreement', 'views/agreement/layout_manager',
   'views/agreement/payments_read_view', 'views/agreement/agreement_history_view', 'views/agreement/user_view',
   'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
-  'views/agreement/read/header_view', 'views/agreement/discussion_view', 'views/agreement/independent_view'],
+  'views/agreement/read/header_view', 'views/agreement/discussion_view', 'views/agreement/independent_view', 'models/uder'],
 
   function (Backbone, AgreementModel, LayoutView, PaymentsReadView, AgrmntHistoryView, UserView,
-    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, IndependentView) {
+    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, IndependentView, UserModel) {
 
     'use strict';
 
@@ -23,6 +23,7 @@
         this.model = new AgreementModel(window.agreement);
         this.model.set("comments", window.comments);
         this.layout = new LayoutView({model: this.model});
+        this.user = new UserModel(window.thisUser);
         console.log(this.model);
       },
 
@@ -31,11 +32,11 @@
         this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
         this.layout.profile.show(new UserView());
         this.layout.independentStatus.show(new IndependentView({model: this.model}));
-        this.layout.header.show(new HeaderView({model: this.model}));
+        this.layout.header.show(new HeaderView({model: this.model, user: this.user}));
         this.layout.discussion.show(new DiscussionView({model: this.model}));
       },
       editAgreement :function(){
-        this.layout.header.show(new HeaderEditView({model: this.model}));
+        this.layout.header.show(new HeaderEditView({model: this.model, user:this.user}));
         this.layout.paymentSchedule.show(new PaymentEditView({model: this.model}));
         this.layout.independentStatus.show(new IndependentView({model: this.model}));
         this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
