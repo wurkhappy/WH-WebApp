@@ -185,9 +185,10 @@ input[type=radio] {
 /* line 157, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
+  width: 140px;
 }
 
-/* line 161, ../scss/bases/_common.scss */
+/* line 162, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -195,17 +196,17 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 168, ../scss/bases/_common.scss */
+/* line 169, ../scss/bases/_common.scss */
 .content {
   background-color: white;
 }
 
-/* line 172, ../scss/bases/_common.scss */
+/* line 173, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 176, ../scss/bases/_common.scss */
+/* line 177, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("../img/checkmark.png");
   background-repeat: no-repeat;
@@ -1525,7 +1526,7 @@ fieldset {
 
 /* line 10, ../scss/components/_discussion_container.scss */
 .add_comment_container {
-  height: 50px;
+  height: 60px;
 }
 
 /* line 14, ../scss/components/_discussion_container.scss */
@@ -1535,7 +1536,7 @@ fieldset {
 
 /* line 18, ../scss/components/_discussion_container.scss */
 .enter_comment_input {
-  width: 543px;
+  width: 460px;
   margin-left: 15px;
   height: 40px;
   border-radius: 5px;
@@ -1580,7 +1581,7 @@ fieldset {
   color: white;
   background: #009adb;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 21px;
 }
 /* line 57, ../scss/components/_discussion_container.scss */
 .send_comment:hover {
@@ -1592,6 +1593,61 @@ fieldset {
 /* line 64, ../scss/components/_discussion_container.scss */
 .comment_select_padding {
   margin-left: 10px;
+}
+
+/* line 68, ../scss/components/_discussion_container.scss */
+.selectdiv {
+  display: inline-block;
+  width: 175px;
+  border: 1px solid #969696;
+  height: 40px;
+  background: url(http://i48.tinypic.com/2u7rpec.png) no-repeat right center;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  line-height: 40px;
+  top: 15px;
+}
+
+/* line 81, ../scss/components/_discussion_container.scss */
+.selectdiv:hover, .selectdiv:focus {
+  width: 175px;
+  border: 1px solid #009adb;
+  height: 40px;
+  background: url(http://i48.tinypic.com/2u7rpec.png) no-repeat right;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* line 90, ../scss/components/_discussion_container.scss */
+.out {
+  z-index: -1;
+  border: 0px solid #000;
+  height: 40px;
+  overflow: hidden;
+  padding: 1px 0px 0px 5px;
+  cursor: pointer;
+}
+
+/* line 99, ../scss/components/_discussion_container.scss */
+.selectboxdiv {
+  height: 40px;
+  left: -10px;
+  margin-top: 0;
+  position: absolute;
+  width: 175px;
+  z-index: 2;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -khtml-opacity: 0;
+  -moz-opacity: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* line 114, ../scss/components/_discussion_container.scss */
+.active_select {
+  border: 1px solid #009adb;
 }
 
 /* line 1, ../scss/components/_agreement_history.scss */

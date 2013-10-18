@@ -41,10 +41,8 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
           if (event.keyCode != 13) { 
             return;
             }
-
           this.updateModel(event);
           this.submitModel(event);
-
         },
 
         submitModel: function(event){

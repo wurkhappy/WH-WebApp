@@ -185,9 +185,10 @@ input[type=radio] {
 /* line 157, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
+  width: 140px;
 }
 
-/* line 161, ../scss/bases/_common.scss */
+/* line 162, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -195,17 +196,17 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 168, ../scss/bases/_common.scss */
+/* line 169, ../scss/bases/_common.scss */
 .content {
   background-color: white;
 }
 
-/* line 172, ../scss/bases/_common.scss */
+/* line 173, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 176, ../scss/bases/_common.scss */
+/* line 177, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("../img/checkmark.png");
   background-repeat: no-repeat;
