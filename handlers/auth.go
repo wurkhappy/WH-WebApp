@@ -38,7 +38,7 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	json.Unmarshal(respBytes, &requestData)
 
 	session.Values["id"] = requestData["id"].(string)
-	session.Values["isVerified"] = requestData["isVerified"].(string)
+	session.Values["isVerified"] = requestData["isVerified"].(bool)
 	session.Save(req, w)
 
 	w.Write([]byte(`{"redirectURL":"/home"}`))
@@ -67,7 +67,7 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	requestData, _ := sendRequest(r)
 
 	session.Values["id"] = requestData["id"].(string)
-	session.Values["isVerified"] = requestData["isVerified"].(string)
+	session.Values["isVerified"] = requestData["isVerified"].(bool)
 	session.Save(req, w)
 	http.Redirect(w, req, "/account", http.StatusFound)
 

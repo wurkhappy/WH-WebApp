@@ -26,6 +26,7 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	if err != nil {
 		fmt.Printf("Error : %s", err)
 	}
+	log.Print(resp.StatusCode)
 	if resp.StatusCode == http.StatusConflict {
 		http.Error(w, "email is already registered", http.StatusConflict)
 		return
@@ -36,12 +37,13 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	buf.ReadFrom(resp.Body)
 	respBytes := buf.Bytes()
 	json.Unmarshal(respBytes, &requestData)
+	log.Print(buf.String())
 
 	session.Values["id"] = requestData["id"].(string)
-	session.Values["isVerified"] = requestData["isVerified"].(string)
+	session.Values["isVerified"] = requestData["isVerified"].(bool)
 	session.Save(req, w)
 
-	http.Redirect(w, req, "/home/freelancer", http.StatusFound)
+	http.Redirect(w, req, "/home", http.StatusFound)
 }
 
 func UpdateUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
