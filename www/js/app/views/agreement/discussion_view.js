@@ -21,7 +21,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         "change #milestoneSelect":"updateMilestone",
         "change #actionSelect":"updateStatus",
         "focus select": "addSelectActive",
-        "blur select": "removeSelectActive"
+        "blur select": "removeSelectActive",
+        "change select": "updateSelect"
       },
 
       initialize:function(options){
@@ -57,35 +58,34 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         }
       },
       updateMilestone: function(event){
-        updateSelectStyle();
 
         this.milestone = event.target.value;
         var filtered = this.model.get("statusHistory").filterByPaymentID(this.milestone);
         this.actionSelect.collection = filtered;
         this.actionSelect.render();
       },
+
       updateStatus: function(event){
-        updateSelectStyle();
         this.status = event.target.value;
       },
 
-      updateSelectStyle: function (event) {
-        $("select").change(function () { 
-          var str = ""; 
-          str = $(this).find(":selected").text(); 
-          $(".out").text(str); 
-        }).trigger('change'); 
+      updateSelect: function (event) {
+
+          var $select = $(event.target);
+          var str = $select.find(":selected").text(); 
+          $select.parent().find(".out").text(str);
+          console.log($select); 
+          //.find(".out").text(str) 
       },
+
       addSelectActive: function (event) {
         var $fakeSelect = $(event.target.parentNode);
         $fakeSelect.addClass('active_select')
-        console.log('adding happening here');
       },
 
       removeSelectActive: function (event) {
         var $fakeSelect = $(event.target.parentNode);
         $fakeSelect.removeClass('active_select')
-        console.log("remove active happening here");
       }
 
     });
