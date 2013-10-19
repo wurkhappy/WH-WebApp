@@ -29,7 +29,6 @@
 .comment_date {
 	font-size: 12px;
 	color: hsl(0, 0%, 59%);
-	float: right;
 }
 
 .milestone_tag, .status_tag {
@@ -47,6 +46,7 @@
 
 .comment_body {
 	font-weight: 300;
+	margin-left: 90px;
 }
 
 .send_comment {
@@ -113,4 +113,13 @@
 
 .active_select {
 	border: 1px solid hsl(198, 100%, 43%);
+}
+
+.discussion_photo {
+	float: left;
+	margin-right: 20px;
+}
+
+.comment_post_info {
+	position: relative;
 }

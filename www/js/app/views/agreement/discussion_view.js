@@ -11,8 +11,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       template: Handlebars.compile(discussionTemplate),
 
       itemView: CommentView,
-      itemViewOptions:function(){
-        return {agreement: this.model};
+      itemViewOptions:function(options){
+        return {agreement: this.model, user: this.user};
       },
       itemViewContainer:'ul',
       events: {
@@ -24,9 +24,10 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         "blur select": "removeSelectActive"
       },
 
-      initialize:function(){
+      initialize:function(options){
         this.userIsClient = window.thisUser.id === this.model.get("clientID");
         this.collection = this.model.get("comments");
+        this.user = options.user;
       },
       onRender:function(){
         this.actionSelect = new ActionSelect({collection: this.model.get("statusHistory").filterByPaymentID(this.milestone)}).render();

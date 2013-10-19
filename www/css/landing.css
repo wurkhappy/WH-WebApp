@@ -932,6 +932,12 @@ label {
   text-align: center;
 }
 
+/* line 15, ../scss/components/_copyright.scss */
+.copyright_login {
+  position: absolute;
+  bottom: 0;
+}
+
 /* line 8, ../scss/layouts/_layout.scss */
 .container {
   margin: 0 auto;
