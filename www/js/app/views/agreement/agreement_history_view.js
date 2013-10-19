@@ -20,8 +20,6 @@
 
       initialize:function(){
         this.collection = this.model.get("statusHistory");
-        console.log("First model");
-        console.log(this.model.get("statusHistory").models[0].attributes.date.format('MMM D, YYYY'));
 
         /*_.each(this.model.get("statusHistory").models, function (model) {
           var date = model[index].attributes.date.format('MMM D, YYYY'), this

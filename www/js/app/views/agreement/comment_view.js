@@ -11,14 +11,17 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
 
       initialize:function(options){
         this.agreement = options.agreement;
+        this.avatar = options.user.get("avatarURL");
         this.milestone = this.agreement.get("payments").get(this.model.get("milestoneID"));
         this.status = this.agreement.get("statusHistory").get(this.model.get("statusID"));
         this.commentCreatedDate = this.model.get("dateCreated");
+
       },
 
       render: function () {
         var statusTitle,
-            dateCreated;
+            dateCreated,
+            thisAvatar;
         if (this.status) {
           var prefix = (this.status.get("paymentID")) ? "Payment" : "Agreement"
           statusTitle = prefix + " " +this.status.get("action") + " on " + this.status.get("date").format('MMM D, YYYY');
@@ -26,6 +29,15 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
 
         if (this.commentCreatedDate) {
           dateCreated = this.commentCreatedDate.format('MMMM Do YYYY, h:mm:ss a');
+        }
+
+
+
+        if (this.avatar) {
+          console.log("this user has an avatar");
+          thisAvatar = this.avatar;
+        } else {
+          thisAvatar = "../img/default_photo.jpg";
         }
 
         /*if (this.status) {
@@ -38,7 +50,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           model: this.model.toJSON(),
           milestoneTitle: milestoneTitle,
           statusTitle: statusTitle,
-          dateCreated: dateCreated
+          dateCreated: dateCreated,
+          thisAvatar: thisAvatar
         }));
         return this;
 

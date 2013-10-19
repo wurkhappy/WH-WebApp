@@ -34,7 +34,7 @@
         this.layout.profile.show(new UserView());
         this.layout.header.show(new HeaderView({model: this.model, user: this.user}));
         this.layout.clauses.show(new ClausesView({model: this.model}));
-        this.layout.discussion.show(new DiscussionView({model: this.model}));
+        this.layout.discussion.show(new DiscussionView({model: this.model, user: this.user}));
       },
       editAgreement :function(){
         this.layout.header.show(new HeaderEditView({model: this.model, user:this.user}));
@@ -42,7 +42,7 @@
         this.layout.clauses.show(new ClausesView({model: this.model}));
         this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
         this.layout.profile.show(new UserEditView({model: this.model}));
-        this.layout.discussion.show(new DiscussionView({model: this.model}));
+        this.layout.discussion.show(new DiscussionView({model: this.model, user: this.user}));
       }
 
     });

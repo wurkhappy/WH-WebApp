@@ -1551,29 +1551,29 @@ fieldset {
 .comment_date {
   font-size: 12px;
   color: #969696;
-  float: right;
 }
 
-/* line 35, ../scss/components/_discussion_container.scss */
+/* line 34, ../scss/components/_discussion_container.scss */
 .milestone_tag, .status_tag {
   font-family: Museo;
   font-weight: 100;
   font-size: 16px;
 }
 
-/* line 41, ../scss/components/_discussion_container.scss */
+/* line 40, ../scss/components/_discussion_container.scss */
 .milestone_tag {
   color: #7bb84c;
 }
 
-/* line 44, ../scss/components/_discussion_container.scss */
+/* line 43, ../scss/components/_discussion_container.scss */
 .status_tag {
   color: #008bc7;
 }
 
-/* line 48, ../scss/components/_discussion_container.scss */
+/* line 47, ../scss/components/_discussion_container.scss */
 .comment_body {
   font-weight: 300;
+  margin-left: 90px;
 }
 
 /* line 52, ../scss/components/_discussion_container.scss */
@@ -1648,6 +1648,17 @@ fieldset {
 /* line 114, ../scss/components/_discussion_container.scss */
 .active_select {
   border: 1px solid #009adb;
+}
+
+/* line 118, ../scss/components/_discussion_container.scss */
+.discussion_photo {
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 123, ../scss/components/_discussion_container.scss */
+.comment_post_info {
+  position: relative;
 }
 
 /* line 1, ../scss/components/_agreement_history.scss */
