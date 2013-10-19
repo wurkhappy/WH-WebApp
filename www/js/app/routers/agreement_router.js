@@ -5,10 +5,10 @@
  define(['backbone', 'models/agreement', 'views/agreement/layout_manager',
   'views/agreement/payments_read_view', 'views/agreement/agreement_history_view', 'views/agreement/user_view',
   'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
-  'views/agreement/read/header_view', 'views/agreement/discussion_view', 'views/agreement/independent_view', 'models/user', 'views/agreement/clauses_view'],
+  'views/agreement/read/header_view', 'views/agreement/discussion_view','models/user', 'views/agreement/clauses_view'],
 
   function (Backbone, AgreementModel, LayoutView, PaymentsReadView, AgrmntHistoryView, UserView,
-    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, IndependentView, UserModel,ClausesView) { 
+    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, UserModel, ClausesView) { 
 
     'use strict';
 
@@ -25,6 +25,7 @@
         this.layout = new LayoutView({model: this.model});
         this.user = new UserModel(window.thisUser);
         console.log(this.model);
+        console.log(this.user);
       },
 
       readAgreement: function () {
@@ -38,7 +39,7 @@
       editAgreement :function(){
         this.layout.header.show(new HeaderEditView({model: this.model, user:this.user}));
         this.layout.paymentSchedule.show(new PaymentEditView({model: this.model}));
-        this.layout.independentStatus.show(new IndependentView({model: this.model}));
+        this.layout.clauses.show(new ClausesView({model: this.model}));
         this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
         this.layout.profile.show(new UserEditView({model: this.model}));
         this.layout.discussion.show(new DiscussionView({model: this.model}));
