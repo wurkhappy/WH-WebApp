@@ -19,7 +19,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         "keypress input":"addComment",
         "click .send_comment": "addComment",
         "change #milestoneSelect":"updateMilestone",
-        "change #actionSelect":"updateStatus"
+        "change #actionSelect":"updateStatus",
+        "focus select": "addSelectActive",
+        "blur select": "removeSelectActive"
       },
 
       initialize:function(){
@@ -54,14 +56,37 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         }
       },
       updateMilestone: function(event){
+        updateSelectStyle();
+
         this.milestone = event.target.value;
         var filtered = this.model.get("statusHistory").filterByPaymentID(this.milestone);
         this.actionSelect.collection = filtered;
         this.actionSelect.render();
       },
       updateStatus: function(event){
+        updateSelectStyle();
         this.status = event.target.value;
+      },
+
+      updateSelectStyle: function (event) {
+        $("select").change(function () { 
+          var str = ""; 
+          str = $(this).find(":selected").text(); 
+          $(".out").text(str); 
+        }).trigger('change'); 
+      },
+      addSelectActive: function (event) {
+        var $fakeSelect = $(event.target.parentNode);
+        $fakeSelect.addClass('active_select')
+        console.log('adding happening here');
+      },
+
+      removeSelectActive: function (event) {
+        var $fakeSelect = $(event.target.parentNode);
+        $fakeSelect.removeClass('active_select')
+        console.log("remove active happening here");
       }
+
     });
 
 return DiscussionView;

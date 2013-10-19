@@ -9,8 +9,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'moment',
     });
 
     var ActionSelect = Backbone.Marionette.ItemView.extend({
-      tagName:'select',
+      tagName:'div',
       attributes:{id:"actionSelect"},
+      className: "selectdiv",
       template: Handlebars.compile(actionSelectTpl),
       collectionEvents: {
         "reset": "render"

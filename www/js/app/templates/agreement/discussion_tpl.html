@@ -3,12 +3,15 @@
 <ul class="discussion_container"></ul>
 <div class="add_comment_container">
 	<input class="enter_comment_input inline"></input>
-	<select class="inline comment_select_padding" id="milestoneSelect">
-		<option value="">None</option>
-		{{#each this.payments}}
-		<option value="{{id}}">{{title}}</option>
-		{{/each}}
-	</select>
-	<div class="inline comment_select_padding" id="action-select-wrapper"></div>
+	<div id="select" class="selectdiv">  
+		<select class="inline comment_select_padding selectboxdiv" id="milestoneSelect">
+			<option value="" disabled selected>Choose Milestone...</option>
+			{{#each this.payments}}
+			<option value="{{id}}">{{title}}</option>
+			{{/each}}
+		</select>
+		<div class="out">Choose Milestone...</div>
+	</div>
+	<div id="action-select-wrapper" class="inline comment_select_padding"></div>
 	<a class="send_comment">Send</a>
 </div>
