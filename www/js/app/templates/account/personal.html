@@ -1,17 +1,3 @@
-<h2>Profile Preview</h2>
-<div class="data-table">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td class="meta">
-        <span><img src="{{avatarURL}}"></span>
-      </td>
-      <td>
-        <h3><a href="detail.html">{{firstName}} {{lastName}}</a></h3>
-        <p>{{email}} &mdash; {{phoneNumber}}</p>
-      </td>
-    </tr>
-  </table>
-</div>
 <h2>Personal Details</h2>
 <form action="#" method="get" accept-charset="utf-8">
   <fieldset>
@@ -24,7 +10,7 @@
     <label for="">Email</label>
     <input type="text" name="email" placeholder="email@domain.com" id="" size="50" value="{{email}}">
     <label for="">Phone Number</label>
-    <input type="text" name="phoneNumber" placeholder="(480) 329-7537" id="" size="50" value="{{phoneNumber}}">
+    <input type="text" name="phoneNumber" placeholder="(480) 329-7537" id="" size="50" value="{{phoneFormat phoneNumber}}">
   </fieldset>
   <fieldset class="submit-buttons">
     <a id="save-button" class="single">Save Personal Details</a>
