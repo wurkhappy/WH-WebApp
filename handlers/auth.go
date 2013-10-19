@@ -57,13 +57,7 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	vars := mux.Vars(req)
 	id := vars["id"]
 
-	m := map[string]string{
-		"path":      req.URL.Path,
-		"signature": req.FormValue("signature"),
-	}
-	jsonData, _ := json.Marshal(m)
-	body := bytes.NewReader(jsonData)
-	r, _ := http.NewRequest("POST", "http://localhost:3000/user/"+id+"/sign/verify", body)
+	r, _ := http.NewRequest("POST", "http://localhost:3000/user/"+id+"/verify", nil)
 	requestData, _ := sendRequest(r)
 
 	session.Values["id"] = requestData["id"].(string)
