@@ -52,10 +52,9 @@ define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview'
           this.$login.hide();
           this.$login.fadeIn('fast');
 
-          //Do the same thing as triggerLogin but opposite
-            $('#log_out').hide();
-            $('#log_in').show();
-            $('#logindiv').fadeOut('fast');
+          $('#log_out').hide();
+          $('#log_in').show();
+          $('#logindiv').fadeOut('fast');
 
         },
         switchToAbout: function(event){
