@@ -55,6 +55,7 @@
       },
       updateFields: function(event){
         this.model.set(event.target.name, event.target.value);
+        this.updateSaveButton();   
       },
       updateFile:function(event){
         var input = event.target;
@@ -63,7 +64,8 @@
           var reader = new FileReader();
           reader.onload = function (e) {
             that.model.set(event.target.name, e.target.result);
-            console.log(that.model);      
+            console.log(that.model);
+            that.updateSaveButton();   
           };
           reader.readAsDataURL(input.files[0]);
         }
@@ -72,10 +74,14 @@
         var number = event.target.value;
         this.model.set("phoneNumber", number.replace(/[^0-9]/g, ""));
       },
+      updateSaveButton: function(event){
+        this.$('#save-button').css('background-color', "#be3557").text('Save Personal Details');
+      },
       save:function(){
-        this.model.save({},{success:function(model, response){
+        this.model.save({},{success:_.bind(function(model, response){
           console.log(model);
-        }});
+          this.$('#save-button').css('background-color', "#87cb52").text('Saved');
+        }, this)});
       }
 
     });
