@@ -699,10 +699,12 @@ fieldset {
 /* line 44, ../scss/components/_benefits.scss */
 .benefit_description {
   text-align: center;
+  font-weight: 300;
 }
 
-/* line 48, ../scss/components/_benefits.scss */
+/* line 49, ../scss/components/_benefits.scss */
 .benefit_title {
+  font-size: 22px;
   font-weight: 300;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   margin: 20px 0 8px 0;
