@@ -20,7 +20,6 @@
         this.collection = new AgreementCollection(window.agreements);
         this.otherUsers = new UserCollection(window.otherUsers);
         this.currentUser = new UserModel(window.currentUser);
-        console.log(this.collection);
       },
 
       AllAgreements: function () {
