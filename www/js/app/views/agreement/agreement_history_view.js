@@ -21,17 +21,7 @@
       initialize:function(){
         this.collection = this.model.get("statusHistory");
 
-        /*_.each(this.model.get("statusHistory").models, function (model) {
-          var date = model[index].attributes.date.format('MMM D, YYYY'), this
-        }*/
-        ///
-
         var models = this.model.get("statusHistory").models;
-
-        _.each(models, function (element, index) {console.log(element.get("date").format('MMM D, YYYY'))});
-
-
-        ///
 
       }
 

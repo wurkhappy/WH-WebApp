@@ -13,8 +13,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/clauses_tpl.html'],
 
         render:function(){
           this.model = this.model;
-          console.log(this.model);
-
 
           this.$el.html(this.template(window.thisUser));
 

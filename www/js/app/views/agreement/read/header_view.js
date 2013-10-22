@@ -16,6 +16,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         this.listenTo(this.model.get("statusHistory"), 'add', this.changeState);
         this.changeState();
         this.user = options.user;
+        console.log(this.$el);
       },
 
       render:function(){
@@ -29,7 +30,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
       },
       events:{
         "click #action-button1":"button1",
-        "click #action-button2":"button2"
+        "click #action-button2":"button2",
       },
       button1:function(event){
         if (!this.user.get("isVerified")){
@@ -62,7 +63,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         }
         if (this.model.get("draft")) this.state = new DraftState({model: this.model});
         this.render();
-      }
+      },
 
     });
 

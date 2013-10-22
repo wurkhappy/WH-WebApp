@@ -24,8 +24,6 @@
         this.model.set("comments", window.comments);
         this.layout = new LayoutView({model: this.model});
         this.user = new UserModel(window.thisUser);
-        console.log("payments");
-        console.log(this.model.get("payments").getTotalAmount());
       },
 
       readAgreement: function () {

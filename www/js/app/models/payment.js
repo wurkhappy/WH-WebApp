@@ -34,22 +34,22 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 }
             },
 
-            submit: function(){
-                this.updateStatus("submitted");
+            submit: function(creditSource){
+                this.updateStatus({"action":"submitted", "creditSourceURI":creditSource});
             },
-            accept: function(){
-                this.updateStatus("accepted");
+            accept: function(debitSource){
+                this.updateStatus({"action":"accepted", "debitSourceURI": debitSource});
             },
             reject: function(){
-                this.updateStatus("rejected");
+                this.updateStatus({"action":"rejected"});
             },
-            updateStatus:function(action){
+            updateStatus:function(reqData){
                 $.ajax({
                   type: "POST",
                   url: "/agreement/"+this.collection.parent.id+"/payment/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
-                  data:JSON.stringify({"action":action, "debitSourceURI":"/v1/marketplaces/TEST-MP1f775iSL82BucxjmR83cOk/cards/CCSVhsO6dB9hY7mVwAJ6xBe"}),
+                  data:JSON.stringify(reqData),
                   success: _.bind(function(response){
                     this.collection.parent.get("statusHistory").add(response);
                     this.set("currentStatus",this.collection.parent.get("statusHistory").at(0));

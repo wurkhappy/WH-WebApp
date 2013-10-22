@@ -901,7 +901,7 @@ fieldset {
   padding-bottom: 20px;
 }
 
-/* line 1, ../scss/components/_pay.scss */
+/* line 1, ../scss/components/_popup.scss */
 .panel {
   width: 400px;
   position: fixed;
@@ -925,7 +925,7 @@ fieldset {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 24, ../scss/components/_pay.scss */
+/* line 24, ../scss/components/_popup.scss */
 .cover {
   position: absolute;
   left: 0;
@@ -940,7 +940,7 @@ fieldset {
   background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-/* line 38, ../scss/components/_pay.scss */
+/* line 38, ../scss/components/_popup.scss */
 .overlay {
   position: fixed;
   top: 0;
@@ -950,37 +950,37 @@ fieldset {
   overflow: hidden;
 }
 
-/* line 47, ../scss/components/_pay.scss */
+/* line 47, ../scss/components/_popup.scss */
 .line_item_container {
   list-style: none;
   text-align: right;
 }
 
-/* line 52, ../scss/components/_pay.scss */
+/* line 52, ../scss/components/_popup.scss */
 .line_item_title {
   display: inline-block;
   margin-right: 10px;
 }
 
-/* line 57, ../scss/components/_pay.scss */
+/* line 57, ../scss/components/_popup.scss */
 .line_item_title_small {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 62, ../scss/components/_pay.scss */
+/* line 62, ../scss/components/_popup.scss */
 .line_item {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 68, ../scss/components/_pay.scss */
+/* line 68, ../scss/components/_popup.scss */
 .line_item_total {
   font-size: 20px;
 }
 
-/* line 72, ../scss/components/_pay.scss */
+/* line 72, ../scss/components/_popup.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -988,49 +988,49 @@ fieldset {
   margin-bottom: 10px;
 }
 
-/* line 79, ../scss/components/_pay.scss */
+/* line 79, ../scss/components/_popup.scss */
 .pay_header_container {
   padding-bottom: 40px;
 }
 
-/* line 83, ../scss/components/_pay.scss */
+/* line 83, ../scss/components/_popup.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
 }
 
-/* line 88, ../scss/components/_pay.scss */
+/* line 88, ../scss/components/_popup.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 92, ../scss/components/_pay.scss */
+/* line 92, ../scss/components/_popup.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 96, ../scss/components/_pay.scss */
+/* line 96, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
 }
-/* line 99, ../scss/components/_pay.scss */
+/* line 99, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 104, ../scss/components/_pay.scss */
+/* line 104, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 108, ../scss/components/_pay.scss */
+/* line 108, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
 }
 
-/* line 113, ../scss/components/_pay.scss */
+/* line 113, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
