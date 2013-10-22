@@ -1,0 +1,37 @@
+<div id="overlay" class="overlay hide">
+    <div class="cover"></div>
+    <div id="panel" class="panel">
+      <header class="bottom_divider pay_header_container">
+        <div class="close">X</div>
+        <h2 class="pay_header">Where should we send your funds?</h2>
+        <span class="helper_text">Manage stored payment methods in the <a href="/account">account</a> section.</span>
+        <h3>Select bank account</h3>
+          <ul class="payment_select_container">
+            <li>
+              <input type="radio" name="select_bank_account" value="">
+              <p class="payment_select_info first_select_info"><span>Account NickName:</span> Personal</p>
+              <p class="payment_select_info"><span>Routing:</span> **** **** **** 8765</p>
+              <p class="payment_select_info"><span>Account:</span> **** **** **** 8765</p>
+            </li>
+            <li>
+              <input type="radio" name="select_bank_account" value="">
+              <p class="payment_select_info first_select_info"><span>Account NickName:</span> Business</p>
+              <p class="payment_select_info"><span>Routing:</span> **** **** **** 8765</p>
+              <p class="payment_select_info"><span>Account:</span> **** **** **** 8765</p>
+            </li>
+          </ul>
+      </header>
+      <article>
+        <div class="line"></div>
+        <h2 class="pay_header pay_milestone">Get Paid for Milestone "Deposit"</h2>
+        <div>
+          <ul class="line_item_container">
+            <li class="line_item"><span class="line_item_title line_item_title_small">Request Amount:</span> ${{milestonePayment}}</li>
+            <li class="line_item"><span class="line_item_title line_item_title_small">Wurk Happy Fee:</span> ${{wurkHappyFee}}</li>
+            <li class="line_item line_item_total"><span class="line_item_title">You Will Receive:</span> ${{amountTotal}}</li>
+          </ul>
+        </div>
+        <a id="pay-button" class="button action_button pay_button">Request Payment</a>
+      </article>
+    </div>
+  </div>
