@@ -2,9 +2,9 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'collections/agreements', 'collections/users', 'models/user', 'views/home/home_section_view', 'moment'],
+ define(['backbone', 'collections/agreements', 'collections/users', 'collections/payments', 'models/user', 'views/home/home_section_view', 'moment'],
 
-  function (Backbone, AgreementCollection, UserCollection, UserModel, SectionView, moment) {
+  function (Backbone, AgreementCollection, UserCollection, PaymentCollection, UserModel, SectionView, moment) {
 
     'use strict';
 
@@ -19,6 +19,7 @@
       initialize: function () {
         this.collection = new AgreementCollection(window.agreements);
         this.otherUsers = new UserCollection(window.otherUsers);
+        this.payments = new PaymentCollection(window.payments);
         this.currentUser = new UserModel(window.currentUser);
       },
 
@@ -26,6 +27,8 @@
         //need to to views
         //same view with different title and different models
         var sortedAgreements = this.collection.sortByStatus();
+
+        //var paymentProgress = this.collection.paymentProgress();
 
         var waitingView = new SectionView({
           title:"Waiting for Response", 

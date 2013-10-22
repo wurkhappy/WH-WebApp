@@ -17,7 +17,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
           $('#overlay').fadeIn('slow');
 
-          //this.model.get("payments").findSubmittedPayment().accept();
+          this.model.get("payments").findSubmittedPayment().accept();
         }
         else{
           this.model.accept();

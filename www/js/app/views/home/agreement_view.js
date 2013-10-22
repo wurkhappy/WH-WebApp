@@ -45,6 +45,8 @@
 
       render: function () {
         var status = this.model.get("statusHistory").at(0);
+        var payment = this.model.get("payments");
+        var percentComplete = payment.getPercentComplete() * 100;
 
         var statusInfo = createStatusInfo(status, this.userIsClient);
 
@@ -52,7 +54,8 @@
           model: this.model.toJSON(),
           statusInfo: statusInfo,
           client:this.userIsClient,
-          otherUser: this.otherUser
+          otherUser: this.otherUser,
+          percentComplete: percentComplete
         }));
         return this;
 

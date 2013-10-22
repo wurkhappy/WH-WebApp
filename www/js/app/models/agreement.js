@@ -1,3 +1,8 @@
+/*
+* Agreements Model.
+*/
+
+
 define(['backbone','backbone-relational', 'models/payment', 'collections/payments',
     'models/status', 'collections/status',  'models/comment', 'collections/comments'],
 

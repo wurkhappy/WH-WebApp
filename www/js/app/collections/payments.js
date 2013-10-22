@@ -27,6 +27,31 @@ define(['backbone', 'models/payment'],
                     return !model.get("currentStatus") || model.get("currentStatus").get("action") !== 'accepted';
                 });
                 return paymentArray[0];
+            },
+            getTotalPayments: function() {
+                return this.length;
+            },
+            getAcceptedPayments: function() {
+                var paymentArray = this.filter(function(model) {
+
+                    if (model.get("currentStatus") !== null) {
+                        return model.get("currentStatus").get("action") === 'accepted';
+                    } else {
+                        return 0;
+                    }
+                });
+                return paymentArray.length;
+            },
+            getPercentComplete: function() {
+                var paymentsAccepted = this.getAcceptedPayments(),
+                    totalPayments = this.getTotalPayments();
+
+                if (paymentsAccepted === 0) {
+                    return 0;
+                } else {
+                    return paymentsAccepted/totalPayments;
+                }
+
             }
 
         });

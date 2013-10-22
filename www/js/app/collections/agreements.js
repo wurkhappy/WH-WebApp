@@ -1,5 +1,5 @@
 /*
-* Collection.
+* Agreements Collection.
 */
 
 define(['backbone', 'models/agreement'],
