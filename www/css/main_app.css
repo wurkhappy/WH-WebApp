@@ -1010,27 +1010,33 @@ fieldset {
 }
 
 /* line 96, ../scss/components/_popup.scss */
+.reject_button {
+  margin-top: 20px;
+  width: 308px;
+}
+
+/* line 101, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
 }
-/* line 99, ../scss/components/_popup.scss */
+/* line 104, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 104, ../scss/components/_popup.scss */
+/* line 109, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 108, ../scss/components/_popup.scss */
+/* line 113, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
 }
 
-/* line 113, ../scss/components/_popup.scss */
+/* line 118, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;

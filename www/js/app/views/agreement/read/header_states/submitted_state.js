@@ -1,7 +1,7 @@
 
-define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state', 'text!templates/agreement/pay_tpl.html'],
+define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state', 'text!templates/agreement/accept_tpl.html', 'text!templates/agreement/reject_tpl.html'],
 
-  function (Backbone, Handlebars, BaseState, payTemplate) {
+  function (Backbone, Handlebars, BaseState, payTemplate, rejectTemplate) {
 
     'use strict';
 
@@ -9,7 +9,9 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
       el: "#popup_container",
 
-      template: Handlebars.compile(payTemplate),
+      payTemplate: Handlebars.compile(payTemplate),
+      rejectTemplate: Handlebars.compile(rejectTemplate),
+
 
       initialize:function(){
         BaseState.prototype.initialize.apply(this);
@@ -20,11 +22,11 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         //we don't check for userIsClient here because if title is null then button doesn't call action
         if (this.statusType === 'payment') {
 
-          var milestonePayment = 100 //this.model.get("payments").findSubmittedPayment();
+          var milestonePayment = this.model.get("payments").findSubmittedPayment().get("amount");
           var wurkHappyFee = milestonePayment * .05;
           var amountTotal = this.paymentTotal(milestonePayment, wurkHappyFee);
 
-          this.$el.append(this.template({
+          this.$el.html(this.payTemplate({
             milestonePayment: milestonePayment,
             wurkHappyFee: wurkHappyFee,
             amountTotal: amountTotal
@@ -38,26 +40,43 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         }
       },
       button2:function(event){
-        if (this.statusType === 'payment') {
-          this.model.get("payments").findSubmittedPayment().reject();
-        }
-        else{
-          this.model.reject();
-        }
+
+        this.$el.html(this.rejectTemplate({
+          status: this.statusType
+        }));
+
+        $('#overlay').fadeIn('slow');
+        
       },
 
       events: {
         "click .close": "closeModal",
-        "click #pay-button": "sendPaymentRequest"
+        "click #accept-button": "acceptRequest",
+        "click #reject-button": "rejectRequest"
       },
 
       closeModal: function(event) {
         $('#overlay').fadeOut('slow');
       },
 
-      sendPaymentRequest: function(event) {
-
+      acceptRequest: function(event) {
         this.model.get("payments").findSubmittedPayment().accept("debit");
+      },
+
+      paymentTotal: function (milestonePayment, fee) {
+        return milestonePayment - fee;
+      },
+
+      rejectRequest: function(event) {
+
+        if (this.statusType === 'payment') {
+
+           this.model.get("payments").findSubmittedPayment().reject();
+          
+        }
+        else{
+          this.model.reject();
+        }
 
       }
 
