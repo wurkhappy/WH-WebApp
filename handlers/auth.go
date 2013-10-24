@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
-	// "html/template"
+	"html/template"
 	// "log"
 	"net/http"
 )
@@ -67,6 +67,32 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 }
 
 func ForgotPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	r, _ := http.NewRequest("POST", "http://localhost:3000/password/forgot", req.Body)
+	_, respBytes := sendRequest(r)
+	rError := new(responseError)
+	json.Unmarshal(respBytes, &rError)
+	if rError.StatusCode >= 400 {
+		http.Error(w, rError.Description, rError.StatusCode)
+		return
+	}
+	w.Write([]byte(`{}`))
+}
+
+func GetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+
+	user := struct {
+		id string
+	}{
+		session.Values["id"].(string),
+	}
+	var index = template.Must(template.ParseFiles(
+		"templates/_baseApp.html",
+		"templates/forgot_password.html",
+	))
+	index.Execute(w, user)
+}
+
+func SetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	r, _ := http.NewRequest("POST", "http://localhost:3000/password/forgot", req.Body)
 	requestData, _ := sendRequest(r)
 

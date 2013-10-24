@@ -27,7 +27,7 @@ define(['backbone', 'collections/cards', 'models/card', 'collections/bank_accoun
 
                 url:function(){
                     if (this.id) {return "/user/"+this.id;}
-                    return "/user"
+                    return "/user";
                 }
             });
 

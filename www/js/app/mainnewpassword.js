@@ -7,11 +7,7 @@
  require.config({
 
  	paths: {
-<<<<<<< HEAD
- 		parsley: 'lib/parsleyjs/dist/parsley.min',
-=======
  		parsley: 'lib/parsleyjs/dist/parsley.min'
->>>>>>> 25949a16aa865380f7717a55649eaac225026089
  	},
 
  	shim: {
@@ -26,7 +22,7 @@ define(function (require) {
 
   'use strict';
 
-  var LandingRouter = require('../app/routers/landing_router');
+  var LandingRouter = require('../app/routers/new_password_router');
 
   $(function () {
 

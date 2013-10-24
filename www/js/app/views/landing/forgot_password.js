@@ -2,17 +2,16 @@
  * Login View.
  */
 
-define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html', 'models/user'],
+ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/forgot_password.html', 'models/user'],
 
-    function (Backbone, Handlebars, parsley, loginTemplate, UserModel) {
+  function (Backbone, Handlebars, parsley, forgotPWTemplate, UserModel) {
 
-      'use strict';
+    'use strict';
 
-      var LoginView = Backbone.View.extend({
+    var ForgotPasswordView = Backbone.View.extend({
 
         // Compile our footer template.
-        template: Handlebars.compile(loginTemplate),
-        model: new UserModel(),
+        template: Handlebars.compile(forgotPWTemplate),
 
         events:{
           "blur input" : "updateModel",
@@ -21,8 +20,8 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
         },
 
         initialize: function () {
-          this.model.url = "/user/login";
           this.render();
+          this.user = {};
         },
 
         render: function () {
@@ -34,13 +33,13 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
 
         },
         updateModel: function(event){
-          this.model.set(event.target.name, event.target.value);
+          this.user[event.target.name] = event.target.value;
         },
 
         submitOnEnter: function (event) {
           if (event.keyCode != 13) { 
             return;
-            }
+          }
           this.updateModel(event);
           this.submitModel(event);
         },
@@ -49,18 +48,21 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
           event.preventDefault();
           event.stopPropagation();            
 
-          this.model.save({}, {
-            success:function(model, response){
-              if (response["redirectURL"]) window.location = response["redirectURL"];
-            },
-            error:function(model, response){
-            }
-          })
+          $.ajax({
+            type: "POST",
+            url: "/password/forgot",
+            contentType: "application/json",
+            dataType: "json",
+            data:JSON.stringify(this.user),
+            success: _.bind(function(response){
+              this.$('form').html("Please check your e-mail to renew your password.");
+            }, this)
+          });
         }
 
       });
 
-      return LoginView;
+return ForgotPasswordView;
 
-    }
+}
 );
