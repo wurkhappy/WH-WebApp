@@ -7,7 +7,6 @@ import (
 	"net/http"
 )
 
-
 func getUserInfo(id string) map[string]interface{} {
 	if id == "" {
 		return make(map[string]interface{})
@@ -52,4 +51,9 @@ func sendRequestArray(r *http.Request) ([]map[string]interface{}, []byte) {
 	var respData []map[string]interface{}
 	json.Unmarshal(respBuf.Bytes(), &respData)
 	return respData, respBuf.Bytes()
+}
+
+type responseError struct {
+	Description string `json:"description"`
+	StatusCode  int    `json:"status_code"`
 }

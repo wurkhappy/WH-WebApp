@@ -37,6 +37,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", hello).Methods("GET")
 
+	r.Handle("/password/forgot", loginHandler(handlers.ForgotPassword)).Methods("POST")
 	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
 	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")

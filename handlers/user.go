@@ -26,9 +26,11 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	if err != nil {
 		fmt.Printf("Error : %s", err)
 	}
-	log.Print(resp.StatusCode)
-	if resp.StatusCode == http.StatusConflict {
-		http.Error(w, "email is already registered", http.StatusConflict)
+	if resp.StatusCode >= 400 {
+		var rError *responseError
+		dec := json.NewDecoder(resp.Body)
+		dec.Decode(&rError)
+		http.Error(w, rError.Description, rError.StatusCode)
 		return
 	}
 
@@ -54,6 +56,13 @@ func UpdateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
+	}
+	if resp.StatusCode >= 400 {
+		var rError *responseError
+		dec := json.NewDecoder(resp.Body)
+		dec.Decode(&rError)
+		http.Error(w, rError.Description, rError.StatusCode)
+		return
 	}
 
 	buf := new(bytes.Buffer)
