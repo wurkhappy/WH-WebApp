@@ -18,22 +18,27 @@
       },
 
       initialize: function (options) {
+        console.log("init");
         this.userID = options.userID;
+        this.user = {id: this.userID};
       },
       updateModel: function(event){
-        this.model.set(event.target.name, event.target.value);
+        this.user[event.target.name] = event.target.value;
       },
       submitModel: function(event){
         event.preventDefault();
         event.stopPropagation();            
 
-        this.model.save({}, {
-          success:function(model, response){
+        $.ajax({
+          type: "PUT",
+          url: "/user/"+this.userID+"/password",
+          contentType: "application/json",
+          dataType: "json",
+          data:JSON.stringify(this.user),
+          success: function(response){
             if (response["redirectURL"]) window.location = response["redirectURL"];
-          },
-          error:function(model, response){
           }
-        })
+        });
       }
     });
 

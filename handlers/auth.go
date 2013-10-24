@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
-	// "log"
+	"log"
 	"net/http"
 )
 
@@ -79,25 +79,33 @@ func ForgotPassword(w http.ResponseWriter, req *http.Request, session *sessions.
 }
 
 func GetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	//user gets 10 mins to change their password
+	session.Options.MaxAge = 10 * 60
+	session.Save(req, w)
 
 	user := struct {
-		id string
+		ID string `json:"id"`
 	}{
 		session.Values["id"].(string),
+	}
+	m := map[string]interface{}{
+		"appName": "mainnewpassword",
+		"user":    user,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
 		"templates/forgot_password.html",
 	))
-	index.Execute(w, user)
+	index.Execute(w, m)
 }
 
-func SetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	r, _ := http.NewRequest("POST", "http://localhost:3000/password/forgot", req.Body)
-	requestData, _ := sendRequest(r)
+func SetNewPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	r, _ := http.NewRequest("PUT", "http://localhost:3000/user/"+session.Values["id"].(string)+"/password", req.Body)
+	_, _ = sendRequest(r)
 
-	session.Values["id"] = requestData["id"].(string)
-	session.Values["isVerified"] = requestData["isVerified"].(bool)
+	//if they were successful setting a new password then we treat that as a login and extend their session
+	session.Options.MaxAge = 24 * 60 * 60
 	session.Save(req, w)
-	http.Redirect(w, req, "/account", http.StatusFound)
+	log.Print("redirect")
+	w.Write([]byte(`{"redirectURL":"/home"}`))
 }

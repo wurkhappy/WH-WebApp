@@ -14,13 +14,13 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
 	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user", loginHandler(handlers.CreateUser)).Methods("POST")
-	r.Handle("/user/{id}", loginHandler(handlers.UpdateUser)).Methods("PUT")
 
+	r.Handle("/user/new-password", baseHandler(handlers.GetNewPasswordPage)).Methods("GET")
+	r.Handle("/user/{id}", baseHandler(handlers.UpdateUser)).Methods("PUT")
 	r.Handle("/user/{id}/verify", baseHandler(handlers.VerifyUser)).Methods("GET")
 	r.Handle("/user/{id}/cards", baseHandler(handlers.SaveCard)).Methods("POST")
 	r.Handle("/user/{id}/cards/{cardID}", baseHandler(handlers.DeleteCard)).Methods("DELETE")
-	r.Handle("/user/new-password", baseHandler(handlers.GetNewPasswordPage)).Methods("GET")
-	r.Handle("/user/new-password", baseHandler(handlers.GetNewPasswordPage)).Methods("POST")
+	r.Handle("/user/{id}/password", baseHandler(handlers.SetNewPassword)).Methods("PUT")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
 
