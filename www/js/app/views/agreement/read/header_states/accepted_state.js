@@ -11,22 +11,27 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
       template: Handlebars.compile(payRequestTemplate),
 
-      initialize:function(){
+      initialize:function(options){
         BaseState.prototype.initialize.apply(this);
         this.button1Title = (this.userIsClient) ? null : "Request Payment"; 
         this.button2Title = (this.userIsClient) ? null : "Edit Agreement";
+        this.user = options.user;
       },
 
       button1:function(event){
 
-        var milestonePayment = this.model.get("payments").findSubmittedPayment();
+        var milestonePayment = this.model.get("payments").findFirstOutstandingPayment().get("amount");
         var wurkHappyFee = milestonePayment * .05;
         var amountTotal = this.paymentTotal(milestonePayment, wurkHappyFee);
+        var creditCards = this.user.get("cards").toJSON();
+        var bankAccounts = this.user.get("bank_accounts").toJSON();
 
         this.$el.append(this.template({
           milestonePayment: milestonePayment,
           wurkHappyFee: wurkHappyFee,
-          amountTotal: amountTotal
+          amountTotal: amountTotal,
+          creditCards: creditCards,
+          bankAccounts: bankAccounts 
         }));
 
         $('#overlay').fadeIn('slow');
@@ -51,7 +56,11 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
       acceptPayment: function (event) {
 
-        this.model.get("payments").findFirstOutstandingPayment().submit("creditSource");
+        var $creditSource = $(".select_bank_account:checked").attr("name") || '';
+
+        this.model.get("payments").findFirstOutstandingPayment().submit($creditSource);
+
+        $('#overlay').fadeOut('slow');
       }
 
     });

@@ -29,7 +29,6 @@ define([
           this.model = new UserModel(window.thisUser);
           this.model.set("cards", window.cards);
           this.model.set("bank_accounts", window.bank_account);
-          console.log(this.model);
         },
 
         personal: function () {

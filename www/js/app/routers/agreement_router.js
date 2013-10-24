@@ -24,6 +24,9 @@
         this.model.set("comments", window.comments);
         this.layout = new LayoutView({model: this.model});
         this.user = new UserModel(window.thisUser);
+        this.user.set("cards", window.cards);
+        this.user.set("bank_accounts", window.bank_account);
+        console.log(this.user.get("cards").toJSON());
       },
 
       readAgreement: function () {
