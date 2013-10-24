@@ -11,6 +11,8 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"strconv"
+	"time"
 )
 
 var secretKey string = "pnoy9JBBKwB2mPq5"
@@ -37,6 +39,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", hello).Methods("GET")
 
+	r.Handle("/password/forgot", loginHandler(handlers.ForgotPassword)).Methods("POST")
 	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
 	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
@@ -122,19 +125,26 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 func checkForValidSignature(req *http.Request) bool {
 	req.ParseForm()
-	if req.FormValue("signature") == "" {
+	if req.FormValue("signature") == "" || req.FormValue("expiration") == "" {
 		return false
 	}
 	id := req.FormValue("access_key")
 	path := req.URL.Path
 	signature := req.FormValue("signature")
-	return validSignature(id, path, signature)
+	expiration, _ := strconv.Atoi(req.FormValue("expiration"))
+	return validSignature(id, path, signature, expiration)
 }
 
-func validSignature(id, path, signature string) bool {
-	m := map[string]string{
-		"path":      path,
-		"signature": signature,
+func validSignature(id, path, signature string, expiration int) bool {
+	exp := time.Unix(int64(expiration), 0)
+	now := time.Now()
+	if now.After(exp) {
+		return false
+	}
+	m := map[string]interface{}{
+		"path":       path,
+		"signature":  signature,
+		"expiration": expiration,
 	}
 	jsonData, _ := json.Marshal(m)
 	body := bytes.NewReader(jsonData)

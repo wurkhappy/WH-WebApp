@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	// "html/template"
-	"log"
+	// "log"
 	"net/http"
 )
 
@@ -23,11 +23,10 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	}
 
 	if resp.StatusCode >= 400 {
-		log.Print("error")
-		errorBuf := new(bytes.Buffer)
-		errorBuf.ReadFrom(resp.Body)
-		errorBytes := errorBuf.Bytes()
-		http.Error(w, string(errorBytes), resp.StatusCode)
+		var rError *responseError
+		dec := json.NewDecoder(resp.Body)
+		dec.Decode(&rError)
+		http.Error(w, rError.Description, rError.StatusCode)
 		return
 	}
 
@@ -65,4 +64,14 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	session.Save(req, w)
 	http.Redirect(w, req, "/account", http.StatusFound)
 
+}
+
+func ForgotPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	r, _ := http.NewRequest("POST", "http://localhost:3000/password/forgot", req.Body)
+	requestData, _ := sendRequest(r)
+
+	session.Values["id"] = requestData["id"].(string)
+	session.Values["isVerified"] = requestData["isVerified"].(bool)
+	session.Save(req, w)
+	http.Redirect(w, req, "/account", http.StatusFound)
 }
