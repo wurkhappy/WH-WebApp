@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	// "html/template"
-	"log"
+	// "log"
 	"net/http"
 )
 
