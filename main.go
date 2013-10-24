@@ -1,67 +1,30 @@
 package main
 
 import (
-	"bytes"
-	"encoding/json"
-	"fmt"
+	// "bytes"
+	// "encoding/json"
+	// "fmt"
 	"github.com/boj/redistore"
+	"github.com/garyburd/redigo/redis"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
-	"github.com/wurkhappy/WH-WebApp/handlers"
-	"html/template"
-	"log"
 	"net/http"
-	"strconv"
-	"time"
+	// "strconv"
+	// "time"
 )
 
+//for hashing cookies
 var secretKey string = "pnoy9JBBKwB2mPq5"
-
-func serveSingle(pattern string, filename string) {
-	http.HandleFunc(pattern, func(w http.ResponseWriter, r *http.Request) {
-		log.Print("yes")
-		http.ServeFile(w, r, filename)
-	})
-}
-
-func hello(w http.ResponseWriter, req *http.Request) {
-	m := map[string]interface{}{
-		"appName": "mainlanding",
-	}
-	var index = template.Must(template.ParseFiles(
-		"templates/_baseLanding.html",
-		"templates/landing.html",
-	))
-	index.Execute(w, m)
-}
+var store *redistore.RediStore
+var redisPool *redis.Pool
 
 func main() {
+	store = redistore.NewRediStore(10, "tcp", ":6379", "", []byte(secretKey))
+	defer store.Close()
+	redisPool = store.Pool
+
 	r := mux.NewRouter()
-	r.HandleFunc("/", hello).Methods("GET")
-
-	r.Handle("/password/forgot", loginHandler(handlers.ForgotPassword)).Methods("POST")
-	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
-	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
-	r.Handle("/user/new", loginHandler(handlers.CreateUser)).Methods("POST")
-	r.Handle("/user/{id}", loginHandler(handlers.UpdateUser)).Methods("PUT")
-	r.Handle("/user/{id}/verify", loginHandler(handlers.VerifyUser)).Methods("GET")
-	r.Handle("/user/{id}/cards", baseHandler(handlers.SaveCard)).Methods("POST")
-	r.Handle("/user/{id}/cards/{cardID}", baseHandler(handlers.DeleteCard)).Methods("DELETE")
-
-	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
-
-	r.Handle("/account", baseHandler(handlers.GetAccount)).Methods("GET")
-
-	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
-
-	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.CreatePaymentStatus)).Methods("POST")
-	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.CreateAgreementStatus)).Methods("POST")
-	r.Handle("/agreement/{agreementID}/comments", baseHandler(handlers.CreateComment)).Methods("POST")
-
-	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
-	r.Handle("/agreement", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
-	r.Handle("/agreement/{id}", baseHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
-	r.Handle("/agreement/{id}", baseHandler(handlers.GetAgreementDetails)).Methods("GET")
+	initRoutes(r)
 	http.Handle("/", r)
 
 	//static content
@@ -73,12 +36,15 @@ func main() {
 	http.ListenAndServe(":4000", nil)
 }
 
+func serveSingle(pattern string, filename string) {
+	http.HandleFunc(pattern, func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, filename)
+	})
+}
+
 type loginHandler func(http.ResponseWriter, *http.Request, *sessions.Session)
 
 func (h loginHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
-
-	store := redistore.NewRediStore(10, "tcp", ":6379", "", []byte(secretKey))
-	defer store.Close()
 
 	// Get a session.
 	session, err := store.Get(req, "WebAppSessions")
@@ -92,26 +58,23 @@ type baseHandler func(http.ResponseWriter, *http.Request, *sessions.Session)
 
 func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
-	store := redistore.NewRediStore(10, "tcp", ":6379", "", []byte(secretKey))
-	defer store.Close()
-
 	// Get a session.
 	session, err := store.Get(req, "WebAppSessions")
 	if err != nil {
 	}
 	session.Options.MaxAge = 24 * 60 * 60
 
-	if checkForValidSignature(req) {
+	if ok, userID, _ := checkForValidSignature(req, redisPool.Get()); ok {
 		//if it's a valid sig then let's check if the user is already logged in
 		//if they're not then we need some info about them for the handler
-		//if they are a verified user then we treat this as a log in
 		if _, ok := session.Values["id"]; !ok {
-			user := getUserInfo(req.FormValue("access_key"))
-			session.Values["id"] = user["id"].(string)
-			session.Values["isVerified"] = user["isVerified"].(bool)
-			if user["isVerified"].(bool) {
-				session.Save(req, w)
-			}
+			// user := getUserInfo(userID)
+			session.Values["id"] = userID
+			// session.Values["isVerified"] = user["isVerified"].(bool)
+			// //if they are a verified user then we treat this as a log in
+			// if user["isVerified"].(bool) {
+			// 	session.Save(req, w)
+			// }
 		}
 	}
 
@@ -121,64 +84,4 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		http.Redirect(w, req, "/", http.StatusFound)
 	}
 
-}
-
-func checkForValidSignature(req *http.Request) bool {
-	req.ParseForm()
-	if req.FormValue("signature") == "" || req.FormValue("expiration") == "" {
-		return false
-	}
-	id := req.FormValue("access_key")
-	path := req.URL.Path
-	signature := req.FormValue("signature")
-	expiration, _ := strconv.Atoi(req.FormValue("expiration"))
-	return validSignature(id, path, signature, expiration)
-}
-
-func validSignature(id, path, signature string, expiration int) bool {
-	exp := time.Unix(int64(expiration), 0)
-	now := time.Now()
-	if now.After(exp) {
-		return false
-	}
-	m := map[string]interface{}{
-		"path":       path,
-		"signature":  signature,
-		"expiration": expiration,
-	}
-	jsonData, _ := json.Marshal(m)
-	body := bytes.NewReader(jsonData)
-	r, _ := http.NewRequest("POST", "http://localhost:3000/user/"+id+"/sign/verify", body)
-	client := &http.Client{}
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
-		return false
-	}
-
-	if resp.StatusCode >= 400 {
-		return false
-	}
-
-	return true
-}
-
-func getUserInfo(id string) map[string]interface{} {
-	if id == "" {
-		return make(map[string]interface{})
-	}
-	client := &http.Client{}
-	r, _ := http.NewRequest("GET", "http://localhost:3000/user/search?userid="+id, nil)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
-	}
-	clientBuf := new(bytes.Buffer)
-	clientBuf.ReadFrom(resp.Body)
-	var clientData []map[string]interface{}
-	json.Unmarshal(clientBuf.Bytes(), &clientData)
-	if len(clientData) > 0 {
-		return clientData[0]
-	}
-	return nil
 }

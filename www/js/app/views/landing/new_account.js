@@ -2,16 +2,16 @@
  * Login View.
  */
 
-define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html', 'models/user'],
+define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/new_account.html', 'models/user'],
 
-    function (Backbone, Handlebars, parsley, loginTemplate, UserModel) {
+    function (Backbone, Handlebars, parsley, newAccountTemplate, UserModel) {
 
       'use strict';
 
-      var LoginView = Backbone.View.extend({
+      var NewAccountView = Backbone.View.extend({
 
         // Compile our footer template.
-        template: Handlebars.compile(loginTemplate),
+        template: Handlebars.compile(newAccountTemplate),
         model: new UserModel(),
 
         events:{
@@ -21,7 +21,6 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
         },
 
         initialize: function () {
-          this.model.url = "/user/login";
           this.render();
         },
 
@@ -60,7 +59,7 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
 
       });
 
-      return LoginView;
+      return NewAccountView;
 
     }
 );
