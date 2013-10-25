@@ -44,7 +44,7 @@
           var submitSuccess = function(){
             window.location = "/home"
           };
-          this.model.submit(submitSuccess);
+          this.model.submit(this.model.get("message"), submitSuccess);
         },this)});
       }
 

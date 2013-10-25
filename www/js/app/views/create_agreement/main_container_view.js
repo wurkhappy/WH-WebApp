@@ -17,7 +17,7 @@ define(['backbone', 'handlebars'],
         },
 
         cancelAgreement: function(event){
-          (this.model.id) ? this.model.destroy() : window.location = "/home";
+          (this.model.id) ? this.model.destroy({success:function(model, response){window.location = "/home";}}) : window.location = "/home";
         },
         
         switchToView: function(view){

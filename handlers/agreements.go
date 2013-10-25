@@ -146,6 +146,17 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 
 }
 
+func DeleteAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	client := &http.Client{}
+
+	r, _ := http.NewRequest("DELETE", "http://localhost:4050/agreements/"+vars["id"], nil)
+	_, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+	w.Write([]byte(`{}`))
+}
 func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
 	userID := session.Values["id"]
