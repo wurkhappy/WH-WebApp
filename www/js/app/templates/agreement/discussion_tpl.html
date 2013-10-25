@@ -1,12 +1,14 @@
 <h2>Messages</h2>
 
-<ul class="discussion_container"></ul>
+<ul class="discussion_container">
+	<h2 class="discussion_placeholder">Have something important to say? Leave a message in the box below.</h2>
+</ul>
 <div class="add_comment_container">
-	<textarea class="enter_comment_input inline"></textarea>
+	<textarea class="enter_comment_input inline" placeholder="Click here to leave a message."></textarea>
 	<div class="comment_action_container">
 		<div id="select" class="selectdiv">  
 			<select class="inline comment_select_padding selectboxdiv" id="milestoneSelect">
-				<option value="" disabled selected>Choose Milestone...</option>
+				<option value="General" disabled selected>Choose Milestone...</option>
 				{{#each this.payments}}
 				<option value="{{id}}">{{title}}</option>
 				{{/each}}
