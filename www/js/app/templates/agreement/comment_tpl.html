@@ -1,11 +1,14 @@
 <div class="comment_container">
-	<div class="discussion_photo"><img width="70" src="{{thisAvatar}}"></div>
+	<div class="discussion_photo"><img width="40" src="{{thisAvatar}}"></div>
 	<div class="comment_post_info">
-		<div class="comment_date">Marcus Ellison</div>
+		<div class="comment_name">Marcus Ellison</div>
 		<div class="comment_date">{{dateCreated}}</div>
-	</div>	
+	</div>
+	{{#if milestoneTitle}}	
 	<div class="milestone_tag inline">{{milestoneTitle}}</div>
+	{{/if}}
+	{{#if statusTitle}}
 	<div class="status_tag inline">{{statusTitle}}</div>
+	{{/if}}
 	<div class="comment_body">{{model.text}}</div>
-	
 </div>

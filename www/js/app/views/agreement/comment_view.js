@@ -27,6 +27,11 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           statusTitle = prefix + " " +this.status.get("action") + " on " + this.status.get("date").format('MMM D, YYYY');
         }
 
+        if ($(".discussion_placeholder")) {
+          var $placeholder = $(".discussion_placeholder");
+          $placeholder.remove();
+        }
+
         if (this.commentCreatedDate) {
           dateCreated = this.commentCreatedDate.format('MMMM Do YYYY, h:mm:ss a');
         }
@@ -34,7 +39,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
 
 
         if (this.avatar) {
-          console.log("this user has an avatar");
           thisAvatar = this.avatar;
         } else {
           thisAvatar = "../img/default_photo.jpg";
@@ -53,6 +57,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           dateCreated: dateCreated,
           thisAvatar: thisAvatar
         }));
+
         return this;
 
       }
