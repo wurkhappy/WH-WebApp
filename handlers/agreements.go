@@ -79,7 +79,7 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 	for _, agreement := range agreements {
 		clientID, _ := agreement["clientID"]
 		freelancerID, _ := agreement["freelancerID"]
-		if draft, ok := agreement["draft"]; ok && !draft.(bool){
+		if draft, ok := agreement["draft"]; ok && !draft.(bool) {
 			if clientID != "" && clientID != userID {
 				requestedUsers += "userid=" + clientID.(string) + "&"
 			} else {
@@ -191,7 +191,18 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["agreementID"]
-	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/status", req.Body)
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	reqBytes := buf.Bytes()
+	var status *Status
+	json.Unmarshal(reqBytes, &status)
+
+	status.AgreementID = id
+	status.UserID = session.Values["id"].(string)
+	data, _ := json.Marshal(status)
+	body := bytes.NewReader(data)
+
+	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/status", body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }
@@ -204,7 +215,14 @@ func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
 	reqBytes := buf.Bytes()
-	body := bytes.NewReader(reqBytes)
+	var status *Status
+	json.Unmarshal(reqBytes, &status)
+
+	status.AgreementID = id
+	status.PaymentID = paymentID
+	status.UserID = session.Values["id"].(string)
+	data, _ := json.Marshal(status)
+	body := bytes.NewReader(data)
 
 	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/"+id+"/payment/"+paymentID+"/status", body)
 	_, respBytes := sendRequest(r)
