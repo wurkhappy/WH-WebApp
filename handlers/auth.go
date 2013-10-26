@@ -35,6 +35,7 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	buf.ReadFrom(resp.Body)
 	respBytes := buf.Bytes()
 	json.Unmarshal(respBytes, &requestData)
+	log.Print(requestData)
 
 	session.Values["id"] = requestData["id"].(string)
 	session.Values["isVerified"] = requestData["isVerified"].(bool)
