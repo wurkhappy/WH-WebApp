@@ -18,8 +18,12 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user/new-password", baseHandler(handlers.GetNewPasswordPage)).Methods("GET")
 	r.Handle("/user/{id}", baseHandler(handlers.UpdateUser)).Methods("PUT")
 	r.Handle("/user/{id}/verify", baseHandler(handlers.VerifyUser)).Methods("GET")
+	r.Handle("/user/{id}/cards", baseHandler(handlers.GetCards)).Methods("GET")
 	r.Handle("/user/{id}/cards", baseHandler(handlers.SaveCard)).Methods("POST")
 	r.Handle("/user/{id}/cards/{cardID}", baseHandler(handlers.DeleteCard)).Methods("DELETE")
+	r.Handle("/user/{id}/bank_account", baseHandler(handlers.GetBankAccounts)).Methods("GET")
+	r.Handle("/user/{id}/bank_account", baseHandler(handlers.SaveBankAccount)).Methods("POST")
+	r.Handle("/user/{id}/bank_account/{accountID}", baseHandler(handlers.DeleteBankAccount)).Methods("DELETE")
 	r.Handle("/user/{id}/password", baseHandler(handlers.SetNewPassword)).Methods("PUT")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")

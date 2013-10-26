@@ -1,10 +1,10 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html',
+define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!templates/agreement/read/header_tpl.html',
   'views/agreement/read/header_states/accepted_state', 'views/agreement/read/header_states/created_state',
   'views/agreement/read/header_states/submitted_state', 'views/agreement/read/header_states/rejected_state',
   'views/agreement/read/header_states/draft_state'],
 
-  function (Backbone, Handlebars, userTemplate, AcceptedState,
+  function (Backbone, Handlebars, noty, noty_layout, noty_default, userTemplate, AcceptedState,
     CreatedState, SubmittedState, RejectedState, DraftState) {
 
     'use strict';
@@ -33,13 +33,15 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
       },
       button1:function(event){
         if (!this.user.get("isVerified")){
+          var n = $('#notifications').noty({type: 'error',text: 'Please check your e-mail and verify your account.', timeout: 2000, dismissQueue:false});
           return;
         }
         this.state.button1();
       },
       button2:function(event){
         if (!this.user.get("isVerified")){
-          return
+          var n = $('#notifications').noty({type: 'error',text: 'Please check your e-mail and verify your account.', timeout: 2000,  dismissQueue:false});
+          return;
         }
         this.state.button2();
       },

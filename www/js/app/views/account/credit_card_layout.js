@@ -20,6 +20,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.render();
       },
       onRender:function(){
+        this.model.get("cards").fetch();
         this.newCard.show(new NewCardView({user: this.model}));
         this.storedCards.show(new StoredCardsView({collection: this.model.get("cards")}));
       }

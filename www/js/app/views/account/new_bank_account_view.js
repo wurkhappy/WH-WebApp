@@ -18,19 +18,20 @@
       },
 
       initialize: function (options) {
-        this.render();
         this.user = options.user;
-        var name = this.user.attributes.firstName + ' ' + this.user.attributes.lastName;
-        this.account = { name: name};
+        if (this.user.get("firstName")) var name = this.user.attributes.firstName + ' ' + this.user.attributes.lastName;
+        this.account = { name: name, type:"checking"};
         console.log(this.user);
+        this.render();
       },
 
       render: function () {
-        this.$el.html(this.template());
+        this.$el.html(this.template(this.account));
         return this;
       },
       updateFields:function(event){
         this.account[event.target.name] = event.target.value;
+        console.log(this.account);
       },
       saveBankAccount:function(event){
         event.preventDefault();
