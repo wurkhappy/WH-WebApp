@@ -181,3 +181,10 @@ fieldset {
   background-size: 16px;
   background-position: 0px 4px;
 }
+
+.helper_text {
+  display: block;
+  font-size: 12px;
+  color: hsl(0, 0%, 59%);
+  margin: 0 0 10px 0;
+}

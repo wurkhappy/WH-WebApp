@@ -215,6 +215,14 @@ fieldset {
   background-position: 0px 4px;
 }
 
+/* line 185, ../scss/bases/_common.scss */
+.helper_text {
+  display: block;
+  font-size: 12px;
+  color: #969696;
+  margin: 0 0 10px 0;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("fonts/museo100-italic-webfont.eot");
@@ -981,62 +989,54 @@ fieldset {
 }
 
 /* line 72, ../scss/components/_popup.scss */
-.helper_text {
-  display: block;
-  font-size: 12px;
-  color: #969696;
-  margin-bottom: 10px;
-}
-
-/* line 79, ../scss/components/_popup.scss */
 .pay_header_container {
   padding-bottom: 40px;
 }
 
-/* line 83, ../scss/components/_popup.scss */
+/* line 76, ../scss/components/_popup.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
 }
 
-/* line 88, ../scss/components/_popup.scss */
+/* line 81, ../scss/components/_popup.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 92, ../scss/components/_popup.scss */
+/* line 85, ../scss/components/_popup.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 96, ../scss/components/_popup.scss */
+/* line 89, ../scss/components/_popup.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 101, ../scss/components/_popup.scss */
+/* line 94, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
 }
-/* line 104, ../scss/components/_popup.scss */
+/* line 97, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 109, ../scss/components/_popup.scss */
+/* line 102, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 113, ../scss/components/_popup.scss */
+/* line 106, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
 }
 
-/* line 118, ../scss/components/_popup.scss */
+/* line 111, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
