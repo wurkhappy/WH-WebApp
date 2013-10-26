@@ -215,6 +215,14 @@ fieldset {
   background-position: 0px 4px;
 }
 
+/* line 185, ../scss/bases/_common.scss */
+.helper_text {
+  display: block;
+  font-size: 12px;
+  color: #969696;
+  margin: 0 0 10px 0;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("fonts/museo100-italic-webfont.eot");
@@ -760,18 +768,6 @@ fieldset {
 }
 
 /* line 13, ../scss/components/_get_started.scss */
-.create_account_form {
-  position: relative;
-  border: 1px solid #ddd;
-  background-color: #fdfdfd;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  margin: 0;
-  padding: 20px 10px;
-}
-
-/* line 24, ../scss/components/_get_started.scss */
 .create_account_legend {
   font-size: 24px;
   line-height: 30px;
@@ -782,7 +778,7 @@ fieldset {
   color: black;
 }
 
-/* line 34, ../scss/components/_get_started.scss */
+/* line 23, ../scss/components/_get_started.scss */
 .secure {
   padding: 0 0 0 26px;
   background-image: url(../img/lock-16x16.png);
@@ -790,18 +786,18 @@ fieldset {
   background-position: left center;
 }
 
-/* line 41, ../scss/components/_get_started.scss */
+/* line 30, ../scss/components/_get_started.scss */
 .features {
   margin: 0 0 15px 0;
 }
 
-/* line 46, ../scss/components/_get_started.scss */
+/* line 35, ../scss/components/_get_started.scss */
 fieldset {
   margin: 0;
   padding: 10px 0 0 0;
 }
 
-/* line 51, ../scss/components/_get_started.scss */
+/* line 40, ../scss/components/_get_started.scss */
 label {
   display: block;
   padding: 10px 0 5px 0;
@@ -809,13 +805,13 @@ label {
   font-weight: bold;
 }
 
-/* line 58, ../scss/components/_get_started.scss */
+/* line 47, ../scss/components/_get_started.scss */
 .input-box {
   margin: 0;
   padding: 0;
 }
 
-/* line 63, ../scss/components/_get_started.scss */
+/* line 52, ../scss/components/_get_started.scss */
 .text-field {
   margin: 0;
   padding: 5px;
@@ -828,13 +824,13 @@ label {
   -moz-box-sizing: border-box;
 }
 
-/* line 75, ../scss/components/_get_started.scss */
+/* line 64, ../scss/components/_get_started.scss */
 .text-field:focus {
   outline: none;
   border: 1px solid #646464;
 }
 
-/* line 80, ../scss/components/_get_started.scss */
+/* line 69, ../scss/components/_get_started.scss */
 .validation {
   display: inline-block;
   width: 70%;
@@ -844,7 +840,7 @@ label {
   font-weight: normal;
 }
 
-/* line 89, ../scss/components/_get_started.scss */
+/* line 78, ../scss/components/_get_started.scss */
 .border {
   border: 1px solid red !important;
 }
@@ -858,10 +854,9 @@ label {
   -moz-border-radius: 5px;
   border-radius: 10px;
   margin: 0;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 250px;
-  width: 298px;
+  padding: 20px 10px;
+  height: 344px;
+  width: 330px;
   position: fixed;
   top: 35%;
   left: 50%;
@@ -869,7 +864,7 @@ label {
   margin-top: -119px;
 }
 
-/* line 20, ../scss/components/_login.scss */
+/* line 19, ../scss/components/_login.scss */
 .login_form_container {
   height: 250px;
   width: 220px;
@@ -880,13 +875,53 @@ label {
   margin-top: -119px;
 }
 
-/* line 30, ../scss/components/_login.scss */
+/* line 29, ../scss/components/_login.scss */
 .forgot_password {
-  display: block;
-  font-size: .75em;
-  color: #969696;
-  padding: 0px;
-  margin-bottom: 22px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* line 35, ../scss/components/_login.scss */
+.login_screen_title {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 41, ../scss/components/_login.scss */
+.create_account_form {
+  height: 337px;
+  width: 356px;
+}
+
+/* line 46, ../scss/components/_login.scss */
+.create_account_button {
+  margin-top: 0px;
+  width: 200px;
+  left: 50%;
+  margin-left: -150px;
+}
+
+/* line 53, ../scss/components/_login.scss */
+.forgot_password_button {
+  margin-top: 5px;
+}
+
+/* line 57, ../scss/components/_login.scss */
+.forgot_password_form {
+  height: 248px;
+  width: 350px;
+}
+
+/* line 62, ../scss/components/_login.scss */
+.login_helper {
+  line-height: 16px;
+  margin-bottom: 0px;
+}
+
+/* line 67, ../scss/components/_login.scss */
+.other_login {
+  margin-bottom: 20px;
 }
 
 /* FOOTER

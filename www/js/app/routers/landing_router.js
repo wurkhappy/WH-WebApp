@@ -37,6 +37,7 @@
         this.formView = new NewAccountView();
         this.$mainSection.html(this.formView.el);
         this.showForm();
+        console.log("new account thing being thingy.");
       },
       forgotPassword: function(){
         this.formView = new ForgotPasswordView();
@@ -50,6 +51,7 @@
         $('#login_form').parsley();
         $('#log_in').hide();
         $('#log_out').show();
+        $('#create_account').hide();
       },
       hideForm: function(){
         if (!this.formView) return;
@@ -59,6 +61,7 @@
 
         $('#log_out').hide();
         $('#log_in').show();
+        $('#create_account').show();
         $('#logindiv').fadeOut('fast');
         this.formView.remove();
         this.formView = null;
