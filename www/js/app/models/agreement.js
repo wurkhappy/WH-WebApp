@@ -47,22 +47,22 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
             urlRoot:function(){
                 return "/agreement";
             },
-            submit: function(successCallback){
-                this.updateStatus("submitted", successCallback);
+            submit: function(message, successCallback){
+                this.updateStatus("submitted", message, successCallback);
             },
-            accept: function(successCallback){
-                this.updateStatus("accepted", successCallback);
+            accept: function(message, successCallback){
+                this.updateStatus("accepted", message, successCallback);
             },
-            reject: function(successCallback){
-                this.updateStatus("rejected", successCallback);
+            reject: function(message, successCallback){
+                this.updateStatus("rejected", message, successCallback);
             },
-            updateStatus:function(action, successCallback){
+            updateStatus:function(action, message, successCallback){
                 $.ajax({
                   type: "POST",
                   url: "/agreement/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
-                  data:JSON.stringify({"action":action}),
+                  data:JSON.stringify({"action":action, "message":message}),
                   success: _.bind(function(response){
                     this.get("statusHistory").add(response);
                     if (_.isFunction(successCallback)) successCallback();

@@ -19,7 +19,7 @@
 
       initialize: function () {
         this.model = new AgreementModel();
-        this.model.set("payments", [{title:"Wireframe", amount:10.5}]);
+        this.model.set("payments", [{title:"Deposit", amount:100}]);
         this.mainContainer = new MainContainerView({model: this.model});
       },
 

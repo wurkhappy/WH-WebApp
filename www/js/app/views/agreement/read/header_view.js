@@ -16,7 +16,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         this.listenTo(this.model.get("statusHistory"), 'add', this.changeState);
         this.changeState();
         this.user = options.user;
-        console.log(this.$el);
       },
 
       render:function(){
@@ -51,10 +50,10 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
           this.state = new CreatedState({model: this.model});
           break;
           case status.StatusSubmitted:
-          this.state = new SubmittedState({model: this.model});
+          this.state = new SubmittedState({model: this.model, user: this.options.user});
           break;
           case status.StatusAccepted:
-          this.state = new AcceptedState({model: this.model});
+          this.state = new AcceptedState({model: this.model, user: this.options.user});
           break;
           case status.StatusRejected:
           this.state = new RejectedState({model: this.model});

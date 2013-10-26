@@ -146,7 +146,21 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 
 }
 
+func DeleteAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	client := &http.Client{}
+
+	r, _ := http.NewRequest("DELETE", "http://localhost:4050/agreements/"+vars["id"], nil)
+	_, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+	w.Write([]byte(`{}`))
+}
 func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+
+	userID := session.Values["id"]
+
 	vars := mux.Vars(req)
 	id := vars["id"]
 	agrmntReq, _ := http.NewRequest("GET", "http://localhost:4050/agreements/"+id, nil)
@@ -155,7 +169,11 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	commentReq, _ := http.NewRequest("GET", "http://localhost:5050/agreement/"+agrmntData["versionlessID"].(string)+"/comments", nil)
 	commentsData, _ := sendRequestArray(commentReq)
 
-	userID := session.Values["id"]
+	r, _ := http.NewRequest("GET", "http://localhost:3120/user/"+userID.(string)+"/cards", nil)
+	cards, _ := sendRequestArray(r)
+
+	fmt.Println(cards)
+
 	otherID, _ := agrmntData["freelancerID"]
 	if otherID == userID {
 		otherID = agrmntData["clientID"]
@@ -172,6 +190,7 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		"otherUser": otherUser,
 		"thisUser":  thisUser,
 		"comments":  commentsData,
+		"cards":     cards,
 	}
 
 	format := func(date string) string {

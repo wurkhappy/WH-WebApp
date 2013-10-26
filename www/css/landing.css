@@ -694,15 +694,16 @@ fieldset {
   font-family: museo_sans;
   font-weight: 100;
   margin: 0 0 18px 0;
+  font-size: 20px;
 }
 
-/* line 44, ../scss/components/_benefits.scss */
+/* line 45, ../scss/components/_benefits.scss */
 .benefit_description {
   text-align: center;
   font-weight: 300;
 }
 
-/* line 49, ../scss/components/_benefits.scss */
+/* line 50, ../scss/components/_benefits.scss */
 .benefit_title {
   font-size: 22px;
   font-weight: 300;

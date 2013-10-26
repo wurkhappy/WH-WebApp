@@ -41,7 +41,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
       },
       addComment: function(event){
-        var $text = $('input.enter_comment_input');
+        var $text = $('textarea.enter_comment_input');
 
         if (event.keyCode == 13 || event.type == "click") {
           var model = new this.collection.model({

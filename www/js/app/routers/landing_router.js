@@ -33,6 +33,7 @@
         this.showForm();
       },
       newAccount: function(){
+        console.log("new form");
         this.formView = new NewAccountView();
         this.$mainSection.html(this.formView.el);
         this.showForm();

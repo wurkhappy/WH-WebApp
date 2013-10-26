@@ -29,11 +29,15 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                     if (_.has(key, "amount")) {
                         this.attributes.amount = parseFloat(key["amount"]);
                     }
+                    if (_.has(key, "dateExpected")) {
+                        this.attributes.dateExpected = moment(key["dateExpected"]);
+                    }
                 } else if (key === 'amount'){
                     this.attributes.amount = parseFloat(value);
+                } else if (key === 'dateExpected'){
+                    this.attributes.dateExpected = moment(value);
                 }
             },
-
             submit: function(creditSource){
                 this.updateStatus({"action":"submitted", "creditSourceURI":creditSource});
             },
