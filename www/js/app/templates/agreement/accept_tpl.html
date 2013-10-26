@@ -11,10 +11,8 @@
           <li>
             {{#each creditCards}}
               <input type="radio" class="select_credit_card" name="select_credit_card" value="{{uri}}" data-url="{{uri}}">
-              <p class="payment_select_info first_select_info"><span>Card NickName:</span> {{nick_name}}</p>
               <p class="payment_select_info">**** **** **** {{last_four}}</p>
               <p class="payment_select_info"><span>Expiration:</span> {{expiration_month}}/{{expiration_year}}</p>
-              <p class="payment_select_info"><span>Zip Code:</span> {{zip_code}}</p>
             {{/each}}
           </li>
         </ul>
@@ -23,9 +21,8 @@
             <li>
               {{#each bankAccounts}}
               <input type="radio" class="select_bank_account" name="select_bank_account" value="{{uri}}">
-              <p class="payment_select_info first_select_info"><span>Account NickName:</span> {{nick_name}}</p>
-              <p class="payment_select_info"><span>Routing:</span> **** **** **** {{last_four_routing}}</p>
-              <p class="payment_select_info"><span>Account:</span> **** **** **** {{last_four_account}}</p>
+              <p class="payment_select_info"><span>Routing:</span> **** **** **** {{routing_number}}</p>
+              <p class="payment_select_info"><span>Account:</span> **** **** **** {{last_four_digits account_number}}</p>
               {{/each}}
             </li>
           </ul>

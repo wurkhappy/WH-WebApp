@@ -4,7 +4,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
   function (Backbone, Handlebars, _, Marionette, layoutTpl, NewBankAccountView, StoredBankAccountsView) {
 
     'use strict';
-    Handlebars.registerHelper('last_four', function(number) {
+    Handlebars.registerHelper('last_four_digits', function(number) {
       if (!number) return;
       return number.slice(-4);
     });

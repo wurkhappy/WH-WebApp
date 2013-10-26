@@ -39,6 +39,8 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 }
             },
             submit: function(creditSource){
+                console.log("submit");
+                console.log(creditSource);
                 this.updateStatus({"action":"submitted", "creditSourceURI":creditSource});
             },
             accept: function(debitSource){

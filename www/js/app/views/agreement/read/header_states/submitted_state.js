@@ -18,6 +18,8 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         this.button1Title = (this.userIsClient) ? "Accept " + this.statusType : null; 
         this.button2Title = (this.userIsClient) ? "Reject " + this.statusType : null;
         this.user = options.user;
+        this.user.get("cards").fetch();
+        this.user.get("bank_accounts").fetch();
 
         this.otherUser = window.otherUser;
       },
