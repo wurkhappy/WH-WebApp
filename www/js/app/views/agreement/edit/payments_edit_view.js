@@ -1,7 +1,8 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/agreement/edit/payment_edit_tpl.html', 'views/agreement/edit/payment_item_view'],
+  'text!templates/agreement/edit/payment_edit_tpl.html', 'views/agreement/edit/payment_item_view',
+  'views/agreement/payment_item_view'],
 
-  function (Backbone, Handlebars, _, Marionette, paymentScopeTemplate, PaymentItemView) {
+  function (Backbone, Handlebars, _, Marionette, paymentScopeTemplate, PaymentItemView, PaymentPaidView) {
 
     'use strict';
 
@@ -17,6 +18,11 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       },
       events:{
         "click #addMoreButton" : "addMilestone"
+      },
+      getItemView: function(item) {
+        var status  = item.get("currentStatus");
+        if (status && (status.get("action") === "accepted" || status.get("action") === "submitted")) return PaymentPaidView;
+        return PaymentItemView;
       },
 
       addMilestone:function(event){

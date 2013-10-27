@@ -94,17 +94,6 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 
 func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
-	data := make(map[string]interface{})
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-	reqBytes := buf.Bytes()
-	json.Unmarshal(reqBytes, &data)
-
-	data["freelancerID"] = session.Values["id"]
-
-	b, _ := json.Marshal(data)
-	body := bytes.NewReader(b)
-
 	client := &http.Client{}
 	r, _ := http.NewRequest("POST", "http://localhost:4050/agreements/v", req.Body)
 	resp, err := client.Do(r)
@@ -112,7 +101,7 @@ func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessi
 		fmt.Printf("Error : %s", err)
 	}
 
-	buf = new(bytes.Buffer)
+	buf := new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
 	buf.String()
 	w.Write(buf.Bytes())
@@ -134,9 +123,13 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 }
 
 func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-
 	m := map[string]interface{}{
 		"appName": "maincreateagreement",
+		"user": struct {
+			ID string `json:"id"`
+		}{
+			session.Values["id"].(string),
+		},
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

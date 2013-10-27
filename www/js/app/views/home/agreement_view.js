@@ -11,7 +11,6 @@
     //helper functions
     var createStatusInfo = function(status, client){
       var currentState;
-      console.log(status);
       var prefix = (status.get("paymentID")) ? "Payment" : "Agreement"
       var lastAction = prefix + " " +status.get("action") + " on " + status.get("date").format('MMM D, YYYY');
         switch (status.get("action")){

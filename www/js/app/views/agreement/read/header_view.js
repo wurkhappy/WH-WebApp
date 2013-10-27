@@ -13,7 +13,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
       template: Handlebars.compile(userTemplate),
 
       initialize:function(options){
-        this.listenTo(this.model.get("currentStatus"), 'change', this.changeState);
+        this.listenTo(this.model, 'change:currentStatus', this.changeState);
         this.user = options.user;
         this.otherUser = options.otherUser
         this.changeState();
@@ -48,6 +48,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
       },
       changeState:function(){
         var status = this.model.get("currentStatus");
+        console.log(status);
         switch (status.get("action")){
           case status.StatusCreated:
           this.state = new CreatedState({model: this.model});

@@ -3,9 +3,9 @@
  */
 
  define(['backbone', 'models/agreement', 'views/create_agreement/proposal_view', 'views/create_agreement/main_container_view',
-  'views/create_agreement/estimate_view', 'views/create_agreement/recipient_view'],
+  'views/create_agreement/estimate_view', 'views/create_agreement/recipient_view', 'models/user'],
 
-  function (Backbone, AgreementModel, ProposalView, MainContainerView, EstimateView, RecipientView) {
+  function (Backbone, AgreementModel, ProposalView, MainContainerView, EstimateView, RecipientView, UserModel) {
 
     'use strict';
 
@@ -21,10 +21,11 @@
         this.model = new AgreementModel();
         this.model.set("payments", [{title:"Deposit", amount:100}]);
         this.mainContainer = new MainContainerView({model: this.model});
+        this.user = new UserModel(window.user);
       },
 
       proposal: function () {
-        if (!this.proposalView) this.proposalView = new ProposalView({router:this, model: this.model});
+        if (!this.proposalView) this.proposalView = new ProposalView({router:this, model: this.model, userID: this.user.id});
         this.mainContainer.switchToView(this.proposalView);
       },
 
