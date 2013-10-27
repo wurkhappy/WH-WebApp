@@ -5,6 +5,7 @@
   -moz-border-radius: 10px;
   border-radius: 10px;
   background-color: rgb(249,250,251);
+  position: relative;
 }
 
 .progress-large span {
@@ -31,16 +32,19 @@ progress[value] {
   /* Of all IE, only IE10 supports progress element that too partially. It only allows to change the background-color of the progress value using the 'color' attribute. */
   color: royalblue;
   position: relative;
-  margin: 15px 0; 
+  margin: 15px 0;
+  border-radius:10px;
 }
 
 progress[value]::-webkit-progress-bar {
   background-color: rgb(220,224,228);
+  border-radius:10px;
 }
 
 progress[value]::-webkit-progress-value {
   position: relative;
   background-size: 35px 20px, 100% 100%, 100% 100%;
+  border-radius:10px;
 }
 
 
@@ -48,19 +52,23 @@ progress[value]::-webkit-progress-value {
 
 progress[value]::-moz-progress-bar {
   background: rgb(133, 205, 79);
+  border-radius:10px;
 }
 
 progress::-webkit-progress-value {
   background: rgb(133, 205, 79);
+  border-radius:10px;
 }
 
 
 /* Fallback technique styles */
 .progress-bar {
   background-color: rgb(133, 205, 79);
+  border-radius:10px;
 
   /* Dimensions should be similar to the parent progress element. */
-  width: 100%; height:2px;
+  width: 100%; 
+  height:2px;
 }
 
 .progress-bar span {
@@ -68,3 +76,79 @@ progress::-webkit-progress-value {
   display: block;
   text-indent: -9999px;
 }
+
+// Larger progress bars on agreement
+
+.agreement_progress[value] {
+  height: 10px;
+  border-radius:10px;
+}
+
+.agreement_progress[value]::-webkit-progress-bar {
+  height: 10px;
+  border-radius:10px;
+}
+
+.agreement_progress[value]::-moz-progress-bar {
+  height: 10px;
+  border-radius:10px;
+}
+
+.agreement_progress::-webkit-progress-value {
+  background: rgb(133, 205, 79);
+  border-radius:10px;
+}
+
+.agreement_progress[value]::-webkit-progress-value {
+  position: relative;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  border-radius:10px;
+}
+
+
+// Larger progress bar values
+
+
+
+// Fallback for larger progress bar
+
+.agreement_progress_bar {
+  background-color: rgb(133, 205, 79);
+
+  /* Dimensions should be similar to the parent progress element. */
+  width: 100%; 
+  height: 10px;
+  border-radius:10px;
+}
+
+
+// progress bar colors
+
+.green_progress {
+  background: rgb(133, 205, 79);
+}
+
+.yellow_progress {
+  
+}
+
+.red_progress {
+
+}
+
+.icon_container {
+  position: absolute;
+  top: 14.5px;
+  z-index:5;
+}
+
+.progress_icon {
+  margin-left: 20px;
+  color: hsl(210, 13%, 88%);
+  font-size: 30px;
+
+}
+
+
+
+

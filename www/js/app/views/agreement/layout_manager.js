@@ -15,6 +15,7 @@
 
       regions: {
         profile: "#agreement-profile",
+        agreementProgressBar: "#agreement-progress-bar",
         paymentSchedule: "#payment-schedule",
         clauses:"#clauses",
         agreementHistory: "#agreement-history",

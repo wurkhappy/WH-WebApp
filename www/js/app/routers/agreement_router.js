@@ -5,10 +5,10 @@
  define(['backbone', 'models/agreement', 'views/agreement/layout_manager',
   'views/agreement/payments_read_view', 'views/agreement/agreement_history_view', 'views/agreement/user_view',
   'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
-  'views/agreement/read/header_view', 'views/agreement/discussion_view','models/user', 'views/agreement/clauses_view'],
+  'views/agreement/read/header_view', 'views/agreement/discussion_view','models/user', 'views/agreement/clauses_view', 'views/agreement/progress_bar_view'],
 
   function (Backbone, AgreementModel, LayoutView, PaymentsReadView, AgrmntHistoryView, UserView,
-    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, UserModel, ClausesView) { 
+    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, UserModel, ClausesView, ProgressBarView) { 
 
     'use strict';
 
@@ -29,6 +29,7 @@
       },
 
       readAgreement: function () {
+        this.layout.agreementProgressBar.show(new ProgressBarView({model: this.model}));
         this.layout.paymentSchedule.show(new PaymentsReadView({model: this.model}));
         this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
         this.layout.profile.show(new UserView());
