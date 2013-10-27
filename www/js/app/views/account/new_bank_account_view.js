@@ -39,10 +39,11 @@
         balanced.bankAccount.create(this.account, function (response) {
           if(response.status === 201) {
             delete response.data.id;
-            console.log(that.user.get("bank_accounts"));
             var model = new that.user.attributes["bank_accounts"].model(response.data);
             that.user.get("bank_accounts").add(model);
             model.save();
+            that.$('input').val('');
+            that.account = {type: "checking"};
 
           } else {
             console.log(response);
