@@ -14,8 +14,8 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
 
       initialize:function(options){
         this.listenTo(this.model.get("statusHistory"), 'add', this.changeState);
-        this.changeState();
         this.user = options.user;
+        this.changeState();
       },
 
       render:function(){
@@ -52,10 +52,10 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
           this.state = new CreatedState({model: this.model});
           break;
           case status.StatusSubmitted:
-          this.state = new SubmittedState({model: this.model, user: this.options.user});
+          this.state = new SubmittedState({model: this.model, user: this.user});
           break;
           case status.StatusAccepted:
-          this.state = new AcceptedState({model: this.model, user: this.options.user});
+          this.state = new AcceptedState({model: this.model, user: this.user});
           break;
           case status.StatusRejected:
           this.state = new RejectedState({model: this.model});
