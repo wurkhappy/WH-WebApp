@@ -19,7 +19,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             }
             ],
             urlRoot:function(){
-                return "/agreement/"+this.collection.parent.id+"/payment";
+                return "/agreement/v/"+this.collection.parent.id+"/payment";
             },
             set: function( key, value, options ) {
                 Backbone.RelationalModel.prototype.set.apply( this, arguments );
@@ -39,26 +39,24 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 }
             },
             submit: function(creditSource){
-                console.log("submit");
-                console.log(creditSource);
                 this.updateStatus({"action":"submitted", "creditSourceURI":creditSource});
             },
             accept: function(debitSource){
                 this.updateStatus({"action":"accepted", "debitSourceURI": debitSource});
             },
-            reject: function(){
-                this.updateStatus({"action":"rejected"});
+            reject: function(message){
+                this.updateStatus({"action":"rejected", "message":message});
             },
             updateStatus:function(reqData){
                 $.ajax({
                   type: "POST",
-                  url: "/agreement/"+this.collection.parent.id+"/payment/"+this.id+"/status",
+                  url: "/agreement/v/"+this.collection.parent.id+"/payment/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
                   data:JSON.stringify(reqData),
                   success: _.bind(function(response){
-                    this.collection.parent.get("statusHistory").add(response);
-                    this.set("currentStatus",this.collection.parent.get("statusHistory").at(0));
+                    this.collection.parent.set("currentStatus",response);
+                    this.set("currentStatus",this.collection.parent.get("currentStatus"));
                 }, this)
               });
             }

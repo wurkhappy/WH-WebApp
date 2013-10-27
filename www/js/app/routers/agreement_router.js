@@ -24,6 +24,7 @@
         this.model.set("comments", window.comments);
         this.layout = new LayoutView({model: this.model});
         this.user = new UserModel(window.thisUser);
+        this.otherUser = new UserModel(window.otherUser);
         this.user.set("cards", window.cards);
         this.user.set("bank_accounts", window.bank_account);
       },
@@ -32,7 +33,7 @@
         this.layout.paymentSchedule.show(new PaymentsReadView({model: this.model}));
         this.layout.agreementHistory.show(new AgrmntHistoryView({model: this.model}));
         this.layout.profile.show(new UserView());
-        this.layout.header.show(new HeaderView({model: this.model, user: this.user}));
+        this.layout.header.show(new HeaderView({model: this.model, user: this.user, otherUser: this.otherUser}));
         this.layout.clauses.show(new ClausesView({model: this.model}));
         this.layout.discussion.show(new DiscussionView({model: this.model, user: this.user}));
       },

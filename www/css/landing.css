@@ -66,7 +66,7 @@ table {
 body {
   text-align: center;
   font-family: museo_sans;
-  background: #dce0e4 url(../img/bg.png) fixed;
+  background: #dce0e4 url(/img/bg.png) fixed;
   color: #646464;
 }
 
@@ -208,7 +208,7 @@ fieldset {
 
 /* line 177, ../scss/bases/_common.scss */
 .checkmark {
-  background-image: url("../img/checkmark.png");
+  background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
   padding-left: 20px;
   background-size: 16px;
@@ -400,7 +400,7 @@ fieldset {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: whitesmoke url(../img/lock.png) no-repeat 1% 50%;
+  background: whitesmoke url(/img/lock.png) no-repeat 1% 50%;
 }
 
 /* line 23, ../scss/components/_forms.scss */
@@ -474,7 +474,7 @@ fieldset {
   height: 35px;
   padding: 0;
   margin: 0;
-  background: transparent url(../img/logo.png) no-repeat left;
+  background: transparent url(/img/logo.png) no-repeat left;
   color: black;
   display: block;
   padding-left: 70px;
@@ -547,7 +547,7 @@ fieldset {
   color: white;
   text-decoration: none;
   line-height: 40px;
-  background-image: url(../img/shade-button.png);
+  background-image: url(/img/shade-button.png);
   background-repeat: repeat-x;
   background-position: center;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
@@ -595,7 +595,7 @@ fieldset {
   color: white;
   background-color: #007ab1;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
-  background-image: url(../img/shade-button.png);
+  background-image: url(/img/shade-button.png);
   background-repeat: repeat-x;
   background-position: top center;
   -webkit-border-radius: 5px;
@@ -642,7 +642,7 @@ fieldset {
   -webkit-box-shadow: 0 1px 2px #646464;
   -moz-box-shadow: 0 1px 2px #646464;
   box-shadow: 0 1px 2px #646464;
-  background-image: url(../img/shade-button.png);
+  background-image: url(/img/shade-button.png);
   background-repeat: repeat-x;
   background-position: center;
 }
@@ -662,7 +662,7 @@ fieldset {
 ================================================================================ */
 /* line 5, ../scss/components/_benefits.scss */
 .intro_container {
-  background: #007ab1 url(../img/shade-intro.png) repeat-x top;
+  background: #007ab1 url(/img/shade-intro.png) repeat-x top;
   color: #bfe5f6;
   border-bottom: 1px solid #007ab1;
   padding: 20px 0 20px 0;
@@ -761,7 +761,7 @@ fieldset {
 
 /* line 6, ../scss/components/_get_started.scss */
 .features li {
-  background: transparent url(../img/thumb_up-16x16.png) no-repeat left;
+  background: transparent url(/img/thumb_up-16x16.png) no-repeat left;
   padding: 10px 10px 10px 25px;
   list-style: none;
   border-top: 1px solid whitesmoke;
@@ -781,7 +781,7 @@ fieldset {
 /* line 23, ../scss/components/_get_started.scss */
 .secure {
   padding: 0 0 0 26px;
-  background-image: url(../img/lock-16x16.png);
+  background-image: url(/img/lock-16x16.png);
   background-repeat: no-repeat;
   background-position: left center;
 }
@@ -928,7 +928,7 @@ label {
 ================================================================================ */
 /* line 5, ../scss/components/_footer.scss */
 .footer {
-  background: #8c96a0 url(../img/shade-footer.png) repeat-x bottom;
+  background: #8c96a0 url(/img/shade-footer.png) repeat-x bottom;
   -webkit-border-bottom-right-radius: 10px;
   -webkit-border-bottom-left-radius: 10px;
   -moz-border-radius-bottomright: 10px;

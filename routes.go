@@ -32,15 +32,15 @@ func initRoutes(r *mux.Router) {
 
 	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
 
-	r.Handle("/agreement/{agreementID}/payment/{paymentID}/status", baseHandler(handlers.CreatePaymentStatus)).Methods("POST")
-	r.Handle("/agreement/{agreementID}/status", baseHandler(handlers.CreateAgreementStatus)).Methods("POST")
+	r.Handle("/agreement/v/{versionID}/payment/{paymentID}/status", baseHandler(handlers.CreatePaymentStatus)).Methods("POST")
+	r.Handle("/agreement/v/{versionID}/status", baseHandler(handlers.CreateAgreementStatus)).Methods("POST")
 	r.Handle("/agreement/{agreementID}/comments", baseHandler(handlers.CreateComment)).Methods("POST")
 
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
-	r.Handle("/agreement", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
-	r.Handle("/agreement/{id}", baseHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
-	r.Handle("/agreement/{id}", baseHandler(handlers.GetAgreementDetails)).Methods("GET")
-	r.Handle("/agreement/{id}", baseHandler(handlers.DeleteAgreement)).Methods("DELETE")
+	r.Handle("/agreement/v", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
+	r.Handle("/agreement/v/{id}", baseHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
+	r.Handle("/agreement/v/{id}", baseHandler(handlers.GetAgreementDetails)).Methods("GET")
+	r.Handle("/agreement/v/{id}", baseHandler(handlers.DeleteAgreement)).Methods("DELETE")
 }
 
 func home(w http.ResponseWriter, req *http.Request) {

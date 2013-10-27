@@ -41,7 +41,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         if (this.avatar) {
           thisAvatar = this.avatar;
         } else {
-          thisAvatar = "../img/default_photo.jpg";
+          thisAvatar = "/img/default_photo.jpg";
         }
 
         /*if (this.status) {

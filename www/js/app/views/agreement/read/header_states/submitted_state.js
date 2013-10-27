@@ -1,7 +1,8 @@
 
-define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state', 'text!templates/agreement/accept_tpl.html', 'text!templates/agreement/reject_tpl.html'],
+define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state',
+  'text!templates/agreement/accept_tpl.html', 'views/agreement/read/modals/reject'],
 
-  function (Backbone, Handlebars, BaseState, payTemplate, rejectTemplate) {
+  function (Backbone, Handlebars, BaseState, payTemplate, RejectModal) {
 
     'use strict';
 
@@ -10,8 +11,6 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       el: "#popup_container",
 
       payTemplate: Handlebars.compile(payTemplate),
-      rejectTemplate: Handlebars.compile(rejectTemplate),
-
 
       initialize:function(options){
         BaseState.prototype.initialize.apply(this);
@@ -21,7 +20,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         this.user.get("cards").fetch();
         this.user.get("bank_accounts").fetch();
 
-        this.otherUser = window.otherUser;
+        this.otherUser = options.otherUser;
       },
       button1:function(event){
         //we don't check for userIsClient here because if title is null then button doesn't call action
@@ -49,13 +48,9 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         }
       },
       button2:function(event){
-
-        this.$el.html(this.rejectTemplate({
-          status: this.statusType,
-          otherUser: this.otherUser
-        }));
-
-        $('#overlay').fadeIn('slow');
+        var model = (this.statusType === 'payment') ? this.model.get("payments").findFirstOutstandingPayment() : this.model;
+        if (!this.rejectModal) this.rejectModal = new RejectModal({model:model, otherUser: this.otherUser});
+        this.rejectModal.show();
         
       },
 

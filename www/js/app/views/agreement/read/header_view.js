@@ -13,8 +13,9 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
       template: Handlebars.compile(userTemplate),
 
       initialize:function(options){
-        this.listenTo(this.model.get("statusHistory"), 'add', this.changeState);
+        this.listenTo(this.model.get("currentStatus"), 'change', this.changeState);
         this.user = options.user;
+        this.otherUser = options.otherUser
         this.changeState();
       },
 
@@ -46,13 +47,13 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
         this.state.button2();
       },
       changeState:function(){
-        var status = this.model.get("statusHistory").at(0);
+        var status = this.model.get("currentStatus");
         switch (status.get("action")){
           case status.StatusCreated:
           this.state = new CreatedState({model: this.model});
           break;
           case status.StatusSubmitted:
-          this.state = new SubmittedState({model: this.model, user: this.user});
+          this.state = new SubmittedState({model: this.model, user: this.user, otherUser: this.otherUser});
           break;
           case status.StatusAccepted:
           this.state = new AcceptedState({model: this.model, user: this.user});

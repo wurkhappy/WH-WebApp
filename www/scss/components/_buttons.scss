@@ -16,7 +16,7 @@
   color: $white;
   text-decoration: none;
   line-height: 40px;
-  background-image: url(../img/shade-button.png);
+  background-image: url(/img/shade-button.png);
   background-repeat: repeat-x;
   background-position: center;
   -webkit-box-shadow: 0 0 3px rgba(0,0,0,.5);
@@ -59,7 +59,7 @@
   color: rgb(255,255,255);
   background-color: rgb(0,122,177);
   text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-  background-image: url(../img/shade-button.png);
+  background-image: url(/img/shade-button.png);
   background-repeat: repeat-x;
   background-position: top center;
   -webkit-border-radius: 5px;
@@ -103,7 +103,7 @@
   -webkit-box-shadow: 0 1px 2px rgb(100,100,100);
   -moz-box-shadow: 0 1px 2px rgb(100,100,100);
   box-shadow: 0 1px 2px rgb(100,100,100);
-  background-image: url(../img/shade-button.png);
+  background-image: url(/img/shade-button.png);
   background-repeat: repeat-x;
   background-position: center;
 }

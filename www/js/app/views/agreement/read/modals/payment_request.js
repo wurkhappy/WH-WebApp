@@ -49,7 +49,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
           }));
 
           this.$('header').html(this.paymentMethodsView.$el);
-          this.rendered = true;
 
       },
 

@@ -11,6 +11,7 @@
     //helper functions
     var createStatusInfo = function(status, client){
       var currentState;
+      console.log(status);
       var prefix = (status.get("paymentID")) ? "Payment" : "Agreement"
       var lastAction = prefix + " " +status.get("action") + " on " + status.get("date").format('MMM D, YYYY');
         switch (status.get("action")){
@@ -44,7 +45,7 @@
       },
 
       render: function () {
-        var status = this.model.get("statusHistory").at(0);
+        var status = this.model.get("currentStatus");
         var payment = this.model.get("payments");
 
         var percentComplete = payment.getPercentComplete() * 100;
