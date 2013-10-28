@@ -570,7 +570,7 @@ fieldset {
 
 /* line 38, ../scss/components/_buttons.scss */
 .action_button {
-  background-color: #87cb52;
+  background-color: #86ce50;
 }
 /* line 40, ../scss/components/_buttons.scss */
 .action_button:hover {
@@ -1097,47 +1097,46 @@ progress[value]::-webkit-progress-bar {
 /* line 44, ../scss/components/_progress_bars.scss */
 progress[value]::-webkit-progress-value {
   position: relative;
-  background-size: 35px 20px, 100% 100%, 100% 100%;
   border-radius: 10px;
 }
 
 /* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
-/* line 53, ../scss/components/_progress_bars.scss */
+/* line 52, ../scss/components/_progress_bars.scss */
 progress[value]::-moz-progress-bar {
-  background: #85cd4f;
+  background: #86ce50;
   border-radius: 10px;
 }
 
-/* line 58, ../scss/components/_progress_bars.scss */
-progress::-webkit-progress-value {
-  background: #85cd4f;
+/* line 57, ../scss/components/_progress_bars.scss */
+progress::-webkit-progress-value, progress.yellow_progress {
+  background: #86ce50;
   border-radius: 10px;
 }
 
 /* Fallback technique styles */
-/* line 65, ../scss/components/_progress_bars.scss */
+/* line 64, ../scss/components/_progress_bars.scss */
 .progress-bar {
-  background-color: #85cd4f;
+  background-color: #86ce50;
   border-radius: 10px;
   /* Dimensions should be similar to the parent progress element. */
   width: 100%;
   height: 2px;
 }
 
-/* line 74, ../scss/components/_progress_bars.scss */
+/* line 73, ../scss/components/_progress_bars.scss */
 .progress-bar span {
   background-color: #dce0e4;
   display: block;
   text-indent: -9999px;
 }
 
-/* line 82, ../scss/components/_progress_bars.scss */
+/* line 81, ../scss/components/_progress_bars.scss */
 .agreement_progress[value] {
   height: 10px;
   border-radius: 10px;
 }
 
-/* line 87, ../scss/components/_progress_bars.scss */
+/* line 86, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-bar {
   height: 10px;
   border-radius: 10px;
@@ -1147,46 +1146,56 @@ progress::-webkit-progress-value {
 .agreement_progress[value]::-moz-progress-bar {
   height: 10px;
   border-radius: 10px;
+  background: #86ce50;
 }
 
-/* line 97, ../scss/components/_progress_bars.scss */
-.agreement_progress::-webkit-progress-value {
-  background: #85cd4f;
+/* line 98, ../scss/components/_progress_bars.scss */
+.agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
+  background: -webkit-linear-gradient(left, #cec150);
   border-radius: 10px;
 }
 
-/* line 102, ../scss/components/_progress_bars.scss */
+/* line 105, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-value {
   position: relative;
-  background-size: 35px 20px, 100% 100%, 100% 100%;
   border-radius: 10px;
 }
 
-/* line 115, ../scss/components/_progress_bars.scss */
+/* line 117, ../scss/components/_progress_bars.scss */
 .agreement_progress_bar {
-  background-color: #85cd4f;
+  background-color: #86ce50;
   /* Dimensions should be similar to the parent progress element. */
   width: 100%;
   height: 10px;
   border-radius: 10px;
 }
 
-/* line 127, ../scss/components/_progress_bars.scss */
+/* line 129, ../scss/components/_progress_bars.scss */
 .green_progress {
-  background: #85cd4f;
+  background: #86ce50;
 }
 
-/* line 139, ../scss/components/_progress_bars.scss */
+/* line 133, ../scss/components/_progress_bars.scss */
+.yellow_progress {
+  background: -webkit-linear-gradient(left, #86ce50, #cec150 20%);
+}
+
+/* line 137, ../scss/components/_progress_bars.scss */
+.red_progress {
+  background: #ce5058;
+}
+
+/* line 141, ../scss/components/_progress_bars.scss */
 .icon_container {
   position: absolute;
   top: 14.5px;
   z-index: 5;
 }
 
-/* line 145, ../scss/components/_progress_bars.scss */
+/* line 147, ../scss/components/_progress_bars.scss */
 .progress_icon {
   margin-left: 20px;
-  color: #dce0e4;
+  color: #d4d9de;
   font-size: 30px;
 }
 

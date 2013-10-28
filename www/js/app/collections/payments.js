@@ -42,6 +42,13 @@ define(['backbone', 'models/payment'],
                 });
                 return paymentArray.length;
             },
+
+            getNumberOfSubmittedPayments: function () {
+                var paymentArray = this.filter(function(model){
+                    return model.get("currentStatus") && model.get("currentStatus").get("action") === 'submitted';
+                });
+                return 3;
+            },
             getPercentComplete: function() {
                 var paymentsAccepted = this.getAcceptedPayments(),
                     totalPayments = this.getTotalPayments();
@@ -51,7 +58,6 @@ define(['backbone', 'models/payment'],
                 } else {
                     return paymentsAccepted/totalPayments;
                 }
-
             }
 
         });
