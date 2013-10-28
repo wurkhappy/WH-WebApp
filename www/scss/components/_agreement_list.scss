@@ -1,19 +1,13 @@
 /* Agreement List Style ( used in homepage agreement list, profile, and agreement)
 ================================================================================ */
 
-
-.home_status {
-  display: block;
-}
-
-
 .data-table {
   padding: 0 20px 10px 20px;
 }
 
 .data-table table {
   width: 100%;
-  display: inline-block;
+  display: inline-table;
 }
 
 .data-table table tr td {

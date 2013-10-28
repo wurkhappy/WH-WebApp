@@ -695,41 +695,36 @@ fieldset {
 
 /* Agreement List Style ( used in homepage agreement list, profile, and agreement)
 ================================================================================ */
-/* line 5, ../scss/components/_agreement_list.scss */
-.home_status {
-  display: block;
-}
-
-/* line 10, ../scss/components/_agreement_list.scss */
+/* line 4, ../scss/components/_agreement_list.scss */
 .data-table {
   padding: 0 20px 10px 20px;
 }
 
-/* line 14, ../scss/components/_agreement_list.scss */
+/* line 8, ../scss/components/_agreement_list.scss */
 .data-table table {
   width: 100%;
-  display: inline-block;
+  display: inline-table;
 }
 
-/* line 19, ../scss/components/_agreement_list.scss */
+/* line 13, ../scss/components/_agreement_list.scss */
 .data-table table tr td {
   border-top: 1px solid whitesmoke;
   padding: 10px 20px 10px 0;
   vertical-align: top;
 }
 
-/* line 25, ../scss/components/_agreement_list.scss */
+/* line 19, ../scss/components/_agreement_list.scss */
 .data-table table tr td h3 {
   margin: 10px 0 0 0;
   padding: 0;
 }
 
-/* line 30, ../scss/components/_agreement_list.scss */
+/* line 24, ../scss/components/_agreement_list.scss */
 .data-table table tr td h3.less {
   margin-top: 0;
 }
 
-/* line 34, ../scss/components/_agreement_list.scss */
+/* line 28, ../scss/components/_agreement_list.scss */
 .data-table table tr td p {
   margin: 0;
   padding: 0;
@@ -737,26 +732,26 @@ fieldset {
   color: #969696;
 }
 
-/* line 41, ../scss/components/_agreement_list.scss */
+/* line 35, ../scss/components/_agreement_list.scss */
 .data-table table tr td p.remove {
   background: url(/img/icons/cross-16x16.png) no-repeat left;
   padding-left: 20px;
 }
 
-/* line 46, ../scss/components/_agreement_list.scss */
+/* line 40, ../scss/components/_agreement_list.scss */
 .data-table table tr td.action {
   width: 150px;
   padding: 10px 0;
   text-align: right;
 }
 
-/* line 52, ../scss/components/_agreement_list.scss */
+/* line 46, ../scss/components/_agreement_list.scss */
 .data-table table tr td.meta {
   width: 80px;
   padding: 10px 0;
 }
 
-/* line 57, ../scss/components/_agreement_list.scss */
+/* line 51, ../scss/components/_agreement_list.scss */
 .data-table table tr td.meta span {
   display: block;
   border: 1px solid #e1e1e1;
@@ -768,20 +763,20 @@ fieldset {
   border-radius: 3px;
 }
 
-/* line 68, ../scss/components/_agreement_list.scss */
+/* line 62, ../scss/components/_agreement_list.scss */
 .data-table table tr td.meta span img {
   display: block;
   width: 50px;
 }
 
-/* line 73, ../scss/components/_agreement_list.scss */
+/* line 67, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress {
   width: 200px;
   padding: 10px 0;
   text-align: center;
 }
 
-/* line 79, ../scss/components/_agreement_list.scss */
+/* line 73, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress span {
   display: block;
   margin: 14px 0 13px 0;
@@ -790,7 +785,7 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 87, ../scss/components/_agreement_list.scss */
+/* line 81, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress span img {
   display: block;
   width: 200px;
