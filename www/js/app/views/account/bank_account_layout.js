@@ -4,6 +4,10 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
   function (Backbone, Handlebars, _, Marionette, layoutTpl, NewBankAccountView, StoredBankAccountsView) {
 
     'use strict';
+    Handlebars.registerHelper('last_four_digits', function(number) {
+      if (!number) return;
+      return number.slice(-4);
+    });
 
     var Layout = Backbone.Marionette.Layout.extend({
       className:'clear content',
@@ -20,8 +24,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.render();
       },
       onRender:function(){
+        this.model.get("bank_accounts").fetch();
         this.newBankAccount.show(new NewBankAccountView({user: this.model}));
-        this.bankAccounts.show(new StoredBankAccountsView({collection: this.model.get("bank_account")}));
+        this.bankAccounts.show(new StoredBankAccountsView({collection: this.model.get("bank_accounts")}));
       }
     });
 

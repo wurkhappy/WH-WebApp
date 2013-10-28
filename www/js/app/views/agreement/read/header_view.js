@@ -1,10 +1,10 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html',
+define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!templates/agreement/read/header_tpl.html',
   'views/agreement/read/header_states/accepted_state', 'views/agreement/read/header_states/created_state',
   'views/agreement/read/header_states/submitted_state', 'views/agreement/read/header_states/rejected_state',
   'views/agreement/read/header_states/draft_state'],
 
-  function (Backbone, Handlebars, userTemplate, AcceptedState,
+  function (Backbone, Handlebars, noty, noty_layout, noty_default, userTemplate, AcceptedState,
     CreatedState, SubmittedState, RejectedState, DraftState) {
 
     'use strict';
@@ -13,9 +13,10 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
       template: Handlebars.compile(userTemplate),
 
       initialize:function(options){
-        this.listenTo(this.model.get("statusHistory"), 'add', this.changeState);
-        this.changeState();
+        this.listenTo(this.model, 'change:currentStatus', this.changeState);
         this.user = options.user;
+        this.otherUser = options.otherUser
+        this.changeState();
       },
 
       render:function(){
@@ -33,27 +34,30 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
       },
       button1:function(event){
         if (!this.user.get("isVerified")){
+          var n = $('#notifications').noty({type: 'error',text: 'Please check your e-mail and verify your account.', timeout: 2000, dismissQueue:false});
           return;
         }
         this.state.button1();
       },
       button2:function(event){
         if (!this.user.get("isVerified")){
-          return
+          var n = $('#notifications').noty({type: 'error',text: 'Please check your e-mail and verify your account.', timeout: 2000,  dismissQueue:false});
+          return;
         }
         this.state.button2();
       },
       changeState:function(){
-        var status = this.model.get("statusHistory").at(0);
+        var status = this.model.get("currentStatus");
+        console.log(status);
         switch (status.get("action")){
           case status.StatusCreated:
           this.state = new CreatedState({model: this.model});
           break;
           case status.StatusSubmitted:
-          this.state = new SubmittedState({model: this.model, user: this.options.user});
+          this.state = new SubmittedState({model: this.model, user: this.user, otherUser: this.otherUser});
           break;
           case status.StatusAccepted:
-          this.state = new AcceptedState({model: this.model, user: this.options.user});
+          this.state = new AcceptedState({model: this.model, user: this.user});
           break;
           case status.StatusRejected:
           this.state = new RejectedState({model: this.model});

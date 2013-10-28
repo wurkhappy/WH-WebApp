@@ -15,13 +15,10 @@ func GetAccount(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	userID := session.Values["id"]
 
 	user := getUserInfo(userID.(string))
-	r, _ := http.NewRequest("GET", "http://localhost:3120/user/"+userID.(string)+"/cards", nil)
-	cards, _ := sendRequestArray(r)
 
 	m := map[string]interface{}{
 		"appName": "mainaccount",
 		"user":    user,
-		"cards":   cards,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
@@ -31,7 +28,6 @@ func GetAccount(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 }
 
 func SaveCard(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	log.Print("save card")
 	vars := mux.Vars(req)
 	id := vars["id"]
 
@@ -59,6 +55,73 @@ func DeleteCard(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 
 	client := &http.Client{}
 	r, _ := http.NewRequest("DELETE", "http://localhost:3120/user/"+id+"/cards/"+cardID, nil)
+	_, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+}
+
+func GetCards(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	id := vars["id"]
+
+	client := &http.Client{}
+	r, _ := http.NewRequest("GET", "http://localhost:3120/user/"+id+"/cards", nil)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	w.Write(buf.Bytes())
+}
+
+func GetBankAccounts(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	id := vars["id"]
+
+	client := &http.Client{}
+	r, _ := http.NewRequest("GET", "http://localhost:3120/user/"+id+"/bank_account", nil)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	w.Write(buf.Bytes())
+}
+
+func SaveBankAccount(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	id := vars["id"]
+
+	client := &http.Client{}
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	jsonData := buf.Bytes()
+	log.Print(buf.String())
+	body := bytes.NewReader(jsonData)
+	r, _ := http.NewRequest("POST", "http://localhost:3120/user/"+id+"/bank_account", body)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	buf = new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	w.Write(buf.Bytes())
+}
+
+func DeleteBankAccount(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+
+	vars := mux.Vars(req)
+	id := vars["id"]
+	accountID := vars["accountID"]
+
+	client := &http.Client{}
+	r, _ := http.NewRequest("DELETE", "http://localhost:3120/user/"+id+"/bank_account/"+accountID, nil)
 	_, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)

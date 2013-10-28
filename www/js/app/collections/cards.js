@@ -11,6 +11,9 @@
  		var Collection = Backbone.Collection.extend({
 
  			model: Model,
+ 			url: function(){
+ 				return "/user/"+this.user.id+"/cards";
+ 			}
 
  		});
 

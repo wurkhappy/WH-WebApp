@@ -21,8 +21,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.collection = this.model.get("scopeItems");
         this.dispatcher = options.dispatcher;
         this.userIsClient = options.userIsClient;
-        this.listenTo(this.model, 'change:currentStatus',this.checkStatus)
-        this.listenTo(this.dispatcher, 'lockPaymentRequests', this.updateGlobalStatus);
+        this.listenTo(this.model, 'change',this.checkStatus)
+        if(this.dispatcher) this.listenTo(this.dispatcher, 'lockPaymentRequests', this.updateGlobalStatus);
       },
       onRender:function(){
         this.checkStatus();

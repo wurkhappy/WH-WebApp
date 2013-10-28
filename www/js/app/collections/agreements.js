@@ -9,7 +9,6 @@ define(['backbone', 'models/agreement'],
             'use strict';
 
             var Collection = Backbone.Collection.extend({
-
                   model: Model,
 
                   sortByStatus: function(){
@@ -21,7 +20,7 @@ define(['backbone', 'models/agreement'],
                                     draftAgrmnts.add(model);
                                     return;
                               }
-                              var status = model.get("statusHistory").at(0);
+                              var status = model.get("currentStatus");
                               switch (status.get("action")){
                                     case status.StatusSubmitted:
                                     waitingOnRespAgrmnts.add(model);

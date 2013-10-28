@@ -44,13 +44,15 @@
           currentUser: this.currentUser, 
           el:'#progressSection'
         });
-        var draftView = new SectionView({
-          title:"Drafts", 
-          collection: sortedAgreements.draftAgrmnts, 
-          otherUsers: this.otherUsers,
-          currentUser: this.currentUser, 
-          el:'#draftSection'
-        });
+        if (sortedAgreements.draftAgrmnts.length > 0) {
+          var draftView = new SectionView({
+            title:"Drafts", 
+            collection: sortedAgreements.draftAgrmnts, 
+            otherUsers: this.otherUsers,
+            currentUser: this.currentUser, 
+            el:'#draftSection'
+          });
+        }
       },
 
       FreelancerAgreements: function () {

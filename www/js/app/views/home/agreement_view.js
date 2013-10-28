@@ -44,7 +44,7 @@
       },
 
       render: function () {
-        var status = this.model.get("statusHistory").at(0);
+        var status = this.model.get("currentStatus");
         var payment = this.model.get("payments");
 
         var percentComplete = payment.getPercentComplete() * 100;

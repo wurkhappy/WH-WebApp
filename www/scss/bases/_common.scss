@@ -52,7 +52,7 @@ table {
 body {
   text-align: center;
   font-family: museo_sans;
-  background: rgb(220,224,228) url(../img/bg.png) fixed;
+  background: rgb(220,224,228) url(/img/bg.png) fixed;
   color: rgb(100,100,100);
 }
 
@@ -175,7 +175,7 @@ fieldset {
 }
 
 .checkmark {
-  background-image: url("../img/checkmark.png");
+  background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
   padding-left: 20px;
   background-size: 16px;

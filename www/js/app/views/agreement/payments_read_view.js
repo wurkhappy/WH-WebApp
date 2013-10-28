@@ -26,14 +26,15 @@
         this.dispatcher = _.clone(Backbone.Events);
         this.userIsClient = window.thisUser.id === this.model.get("clientID");
         this.collection = this.model.get("payments");
-        this.listenTo(this.model.get("statusHistory"), 'add', this.updateState);
+        this.listenTo(this.model, 'change:currentStatus', this.updateState);
       },
       onRender:function(){
         this.$('#payments-total').text('$'+this.collection.getTotalAmount());
         this.updateState();
       },
       updateState:function(){
-        var status = this.model.get("statusHistory").at(0);
+        var status = this.model.get("currentStatus");
+
         var lockPaymentRequests = false;
         if (status.get("action") === status.StatusSubmitted) lockPaymentRequests = true;
         this.dispatcher.trigger('lockPaymentRequests', lockPaymentRequests);

@@ -17,6 +17,7 @@
 
       initialize: function (options) {
         this.router = options.router;
+        this.userID = options.userID;
         this.render();
       },
 
@@ -27,18 +28,23 @@
 
       events: {
         "blur input": "updateField",
+        'blur input[type="radio"]': "updateRole",
         "blur textarea": "updateField",
         "click .submit-buttons > a" : "saveAndContinue"
       },
 
       updateField: function(event){
         this.model.set(event.target.name, event.target.value)
-        console.log(this.model);
+      },
+      updateRole: function(event){
+        this.model.set(event.target.value, this.userID);
+        if (event.target.value == 'clientID') {
+          
+        };
       },
       saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();
-        // this.model.get("statusHistory").add({statusType:"created", date:moment()});
         this.model.set("draft", true);
         this.model.save({},{
           success:_.bind(function(model, response){

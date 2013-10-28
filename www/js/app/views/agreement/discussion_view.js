@@ -29,6 +29,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.userIsClient = window.thisUser.id === this.model.get("clientID");
         this.collection = this.model.get("comments");
         this.user = options.user;
+        console.log(this.collection);
       },
       onRender:function(){
         this.actionSelect = new ActionSelect({collection: this.model.get("statusHistory").filterByPaymentID(this.milestone)}).render();
@@ -47,9 +48,10 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
           var model = new this.collection.model({
             text: $text.val(),
             dateCreated: moment(),
-            authorID:window.thisUser.id,
+            userID:window.thisUser.id,
             milestoneID: this.milestone,
-            statusID: this.status
+            statusID: this.status,
+            agreementVersionID: this.collection.agreement.get("versionID"),
           })
           this.collection.add(model);
           model.save();

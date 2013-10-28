@@ -33,6 +33,14 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 }
             },
             {
+                type: Backbone.HasOne,
+                key: 'currentStatus',
+                relatedModel: StatusModel,
+                reverseRelation: {
+                    includeInJSON: false
+                }
+            },
+            {
                 type: Backbone.HasMany,
                 key: 'comments',
                 relatedModel: CommentModel,
@@ -44,8 +52,9 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 }
             }
             ],
+            idAttribute: "versionID",
             urlRoot:function(){
-                return "/agreement";
+                return "/agreement/v";
             },
             submit: function(message, successCallback){
                 this.updateStatus("submitted", message, successCallback);
@@ -59,12 +68,12 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
             updateStatus:function(action, message, successCallback){
                 $.ajax({
                   type: "POST",
-                  url: "/agreement/"+this.id+"/status",
+                  url: "/agreement/v/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
-                  data:JSON.stringify({"action":action, "message":message}),
+                  data:JSON.stringify({"action":action, "message":message, "versionlessID":this.get("versionlessID")}),
                   success: _.bind(function(response){
-                    this.get("statusHistory").add(response);
+                    this.set("currentStatus", response);
                     if (_.isFunction(successCallback)) successCallback();
                 }, this)
               });

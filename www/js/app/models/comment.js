@@ -6,7 +6,6 @@ define(['backbone','backbone-relational', 'moment'],
 
 		var Comment = Backbone.RelationalModel.extend({
 			url:function(){
-				console.log(this.collection);
 				return "/agreement/"+this.collection.agreement.get("agreementID")+"/comments";
 			},
 			set: function( key, value, options ) {

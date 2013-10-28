@@ -22,6 +22,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         "click #action-button1":"submit"
       },
       save: function(){
+        this.model.unset("versionID");
         this.model.set("draft", true);
         this.model.save({},{success:function(model, response){
           window.location = "/home";

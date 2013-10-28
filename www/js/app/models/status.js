@@ -23,9 +23,9 @@ define(['backbone','backbone-relational', 'moment'],
             },
             url:function(){
                 if(this.get("paymentID")){
-                    return "/agreement/"+this.get("agreementID")+"/payment/"+this.get("paymentID")+"/status";
+                    return "/agreement/v/"+this.get("agreementID")+"/payment/"+this.get("paymentID")+"/status";
                 }
-                return "/agreement/"+this.get("agreementID")+"/status";
+                return "/agreement/v/"+this.get("agreementID")+"/status";
             }
 
 
