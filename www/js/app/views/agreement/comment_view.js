@@ -8,6 +8,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
     var CommentView = Backbone.View.extend({
 
       template: Handlebars.compile(commentTpl),
+      className: "hide",
 
       initialize:function(options){
         this.agreement = options.agreement;
@@ -54,11 +55,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           thisAvatar = "/img/default_photo.jpg";
         }
 
-        /*if (this.status) {
-          dateCreated = this.status.get("date").format('MMM D, YYYY');
-        }
-*/
-
         var milestoneTitle = (this.milestone) ? this.milestone.get("title") : "";
         this.$el.html(this.template({
           model: this.model.toJSON(),
@@ -70,8 +66,18 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           lastName: lastName,
         }));
 
+        this.fadeIn(this.$el);
+
         return this;
 
+      },
+
+      fadeIn: function (that) {
+        console.log("fade in function initiated!");
+        console.log(that);
+        _.defer( function () {
+          that.fadeIn();
+        });
       }
 
     });

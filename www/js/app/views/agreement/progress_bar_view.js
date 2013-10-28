@@ -26,7 +26,6 @@
       template: Handlebars.compile(progressBarTemplate),
 
       initialize:function(options){
-        console.log("during initialize");
         this.payments = options.model.get("payments");
         this.percentageComplete = this.payments.getPercentComplete() * 100;
       },
@@ -35,14 +34,10 @@
         var payments = this.payments;
         var submittedPayments = payments.getNumberOfSubmittedPayments();
         var totalPayments = this.payments.length;
-        console.log("payments");
-        console.log(this.payments.toJSON());
 
         //var percentComplete = payments.getPercentComplete() * 100;
 
         var percentComplete = this.calculatePercentage(totalPayments, submittedPayments);
-        console.log("percent Complete");
-        console.log(percentComplete); 
 
         this.$el.html(this.template({
           payments: this.payments.toJSON(),
@@ -56,7 +51,6 @@
       },
 
       afterRender: function () {
-        console.log("after render");
         var payments = this.payments,
             numberPayments = payments.length -1,
             totalIconWidth=(numberPayments)*30; //30px is size of each icon
@@ -68,12 +62,9 @@
               firstIconSpacing = 87; //100px margin - 13px (halfway through icon)
           $(".progress_icon").css("margin-left", iconSpacing + "px");
           $(".progress_icon").first().css("margin-left", firstIconSpacing + "px");
-          console.log("adding the gradient to the progress bar");
 
           //place a gradient stop based on the percentage of accepted payments:
           $("progress").addClass("yellow_progress");
-
-
 
         });
         
