@@ -1,4 +1,4 @@
-/* Agreement List Style ( used in homepage agreement list and profile)
+/* Agreement List Style ( used in homepage agreement list, profile, and agreement)
 ================================================================================ */
 
 .data-table {
@@ -7,6 +7,7 @@
 
 .data-table table {
   width: 100%;
+  display: inline-block;
 }
 
 .data-table table tr td {

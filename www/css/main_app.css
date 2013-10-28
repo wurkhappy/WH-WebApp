@@ -1,11 +1,11 @@
-/* line 36, /////////Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
+/* line 36, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 4, /////////Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
+/* line 4, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
 img, video {
   max-width: 100%;
   height: auto;
@@ -17,7 +17,7 @@ img, video {
    v2.0 | 20110126
    License: none (public domain)
 */
-/* line 17, /scss/bases/_common.scss */
+/* line 17, ../scss/bases/_common.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -36,25 +36,25 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   outline: 0;
 }
 
-/* line 27, /scss/bases/_common.scss */
+/* line 27, ../scss/bases/_common.scss */
 body {
   line-height: 1.5em;
   background: white;
 }
 
-/* line 32, /scss/bases/_common.scss */
+/* line 32, ../scss/bases/_common.scss */
 blockquote, q {
   quotes: none;
 }
 
-/* line 37, /scss/bases/_common.scss */
+/* line 37, ../scss/bases/_common.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
   content: none;
 }
 
-/* line 42, /scss/bases/_common.scss */
+/* line 42, ../scss/bases/_common.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -62,7 +62,7 @@ table {
 
 /* Typography
 ================================================================================ */
-/* line 52, /scss/bases/_common.scss */
+/* line 52, ../scss/bases/_common.scss */
 body {
   text-align: center;
   font-family: museo_sans;
@@ -70,14 +70,14 @@ body {
   color: #646464;
 }
 
-/* line 60, /scss/bases/_common.scss */
+/* line 60, ../scss/bases/_common.scss */
 a,
 a:visited {
   text-decoration: none;
   color: #0099dd;
 }
 
-/* line 66, /scss/bases/_common.scss */
+/* line 66, ../scss/bases/_common.scss */
 a:hover,
 a:active {
   text-decoration: underline;
@@ -85,35 +85,35 @@ a:active {
   cursor: pointer;
 }
 
-/* line 72, /scss/bases/_common.scss */
+/* line 72, ../scss/bases/_common.scss */
 p, ul, ol, dl {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-/* line 77, /scss/bases/_common.scss */
+/* line 77, ../scss/bases/_common.scss */
 ul, ol {
   margin-left: 30px;
 }
 
-/* line 81, /scss/bases/_common.scss */
+/* line 81, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 85, /scss/bases/_common.scss */
+/* line 85, ../scss/bases/_common.scss */
 h1, h2, h3 {
   color: black;
   padding: 0 20px;
   font-family: museo;
 }
 
-/* line 91, /scss/bases/_common.scss */
+/* line 91, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 95, /scss/bases/_common.scss */
+/* line 95, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
   line-height: 40px;
@@ -121,7 +121,7 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-/* line 102, /scss/bases/_common.scss */
+/* line 102, ../scss/bases/_common.scss */
 h2 {
   font-size: 24px;
   line-height: 30px;
@@ -129,7 +129,7 @@ h2 {
   font-weight: 100;
 }
 
-/* line 109, /scss/bases/_common.scss */
+/* line 109, ../scss/bases/_common.scss */
 h3 {
   font-size: 16px;
   line-height: 20px;
@@ -139,56 +139,55 @@ h3 {
 
 /* Forms
 ================================================================================ */
-/* line 120, /scss/bases/_common.scss */
+/* line 120, ../scss/bases/_common.scss */
 form {
   padding: 0 20px 20px 20px;
 }
 
-/* line 124, /scss/bases/_common.scss */
+/* line 124, ../scss/bases/_common.scss */
 label, .faux-label {
   display: block;
   padding: 20px 0 5px 0;
   margin: 0;
 }
 
-/* line 130, /scss/bases/_common.scss */
+/* line 130, ../scss/bases/_common.scss */
 label span {
   display: block;
   font-size: .75em;
   color: #969696;
 }
 
-/* line 136, /scss/bases/_common.scss */
+/* line 136, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
   margin: 0;
   font-size: 100%;
   font: inherit;
-  display: block;
 }
 
-/* line 145, /scss/bases/_common.scss */
+/* line 144, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 152, /scss/bases/_common.scss */
+/* line 151, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 157, /scss/bases/_common.scss */
+/* line 156, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 162, /scss/bases/_common.scss */
+/* line 161, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -196,17 +195,17 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 169, /scss/bases/_common.scss */
+/* line 168, ../scss/bases/_common.scss */
 .content {
   background-color: white;
 }
 
-/* line 173, /scss/bases/_common.scss */
+/* line 172, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 177, /scss/bases/_common.scss */
+/* line 176, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -215,7 +214,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 185, /scss/bases/_common.scss */
+/* line 184, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -385,14 +384,14 @@ fieldset {
 
 /* FORMS
 ================================================================================ */
-/* line 4, /scss/components/_forms.scss */
+/* line 4, ../scss/components/_forms.scss */
 .action {
   margin: 5px 0 0 0;
   padding: 0;
   font-size: .75em;
 }
 
-/* line 12, /scss/components/_forms.scss */
+/* line 12, ../scss/components/_forms.scss */
 .security-detail {
   margin: 10px 0 0 0;
   padding: 10px 10px 10px 30px;
@@ -403,38 +402,38 @@ fieldset {
   background: whitesmoke url(/img/lock.png) no-repeat 1% 50%;
 }
 
-/* line 23, /scss/components/_forms.scss */
+/* line 23, ../scss/components/_forms.scss */
 .checkbox {
   border: none;
   margin: 0;
   padding: 5px 0;
 }
 
-/* line 30, /scss/components/_forms.scss */
+/* line 30, ../scss/components/_forms.scss */
 .upload {
   border: none;
 }
 
 /* Header - Common
 ================================================================================ */
-/* line 5, /scss/components/_header.scss */
+/* line 5, ../scss/components/_header.scss */
 .navigation ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 11, /scss/components/_header.scss */
+/* line 11, ../scss/components/_header.scss */
 .navigation li {
   float: left;
 }
 
-/* line 15, /scss/components/_header.scss */
+/* line 15, ../scss/components/_header.scss */
 .admin_nav li {
   float: right;
 }
 
-/* line 19, /scss/components/_header.scss */
+/* line 19, ../scss/components/_header.scss */
 .logo {
   font-family: museo;
   font-size: 24px;
@@ -450,11 +449,11 @@ fieldset {
   text-decoration: none;
   width: 210px;
 }
-/* line 33, /scss/components/_header.scss */
+/* line 33, ../scss/components/_header.scss */
 .logo:visited {
   color: black;
 }
-/* line 36, /scss/components/_header.scss */
+/* line 36, ../scss/components/_header.scss */
 .logo:hover, .logo:active {
   text-decoration: none;
   color: #646464;
@@ -462,12 +461,12 @@ fieldset {
 
 /* Header - Main App
 ================================================================================ */
-/* line 45, /scss/components/_header.scss */
+/* line 45, ../scss/components/_header.scss */
 .main_top_padding {
   padding-top: 13px;
 }
 
-/* line 49, /scss/components/_header.scss */
+/* line 49, ../scss/components/_header.scss */
 .navigation_links a {
   display: block;
   float: left;
@@ -476,7 +475,7 @@ fieldset {
 
 /* Header - Landing
 ================================================================================ */
-/* line 58, /scss/components/_header.scss */
+/* line 58, ../scss/components/_header.scss */
 .landing_navigation_links {
   padding-left: 85px;
   line-height: 38px;
@@ -484,12 +483,12 @@ fieldset {
   padding-top: 23px;
 }
 
-/* line 65, /scss/components/_header.scss */
+/* line 65, ../scss/components/_header.scss */
 .top_padding {
   padding-top: 20px;
 }
 
-/* line 69, /scss/components/_header.scss */
+/* line 69, ../scss/components/_header.scss */
 .create_account {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -497,7 +496,7 @@ fieldset {
 
 /* MAIN Intro Header/ main action
 ================================================================================ */
-/* line 5, /scss/components/_intro.scss */
+/* line 5, ../scss/components/_intro.scss */
 .intro {
   background: #007ab1 url(/img/shade-intro.png) repeat-x top;
   color: #bfe5f6;
@@ -511,36 +510,36 @@ fieldset {
   padding: 0 0 10px 0;
 }
 
-/* line 18, /scss/components/_intro.scss */
+/* line 18, ../scss/components/_intro.scss */
 .intro h1 {
   color: white;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* line 23, /scss/components/_intro.scss */
+/* line 23, ../scss/components/_intro.scss */
 .intro p {
   line-height: 40px;
   margin-bottom: 10px;
 }
 
-/* line 28, /scss/components/_intro.scss */
+/* line 28, ../scss/components/_intro.scss */
 .intro p span {
   color: white;
 }
 
-/* line 1, /scss/components/_buttons.scss */
+/* line 1, ../scss/components/_buttons.scss */
 .action_button_container {
   margin: 10px 20px 10px 20px;
   padding: 0;
   list-style: none;
 }
-/* line 5, /scss/components/_buttons.scss */
+/* line 5, ../scss/components/_buttons.scss */
 .action_button_container li {
   padding: 10px 0 0 0;
   margin: 0;
 }
 
-/* line 11, /scss/components/_buttons.scss */
+/* line 11, ../scss/components/_buttons.scss */
 .button, .button:visited {
   display: block;
   font-weight: bold;
@@ -561,32 +560,32 @@ fieldset {
   border-radius: 5px;
 }
 
-/* line 32, /scss/components/_buttons.scss */
+/* line 32, ../scss/components/_buttons.scss */
 .button:hover {
   text-decoration: none;
   cursor: pointer;
   color: white;
 }
 
-/* line 38, /scss/components/_buttons.scss */
+/* line 38, ../scss/components/_buttons.scss */
 .action_button {
   background-color: #86ce50;
 }
-/* line 40, /scss/components/_buttons.scss */
+/* line 40, ../scss/components/_buttons.scss */
 .action_button:hover {
   background-color: #7bb84c;
 }
 
-/* line 45, /scss/components/_buttons.scss */
+/* line 45, ../scss/components/_buttons.scss */
 .cancel {
   background-color: #be3557;
 }
-/* line 47, /scss/components/_buttons.scss */
+/* line 47, ../scss/components/_buttons.scss */
 .cancel:hover {
   background-color: #972a45;
 }
 
-/* line 52, /scss/components/_buttons.scss */
+/* line 52, ../scss/components/_buttons.scss */
 .submit-button {
   font-size: 1em;
   padding: 10px 20px;
@@ -607,14 +606,14 @@ fieldset {
   float: right;
 }
 
-/* line 73, /scss/components/_buttons.scss */
+/* line 73, ../scss/components/_buttons.scss */
 .submit-button:hover,
 .submit-button:focus {
   outline: none;
   background-color: #0091d2;
 }
 
-/* line 78, /scss/components/_buttons.scss */
+/* line 78, ../scss/components/_buttons.scss */
 .login_button {
   margin-top: -20px;
   width: 200px;
@@ -622,12 +621,12 @@ fieldset {
   margin-left: -150px;
 }
 
-/* line 86, /scss/components/_buttons.scss */
+/* line 86, ../scss/components/_buttons.scss */
 .submit-buttons {
   padding: 20px 0 0 0;
 }
 
-/* line 90, /scss/components/_buttons.scss */
+/* line 90, ../scss/components/_buttons.scss */
 .submit-buttons a {
   display: block;
   float: left;
@@ -649,38 +648,38 @@ fieldset {
   background-position: center;
 }
 
-/* line 112, /scss/components/_buttons.scss */
+/* line 112, ../scss/components/_buttons.scss */
 .submit-buttons a,
 .submit-buttons a:visited {
   background-color: #be3557;
 }
 
-/* line 116, /scss/components/_buttons.scss */
+/* line 116, ../scss/components/_buttons.scss */
 .submit-buttons a:hover, .submit-buttons a:active {
   background-color: #972a45;
 }
 
 /* Sub- Navigation 
 ================================================================================ */
-/* line 5, /scss/components/_sub_navigation.scss */
+/* line 5, ../scss/components/_sub_navigation.scss */
 .sub_navigation {
   background-color: #dff5ff;
 }
 
-/* line 9, /scss/components/_sub_navigation.scss */
+/* line 9, ../scss/components/_sub_navigation.scss */
 .sub_navigation_container {
   padding: 0;
   margin: 0;
 }
 
-/* line 14, /scss/components/_sub_navigation.scss */
+/* line 14, ../scss/components/_sub_navigation.scss */
 .sub_navigation_tab {
   list-style: none;
   display: block;
   float: left;
 }
 
-/* line 20, /scss/components/_sub_navigation.scss */
+/* line 20, ../scss/components/_sub_navigation.scss */
 .sub_navigation_link {
   display: block;
   float: left;
@@ -688,43 +687,44 @@ fieldset {
   color: #009adb;
 }
 
-/* line 27, /scss/components/_sub_navigation.scss */
+/* line 27, ../scss/components/_sub_navigation.scss */
 .current a {
   background: white;
   color: #009adb;
 }
 
-/* Agreement List Style ( used in homepage agreement list and profile)
+/* Agreement List Style ( used in homepage agreement list, profile, and agreement)
 ================================================================================ */
-/* line 4, /scss/components/_agreement_list.scss */
+/* line 4, ../scss/components/_agreement_list.scss */
 .data-table {
   padding: 0 20px 10px 20px;
 }
 
-/* line 8, /scss/components/_agreement_list.scss */
+/* line 8, ../scss/components/_agreement_list.scss */
 .data-table table {
   width: 100%;
+  display: inline-block;
 }
 
-/* line 12, /scss/components/_agreement_list.scss */
+/* line 13, ../scss/components/_agreement_list.scss */
 .data-table table tr td {
   border-top: 1px solid whitesmoke;
   padding: 10px 20px 10px 0;
   vertical-align: top;
 }
 
-/* line 18, /scss/components/_agreement_list.scss */
+/* line 19, ../scss/components/_agreement_list.scss */
 .data-table table tr td h3 {
   margin: 10px 0 0 0;
   padding: 0;
 }
 
-/* line 23, /scss/components/_agreement_list.scss */
+/* line 24, ../scss/components/_agreement_list.scss */
 .data-table table tr td h3.less {
   margin-top: 0;
 }
 
-/* line 27, /scss/components/_agreement_list.scss */
+/* line 28, ../scss/components/_agreement_list.scss */
 .data-table table tr td p {
   margin: 0;
   padding: 0;
@@ -732,26 +732,26 @@ fieldset {
   color: #969696;
 }
 
-/* line 34, /scss/components/_agreement_list.scss */
+/* line 35, ../scss/components/_agreement_list.scss */
 .data-table table tr td p.remove {
   background: url(/img/icons/cross-16x16.png) no-repeat left;
   padding-left: 20px;
 }
 
-/* line 39, /scss/components/_agreement_list.scss */
+/* line 40, ../scss/components/_agreement_list.scss */
 .data-table table tr td.action {
   width: 150px;
   padding: 10px 0;
   text-align: right;
 }
 
-/* line 45, /scss/components/_agreement_list.scss */
+/* line 46, ../scss/components/_agreement_list.scss */
 .data-table table tr td.meta {
   width: 80px;
   padding: 10px 0;
 }
 
-/* line 50, /scss/components/_agreement_list.scss */
+/* line 51, ../scss/components/_agreement_list.scss */
 .data-table table tr td.meta span {
   display: block;
   border: 1px solid #e1e1e1;
@@ -763,20 +763,20 @@ fieldset {
   border-radius: 3px;
 }
 
-/* line 61, /scss/components/_agreement_list.scss */
+/* line 62, ../scss/components/_agreement_list.scss */
 .data-table table tr td.meta span img {
   display: block;
   width: 50px;
 }
 
-/* line 66, /scss/components/_agreement_list.scss */
+/* line 67, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress {
   width: 200px;
   padding: 10px 0;
   text-align: center;
 }
 
-/* line 72, /scss/components/_agreement_list.scss */
+/* line 73, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress span {
   display: block;
   margin: 14px 0 13px 0;
@@ -785,13 +785,13 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 80, /scss/components/_agreement_list.scss */
+/* line 81, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress span img {
   display: block;
   width: 200px;
 }
 
-/* line 1, /scss/components/_create_agreement.scss */
+/* line 1, ../scss/components/_create_agreement.scss */
 .steps {
   background-color: #eef0f2;
   color: #646464;
@@ -804,37 +804,37 @@ fieldset {
   padding: 0 10px;
 }
 
-/* line 2, /scss/components/_agreement.scss */
+/* line 2, ../scss/components/_agreement.scss */
 .meta {
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 20px;
 }
 
-/* line 7, /scss/components/_agreement.scss */
+/* line 7, ../scss/components/_agreement.scss */
 .payment_schedule {
   border-bottom: 1px solid #e1e1e1;
 }
 
-/* line 11, /scss/components/_agreement.scss */
+/* line 11, ../scss/components/_agreement.scss */
 .agreement_title {
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-/* line 16, /scss/components/_agreement.scss */
+/* line 16, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-/* line 21, /scss/components/_agreement.scss */
+/* line 21, ../scss/components/_agreement.scss */
 .payment_milestone {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 27, /scss/components/_agreement.scss */
+/* line 27, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -848,32 +848,32 @@ fieldset {
   color: #646464;
 }
 
-/* line 41, /scss/components/_agreement.scss */
+/* line 41, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 47, /scss/components/_agreement.scss */
+/* line 47, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 52, /scss/components/_agreement.scss */
+/* line 52, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 57, /scss/components/_agreement.scss */
+/* line 57, ../scss/components/_agreement.scss */
 .scope_item {
   padding: 0;
 }
 
-/* line 61, /scss/components/_agreement.scss */
+/* line 61, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -887,29 +887,29 @@ fieldset {
   border-bottom-left-radius: 3px;
 }
 
-/* line 74, /scss/components/_agreement.scss */
+/* line 74, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 1, /scss/components/_agreement_profile.scss */
+/* line 1, ../scss/components/_agreement_profile.scss */
 .agreement_profile {
   border-bottom: 1px solid #e1e1e1;
 }
 
-/* line 5, /scss/components/_agreement_profile.scss */
+/* line 5, ../scss/components/_agreement_profile.scss */
 .agreement_profile.data-table {
   padding: 10px 20px 0 20px;
 }
 
-/* line 9, /scss/components/_agreement_profile.scss */
+/* line 9, ../scss/components/_agreement_profile.scss */
 .agreement_profile.data-table table tr td {
   border-top: none;
   padding-bottom: 20px;
 }
 
-/* line 1, /scss/components/_popup.scss */
+/* line 1, ../scss/components/_popup.scss */
 .panel {
   width: 400px;
   position: fixed;
@@ -933,7 +933,7 @@ fieldset {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 24, /scss/components/_popup.scss */
+/* line 24, ../scss/components/_popup.scss */
 .cover {
   position: absolute;
   left: 0;
@@ -948,7 +948,7 @@ fieldset {
   background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-/* line 38, /scss/components/_popup.scss */
+/* line 38, ../scss/components/_popup.scss */
 .overlay {
   position: fixed;
   top: 0;
@@ -958,85 +958,85 @@ fieldset {
   overflow: hidden;
 }
 
-/* line 47, /scss/components/_popup.scss */
+/* line 47, ../scss/components/_popup.scss */
 .line_item_container {
   list-style: none;
   text-align: right;
 }
 
-/* line 52, /scss/components/_popup.scss */
+/* line 52, ../scss/components/_popup.scss */
 .line_item_title {
   display: inline-block;
   margin-right: 10px;
 }
 
-/* line 57, /scss/components/_popup.scss */
+/* line 57, ../scss/components/_popup.scss */
 .line_item_title_small {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 62, /scss/components/_popup.scss */
+/* line 62, ../scss/components/_popup.scss */
 .line_item {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 68, /scss/components/_popup.scss */
+/* line 68, ../scss/components/_popup.scss */
 .line_item_total {
   font-size: 20px;
 }
 
-/* line 72, /scss/components/_popup.scss */
+/* line 72, ../scss/components/_popup.scss */
 .pay_header_container {
   padding-bottom: 40px;
 }
 
-/* line 76, /scss/components/_popup.scss */
+/* line 76, ../scss/components/_popup.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
 }
 
-/* line 81, /scss/components/_popup.scss */
+/* line 81, ../scss/components/_popup.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 85, /scss/components/_popup.scss */
+/* line 85, ../scss/components/_popup.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 89, /scss/components/_popup.scss */
+/* line 89, ../scss/components/_popup.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 94, /scss/components/_popup.scss */
+/* line 94, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
 }
-/* line 97, /scss/components/_popup.scss */
+/* line 97, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 102, /scss/components/_popup.scss */
+/* line 102, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 106, /scss/components/_popup.scss */
+/* line 106, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
 }
 
-/* line 111, /scss/components/_popup.scss */
+/* line 111, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
@@ -1046,7 +1046,7 @@ fieldset {
   cursor: pointer;
 }
 
-/* line 1, /scss/components/_progress_bars.scss */
+/* line 1, ../scss/components/_progress_bars.scss */
 .progress-large {
   margin: 20px;
   padding: 10px;
@@ -1057,7 +1057,7 @@ fieldset {
   position: relative;
 }
 
-/* line 11, /scss/components/_progress_bars.scss */
+/* line 11, ../scss/components/_progress_bars.scss */
 .progress-large span {
   display: block;
   background-color: #dce0e4;
@@ -1065,13 +1065,13 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 18, /scss/components/_progress_bars.scss */
+/* line 18, ../scss/components/_progress_bars.scss */
 .progress-large span img {
   display: block;
   width: 900px;
 }
 
-/* line 23, /scss/components/_progress_bars.scss */
+/* line 23, ../scss/components/_progress_bars.scss */
 progress[value] {
   /* Get rid of the default appearance */
   appearance: none;
@@ -1088,33 +1088,33 @@ progress[value] {
   border-radius: 10px;
 }
 
-/* line 39, /scss/components/_progress_bars.scss */
+/* line 39, ../scss/components/_progress_bars.scss */
 progress[value]::-webkit-progress-bar {
   background-color: #dce0e4;
   border-radius: 10px;
 }
 
-/* line 44, /scss/components/_progress_bars.scss */
+/* line 44, ../scss/components/_progress_bars.scss */
 progress[value]::-webkit-progress-value {
   position: relative;
   border-radius: 10px;
 }
 
 /* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
-/* line 52, /scss/components/_progress_bars.scss */
+/* line 52, ../scss/components/_progress_bars.scss */
 progress[value]::-moz-progress-bar {
   background: #86ce50;
   border-radius: 10px;
 }
 
-/* line 57, /scss/components/_progress_bars.scss */
+/* line 57, ../scss/components/_progress_bars.scss */
 progress::-webkit-progress-value, progress.yellow_progress {
   background: #86ce50;
   border-radius: 10px;
 }
 
 /* Fallback technique styles */
-/* line 64, /scss/components/_progress_bars.scss */
+/* line 64, ../scss/components/_progress_bars.scss */
 .progress-bar {
   background-color: #86ce50;
   border-radius: 10px;
@@ -1123,45 +1123,45 @@ progress::-webkit-progress-value, progress.yellow_progress {
   height: 2px;
 }
 
-/* line 73, /scss/components/_progress_bars.scss */
+/* line 73, ../scss/components/_progress_bars.scss */
 .progress-bar span {
   background-color: #dce0e4;
   display: block;
   text-indent: -9999px;
 }
 
-/* line 81, /scss/components/_progress_bars.scss */
+/* line 81, ../scss/components/_progress_bars.scss */
 .agreement_progress[value] {
   height: 10px;
   border-radius: 10px;
 }
 
-/* line 86, /scss/components/_progress_bars.scss */
+/* line 86, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-bar {
   height: 10px;
   border-radius: 10px;
 }
 
-/* line 92, /scss/components/_progress_bars.scss */
+/* line 92, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-moz-progress-bar {
   height: 10px;
   border-radius: 10px;
   background: #86ce50;
 }
 
-/* line 98, /scss/components/_progress_bars.scss */
+/* line 98, ../scss/components/_progress_bars.scss */
 .agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
   background: -webkit-linear-gradient(left, #cec150);
   border-radius: 10px;
 }
 
-/* line 105, /scss/components/_progress_bars.scss */
+/* line 105, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-value {
   position: relative;
   border-radius: 10px;
 }
 
-/* line 117, /scss/components/_progress_bars.scss */
+/* line 117, ../scss/components/_progress_bars.scss */
 .agreement_progress_bar {
   background-color: #86ce50;
   /* Dimensions should be similar to the parent progress element. */
@@ -1170,29 +1170,29 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 10px;
 }
 
-/* line 129, /scss/components/_progress_bars.scss */
+/* line 129, ../scss/components/_progress_bars.scss */
 .green_progress {
   background: #86ce50;
 }
 
-/* line 133, /scss/components/_progress_bars.scss */
+/* line 133, ../scss/components/_progress_bars.scss */
 .yellow_progress {
   background: -webkit-linear-gradient(left, #86ce50, #cec150 20%);
 }
 
-/* line 137, /scss/components/_progress_bars.scss */
+/* line 137, ../scss/components/_progress_bars.scss */
 .red_progress {
   background: #ce5058;
 }
 
-/* line 141, /scss/components/_progress_bars.scss */
+/* line 141, ../scss/components/_progress_bars.scss */
 .icon_container {
   position: absolute;
   top: 14.5px;
   z-index: 5;
 }
 
-/* line 147, /scss/components/_progress_bars.scss */
+/* line 147, ../scss/components/_progress_bars.scss */
 .progress_icon {
   margin-left: 20px;
   color: #d4d9de;
@@ -1200,7 +1200,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Base container **/
-/* line 2, /scss/components/_kalendae.scss */
+/* line 2, ../scss/components/_kalendae.scss */
 .kalendae {
   display: inline-block;
   zoom: 1;
@@ -1218,7 +1218,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Popup Container for Kalendae.Input **/
-/* line 17, /scss/components/_kalendae.scss */
+/* line 17, ../scss/components/_kalendae.scss */
 .kalendae.k-floating {
   position: absolute;
   top: 10px;
@@ -1231,7 +1231,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Kalendae.Input's popup close button **/
-/* line 32, /scss/components/_kalendae.scss */
+/* line 32, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-close {
   position: absolute;
   top: -8px;
@@ -1250,12 +1250,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   text-decoration: none;
 }
 
-/* line 49, /scss/components/_kalendae.scss */
+/* line 49, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-close:after {
   content: "\2716";
 }
 
-/* line 50, /scss/components/_kalendae.scss */
+/* line 50, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-close:hover {
   color: #7EA0E2;
   background: white;
@@ -1263,7 +1263,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Month Container **/
-/* line 57, /scss/components/_kalendae.scss */
+/* line 57, ../scss/components/_kalendae.scss */
 .kalendae .k-calendar {
   display: inline-block;
   zoom: 1;
@@ -1274,7 +1274,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Month Separator **/
-/* line 67, /scss/components/_kalendae.scss */
+/* line 67, ../scss/components/_kalendae.scss */
 .kalendae .k-separator {
   display: inline-block;
   zoom: 1;
@@ -1287,7 +1287,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Month Title Row **/
-/* line 70, /scss/components/_kalendae.scss */
+/* line 70, ../scss/components/_kalendae.scss */
 .kalendae .k-title {
   text-align: center;
   white-space: nowrap;
@@ -1297,7 +1297,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 5px;
 }
 
-/* line 78, /scss/components/_kalendae.scss */
+/* line 78, ../scss/components/_kalendae.scss */
 .kalendae .k-caption {
   font-size: 18px;
   line-height: 30px;
@@ -1306,7 +1306,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Month and Year Buttons **/
-/* line 90, /scss/components/_kalendae.scss */
+/* line 90, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-month,
 .kalendae .k-btn-next-month,
 .kalendae .k-btn-previous-year,
@@ -1324,60 +1324,60 @@ progress::-webkit-progress-value, progress.yellow_progress {
   text-decoration: none;
 }
 
-/* line 104, /scss/components/_kalendae.scss */
+/* line 104, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-year {
   left: 5px;
 }
 
-/* line 107, /scss/components/_kalendae.scss */
+/* line 107, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-month {
   left: 21px;
 }
 
-/* line 110, /scss/components/_kalendae.scss */
+/* line 110, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-next-month {
   right: 21px;
 }
 
-/* line 113, /scss/components/_kalendae.scss */
+/* line 113, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-next-year {
   right: 5px;
 }
 
-/* line 117, /scss/components/_kalendae.scss */
+/* line 117, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-month:after {
   content: "\2039";
 }
 
-/* line 118, /scss/components/_kalendae.scss */
+/* line 118, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-next-month:after {
   content: "\203A";
 }
 
-/* line 120, /scss/components/_kalendae.scss */
+/* line 120, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-year:after {
   content: "\00AB";
 }
 
-/* line 121, /scss/components/_kalendae.scss */
+/* line 121, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-next-year:after {
   content: "\00BB";
 }
 
-/* line 124, /scss/components/_kalendae.scss */
+/* line 124, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-month:hover,
 .kalendae .k-btn-next-month:hover {
   color: #7EA0E2;
 }
 
-/* line 127, /scss/components/_kalendae.scss */
+/* line 127, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-year:hover,
 .kalendae .k-btn-next-year:hover {
   color: #6FDF81;
 }
 
 /** Remove extra buttons when calendar shows multiple months **/
-/* line 137, /scss/components/_kalendae.scss */
+/* line 137, ../scss/components/_kalendae.scss */
 .kalendae .k-first-month .k-btn-next-month,
 .kalendae .k-middle-month .k-btn-next-month,
 .kalendae .k-middle-month .k-btn-previous-month,
@@ -1390,24 +1390,24 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Disable year nav option **/
-/* line 141, /scss/components/_kalendae.scss */
+/* line 141, ../scss/components/_kalendae.scss */
 .kalendae .k-title.k-disable-year-nav .k-btn-next-year,
 .kalendae .k-title.k-disable-year-nav .k-btn-previous-year {
   display: none;
 }
 
-/* line 142, /scss/components/_kalendae.scss */
+/* line 142, ../scss/components/_kalendae.scss */
 .kalendae .k-title.k-disable-year-nav .k-btn-next-month {
   right: 0;
 }
 
-/* line 143, /scss/components/_kalendae.scss */
+/* line 143, ../scss/components/_kalendae.scss */
 .kalendae .k-title.k-disable-year-nav .k-btn-previous-month {
   left: 0;
 }
 
 /** Force specific width for month container contents **/
-/* line 148, /scss/components/_kalendae.scss */
+/* line 148, ../scss/components/_kalendae.scss */
 .kalendae .k-title,
 .kalendae .k-header,
 .kalendae .k-days {
@@ -1416,13 +1416,13 @@ progress::-webkit-progress-value, progress.yellow_progress {
   overflow: hidden;
 }
 
-/* line 154, /scss/components/_kalendae.scss */
+/* line 154, ../scss/components/_kalendae.scss */
 .k-days {
   height: 130px;
 }
 
 /** Hide unusable buttons **/
-/* line 163, /scss/components/_kalendae.scss */
+/* line 163, ../scss/components/_kalendae.scss */
 .kalendae.k-disable-next-month-btn .k-btn-next-month,
 .kalendae.k-disable-previous-month-btn .k-btn-previous-month,
 .kalendae.k-disable-next-year-btn .k-btn-next-year,
@@ -1431,14 +1431,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Week columns and day cells **/
-/* line 169, /scss/components/_kalendae.scss */
+/* line 169, ../scss/components/_kalendae.scss */
 .kalendae .k-header span,
 .kalendae .k-days span {
   float: left;
   margin: 1px 1px;
 }
 
-/* line 174, /scss/components/_kalendae.scss */
+/* line 174, ../scss/components/_kalendae.scss */
 .kalendae .k-header span {
   text-align: center;
   font-weight: bold;
@@ -1448,7 +1448,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #636363;
 }
 
-/* line 183, /scss/components/_kalendae.scss */
+/* line 183, ../scss/components/_kalendae.scss */
 .kalendae .k-days span {
   text-align: center;
   width: 32px;
@@ -1464,13 +1464,13 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Today **/
-/* line 198, /scss/components/_kalendae.scss */
+/* line 198, ../scss/components/_kalendae.scss */
 .kalendae .k-today {
   text-decoration: underline;
 }
 
 /** Days inside of the month view **/
-/* line 203, /scss/components/_kalendae.scss */
+/* line 203, ../scss/components/_kalendae.scss */
 .kalendae .k-days span.k-in-month.k-active {
   border: none;
   background-color: #fff;
@@ -1478,39 +1478,39 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Days outside of the month view (before the first day of the month, after the last day of the month) **/
-/* line 209, /scss/components/_kalendae.scss */
+/* line 209, ../scss/components/_kalendae.scss */
 .kalendae .k-days span.k-out-of-month {
   color: #cccccc;
 }
 
 /** Selectable  **/
-/* line 214, /scss/components/_kalendae.scss */
+/* line 214, ../scss/components/_kalendae.scss */
 .kalendae .k-days span.k-active {
   cursor: pointer;
 }
 
 /** Selected day, when outside the selectable area **/
-/* line 219, /scss/components/_kalendae.scss */
+/* line 219, ../scss/components/_kalendae.scss */
 .kalendae .k-days span.k-selected {
   color: #1072A5;
 }
 
 /** Selected day, when inside the selectable area **/
-/* line 224, /scss/components/_kalendae.scss */
+/* line 224, ../scss/components/_kalendae.scss */
 .kalendae .k-days span.k-selected.k-active {
   background: #88b8dd;
   color: white;
 }
 
 /** Days between the start and end points on a range, outside of the selectable area **/
-/* line 230, /scss/components/_kalendae.scss */
+/* line 230, ../scss/components/_kalendae.scss */
 .kalendae .k-days span.k-range {
   background: none;
   border-color: #6DD4FE;
 }
 
 /** Days between the start and end points on a range, inside of the selectable area **/
-/* line 236, /scss/components/_kalendae.scss */
+/* line 236, ../scss/components/_kalendae.scss */
 .kalendae .k-days span.k-range.k-in-month {
   background: #C4D4F1;
   border-color: #19AEFE;
@@ -1518,18 +1518,18 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /** Selectable day, hovered **/
-/* line 243, /scss/components/_kalendae.scss */
+/* line 243, ../scss/components/_kalendae.scss */
 .kalendae .k-days span.k-active:hover {
   border-color: #666;
 }
 
 /*-------------------------------------IE8 ONLY CODE BELOW THIS LINE--------------------------------------------*/
-/* line 250, /scss/components/_kalendae.scss */
+/* line 250, ../scss/components/_kalendae.scss */
 .kalendae.ie8.k-floating {
   border: 1px solid #ccc;
 }
 
-/* line 254, /scss/components/_kalendae.scss */
+/* line 254, ../scss/components/_kalendae.scss */
 .kalendae.ie8 .k-btn-close {
   width: 20px;
   height: 20px;
@@ -1537,12 +1537,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   background: url("close.png") no-repeat top left;
 }
 
-/* line 260, /scss/components/_kalendae.scss */
+/* line 260, ../scss/components/_kalendae.scss */
 .kalendae.ie8 .k-btn-close:after {
   display: none;
 }
 
-/* line 265, /scss/components/_kalendae.scss */
+/* line 265, ../scss/components/_kalendae.scss */
 .kalendae.ie8 .k-btn-previous-month,
 .kalendae.ie8 .k-btn-next-month,
 .kalendae.ie8 .k-btn-previous-year,
@@ -1555,31 +1555,31 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 0;
 }
 
-/* line 268, /scss/components/_kalendae.scss */
+/* line 268, ../scss/components/_kalendae.scss */
 .kalendae.ie8 .k-btn-next-month,
 .kalendae.ie8 .k-btn-next-year {
   background-position: center right;
 }
 
-/* line 271, /scss/components/_kalendae.scss */
+/* line 271, ../scss/components/_kalendae.scss */
 .kalendae.ie8 .k-btn-previous-month:hover,
 .kalendae.ie8 .k-btn-next-month:hover {
   background-color: #7EA0E2;
 }
 
-/* line 274, /scss/components/_kalendae.scss */
+/* line 274, ../scss/components/_kalendae.scss */
 .kalendae.ie8 .k-btn-previous-year,
 .kalendae.ie8 .k-btn-next-year {
   background-color: #333;
 }
 
-/* line 277, /scss/components/_kalendae.scss */
+/* line 277, ../scss/components/_kalendae.scss */
 .kalendae.ie8 .k-btn-previous-year:hover,
 .kalendae.ie8 .k-btn-next-year:hover {
   background-color: #6FDF81;
 }
 
-/* line 282, /scss/components/_kalendae.scss */
+/* line 282, ../scss/components/_kalendae.scss */
 .kalendae.ie8 .k-btn-previous-month:after,
 .kalendae.ie8 .k-btn-next-month:after,
 .kalendae.ie8 .k-btn-previous-year:after,
@@ -1587,31 +1587,31 @@ progress::-webkit-progress-value, progress.yellow_progress {
   display: none;
 }
 
-/* line 1, /scss/components/_create_estimate.scss */
+/* line 1, ../scss/components/_create_estimate.scss */
 .addMoreButton {
   width: 290px;
 }
 
-/* line 5, /scss/components/_create_estimate.scss */
+/* line 5, ../scss/components/_create_estimate.scss */
 .add-more {
   margin: 20px 0 0 0;
   padding: 0 0 0 20px;
   background: url(/img/icons/add-16x16.png) no-repeat left;
 }
 
-/* line 11, /scss/components/_create_estimate.scss */
+/* line 11, ../scss/components/_create_estimate.scss */
 .remove_icon {
   margin: 20px 0 0 0;
   padding: 0 0 0 20px;
   background: url(/img/icons/cross-16x16.png) no-repeat left;
 }
 
-/* line 17, /scss/components/_create_estimate.scss */
+/* line 17, ../scss/components/_create_estimate.scss */
 .bottom_divider {
   border-bottom: 1px solid #dedede;
 }
 
-/* line 1, /scss/components/_create_work_item.scss */
+/* line 1, ../scss/components/_create_work_item.scss */
 .create_scope_item_container {
   margin-left: 40px;
   margin-top: 20px;
@@ -1620,7 +1620,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding-left: 0;
 }
 
-/* line 9, /scss/components/_create_work_item.scss */
+/* line 9, ../scss/components/_create_work_item.scss */
 .create_scope_item {
   position: relative;
   border: 1px solid #dedede;
@@ -1628,12 +1628,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 15px;
 }
 
-/* line 16, /scss/components/_create_work_item.scss */
+/* line 16, ../scss/components/_create_work_item.scss */
 .create_scope_label {
   display: inline;
 }
 
-/* line 21, /scss/components/_create_work_item.scss */
+/* line 21, ../scss/components/_create_work_item.scss */
 .create_scope_item_delete {
   color: #972b46;
   cursor: pointer;
@@ -1643,13 +1643,13 @@ progress::-webkit-progress-value, progress.yellow_progress {
   font-weight: bold;
   text-decoration: none;
 }
-/* line 29, /scss/components/_create_work_item.scss */
+/* line 29, ../scss/components/_create_work_item.scss */
 .create_scope_item_delete:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 1, /scss/components/_discussion_container.scss */
+/* line 1, ../scss/components/_discussion_container.scss */
 .discussion_container {
   border-radius: 5px;
   border: 1px solid #dedede;
@@ -1660,37 +1660,37 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 0;
 }
 
-/* line 11, /scss/components/_discussion_container.scss */
+/* line 11, ../scss/components/_discussion_container.scss */
 .add_comment_container {
   height: 250px;
   margin: 5px;
   padding: 10px;
 }
 
-/* line 17, /scss/components/_discussion_container.scss */
+/* line 17, ../scss/components/_discussion_container.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 21, /scss/components/_discussion_container.scss */
+/* line 21, ../scss/components/_discussion_container.scss */
 .enter_comment_input {
   width: 100%;
   height: 150px;
   border-radius: 5px;
 }
 
-/* line 27, /scss/components/_discussion_container.scss */
+/* line 27, ../scss/components/_discussion_container.scss */
 .comment_action_container {
   float: right;
 }
 
-/* line 31, /scss/components/_discussion_container.scss */
+/* line 31, ../scss/components/_discussion_container.scss */
 .comment_container {
   padding: 8px 15px;
   border-bottom: 1px solid #cccccc;
 }
 
-/* line 36, /scss/components/_discussion_container.scss */
+/* line 36, ../scss/components/_discussion_container.scss */
 .discussion_placeholder {
   text-align: center;
   color: #b3b3b3;
@@ -1701,20 +1701,20 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 90px;
 }
 
-/* line 46, /scss/components/_discussion_container.scss */
+/* line 46, ../scss/components/_discussion_container.scss */
 .comment_date {
   font-size: 12px;
   color: #969696;
 }
 
-/* line 51, /scss/components/_discussion_container.scss */
+/* line 51, ../scss/components/_discussion_container.scss */
 .comment_name {
   font-size: 12px;
   color: #1c1c1c;
   font-weight: 900;
 }
 
-/* line 57, /scss/components/_discussion_container.scss */
+/* line 57, ../scss/components/_discussion_container.scss */
 .milestone_tag, .status_tag {
   font-family: museo;
   font-weight: 100;
@@ -1723,42 +1723,42 @@ progress::-webkit-progress-value, progress.yellow_progress {
   float: right;
 }
 
-/* line 65, /scss/components/_discussion_container.scss */
+/* line 65, ../scss/components/_discussion_container.scss */
 .milestone_tag {
   color: #7bb84c;
 }
 
-/* line 68, /scss/components/_discussion_container.scss */
+/* line 68, ../scss/components/_discussion_container.scss */
 .status_tag {
   color: #008bc7;
 }
 
-/* line 72, /scss/components/_discussion_container.scss */
+/* line 72, ../scss/components/_discussion_container.scss */
 .comment_body {
   font-weight: 300;
   margin-left: 62px;
 }
 
-/* line 77, /scss/components/_discussion_container.scss */
+/* line 77, ../scss/components/_discussion_container.scss */
 .send_comment {
   color: white;
   background: #009adb;
   border-radius: 5px;
   padding: 10px 21px;
 }
-/* line 82, /scss/components/_discussion_container.scss */
+/* line 82, ../scss/components/_discussion_container.scss */
 .send_comment:hover {
   color: white;
   text-decoration: none;
   background: #008bc7;
 }
 
-/* line 89, /scss/components/_discussion_container.scss */
+/* line 89, ../scss/components/_discussion_container.scss */
 .comment_select_padding {
   margin-left: 10px;
 }
 
-/* line 93, /scss/components/_discussion_container.scss */
+/* line 93, ../scss/components/_discussion_container.scss */
 .selectdiv {
   display: inline-block;
   width: 175px;
@@ -1772,7 +1772,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 15px;
 }
 
-/* line 106, /scss/components/_discussion_container.scss */
+/* line 106, ../scss/components/_discussion_container.scss */
 .selectdiv:hover, .selectdiv:focus {
   width: 175px;
   border: 1px solid #009adb;
@@ -1782,7 +1782,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 115, /scss/components/_discussion_container.scss */
+/* line 115, ../scss/components/_discussion_container.scss */
 .out {
   z-index: -1;
   border: 0px solid #000;
@@ -1792,7 +1792,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 124, /scss/components/_discussion_container.scss */
+/* line 124, ../scss/components/_discussion_container.scss */
 .selectboxdiv {
   height: 40px;
   left: -10px;
@@ -1808,35 +1808,35 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 139, /scss/components/_discussion_container.scss */
+/* line 139, ../scss/components/_discussion_container.scss */
 .active_select {
   border: 1px solid #009adb;
 }
 
-/* line 143, /scss/components/_discussion_container.scss */
+/* line 143, ../scss/components/_discussion_container.scss */
 .discussion_photo {
   float: left;
   margin-right: 20px;
 }
 
-/* line 148, /scss/components/_discussion_container.scss */
+/* line 148, ../scss/components/_discussion_container.scss */
 .comment_post_info {
   position: relative;
 }
 
-/* line 1, /scss/components/_agreement_history.scss */
+/* line 1, ../scss/components/_agreement_history.scss */
 .agreement_history {
   background-color: #f9fafb;
   border-top: 1px solid #e1e1e1;
 }
 
-/* line 6, /scss/components/_agreement_history.scss */
+/* line 6, ../scss/components/_agreement_history.scss */
 .agreement_history_items_container {
   margin: 0 20px;
   padding: 0;
 }
 
-/* line 11, /scss/components/_agreement_history.scss */
+/* line 11, ../scss/components/_agreement_history.scss */
 .agreement_history_items {
   border-bottom: 1px solid #e1e1e1;
   padding: 10px 0;
@@ -1845,7 +1845,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* FOOTER
 ================================================================================ */
-/* line 5, /scss/components/_footer.scss */
+/* line 5, ../scss/components/_footer.scss */
 .footer {
   background: #8c96a0 url(/img/shade-footer.png) repeat-x bottom;
   -webkit-border-bottom-right-radius: 10px;
@@ -1857,22 +1857,22 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-top: 1px solid #7d7d7d;
 }
 
-/* line 16, /scss/components/_footer.scss */
+/* line 16, ../scss/components/_footer.scss */
 .footer_title {
   color: #dce1e6;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* line 21, /scss/components/_footer.scss */
+/* line 21, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 23, /scss/components/_footer.scss */
+/* line 23, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 28, /scss/components/_footer.scss */
+/* line 28, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
@@ -1880,7 +1880,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* COPYRIGHT
 ================================================================================ */
-/* line 7, /scss/components/_copyright.scss */
+/* line 7, ../scss/components/_copyright.scss */
 .copyright {
   margin: 0;
   padding: 20px;
@@ -1889,52 +1889,52 @@ progress::-webkit-progress-value, progress.yellow_progress {
   text-align: center;
 }
 
-/* line 15, /scss/components/_copyright.scss */
+/* line 15, ../scss/components/_copyright.scss */
 .copyright_login {
   position: absolute;
   bottom: 0;
 }
 
-/* line 8, /scss/layouts/_layout.scss */
+/* line 8, ../scss/layouts/_layout.scss */
 .container {
   margin: 0 auto;
   width: 960px;
   text-align: left;
 }
 
-/* line 14, /scss/layouts/_layout.scss */
+/* line 14, ../scss/layouts/_layout.scss */
 .clear {
   float: left;
   width: 100%;
   clear: both;
 }
 
-/* line 20, /scss/layouts/_layout.scss */
+/* line 20, ../scss/layouts/_layout.scss */
 .column-three-fourth {
   width: 720px;
 }
 
-/* line 21, /scss/layouts/_layout.scss */
+/* line 21, ../scss/layouts/_layout.scss */
 .column-two-third {
   width: 640px;
 }
 
-/* line 22, /scss/layouts/_layout.scss */
+/* line 22, ../scss/layouts/_layout.scss */
 .column-one-half {
   width: 480px;
 }
 
-/* line 23, /scss/layouts/_layout.scss */
+/* line 23, ../scss/layouts/_layout.scss */
 .column-one-third {
   width: 320px;
 }
 
-/* line 24, /scss/layouts/_layout.scss */
+/* line 24, ../scss/layouts/_layout.scss */
 .column-one-fourth {
   width: 240px;
 }
 
-/* line 27, /scss/layouts/_layout.scss */
+/* line 27, ../scss/layouts/_layout.scss */
 .column-one-fourth, .column-one-third, .column-one-half,
 .column-two-third, .column-three-fourth {
   float: left;
