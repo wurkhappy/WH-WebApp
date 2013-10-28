@@ -6,7 +6,7 @@ define(function (require) {
 
     'use strict';
 
-    var AppRouter = require('../app/routers/router');
+    var AppRouter = require('/app/routers/router');
 
     $(function () {
 

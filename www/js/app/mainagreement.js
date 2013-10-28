@@ -32,7 +32,7 @@
 
  	'use strict';
 
- 	var AgreementRouter = require('../app/routers/agreement_router');
+ 	var AgreementRouter = require('app/routers/agreement_router');
 
  	$(function () {
 

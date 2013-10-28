@@ -25,7 +25,7 @@
 
  	'use strict';
 
- 	var CreateAgreementRouter = require('../app/routers/create_agreement_router');
+ 	var CreateAgreementRouter = require('app/routers/create_agreement_router');
 
  	$(function () {
 

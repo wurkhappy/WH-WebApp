@@ -15,13 +15,17 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         this.milestone = this.agreement.get("payments").get(this.model.get("milestoneID"));
         this.status = this.agreement.get("statusHistory").get(this.model.get("statusID"));
         this.commentCreatedDate = this.model.get("dateCreated");
+        this.firstName = options.user.get("firstName");
+        this.lastName = options.user.get("lastName");
 
       },
 
       render: function () {
         var statusTitle,
             dateCreated,
-            thisAvatar;
+            thisAvatar,
+            firstName,
+            lastName;
         if (this.status) {
           var prefix = (this.status.get("paymentID")) ? "Payment" : "Agreement"
           statusTitle = prefix + " " +this.status.get("action") + " on " + this.status.get("date").format('MMM D, YYYY');
@@ -36,7 +40,13 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           dateCreated = this.commentCreatedDate.format('MMMM Do YYYY, h:mm:ss a');
         }
 
+        if (this.firstName) {
+          firstName = this.firstName;
+        }
 
+        if (this.lastName) {
+          lastName = this.lastName;
+        }
 
         if (this.avatar) {
           thisAvatar = this.avatar;
@@ -55,7 +65,9 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           milestoneTitle: milestoneTitle,
           statusTitle: statusTitle,
           dateCreated: dateCreated,
-          thisAvatar: thisAvatar
+          thisAvatar: thisAvatar,
+          firstName: firstName,
+          lastName: lastName,
         }));
 
         return this;

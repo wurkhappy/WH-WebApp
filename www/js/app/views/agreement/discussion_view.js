@@ -29,7 +29,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.userIsClient = window.thisUser.id === this.model.get("clientID");
         this.collection = this.model.get("comments");
         this.user = options.user;
+        console.log("This collection");
         console.log(this.collection);
+        console.log(this.comments);
       },
       onRender:function(){
         this.actionSelect = new ActionSelect({collection: this.model.get("statusHistory").filterByPaymentID(this.milestone)}).render();

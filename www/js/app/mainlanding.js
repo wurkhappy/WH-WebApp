@@ -22,7 +22,7 @@ define(function (require) {
 
   'use strict';
 
-  var LandingRouter = require('../app/routers/landing_router');
+  var LandingRouter = require('app/routers/landing_router');
 
   $(function () {
 

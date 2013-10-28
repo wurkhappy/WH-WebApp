@@ -19,7 +19,7 @@
 
  	'use strict';
  	balanced.init('/v1/marketplaces/TEST-MP1f775iSL82BucxjmR83cOk');
- 	var AccountRouter = require('../app/routers/account_router');
+ 	var AccountRouter = require('app/routers/account_router');
  	$(function () {
 	    // Initialize the application router.
 	    var Account = new AccountRouter();

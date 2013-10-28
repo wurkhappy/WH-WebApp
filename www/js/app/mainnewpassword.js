@@ -22,7 +22,7 @@ define(function (require) {
 
   'use strict';
 
-  var LandingRouter = require('../app/routers/new_password_router');
+  var LandingRouter = require('app/routers/new_password_router');
 
   $(function () {
 

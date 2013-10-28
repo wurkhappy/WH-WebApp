@@ -24,25 +24,25 @@ requirejs.config({
     paths: {
 
         // Core libraries.
-        jquery: '../js/lib/jquery/jquery',
-        underscore: '../js/lib/underscore/underscore',
-        backbone: '../js/lib/backbone/backbone',
+        jquery: '/js/lib/jquery/jquery',
+        underscore: '/js/lib/underscore/underscore',
+        backbone: '/js/lib/backbone/backbone',
 
         // Templating.
-        handlebars: '../lib/handlebars/handlebars',
+        handlebars: '/lib/handlebars/handlebars',
 
         // Plugins.
-        text: '../lib/requirejs-text/text',
+        text: '/lib/requirejs-text/text',
 
         // Custom AMD modules.
         // utils: 'app/utils',
 
         // App folders.
-        collections: '../app/collections',
-        models: '../app/models',
-        routers: '../app/routers',
-        templates: '../app/templates',
-        views: '../app/views'
+        collections: '/app/collections',
+        models: '/app/models',
+        routers: '/app/routers',
+        templates: '/app/templates',
+        views: '/app/views'
     },
 
     shim: {

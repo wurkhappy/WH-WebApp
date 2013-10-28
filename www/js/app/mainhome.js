@@ -21,7 +21,7 @@
 
  	'use strict';
 
- 	var HomeRouter = require('../app/routers/home_router');
+ 	var HomeRouter = require('app/routers/home_router');
 
  	$(function () {
 
