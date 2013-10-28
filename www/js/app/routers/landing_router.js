@@ -37,7 +37,6 @@
         this.formView = new NewAccountView();
         this.$mainSection.html(this.formView.el);
         this.showForm();
-        console.log("new account thing being thingy.");
       },
       forgotPassword: function(){
         this.formView = new ForgotPasswordView();
