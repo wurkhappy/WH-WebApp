@@ -11,6 +11,7 @@ import (
 	"net/http"
 	// "strconv"
 	// "time"
+	"log"
 )
 
 //for hashing cookies
