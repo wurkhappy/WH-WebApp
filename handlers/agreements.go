@@ -46,7 +46,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 
 func getCurrentAgreements(userID string) []map[string]interface{} {
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", "http://localhost:4050/agreements?userID="+userID, nil)
+	r, _ := http.NewRequest("GET", AgreementsService + "/agreements?userID="+userID, nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -62,7 +62,7 @@ func getCurrentAgreements(userID string) []map[string]interface{} {
 func getOtherUsers(agreements []map[string]interface{}, userID string) []map[string]interface{} {
 	requestString := buildOtherUsersRequest(agreements, userID)
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", "http://localhost:3000/user/search?"+requestString, nil)
+	r, _ := http.NewRequest("GET", UserService + "/user/search?"+requestString, nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -95,7 +95,7 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("POST", "http://localhost:4050/agreements/v", req.Body)
+	r, _ := http.NewRequest("POST", AgreementsService + "/agreements/v", req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -111,7 +111,7 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 	vars := mux.Vars(req)
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("PUT", "http://localhost:4050/agreements/v/"+vars["id"], req.Body)
+	r, _ := http.NewRequest("PUT", AgreementsService + "/agreements/v/"+vars["id"], req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -143,7 +143,7 @@ func DeleteAgreement(w http.ResponseWriter, req *http.Request, session *sessions
 	vars := mux.Vars(req)
 	client := &http.Client{}
 
-	r, _ := http.NewRequest("DELETE", "http://localhost:4050/agreements/v/"+vars["id"], nil)
+	r, _ := http.NewRequest("DELETE", AgreementsService + "/agreements/v/"+vars["id"], nil)
 	_, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -156,14 +156,14 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 
 	vars := mux.Vars(req)
 	id := vars["id"]
-	agrmntReq, _ := http.NewRequest("GET", "http://localhost:4050/agreements/v/"+id, nil)
+	agrmntReq, _ := http.NewRequest("GET", AgreementsService + "/agreements/v/"+id, nil)
 	agrmntData, _ := sendRequest(agrmntReq)
 	log.Print(agrmntData)
 
-	commentReq, _ := http.NewRequest("GET", "http://localhost:5050/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
+	commentReq, _ := http.NewRequest("GET", CommentsService + "/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
 	commentsData, _ := sendRequestArray(commentReq)
 
-	r, _ := http.NewRequest("GET", "http://localhost:3120/user/"+userID.(string)+"/cards", nil)
+	r, _ := http.NewRequest("GET", PaymentInfoService + "/user/"+userID.(string)+"/cards", nil)
 	cards, _ := sendRequestArray(r)
 
 	fmt.Println(cards)
@@ -215,7 +215,7 @@ func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *se
 	data, _ := json.Marshal(status)
 	body := bytes.NewReader(data)
 
-	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/v/"+id+"/status", body)
+	r, _ := http.NewRequest("POST", AgreementsService + "/agreement/v/"+id+"/status", body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }
@@ -237,7 +237,7 @@ func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 	data, _ := json.Marshal(status)
 	body := bytes.NewReader(data)
 
-	r, _ := http.NewRequest("POST", "http://localhost:4050/agreement/v/"+id+"/payment/"+paymentID+"/status", body)
+	r, _ := http.NewRequest("POST", AgreementsService + "/agreement/v/"+id+"/payment/"+paymentID+"/status", body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }
@@ -245,7 +245,7 @@ func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 func CreateComment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["agreementID"]
-	r, _ := http.NewRequest("POST", "http://localhost:5050/agreement/"+id+"/comments", req.Body)
+	r, _ := http.NewRequest("POST", CommentsService + "/agreement/"+id+"/comments", req.Body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }

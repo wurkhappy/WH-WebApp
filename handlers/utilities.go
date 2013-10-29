@@ -7,12 +7,18 @@ import (
 	"net/http"
 )
 
+
+var UserService string = "http://localhost:3000"
+var PaymentInfoService string = "http://localhost:3120"
+var AgreementsService string = "http://localhost:4050"
+var CommentsService string = "http://localhost:5050"
+
 func getUserInfo(id string) map[string]interface{} {
 	if id == "" {
 		return make(map[string]interface{})
 	}
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", "http://localhost:3000/user/search?userid="+id, nil)
+	r, _ := http.NewRequest("GET", UserService + "/user/search?userid="+id, nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)

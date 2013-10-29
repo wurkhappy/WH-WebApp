@@ -11,7 +11,7 @@ import (
 
 func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	client := &http.Client{}
-	r, _ := http.NewRequest("POST", "http://localhost:3000/user", req.Body)
+	r, _ := http.NewRequest("POST", UserService+"/user", req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -41,7 +41,7 @@ func UpdateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	vars := mux.Vars(req)
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("PUT", "http://localhost:3000/user/"+vars["id"], req.Body)
+	r, _ := http.NewRequest("PUT", UserService+"/user/"+vars["id"], req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)

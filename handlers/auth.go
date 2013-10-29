@@ -16,7 +16,7 @@ import (
 func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("POST", "http://localhost:3000/auth/login", req.Body)
+	r, _ := http.NewRequest("POST", UserService + "/auth/login", req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -57,7 +57,7 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	vars := mux.Vars(req)
 	id := vars["id"]
 
-	r, _ := http.NewRequest("POST", "http://localhost:3000/user/"+id+"/verify", nil)
+	r, _ := http.NewRequest("POST", UserService + "/user/"+id+"/verify", nil)
 	requestData, _ := sendRequest(r)
 
 	session.Values["id"] = requestData["id"].(string)
@@ -68,7 +68,7 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 }
 
 func ForgotPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	r, _ := http.NewRequest("POST", "http://localhost:3000/password/forgot", req.Body)
+	r, _ := http.NewRequest("POST", UserService + "/password/forgot", req.Body)
 	_, respBytes := sendRequest(r)
 	rError := new(responseError)
 	json.Unmarshal(respBytes, &rError)
@@ -101,7 +101,7 @@ func GetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessi
 }
 
 func SetNewPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	r, _ := http.NewRequest("PUT", "http://localhost:3000/user/"+session.Values["id"].(string)+"/password", req.Body)
+	r, _ := http.NewRequest("PUT", UserService + "/user/"+session.Values["id"].(string)+"/password", req.Body)
 	_, _ = sendRequest(r)
 
 	//if they were successful setting a new password then we treat that as a login and extend their session

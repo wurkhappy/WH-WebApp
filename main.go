@@ -33,7 +33,10 @@ func main() {
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
-	http.ListenAndServe(":4000", nil)
+	err := http.ListenAndServeTLS(":4000", "cert.pem", "key.pem", nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func serveSingle(pattern string, filename string) {
