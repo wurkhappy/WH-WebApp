@@ -68,16 +68,17 @@ body {
   font-family: museo_sans;
   background: #dce0e4 url(/img/bg.png) fixed;
   color: #646464;
+  font-size: 18px;
 }
 
-/* line 60, ../scss/bases/_common.scss */
+/* line 61, ../scss/bases/_common.scss */
 a,
 a:visited {
   text-decoration: none;
   color: #0099dd;
 }
 
-/* line 66, ../scss/bases/_common.scss */
+/* line 67, ../scss/bases/_common.scss */
 a:hover,
 a:active {
   text-decoration: underline;
@@ -85,35 +86,35 @@ a:active {
   cursor: pointer;
 }
 
-/* line 72, ../scss/bases/_common.scss */
+/* line 73, ../scss/bases/_common.scss */
 p, ul, ol, dl {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-/* line 77, ../scss/bases/_common.scss */
+/* line 78, ../scss/bases/_common.scss */
 ul, ol {
   margin-left: 30px;
 }
 
-/* line 81, ../scss/bases/_common.scss */
+/* line 82, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 85, ../scss/bases/_common.scss */
+/* line 86, ../scss/bases/_common.scss */
 h1, h2, h3 {
   color: black;
   padding: 0 20px;
   font-family: museo;
 }
 
-/* line 91, ../scss/bases/_common.scss */
+/* line 92, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 95, ../scss/bases/_common.scss */
+/* line 96, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
   line-height: 40px;
@@ -121,7 +122,7 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-/* line 102, ../scss/bases/_common.scss */
+/* line 103, ../scss/bases/_common.scss */
 h2 {
   font-size: 24px;
   line-height: 30px;
@@ -129,7 +130,7 @@ h2 {
   font-weight: 100;
 }
 
-/* line 109, ../scss/bases/_common.scss */
+/* line 110, ../scss/bases/_common.scss */
 h3 {
   font-size: 16px;
   line-height: 20px;
@@ -139,26 +140,26 @@ h3 {
 
 /* Forms
 ================================================================================ */
-/* line 120, ../scss/bases/_common.scss */
+/* line 121, ../scss/bases/_common.scss */
 form {
   padding: 0 20px 20px 20px;
 }
 
-/* line 124, ../scss/bases/_common.scss */
+/* line 125, ../scss/bases/_common.scss */
 label, .faux-label {
   display: block;
   padding: 20px 0 5px 0;
   margin: 0;
 }
 
-/* line 130, ../scss/bases/_common.scss */
+/* line 131, ../scss/bases/_common.scss */
 label span {
   display: block;
   font-size: .75em;
   color: #969696;
 }
 
-/* line 136, ../scss/bases/_common.scss */
+/* line 137, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
@@ -167,27 +168,27 @@ input, textarea {
   font: inherit;
 }
 
-/* line 144, ../scss/bases/_common.scss */
+/* line 145, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 151, ../scss/bases/_common.scss */
+/* line 152, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 156, ../scss/bases/_common.scss */
+/* line 157, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 161, ../scss/bases/_common.scss */
+/* line 162, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -195,17 +196,17 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 168, ../scss/bases/_common.scss */
+/* line 169, ../scss/bases/_common.scss */
 .content {
   background-color: white;
 }
 
-/* line 172, ../scss/bases/_common.scss */
+/* line 173, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 176, ../scss/bases/_common.scss */
+/* line 177, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -214,7 +215,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 184, ../scss/bases/_common.scss */
+/* line 185, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
