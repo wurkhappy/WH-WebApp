@@ -1005,87 +1005,88 @@ fieldset {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  z-index: 10;
 }
 
-/* line 47, ../scss/components/_popup.scss */
+/* line 48, ../scss/components/_popup.scss */
 .line_item_container {
   list-style: none;
   text-align: right;
 }
 
-/* line 52, ../scss/components/_popup.scss */
+/* line 53, ../scss/components/_popup.scss */
 .line_item_title {
   display: inline-block;
   margin-right: 10px;
 }
 
-/* line 57, ../scss/components/_popup.scss */
+/* line 58, ../scss/components/_popup.scss */
 .line_item_title_small {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 62, ../scss/components/_popup.scss */
+/* line 63, ../scss/components/_popup.scss */
 .line_item {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 68, ../scss/components/_popup.scss */
+/* line 69, ../scss/components/_popup.scss */
 .line_item_total {
   font-size: 20px;
 }
 
-/* line 72, ../scss/components/_popup.scss */
+/* line 73, ../scss/components/_popup.scss */
 .pay_header_container {
   padding-bottom: 40px;
 }
 
-/* line 76, ../scss/components/_popup.scss */
+/* line 77, ../scss/components/_popup.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
 }
 
-/* line 81, ../scss/components/_popup.scss */
+/* line 82, ../scss/components/_popup.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 85, ../scss/components/_popup.scss */
+/* line 86, ../scss/components/_popup.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 89, ../scss/components/_popup.scss */
+/* line 90, ../scss/components/_popup.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 94, ../scss/components/_popup.scss */
+/* line 95, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
 }
-/* line 97, ../scss/components/_popup.scss */
+/* line 98, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 102, ../scss/components/_popup.scss */
+/* line 103, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 106, ../scss/components/_popup.scss */
+/* line 107, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
 }
 
-/* line 111, ../scss/components/_popup.scss */
+/* line 112, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
