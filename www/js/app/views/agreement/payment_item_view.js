@@ -46,14 +46,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
           default:
         }
       },
-      defaultState:function(){
-        if (!this.userIsClient && !this.blockRequests){
-          this.$('.paymentStatus').html('<span class="request-button payment_status make_payment">Request Payment</span>');
-        }
-        else{
-          this.$('.paymentStatus').html('');
-        }
-      },
       submittedState:function(){
         this.$('.paymentStatus').html('<span class="payment_status">Payment Pending</span>');
       },
