@@ -34,7 +34,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
           var submitSuccess = function(){
             window.location = "/home"
           };
-          this.model.submit(submitSuccess);
+          this.model.submit(null, submitSuccess);
         },this)});
       }
 

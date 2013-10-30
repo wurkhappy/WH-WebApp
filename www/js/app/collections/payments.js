@@ -28,6 +28,12 @@ define(['backbone', 'models/payment'],
                 });
                 return paymentArray[0];
             },
+            findAllOutstandingPayment:function(){
+                var paymentArray = this.filter(function(model){
+                    return !model.get("currentStatus") || model.get("currentStatus").get("action") !== 'accepted';
+                });
+                return new Collection(paymentArray);
+            },
             getTotalPayments: function() {
                 return this.length;
             },

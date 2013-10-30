@@ -1,7 +1,8 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html', 'text!templates/agreement/pay_request_methods_tpl.html'],
+define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html',
+  'text!templates/agreement/pay_request_methods_tpl.html', 'text!templates/agreement/pay_request_breakout.html'],
 
-  function (Backbone, Handlebars, payRequestTemplate, paymentMethodsTpl) {
+  function (Backbone, Handlebars, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl) {
 
     'use strict';
     Handlebars.registerHelper('last_four_digits', function(number) {
@@ -28,6 +29,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
       el: "#popup_container",
 
       template: Handlebars.compile(payRequestTemplate),
+      breakoutTpl : Handlebars.compile(paymentBreakoutTpl),
 
       initialize:function(options){
         this.bankAccounts = options.bankAccounts;
@@ -37,23 +39,17 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
       },
 
       render:function(event){
-          var milestonePayment = this.model.get("amount");
-          var wurkHappyFee = milestonePayment * .05;
-          var amountTotal = this.paymentTotal(milestonePayment, wurkHappyFee);
+        this.$el.append(this.template(_.extend({
+          payments: this.collection.toJSON(),
+        }, this.calculatePayment())));
 
-          this.$el.append(this.template({
-            milestonePayment: milestonePayment,
-            wurkHappyFee: wurkHappyFee,
-            amountTotal: amountTotal,
-          }));
-
-          this.$('header').html(this.paymentMethodsView.$el);
-
+        this.$('header').html(this.paymentMethodsView.$el);
       },
 
       events: {
         "click .close": "closeModal",
-        "click #pay-button": "requestPayment"
+        "click #pay-button": "requestPayment",
+        "change #milestoneToPay":"updateView"
       },
       show: function(){
         $('#overlay').fadeIn('slow');
@@ -61,11 +57,22 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
       closeModal: function(event) {
         $('#overlay').fadeOut('slow');
       },
-
-      paymentTotal: function (milestonePayment, fee) {
-        return milestonePayment - fee;
+      calculatePayment: function(){
+        var milestonePayment = this.model.get("amount");
+        var wurkHappyFee = milestonePayment * .05;
+        var amountTotal = milestonePayment - wurkHappyFee;
+        return {
+          milestonePayment: milestonePayment,
+          wurkHappyFee: wurkHappyFee,
+          amountTotal: amountTotal,
+        }
       },
-
+      updateView: function(event){
+        console.log("hi");
+        var id = event.target.value;
+        this.model = this.collection.get(id);
+        this.$('#paymentBreakout').html(this.breakoutTpl(this.calculatePayment()))
+      },
       requestPayment: function (event) {
 
         var fadeOutModal = function () {
