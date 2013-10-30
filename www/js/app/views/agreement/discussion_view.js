@@ -56,6 +56,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
           model.save();
           $text.val('');
           $text.focus();
+
+          $(".notification_container").last().fadeIn("slow").fadeOut(2000);
+
         }
       },
       updateMilestone: function(event){

@@ -399,6 +399,13 @@ fieldset {
 }
 
 /* line 10, ../scss/components/_notifications.scss */
+.message_notification_container {
+  width: 300px;
+  margin-top: -30px;
+  margin-left: 312px;
+}
+
+/* line 16, ../scss/components/_notifications.scss */
 .notification_text {
   color: rgba(255, 255, 255, 0.7);
   background: rgba(123, 184, 76, 0.8);
@@ -407,27 +414,27 @@ fieldset {
   padding: 2px 0px;
 }
 
-/* line 18, ../scss/components/_notifications.scss */
+/* line 24, ../scss/components/_notifications.scss */
 .password_saved {
   margin-top: -2px;
 }
 
-/* line 22, ../scss/components/_notifications.scss */
+/* line 28, ../scss/components/_notifications.scss */
 .personal_saved {
   margin-top: -2px;
 }
 
-/* line 26, ../scss/components/_notifications.scss */
+/* line 32, ../scss/components/_notifications.scss */
 .credit_card_saved {
   margin-top: 36px;
 }
 
-/* line 30, ../scss/components/_notifications.scss */
+/* line 36, ../scss/components/_notifications.scss */
 .bank_account_saved {
   margin-top: 36px;
 }
 
-/* line 34, ../scss/components/_notifications.scss */
+/* line 40, ../scss/components/_notifications.scss */
 .agreement_notification {
   margin-top: -52px;
 }

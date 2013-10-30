@@ -1,9 +1,11 @@
 <div class="comment_container">
+
 	<div class="discussion_photo"><img width="40" src="{{thisAvatar}}"></div>
 	<div class="comment_post_info">
 		<div class="comment_name">{{firstName}} {{lastName}}</div>
 		<div class="comment_date">{{dateCreated}}</div>
 	</div>
+	<div class="notification_container message_notification_container hide"><p class="notification_text"><i class="fa fa-check"></i> Message sent!<p></div>
 	{{#if milestoneTitle}}	
 	<div class="milestone_tag inline">{{milestoneTitle}}</div>
 	{{/if}}
