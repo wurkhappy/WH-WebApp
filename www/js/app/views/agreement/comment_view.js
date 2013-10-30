@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
     var CommentView = Backbone.View.extend({
 
       template: Handlebars.compile(commentTpl),
-      className: "hide",
+      className: "hide clear comment_container",
 
       initialize:function(options){
         this.agreement = options.agreement;
@@ -18,6 +18,10 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         this.commentCreatedDate = this.model.get("dateCreated");
         this.firstName = options.user.get("firstName");
         this.lastName = options.user.get("lastName");
+        this.userID = options.user.get("id");
+        this.messageUserID = this.model.get("userID");
+        console.log(this.messageUserID);
+
 
       },
 
@@ -27,6 +31,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
             thisAvatar,
             firstName,
             lastName;
+            isThisUserMessage;
         if (this.status) {
           var prefix = (this.status.get("paymentID")) ? "Payment" : "Agreement"
           statusTitle = prefix + " " +this.status.get("action") + " on " + this.status.get("date").format('MMM D, YYYY');
@@ -40,6 +45,11 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         if (this.commentCreatedDate) {
           dateCreated = this.commentCreatedDate.format('MMMM Do YYYY, h:mm:ss a');
         }
+
+        var isThisUserMessage = (this.userID === this.messageUserID);
+        //console.log(this.userID);
+        //console.log(this.messageUserID);
+        //console.log(isThisUserMessage);
 
         if (this.firstName) {
           firstName = this.firstName;
@@ -64,6 +74,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           thisAvatar: thisAvatar,
           firstName: firstName,
           lastName: lastName,
+          isThisUserMessage: isThisUserMessage
         }));
 
         this.fadeIn(this.$el);

@@ -2,6 +2,7 @@
 	border-radius: 5px;
 	border: 1px solid hsl(0, 0%, 87%);
 	padding: 20px;
+	padding-top: 0;
 	min-height:	250px;
 	margin-left: 15px;
 	margin-right: 15px;
@@ -29,8 +30,7 @@
 }
 
 .comment_container {
-	padding: 8px 15px;
-	border-bottom: 1px solid hsl(0, 0%, 80%);
+	padding: 25px 0;
 }
 
 .discussion_placeholder {
@@ -58,20 +58,21 @@
 	font-family: museo;
 	font-weight: 100;
 	font-size: 16px;
-	margin-left: 62px;
-	float:right;
 }
 
 .milestone_tag {
 	color: $green_dark;
+	float:right;
 }
 .status_tag {
 	color: $blue_text_dark;
+	float:left;
 }
 
 .comment_body {
 	font-weight: 300;
-	margin-left: 62px;
+	clear: both;
+	padding: 0;
 }
 
 .send_comment {
@@ -148,3 +149,79 @@
 .comment_post_info {
 	position: relative;
 }
+
+.personal_box {
+	border-radius: 5px;
+	border: 1px solid hsl(0, 0, 87%);
+	padding: 5px;
+	width: 260px;
+}
+
+.message_box {
+	border-radius: 5px;
+	border: 1px solid hsl(0, 0, 87%);
+	padding: 5px;
+	width: 575px;
+	min-height: 66px;
+}
+
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

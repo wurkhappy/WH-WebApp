@@ -1,16 +1,37 @@
-<div class="comment_container">
+<div>
+	{{#if isThisUserMessage}}
+		<div class="personal_box float_right">
+			<div class="discussion_photo"><img width="40" src="{{thisAvatar}}"></div>
+			<div class="comment_post_info">
+				<div class="comment_name">{{firstName}} {{lastName}}</div>
+				<div class="comment_date">{{dateCreated}}</div>
+			</div>
+		</div>
+		<div class="message_box float_left">
+			<div class="notification_container message_notification_container hide"><p class="notification_text"><i class="fa fa-check"></i> Message sent!<p></div>
+			<div class="tag_container">
+				<div class="milestone_tag inline">{{milestoneTitle}}</div>
+				<div class="status_tag inline">{{statusTitle}}</div>
+			</div>
+			<p class="comment_body">{{model.text}}</p>
+		</div>
+	{{else}}
+		<div class="personal_box float_left">
+			<div class="discussion_photo"><img width="40" src="{{thisAvatar}}"></div>
+			<div class="comment_post_info">
+				<div class="comment_name">{{firstName}} {{lastName}}</div>
+				<div class="comment_date">{{dateCreated}}</div>
+			</div>
+		</div>
+		<div class="message_box float_right">
+			<div class="notification_container message_notification_container hide"><p class="notification_text"><i class="fa fa-check"></i> Message sent!<p></div>
+			<div class="tag_container">
+				<div class="milestone_tag inline">{{milestoneTitle}}</div>
+				<div class="status_tag inline">{{statusTitle}}</div>
+			</div>
+			<p class="comment_body">{{model.text}}</p>
+		</div>
+	{{/if}}
 
-	<div class="discussion_photo"><img width="40" src="{{thisAvatar}}"></div>
-	<div class="comment_post_info">
-		<div class="comment_name">{{firstName}} {{lastName}}</div>
-		<div class="comment_date">{{dateCreated}}</div>
-	</div>
-	<div class="notification_container message_notification_container hide"><p class="notification_text"><i class="fa fa-check"></i> Message sent!<p></div>
-	{{#if milestoneTitle}}	
-	<div class="milestone_tag inline">{{milestoneTitle}}</div>
-	{{/if}}
-	{{#if statusTitle}}
-	<div class="status_tag inline">{{statusTitle}}</div>
-	{{/if}}
-	<div class="comment_body">{{model.text}}</div>
+
 </div>
