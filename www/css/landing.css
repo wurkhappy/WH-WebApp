@@ -166,29 +166,30 @@ input, textarea {
   margin: 0;
   font-size: 100%;
   font: inherit;
+  color: #636363;
 }
 
-/* line 145, ../scss/bases/_common.scss */
+/* line 146, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 152, ../scss/bases/_common.scss */
+/* line 153, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 157, ../scss/bases/_common.scss */
+/* line 158, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 162, ../scss/bases/_common.scss */
+/* line 163, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -196,17 +197,17 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 169, ../scss/bases/_common.scss */
+/* line 170, ../scss/bases/_common.scss */
 .content {
   background-color: white;
 }
 
-/* line 173, ../scss/bases/_common.scss */
+/* line 174, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 177, ../scss/bases/_common.scss */
+/* line 178, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -215,7 +216,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 185, ../scss/bases/_common.scss */
+/* line 186, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -223,7 +224,7 @@ fieldset {
   margin: 0 0 10px 0;
 }
 
-/* line 192, ../scss/bases/_common.scss */
+/* line 193, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;

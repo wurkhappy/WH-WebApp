@@ -41,7 +41,33 @@ define(['backbone', 'handlebars', 'text!templates/agreement/reject_tpl.html'],
         this.message = event.target.value
       },
       rejectRequest: function(event) {
-          this.model.reject(this.message, this.closeModal);
+        this.model.reject(this.message, this.closeModal);
+
+        var status;
+
+        if (this.statusType) {
+          status = this.statusType;
+        } else {
+          status = "";
+        }
+
+        var fadeOutModal = function () {
+          $('#overlay').fadeOut('fast');
+        };
+
+        var fadeInNotification = function () {
+          $(".notification_container").fadeIn("fast");
+          $(".notification_text").text("Request "+status+" and email sent");
+        };
+
+        $(".notification_container").hover( function() {
+          $(".notification_container").fadeOut("fast");
+        });
+
+        var triggerNotification = _.debounce(fadeInNotification, 300);
+
+        fadeOutModal();
+        triggerNotification();
       },
 
     });

@@ -73,8 +73,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
       },
 
       fadeIn: function (that) {
-        console.log("fade in function initiated!");
-        console.log(that);
         _.defer( function () {
           that.fadeIn();
         });

@@ -17,7 +17,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
         this.render();
       },
       render:function(){
-        console.log(this.bankAccounts);
         this.$el.html(this.template({bankAccounts: this.bankAccounts.toJSON()}));
 
         return this;
@@ -54,7 +53,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
 
       events: {
         "click .close": "closeModal",
-        "click #pay-button": "acceptPayment"
+        "click #pay-button": "requestPayment"
       },
       show: function(){
         $('#overlay').fadeIn('slow');
@@ -67,7 +66,25 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
         return milestonePayment - fee;
       },
 
-      acceptPayment: function (event) {
+      requestPayment: function (event) {
+
+        var fadeOutModal = function () {
+          $('#overlay').fadeOut('fast');
+        };
+
+        var fadeInNotification = function () {
+          $(".notification_container").fadeIn("fast");
+          $(".notification_text").text("Payment requested and email sent");
+        };
+
+        $(".notification_container").hover( function() {
+          $(".notification_container").fadeOut("fast");
+        });
+
+        var triggerNotification = _.debounce(fadeInNotification, 300);
+
+        fadeOutModal();
+        triggerNotification();
 
         var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
 

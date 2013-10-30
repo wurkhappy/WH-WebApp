@@ -1,8 +1,8 @@
 
-define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state',
+define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/agreement/read/header_states/base_state',
   'text!templates/agreement/accept_tpl.html', 'views/agreement/read/modals/reject'],
 
-  function (Backbone, Handlebars, BaseState, payTemplate, RejectModal) {
+  function (Backbone, Handlebars, noty, noty_layout, noty_default, BaseState, payTemplate, RejectModal) {
 
     'use strict';
 
@@ -76,6 +76,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         } else{
           this.model.reject();
         }
+
       },
 
       selectPaymentMethod: function(event) {
@@ -93,8 +94,32 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
         this.model.get("payments").findSubmittedPayment().accept($debitSource);
 
-        $('#overlay').fadeOut('slow');
-      }
+        var status;
+
+        if (this.statusType) {
+          status = this.statusType;
+        } else {
+          status = "";
+        }
+
+        var fadeOutModal = function () {
+          $('#overlay').fadeOut('fast');
+        };
+
+        var fadeInNotification = function () {
+          $(".notification_container").fadeIn("fast");
+          $(".notification_text").text("Request "+status+" and email sent");
+        };
+
+        $(".notification_container").hover( function() {
+          $(".notification_container").fadeOut("fast");
+        });
+
+        var triggerNotification = _.debounce(fadeInNotification, 300);
+
+        fadeOutModal();
+        triggerNotification();
+      },
 
     });
 
