@@ -7,10 +7,26 @@
 	margin-left:40px;
 }
 
-.email_sent {
+.notification_text {
 	color: hsla(0, 0, 100%, .7);
 	background: hsla(94, 43%, 51%, 0.8);
 	text-align: center;
 	border-radius: 5px;
 	padding: 2px 0px;
+}
+
+.password_saved {
+	margin-top: -2px;
+}
+
+.personal_saved {
+	margin-top: -2px;
+}
+
+.credit_card_saved {
+	margin-top: 36px;
+}
+
+.bank_account_saved {
+	margin-top: 36px;
 }

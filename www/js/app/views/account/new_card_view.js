@@ -40,6 +40,8 @@
             var model = new that.user.attributes["cards"].model(response.data);
             that.user.get("cards").add(model);
             model.save();
+            $('input').val('');
+            $(".notification_container").fadeOut("fast").fadeIn("slow");
 
           } else {
             console.log(response);

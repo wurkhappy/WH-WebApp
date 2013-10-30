@@ -223,6 +223,12 @@ fieldset {
   margin: 0 0 10px 0;
 }
 
+/* line 192, ../scss/bases/_common.scss */
+.secure:before {
+  content: url(/img/lock-16x16.png);
+  padding: 5px;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("fonts/museo100-italic-webfont.eot");
@@ -392,12 +398,32 @@ fieldset {
 }
 
 /* line 10, ../scss/components/_notifications.scss */
-.email_sent {
+.notification_text {
   color: rgba(255, 255, 255, 0.7);
   background: rgba(123, 184, 76, 0.8);
   text-align: center;
   border-radius: 5px;
   padding: 2px 0px;
+}
+
+/* line 18, ../scss/components/_notifications.scss */
+.password_saved {
+  margin-top: -2px;
+}
+
+/* line 22, ../scss/components/_notifications.scss */
+.personal_saved {
+  margin-top: -2px;
+}
+
+/* line 26, ../scss/components/_notifications.scss */
+.credit_card_saved {
+  margin-top: 36px;
+}
+
+/* line 30, ../scss/components/_notifications.scss */
+.bank_account_saved {
+  margin-top: 36px;
 }
 
 /* FORMS

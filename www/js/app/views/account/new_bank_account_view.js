@@ -43,6 +43,7 @@
             that.user.get("bank_accounts").add(model);
             model.save();
             that.$('input').val('');
+            $(".notification_container").fadeOut("fast").fadeIn("slow");
             that.account = {type: "checking"};
 
           } else {

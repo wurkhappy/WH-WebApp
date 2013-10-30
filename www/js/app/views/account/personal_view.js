@@ -79,8 +79,7 @@
       },
       save:function(){
         this.model.save({},{success:_.bind(function(model, response){
-          console.log(model);
-          this.$('#save-button').css('background-color', "#87cb52").text('Saved');
+          $(".notification_container").fadeOut("fast").fadeIn("slow");
         }, this)});
       }
 

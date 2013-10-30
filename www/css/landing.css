@@ -223,6 +223,12 @@ fieldset {
   margin: 0 0 10px 0;
 }
 
+/* line 192, ../scss/bases/_common.scss */
+.secure:before {
+  content: url(/img/lock-16x16.png);
+  padding: 5px;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("fonts/museo100-italic-webfont.eot");
@@ -779,25 +785,17 @@ fieldset {
 }
 
 /* line 23, ../scss/components/_get_started.scss */
-.secure {
-  padding: 0 0 0 26px;
-  background-image: url(/img/lock-16x16.png);
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-
-/* line 30, ../scss/components/_get_started.scss */
 .features {
   margin: 0 0 15px 0;
 }
 
-/* line 35, ../scss/components/_get_started.scss */
+/* line 28, ../scss/components/_get_started.scss */
 fieldset {
   margin: 0;
   padding: 10px 0 0 0;
 }
 
-/* line 40, ../scss/components/_get_started.scss */
+/* line 33, ../scss/components/_get_started.scss */
 label {
   display: block;
   padding: 10px 0 5px 0;
@@ -805,13 +803,13 @@ label {
   font-weight: bold;
 }
 
-/* line 47, ../scss/components/_get_started.scss */
+/* line 40, ../scss/components/_get_started.scss */
 .input-box {
   margin: 0;
   padding: 0;
 }
 
-/* line 52, ../scss/components/_get_started.scss */
+/* line 45, ../scss/components/_get_started.scss */
 .text-field {
   margin: 0;
   padding: 5px;
@@ -824,13 +822,13 @@ label {
   -moz-box-sizing: border-box;
 }
 
-/* line 64, ../scss/components/_get_started.scss */
+/* line 57, ../scss/components/_get_started.scss */
 .text-field:focus {
   outline: none;
   border: 1px solid #646464;
 }
 
-/* line 69, ../scss/components/_get_started.scss */
+/* line 62, ../scss/components/_get_started.scss */
 .validation {
   display: inline-block;
   width: 70%;
@@ -840,7 +838,7 @@ label {
   font-weight: normal;
 }
 
-/* line 78, ../scss/components/_get_started.scss */
+/* line 71, ../scss/components/_get_started.scss */
 .border {
   border: 1px solid red !important;
 }
