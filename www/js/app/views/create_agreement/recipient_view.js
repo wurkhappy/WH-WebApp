@@ -29,23 +29,31 @@
       },
       events: {
         "blur input, textarea": "updateField",
-        "click .submit-buttons > a" : "saveAndContinue"
+        "click .submit-buttons > a" : "saveAndSendAgreement"
       },
 
       updateField: function(event){
         this.model.set(event.target.name, event.target.value)
       },
       
-      saveAndContinue:function(event){
+      saveAndSendAgreement:function(event){
         event.preventDefault();
         event.stopPropagation();
         this.model.set("draft", false)
         this.model.save({},{success:_.bind(function(model, response){
-          var submitSuccess = function(){
-            window.location = "/home"
+
+          $('.notification_container').fadeIn('fast');
+
+          var changeWindow = function () {
+            window.location = "/home";
           };
+          var submitSuccess = _.debounce(changeWindow, 800); //delay the change in window until after success notification
+
           this.model.submit(this.model.get("message"), submitSuccess);
         },this)});
+
+        
+
       }
 
     });

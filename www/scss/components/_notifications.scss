@@ -1,0 +1,16 @@
+// Notifications
+
+.notification_container {
+	position: absolute;
+	width:880px;
+	margin-top: -8px;
+	margin-left:40px;
+}
+
+.email_sent {
+	color: hsla(0, 0, 100%, .7);
+	background: hsla(94, 43%, 51%, 0.8);
+	text-align: center;
+	border-radius: 5px;
+	padding: 2px 0px;
+}
