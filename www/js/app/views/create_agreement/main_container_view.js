@@ -2,32 +2,33 @@
  * Create Agreement Main - Create Agreement View.
  */
 
-define(['backbone', 'handlebars'],
+ define(['backbone', 'handlebars'],
 
-    function (Backbone, Handlebars) {
+  function (Backbone, Handlebars) {
 
-      'use strict';
+    'use strict';
 
-      var MainContainerView = Backbone.View.extend({
+    var MainContainerView = Backbone.View.extend({
 
-        el: '#mainContainer',
+      el: '#mainContainer',
 
-        events: {
-          "click #cancelAgreement" : "cancelAgreement"
-        },
+      events: {
+        "click #cancelAgreement" : "cancelAgreement"
+      },
 
-        cancelAgreement: function(event){
-          (this.model.id) ? this.model.destroy({success:function(model, response){window.location = "/home";}}) : window.location = "/home";
-        },
-        
-        switchToView: function(view){
-          view.delegateEvents();
-          this.$('#contentWrapper').empty().append(view.$el);
-        }
+      cancelAgreement: function(event){
+        (this.model.id) ? this.model.destroy({success:function(model, response){window.location = "/home";}}) : window.location = "/home";
+      },
+      
+      switchToView: function(view){
+        view.delegateEvents();
+        this.$('#contentWrapper').empty().append(view.$el);
+        window.scrollTo(0, 0);
+      }
 
-      });
+    });
 
-      return MainContainerView;
+    return MainContainerView;
 
-    }
-);
+  }
+  );

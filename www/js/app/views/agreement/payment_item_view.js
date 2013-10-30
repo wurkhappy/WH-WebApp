@@ -34,7 +34,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       checkStatus:function(){
         var status = this.model.get("currentStatus");
         if (!status) {
-          this.defaultState();
           return;
         }
         switch (status.get("action")){
@@ -45,15 +44,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
           this.acceptedState();
           break;
           default:
-          this.defaultState();
-        }
-      },
-      defaultState:function(){
-        if (!this.userIsClient && !this.blockRequests){
-          this.$('.paymentStatus').html('<span class="request-button payment_status make_payment">Request Payment</span>');
-        }
-        else{
-          this.$('.paymentStatus').html('');
         }
       },
       submittedState:function(){
