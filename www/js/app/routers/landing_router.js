@@ -51,12 +51,14 @@
         $('#log_in').hide();
         $('#log_out').show();
         $('#create_account').hide();
+        $('.copyright').addClass('copyright_login');
       },
       hideForm: function(){
         if (!this.formView) return;
         $('#create_form').parsley();
         this.$mainSection.hide();
         this.$mainSection.fadeIn('fast');
+        $('.copyright').removeClass('copyright_login');
 
         $('#log_out').hide();
         $('#log_in').show();
