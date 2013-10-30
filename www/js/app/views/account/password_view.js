@@ -36,12 +36,13 @@ define(['backbone', 'handlebars', 'text!templates/account/password.html'],
             this.model.set("currentPassword", this.passwords["current-pw"]);
             this.model.save({},{success:_.bind(function(model, response){
               this.$('input').val('');
-              $(".notification_container").fadeOut("fast").fadeIn("slow");
+              $(".notification_container").fadeIn("slow");
             },this)});
           }
         },
         updatePassword: function(event){
           this.passwords[event.target.name] = event.target.value
+          $(".notification_container").fadeOut('fast').fadeOut("slow");
         }
 
       });
