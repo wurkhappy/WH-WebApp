@@ -937,24 +937,25 @@ label {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   border-top: 1px solid #7d7d7d;
+  padding-bottom: 10px;
 }
 
-/* line 16, ../scss/components/_footer.scss */
+/* line 17, ../scss/components/_footer.scss */
 .footer_title {
   color: #dce1e6;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* line 21, ../scss/components/_footer.scss */
+/* line 22, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 23, ../scss/components/_footer.scss */
+/* line 24, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 28, ../scss/components/_footer.scss */
+/* line 29, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
