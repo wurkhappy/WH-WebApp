@@ -805,6 +805,11 @@ fieldset {
   padding: 0 10px;
 }
 
+/* line 13, ../scss/components/_create_agreement.scss */
+.role_type {
+  margin-left: 20px;
+}
+
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
   border-bottom: 1px solid #f0f0f0;
