@@ -49,7 +49,7 @@
 
         var percentComplete = payment.getPercentComplete() * 100;
 
-        var statusInfo = createStatusInfo(status, this.userIsClient);
+        var statusInfo = (this.model.get("draft")) ? {lastAction:"Draft Saved", currentState: "Waiting to be submitted"} : createStatusInfo(status, this.userIsClient);
 
         this.$el.html(this.template({
           model: this.model.toJSON(),

@@ -47,6 +47,11 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
         this.state.button2();
       },
       changeState:function(){
+        if (this.model.get("draft")){
+          this.state = new DraftState({model: this.model});
+          this.render();
+          return;
+        }
         var status = this.model.get("currentStatus");
         switch (status.get("action")){
           case status.StatusCreated:
@@ -63,7 +68,6 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
           break;
           default:
         }
-        if (this.model.get("draft")) this.state = new DraftState({model: this.model});
         this.render();
       },
 

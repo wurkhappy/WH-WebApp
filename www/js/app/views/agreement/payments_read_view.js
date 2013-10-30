@@ -36,7 +36,7 @@
         var status = this.model.get("currentStatus");
 
         var lockPaymentRequests = false;
-        if (status.get("action") === status.StatusSubmitted) lockPaymentRequests = true;
+        if (!status || status.get("action") === status.StatusSubmitted) lockPaymentRequests = true;
         this.dispatcher.trigger('lockPaymentRequests', lockPaymentRequests);
       }
     });

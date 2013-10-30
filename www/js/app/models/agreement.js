@@ -4,10 +4,11 @@
 
 
 define(['backbone','backbone-relational', 'models/payment', 'collections/payments',
-    'models/status', 'collections/status',  'models/comment', 'collections/comments'],
+    'models/status', 'collections/status',  'models/comment', 'collections/comments',
+    'collections/clauses', 'models/clause'],
 
     function(Backbone, Relational, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
-        CommentModel, CommentCollection) {
+        CommentModel, CommentCollection, ClausesCollection, ClauseModel) {
 
         'use strict';
 
@@ -50,6 +51,13 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                     key: 'agreement',
                     includeInJSON: false
                 }
+            },
+            {
+                type: Backbone.HasMany,
+                key: 'clauses',
+                relatedModel: ClauseModel,
+                collectionType: ClausesCollection,
+                includeInJSON: true
             }
             ],
             idAttribute: "versionID",

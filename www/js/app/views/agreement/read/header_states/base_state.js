@@ -7,9 +7,10 @@ define(['backbone', 'handlebars'],
 
     var BaseState = Backbone.View.extend({
       initialize:function(){
+        this.userIsClient = this.model.get("clientID") == window.thisUser.id;//thisUser is set by server directly into html
+        if (this.model.get("draft")) return;
         this.status = this.model.get("currentStatus");
         this.statusType = (this.status.get("paymentID")) ? "payment" : "agreement";
-        this.userIsClient = this.model.get("clientID") == window.thisUser.id;//thisUser is set by server directly into html
       },
       button1:function(event){
       },

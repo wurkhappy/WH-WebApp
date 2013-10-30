@@ -29,6 +29,7 @@
       events: {
         "blur input": "updateField",
         'blur input[type="radio"]': "updateRole",
+        'blur input[type="checkbox"]': "updateClauses",
         "blur textarea": "updateField",
         "click .submit-buttons > a" : "saveAndContinue"
       },
@@ -41,6 +42,11 @@
         if (event.target.value == 'clientID') {
           
         };
+      },
+      updateClauses: function(event){
+        var $element = $(event.target);
+        this.model.get("clauses").add({id:$element.data('clauseid'), text:$element.data('text'), userID:this.userID});
+        console.log(this.model);
       },
       saveAndContinue:function(event){
         event.preventDefault();
