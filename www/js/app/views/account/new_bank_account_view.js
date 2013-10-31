@@ -31,7 +31,7 @@
       },
       updateFields:function(event){
         this.account[event.target.name] = event.target.value;
-        console.log(this.account);
+        $(".notification_container").fadeOut("slow");
       },
       saveBankAccount:function(event){
         event.preventDefault();
@@ -43,7 +43,7 @@
             that.user.get("bank_accounts").add(model);
             model.save();
             that.$('input').val('');
-            $(".notification_container").fadeOut("fast").fadeIn("slow");
+            $(".notification_container").fadeOut('fast').fadeIn("slow");
             that.account = {type: "checking"};
 
           } else {

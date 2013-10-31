@@ -661,6 +661,12 @@ fieldset {
 }
 
 /* line 116, ../scss/components/_buttons.scss */
+.submit-buttons a:active {
+  margin-top: 2px;
+  margin-bottom: -2px;
+}
+
+/* line 121, ../scss/components/_buttons.scss */
 .submit-buttons a:hover, .submit-buttons a:active {
   background-color: #972a45;
 }

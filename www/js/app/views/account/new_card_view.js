@@ -30,6 +30,7 @@
       },
       updateFields:function(event){
         this.card[event.target.name] = event.target.value;
+        $(".notification_container").fadeOut("slow");
       },
       saveCard:function(event){
         var that = this;
@@ -41,7 +42,7 @@
             that.user.get("cards").add(model);
             model.save();
             $('input').val('');
-            $(".notification_container").fadeOut("fast").fadeIn("slow");
+            $(".notification_container").fadeOut('fast').fadeIn("slow");
 
           } else {
             console.log(response);

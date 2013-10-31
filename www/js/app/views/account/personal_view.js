@@ -55,7 +55,7 @@
       },
       updateFields: function(event){
         this.model.set(event.target.name, event.target.value);
-        this.updateSaveButton();   
+        this.updatenotification();   
       },
       updateFile:function(event){
         var input = event.target;
@@ -74,12 +74,12 @@
         var number = event.target.value;
         this.model.set("phoneNumber", number.replace(/[^0-9]/g, ""));
       },
-      updateSaveButton: function(event){
-        this.$('#save-button').css('background-color', "#be3557").text('Save Personal Details');
+      updatenotification: function(event){
+        $(".notification_container").fadeOut("slow");
       },
       save:function(){
         this.model.save({},{success:_.bind(function(model, response){
-          $(".notification_container").fadeOut("fast").fadeIn("slow");
+          $(".notification_container").fadeOut('fast').fadeIn("slow");
         }, this)});
       }
 
