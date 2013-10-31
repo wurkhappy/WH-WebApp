@@ -246,6 +246,14 @@ fieldset {
   padding: 5px;
 }
 
+/* line 212, ../scss/bases/_common.scss */
+.divider {
+  border-bottom: 1px solid #dbe0e6;
+  clear: both;
+  margin: 0 auto;
+  width: 95%;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("fonts/museo100-italic-webfont.eot");
@@ -902,31 +910,32 @@ fieldset {
   padding-bottom: 20px;
 }
 
-/* line 7, ../scss/components/_agreement.scss */
-.payment_schedule {
-  border-bottom: 1px solid #e1e1e1;
+/* line 11, ../scss/components/_agreement.scss */
+.agreement_profile_container {
+  padding: 15px 20px 15px 20px;
+  float: left;
 }
 
-/* line 11, ../scss/components/_agreement.scss */
+/* line 16, ../scss/components/_agreement.scss */
 .agreement_title {
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-/* line 16, ../scss/components/_agreement.scss */
+/* line 21, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-/* line 21, ../scss/components/_agreement.scss */
+/* line 26, ../scss/components/_agreement.scss */
 .payment_milestone {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 27, ../scss/components/_agreement.scss */
+/* line 32, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -940,32 +949,32 @@ fieldset {
   color: #646464;
 }
 
-/* line 41, ../scss/components/_agreement.scss */
+/* line 46, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 47, ../scss/components/_agreement.scss */
+/* line 52, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 52, ../scss/components/_agreement.scss */
+/* line 57, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 57, ../scss/components/_agreement.scss */
+/* line 62, ../scss/components/_agreement.scss */
 .scope_item {
   padding: 0;
 }
 
-/* line 61, ../scss/components/_agreement.scss */
+/* line 66, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -979,7 +988,7 @@ fieldset {
   border-bottom-left-radius: 3px;
 }
 
-/* line 74, ../scss/components/_agreement.scss */
+/* line 79, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
@@ -1750,7 +1759,6 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 5px;
   border: 1px solid #dedede;
   padding: 20px;
-  padding-top: 0;
   min-height: 250px;
   margin-left: 15px;
   margin-right: 15px;
@@ -1758,37 +1766,37 @@ progress::-webkit-progress-value, progress.yellow_progress {
   background: #dbe0e6;
 }
 
-/* line 13, ../scss/components/_discussion_container.scss */
+/* line 12, ../scss/components/_discussion_container.scss */
 .add_comment_container {
   height: 250px;
   margin: 5px;
   padding: 10px;
 }
 
-/* line 19, ../scss/components/_discussion_container.scss */
+/* line 18, ../scss/components/_discussion_container.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 23, ../scss/components/_discussion_container.scss */
+/* line 22, ../scss/components/_discussion_container.scss */
 .enter_comment_input {
   width: 100%;
   height: 150px;
   border-radius: 5px;
 }
 
-/* line 29, ../scss/components/_discussion_container.scss */
+/* line 28, ../scss/components/_discussion_container.scss */
 .comment_action_container {
   float: right;
   height: 80px;
 }
 
-/* line 34, ../scss/components/_discussion_container.scss */
+/* line 33, ../scss/components/_discussion_container.scss */
 .comment_container {
   padding: 10px 0;
 }
 
-/* line 38, ../scss/components/_discussion_container.scss */
+/* line 37, ../scss/components/_discussion_container.scss */
 .discussion_placeholder {
   text-align: center;
   color: #b3b3b3;
@@ -1799,20 +1807,20 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 90px;
 }
 
-/* line 48, ../scss/components/_discussion_container.scss */
+/* line 47, ../scss/components/_discussion_container.scss */
 .comment_date {
   font-size: 12px;
   color: #969696;
 }
 
-/* line 53, ../scss/components/_discussion_container.scss */
+/* line 52, ../scss/components/_discussion_container.scss */
 .comment_name {
   font-size: 12px;
   color: #1c1c1c;
   font-weight: 900;
 }
 
-/* line 59, ../scss/components/_discussion_container.scss */
+/* line 58, ../scss/components/_discussion_container.scss */
 .milestone_tag, .status_tag {
   font-family: museo;
   font-weight: 100;
@@ -1820,45 +1828,45 @@ progress::-webkit-progress-value, progress.yellow_progress {
   position: absolute;
 }
 
-/* line 66, ../scss/components/_discussion_container.scss */
+/* line 65, ../scss/components/_discussion_container.scss */
 .milestone_tag {
   color: #7bb84c;
   bottom: 0;
   right: 5px;
 }
 
-/* line 72, ../scss/components/_discussion_container.scss */
+/* line 71, ../scss/components/_discussion_container.scss */
 .status_tag {
   color: #008bc7;
   bottom: 0;
 }
 
-/* line 78, ../scss/components/_discussion_container.scss */
+/* line 77, ../scss/components/_discussion_container.scss */
 .comment_body {
   font-weight: 300;
   padding: 0;
 }
 
-/* line 83, ../scss/components/_discussion_container.scss */
+/* line 82, ../scss/components/_discussion_container.scss */
 .send_comment {
   color: white;
   background: #009adb;
   border-radius: 5px;
   padding: 10px 21px;
 }
-/* line 88, ../scss/components/_discussion_container.scss */
+/* line 87, ../scss/components/_discussion_container.scss */
 .send_comment:hover {
   color: white;
   text-decoration: none;
   background: #008bc7;
 }
 
-/* line 95, ../scss/components/_discussion_container.scss */
+/* line 94, ../scss/components/_discussion_container.scss */
 .comment_select_padding {
   margin-left: 10px;
 }
 
-/* line 99, ../scss/components/_discussion_container.scss */
+/* line 98, ../scss/components/_discussion_container.scss */
 .selectdiv {
   display: inline-block;
   width: 175px;
@@ -1872,7 +1880,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 15px;
 }
 
-/* line 112, ../scss/components/_discussion_container.scss */
+/* line 111, ../scss/components/_discussion_container.scss */
 .selectdiv:hover, .selectdiv:focus {
   width: 175px;
   border: 1px solid #009adb;
@@ -1882,7 +1890,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 121, ../scss/components/_discussion_container.scss */
+/* line 120, ../scss/components/_discussion_container.scss */
 .out {
   z-index: -1;
   border: 0px solid #000;
@@ -1892,7 +1900,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 130, ../scss/components/_discussion_container.scss */
+/* line 129, ../scss/components/_discussion_container.scss */
 .selectboxdiv {
   height: 40px;
   left: -10px;
@@ -1908,23 +1916,23 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 145, ../scss/components/_discussion_container.scss */
+/* line 144, ../scss/components/_discussion_container.scss */
 .active_select {
   border: 1px solid #009adb;
 }
 
-/* line 149, ../scss/components/_discussion_container.scss */
+/* line 148, ../scss/components/_discussion_container.scss */
 .discussion_photo {
   float: left;
   margin-right: 20px;
 }
 
-/* line 154, ../scss/components/_discussion_container.scss */
+/* line 153, ../scss/components/_discussion_container.scss */
 .comment_post_info {
   position: relative;
 }
 
-/* line 158, ../scss/components/_discussion_container.scss */
+/* line 157, ../scss/components/_discussion_container.scss */
 .personal_box {
   border-radius: 5px;
   border: 1px solid #dedede;
@@ -1933,7 +1941,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   background: white;
 }
 
-/* line 166, ../scss/components/_discussion_container.scss */
+/* line 165, ../scss/components/_discussion_container.scss */
 .message_box {
   border-radius: 5px;
   border: 1px solid #dedede;
@@ -1945,12 +1953,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   position: relative;
 }
 
-/* line 177, ../scss/components/_discussion_container.scss */
+/* line 176, ../scss/components/_discussion_container.scss */
 .float_left {
   float: left;
 }
 
-/* line 181, ../scss/components/_discussion_container.scss */
+/* line 180, ../scss/components/_discussion_container.scss */
 .float_right {
   float: right;
 }

@@ -246,6 +246,14 @@ fieldset {
   padding: 5px;
 }
 
+/* line 212, ../scss/bases/_common.scss */
+.divider {
+  border-bottom: 1px solid #dbe0e6;
+  clear: both;
+  margin: 0 auto;
+  width: 95%;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("fonts/museo100-italic-webfont.eot");
