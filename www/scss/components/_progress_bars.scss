@@ -144,11 +144,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   z-index:5;
 }
 
-.progress_icon {
-  margin-left: 20px;
-  color: hsl(210, 13%, 85%);
-  font-size: 30px;
 
+.progress_icon {
+  color: #d4d9de;
+  font-size: 26px;
+  width:30px;
+  height:30px;
+  background-color: #d4d9de;
+  border-radius: 50%;
 }
 
 

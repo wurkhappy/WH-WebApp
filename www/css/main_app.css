@@ -1268,12 +1268,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   z-index: 5;
 }
 
-/* line 147, ../scss/components/_progress_bars.scss */
+/* line 148, ../scss/components/_progress_bars.scss */
 .progress_icon {
   color: #d4d9de;
   font-size: 26px;
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
   background-color: #d4d9de;
   border-radius: 50%;
 }
