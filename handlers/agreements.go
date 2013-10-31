@@ -249,3 +249,18 @@ func CreateComment(w http.ResponseWriter, req *http.Request, session *sessions.S
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }
+
+func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+
+	client := &http.Client{}
+	r, _ := http.NewRequest("POST", AgreementsService + "/agreements/v/"+vars["id"]+"/archive", req.Body)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	w.Write(buf.Bytes())
+}
