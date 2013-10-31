@@ -17,8 +17,8 @@
       } else if (action === 'rejected') {
         return 'hsl(356, 56%, 56%);'; // red color
       }
-
       return 'hsl(210, 13%, 85%)';
+
     });
 
     Handlebars.registerHelper('midpoint', function(index, options) {
@@ -39,13 +39,16 @@
       },
 
       render: function () {
-        var payments = this.payments;
-        var submittedPayments = payments.getNumberOfSubmittedPayments();
-        var totalPayments = this.payments.length;
+        var payments = this.payments,
+            submittedPayments = payments.getNumberOfSubmittedPayments(),
+            acceptedPayments = payments.getAcceptedPayments(),
+            acceptedOrSubmittedPayments = submittedPayments + acceptedPayments,
+            totalPayments = this.payments.length;
+            console.log(acceptedOrSubmittedPayments);
 
-        //var percentComplete = payments.getPercentComplete() * 100;
+        var percentComplete = this.calculatePercentage(totalPayments, acceptedOrSubmittedPayments);
 
-        var percentComplete = this.calculatePercentage(totalPayments, submittedPayments);
+        console.log(percentComplete);
 
         this.$el.html(this.template({
           payments: this.payments.toJSON(),
@@ -61,10 +64,9 @@
       afterRender: function () {
         var iconSize = 30;
         var payments = this.payments,
-        numberPayments = payments.length;
+        numberPayments = 2;//payments.length;
         var ghostIcons = (numberPayments%2 == 0) ? 3 : 2;
         var totalIconWidth=(numberPayments + ghostIcons-1)*iconSize; //30px is size of each icon
-        console.log(numberPayments + ghostIcons-1);
         _.defer( function () {
           var barWidth = 900 - totalIconWidth, //so that there are 100px margins on each side.
           progressIcon = $(".progress_icon"),
@@ -80,15 +82,15 @@
 
       },      
 
-      calculatePercentage: function (totalPayments, submittedPayments) {
-        var barWidth = 80, // 10% margins on each side of progress bar icons
-            margin = 10, // 10% margin
-            numberPayments = totalPayments-1;
+      calculatePercentage: function (totalPayments, acceptedOrSubmittedPayments) {
+            var barWidth = 100,
+                ghostIcons = (totalPayments%2 == 0) ? 3 : 2,
+                numberPayments = (totalPayments + ghostIcons)-1;
 
-            if (submittedPayments < 1){
+            if (acceptedOrSubmittedPayments < 1){
               return 0;
             } else {
-              return (barWidth/numberPayments*(submittedPayments-1)) + margin;
+              return (barWidth/numberPayments*(acceptedOrSubmittedPayments));
             }
 
           }
