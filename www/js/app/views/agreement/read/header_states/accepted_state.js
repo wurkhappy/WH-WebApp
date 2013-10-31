@@ -1,7 +1,7 @@
 
-define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state', 'views/agreement/read/modals/payment_request'],
+define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state', 'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, BaseState, PaymentRequestModal) {
+  function (Backbone, Handlebars, BaseState, PaymentRequestModal, Modal) {
 
     'use strict';
 
@@ -16,7 +16,10 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       },
 
       button1:function(event){
-        if (!this.modal) this.modal = new PaymentRequestModal({model:this.model.get("payments").findFirstOutstandingPayment(), collection: this.model.get("payments").findAllOutstandingPayment(), cards: this.user.get("cards"), bankAccounts: this.user.get("bank_accounts")});
+        if (!this.modal){
+          var view = new PaymentRequestModal({model:this.model.get("payments").findFirstOutstandingPayment(), collection: this.model.get("payments").findAllOutstandingPayment(), cards: this.user.get("cards"), bankAccounts: this.user.get("bank_accounts")});
+          this.modal = new Modal({view:view});
+        } 
         this.modal.show();
       },
 
@@ -26,7 +29,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
     });
 
-return AcceptedState;
+    return AcceptedState;
 
-}
-);
+  }
+  );

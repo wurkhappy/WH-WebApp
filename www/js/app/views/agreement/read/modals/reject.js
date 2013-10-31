@@ -7,7 +7,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/reject_tpl.html'],
 
     var RejectModal = Backbone.View.extend({
 
-      el: "#popup_container",
 
       template: Handlebars.compile(rejectTemplate),
 
@@ -18,30 +17,20 @@ define(['backbone', 'handlebars', 'text!templates/agreement/reject_tpl.html'],
       },
       render: function(){
 
-        this.$el.append(this.template({
+        this.$el.html(this.template({
           status: this.statusType,
           otherUser: this.otherUser
-        }));
-
-        $('#overlay').fadeIn('slow');
-        
+        }));        
       },
       events: {
-        "click .close": "closeModal",
         "click #reject-button": "rejectRequest",
         "blur textarea": "addMessage"
-      },
-      show: function(){
-        $('#overlay').fadeIn('slow');
-      },
-      closeModal: function(event) {
-        $('#overlay').fadeOut('slow');
       },
       addMessage: function(event){
         this.message = event.target.value
       },
       rejectRequest: function(event) {
-        this.model.reject(this.message, this.closeModal);
+        this.model.reject(this.message, _.bind(function(){this.trigger('hide')},this));
 
         var status;
 
@@ -50,10 +39,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/reject_tpl.html'],
         } else {
           status = "";
         }
-
-        var fadeOutModal = function () {
-          $('#overlay').fadeOut('fast');
-        };
 
         var fadeInNotification = function () {
           $(".notification_container").fadeIn("fast");
@@ -66,7 +51,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/reject_tpl.html'],
 
         var triggerNotification = _.debounce(fadeInNotification, 300);
 
-        fadeOutModal();
+        this.trigger('hide');
         triggerNotification();
       },
 
