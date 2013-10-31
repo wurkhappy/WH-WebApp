@@ -1,18 +1,12 @@
 <div class="progress-large">
 	<div class="icon_container">
-		{{#each payments}}
-			<i class="fa fa-circle progress_icon"
-			{{#unless currentStatus}}
-				style="color:{{adjustIconColor action}}"			
-			{{/unless}}
-			></i>
-		{{/each}}
+		<i class="fa fa-circle progress_icon" style="opacity:0;"></i>{{#each payments}}{{{midpoint @index ../this}}}<i class="fa fa circle progress_icon" {{#unless currentStatus}} style="color:{{adjustIconColor action}}; position:relative;" {{/unless}}></i>{{/each}}<i class="fa fa-circle progress_icon"style="opacity:0;"></i>
 	</div>
 	<progress class="agreement_progress" max="100" value="{{percentComplete}}" data-skill="html5">
-    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
-    <p style="width:{{percentComplete}}%" data-value="{{percentComplete}}">HTML5</p>
-    <div class="agreement_progress_bar">
-      <span style="width: {{percentComplete}}%">{{percentComplete}}%</span>
-    </div>
-  </progress>
+		<!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+		<p style="width:{{percentComplete}}%" data-value="{{percentComplete}}">HTML5</p>
+		<div class="agreement_progress_bar">
+			<span style="width: {{percentComplete}}%">{{percentComplete}}%</span>
+		</div>
+	</progress>
 </div>

@@ -21,6 +21,14 @@
       return 'hsl(210, 13%, 85%)';
     });
 
+    Handlebars.registerHelper('midpoint', function(index, options) {
+      var total = options.payments.length;
+      if (total%2 ==0 && (index == total/2 || index == total - 0.5)){
+        return '<i class="fa fa-circle progress_icon" style="opacity:0;"></i>';
+      }
+      return '';
+    });
+
     var ProgressBarView = Backbone.View.extend({
 
       template: Handlebars.compile(progressBarTemplate),
@@ -51,41 +59,43 @@
       },
 
       afterRender: function () {
+        var iconSize = 30;
         var payments = this.payments,
-            numberPayments = payments.length -1,
-            totalIconWidth=(numberPayments)*30; //30px is size of each icon
-
+        numberPayments = payments.length;
+        var ghostIcons = (numberPayments%2 == 0) ? 3 : 2;
+        var totalIconWidth=(numberPayments + ghostIcons-1)*iconSize; //30px is size of each icon
+        console.log(numberPayments + ghostIcons-1);
         _.defer( function () {
-          var barWidth = 700 - totalIconWidth, //so that there are 100px margins on each side.
-              progressIcon = $(".progress_icon"),
-              iconSpacing = barWidth/numberPayments,
-              firstIconSpacing = 87; //100px margin - 13px (halfway through icon)
-          $(".progress_icon").css("margin-left", iconSpacing + "px");
-          $(".progress_icon").first().css("margin-left", firstIconSpacing + "px");
+          var barWidth = 900 - totalIconWidth, //so that there are 100px margins on each side.
+          progressIcon = $(".progress_icon"),
+          iconSpacing = barWidth/(numberPayments + ghostIcons -1);
+              $(".progress_icon").css({"margin-left": iconSpacing/2 + "px", "margin-right": iconSpacing/2 + "px"});
+              $(".progress_icon").first().css("margin-left", -(iconSize/2) + "px");
+              $(".progress_icon").last().css("margin-right", 0 + "px");
 
           //place a gradient stop based on the percentage of accepted payments:
           $("progress").addClass("yellow_progress");
 
         });
-        
-      },
+
+      },      
 
       calculatePercentage: function (totalPayments, submittedPayments) {
         var barWidth = 80, // 10% margins on each side of progress bar icons
             margin = 10, // 10% margin
             numberPayments = totalPayments-1;
 
-        if (submittedPayments < 1){
-          return 0;
-        } else {
-          return (barWidth/numberPayments*(submittedPayments-1)) + margin;
-        }
+            if (submittedPayments < 1){
+              return 0;
+            } else {
+              return (barWidth/numberPayments*(submittedPayments-1)) + margin;
+            }
 
-      }
+          }
 
-    });
+        });
 
-    return ProgressBarView;
+return ProgressBarView;
 
-  }
-  );
+}
+);
