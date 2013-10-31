@@ -4,52 +4,52 @@ var agreements = {{.agreements}};
 var currentUser = {{.thisUser}};
 var otherUsers = {{.otherUsers}};
 </script>
-<div id="intro" class="clear intro">
+  <div id="intro" class="clear intro">
 
-  <div class="column-three-fourth">
+    <div class="column-three-fourth">
 
-    <h1>{{.agreementCount}} Client Agreements</h1>
+      <h1>{{.agreementCount}} Client Agreements</h1>
+
+    </div>
+    <div class="column-one-fourth">
+
+      <ul class="action_button_container">
+        <li><a href="/agreements/new" class="button action_button">Create Agreement</a></li>
+      </ul>
+
+    </div>
 
   </div>
-  <div class="column-one-fourth">
-
-    <ul class="action_button_container">
-      <li><a href="/agreements/new" class="button action_button">Create Agreement</a></li>
-    </ul>
-
-  </div>
-
-</div>
 
 
-<div id="content" class="clear content">
+  <div id="content" class="clear white_background">
 
-  <div class="clear">
-    <div id="waitingSection">
-      <h2>Waiting for Response</h2>
-      <div class="data-table">
+    <div class="clear">
+      <div id="waitingSection">
+        <h2>Waiting for Response</h2>
+        <div class="data-table">
 
-        <table class="home_status" border="0" cellspacing="0" cellpadding="0">
-        </table>
+          <table class="home_status" border="0" cellspacing="0" cellpadding="0">
+          </table>
 
+        </div>
       </div>
-    </div>
-    <div id="progressSection">
-      <h2>In Progress</h2>
-      <div class="data-table">
+      <div id="progressSection">
+        <h2>In Progress</h2>
+        <div class="data-table">
 
-        <table border="0" cellspacing="0" cellpadding="0">
-        </table>
+          <table border="0" cellspacing="0" cellpadding="0">
+          </table>
 
+        </div>
       </div>
-    </div>
 
-    <div id="draftSection">
-    </div>
+      <div id="draftSection">
+      </div>
 
+
+    </div>
 
   </div>
-
-</div>
 {{end}}
 

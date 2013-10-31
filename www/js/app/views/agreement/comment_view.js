@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
     var CommentView = Backbone.View.extend({
 
       template: Handlebars.compile(commentTpl),
-      className: "hide clear comment_container",
+      className: "hide comment_container",
 
       initialize:function(options){
         this.agreement = options.agreement;
@@ -42,7 +42,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         }
 
         if (this.commentCreatedDate) {
-          dateCreated = this.commentCreatedDate.format('MMMM Do YYYY, h:mm:ss a');
+          dateCreated = this.commentCreatedDate.format('h:mm a');
         }
 
         var isThisUserMessage = (this.userID === this.messageUserID);

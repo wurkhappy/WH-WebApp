@@ -10,7 +10,7 @@
 
     var RecipientView = Backbone.View.extend({
 
-      className:'clear content',
+      className:'clear white_background',
       attributes:{'id':'content'},
 
       template: Handlebars.compile(recipientTemplate),

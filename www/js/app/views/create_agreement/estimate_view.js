@@ -11,7 +11,7 @@
 
     var EstimateView = Backbone.Marionette.CompositeView.extend({
 
-      className:'clear content',
+      className:'clear white_background',
       attributes:{'id':'content'},
 
       template: Handlebars.compile(estimateTemplate),

@@ -7,6 +7,7 @@
 	margin-left: 15px;
 	margin-right: 15px;
 	margin-bottom: 0;
+	background: $grey_blue;
 }
 
 .add_comment_container {
@@ -31,7 +32,7 @@
 }
 
 .comment_container {
-	padding: 25px 0;
+	padding: 10px 0;
 }
 
 .discussion_placeholder {
@@ -59,20 +60,23 @@
 	font-family: museo;
 	font-weight: 100;
 	font-size: 16px;
+	position: absolute;
 }
 
 .milestone_tag {
 	color: $green_dark;
-	float:right;
+	bottom: 0;
+	right: 5px;
+
 }
 .status_tag {
 	color: $blue_text_dark;
-	float:left;
+	bottom: 0;
+
 }
 
 .comment_body {
 	font-weight: 300;
-	clear: both;
 	padding: 0;
 }
 
@@ -155,15 +159,19 @@
 	border-radius: 5px;
 	border: 1px solid hsl(0, 0, 87%);
 	padding: 5px;
-	width: 260px;
+	min-width: 160px;
+	background: white;
 }
 
 .message_box {
 	border-radius: 5px;
 	border: 1px solid hsl(0, 0, 87%);
-	padding: 5px;
-	width: 575px;
+	padding: 10px;
+	width: 550px;
 	min-height: 66px;
+	margin: 0 auto;
+	background: white;
+	position: relative;
 }
 
 .float_left {

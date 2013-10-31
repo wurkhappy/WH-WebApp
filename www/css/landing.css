@@ -66,7 +66,7 @@ table {
 body {
   text-align: center;
   font-family: museo_sans;
-  background: #dce0e4 url(/img/bg.png) fixed;
+  background: #a6a6a6;
   color: #646464;
   font-size: 18px;
 }
@@ -200,14 +200,30 @@ fieldset {
 /* line 170, ../scss/bases/_common.scss */
 .content {
   background-color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-/* line 174, ../scss/bases/_common.scss */
+/* line 176, ../scss/bases/_common.scss */
+.white_background {
+  background: white;
+}
+
+/* line 180, ../scss/bases/_common.scss */
+.main_content_container {
+  float: left;
+  border-radius: 15px;
+  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+}
+
+/* line 188, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 178, ../scss/bases/_common.scss */
+/* line 192, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -216,7 +232,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 186, ../scss/bases/_common.scss */
+/* line 200, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -224,7 +240,7 @@ fieldset {
   margin: 0 0 10px 0;
 }
 
-/* line 193, ../scss/bases/_common.scss */
+/* line 207, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
