@@ -14,7 +14,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
 
       initialize:function(options){
         BaseState.prototype.initialize.apply(this);
-        this.button1Title = (this.userIsClient) ? "Accept " + this.statusType : null; 
+        this.button1Title = (this.userIsClient) ? "Accept " + this.statusType : "Waiting for Response"; 
         this.button2Title = (this.userIsClient) ? "Reject " + this.statusType : null;
         this.user = options.user;
         this.user.get("cards").fetch();
@@ -23,6 +23,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
         this.otherUser = options.otherUser;
       },
       button1:function(event){
+        if (!this.userIsClient) return;
         //we don't check for userIsClient here because if title is null then button doesn't call action
         if (this.statusType === 'payment') {
 
