@@ -1951,6 +1951,30 @@ progress::-webkit-progress-value, progress.yellow_progress {
   list-style: none;
 }
 
+/* line 1, ../scss/components/_account.scss */
+.check_image {
+  background: url(/img/check_image.png) no-repeat 470px 184px;
+}
+
+/* line 5, ../scss/components/_account.scss */
+.secure_card:after {
+  background-image: url();
+  padding: 5px;
+  content: "";
+  background-size: 382px;
+  width: 200px;
+  padding: 188px;
+  padding-top: 17px;
+  padding-bottom: 66px;
+  padding-left: 190px;
+  margin-left: 14px;
+}
+
+/* line 18, ../scss/components/_account.scss */
+.account_secure {
+  padding-left: 20px;
+}
+
 /* FOOTER
 ================================================================================ */
 /* line 5, ../scss/components/_footer.scss */
