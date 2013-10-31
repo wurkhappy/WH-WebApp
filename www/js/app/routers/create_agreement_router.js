@@ -19,7 +19,7 @@
 
       initialize: function () {
         this.model = new AgreementModel();
-        this.model.set("payments", [{title:"Deposit", amount:100}]);
+        this.model.get("payments").add({title:"Deposit"});
         this.mainContainer = new MainContainerView({model: this.model});
         this.user = new UserModel(window.user);
       },

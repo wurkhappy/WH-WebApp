@@ -25,7 +25,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
         this.$el.html(this.template(this.model.toJSON()));
         var paymentScopeView = new PaymentScopeView({model: this.model, collection:this.model.get('scopeItems')});
         paymentScopeView.render();
-        this.$el.append(paymentScopeView.$el);
+        paymentScopeView.$el.insertBefore(this.$('.removeButton'));
 
         return this;
 
@@ -34,6 +34,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
         "blur input":"updateFields",
         "blur .paymentAmount":"updateAmount",
         "focus .kal": "triggerCalender",
+        "click .remove_icon > a":"removeModel"
       },
       updateAmount: function(event){
         this.model.set(event.target.name, parseFloat(event.target.value));
@@ -51,6 +52,9 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
       setDate: function(date, action){
         this.model.set("dateExpected", date);
         console.log(this.model);
+      },
+      removeModel: function(event){
+        this.model.collection.remove(this.model);
       }
     });
 
