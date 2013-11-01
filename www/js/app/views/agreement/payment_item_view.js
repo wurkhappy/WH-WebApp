@@ -5,6 +5,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
   function (Backbone, Handlebars, _, Marionette, paymentItemTemplate, ScopeItemView) {
 
     'use strict';
+    Handlebars.registerHelper('dateFormat', function(date) {
+      return date.format('MMM D, YYYY');
+    });
 
     var PaymentItemView = Backbone.Marionette.CompositeView.extend({
 
@@ -23,6 +26,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.userIsClient = options.userIsClient;
         this.listenTo(this.model, 'change',this.checkStatus)
         if(this.dispatcher) this.listenTo(this.dispatcher, 'lockPaymentRequests', this.updateGlobalStatus);
+        console.log(options.model);
+          //.get("dateExpected").format("MMM Do YYYY"))
       },
       onRender:function(){
         this.checkStatus();
