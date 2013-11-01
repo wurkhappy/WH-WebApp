@@ -6,10 +6,20 @@ define(['backbone','backbone-relational'],
 
 		var Account = Backbone.RelationalModel.extend({
 			urlRoot:function(){
-				//this style of url really couples this model to both its collection and user model
-				//However, we need to make sure a card is associated with a user so I think the coupling
-				//is warranted.
 				return "/user/"+this.collection.user.id+"/bank_account";
+			},
+			verify: function(amounts, successCallback){
+				$.ajax({
+					type: "POST",
+					url: this.url()+"/verify",
+					contentType: "application/json",
+					dataType: "json",
+					data:JSON.stringify(amounts),
+					success: _.bind(function(response){
+						this.set("can_debit", true);
+						successCallback(response);
+					}, this)
+				});
 			}
 		});
 

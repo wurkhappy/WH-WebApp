@@ -5,7 +5,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
     'use strict';
 
-    var ItemView = Backbone.Marionette.CollectionView.extend({
+    var ItemView = Backbone.Marionette.View.extend({
 
       template: Handlebars.compile(itemTpl),
 

@@ -36,7 +36,7 @@ func SaveCard(w http.ResponseWriter, req *http.Request, session *sessions.Sessio
 	buf.ReadFrom(req.Body)
 	jsonData := buf.Bytes()
 	body := bytes.NewReader(jsonData)
-	r, _ := http.NewRequest("POST", PaymentInfoService + "/user/"+id+"/cards", body)
+	r, _ := http.NewRequest("POST", PaymentInfoService+"/user/"+id+"/cards", body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -54,7 +54,7 @@ func DeleteCard(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	cardID := vars["cardID"]
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("DELETE", PaymentInfoService + "/user/"+id+"/cards/"+cardID, nil)
+	r, _ := http.NewRequest("DELETE", PaymentInfoService+"/user/"+id+"/cards/"+cardID, nil)
 	_, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -66,7 +66,7 @@ func GetCards(w http.ResponseWriter, req *http.Request, session *sessions.Sessio
 	id := vars["id"]
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", PaymentInfoService + "/user/"+id+"/cards", nil)
+	r, _ := http.NewRequest("GET", PaymentInfoService+"/user/"+id+"/cards", nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -82,7 +82,7 @@ func GetBankAccounts(w http.ResponseWriter, req *http.Request, session *sessions
 	id := vars["id"]
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", PaymentInfoService + "/user/"+id+"/bank_account", nil)
+	r, _ := http.NewRequest("GET", PaymentInfoService+"/user/"+id+"/bank_account", nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -103,7 +103,7 @@ func SaveBankAccount(w http.ResponseWriter, req *http.Request, session *sessions
 	jsonData := buf.Bytes()
 	log.Print(buf.String())
 	body := bytes.NewReader(jsonData)
-	r, _ := http.NewRequest("POST", PaymentInfoService + "/user/"+id+"/bank_account", body)
+	r, _ := http.NewRequest("POST", PaymentInfoService+"/user/"+id+"/bank_account", body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -121,9 +121,29 @@ func DeleteBankAccount(w http.ResponseWriter, req *http.Request, session *sessio
 	accountID := vars["accountID"]
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("DELETE", PaymentInfoService + "/user/"+id+"/bank_account/"+accountID, nil)
+	r, _ := http.NewRequest("DELETE", PaymentInfoService+"/user/"+id+"/bank_account/"+accountID, nil)
 	_, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
 	}
+}
+
+func VerifyBankAccount(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	id := vars["id"]
+	accountID := vars["accountID"]
+
+	client := &http.Client{}
+	r, _ := http.NewRequest("POST", PaymentInfoService+"/user/"+id+"/bank_account/"+accountID+"/verify", req.Body)
+	resp, err := client.Do(r)
+	if err != nil {
+		fmt.Printf("Error : %s", err)
+	}
+
+	if resp.StatusCode >= 400 {
+		http.Error(w, "Error verifying account", resp.StatusCode)
+		return
+	}
+
+	w.Write([]byte(`{}`))
 }

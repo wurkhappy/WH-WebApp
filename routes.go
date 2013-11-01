@@ -24,6 +24,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user/{id}/bank_account", baseHandler(handlers.GetBankAccounts)).Methods("GET")
 	r.Handle("/user/{id}/bank_account", baseHandler(handlers.SaveBankAccount)).Methods("POST")
 	r.Handle("/user/{id}/bank_account/{accountID}", baseHandler(handlers.DeleteBankAccount)).Methods("DELETE")
+	r.Handle("/user/{id}/bank_account/{accountID}/verify", baseHandler(handlers.VerifyBankAccount)).Methods("POST")
 	r.Handle("/user/{id}/password", baseHandler(handlers.SetNewPassword)).Methods("PUT")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")

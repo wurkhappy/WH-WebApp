@@ -11,7 +11,7 @@ define(['backbone', 'handlebars'],
       attributes:{"id": "popup_container"},
 
       template: template,
-      holder : $('#content'),
+      holder : $('body'),
 
       initialize:function(options){
         this.view = options.view;
