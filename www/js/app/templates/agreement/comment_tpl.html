@@ -1,7 +1,9 @@
 <div>
 	{{#if isThisUserMessage}}
 		<div class="personal_box float_right">
-			<div class="discussion_photo"><img width="40" src="{{thisAvatar}}"></div>
+			<div class="message_photo_container">
+				<img class="message_photo" width="100" src="{{thisAvatar}}">
+			</div>
 			<div class="comment_post_info">
 				<div class="comment_name">{{firstName}} {{lastName}}</div>
 				<div class="comment_date">{{dateCreated}}</div>
@@ -17,7 +19,7 @@
 		</div>
 	{{else}}
 		<div class="personal_box float_left">
-			<div class="discussion_photo"><img width="40" src="{{thisAvatar}}"></div>
+			<div class="message_photo_container"><img class="message_photo" width="100" src="{{thisAvatar}}"></div>
 			<div class="comment_post_info">
 				<div class="comment_name">{{firstName}} {{lastName}}</div>
 				<div class="comment_date">{{dateCreated}}</div>

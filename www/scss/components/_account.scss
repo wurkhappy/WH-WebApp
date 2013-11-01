@@ -2,19 +2,20 @@
 	background: url(/img/check_image.png) no-repeat 470px 184px;
 }
 
-.secure_card:after {
-  background-image: url();
-  padding: 5px;
-  content: "";
-  background-size: 382px;
-  width: 200px;
-  padding: 188px;
-  padding-top: 17px;
-  padding-bottom: 66px;
-  padding-left: 190px;
-  margin-left: 14px;
-}
-
 .account_secure {
 	padding-left:20px;
+  width: 150px;
+}
+
+.stored_payment_methods {
+  float: right;
+  margin-right: 230px;
+}
+
+.credit_card_images {
+  padding-left:20px;
+  position: absolute;
+  top: 16px;
+  right: 55px;
+  width: 200px;
 }

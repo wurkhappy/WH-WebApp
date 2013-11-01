@@ -7,10 +7,13 @@
 	margin-right: 15px;
 	margin-bottom: 0;
 	background: $grey_blue;
+	max-height: 370px;
+	overflow: hidden;
+	overflow-y: scroll;
 }
 
 .add_comment_container {
-	height: 250px;
+	height: 75px;
 	margin: 5px;
 	padding: 10px
 }
@@ -21,7 +24,7 @@
 
 .enter_comment_input {
 	width: 100%;
-	height: 150px;
+	height: 75px;
 	border-radius: 5px;
 }
 
@@ -32,6 +35,8 @@
 
 .comment_container {
 	padding: 10px 0;
+	min-height: 140px;
+	margin-bottom: 20px;
 }
 
 .discussion_placeholder {
@@ -47,12 +52,15 @@
 .comment_date {
 	font-size: 12px;
 	color: hsl(0, 0%, 59%);
+	line-height: 14px;
 }
 
 .comment_name {
 	font-size: 12px;
 	color: hsl(0, 0%, 11%);
 	font-weight: 900;
+	display: inline-block;
+	line-height: 14px;
 }
 
 .milestone_tag, .status_tag {
@@ -139,33 +147,40 @@
 	-moz-opacity: 0;
 	opacity: 0;
 	cursor:pointer;
+	margin-top: 10px;
 	}
 
 .active_select {
 	border: 1px solid hsl(198, 100%, 43%);
 }
 
-.discussion_photo {
-	float: left;
-	margin-right: 20px;
+.message_photo_container {
+	text-align: center;
+	border-radius:15px;
+}
+
+.message_photo {
+	border-radius: 20px;
 }
 
 .comment_post_info {
 	position: relative;
+	text-align: center;
+	margin-top: -11px;
 }
 
 .personal_box {
-	border-radius: 5px;
+	border-radius: 40px;
 	border: 1px solid hsl(0, 0, 87%);
-	padding: 5px;
+	padding: 8px 25px;
 	min-width: 160px;
 	background: white;
 }
 
 .message_box {
-	border-radius: 5px;
+	border-radius: 30px;
 	border: 1px solid hsl(0, 0, 87%);
-	padding: 10px;
+	padding: 5px 27px;
 	width: 550px;
 	min-height: 66px;
 	margin: 0 auto;
@@ -180,11 +195,6 @@
 .float_right {
 	float: right;
 }
-
-
-
-
-
 
 
 

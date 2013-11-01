@@ -52,7 +52,7 @@ table {
 body {
   text-align: center;
   font-family: museo_sans;
-  background: hsl(0, 0%, 65%);
+  background: hsl(0, 0%, 84%);
   color: rgb(100,100,100);
   font-size: 18px;
 }
@@ -173,8 +173,13 @@ fieldset {
   border-top-right-radius: 15px;
 }
 
+.landing_background {
+  background: rgb(220,224,228) url(/img/bg.png) fixed;
+}
+
 .white_background {
   background: white;
+  position: relative;
 }
 
 .main_content_container {

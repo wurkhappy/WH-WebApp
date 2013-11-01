@@ -66,7 +66,7 @@ table {
 body {
   text-align: center;
   font-family: museo_sans;
-  background: #a6a6a6;
+  background: #d6d6d6;
   color: #646464;
   font-size: 18px;
 }
@@ -205,11 +205,17 @@ fieldset {
 }
 
 /* line 176, ../scss/bases/_common.scss */
-.white_background {
-  background: white;
+.landing_background {
+  background: #dce0e4 url(/img/bg.png) fixed;
 }
 
 /* line 180, ../scss/bases/_common.scss */
+.white_background {
+  background: white;
+  position: relative;
+}
+
+/* line 185, ../scss/bases/_common.scss */
 .main_content_container {
   float: left;
   border-radius: 15px;
@@ -218,12 +224,12 @@ fieldset {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 188, ../scss/bases/_common.scss */
+/* line 193, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 192, ../scss/bases/_common.scss */
+/* line 197, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -232,7 +238,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 200, ../scss/bases/_common.scss */
+/* line 205, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -240,13 +246,13 @@ fieldset {
   margin: 0 0 10px 0;
 }
 
-/* line 207, ../scss/bases/_common.scss */
+/* line 212, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 212, ../scss/bases/_common.scss */
+/* line 217, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #dbe0e6;
   clear: both;
@@ -425,7 +431,7 @@ fieldset {
 /* line 10, ../scss/components/_notifications.scss */
 .account_notification_container {
   width: 266px;
-  bottom: -17px;
+  bottom: 3px;
   margin-left: 300px;
   margin-left: 460px;
 }
@@ -1764,39 +1770,44 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-right: 15px;
   margin-bottom: 0;
   background: #dbe0e6;
+  max-height: 370px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
-/* line 12, ../scss/components/_discussion_container.scss */
+/* line 15, ../scss/components/_discussion_container.scss */
 .add_comment_container {
-  height: 250px;
+  height: 75px;
   margin: 5px;
   padding: 10px;
 }
 
-/* line 18, ../scss/components/_discussion_container.scss */
+/* line 21, ../scss/components/_discussion_container.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 22, ../scss/components/_discussion_container.scss */
+/* line 25, ../scss/components/_discussion_container.scss */
 .enter_comment_input {
   width: 100%;
-  height: 150px;
+  height: 75px;
   border-radius: 5px;
 }
 
-/* line 28, ../scss/components/_discussion_container.scss */
+/* line 31, ../scss/components/_discussion_container.scss */
 .comment_action_container {
   float: right;
   height: 80px;
 }
 
-/* line 33, ../scss/components/_discussion_container.scss */
+/* line 36, ../scss/components/_discussion_container.scss */
 .comment_container {
   padding: 10px 0;
+  min-height: 140px;
+  margin-bottom: 20px;
 }
 
-/* line 37, ../scss/components/_discussion_container.scss */
+/* line 42, ../scss/components/_discussion_container.scss */
 .discussion_placeholder {
   text-align: center;
   color: #b3b3b3;
@@ -1807,20 +1818,23 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 90px;
 }
 
-/* line 47, ../scss/components/_discussion_container.scss */
+/* line 52, ../scss/components/_discussion_container.scss */
 .comment_date {
   font-size: 12px;
   color: #969696;
+  line-height: 14px;
 }
 
-/* line 52, ../scss/components/_discussion_container.scss */
+/* line 58, ../scss/components/_discussion_container.scss */
 .comment_name {
   font-size: 12px;
   color: #1c1c1c;
   font-weight: 900;
+  display: inline-block;
+  line-height: 14px;
 }
 
-/* line 58, ../scss/components/_discussion_container.scss */
+/* line 66, ../scss/components/_discussion_container.scss */
 .milestone_tag, .status_tag {
   font-family: museo;
   font-weight: 100;
@@ -1828,45 +1842,45 @@ progress::-webkit-progress-value, progress.yellow_progress {
   position: absolute;
 }
 
-/* line 65, ../scss/components/_discussion_container.scss */
+/* line 73, ../scss/components/_discussion_container.scss */
 .milestone_tag {
   color: #7bb84c;
   bottom: 0;
   right: 5px;
 }
 
-/* line 71, ../scss/components/_discussion_container.scss */
+/* line 79, ../scss/components/_discussion_container.scss */
 .status_tag {
   color: #008bc7;
   bottom: 0;
 }
 
-/* line 77, ../scss/components/_discussion_container.scss */
+/* line 85, ../scss/components/_discussion_container.scss */
 .comment_body {
   font-weight: 300;
   padding: 0;
 }
 
-/* line 82, ../scss/components/_discussion_container.scss */
+/* line 90, ../scss/components/_discussion_container.scss */
 .send_comment {
   color: white;
   background: #009adb;
   border-radius: 5px;
   padding: 10px 21px;
 }
-/* line 87, ../scss/components/_discussion_container.scss */
+/* line 95, ../scss/components/_discussion_container.scss */
 .send_comment:hover {
   color: white;
   text-decoration: none;
   background: #008bc7;
 }
 
-/* line 94, ../scss/components/_discussion_container.scss */
+/* line 102, ../scss/components/_discussion_container.scss */
 .comment_select_padding {
   margin-left: 10px;
 }
 
-/* line 98, ../scss/components/_discussion_container.scss */
+/* line 106, ../scss/components/_discussion_container.scss */
 .selectdiv {
   display: inline-block;
   width: 175px;
@@ -1880,7 +1894,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 15px;
 }
 
-/* line 111, ../scss/components/_discussion_container.scss */
+/* line 119, ../scss/components/_discussion_container.scss */
 .selectdiv:hover, .selectdiv:focus {
   width: 175px;
   border: 1px solid #009adb;
@@ -1890,7 +1904,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 120, ../scss/components/_discussion_container.scss */
+/* line 128, ../scss/components/_discussion_container.scss */
 .out {
   z-index: -1;
   border: 0px solid #000;
@@ -1900,7 +1914,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 129, ../scss/components/_discussion_container.scss */
+/* line 137, ../scss/components/_discussion_container.scss */
 .selectboxdiv {
   height: 40px;
   left: -10px;
@@ -1914,38 +1928,46 @@ progress::-webkit-progress-value, progress.yellow_progress {
   -moz-opacity: 0;
   opacity: 0;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-/* line 144, ../scss/components/_discussion_container.scss */
+/* line 153, ../scss/components/_discussion_container.scss */
 .active_select {
   border: 1px solid #009adb;
 }
 
-/* line 148, ../scss/components/_discussion_container.scss */
-.discussion_photo {
-  float: left;
-  margin-right: 20px;
+/* line 157, ../scss/components/_discussion_container.scss */
+.message_photo_container {
+  text-align: center;
+  border-radius: 15px;
 }
 
-/* line 153, ../scss/components/_discussion_container.scss */
+/* line 162, ../scss/components/_discussion_container.scss */
+.message_photo {
+  border-radius: 20px;
+}
+
+/* line 166, ../scss/components/_discussion_container.scss */
 .comment_post_info {
   position: relative;
+  text-align: center;
+  margin-top: -11px;
 }
 
-/* line 157, ../scss/components/_discussion_container.scss */
+/* line 172, ../scss/components/_discussion_container.scss */
 .personal_box {
-  border-radius: 5px;
+  border-radius: 40px;
   border: 1px solid #dedede;
-  padding: 5px;
+  padding: 8px 25px;
   min-width: 160px;
   background: white;
 }
 
-/* line 165, ../scss/components/_discussion_container.scss */
+/* line 180, ../scss/components/_discussion_container.scss */
 .message_box {
-  border-radius: 5px;
+  border-radius: 30px;
   border: 1px solid #dedede;
-  padding: 10px;
+  padding: 5px 27px;
   width: 550px;
   min-height: 66px;
   margin: 0 auto;
@@ -1953,12 +1975,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   position: relative;
 }
 
-/* line 176, ../scss/components/_discussion_container.scss */
+/* line 191, ../scss/components/_discussion_container.scss */
 .float_left {
   float: left;
 }
 
-/* line 180, ../scss/components/_discussion_container.scss */
+/* line 195, ../scss/components/_discussion_container.scss */
 .float_right {
   float: right;
 }
@@ -1988,22 +2010,24 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /* line 5, ../scss/components/_account.scss */
-.secure_card:after {
-  background-image: url();
-  padding: 5px;
-  content: "";
-  background-size: 382px;
-  width: 200px;
-  padding: 188px;
-  padding-top: 17px;
-  padding-bottom: 66px;
-  padding-left: 190px;
-  margin-left: 14px;
-}
-
-/* line 18, ../scss/components/_account.scss */
 .account_secure {
   padding-left: 20px;
+  width: 150px;
+}
+
+/* line 10, ../scss/components/_account.scss */
+.stored_payment_methods {
+  float: right;
+  margin-right: 230px;
+}
+
+/* line 15, ../scss/components/_account.scss */
+.credit_card_images {
+  padding-left: 20px;
+  position: absolute;
+  top: 16px;
+  right: 55px;
+  width: 200px;
 }
 
 /* FOOTER
