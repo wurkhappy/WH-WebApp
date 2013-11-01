@@ -52,7 +52,7 @@ table {
 body {
   text-align: center;
   font-family: museo_sans;
-  background: rgb(220,224,228) url(/img/bg.png) fixed;
+  background: hsl(0, 0%, 84%);
   color: rgb(100,100,100);
   font-size: 18px;
 }
@@ -169,6 +169,25 @@ fieldset {
 ================================================================================ */
 .content {
   background-color: rgb(255,255,255);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.landing_background {
+  background: rgb(220,224,228) url(/img/bg.png) fixed;
+}
+
+.white_background {
+  background: white;
+  position: relative;
+}
+
+.main_content_container {
+  float:left;
+  border-radius: 15px;
+  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
 .hide {
@@ -195,7 +214,12 @@ fieldset {
   padding: 5px;
 }
 
-
+.divider {
+  border-bottom: 1px solid hsl(213, 18%, 88%);
+  clear: both;
+  margin: 0 auto;
+  width: 95%;
+}
 
 
 

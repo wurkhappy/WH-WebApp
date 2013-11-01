@@ -10,7 +10,7 @@ define(['backbone', 'handlebars', 'text!templates/account/password.html'],
 
       var PasswordView = Backbone.View.extend({
 
-        className:'clear content',
+        className:'clear white_background',
 
         attributes:{'id':'content'},
 

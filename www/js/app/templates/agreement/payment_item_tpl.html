@@ -1,6 +1,6 @@
 <li class="payment_milestone">
-	<strong>${{amount}}</strong> &mdash; {{title}} {{#if date}}on {{this}}{{/if}}
-	<a class="paymentStatus payment_status"></a>
+	<strong>${{amount}}</strong> &mdash; {{title}} {{#if dateExpected}} on {{dateFormat dateExpected}}{{/if}}
+	<div class="paymentStatus payment_status"></div>
 </li>
 	
 <ul class="scope_items_container"></ul>

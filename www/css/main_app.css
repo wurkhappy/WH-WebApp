@@ -66,7 +66,7 @@ table {
 body {
   text-align: center;
   font-family: museo_sans;
-  background: #dce0e4 url(/img/bg.png) fixed;
+  background: #d6d6d6;
   color: #646464;
   font-size: 18px;
 }
@@ -200,14 +200,36 @@ fieldset {
 /* line 170, ../scss/bases/_common.scss */
 .content {
   background-color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-/* line 174, ../scss/bases/_common.scss */
+/* line 176, ../scss/bases/_common.scss */
+.landing_background {
+  background: #dce0e4 url(/img/bg.png) fixed;
+}
+
+/* line 180, ../scss/bases/_common.scss */
+.white_background {
+  background: white;
+  position: relative;
+}
+
+/* line 185, ../scss/bases/_common.scss */
+.main_content_container {
+  float: left;
+  border-radius: 15px;
+  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+}
+
+/* line 193, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 178, ../scss/bases/_common.scss */
+/* line 197, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -216,7 +238,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 186, ../scss/bases/_common.scss */
+/* line 205, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -224,10 +246,18 @@ fieldset {
   margin: 0 0 10px 0;
 }
 
-/* line 193, ../scss/bases/_common.scss */
+/* line 212, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
+}
+
+/* line 217, ../scss/bases/_common.scss */
+.divider {
+  border-bottom: 1px solid #dbe0e6;
+  clear: both;
+  margin: 0 auto;
+  width: 95%;
 }
 
 @font-face {
@@ -401,7 +431,7 @@ fieldset {
 /* line 10, ../scss/components/_notifications.scss */
 .account_notification_container {
   width: 266px;
-  bottom: -17px;
+  bottom: 3px;
   margin-left: 300px;
   margin-left: 460px;
 }
@@ -409,10 +439,11 @@ fieldset {
 /* line 18, ../scss/components/_notifications.scss */
 .message_notification_container {
   width: 266px;
-  margin-top: 20px;
+  margin-top: 8px;
+  margin-left: 140px;
 }
 
-/* line 23, ../scss/components/_notifications.scss */
+/* line 24, ../scss/components/_notifications.scss */
 .notification_text {
   color: rgba(255, 255, 255, 0.7);
   background: rgba(123, 184, 76, 0.8);
@@ -421,27 +452,27 @@ fieldset {
   padding: 2px 0px;
 }
 
-/* line 31, ../scss/components/_notifications.scss */
+/* line 32, ../scss/components/_notifications.scss */
 .password_saved {
   margin-top: -2px;
 }
 
-/* line 35, ../scss/components/_notifications.scss */
+/* line 36, ../scss/components/_notifications.scss */
 .personal_saved {
   margin-top: -2px;
 }
 
-/* line 39, ../scss/components/_notifications.scss */
+/* line 40, ../scss/components/_notifications.scss */
 .credit_card_saved {
   margin-top: 36px;
 }
 
-/* line 43, ../scss/components/_notifications.scss */
+/* line 44, ../scss/components/_notifications.scss */
 .bank_account_saved {
   margin-top: 36px;
 }
 
-/* line 47, ../scss/components/_notifications.scss */
+/* line 48, ../scss/components/_notifications.scss */
 .agreement_notification {
   margin-top: -52px;
 }
@@ -885,31 +916,32 @@ fieldset {
   padding-bottom: 20px;
 }
 
-/* line 7, ../scss/components/_agreement.scss */
-.payment_schedule {
-  border-bottom: 1px solid #e1e1e1;
+/* line 11, ../scss/components/_agreement.scss */
+.agreement_profile_container {
+  padding: 15px 20px 15px 20px;
+  float: left;
 }
 
-/* line 11, ../scss/components/_agreement.scss */
+/* line 16, ../scss/components/_agreement.scss */
 .agreement_title {
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-/* line 16, ../scss/components/_agreement.scss */
+/* line 21, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-/* line 21, ../scss/components/_agreement.scss */
+/* line 26, ../scss/components/_agreement.scss */
 .payment_milestone {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 27, ../scss/components/_agreement.scss */
+/* line 32, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -923,32 +955,32 @@ fieldset {
   color: #646464;
 }
 
-/* line 41, ../scss/components/_agreement.scss */
+/* line 46, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 47, ../scss/components/_agreement.scss */
+/* line 52, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 52, ../scss/components/_agreement.scss */
+/* line 57, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 57, ../scss/components/_agreement.scss */
+/* line 62, ../scss/components/_agreement.scss */
 .scope_item {
   padding: 0;
 }
 
-/* line 61, ../scss/components/_agreement.scss */
+/* line 66, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -962,7 +994,7 @@ fieldset {
   border-bottom-left-radius: 3px;
 }
 
-/* line 74, ../scss/components/_agreement.scss */
+/* line 79, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
@@ -1733,44 +1765,49 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 5px;
   border: 1px solid #dedede;
   padding: 20px;
-  padding-top: 0;
   min-height: 250px;
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 0;
+  background: #dbe0e6;
+  max-height: 370px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
-/* line 12, ../scss/components/_discussion_container.scss */
+/* line 15, ../scss/components/_discussion_container.scss */
 .add_comment_container {
-  height: 250px;
+  height: 75px;
   margin: 5px;
   padding: 10px;
 }
 
-/* line 18, ../scss/components/_discussion_container.scss */
+/* line 21, ../scss/components/_discussion_container.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 22, ../scss/components/_discussion_container.scss */
+/* line 25, ../scss/components/_discussion_container.scss */
 .enter_comment_input {
   width: 100%;
-  height: 150px;
+  height: 75px;
   border-radius: 5px;
 }
 
-/* line 28, ../scss/components/_discussion_container.scss */
+/* line 31, ../scss/components/_discussion_container.scss */
 .comment_action_container {
   float: right;
   height: 80px;
 }
 
-/* line 33, ../scss/components/_discussion_container.scss */
+/* line 36, ../scss/components/_discussion_container.scss */
 .comment_container {
-  padding: 25px 0;
+  padding: 10px 0;
+  min-height: 140px;
+  margin-bottom: 20px;
 }
 
-/* line 37, ../scss/components/_discussion_container.scss */
+/* line 42, ../scss/components/_discussion_container.scss */
 .discussion_placeholder {
   text-align: center;
   color: #b3b3b3;
@@ -1781,65 +1818,69 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 90px;
 }
 
-/* line 47, ../scss/components/_discussion_container.scss */
+/* line 52, ../scss/components/_discussion_container.scss */
 .comment_date {
   font-size: 12px;
   color: #969696;
+  line-height: 14px;
 }
 
-/* line 52, ../scss/components/_discussion_container.scss */
+/* line 58, ../scss/components/_discussion_container.scss */
 .comment_name {
   font-size: 12px;
   color: #1c1c1c;
   font-weight: 900;
+  display: inline-block;
+  line-height: 14px;
 }
 
-/* line 58, ../scss/components/_discussion_container.scss */
+/* line 66, ../scss/components/_discussion_container.scss */
 .milestone_tag, .status_tag {
   font-family: museo;
   font-weight: 100;
   font-size: 16px;
-}
-
-/* line 64, ../scss/components/_discussion_container.scss */
-.milestone_tag {
-  color: #7bb84c;
-  float: right;
-}
-
-/* line 68, ../scss/components/_discussion_container.scss */
-.status_tag {
-  color: #008bc7;
-  float: left;
+  position: absolute;
 }
 
 /* line 73, ../scss/components/_discussion_container.scss */
-.comment_body {
-  font-weight: 300;
-  clear: both;
-  padding: 0;
+.milestone_tag {
+  color: #7bb84c;
+  bottom: 0;
+  right: 5px;
 }
 
 /* line 79, ../scss/components/_discussion_container.scss */
+.status_tag {
+  color: #008bc7;
+  bottom: 0;
+}
+
+/* line 85, ../scss/components/_discussion_container.scss */
+.comment_body {
+  font-weight: 300;
+  padding: 0;
+}
+
+/* line 90, ../scss/components/_discussion_container.scss */
 .send_comment {
   color: white;
   background: #009adb;
   border-radius: 5px;
   padding: 10px 21px;
 }
-/* line 84, ../scss/components/_discussion_container.scss */
+/* line 95, ../scss/components/_discussion_container.scss */
 .send_comment:hover {
   color: white;
   text-decoration: none;
   background: #008bc7;
 }
 
-/* line 91, ../scss/components/_discussion_container.scss */
+/* line 102, ../scss/components/_discussion_container.scss */
 .comment_select_padding {
   margin-left: 10px;
 }
 
-/* line 95, ../scss/components/_discussion_container.scss */
+/* line 106, ../scss/components/_discussion_container.scss */
 .selectdiv {
   display: inline-block;
   width: 175px;
@@ -1853,7 +1894,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 15px;
 }
 
-/* line 108, ../scss/components/_discussion_container.scss */
+/* line 119, ../scss/components/_discussion_container.scss */
 .selectdiv:hover, .selectdiv:focus {
   width: 175px;
   border: 1px solid #009adb;
@@ -1863,7 +1904,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 117, ../scss/components/_discussion_container.scss */
+/* line 128, ../scss/components/_discussion_container.scss */
 .out {
   z-index: -1;
   border: 0px solid #000;
@@ -1873,7 +1914,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 126, ../scss/components/_discussion_container.scss */
+/* line 137, ../scss/components/_discussion_container.scss */
 .selectboxdiv {
   height: 40px;
   left: -10px;
@@ -1887,47 +1928,59 @@ progress::-webkit-progress-value, progress.yellow_progress {
   -moz-opacity: 0;
   opacity: 0;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-/* line 141, ../scss/components/_discussion_container.scss */
+/* line 153, ../scss/components/_discussion_container.scss */
 .active_select {
   border: 1px solid #009adb;
 }
 
-/* line 145, ../scss/components/_discussion_container.scss */
-.discussion_photo {
-  float: left;
-  margin-right: 20px;
+/* line 157, ../scss/components/_discussion_container.scss */
+.message_photo_container {
+  text-align: center;
+  border-radius: 15px;
 }
 
-/* line 150, ../scss/components/_discussion_container.scss */
+/* line 162, ../scss/components/_discussion_container.scss */
+.message_photo {
+  border-radius: 20px;
+}
+
+/* line 166, ../scss/components/_discussion_container.scss */
 .comment_post_info {
+  position: relative;
+  text-align: center;
+  margin-top: -11px;
+}
+
+/* line 172, ../scss/components/_discussion_container.scss */
+.personal_box {
+  border-radius: 40px;
+  border: 1px solid #dedede;
+  padding: 8px 25px;
+  min-width: 160px;
+  background: white;
+}
+
+/* line 180, ../scss/components/_discussion_container.scss */
+.message_box {
+  border-radius: 30px;
+  border: 1px solid #dedede;
+  padding: 5px 27px;
+  width: 550px;
+  min-height: 66px;
+  margin: 0 auto;
+  background: white;
   position: relative;
 }
 
-/* line 154, ../scss/components/_discussion_container.scss */
-.personal_box {
-  border-radius: 5px;
-  border: 1px solid #dedede;
-  padding: 5px;
-  width: 260px;
-}
-
-/* line 161, ../scss/components/_discussion_container.scss */
-.message_box {
-  border-radius: 5px;
-  border: 1px solid #dedede;
-  padding: 5px;
-  width: 575px;
-  min-height: 66px;
-}
-
-/* line 169, ../scss/components/_discussion_container.scss */
+/* line 191, ../scss/components/_discussion_container.scss */
 .float_left {
   float: left;
 }
 
-/* line 173, ../scss/components/_discussion_container.scss */
+/* line 195, ../scss/components/_discussion_container.scss */
 .float_right {
   float: right;
 }
@@ -1949,6 +2002,32 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-bottom: 1px solid #e1e1e1;
   padding: 10px 0;
   list-style: none;
+}
+
+/* line 1, ../scss/components/_account.scss */
+.check_image {
+  background: url(/img/check_image.png) no-repeat 470px 184px;
+}
+
+/* line 5, ../scss/components/_account.scss */
+.account_secure {
+  padding-left: 20px;
+  width: 150px;
+}
+
+/* line 10, ../scss/components/_account.scss */
+.stored_payment_methods {
+  float: right;
+  margin-right: 230px;
+}
+
+/* line 15, ../scss/components/_account.scss */
+.credit_card_images {
+  padding-left: 20px;
+  position: absolute;
+  top: 16px;
+  right: 55px;
+  width: 200px;
 }
 
 /* FOOTER

@@ -66,7 +66,7 @@ table {
 body {
   text-align: center;
   font-family: museo_sans;
-  background: #dce0e4 url(/img/bg.png) fixed;
+  background: #d6d6d6;
   color: #646464;
   font-size: 18px;
 }
@@ -200,14 +200,36 @@ fieldset {
 /* line 170, ../scss/bases/_common.scss */
 .content {
   background-color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-/* line 174, ../scss/bases/_common.scss */
+/* line 176, ../scss/bases/_common.scss */
+.landing_background {
+  background: #dce0e4 url(/img/bg.png) fixed;
+}
+
+/* line 180, ../scss/bases/_common.scss */
+.white_background {
+  background: white;
+  position: relative;
+}
+
+/* line 185, ../scss/bases/_common.scss */
+.main_content_container {
+  float: left;
+  border-radius: 15px;
+  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+}
+
+/* line 193, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 178, ../scss/bases/_common.scss */
+/* line 197, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -216,7 +238,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 186, ../scss/bases/_common.scss */
+/* line 205, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -224,10 +246,18 @@ fieldset {
   margin: 0 0 10px 0;
 }
 
-/* line 193, ../scss/bases/_common.scss */
+/* line 212, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
+}
+
+/* line 217, ../scss/bases/_common.scss */
+.divider {
+  border-bottom: 1px solid #dbe0e6;
+  clear: both;
+  margin: 0 auto;
+  width: 95%;
 }
 
 @font-face {
@@ -680,9 +710,10 @@ fieldset {
   border-bottom: 1px solid #007ab1;
   padding: 20px 0 20px 0;
   color: #cde6f0;
+  height: 600px;
 }
 
-/* line 13, ../scss/components/_benefits.scss */
+/* line 14, ../scss/components/_benefits.scss */
 .benefit {
   border: 5px solid white;
   border-radius: 200px;
@@ -696,7 +727,7 @@ fieldset {
   margin-right: auto;
 }
 
-/* line 28, ../scss/components/_benefits.scss */
+/* line 29, ../scss/components/_benefits.scss */
 .headline,
 .subline,
 .benefit_title {
@@ -704,13 +735,13 @@ fieldset {
   color: white;
 }
 
-/* line 33, ../scss/components/_benefits.scss */
+/* line 34, ../scss/components/_benefits.scss */
 .headline {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   margin-bottom: 0;
 }
 
-/* line 38, ../scss/components/_benefits.scss */
+/* line 39, ../scss/components/_benefits.scss */
 .subline {
   font-family: museo_sans;
   font-weight: 100;
@@ -718,18 +749,23 @@ fieldset {
   font-size: 20px;
 }
 
-/* line 45, ../scss/components/_benefits.scss */
+/* line 46, ../scss/components/_benefits.scss */
 .benefit_description {
   text-align: center;
   font-weight: 300;
 }
 
-/* line 50, ../scss/components/_benefits.scss */
+/* line 51, ../scss/components/_benefits.scss */
 .benefit_title {
   font-size: 22px;
   font-weight: 300;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   margin: 20px 0 8px 0;
+}
+
+/* line 58, ../scss/components/_benefits.scss */
+.benefits_container {
+  padding-top: 220px;
 }
 
 /* Sub- Navigation 
@@ -860,7 +896,7 @@ label {
   border-radius: 10px;
   margin: 0;
   padding: 20px 10px;
-  height: 344px;
+  height: 372px;
   width: 330px;
   position: fixed;
   top: 35%;
@@ -896,7 +932,7 @@ label {
 
 /* line 42, ../scss/components/_login.scss */
 .create_account_form {
-  height: 337px;
+  height: 357px;
   width: 356px;
 }
 
@@ -915,7 +951,7 @@ label {
 
 /* line 58, ../scss/components/_login.scss */
 .forgot_password_form {
-  height: 248px;
+  height: 260px;
   width: 350px;
 }
 
