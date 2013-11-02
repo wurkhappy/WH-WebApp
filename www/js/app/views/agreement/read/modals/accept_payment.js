@@ -77,7 +77,6 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
         });
 
         var triggerNotification = _.debounce(fadeInNotification, 300);
-
         this.trigger('hide');
         triggerNotification();
       },

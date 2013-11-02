@@ -11,11 +11,11 @@
 
     Handlebars.registerHelper('adjustIconColor', function(action) {
       if ( action === 'submitted') {
-        return 'yellow_progress'; //yellow color
+        return 'yellow_progress';
       } else if (action === 'accepted') {
-        return 'green_progress'; // green color
+        return 'green_progress';
       } else if (action === 'rejected') {
-        return 'red_progress'; // red color
+        return 'red_progress';
       } else {
         return 'grey_progress';
       }
@@ -62,7 +62,7 @@
       afterRender: function () {
         var iconSize = 30;
         var payments = this.payments,
-        numberPayments = 2;//payments.length;
+        numberPayments = payments.length;
         var ghostIcons = (numberPayments%2 == 0) ? 3 : 2;
         var totalIconWidth=(numberPayments + ghostIcons-1)*iconSize; //30px is size of each icon
         _.defer( function () {

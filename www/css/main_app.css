@@ -1849,7 +1849,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .milestone_tag {
   color: #7bb84c;
   bottom: 0;
-  right: 5px;
+  right: 20px;
 }
 
 /* line 79, ../scss/components/_discussion_container.scss */
