@@ -24,7 +24,10 @@
 
       events:{
         "click #addMoreButton" : "addMilestone",
-        "click .submit-buttons > a" : "saveAndContinue"
+        "click .submit-buttons > a" : "saveAndContinue",
+        "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
+        "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
+        "click .create_agreement_navigation_link": "showPage"
       },
       appendHtml: function(collectionView, itemView, index){
         itemView.$el.insertBefore(collectionView.$('#addMoreButton'));
@@ -43,6 +46,29 @@
             this.router.navigate('recipient', {trigger:true})
           }, this)
         });
+      },
+
+      showPage: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
+
+        var destination = $(event.currentTarget).attr('href');
+
+        this.model.save({},{
+          success:_.bind(function(model, response){
+            this.router.navigate(destination, {trigger:true})
+          }, this)
+        });
+      },
+
+      mouseEnterNavigation: function (event) {
+          $(event.currentTarget).find("h2").addClass("create_agreement_navigation_link_hover");
+      },
+
+      mouseLeaveNavigation: function (event) {
+          $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
       }
 
     });

@@ -1,0 +1,12 @@
+<div class="progress-large">
+	<div class="icon_container">
+		<i class="fa fa-circle progress_icon"></i><i class="fa fa circle progress_icon {{adjustIconColor currentStatus.action}}"></i><i class="fa fa-circle progress_icon"></i>
+	</div>
+	<progress class="agreement_progress" max="100" value="{{percentComplete}}" data-skill="html5">
+		<!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+		<p style="width:{{percentComplete}}%" data-value="{{percentComplete}}"></p>
+		<div class="agreement_progress_bar">
+			<span style="width: {{percentComplete}}%">{{percentComplete}}%</span>
+		</div>
+	</progress>
+</div>

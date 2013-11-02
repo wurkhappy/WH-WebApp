@@ -29,7 +29,10 @@
       },
       events: {
         "blur input, textarea": "updateField",
-        "click .submit-buttons > a" : "saveAndSendAgreement"
+        "click .submit-buttons > a" : "saveAndSendAgreement",
+        "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
+        "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
+        "click .create_agreement_navigation_link": "showPage"
       },
 
       updateField: function(event){
@@ -51,9 +54,28 @@
 
           this.model.submit(this.model.get("message"), submitSuccess);
         },this)});
+      },
 
-        
+      showPage: function(event) {
+        $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
+        event.preventDefault();
+        event.stopPropagation();
 
+        var destination = $(event.currentTarget).attr('href');
+
+        this.model.save({},{
+          success:_.bind(function(model, response){
+            this.router.navigate(destination, {trigger:true})
+          }, this)
+        });
+      },
+
+      mouseEnterNavigation: function (event) {
+          $(event.currentTarget).find("h2").addClass("create_agreement_navigation_link_hover");
+      },
+
+      mouseLeaveNavigation: function (event) {
+          $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
       }
 
     });

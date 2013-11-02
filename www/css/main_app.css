@@ -1305,12 +1305,100 @@ progress::-webkit-progress-value, progress.yellow_progress {
   z-index: 5;
 }
 
-/* line 152, ../scss/components/_progress_bars.scss */
+/* line 151, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link {
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  width: 100px;
+}
+/* line 156, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link:hover {
+  text-decoration: none;
+}
+
+/* line 161, ../scss/components/_progress_bars.scss */
+.overview_link {
+  left: 0px;
+}
+
+/* line 165, ../scss/components/_progress_bars.scss */
+.payment_schedule_link {
+  left: 150px;
+}
+
+/* line 169, ../scss/components/_progress_bars.scss */
+.recipient_link {
+  left: 300px;
+}
+
+/* line 173, ../scss/components/_progress_bars.scss */
+.create_agreement_icon_container {
+  position: absolute;
+  top: -22.5px;
+  left: -50px;
+  z-index: 5;
+}
+
+/* line 181, ../scss/components/_progress_bars.scss */
 .progress_icon {
   font-size: 26px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+/* line 188, ../scss/components/_progress_bars.scss */
+.create_agreement_progress_icon {
+  color: #d4d9de;
+  position: relative;
+  font-size: 36px;
+}
+
+/* line 194, ../scss/components/_progress_bars.scss */
+.create_agreement_progress {
+  width: 300px;
+  float: right;
+  margin-right: 60px;
+  margin-top: 42px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* line 203, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  background-color: #dfe3e7;
+  color: #636363;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* line 218, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link_hover {
+  background: #a9b3bc;
+}
+
+/* line 222, ../scss/components/_progress_bars.scss */
+.create_agreement_title {
+  float: left;
+}
+
+/* line 226, ../scss/components/_progress_bars.scss */
+.create_agreement_label_first {
+  padding-top: 5px;
+}
+
+/* line 230, ../scss/components/_progress_bars.scss */
+.green_icon {
+  color: #86ce50;
 }
 
 /** Base container **/

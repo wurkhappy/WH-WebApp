@@ -3,7 +3,7 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/agreement/agreement_progress_bar_tpl.html'],
+  'text!templates/create_agreement/progress_bar_tpl.html'],
 
   function (Backbone, Handlebars, _, Marionette, progressBarTemplate) {
 
@@ -19,14 +19,6 @@
       } else {
         return 'grey_progress';
       }
-    });
-
-    Handlebars.registerHelper('midpoint', function(index, options) {
-      var total = options.payments.length;
-      if (total%2 ==0 && (index == total/2 || index == total - 0.5)){
-        return '<i class="fa fa-circle progress_icon" style="opacity:0;"></i>';
-      }
-      return '';
     });
 
     var ProgressBarView = Backbone.View.extend({

@@ -148,6 +148,35 @@ progress::-webkit-progress-value, progress.yellow_progress {
   z-index:5;
 }
 
+.create_agreement_navigation_link {
+  position: absolute;
+  left:0px;
+  text-align: center;
+  width: 100px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.overview_link {
+  left:0px;
+}
+
+.payment_schedule_link {
+  left:150px;
+}
+
+.recipient_link {
+  left:300px;
+}
+
+.create_agreement_icon_container {
+  position: absolute;
+  top: -22.5px;
+  left:-50px;
+  z-index:5;
+}
+
 
 .progress_icon {
   font-size: 26px;
@@ -156,6 +185,51 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 50%;
 }
 
+.create_agreement_progress_icon {
+  color: hsl(210, 13%, 85%);
+  position:relative;
+  font-size: 36px;
+}
+
+.create_agreement_progress {
+  width: 300px;
+  float: right;
+  margin-right: 60px;
+  margin-top: 42px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.create_agreement_navigation {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  background-color: hsl(210, 13%, 89%);
+  color: hsl(0, 0%, 39%);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.create_agreement_navigation_link_hover {
+  background: hsl(210, 13%, 70%);
+}
+
+.create_agreement_title {
+  float: left;
+}
+
+.create_agreement_label_first {
+  padding-top: 5px;
+}
+
+.green_icon {
+  color: $green_progress;
+}
 
 
 

@@ -13,6 +13,7 @@
 
       routes: {
         '': 'proposal',
+        'proposal': 'proposal',
         'estimate': 'estimate',
         'recipient': 'recipient',
       },
