@@ -131,11 +131,15 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .yellow_progress {
-  background: -webkit-linear-gradient( left, $green_progress, $yellow_progress 20%);
+  background: $yellow_progress;
 }
 
 .red_progress {
   background: $red_progress;
+}
+
+.grey_progress {
+  background: hsl(210, 13%, 85%);
 }
 
 .icon_container {
@@ -146,11 +150,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 
 .progress_icon {
-  color: #d4d9de;
   font-size: 26px;
   width:30px;
   height:30px;
-  background-color: #d4d9de;
   border-radius: 50%;
 }
 

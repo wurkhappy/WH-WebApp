@@ -1285,7 +1285,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 133, ../scss/components/_progress_bars.scss */
 .yellow_progress {
-  background: -webkit-linear-gradient(left, #86ce50, #cec150 20%);
+  background: #cec150;
 }
 
 /* line 137, ../scss/components/_progress_bars.scss */
@@ -1294,19 +1294,22 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /* line 141, ../scss/components/_progress_bars.scss */
+.grey_progress {
+  background: #d4d9de;
+}
+
+/* line 145, ../scss/components/_progress_bars.scss */
 .icon_container {
   position: absolute;
   top: 14.5px;
   z-index: 5;
 }
 
-/* line 148, ../scss/components/_progress_bars.scss */
+/* line 152, ../scss/components/_progress_bars.scss */
 .progress_icon {
-  color: #d4d9de;
   font-size: 26px;
   width: 30px;
   height: 30px;
-  background-color: #d4d9de;
   border-radius: 50%;
 }
 

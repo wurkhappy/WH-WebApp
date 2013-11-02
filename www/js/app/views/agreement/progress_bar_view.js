@@ -11,14 +11,14 @@
 
     Handlebars.registerHelper('adjustIconColor', function(action) {
       if ( action === 'submitted') {
-        return 'hsl(54, 56%, 56%);'; //yellow color
+        return 'yellow_progress'; //yellow color
       } else if (action === 'accepted') {
-        return 'hsl(94, 56%, 56%);'; // green color
+        return 'green_progress'; // green color
       } else if (action === 'rejected') {
-        return 'hsl(356, 56%, 56%);'; // red color
+        return 'red_progress'; // red color
+      } else {
+        return 'grey_progress';
       }
-      return 'hsl(210, 13%, 85%)';
-
     });
 
     Handlebars.registerHelper('midpoint', function(index, options) {
@@ -36,6 +36,7 @@
       initialize:function(options){
         this.payments = options.model.get("payments");
         this.percentageComplete = this.payments.getPercentComplete() * 100;
+
       },
 
       render: function () {
@@ -44,11 +45,8 @@
             acceptedPayments = payments.getAcceptedPayments(),
             acceptedOrSubmittedPayments = submittedPayments + acceptedPayments,
             totalPayments = this.payments.length;
-            console.log(acceptedOrSubmittedPayments);
 
         var percentComplete = this.calculatePercentage(totalPayments, acceptedOrSubmittedPayments);
-
-        console.log(percentComplete);
 
         this.$el.html(this.template({
           payments: this.payments.toJSON(),
