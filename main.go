@@ -61,26 +61,8 @@ func (h loginHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 type baseHandler func(http.ResponseWriter, *http.Request, *sessions.Session)
 
 func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
-
-	// Get a session.
-	session, err := store.Get(req, "WebAppSessions")
-	if err != nil {
-	}
-	session.Options.MaxAge = 24 * 60 * 60
-
-	if ok, userID, _ := checkForValidSignature(req, redisPool.Get()); ok {
-		//if it's a valid sig then let's check if the user is already logged in
-		//if they're not then we need some info about them for the handler
-		if _, ok := session.Values["id"]; !ok {
-			// user := getUserInfo(userID)
-			session.Values["id"] = userID
-			// session.Values["isVerified"] = user["isVerified"].(bool)
-			// //if they are a verified user then we treat this as a log in
-			// if user["isVerified"].(bool) {
-			// 	session.Save(req, w)
-			// }
-		}
-	}
+	session := getSession(req)
+	validateSignature(req, session)
 
 	if _, ok := session.Values["id"]; ok {
 		h(w, req, session)
@@ -88,4 +70,61 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		http.Redirect(w, req, "/", http.StatusFound)
 	}
 
+}
+
+type userHandler func(http.ResponseWriter, *http.Request, *sessions.Session)
+
+func (h userHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+
+	session := getSession(req)
+	validateSignature(req, session)
+	vars := mux.Vars(req)
+	if vars["id"] != session.Values["id"].(string) {
+		http.Error(w, "Not authorized", http.StatusForbidden)
+		return
+	}
+
+	if _, ok := session.Values["id"]; ok {
+		h(w, req, session)
+	} else {
+		http.Redirect(w, req, "/", http.StatusFound)
+	}
+}
+
+type agreementHandler func(http.ResponseWriter, *http.Request, *sessions.Session)
+
+func (h agreementHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+
+	session := getSession(req)
+	validateSignature(req, session)
+	vars := mux.Vars(req)
+	if !checkAgreementOwner(vars["id"], session.Values["id"].(string)) {
+		http.Error(w, "Not authorized", http.StatusForbidden)
+		return
+	}
+
+	if _, ok := session.Values["id"]; ok {
+		h(w, req, session)
+	} else {
+		http.Redirect(w, req, "/", http.StatusFound)
+	}
+}
+
+type versionHandler func(http.ResponseWriter, *http.Request, *sessions.Session)
+
+func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+
+	session := getSession(req)
+	validateSignature(req, session)
+	vars := mux.Vars(req)
+	if !checkVersionOwner(vars["id"], session.Values["id"].(string)) {
+		http.Error(w, "Not authorized", http.StatusForbidden)
+		return
+	}
+
+	if _, ok := session.Values["id"]; ok {
+		h(w, req, session)
+	} else {
+		http.Redirect(w, req, "/", http.StatusFound)
+	}
 }

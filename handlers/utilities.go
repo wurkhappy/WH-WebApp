@@ -4,21 +4,21 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/wurkhappy/WH-WebApp/config"
 	"net/http"
 )
 
-
-var UserService string = "http://localhost:3000"
-var PaymentInfoService string = "http://localhost:3120"
-var AgreementsService string = "http://localhost:4050"
-var CommentsService string = "http://localhost:5050"
+var UserService string = config.UserService
+var PaymentInfoService string = config.PaymentInfoService
+var AgreementsService string = config.AgreementsService
+var CommentsService string = config.CommentsService
 
 func getUserInfo(id string) map[string]interface{} {
 	if id == "" {
 		return make(map[string]interface{})
 	}
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", UserService + "/user/search?userid="+id, nil)
+	r, _ := http.NewRequest("GET", UserService+"/user/search?userid="+id, nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)

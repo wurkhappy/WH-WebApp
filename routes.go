@@ -16,16 +16,16 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user", loginHandler(handlers.CreateUser)).Methods("POST")
 
 	r.Handle("/user/new-password", baseHandler(handlers.GetNewPasswordPage)).Methods("GET")
-	r.Handle("/user/{id}", baseHandler(handlers.UpdateUser)).Methods("PUT")
-	r.Handle("/user/{id}/verify", baseHandler(handlers.VerifyUser)).Methods("GET")
-	r.Handle("/user/{id}/cards", baseHandler(handlers.GetCards)).Methods("GET")
-	r.Handle("/user/{id}/cards", baseHandler(handlers.SaveCard)).Methods("POST")
-	r.Handle("/user/{id}/cards/{cardID}", baseHandler(handlers.DeleteCard)).Methods("DELETE")
-	r.Handle("/user/{id}/bank_account", baseHandler(handlers.GetBankAccounts)).Methods("GET")
-	r.Handle("/user/{id}/bank_account", baseHandler(handlers.SaveBankAccount)).Methods("POST")
-	r.Handle("/user/{id}/bank_account/{accountID}", baseHandler(handlers.DeleteBankAccount)).Methods("DELETE")
-	r.Handle("/user/{id}/bank_account/{accountID}/verify", baseHandler(handlers.VerifyBankAccount)).Methods("POST")
-	r.Handle("/user/{id}/password", baseHandler(handlers.SetNewPassword)).Methods("PUT")
+	r.Handle("/user/{id}", userHandler(handlers.UpdateUser)).Methods("PUT")
+	r.Handle("/user/{id}/verify", userHandler(handlers.VerifyUser)).Methods("GET")
+	r.Handle("/user/{id}/cards", userHandler(handlers.GetCards)).Methods("GET")
+	r.Handle("/user/{id}/cards", userHandler(handlers.SaveCard)).Methods("POST")
+	r.Handle("/user/{id}/cards/{cardID}", userHandler(handlers.DeleteCard)).Methods("DELETE")
+	r.Handle("/user/{id}/bank_account", userHandler(handlers.GetBankAccounts)).Methods("GET")
+	r.Handle("/user/{id}/bank_account", userHandler(handlers.SaveBankAccount)).Methods("POST")
+	r.Handle("/user/{id}/bank_account/{accountID}", userHandler(handlers.DeleteBankAccount)).Methods("DELETE")
+	r.Handle("/user/{id}/bank_account/{accountID}/verify", userHandler(handlers.VerifyBankAccount)).Methods("POST")
+	r.Handle("/user/{id}/password", userHandler(handlers.SetNewPassword)).Methods("PUT")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
 
@@ -33,16 +33,16 @@ func initRoutes(r *mux.Router) {
 
 	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
 
-	r.Handle("/agreement/v/{versionID}/payment/{paymentID}/status", baseHandler(handlers.CreatePaymentStatus)).Methods("POST")
-	r.Handle("/agreement/v/{versionID}/status", baseHandler(handlers.CreateAgreementStatus)).Methods("POST")
-	r.Handle("/agreement/{agreementID}/comments", baseHandler(handlers.CreateComment)).Methods("POST")
+	r.Handle("/agreement/v/{versionID}/payment/{paymentID}/status", versionHandler(handlers.CreatePaymentStatus)).Methods("POST")
+	r.Handle("/agreement/v/{versionID}/status", versionHandler(handlers.CreateAgreementStatus)).Methods("POST")
+	r.Handle("/agreement/{agreementID}/comments", agreementHandler(handlers.CreateComment)).Methods("POST")
 
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	r.Handle("/agreement/v", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
-	r.Handle("/agreement/v/{id}", baseHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
-	r.Handle("/agreement/v/{id}", baseHandler(handlers.GetAgreementDetails)).Methods("GET")
-	r.Handle("/agreement/v/{id}", baseHandler(handlers.DeleteAgreement)).Methods("DELETE")
-	r.Handle("/agreements/v/{id}/archive", baseHandler(handlers.ArchiveAgreement)).Methods("POST")
+	r.Handle("/agreement/v/{id}", versionHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
+	r.Handle("/agreement/v/{id}", versionHandler(handlers.GetAgreementDetails)).Methods("GET")
+	r.Handle("/agreement/v/{id}", versionHandler(handlers.DeleteAgreement)).Methods("DELETE")
+	r.Handle("/agreements/v/{id}/archive", versionHandler(handlers.ArchiveAgreement)).Methods("POST")
 }
 
 func home(w http.ResponseWriter, req *http.Request) {

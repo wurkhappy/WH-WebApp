@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
-	"log"
+	// "log"
 	"net/http"
 	"time"
 )
@@ -158,15 +158,12 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	id := vars["id"]
 	agrmntReq, _ := http.NewRequest("GET", AgreementsService + "/agreements/v/"+id, nil)
 	agrmntData, _ := sendRequest(agrmntReq)
-	log.Print(agrmntData)
 
 	commentReq, _ := http.NewRequest("GET", CommentsService + "/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
 	commentsData, _ := sendRequestArray(commentReq)
 
 	r, _ := http.NewRequest("GET", PaymentInfoService + "/user/"+userID.(string)+"/cards", nil)
 	cards, _ := sendRequestArray(r)
-
-	fmt.Println(cards)
 
 	otherID, _ := agrmntData["freelancerID"]
 	if otherID == userID {
