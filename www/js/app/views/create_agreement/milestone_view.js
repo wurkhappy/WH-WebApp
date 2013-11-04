@@ -52,7 +52,6 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
       },
       setDate: function(date, action){
         this.model.set("dateExpected", date);
-        console.log(this.model);
       },
       removeModel: function(event){
         var that = this;

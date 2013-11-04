@@ -478,6 +478,13 @@ fieldset {
   margin-top: -52px;
 }
 
+/* line 52, ../scss/components/_notifications.scss */
+.recipient_notification {
+  bottom: 4px;
+  width: 225px;
+  left: 247px;
+}
+
 /* FORMS
 ================================================================================ */
 /* line 4, ../scss/components/_forms.scss */
