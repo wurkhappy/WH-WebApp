@@ -19,7 +19,9 @@
       itemViewContainer:'ul',
 
       events:{
-        "keypress input" : "addOnEnter"
+        "keypress input" : "addOnEnter",
+        "click .add_comment": "addComment"
+        //"focus input": "fadeError"
       },
 
       addOnEnter: function(event){
@@ -27,6 +29,27 @@
           this.collection.add({text:event.target.value});
           event.target.value = null;
         }
+      },
+
+      addComment: function(event) {
+        var $text = $('.add_work_item_input'),
+            $input = $('input');
+
+        if ($text.val() === '') {
+          $('.add_work_item_error').fadeIn('fast');
+          $input.keypress( function() {
+            $('.add_work_item_error').fadeOut('fast');
+          })
+
+        } else {
+          this.collection.add({text:$text.val()});
+          $text.val(null);
+        }
+      },
+
+      fadeError: function(event) {
+        console.log("hello");
+        $('.add_work_item_error').fadeOut('fast');
       }
 
     });

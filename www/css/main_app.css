@@ -1851,6 +1851,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   text-decoration: none;
 }
 
+/* line 35, ../scss/components/_create_work_item.scss */
+.add_work_item_error {
+  color: #972b46;
+  margin-left: 40px;
+}
+
 /* line 1, ../scss/components/_discussion_container.scss */
 .discussion_container {
   border-radius: 5px;

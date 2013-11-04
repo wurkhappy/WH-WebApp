@@ -11,7 +11,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
 
     var MilestoneView = Backbone.View.extend({
 
-      tagName:'fieldset',
+      tagName:'div',
       className: 'bottom_divider',
 
       template: Handlebars.compile(estimateTemplate),
