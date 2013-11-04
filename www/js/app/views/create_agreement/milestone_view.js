@@ -11,8 +11,8 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
 
     var MilestoneView = Backbone.View.extend({
 
-      tagName:'fieldset',
-      className: 'bottom_divider',
+      tagName:'div',
+      className: 'bottom_divider hide',
 
       template: Handlebars.compile(estimateTemplate),
 
@@ -26,6 +26,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
         var paymentScopeView = new PaymentScopeView({model: this.model, collection:this.model.get('scopeItems')});
         paymentScopeView.render();
         paymentScopeView.$el.insertBefore(this.$('.removeButton'));
+        this.$el.fadeIn('slow');
 
         return this;
 
@@ -51,11 +52,15 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
       },
       setDate: function(date, action){
         this.model.set("dateExpected", date);
-        console.log(this.model);
       },
       removeModel: function(event){
-        this.model.collection.remove(this.model);
+        var that = this;
+        that.$el.fadeOut('fast');
+        _.delay( function() {
+          that.model.collection.remove(that.model);
+        }, 1000);
       }
+
     });
 
 return MilestoneView;

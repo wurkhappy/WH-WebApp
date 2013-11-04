@@ -193,29 +193,30 @@ select {
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
+  width: 100%;
 }
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 170, ../scss/bases/_common.scss */
+/* line 171, ../scss/bases/_common.scss */
 .content {
   background-color: white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 
-/* line 176, ../scss/bases/_common.scss */
+/* line 177, ../scss/bases/_common.scss */
 .landing_background {
   background: #dce0e4 url(/img/bg.png) fixed;
 }
 
-/* line 180, ../scss/bases/_common.scss */
+/* line 181, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 185, ../scss/bases/_common.scss */
+/* line 186, ../scss/bases/_common.scss */
 .main_content_container {
   float: left;
   border-radius: 15px;
@@ -224,12 +225,12 @@ fieldset {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 193, ../scss/bases/_common.scss */
+/* line 194, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 197, ../scss/bases/_common.scss */
+/* line 198, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -238,7 +239,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 205, ../scss/bases/_common.scss */
+/* line 206, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -246,13 +247,13 @@ fieldset {
   margin: 0 0 10px 0;
 }
 
-/* line 212, ../scss/bases/_common.scss */
+/* line 213, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 217, ../scss/bases/_common.scss */
+/* line 218, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #dbe0e6;
   clear: both;
@@ -475,6 +476,13 @@ fieldset {
 /* line 48, ../scss/components/_notifications.scss */
 .agreement_notification {
   margin-top: -52px;
+}
+
+/* line 52, ../scss/components/_notifications.scss */
+.recipient_notification {
+  bottom: 4px;
+  width: 225px;
+  left: 247px;
 }
 
 /* FORMS
@@ -1791,7 +1799,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 1, ../scss/components/_create_estimate.scss */
 .addMoreButton {
-  width: 290px;
+  width: 100%;
 }
 
 /* line 5, ../scss/components/_create_estimate.scss */
@@ -1849,6 +1857,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .create_scope_item_delete:hover {
   color: #972b46;
   text-decoration: none;
+}
+
+/* line 35, ../scss/components/_create_work_item.scss */
+.add_work_item_error {
+  color: #972b46;
+  margin-left: 40px;
 }
 
 /* line 1, ../scss/components/_discussion_container.scss */
