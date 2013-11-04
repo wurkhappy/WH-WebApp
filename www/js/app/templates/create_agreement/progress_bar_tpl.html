@@ -1,12 +1,24 @@
-<div class="progress-large">
-	<div class="icon_container">
-		<i class="fa fa-circle progress_icon"></i><i class="fa fa circle progress_icon {{adjustIconColor currentStatus.action}}"></i><i class="fa fa-circle progress_icon"></i>
-	</div>
-	<progress class="agreement_progress" max="100" value="{{percentComplete}}" data-skill="html5">
-		<!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
-		<p style="width:{{percentComplete}}%" data-value="{{percentComplete}}"></p>
-		<div class="agreement_progress_bar">
-			<span style="width: {{percentComplete}}%">{{percentComplete}}%</span>
-		</div>
-	</progress>
+<h2 class="create_agreement_title">{{title}}</h2>
+<div class="progress-large create_agreement_progress">
+  <div class="create_agreement_icon_container">
+    <a class="create_agreement_navigation_link overview_link" href="#proposal">
+      <h2 class="create_agreement_navigation">Overview</h2>
+      <i class="fa fa-circle {{icon_color 0 value}} create_agreement_progress_icon"></i>
+    </a>
+  <a class="create_agreement_navigation_link payment_schedule_link" href="#estimate">
+      <h2 class="create_agreement_navigation">Payment</h2>
+      <i class="fa fa-circle {{icon_color 1 value}} create_agreement_progress_icon"></i>
+    </a>
+    <a class="create_agreement_navigation_link recipient_link" href="#review">
+      <h2 class="create_agreement_navigation">Review</h2>
+      <i class="fa fa-circle {{icon_color 2 value}} create_agreement_progress_icon"></i>
+    </a>
+  </div>
+  <progress class="agreement_progress" max="100" value="{{value}}" data-skill="html5">
+    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+    <p style="width:50%" data-value="50"></p>
+    <div class="agreement_progress_bar">
+      <span style="width:50%"></span>
+    </div>
+  </progress>
 </div>
