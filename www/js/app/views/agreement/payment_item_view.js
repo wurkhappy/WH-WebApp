@@ -16,24 +16,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       itemView: ScopeItemView,
       itemViewContainer:'.scope_items_container',
 
-      events:{
-        "click .request-button":"submitPayment"
-      },
-
       initialize:function(options){
         this.collection = this.model.get("scopeItems");
-        this.dispatcher = options.dispatcher;
         this.userIsClient = options.userIsClient;
         this.listenTo(this.model, 'change',this.checkStatus)
-        if(this.dispatcher) this.listenTo(this.dispatcher, 'lockPaymentRequests', this.updateGlobalStatus);
-        console.log(options.model);
           //.get("dateExpected").format("MMM Do YYYY"))
       },
       onRender:function(){
-        this.checkStatus();
-      },
-      updateGlobalStatus: function(lockRequests){
-        this.blockRequests = lockRequests;
         this.checkStatus();
       },
       checkStatus:function(){
@@ -56,9 +45,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       },
       acceptedState:function(){
         this.$('.paymentStatus').html('<span class="payment_status">Payment Made</span>');
-      },
-      submitPayment:function(){
-        this.model.submit();
       }
 
     });

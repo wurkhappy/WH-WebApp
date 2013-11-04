@@ -3,60 +3,66 @@
 var user = {{.user}};
 </script>
 <div id="mainContainer"> <!-- div for main container -->
-	<div class="clear intro">
-		<div class="column-three-fourth">
-			<h1>Create Client Agreement</h1>
-		</div>
-		<div class="column-one-fourth">
-			<ul class="action_button_container">
-				<li><a href="#" id="cancelAgreement" class="button cancel">Cancel Agreement</a></li>
-			</ul>
+	<div id="header-section">
+		<div class="clear intro">
+			<div class="column-three-fourth">
+				<h1>Create Client Agreement</h1>
+			</div>
+			<div class="column-one-fourth">
+				<ul class="action_button_container">
+					<li><a href="#" id="cancelAgreement" class="button cancel">Cancel Agreement</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 
 	<div id="contentWrapper"> <!-- div for content -->
 		<div id="content" class="clear white_background">
-
-			<h2 class="create_agreement_title">Agreement Overview</h2>
-			<div class="progress-large create_agreement_progress">
-			  <div class="create_agreement_icon_container">
-			  	<a class="create_agreement_navigation_link overview_link" href="proposal">
-			  		<h2 class="create_agreement_navigation">Overview</h2>
-			  		<i class="fa fa-circle green_icon create_agreement_progress_icon"></i>
-			  	</a>
-				<a class="create_agreement_navigation_link payment_schedule_link" href="estimate">
-			  		<h2 class="create_agreement_navigation">Payment</h2>
-			  		<i class="fa fa-circle create_agreement_progress_icon"></i>
-			  	</a>
-			  	<a class="create_agreement_navigation_link recipient_link" href="recipient">
-			  		<h2 class="create_agreement_navigation">Recipient</h2>
-			  		<i class="fa fa-circle create_agreement_progress_icon"></i>
-			  	</a>
-			  </div>
-			  <progress class="agreement_progress" max="100" value="" data-skill="html5">
-			    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
-			    <p data-value="">HTML5</p>
-			    <div class="agreement_progress_bar">
-			      <span></span>
-			    </div>
-			  </progress>
+			<div id="progress-section">
+				<h2 class="create_agreement_title">Agreement Overview</h2>
+				<div class="progress-large create_agreement_progress">
+					<div class="create_agreement_icon_container">
+						<a class="create_agreement_navigation_link overview_link" href="proposal">
+							<h2 class="create_agreement_navigation">Overview</h2>
+							<i class="fa fa-circle green_icon create_agreement_progress_icon"></i>
+						</a>
+						<a class="create_agreement_navigation_link payment_schedule_link" href="estimate">
+							<h2 class="create_agreement_navigation">Payment</h2>
+							<i class="fa fa-circle create_agreement_progress_icon"></i>
+						</a>
+						<a class="create_agreement_navigation_link recipient_link" href="recipient">
+							<h2 class="create_agreement_navigation">Review</h2>
+							<i class="fa fa-circle create_agreement_progress_icon"></i>
+						</a>
+					</div>
+					<progress class="agreement_progress" max="100" value="" data-skill="html5">
+						<!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+						<p data-value="">HTML5</p>
+						<div class="agreement_progress_bar">
+							<span></span>
+						</div>
+					</progress>
+				</div>
 			</div>
 
-			<form action="#" method="get" accept-charset="utf-8">
-			  <fieldset>
-			    <label class="create_agreement_label_first" for="role">Role</label>
-			    <input type="radio" name="role" value="freelancerID" checked>Freelancer
-			    <input class="role_type" type="radio" name="role" value="clientID">Client
-			    <label for="title">Title</label>
-			    <input type="text" name="title" placeholder="Title of project" id="" size="50">
-			    <label for="proposedServices">Summary <span>Manage service agreement template in the <a href="">preferences</a> section.</span></label>
-			    <textarea name="proposedServices" rows="3" cols="100" placeholder="What kind of work will you be doing?"></textarea>
-			    <label for="independent_status">Independent Contractor Status<span>Do you work for yourself?</span></label>
-			    <input name="independent_status" data-clauseid=0 type="checkbox" data-text="I am an independent contractor, not an employee. I am solely responsible for all taxes, withholdings, insurance, and any other obligations that may apply to an independent contractor.">I am an independent contractor, not an employee. I am solely responsible for all taxes, withholdings, insurance, and any other obligations that may apply to an independent contractor.
-			    <fieldset class="submit-buttons">
-			      <a class="single">Save and Continue</a>
-			    </fieldset>
-			  </form>
+			<div id="main-section">
+				<form action="#" method="get" accept-charset="utf-8">
+					<fieldset>
+						<label class="create_agreement_label_first" for="role">Role</label>
+						<input type="radio" name="role" value="freelancerID" checked>Freelancer
+						<input class="role_type" type="radio" name="role" value="clientID">Client
+						<label for="title">Title</label>
+						<input type="text" name="title" placeholder="Title of project" id="" size="50">
+						<label for="proposedServices">Summary <span>Manage service agreement template in the <a href="">preferences</a> section.</span></label>
+						<textarea name="proposedServices" rows="3" cols="100" placeholder="What kind of work will you be doing?"></textarea>
+						<label for="independent_status">Independent Contractor Status<span>Do you work for yourself?</span></label>
+						<input name="independent_status" data-clauseid=0 type="checkbox" data-text="I am an independent contractor, not an employee. I am solely responsible for all taxes, withholdings, insurance, and any other obligations that may apply to an independent contractor.">I am an independent contractor, not an employee. I am solely responsible for all taxes, withholdings, insurance, and any other obligations that may apply to an independent contractor.
+						<fieldset class="submit-buttons">
+							<a class="single">Save and Continue</a>
+						</fieldset>
+					</fieldset>
+				</form>
+			</div>
 		</div>
 	</div> <!-- end div for main content -->
 </div> <!-- end main container -->

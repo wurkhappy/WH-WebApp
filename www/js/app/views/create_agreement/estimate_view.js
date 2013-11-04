@@ -43,7 +43,7 @@
 
         this.model.save({},{
           success:_.bind(function(model, response){
-            this.router.navigate('recipient', {trigger:true})
+            window.location.hash = 'review';
           }, this)
         });
       },
@@ -58,7 +58,7 @@
 
         this.model.save({},{
           success:_.bind(function(model, response){
-            this.router.navigate(destination, {trigger:true})
+            window.location.hash = destination;
           }, this)
         });
       },

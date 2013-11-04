@@ -16,13 +16,12 @@
       template: Handlebars.compile(scopeTemplate),
 
       initialize: function (options) {
-        this.router = options.router;
         this.userID = options.userID;
         this.render();
       },
 
       render: function () {
-        this.$el.html(this.template());
+        this.$el.html(this.template(this.model.toJSON()));
         return this;
       },
 
@@ -59,7 +58,7 @@
         this.model.set("draft", true);
         this.model.save({},{
           success:_.bind(function(model, response){
-            this.router.navigate('estimate', {trigger:true})
+            window.location.hash = 'estimate';
           }, this)
         });
       },
@@ -73,7 +72,7 @@
 
         this.model.save({},{
           success:_.bind(function(model, response){
-            this.router.navigate(destination, {trigger:true})
+            window.location.hash = destination;
           }, this)
         });
       },

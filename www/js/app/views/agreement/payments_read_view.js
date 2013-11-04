@@ -15,29 +15,15 @@
 
       itemView: PaymentItemView,
       itemViewContainer:'ul',
-      itemViewOptions:function(){
-        return {
-          dispatcher: this.dispatcher,
-          userIsClient: this.userIsClient
-        };
-      },
 
       initialize:function(){
-        this.dispatcher = _.clone(Backbone.Events);
-        this.userIsClient = window.thisUser.id === this.model.get("clientID");
         this.collection = this.model.get("payments");
-        this.listenTo(this.model, 'change:currentStatus', this.updateState);
       },
       onRender:function(){
         this.$('#payments-total').text('$'+this.collection.getTotalAmount());
-        this.updateState();
       },
       updateState:function(){
         var status = this.model.get("currentStatus");
-
-        var lockPaymentRequests = false;
-        if (!status || status.get("action") === status.StatusSubmitted) lockPaymentRequests = true;
-        this.dispatcher.trigger('lockPaymentRequests', lockPaymentRequests);
       }
     });
 

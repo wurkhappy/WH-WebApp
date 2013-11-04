@@ -1,0 +1,14 @@
+<header class="bottom_divider pay_header_container">
+	<h2 class="pay_header">Submit Agreement</h2>
+	<form action="#" method="get" accept-charset="utf-8">
+		<fieldset>
+			{{#unless clientID}}
+			<label for="clientEmail">Recipient:</label> 
+			<input name="clientEmail">
+			{{/unless}}
+			<label for="message">Message:</label> 
+			<textarea name="message" rows="3" cols="40" placeholder=""></textarea>
+			<a id="submit-button" class="button action_button">Submit</a>
+		</fieldset>
+	</form>
+</header>
