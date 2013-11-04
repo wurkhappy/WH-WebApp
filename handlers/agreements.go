@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
-	// "log"
+	"log"
 	"net/http"
 	"time"
 )
@@ -18,6 +18,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	userID := session.Values["id"]
 
 	agreementsData := getCurrentAgreements(userID.(string))
+	log.Printf("agreements are: %s", agreementsData)
 
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
 
@@ -111,7 +112,7 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 	vars := mux.Vars(req)
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("PUT", AgreementsService + "/agreements/v/"+vars["id"], req.Body)
+	r, _ := http.NewRequest("PUT", AgreementsService + "/agreements/v/"+vars["versionID"], req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -143,7 +144,7 @@ func DeleteAgreement(w http.ResponseWriter, req *http.Request, session *sessions
 	vars := mux.Vars(req)
 	client := &http.Client{}
 
-	r, _ := http.NewRequest("DELETE", AgreementsService + "/agreements/v/"+vars["id"], nil)
+	r, _ := http.NewRequest("DELETE", AgreementsService + "/agreements/v/"+vars["versionID"], nil)
 	_, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -155,7 +156,7 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	userID := session.Values["id"]
 
 	vars := mux.Vars(req)
-	id := vars["id"]
+	id := vars["versionID"]
 	agrmntReq, _ := http.NewRequest("GET", AgreementsService + "/agreements/v/"+id, nil)
 	agrmntData, _ := sendRequest(agrmntReq)
 
@@ -251,7 +252,7 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 	vars := mux.Vars(req)
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("POST", AgreementsService + "/agreements/v/"+vars["id"]+"/archive", req.Body)
+	r, _ := http.NewRequest("POST", AgreementsService + "/agreements/v/"+vars["versionID"]+"/archive", req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)

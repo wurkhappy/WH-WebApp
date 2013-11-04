@@ -105,7 +105,8 @@ func checkOwner(agreementid, userid string, r *http.Request) bool {
 
 	//check redis for the agreement
 	v, err := redis.Values(c.Do("HGETALL", agreementid))
-	if err != nil || len(v) == 0 {
+	redis.ScanStruct(v, &owners)
+	if err != nil || len(v) == 0 || owners.ClientID == ""{
 		//if we can't find the agreement then let's ask the agreement service for the owners
 		client := &http.Client{}
 		resp, err := client.Do(r)
@@ -130,9 +131,6 @@ func checkOwner(agreementid, userid string, r *http.Request) bool {
 
 	} else {
 		//we found the agreement in the cache so let's check if the request is good
-		if err := redis.ScanStruct(v, &owners); err != nil {
-			return false
-		}
 		if owners.ClientID == userid || owners.FreelancerID == userid {
 			return true
 		}

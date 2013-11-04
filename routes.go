@@ -39,10 +39,10 @@ func initRoutes(r *mux.Router) {
 
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	r.Handle("/agreement/v", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
-	r.Handle("/agreement/v/{id}", versionHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
-	r.Handle("/agreement/v/{id}", versionHandler(handlers.GetAgreementDetails)).Methods("GET")
-	r.Handle("/agreement/v/{id}", versionHandler(handlers.DeleteAgreement)).Methods("DELETE")
-	r.Handle("/agreements/v/{id}/archive", versionHandler(handlers.ArchiveAgreement)).Methods("POST")
+	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
+	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.GetAgreementDetails)).Methods("GET")
+	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.DeleteAgreement)).Methods("DELETE")
+	r.Handle("/agreements/v/{versionID}/archive", versionHandler(handlers.ArchiveAgreement)).Methods("POST")
 }
 
 func home(w http.ResponseWriter, req *http.Request) {

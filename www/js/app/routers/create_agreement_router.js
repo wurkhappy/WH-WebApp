@@ -23,7 +23,6 @@
         this.model = new AgreementModel({freelancerID:this.user.id});
         this.model.get("payments").add({title:"Deposit"});
         this.mainContainer = new MainContainerView({model: this.model});
-        this.user = new UserModel(window.user);
       },
 
       proposal: function () {
