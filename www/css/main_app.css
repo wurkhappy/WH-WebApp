@@ -918,6 +918,48 @@ fieldset {
   margin-left: 20px;
 }
 
+/* line 17, ../scss/components/_create_agreement.scss */
+.create_milestone_container {
+  padding-bottom: 0;
+}
+
+/* line 21, ../scss/components/_create_agreement.scss */
+.edit_helper {
+  position: absolute;
+  top: -47px;
+  left: 19px;
+}
+
+/* line 27, ../scss/components/_create_agreement.scss */
+.send_email {
+  text-align: left;
+}
+
+/* line 31, ../scss/components/_create_agreement.scss */
+.send_header {
+  text-align: left;
+}
+
+/* line 35, ../scss/components/_create_agreement.scss */
+.recipient_input {
+  width: 338px;
+}
+
+/* line 39, ../scss/components/_create_agreement.scss */
+.message_panel {
+  left: 30%;
+}
+
+/* line 43, ../scss/components/_create_agreement.scss */
+.send_email_recipient {
+  padding-top: 10px;
+}
+
+/* line 47, ../scss/components/_create_agreement.scss */
+.personal_message_container {
+  padding: 10px 0;
+}
+
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
   border-bottom: 1px solid #f0f0f0;

@@ -28,12 +28,23 @@ define(['backbone', 'handlebars'],
 
       events: {
         "click .close": "hide",
+        "click .personal_message_link": "showPersonalMessage"
       },
       show: function(){
         this.$('#overlay').fadeIn('slow');
       },
       hide: function(event) {
         this.$('#overlay').fadeOut('slow');
+      },
+      showPersonalMessage: function() {
+        $(".panel").animate({
+          left: "30%",
+          width: "900px"
+        }, "fast");
+        $(".personal_message_helper").fadeOut('fast');
+        _.defer( function() {
+          $(".personal_message_container").fadeIn('fast');
+        });
       }
 
     });
