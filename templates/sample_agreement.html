@@ -9,8 +9,8 @@
   </div>
   <div class="column-one-fourth">
     <ul class="action_button_container">
-      <li data-intro="Make or request a payment. It's as simple as a click." data-step="5" data-position="bottom"><a id="action-button1" class="button action_button">Request Payment</a></li>
-      <li data-intro="Requirements often change. Amend your agreement at any time." data-step="6" data-position="bottom"><a id="action-button1" class="button action_button">Edit Agreement</a></li>
+      <li data-intro="Make or request a payment. It's as simple as a click." data-step="5" data-position="bottom"><a id="action-button1" class="button action_button" onclick="Message()">Request Payment</a></li>
+      <li data-intro="Requirements often change. Amend your agreement at any time." data-step="6" data-position="bottom"><a id="action-button1" class="button action_button" onclick="Message()">Edit Agreement</a></li>
       <!--<li><a id="action-button2" class="button action_button">Edit Agreement</a></li>-->
     </ul>
   </div>
@@ -111,7 +111,7 @@
 
       </select>
       <div class="out">Choose Action...</div></div></div>
-      <a class="send_comment">Send</a>
+      <a class="send_comment" onclick="Message()">Send</a>
     </div>
   </div></div></div>
 
@@ -136,6 +136,10 @@
   </div>
 </div>
 <script>
+function Message (){
+  alert("Sorry, this is just a sample agreement. Go back to our home page and you can get started!");
+}
+
 introJs().onchange(function(targetElement) {
   var elem = targetElement;
   setTimeout( function(){
