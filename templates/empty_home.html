@@ -1,0 +1,30 @@
+{{define "content"}}
+<script>
+var currentUser = {{.thisUser}};
+</script>
+<div id="intro" class="clear intro">
+
+  <div class="column-three-fourth">
+
+    <h1>0 Client Agreements</h1>
+
+  </div>
+  <div class="column-one-fourth">
+
+    <ul class="action_button_container">
+      <li><a href="/agreements/new" class="button action_button">Create Agreement</a></li>
+    </ul>
+
+  </div>
+
+</div>
+
+
+<div id="content" class="clear white_background">
+  <div class="empty_home">
+    <h2>Welcome To Wurk Happy!</h2>
+    <p>You don't have any live agreements right now. Feel free to click that big green button up top and get started. If this is your first time, feel free to check out our <a href="/agreement/v/sample">tutorial</a>.</p>
+  </div>
+</div>
+{{end}}
+

@@ -150,6 +150,8 @@ introJs().onchange(function(targetElement) {
           offsetTop += elem.offsetTop;
       }
     } while( elem = elem.offsetParent );
+    console.log(offsetTop);
+    if (offsetTop < 600) offsetTop = 200;
     window.scrollTo(0, offsetTop - 200)}, 1 );
 }).setOptions({tooltipPosition: "top", showStepNumbers: false}).start();
 </script>

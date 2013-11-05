@@ -35,11 +35,20 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		t, _ := time.Parse(time.RFC3339, date)
 		return t.Format("Jan 2, 2006")
 	}
+	var tpl *template.Template
+	var err error
+	if len(agreementsData) > 0 {
+		tpl, err = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+			"templates/_baseApp.html",
+			"templates/freelancer_home.html",
+		)
+	} else {
+		tpl, err = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+			"templates/_baseApp.html",
+			"templates/empty_home.html",
+		)
+	}
 
-	tpl, err := template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
-		"templates/_baseApp.html",
-		"templates/freelancer_home.html",
-	)
 	template.Must(tpl, err)
 
 	tpl.Execute(w, m)
