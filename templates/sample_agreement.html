@@ -1,0 +1,153 @@
+{{define "content"}}
+
+<script src="/js/lib/intro.js/intro.js"></script>
+<link href="/js/lib/intro.js/introjs.css" rel="stylesheet">
+
+<div id="content" class="clear content">  <div id="header-section"><div><div id="intro" class="clear intro">
+  <div class="column-three-fourth">
+    <h1>Sample Agreement</h1>
+  </div>
+  <div class="column-one-fourth">
+    <ul class="action_button_container">
+      <li data-intro="Make or request a payment. It's as simple as a click." data-step="5" data-position="bottom"><a id="action-button1" class="button action_button">Request Payment</a></li>
+      <li data-intro="Requirements often change. Amend your agreement at any time." data-step="6" data-position="bottom"><a id="action-button1" class="button action_button">Edit Agreement</a></li>
+      <!--<li><a id="action-button2" class="button action_button">Edit Agreement</a></li>-->
+    </ul>
+  </div>
+
+</div>
+<div id="popup_container"></div></div></div>
+<div id="agreement-profile" class="data-table agreement_profile_container"><div><table border="0" cellspacing="0" cellpadding="0">
+
+  <tbody><tr>
+    <td class="meta">
+      <span><img src="http://localhost:4000/img/default_photo.jpg"></span>
+    </td>
+    <td>
+      <h3><a href="detail.html"> </a></h3>
+      <p >matt@wurkhappy.com </p>
+    </td>
+  </tr>
+  
+</tbody></table></div></div>
+<div class="divider"></div>
+<div class="notification_container agreement_notification hide"><p class="notification_text bank_account_saved"><i class="fa fa-check"></i></p><p></p></div>
+<div id="notifications"></div>
+<div data-intro="See how far along you are" data-step="3" id="agreement-progress-bar"><div><div class="progress-large">
+  <div class="icon_container">
+    <i class="fa fa-circle progress_icon" style="opacity: 0; margin-left: -15px; margin-right: 97.5px;"></i><i class="fa fa circle progress_icon green_progress" style="margin-left: 97.5px; margin-right: 97.5px;"></i><i class="fa fa circle progress_icon grey_progress" style="margin-left: 97.5px; margin-right: 97.5px;"></i><i class="fa fa circle progress_icon grey_progress" style="margin-left: 97.5px; margin-right: 97.5px;"></i><i class="fa fa-circle progress_icon" style="opacity: 0; margin-left: 97.5px; margin-right: 0px;"></i>
+  </div>
+  <progress class="agreement_progress yellow_progress" max="100" value="50" data-skill="html5">
+    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+    <p style="width:0%" data-value="0">HTML5</p>
+    <div class="agreement_progress_bar">
+      <span style="width: 0%">0%</span>
+    </div>
+  </progress>
+</div></div></div>
+<div data-intro="Track all of your payment milestones" data-step="1" id="payment-schedule" class="clear"><div><h2 class="agreement_title">Payment Milestones for <span id="payments-total">$4000</span></h2>
+
+  <ul class="payment_milestone_container"><div><li class="payment_milestone">
+    <strong>$1250</strong> — Deposit  on Nov 5, 2013
+    <div class="paymentStatus payment_status"></div>
+  </li>
+  
+  <ul class="scope_items_container"></ul>
+</div><div><li class="payment_milestone">
+<strong>$1500</strong> — First Design Review  on Nov 12, 2013
+<div class="paymentStatus payment_status"></div>
+</li>
+
+<ul data-intro="Track the items for each payment milestone" data-step="2"  class="scope_items_container"><div><li class="scope_item">Header and Footer Rebranding</li></div><div><li class="scope_item">Product Page Usability</li></div></ul>
+</div><div><li class="payment_milestone">
+<strong>$1250</strong> — Final Design Review  on Nov 19, 2013
+<div class="paymentStatus payment_status"></div>
+</li>
+
+<ul class="scope_items_container"><div><li class="scope_item">Checkout Process Engagement</li></div><div><li class="scope_item">Customer Login</li></div></ul>
+</div></ul></div></div>
+<div class="divider"></div>
+
+<div id="proposed-services" class="column-one-half">
+  <h2 class="agreement_title">Agreement Overview</h2>
+  <p>I will design an ecommerce website to help reinvent the Wurk Happy brand. The website redesign has three important goals:
+<br/>
+<br/>
+    1. increase accessibility and usability<br/>
+    2. Improve the aestethic feel to build brand identity and reinforce feelings of trust.<br/>
+    3. Increase engagement by making Wurk Happy the software freelancers want to use with their clients.</p>
+  </div>
+
+  <div id="clauses" class="column-one-half"><div> 
+   <h2 class="agreement_title">Clauses</h2>
+   <p class="checkmark">No clauses have been added.</p>
+ </div></div>
+ <div class="divider"></div>
+
+
+ <div data-intro="Send messages to the client/freelancer. We will send an email for you with every message." data-step="4" id="discussion" class="clear"><div><h2>Messages</h2>
+  <h3 class="helper_text">We send out an email everytime you post a message.</h3>
+  <ul class="discussion_container">
+
+  </ul>
+  <div class="add_comment_container">
+    <textarea class="enter_comment_input inline" placeholder="Click here to leave a message."></textarea>
+    <div class="comment_action_container">
+      <div id="select" class="selectdiv">  
+        <select class="inline comment_select_padding selectboxdiv" id="milestoneSelect">
+          <option value="General" disabled="" selected="">Choose Milestone...</option>
+
+          <option value="cd7cf26a-67d4-4ac8-4682-ec04495d29d3">Deposit</option>
+
+          <option value="703b212e-d634-4f9d-4dec-ee4da2a9d32a">First Design Review</option>
+
+          <option value="53fd56a7-7207-4cbf-7923-6c5c0e5ece11">Final Design Review</option>
+
+        </select>
+        <div class="out">Choose Milestone...</div>
+      </div>
+      <div id="action-select-wrapper" class="inline comment_select_padding"><div id="actionSelect" class="selectdiv"><select class="selectboxdiv" id="actionSelect">
+        <option value="" selected="" disabled="">Choose Action...</option>
+
+      </select>
+      <div class="out">Choose Action...</div></div></div>
+      <a class="send_comment">Send</a>
+    </div>
+  </div></div></div>
+
+  <div id="popup_container"></div>
+
+  <div class="payment"></div>
+
+
+  
+  
+  <div class="clear agreement_history">
+   <h2 class="agreement_title">Agreement History</h2>
+   <div id="agreement-history"><ul class="agreement_history_items_container">
+    <li class="agreement_history_items"> on Sun Dec 31 0000 19:00:00 GMT-0500
+      <div class="comments-container"></div>
+    </li></ul></div>
+  </div>
+  <div class="clear">
+    <p class="void_agreement">
+      If, for whatever reason, you feel this agreement is no longer valid, you can <a href="void.html">void the agreement</a>.
+    </p>
+  </div>
+</div>
+<script>
+introJs().onchange(function(targetElement) {
+  var elem = targetElement;
+  setTimeout( function(){
+    var offsetTop = 0;
+    do {
+      if ( !isNaN( elem.offsetTop ) )
+      {
+          offsetTop += elem.offsetTop;
+      }
+    } while( elem = elem.offsetParent );
+    window.scrollTo(0, offsetTop - 200)}, 1 );
+}).setOptions({tooltipPosition: "top", showStepNumbers: false}).start();
+</script>
+{{end}}
+

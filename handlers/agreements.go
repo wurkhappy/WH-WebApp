@@ -47,7 +47,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 
 func getCurrentAgreements(userID string) []map[string]interface{} {
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", AgreementsService + "/agreements?userID="+userID, nil)
+	r, _ := http.NewRequest("GET", AgreementsService+"/agreements?userID="+userID, nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -63,7 +63,7 @@ func getCurrentAgreements(userID string) []map[string]interface{} {
 func getOtherUsers(agreements []map[string]interface{}, userID string) []map[string]interface{} {
 	requestString := buildOtherUsersRequest(agreements, userID)
 	client := &http.Client{}
-	r, _ := http.NewRequest("GET", UserService + "/user/search?"+requestString, nil)
+	r, _ := http.NewRequest("GET", UserService+"/user/search?"+requestString, nil)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -96,7 +96,7 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("POST", AgreementsService + "/agreements/v", req.Body)
+	r, _ := http.NewRequest("POST", AgreementsService+"/agreements/v", req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -112,7 +112,7 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 	vars := mux.Vars(req)
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("PUT", AgreementsService + "/agreements/v/"+vars["versionID"], req.Body)
+	r, _ := http.NewRequest("PUT", AgreementsService+"/agreements/v/"+vars["versionID"], req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -144,7 +144,7 @@ func DeleteAgreement(w http.ResponseWriter, req *http.Request, session *sessions
 	vars := mux.Vars(req)
 	client := &http.Client{}
 
-	r, _ := http.NewRequest("DELETE", AgreementsService + "/agreements/v/"+vars["versionID"], nil)
+	r, _ := http.NewRequest("DELETE", AgreementsService+"/agreements/v/"+vars["versionID"], nil)
 	_, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -157,13 +157,13 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 
 	vars := mux.Vars(req)
 	id := vars["versionID"]
-	agrmntReq, _ := http.NewRequest("GET", AgreementsService + "/agreements/v/"+id, nil)
+	agrmntReq, _ := http.NewRequest("GET", AgreementsService+"/agreements/v/"+id, nil)
 	agrmntData, _ := sendRequest(agrmntReq)
 
-	commentReq, _ := http.NewRequest("GET", CommentsService + "/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
+	commentReq, _ := http.NewRequest("GET", CommentsService+"/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
 	commentsData, _ := sendRequestArray(commentReq)
 
-	r, _ := http.NewRequest("GET", PaymentInfoService + "/user/"+userID.(string)+"/cards", nil)
+	r, _ := http.NewRequest("GET", PaymentInfoService+"/user/"+userID.(string)+"/cards", nil)
 	cards, _ := sendRequestArray(r)
 
 	otherID, _ := agrmntData["freelancerID"]
@@ -213,7 +213,7 @@ func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *se
 	data, _ := json.Marshal(status)
 	body := bytes.NewReader(data)
 
-	r, _ := http.NewRequest("POST", AgreementsService + "/agreement/v/"+id+"/status", body)
+	r, _ := http.NewRequest("POST", AgreementsService+"/agreement/v/"+id+"/status", body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }
@@ -235,7 +235,7 @@ func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 	data, _ := json.Marshal(status)
 	body := bytes.NewReader(data)
 
-	r, _ := http.NewRequest("POST", AgreementsService + "/agreement/v/"+id+"/payment/"+paymentID+"/status", body)
+	r, _ := http.NewRequest("POST", AgreementsService+"/agreement/v/"+id+"/payment/"+paymentID+"/status", body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }
@@ -243,7 +243,7 @@ func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 func CreateComment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["agreementID"]
-	r, _ := http.NewRequest("POST", CommentsService + "/agreement/"+id+"/comments", req.Body)
+	r, _ := http.NewRequest("POST", CommentsService+"/agreement/"+id+"/comments", req.Body)
 	_, respBytes := sendRequest(r)
 	w.Write(respBytes)
 }
@@ -252,7 +252,7 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 	vars := mux.Vars(req)
 
 	client := &http.Client{}
-	r, _ := http.NewRequest("POST", AgreementsService + "/agreements/v/"+vars["versionID"]+"/archive", req.Body)
+	r, _ := http.NewRequest("POST", AgreementsService+"/agreements/v/"+vars["versionID"]+"/archive", req.Body)
 	resp, err := client.Do(r)
 	if err != nil {
 		fmt.Printf("Error : %s", err)
@@ -261,4 +261,12 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
 	w.Write(buf.Bytes())
+}
+
+func ShowSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	var index = template.Must(template.ParseFiles(
+		"templates/_baseApp.html",
+		"templates/sample_agreement.html",
+	))
+	index.Execute(w, nil)
 }

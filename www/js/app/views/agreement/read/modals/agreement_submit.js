@@ -19,7 +19,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/agreement_submit_mod
         this.$el.html(this.template(this.model.toJSON()));        
       },
       events: {
-        "click #reject-button": "submit",
+        "click #submit-button": "submit",
         "blur textarea": "addMessage",
         "blur input": "addRecipient"
       },
@@ -31,7 +31,13 @@ define(['backbone', 'handlebars', 'text!templates/agreement/agreement_submit_mod
       },
       submit: function(event) {
         if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
-        this.model.submit(this.message, _.bind(function(){this.trigger('hide')},this));
+        var that = this;
+        this.model.save({}, {success:function(model, response){
+          that.model.submit(that.message, function(){
+            that.trigger('hide');
+            window.location = "/home";
+          });
+        }});
 
         var fadeInNotification = function () {
           $(".notification_container").fadeIn("fast");
@@ -50,7 +56,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/agreement_submit_mod
 
     });
 
-    return AgreementSubmit;
+return AgreementSubmit;
 
-  }
-  );
+}
+);
