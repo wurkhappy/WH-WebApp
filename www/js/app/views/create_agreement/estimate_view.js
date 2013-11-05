@@ -19,6 +19,7 @@
       itemView: MilestoneView,
 
       initialize: function (options) {
+        this.router = options.router;
       },
 
       events:{
