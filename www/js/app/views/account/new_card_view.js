@@ -37,9 +37,11 @@
         balanced.card.create(this.card, function (response) {
           if(response.status === 201) {
             delete response.data.id;
-            console.log(that.user.get("cards"));
+            console.log(response);
             var model = new that.user.attributes["cards"].model(response.data);
+            console.log(_.clone(model));
             that.user.get("cards").add(model);
+            console.log(that.user.get("cards"));
             model.save();
             $('input').val('');
             $(".notification_container").fadeOut('fast').fadeIn("slow");

@@ -98,7 +98,7 @@ func (h agreementHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session := getSession(req)
 	validateSignature(req, session)
 	vars := mux.Vars(req)
-	if !checkAgreementOwner(vars["id"], session.Values["id"].(string)) {
+	if !checkAgreementOwner(vars["agreementID"], session.Values["id"].(string)) {
 		http.Error(w, "Not authorized", http.StatusForbidden)
 		return
 	}
