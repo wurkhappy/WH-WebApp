@@ -60,6 +60,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
           $(".notification_container").last().fadeIn("slow").fadeOut(2000);
 
+          _.defer( function() {
+            $(".discussion_container").scrollTop($(".discussion_container")[0].scrollHeight);
+          });
+
+         
+
         }
       },
       updateMilestone: function(event){

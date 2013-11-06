@@ -1991,9 +1991,10 @@ progress::-webkit-progress-value, progress.yellow_progress {
   font-weight: 900;
   display: inline-block;
   line-height: 14px;
+  margin-top: 10px;
 }
 
-/* line 66, ../scss/components/_discussion_container.scss */
+/* line 67, ../scss/components/_discussion_container.scss */
 .milestone_tag, .status_tag {
   font-family: museo;
   font-weight: 100;
@@ -2001,45 +2002,45 @@ progress::-webkit-progress-value, progress.yellow_progress {
   position: absolute;
 }
 
-/* line 73, ../scss/components/_discussion_container.scss */
+/* line 74, ../scss/components/_discussion_container.scss */
 .milestone_tag {
   color: #7bb84c;
   bottom: 0;
   right: 20px;
 }
 
-/* line 79, ../scss/components/_discussion_container.scss */
+/* line 80, ../scss/components/_discussion_container.scss */
 .status_tag {
   color: #008bc7;
   bottom: 0;
 }
 
-/* line 85, ../scss/components/_discussion_container.scss */
+/* line 86, ../scss/components/_discussion_container.scss */
 .comment_body {
   font-weight: 300;
   padding: 0;
 }
 
-/* line 90, ../scss/components/_discussion_container.scss */
+/* line 91, ../scss/components/_discussion_container.scss */
 .send_comment {
   color: white;
   background: #009adb;
   border-radius: 5px;
   padding: 10px 21px;
 }
-/* line 95, ../scss/components/_discussion_container.scss */
+/* line 96, ../scss/components/_discussion_container.scss */
 .send_comment:hover {
   color: white;
   text-decoration: none;
   background: #008bc7;
 }
 
-/* line 102, ../scss/components/_discussion_container.scss */
+/* line 103, ../scss/components/_discussion_container.scss */
 .comment_select_padding {
   margin-left: 10px;
 }
 
-/* line 106, ../scss/components/_discussion_container.scss */
+/* line 107, ../scss/components/_discussion_container.scss */
 .selectdiv {
   display: inline-block;
   width: 175px;
@@ -2053,7 +2054,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 15px;
 }
 
-/* line 119, ../scss/components/_discussion_container.scss */
+/* line 120, ../scss/components/_discussion_container.scss */
 .selectdiv:hover, .selectdiv:focus {
   width: 175px;
   border: 1px solid #009adb;
@@ -2063,7 +2064,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 128, ../scss/components/_discussion_container.scss */
+/* line 129, ../scss/components/_discussion_container.scss */
 .out {
   z-index: -1;
   border: 0px solid #000;
@@ -2073,7 +2074,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 137, ../scss/components/_discussion_container.scss */
+/* line 138, ../scss/components/_discussion_container.scss */
 .selectboxdiv {
   height: 40px;
   left: -10px;
@@ -2090,56 +2091,64 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 10px;
 }
 
-/* line 153, ../scss/components/_discussion_container.scss */
+/* line 154, ../scss/components/_discussion_container.scss */
 .active_select {
   border: 1px solid #009adb;
 }
 
-/* line 157, ../scss/components/_discussion_container.scss */
+/* line 158, ../scss/components/_discussion_container.scss */
 .message_photo_container {
   text-align: center;
   border-radius: 15px;
+  width: 75px;
+  margin: 0 auto;
 }
 
-/* line 162, ../scss/components/_discussion_container.scss */
+/* line 165, ../scss/components/_discussion_container.scss */
 .message_photo {
+  width: 70px;
   border-radius: 20px;
 }
 
-/* line 166, ../scss/components/_discussion_container.scss */
+/* line 170, ../scss/components/_discussion_container.scss */
 .comment_post_info {
   position: relative;
   text-align: center;
   margin-top: -11px;
 }
 
-/* line 172, ../scss/components/_discussion_container.scss */
+/* line 176, ../scss/components/_discussion_container.scss */
 .personal_box {
   border-radius: 40px;
   border: 1px solid #dedede;
-  padding: 8px 25px;
-  min-width: 160px;
+  padding: 8px 10px;
   background: white;
+  -webkit-box-shadow: 2px 1px 1px #d4d4d4;
+  -moz-box-shadow: 2px 1px 1px #d4d4d4;
+  box-shadow: 2px 1px 1px #d4d4d4;
 }
 
-/* line 180, ../scss/components/_discussion_container.scss */
+/* line 186, ../scss/components/_discussion_container.scss */
 .message_box {
   border-radius: 30px;
   border: 1px solid #dedede;
   padding: 5px 27px;
-  width: 550px;
+  width: 630px;
   min-height: 66px;
   margin: 0 auto;
   background: white;
   position: relative;
+  -webkit-box-shadow: 2px 1px 1px #d4d4d4;
+  -moz-box-shadow: 2px 1px 1px #d4d4d4;
+  box-shadow: 2px 1px 1px #d4d4d4;
 }
 
-/* line 191, ../scss/components/_discussion_container.scss */
+/* line 200, ../scss/components/_discussion_container.scss */
 .float_left {
   float: left;
 }
 
-/* line 195, ../scss/components/_discussion_container.scss */
+/* line 204, ../scss/components/_discussion_container.scss */
 .float_right {
   float: right;
 }
