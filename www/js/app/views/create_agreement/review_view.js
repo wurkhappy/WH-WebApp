@@ -7,7 +7,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/review_tpl.ht
 
     var ReviewView = Backbone.View.extend({
       template: Handlebars.compile(tpl),
-      className:'clear white_background',
+      className:'clear white_background review_container',
       events: {
         "click #submitAgreement":"submit"
       },

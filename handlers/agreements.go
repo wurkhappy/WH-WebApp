@@ -38,6 +38,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	var tpl *template.Template
 	var err error
 	if len(agreementsData) > 0 {
+		log.Print("0 agreements")
 		tpl, err = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
 			"templates/_baseApp.html",
 			"templates/freelancer_home.html",
