@@ -21,7 +21,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         this.userID = options.user.get("id");
         this.messageUserID = this.model.get("userID");
         this.email = options.user.get("email");
-        console.log(options.user);
 
       },
 
