@@ -1,7 +1,12 @@
 {{define "content"}}
 <script>
 var currentUser = {{.thisUser}};
+function removeCover () {
+  document.getElementById("cover").removeAttribute("style");
+  document.getElementById("content").removeAttribute("style");
+}
 </script>
+<div id="cover" onclick="removeCover()" style="position:absolute; top:0; bottom:0; right:0; left:0; background-color:rgba(0,0,0,0.5);"></div>
 <div id="intro" class="clear intro">
 
   <div class="column-three-fourth">
@@ -12,7 +17,7 @@ var currentUser = {{.thisUser}};
   <div class="column-one-fourth">
 
     <ul class="action_button_container">
-      <li><a href="/agreements/new" class="button action_button">Create Agreement</a></li>
+      <li style="position:absolute;"><a href="/agreements/new" class="button action_button">Create Agreement</a></li>
     </ul>
 
   </div>
@@ -20,8 +25,8 @@ var currentUser = {{.thisUser}};
 </div>
 
 
-<div id="content" class="clear white_background">
-  <div class="empty_home">
+<div onclick="removeCover()" id="content" class="clear white_background" style="background-color:rgb(150,150,150);padding:10px; ">
+  <div class="empty_home" style="background-color:#FFF; padding:5px; border-radius:5px;">
     <h2>Welcome To Wurk Happy!</h2>
     <p>You don't have any live agreements right now. Feel free to click that big green button up top and get started. If this is your first time, feel free to check out our <a href="/agreement/v/sample">tutorial</a>.</p>
   </div>
