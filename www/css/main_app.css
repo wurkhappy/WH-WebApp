@@ -967,6 +967,11 @@ fieldset {
   padding: 10px 0;
 }
 
+/* line 51, ../scss/components/_create_agreement.scss */
+.review_container {
+  padding: 20px;
+}
+
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
   border-bottom: 1px solid #f0f0f0;
