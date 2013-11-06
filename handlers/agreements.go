@@ -7,7 +7,6 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
-	"log"
 	"net/http"
 	"time"
 )
@@ -18,7 +17,6 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	userID := session.Values["id"]
 
 	agreementsData := getCurrentAgreements(userID.(string))
-	log.Printf("agreements are: %s", agreementsData)
 
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
 
@@ -38,7 +36,6 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	var tpl *template.Template
 	var err error
 	if len(agreementsData) > 0 {
-		log.Print("0 agreements")
 		tpl, err = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
 			"templates/_baseApp.html",
 			"templates/freelancer_home.html",
