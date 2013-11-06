@@ -20,7 +20,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         this.lastName = options.user.get("lastName");
         this.userID = options.user.get("id");
         this.messageUserID = this.model.get("userID");
-
+        this.email = options.user.get("email");
+        console.log(options.user);
 
       },
 
@@ -29,7 +30,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
             dateCreated,
             thisAvatar,
             firstName,
-            lastName;
+            lastName,
+            name,
             isThisUserMessage;
         if (this.status) {
           var prefix = (this.status.get("paymentID")) ? "Payment" : "Agreement"
@@ -46,16 +48,11 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         }
 
         var isThisUserMessage = (this.userID === this.messageUserID);
-        //console.log(this.userID);
-        //console.log(this.messageUserID);
-        //console.log(isThisUserMessage);
 
-        if (this.firstName) {
-          firstName = this.firstName;
-        }
-
-        if (this.lastName) {
-          lastName = this.lastName;
+        if (this.firstName || this.lastName) {
+          name = this.firstName + this.lastName;
+        } else {
+          name = this.email
         }
 
         if (this.avatar) {
@@ -71,8 +68,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           statusTitle: statusTitle,
           dateCreated: dateCreated,
           thisAvatar: thisAvatar,
-          firstName: firstName,
-          lastName: lastName,
+          name: name,
           isThisUserMessage: isThisUserMessage
         }));
 
