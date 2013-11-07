@@ -6,12 +6,17 @@
 
  	paths: {
  		marionette: 'lib/backbone.marionette/lib/backbone.marionette',
+ 		parsley: 'lib/parsleyjs/dist/parsley.min'
  	},
 
  	shim: {
  		marionette : {
  			deps : ['jquery', 'underscore', 'backbone'],
  			exports : 'Marionette'
+ 		},
+ 		parsley : {
+ 			deps : ['jquery'],
+ 			exports : 'parsley'
  		}
  	}
  });

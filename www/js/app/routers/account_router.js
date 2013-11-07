@@ -4,13 +4,14 @@
 
  define([
   'backbone',
+  'parsley',
   'views/account/main_container_view',
   'views/account/personal_view',
   'views/account/credit_card_layout',
   'views/account/bank_account_layout',
   'views/account/password_view',
   'models/user'],
-  function (Backbone, MainContainer, PersonalView, CreditCardView, BankAccountView, PasswordView, UserModel) {
+  function (Backbone, parsley, MainContainer, PersonalView, CreditCardView, BankAccountView, PasswordView, UserModel) {
 
     'use strict';
 
@@ -37,6 +38,7 @@
         }
         this.mainContainer.switchToView(this.personalView);
         this.mainContainer.switchTab($('#personal'));
+        $('.account_personal_form').parsley();
       },
 
       password: function () {

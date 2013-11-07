@@ -47,6 +47,7 @@ $legacy-support-for-mozilla: false !default;
 // COMPONENTS
 @import "components/notifications";
 @import "components/forms";
+@import "components/form_feedback";
 @import "components/header";
 @import "components/intro";
 @import "components/buttons";

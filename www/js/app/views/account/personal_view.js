@@ -78,9 +78,16 @@
         $(".notification_container").fadeOut("slow");
       },
       save:function(){
-        this.model.save({},{success:_.bind(function(model, response){
-          $(".notification_container").fadeOut('fast').fadeIn("slow");
-        }, this)});
+        $( '.account_personal_form' ).parsley( 'validate' );
+
+        var isValid = $( '.account_personal_form' ).parsley( 'isValid' );
+
+        if (isValid) {
+          this.model.save({},{success:_.bind(function(model, response){
+            $(".notification_container").fadeOut('fast').fadeIn("slow");
+          }, this)});
+        }
+
       }
 
     });
