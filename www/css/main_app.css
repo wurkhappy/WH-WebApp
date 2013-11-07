@@ -1390,11 +1390,16 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /* line 169, ../scss/components/_progress_bars.scss */
-.recipient_link {
+.review_link {
   left: 300px;
 }
 
 /* line 173, ../scss/components/_progress_bars.scss */
+.send_link {
+  left: 450px;
+}
+
+/* line 177, ../scss/components/_progress_bars.scss */
 .create_agreement_icon_container {
   position: absolute;
   top: -22.5px;
@@ -1402,7 +1407,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   z-index: 5;
 }
 
-/* line 181, ../scss/components/_progress_bars.scss */
+/* line 185, ../scss/components/_progress_bars.scss */
 .progress_icon {
   font-size: 26px;
   width: 30px;
@@ -1410,16 +1415,16 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 50%;
 }
 
-/* line 188, ../scss/components/_progress_bars.scss */
+/* line 192, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_icon {
   color: #d4d9de;
   position: relative;
   font-size: 36px;
 }
 
-/* line 194, ../scss/components/_progress_bars.scss */
+/* line 198, ../scss/components/_progress_bars.scss */
 .create_agreement_progress {
-  width: 300px;
+  width: 450px;
   float: right;
   margin-right: 60px;
   margin-top: 42px;
@@ -1427,7 +1432,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding-bottom: 0;
 }
 
-/* line 203, ../scss/components/_progress_bars.scss */
+/* line 207, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation {
   text-align: center;
   margin: 0;
@@ -1443,22 +1448,22 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 5px;
 }
 
-/* line 218, ../scss/components/_progress_bars.scss */
+/* line 222, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link_hover {
   background: #a9b3bc;
 }
 
-/* line 222, ../scss/components/_progress_bars.scss */
+/* line 226, ../scss/components/_progress_bars.scss */
 .create_agreement_title {
   float: left;
 }
 
-/* line 226, ../scss/components/_progress_bars.scss */
+/* line 230, ../scss/components/_progress_bars.scss */
 .create_agreement_label_first {
   padding-top: 5px;
 }
 
-/* line 230, ../scss/components/_progress_bars.scss */
+/* line 234, ../scss/components/_progress_bars.scss */
 .green_icon {
   color: #86ce50;
 }

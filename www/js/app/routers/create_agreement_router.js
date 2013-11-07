@@ -16,7 +16,8 @@
         'proposal': 'proposal',
         'estimate': 'estimate',
         'review': 'review',
-        'edit':'edit'
+        'edit':'edit',
+        'send': 'send'
       },
 
       initialize: function () {
@@ -37,6 +38,9 @@
       },
       edit: function(){
         this.layout.switchToEdit();
+      },
+      send: function(){
+        this.layout.switchToSend();
       }
 
     });

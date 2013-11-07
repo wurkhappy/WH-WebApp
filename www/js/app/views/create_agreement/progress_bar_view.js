@@ -9,7 +9,7 @@
 
     'use strict';
     Handlebars.registerHelper('icon_color', function(position, value) {
-      if (position <= value/100 || position == 0) return 'green_icon';
+      if (position <= value/34 || position == 0) return 'green_icon';
       return '';
     });
 
@@ -19,7 +19,7 @@
 
       initialize:function(options){
         this.title = options.title;
-        this.value = (options.value/2)*100;
+        this.value = (options.value/3)*100;
       },
 
       render: function () {

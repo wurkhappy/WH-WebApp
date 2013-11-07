@@ -2,7 +2,7 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/recipient_tpl.html'],
+ define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/send_tpl.html'],
 
   function (Backbone, Handlebars, _, recipientTemplate) {
 

@@ -9,7 +9,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/review_tpl.ht
       template: Handlebars.compile(tpl),
       className:'clear white_background review_container',
       events: {
-        "click #submitAgreement":"submit"
+        "click #submitAgreement":"continue"
       },
       initialize:function(){
         this.render();
@@ -21,14 +21,12 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/review_tpl.ht
         this.$('#payments-section').html(paymentsView.$el);
         return this;
       },
-      submit: function(){
+      continue: function(){
         event.preventDefault();
         event.stopPropagation();
-        if (!this.modal){
-          var view = new AgreementSubmitModal({model:this.model});
-          this.modal = new Modal({view:view});
-        } 
-        this.modal.show();
+
+        window.location.hash = 'send';
+
       }
 
     });

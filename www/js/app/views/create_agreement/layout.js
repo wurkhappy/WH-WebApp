@@ -5,10 +5,10 @@
  define(['backbone', 'handlebars', 'underscore', 'marionette',
   'views/create_agreement/header_cancel', 'views/create_agreement/header_review',
   'views/create_agreement/proposal_view', 'views/create_agreement/progress_bar_view',
-  'views/create_agreement/estimate_view', 'views/create_agreement/review_view', 'views/create_agreement/edit_view'],
+  'views/create_agreement/estimate_view', 'views/create_agreement/review_view', 'views/create_agreement/edit_view', 'views/create_agreement/send_view'],
 
   function (Backbone, Handlebars, _, Marionette, HeaderCancel, HeaderReview, ProposalView, ProgressBar,
-    EstimateView, ReviewView, EditView) {
+    EstimateView, ReviewView, EditView, SendView) {
 
     'use strict';
 
@@ -39,6 +39,11 @@
         this.header.show(new HeaderCancel({model: this.model}));
         this.progress.show(new ProgressBar({title: "Agreement Review", value: 2}));
         this.main.show(new EditView({model: this.model}));
+      },
+      switchToSend: function(){
+        this.header.show(new HeaderCancel({model: this.model}));
+        this.progress.show(new ProgressBar({title: "Agreement Review", value: 3}));
+        this.main.show(new SendView({model: this.model}));
       }
     });
 
