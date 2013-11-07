@@ -261,6 +261,12 @@ fieldset {
   width: 95%;
 }
 
+/* line 225, ../scss/bases/_common.scss */
+.required {
+  color: #972b46;
+  display: inline;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("fonts/museo100-italic-webfont.eot");
