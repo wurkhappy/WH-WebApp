@@ -54,6 +54,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
         this.model.set("dateExpected", date);
          _.delay(this.closeCalendar, 150);
          $('input').blur();
+
       },
       closeCalendar: function() {
         $('.kalendae').hide();

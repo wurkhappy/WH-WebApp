@@ -21,11 +21,11 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/review_tpl.ht
         this.$('#payments-section').html(paymentsView.$el);
         return this;
       },
-      continue: function(){
+      continue: function(event){
         event.preventDefault();
         event.stopPropagation();
 
-        window.location.hash = 'send';
+        window.location.hash = '#send';
 
       }
 

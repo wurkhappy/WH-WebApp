@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
+	"log"
 	"net/http"
 	"time"
 )
@@ -169,6 +170,7 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 
 	commentReq, _ := http.NewRequest("GET", CommentsService+"/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
 	commentsData, _ := sendRequestArray(commentReq)
+	log.Printf("comments are %s", commentsData)
 
 	r, _ := http.NewRequest("GET", PaymentInfoService+"/user/"+userID.(string)+"/cards", nil)
 	cards, _ := sendRequestArray(r)
