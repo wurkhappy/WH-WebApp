@@ -60,7 +60,7 @@
 }
 
 .signup_button_container {
-  width: 160px;
+  width: 300px;
   margin:0 auto;
   list-style-type: none;
   li {
@@ -71,4 +71,23 @@
 
 .landing_container {
   padding-top:90px;
+}
+
+.explore_button_container {
+  margin-left: 20px;
+  width: 120px;
+}
+
+.logo_white {
+  text-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
+  color: hsl(0, 100%, 100%);
+  background: hsla(0, 0%, 0%, 0) url(/img/logo-large.png) no-repeat left;
+  padding-left: 90px;
+  padding-top:10px;
+  width: 287px;
+  margin: 0 auto;
+}
+
+.headline_container {
+  margin-bottom: 40px;
 }
