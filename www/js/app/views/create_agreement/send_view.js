@@ -14,9 +14,10 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
       },
       initialize:function(){
         this.render();
+        this.message = "Please take a moment to look over the details of the services provided, refund policies and payment schedule to confirm that's what you want to do and you're comfortable with the agreement.";
       },
       render: function(){
-        this.$el.html(this.template(this.model.toJSON()));
+        this.$el.html(this.template({message: this.message}));
       },
       sendAgreement: function(event){
         event.preventDefault();
