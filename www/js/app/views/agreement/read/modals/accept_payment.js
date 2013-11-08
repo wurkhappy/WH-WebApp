@@ -68,12 +68,12 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
         }
 
         var fadeInNotification = function () {
-          $(".notification_container").fadeIn("fast");
-          $(".notification_text").text("Request "+status+" and email sent");
+          $("#notification_container").fadeIn("fast");
+          $("#notification_text").text("Request "+status+" and email sent");
         };
 
-        $(".notification_container").hover( function() {
-          $(".notification_container").fadeOut("fast");
+        $("#notification_container").hover( function() {
+          $("#notification_container").fadeOut("fast");
         });
 
         var triggerNotification = _.debounce(fadeInNotification, 300);

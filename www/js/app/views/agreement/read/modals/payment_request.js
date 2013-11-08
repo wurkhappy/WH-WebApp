@@ -70,12 +70,12 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
         };
 
         var fadeInNotification = function () {
-          $(".notification_container").fadeIn("fast");
-          $(".notification_text").text("Payment requested and email sent");
+          $("#notification_container").fadeIn("fast");
+          $("#notification_text").text("Payment requested and email sent");
         };
 
-        $(".notification_container").hover( function() {
-          $(".notification_container").fadeOut("fast");
+        $("#notification_container").hover( function() {
+          $("#notification_container").fadeOut("fast");
         });
 
         var triggerNotification = _.debounce(fadeInNotification, 300);
