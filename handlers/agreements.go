@@ -7,7 +7,6 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"html/template"
-	"log"
 	"net/http"
 	"time"
 )
@@ -87,13 +86,10 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 	var requestedUsers string
 	for _, agreement := range agreements {
 		clientID, _ := agreement["clientID"]
-		freelancerID, _ := agreement["freelancerID"]
+		// freelancerID, _ := agreement["freelancerID"]
 		if draft, ok := agreement["draft"]; ok && !draft.(bool) {
 			if clientID != "" && clientID != userID {
 				requestedUsers += "userid=" + clientID.(string) + "&"
-			} else {
-				requestedUsers += "userid=" + freelancerID.(string) + "&"
-
 			}
 		}
 	}
@@ -170,7 +166,6 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 
 	commentReq, _ := http.NewRequest("GET", CommentsService+"/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
 	commentsData, _ := sendRequestArray(commentReq)
-	log.Printf("comments are %s", commentsData)
 
 	r, _ := http.NewRequest("GET", PaymentInfoService+"/user/"+userID.(string)+"/cards", nil)
 	cards, _ := sendRequestArray(r)
