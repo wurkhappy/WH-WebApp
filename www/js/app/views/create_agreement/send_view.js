@@ -14,8 +14,6 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
       },
       initialize:function(){
         this.render();
-        this.originalModel = this.model;
-        this.model = _.clone(this.model);
       },
       render: function(){
         this.$el.html(this.template(this.model.toJSON()));
@@ -36,7 +34,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
           };
           var submitSuccess = _.debounce(changeWindow, 800); //delay the change in window until after success notification
 
-          that.model.submit(that.model.get("message"), submitSuccess);
+          that.model.submit(that.message, submitSuccess);
         }});
       },
       addRecipient: function(event){
