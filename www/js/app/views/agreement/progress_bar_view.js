@@ -35,7 +35,7 @@
 
       initialize:function(options){
         this.payments = options.model.get("payments");
-
+        this.listenTo(this.payments, "change", this.render);
       },
 
       render: function () {
