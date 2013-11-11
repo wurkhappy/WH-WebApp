@@ -42,7 +42,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
       },
       updateFields: function(event){
         if (!event.target.name) return;
-        this.model.set(event.target.name, event.target.value)
+        this.model.set(event.target.name, event.target.value);
       },
       triggerCalender: function (event) {
         if (!this.calendar){
