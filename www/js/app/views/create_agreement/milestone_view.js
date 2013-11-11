@@ -5,7 +5,7 @@
 define(['backbone', 'handlebars', 'underscore', 'kalendae',
   'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
 
-  function (Backbone, Handlebars, _, Kalendae, estimateTemplate, PaymentScopeView) {
+  function (Backbone, Handlebars, _, Kalendae, milestoneTemplate, PaymentScopeView) {
 
     'use strict';
 
@@ -14,7 +14,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
       tagName:'div',
       className: 'bottom_divider hide',
 
-      template: Handlebars.compile(estimateTemplate),
+      template: Handlebars.compile(milestoneTemplate),
 
       initialize: function (options) {
         this.router = options.router;
@@ -43,6 +43,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
       updateFields: function(event){
         if (!event.target.name) return;
         this.model.set(event.target.name, event.target.value);
+        console.log(this.collection);
       },
       triggerCalender: function (event) {
         if (!this.calendar){

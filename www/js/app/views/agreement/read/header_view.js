@@ -17,6 +17,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
         this.user = options.user;
         this.otherUser = options.otherUser
         this.changeState();
+        console.log(this.model);
       },
 
       render:function(){

@@ -20,10 +20,10 @@
 
       initialize: function (options) {
         this.router = options.router;
+        console.log(this.collection);
       },
 
       events:{
-        "blur #deposit":"updateDeposit",
         "click #addMoreButton" : "addMilestone",
         "click .submit-buttons > a" : "saveAndContinue",
         "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
@@ -36,12 +36,6 @@
 
       addMilestone:function(event){
         this.collection.add({});
-      },
-
-      updateDeposit: function(event) {
-        if (!event.target.name) return;
-        this.model.set(event.target.name, event.target.value);
-        console.log(this.model);
       },
       
       saveAndContinue:function(event){
