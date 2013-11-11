@@ -17,14 +17,21 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
         this.user = options.user;
         this.otherUser = options.otherUser
         this.changeState();
-        console.log(this.model);
+        console.log(this.state.button1Title);
       },
 
       render:function(){
+        var waiting;
+
+        if (this.state.button1Title === 'Waiting for Response') {
+          waiting = true;
+        }
+
         this.$el.html(this.template({
           model: this.model.toJSON(), 
           button1Title: this.state.button1Title,
-          button2Title: this.state.button2Title
+          button2Title: this.state.button2Title,
+          waiting: waiting
         }));
 
         return this;
