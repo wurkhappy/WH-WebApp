@@ -8,6 +8,8 @@ import (
 	"github.com/garyburd/redigo/redis"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
+	"github.com/wurkhappy/WH-Config"
+	// "github.com/wurkhappy/mdp"
 	"net/http"
 	// "strconv"
 	// "time"
@@ -20,6 +22,7 @@ var store *redistore.RediStore
 var redisPool *redis.Pool
 
 func main() {
+	config.Prod()
 	store = redistore.NewRediStore(10, "tcp", ":6379", "", []byte(secretKey))
 	defer store.Close()
 	redisPool = store.Pool
