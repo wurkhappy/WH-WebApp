@@ -3,11 +3,11 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
+	// "fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
+	"github.com/wurkhappy/WH-Config"
 	"html/template"
-	"log"
 	"net/http"
 )
 
@@ -15,27 +15,18 @@ import (
 
 func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 
-	client := &http.Client{}
-	r, _ := http.NewRequest("POST", UserService+"/auth/login", req.Body)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
-	}
-
-	if resp.StatusCode >= 400 {
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("POST", config.UserService, "/auth/login", buf.Bytes())
+	if statusCode >= 400 {
 		var rError *responseError
-		dec := json.NewDecoder(resp.Body)
-		dec.Decode(&rError)
+		json.Unmarshal(resp, &rError)
 		http.Error(w, rError.Description, rError.StatusCode)
 		return
 	}
 
 	var requestData map[string]interface{}
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(resp.Body)
-	respBytes := buf.Bytes()
-	json.Unmarshal(respBytes, &requestData)
-	log.Print(requestData)
+	json.Unmarshal(resp, &requestData)
 
 	session.Values["id"] = requestData["id"].(string)
 	session.Values["isVerified"] = requestData["isVerified"].(bool)
@@ -53,12 +44,19 @@ func Logout(w http.ResponseWriter, req *http.Request, session *sessions.Session)
 }
 
 func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	req.ParseForm()
 	vars := mux.Vars(req)
 	id := vars["id"]
 
-	r, _ := http.NewRequest("POST", UserService+"/user/"+id+"/verify", nil)
-	requestData, _ := sendRequest(r)
+	resp, statusCode := sendServiceRequest("POST", config.UserService, "/user/"+id+"/verify", nil)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, rError.StatusCode)
+		return
+	}
+
+	var requestData map[string]interface{}
+	json.Unmarshal(resp, &requestData)
 
 	session.Values["id"] = requestData["id"].(string)
 	session.Values["isVerified"] = requestData["isVerified"].(bool)
@@ -68,11 +66,12 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 }
 
 func ForgotPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	r, _ := http.NewRequest("POST", UserService+"/password/forgot", req.Body)
-	_, respBytes := sendRequest(r)
-	rError := new(responseError)
-	json.Unmarshal(respBytes, &rError)
-	if rError.StatusCode >= 400 {
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("POST", config.UserService, "/password/forgot", buf.Bytes())
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
 		http.Error(w, rError.Description, rError.StatusCode)
 		return
 	}
@@ -101,12 +100,18 @@ func GetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessi
 }
 
 func SetNewPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	r, _ := http.NewRequest("PUT", UserService+"/user/"+session.Values["id"].(string)+"/password", req.Body)
-	_, _ = sendRequest(r)
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("PUT", config.UserService, "/user/"+session.Values["id"].(string)+"/password", buf.Bytes())
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, rError.StatusCode)
+		return
+	}
 
 	//if they were successful setting a new password then we treat that as a login and extend their session
 	session.Options.MaxAge = 24 * 60 * 60
 	session.Save(req, w)
-	log.Print("redirect")
 	w.Write([]byte(`{"redirectURL":"/home"}`))
 }

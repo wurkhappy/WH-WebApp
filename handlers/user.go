@@ -3,11 +3,10 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
+	// "fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
-	"log"
 	"net/http"
 )
 
@@ -15,45 +14,35 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
 	resp, statusCode := sendServiceRequest("POST", config.UserService, "/user", buf.Bytes())
-	log.Print(resp)
-	log.Print(statusCode)
-	// if statusCode >= 400 {
-	// 	var rError *responseError
-	// 	dec := json.NewDecoder(resp)
-	// 	dec.Decode(&rError)
-	// 	http.Error(w, rError.Description, rError.StatusCode)
-	// 	return
-	// }
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
 
-	// var requestData map[string]interface{}
-	// json.Unmarshal(resp, &requestData)
+	var requestData map[string]interface{}
+	json.Unmarshal(resp, &requestData)
 
-	// session.Values["id"] = requestData["id"].(string)
-	// session.Values["isVerified"] = requestData["isVerified"].(bool)
-	// session.Save(req, w)
+	session.Values["id"] = requestData["id"].(string)
+	session.Values["isVerified"] = requestData["isVerified"].(bool)
+	session.Save(req, w)
 
-	// w.Write([]byte(`{"redirectURL":"/home"}`))
+	w.Write([]byte(`{"redirectURL":"/home"}`))
 }
 
 func UpdateUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 
-	client := &http.Client{}
-	r, _ := http.NewRequest("PUT", UserService+"/user/"+vars["id"], req.Body)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
-	}
-	if resp.StatusCode >= 400 {
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("PUT", config.UserService, "/user/"+vars["id"], buf.Bytes())
+	if statusCode >= 400 {
 		var rError *responseError
-		dec := json.NewDecoder(resp.Body)
-		dec.Decode(&rError)
+		json.Unmarshal(resp, &rError)
 		http.Error(w, rError.Description, rError.StatusCode)
 		return
 	}
 
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(resp.Body)
-	buf.String()
-	w.Write(buf.Bytes())
+	w.Write(resp)
 }
