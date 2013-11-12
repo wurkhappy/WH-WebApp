@@ -2,12 +2,11 @@ package handlers
 
 import (
 	"bytes"
-	//"encoding/json"
-	"fmt"
+	"encoding/json"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
+	"github.com/wurkhappy/WH-Config"
 	"html/template"
-	"log"
 	"net/http"
 )
 
@@ -31,20 +30,17 @@ func SaveCard(w http.ResponseWriter, req *http.Request, session *sessions.Sessio
 	vars := mux.Vars(req)
 	id := vars["id"]
 
-	client := &http.Client{}
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	jsonData := buf.Bytes()
-	body := bytes.NewReader(jsonData)
-	r, _ := http.NewRequest("POST", PaymentInfoService+"/user/"+id+"/cards", body)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
+	resp, statusCode := sendServiceRequest("POST", config.PaymentInfoService, "/user/"+id+"/cards", buf.Bytes())
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
 	}
 
-	buf = new(bytes.Buffer)
-	buf.ReadFrom(resp.Body)
-	w.Write(buf.Bytes())
+	w.Write(resp)
 }
 
 func DeleteCard(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
@@ -53,65 +49,61 @@ func DeleteCard(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	id := vars["id"]
 	cardID := vars["cardID"]
 
-	client := &http.Client{}
-	r, _ := http.NewRequest("DELETE", PaymentInfoService+"/user/"+id+"/cards/"+cardID, nil)
-	_, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
+	resp, statusCode := sendServiceRequest("DELETE", config.PaymentInfoService, "/user/"+id+"/cards/"+cardID, nil)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
 	}
+
 }
 
 func GetCards(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["id"]
 
-	client := &http.Client{}
-	r, _ := http.NewRequest("GET", PaymentInfoService+"/user/"+id+"/cards", nil)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
+	resp, statusCode := sendServiceRequest("GET", config.PaymentInfoService, "/user/"+id+"/cards", nil)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
 	}
 
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(resp.Body)
-	w.Write(buf.Bytes())
+	w.Write(resp)
 }
 
 func GetBankAccounts(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["id"]
 
-	client := &http.Client{}
-	r, _ := http.NewRequest("GET", PaymentInfoService+"/user/"+id+"/bank_account", nil)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
+	resp, statusCode := sendServiceRequest("GET", config.PaymentInfoService, "/user/"+id+"/bank_account", nil)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
 	}
 
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(resp.Body)
-	w.Write(buf.Bytes())
+	w.Write(resp)
 }
 
 func SaveBankAccount(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["id"]
 
-	client := &http.Client{}
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	jsonData := buf.Bytes()
-	log.Print(buf.String())
-	body := bytes.NewReader(jsonData)
-	r, _ := http.NewRequest("POST", PaymentInfoService+"/user/"+id+"/bank_account", body)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
+	resp, statusCode := sendServiceRequest("POST", config.PaymentInfoService, "/user/"+id+"/bank_account", buf.Bytes())
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
 	}
 
-	buf = new(bytes.Buffer)
-	buf.ReadFrom(resp.Body)
-	w.Write(buf.Bytes())
+	w.Write(resp)
 }
 
 func DeleteBankAccount(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
@@ -120,11 +112,12 @@ func DeleteBankAccount(w http.ResponseWriter, req *http.Request, session *sessio
 	id := vars["id"]
 	accountID := vars["accountID"]
 
-	client := &http.Client{}
-	r, _ := http.NewRequest("DELETE", PaymentInfoService+"/user/"+id+"/bank_account/"+accountID, nil)
-	_, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
+	resp, statusCode := sendServiceRequest("DELETE", config.PaymentInfoService, "/user/"+id+"/bank_account/"+accountID, nil)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
 	}
 }
 
@@ -133,15 +126,13 @@ func VerifyBankAccount(w http.ResponseWriter, req *http.Request, session *sessio
 	id := vars["id"]
 	accountID := vars["accountID"]
 
-	client := &http.Client{}
-	r, _ := http.NewRequest("POST", PaymentInfoService+"/user/"+id+"/bank_account/"+accountID+"/verify", req.Body)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
-	}
-
-	if resp.StatusCode >= 400 {
-		http.Error(w, "Error verifying account", resp.StatusCode)
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("POST", config.PaymentInfoService, "/user/"+id+"/bank_account/"+accountID+"/verify", buf.Bytes())
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
 		return
 	}
 

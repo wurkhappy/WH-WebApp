@@ -18,16 +18,13 @@ func getUserInfo(id string) map[string]interface{} {
 	if id == "" {
 		return make(map[string]interface{})
 	}
-	client := &http.Client{}
-	r, _ := http.NewRequest("GET", UserService+"/user/search?userid="+id, nil)
-	resp, err := client.Do(r)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
+	resp, statusCode := sendServiceRequest("GET", config.UserService, "/user/search?userid="+id, nil)
+	if statusCode >= 400 {
+		return nil
 	}
-	clientBuf := new(bytes.Buffer)
-	clientBuf.ReadFrom(resp.Body)
+
 	var clientData []map[string]interface{}
-	json.Unmarshal(clientBuf.Bytes(), &clientData)
+	json.Unmarshal(resp, &clientData)
 	if len(clientData) > 0 {
 		return clientData[0]
 	}
