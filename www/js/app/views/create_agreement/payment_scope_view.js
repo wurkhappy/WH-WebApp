@@ -32,18 +32,21 @@
       },
 
       addComment: function(event) {
-        var $text = $('.add_work_item_input'),
-            $input = $('input');
+        var $text = $(event.target).prev('.add_work_item_input'),
+            $input = $('input'),
+            $error = $(event.target).next('.add_work_item_error');
 
         if ($text.val() === '') {
-          $('.add_work_item_error').fadeIn('fast');
+          $error.fadeIn('fast');
           $input.keypress( function() {
             $('.add_work_item_error').fadeOut('fast');
-          })
+          });
+          $text.focus();
 
         } else {
           this.collection.add({text:$text.val()});
           $text.val(null);
+          $text.focus();
         }
       },
 

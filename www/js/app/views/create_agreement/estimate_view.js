@@ -20,6 +20,7 @@
 
       initialize: function (options) {
         this.router = options.router;
+        console.log(this.collection);
       },
 
       events:{

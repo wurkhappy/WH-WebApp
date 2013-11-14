@@ -258,7 +258,7 @@ fieldset {
   border-bottom: 1px solid #dbe0e6;
   clear: both;
   margin: 0 auto;
-  width: 95%;
+  width: 100%;
 }
 
 /* line 225, ../scss/bases/_common.scss */
@@ -1009,6 +1009,11 @@ fieldset {
   padding: 20px;
 }
 
+/* line 55, ../scss/components/_create_agreement.scss */
+.deposit_container {
+  margin-bottom: 20px;
+}
+
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
   border-bottom: 1px solid #f0f0f0;
@@ -1097,6 +1102,14 @@ fieldset {
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
+}
+
+/* line 84, ../scss/components/_agreement.scss */
+.waiting {
+  color: white;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /* line 1, ../scss/components/_agreement_profile.scss */
