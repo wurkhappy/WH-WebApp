@@ -1112,6 +1112,11 @@ fieldset {
   border-radius: 5px;
 }
 
+/* line 91, ../scss/components/_agreement.scss */
+.home_container {
+  min-height: 150px;
+}
+
 /* line 1, ../scss/components/_agreement_profile.scss */
 .agreement_profile {
   border-bottom: 1px solid #e1e1e1;
