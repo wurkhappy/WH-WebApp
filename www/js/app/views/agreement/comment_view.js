@@ -21,7 +21,10 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         this.userID = options.user.get("id");
         this.messageUserID = this.model.get("userID");
         this.email = options.user.get("email");
-
+        this.otherUserFirstName = options.otherUser.get("firstName");
+        this.otherUserLastName = options.otherUser.get("lastName");
+        this.otherUserEmail = options.otherUser.get("email");
+        this.otherAvatar = options.otherUser.get("avatarURL");
       },
 
       render: function () {
@@ -31,7 +34,9 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
             firstName,
             lastName,
             name,
-            isThisUserMessage;
+            isThisUserMessage,
+            otherName,
+            otherAvatar;
         if (this.status) {
           var prefix = (this.status.get("paymentID")) ? "Payment" : "Agreement"
           statusTitle = prefix + " " +this.status.get("action") + " on " + this.status.get("date").format('MMM D, YYYY');
@@ -49,15 +54,27 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         var isThisUserMessage = (this.userID === this.messageUserID);
 
         if (this.firstName || this.lastName) {
-          name = this.firstName + this.lastName;
+          name = this.firstName +' '+ this.lastName;
         } else {
-          name = this.email
+          name = this.otherUserEmail;
         }
 
         if (this.avatar) {
           thisAvatar = this.avatar;
         } else {
           thisAvatar = "/img/default_photo.jpg";
+        }
+
+        if (this.otherAvatar) {
+          otherAvatar = this.otherAvatar;
+        } else {
+          otherAvatar = "/img/default_photo.jpg";
+        }
+
+        if (this.otherUserFirstName || this.otherUserLastName) {
+          otherName = this.otherUserFirstName +' '+ this.otherUserLastName;
+        } else {
+          otherName = this.email
         }
 
         var milestoneTitle = (this.milestone) ? this.milestone.get("title") : "";
@@ -68,7 +85,9 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           dateCreated: dateCreated,
           thisAvatar: thisAvatar,
           name: name,
-          isThisUserMessage: isThisUserMessage
+          isThisUserMessage: isThisUserMessage,
+          otherName: otherName,
+          otherAvatar: otherAvatar
         }));
 
         this.fadeIn(this.$el);
