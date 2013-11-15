@@ -309,21 +309,6 @@ module.exports = function (grunt) {
                         // config with your page logic, resulting in only one http request (plus requirejs itself), 
                         // like so:
 
-                        /*
-                        {
-                            name: 'config',
-                            // List common dependencies here. Only need to list top level dependencies, "include" will find nested dependencies.
-                            include: [
-                                'jquery',
-                                'backbone',
-                                'underscore',
-                                'handlebars',
-                                'text',
-                                'app/mainpage'
-                            ]
-                        },
-                        */
-
                         // Otherwise if you have multiple pages, do the following:
                         // Now set up a build layer for each main layer, but exclude the common one.
                         // "exclude" will exclude the nested, built dependencies from "config".
