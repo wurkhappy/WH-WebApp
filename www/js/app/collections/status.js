@@ -19,7 +19,8 @@
                     return model.get("paymentID") == paymentID;
                 });
                 return new Collection(filtered);
-            }
+            },
+            waiting: 'waiting'
 
         });
 
