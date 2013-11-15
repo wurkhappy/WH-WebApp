@@ -21,7 +21,7 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, rError.StatusCode)
+		http.Error(w, rError.Description, statusCode)
 		return
 	}
 
@@ -51,7 +51,7 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, rError.StatusCode)
+		http.Error(w, rError.Description, statusCode)
 		return
 	}
 
@@ -72,7 +72,7 @@ func ForgotPassword(w http.ResponseWriter, req *http.Request, session *sessions.
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, rError.StatusCode)
+		http.Error(w, rError.Description, statusCode)
 		return
 	}
 	w.Write([]byte(`{}`))
@@ -106,7 +106,7 @@ func SetNewPassword(w http.ResponseWriter, req *http.Request, session *sessions.
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, rError.StatusCode)
+		http.Error(w, rError.Description, statusCode)
 		return
 	}
 

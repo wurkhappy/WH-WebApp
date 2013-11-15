@@ -6,7 +6,8 @@ import (
 	"fmt"
 	"github.com/garyburd/redigo/redis"
 	"github.com/gorilla/sessions"
-	"github.com/wurkhappy/WH-WebApp/config"
+	"github.com/wurkhappy/WH-Config"
+	"github.com/wurkhappy/mdp"
 	"log"
 	"net/http"
 	"time"
@@ -86,16 +87,14 @@ func getSession(req *http.Request) *sessions.Session {
 }
 
 func checkAgreementOwner(agreementid, userid string) bool {
-	r, _ := http.NewRequest("GET", config.AgreementsService+"/agreements/"+agreementid+"/owners", nil)
-	return checkOwner(agreementid, userid, r)
+	return checkOwner(agreementid, userid, "/agreements/"+agreementid+"/owners")
 }
 
 func checkVersionOwner(agreementid, userid string) bool {
-	r, _ := http.NewRequest("GET", config.AgreementsService+"/agreements/v/"+agreementid+"/owners", nil)
-	return checkOwner(agreementid, userid, r)
+	return checkOwner(agreementid, userid, "/agreements/v/"+agreementid+"/owners")
 }
 
-func checkOwner(agreementid, userid string, r *http.Request) bool {
+func checkOwner(agreementid, userid, path string) bool {
 	var owners struct {
 		ClientID     string `json:"clientID" redis:"clientID"`
 		FreelancerID string `json:"freelancerID" redis:"freelancerID"`
@@ -106,16 +105,13 @@ func checkOwner(agreementid, userid string, r *http.Request) bool {
 	//check redis for the agreement
 	v, err := redis.Values(c.Do("HGETALL", agreementid))
 	redis.ScanStruct(v, &owners)
-	if err != nil || len(v) == 0 || owners.ClientID == ""{
+	if err != nil || len(v) == 0 || owners.ClientID == "" {
 		//if we can't find the agreement then let's ask the agreement service for the owners
-		client := &http.Client{}
-		resp, err := client.Do(r)
-		if err != nil || resp.StatusCode >= 400 {
+		resp, statusCode := sendServiceRequest("GET", config.AgreementsService, path, []byte(""))
+		if statusCode >= 400 {
 			return false
 		}
-		buf := new(bytes.Buffer)
-		buf.ReadFrom(resp.Body)
-		json.Unmarshal(buf.Bytes(), &owners)
+		json.Unmarshal(resp, &owners)
 
 		//at this point we've found the owners of the agreement so let's cache the data
 		if _, err := c.Do("HMSET", agreementid, "clientID", owners.ClientID, "freelancerID", owners.FreelancerID); err != nil {
@@ -137,4 +133,28 @@ func checkOwner(agreementid, userid string, r *http.Request) bool {
 	}
 
 	return false
+}
+
+func sendServiceRequest(method, service, path string, body []byte) (response []byte, statusCode int) {
+	client := mdp.NewClient(config.MDPBroker, false)
+	defer client.Close()
+	m := map[string]interface{}{
+		"Method": method,
+		"Path":   path,
+		"Body":   body,
+	}
+	req, _ := json.Marshal(m)
+	request := [][]byte{req}
+	reply := client.Send([]byte(service), request)
+	if len(reply) == 0 {
+		return nil, 404
+	}
+	resp := new(ServiceResp)
+	json.Unmarshal(reply[0], &resp)
+	return resp.Body, int(resp.StatusCode)
+}
+
+type ServiceResp struct {
+	StatusCode float64 `json:"status_code"`
+	Body       []byte  `json:"body"`
 }

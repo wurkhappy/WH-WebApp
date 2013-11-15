@@ -53,7 +53,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 }
 
 func getCurrentAgreements(userID string) []map[string]interface{} {
-	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/agreements?userID="+userID, nil)
+	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/user/"+userID+"/agreements", nil)
 	if statusCode >= 400 {
 		return nil
 	}

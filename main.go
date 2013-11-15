@@ -13,6 +13,7 @@ import (
 	"net/http"
 	// "strconv"
 	// "time"
+	"flag"
 	"log"
 )
 
@@ -20,10 +21,16 @@ import (
 var secretKey string = "pnoy9JBBKwB2mPq5"
 var store *redistore.RediStore
 var redisPool *redis.Pool
+var production = flag.Bool("production", false, "Production settings")
 
 func main() {
-	config.Prod()
-	store = redistore.NewRediStore(10, "tcp", ":6379", "", []byte(secretKey))
+	flag.Parse()
+	if *production {
+		config.Prod()
+	} else {
+		config.Test()
+	}
+	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
 	defer store.Close()
 	redisPool = store.Pool
 
