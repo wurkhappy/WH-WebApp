@@ -1,0 +1,9 @@
+ {{#if clauses}}
+ {{#each clauses}}
+ <h2 class="agreement_title">Clauses</h2>
+ <p class="checkmark">{{this.text}}</p>
+ {{/each}}
+ {{else}}
+ <h2 class="agreement_title">Clauses</h2>
+ <p class="checkmark">No clauses have been added.</p>
+ {{/if}}

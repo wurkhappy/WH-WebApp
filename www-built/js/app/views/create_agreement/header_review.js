@@ -1,0 +1,1 @@
+define(["backbone","handlebars","text!templates/create_agreement/header_review.html"],function(e,t,n){var r=e.View.extend({template:t.compile(n),events:{"click #submitAgreement":"submitAgreement"},initialize:function(){this.render()},render:function(){return this.$el.html(this.template()),this},submitAgreement:function(e){}});return r});

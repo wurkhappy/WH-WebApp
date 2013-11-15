@@ -1,0 +1,1 @@
+define(["backbone","backbone-relational"],function(e,t){var n=e.RelationalModel.extend({urlRoot:function(){return"/user/"+this.collection.user.id+"/cards"}});return n});

@@ -1,0 +1,1 @@
+define(["backbone","handlebars","text!templates/agreement/user_tpl.html"],function(e,t,n){var r=e.View.extend({template:t.compile(n),render:function(){return this.$el.html(this.template(window.otherUser)),this}});return r});

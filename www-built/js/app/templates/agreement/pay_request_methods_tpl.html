@@ -1,0 +1,18 @@
+
+<div class="close">X</div>
+<h2 class="pay_header">Where should we send your funds?</h2>
+{{#if bankAccounts}}
+<h3>Select bank account</h3>
+<ul class="payment_select_container">
+  <li>
+    {{#each bankAccounts}}
+    <input type="radio" class="select_bank_account" name="select_bank_account" value="{{credits_uri}}">
+    <p class="payment_select_info"><span>Routing:</span> {{routing_number}}</p>
+    <p class="payment_select_info"><span>Account:</span> *********{{last_four_digits account_number}}</p>
+    {{/each}}
+    <h2> 
+  </li>
+</ul>
+{{else}}
+<h3>Please add a bank account in the <a href="/account#bankaccount">account</a> page to receive payment.</h3>
+{{/if}}

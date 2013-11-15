@@ -1,0 +1,1 @@
+define(["backbone","handlebars","views/agreement/read/header_states/base_state"],function(e,t,n){var r=n.extend({initialize:function(){n.prototype.initialize.apply(this),this.button1Title=this.userIsClient?null:"Submit Agreement",this.button2Title=this.userIsClient?null:"Edit Agreement"},button1:function(e){this.model.submit()},button2:function(e){this.edit()}});return r});

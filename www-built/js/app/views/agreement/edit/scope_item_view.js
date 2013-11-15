@@ -1,0 +1,1 @@
+define(["backbone","handlebars","text!templates/agreement/edit/scope_item_tpl.html"],function(e,t,n){var r=e.View.extend({template:t.compile(n),render:function(){return this.$el.html(this.template(this.model.toJSON())),this},events:{"click a":"removeItem"},removeItem:function(e){this.model.collection.remove(this.model)}});return r});

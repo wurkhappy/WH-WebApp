@@ -1,0 +1,1 @@
+define(["backbone","models/comment"],function(e,t){var n=e.Collection.extend({model:t,comparator:function(e){return-e.get("dateCreated").valueOf()}});return n});

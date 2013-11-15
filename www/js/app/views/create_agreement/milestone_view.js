@@ -2,8 +2,7 @@
 * Scope of Work - Create Agreement View.
 */ 
 
-define(['backbone', 'handlebars', 'underscore', 'kalendae',
-  'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
+define(['backbone', 'handlebars', 'underscore', 'kalendae', 'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
 
   function (Backbone, Handlebars, _, Kalendae, milestoneTemplate, PaymentScopeView) {
 

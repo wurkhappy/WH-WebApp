@@ -1,0 +1,14 @@
+<h2>Profile Preview</h2>
+<div class="data-table">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="meta">
+        <span><img src="{{#if avatarData}}{{avatarData}}{{else}}{{avatarURL}}{{/if}}"></span>
+      </td>
+      <td>
+        <h3><a href="detail.html">{{firstName}} {{lastName}}</a></h3>
+        <p>{{email}} &mdash; {{phoneFormat phoneNumber}}</p>
+      </td>
+    </tr>
+  </table>
+</div>

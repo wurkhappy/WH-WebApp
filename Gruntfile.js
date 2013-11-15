@@ -50,8 +50,7 @@ module.exports = function (grunt) {
          */
         banner: '/*! <%= pkg.name %> v<%= pkg.version %> | ' +
             '<%= grunt.template.today("dd-mm-yyyy-hh:MM:ss") %>\n' +
-            ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> |' +
-            ' Licensed <%= pkg.license %>\n */\n',
+            ' * Copyright (c) <%= grunt.template.today("yyyy") %> |',
 
 
         /*
@@ -286,7 +285,7 @@ module.exports = function (grunt) {
                     dir: '<%= config.dist %>',              // The CSS and JS output dir, relative to this file.
                     mainConfigFile: '<%= config.webroot %>/js/config.js', // Include the main configuration file (paths, shim). Relative to this file.
                     optimize: 'uglify',                     // (default) uses UglifyJS to minify the code.
-                    skipDirOptimize: true,                  // Set to true, to skip optimizing other non-build layer JS files (speeds up builds).
+                    skipDirOptimize: false,                  // Set to true, to skip optimizing other non-build layer JS files (speeds up builds).
                     optimizeCss: 'standard',                // @import inlining, comment removal and line returns.
                     fileExclusionRegExp: /^\.|\.((json))|scss$/, // If the regexp matches, it means the file/directory will be excluded.
 
@@ -336,11 +335,27 @@ module.exports = function (grunt) {
                         // delayed from loading until config.js finishes. That loading sequence
                         // is controlled in mainpage.js.
                         {
-                            name: 'app/mainpage',
+                            name: 'app/mainaccount',
                             exclude: ['config']
                         },
                         {
-                            name: 'app/subpage',
+                            name: 'app/mainagreement',
+                            exclude: ['config']
+                        },
+                        {
+                            name: 'app/maincreateagreement',
+                            exclude: ['config']
+                        },
+                        {
+                            name: 'app/mainhome',
+                            exclude: ['config']
+                        },
+                        {
+                            name: 'app/mainlanding',
+                            exclude: ['config']
+                        },
+                        {
+                            name: 'app/mainnewpassword',
                             exclude: ['config']
                         }
                     ]
@@ -442,15 +457,13 @@ module.exports = function (grunt) {
 
     // The optimized production build would be run by typing "grunt dist" on the command line.
     grunt.registerTask('dist', [
-        //'includereplace',
         'compass',
-        'grunticon',
         'csslint',
-        'jshint',
+        //'jshint',
         'connect',
-        'karma:continuous', // Run the tests specified in the continuous target using the already running karma server.
+        //'karma:continuous', // Run the tests specified in the continuous target using the already running karma server.
         'requirejs',
-        'yuidoc',
+        //'yuidoc',
         'imagemin',
         'concat'
     ]);
