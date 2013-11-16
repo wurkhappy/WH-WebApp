@@ -1,0 +1,55 @@
+
+.review_agreement_container {
+	padding: 10px 20px;
+	border: 1px solid hsl(0, 0%, 87%);
+	box-shadow: 0 0 1px 0 hsl(0, 0%, 87%);
+	width: 660px;
+	margin: 0 auto;
+}
+
+.review_title {
+	font-family: museo;
+	font-weight: 100;
+	font-size: 35px;
+	text-align: center;
+	color: hsl(0, 100%, 100%);
+	background: hsl(199, 100%, 41%);
+	padding: 12px;
+	border-radius: 5px;
+	text-align: left;
+	box-shadow: 1px 1px 2px 0px hsl(0, 0%, 60%);
+	margin-top: 10px;
+}
+
+.review_agreement_container {
+
+	.agreement_title {
+		font-family: museo_sans;
+		font-weight: 300;
+		font-size: 24px;
+		margin:0;
+		span {
+			display: none;
+		}
+	}
+	.payment_milestone_container:nth-child(n+2n) {
+		background: $red;
+	}
+	.payment_milestone {
+		color: $black;
+	}
+}
+
+.review_agreement_total {
+	border-top: 2px solid hsl(199, 100%, 41%);
+	padding-top:10px;
+}
+
+.review_continue {
+	padding-top:10px;
+	margin-top: 20px;
+}
+
+.review_continue_button {
+	padding: 0 20px;
+}

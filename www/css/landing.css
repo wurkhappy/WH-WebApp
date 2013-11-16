@@ -67,7 +67,7 @@ body {
   text-align: center;
   font-family: museo_sans;
   background: #c7ced1;
-  color: #646464;
+  color: #636363;
   font-size: 18px;
 }
 
@@ -104,7 +104,7 @@ strong {
 
 /* line 86, ../scss/bases/_common.scss */
 h1, h2, h3 {
-  color: black;
+  color: #333333;
   padding: 0 20px;
   font-family: museo;
 }
@@ -1081,32 +1081,37 @@ label {
 }
 
 /* line 20, ../scss/layouts/_layout.scss */
+.column-full {
+  width: 960px;
+}
+
+/* line 21, ../scss/layouts/_layout.scss */
 .column-three-fourth {
   width: 720px;
 }
 
-/* line 21, ../scss/layouts/_layout.scss */
+/* line 22, ../scss/layouts/_layout.scss */
 .column-two-third {
   width: 640px;
 }
 
-/* line 22, ../scss/layouts/_layout.scss */
+/* line 23, ../scss/layouts/_layout.scss */
 .column-one-half {
   width: 480px;
 }
 
-/* line 23, ../scss/layouts/_layout.scss */
+/* line 24, ../scss/layouts/_layout.scss */
 .column-one-third {
   width: 320px;
 }
 
-/* line 24, ../scss/layouts/_layout.scss */
+/* line 25, ../scss/layouts/_layout.scss */
 .column-one-fourth {
   width: 240px;
 }
 
-/* line 27, ../scss/layouts/_layout.scss */
+/* line 28, ../scss/layouts/_layout.scss */
 .column-one-fourth, .column-one-third, .column-one-half,
-.column-two-third, .column-three-fourth {
+.column-two-third, .column-three-fourth, .column-full {
   float: left;
 }

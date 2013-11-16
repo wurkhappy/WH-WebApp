@@ -67,7 +67,7 @@ body {
   text-align: center;
   font-family: museo_sans;
   background: #c7ced1;
-  color: #646464;
+  color: #636363;
   font-size: 18px;
 }
 
@@ -104,7 +104,7 @@ strong {
 
 /* line 86, ../scss/bases/_common.scss */
 h1, h2, h3 {
-  color: black;
+  color: #333333;
   padding: 0 20px;
   font-family: museo;
 }
@@ -907,7 +907,6 @@ fieldset {
 /* line 51, ../scss/components/_agreement_list.scss */
 .data-table table tr td.meta span {
   display: block;
-  border: 1px solid #e1e1e1;
   background-color: #f9fafb;
   padding: 4px;
   margin: 0 20px 0 0px;
@@ -916,20 +915,20 @@ fieldset {
   border-radius: 3px;
 }
 
-/* line 62, ../scss/components/_agreement_list.scss */
+/* line 61, ../scss/components/_agreement_list.scss */
 .data-table table tr td.meta span img {
   display: block;
   width: 50px;
 }
 
-/* line 67, ../scss/components/_agreement_list.scss */
+/* line 66, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress {
   width: 200px;
   padding: 10px 0;
   text-align: center;
 }
 
-/* line 73, ../scss/components/_agreement_list.scss */
+/* line 72, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress span {
   display: block;
   margin: 14px 0 13px 0;
@@ -938,7 +937,7 @@ fieldset {
   background-repeat: no-repeat;
 }
 
-/* line 81, ../scss/components/_agreement_list.scss */
+/* line 80, ../scss/components/_agreement_list.scss */
 .data-table table tr td.progress span img {
   display: block;
   width: 200px;
@@ -1016,36 +1015,35 @@ fieldset {
 
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
-  border-bottom: 1px solid #f0f0f0;
   padding-bottom: 20px;
 }
 
-/* line 11, ../scss/components/_agreement.scss */
+/* line 10, ../scss/components/_agreement.scss */
 .agreement_profile_container {
   padding: 15px 20px 15px 20px;
   float: left;
 }
 
-/* line 16, ../scss/components/_agreement.scss */
+/* line 15, ../scss/components/_agreement.scss */
 .agreement_title {
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-/* line 21, ../scss/components/_agreement.scss */
+/* line 20, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-/* line 26, ../scss/components/_agreement.scss */
+/* line 25, ../scss/components/_agreement.scss */
 .payment_milestone {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 32, ../scss/components/_agreement.scss */
+/* line 31, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1059,32 +1057,32 @@ fieldset {
   color: #646464;
 }
 
-/* line 46, ../scss/components/_agreement.scss */
+/* line 45, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 52, ../scss/components/_agreement.scss */
+/* line 51, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 57, ../scss/components/_agreement.scss */
+/* line 56, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 62, ../scss/components/_agreement.scss */
+/* line 61, ../scss/components/_agreement.scss */
 .scope_item {
   padding: 0;
 }
 
-/* line 66, ../scss/components/_agreement.scss */
+/* line 65, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -1098,13 +1096,13 @@ fieldset {
   border-bottom-left-radius: 3px;
 }
 
-/* line 79, ../scss/components/_agreement.scss */
+/* line 78, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 84, ../scss/components/_agreement.scss */
+/* line 83, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -1112,7 +1110,7 @@ fieldset {
   border-radius: 5px;
 }
 
-/* line 91, ../scss/components/_agreement.scss */
+/* line 90, ../scss/components/_agreement.scss */
 .home_container {
   min-height: 150px;
 }
@@ -1935,6 +1933,67 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-bottom: 1px solid #dedede;
 }
 
+/* line 2, ../scss/components/_review_agreement.scss */
+.review_agreement_container {
+  padding: 10px 20px;
+  border: 1px solid #dedede;
+  box-shadow: 0 0 1px 0 #dedede;
+  width: 660px;
+  margin: 0 auto;
+}
+
+/* line 10, ../scss/components/_review_agreement.scss */
+.review_title {
+  font-family: museo;
+  font-weight: 100;
+  font-size: 35px;
+  text-align: center;
+  color: white;
+  background: #008fd1;
+  padding: 12px;
+  border-radius: 5px;
+  text-align: left;
+  box-shadow: 1px 1px 2px 0px #999999;
+  margin-top: 10px;
+}
+
+/* line 26, ../scss/components/_review_agreement.scss */
+.review_agreement_container .agreement_title {
+  font-family: museo_sans;
+  font-weight: 300;
+  font-size: 24px;
+  margin: 0;
+}
+/* line 31, ../scss/components/_review_agreement.scss */
+.review_agreement_container .agreement_title span {
+  display: none;
+}
+/* line 35, ../scss/components/_review_agreement.scss */
+.review_agreement_container .payment_milestone_container:nth-child(n+2n) {
+  background: #972b46;
+}
+/* line 38, ../scss/components/_review_agreement.scss */
+.review_agreement_container .payment_milestone {
+  color: #333333;
+}
+
+/* line 43, ../scss/components/_review_agreement.scss */
+.review_agreement_total {
+  border-top: 2px solid #008fd1;
+  padding-top: 10px;
+}
+
+/* line 48, ../scss/components/_review_agreement.scss */
+.review_continue {
+  padding-top: 10px;
+  margin-top: 20px;
+}
+
+/* line 53, ../scss/components/_review_agreement.scss */
+.review_continue_button {
+  padding: 0 20px;
+}
+
 /* line 1, ../scss/components/_create_work_item.scss */
 .create_scope_item_container {
   margin-left: 40px;
@@ -2327,32 +2386,37 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /* line 20, ../scss/layouts/_layout.scss */
+.column-full {
+  width: 960px;
+}
+
+/* line 21, ../scss/layouts/_layout.scss */
 .column-three-fourth {
   width: 720px;
 }
 
-/* line 21, ../scss/layouts/_layout.scss */
+/* line 22, ../scss/layouts/_layout.scss */
 .column-two-third {
   width: 640px;
 }
 
-/* line 22, ../scss/layouts/_layout.scss */
+/* line 23, ../scss/layouts/_layout.scss */
 .column-one-half {
   width: 480px;
 }
 
-/* line 23, ../scss/layouts/_layout.scss */
+/* line 24, ../scss/layouts/_layout.scss */
 .column-one-third {
   width: 320px;
 }
 
-/* line 24, ../scss/layouts/_layout.scss */
+/* line 25, ../scss/layouts/_layout.scss */
 .column-one-fourth {
   width: 240px;
 }
 
-/* line 27, ../scss/layouts/_layout.scss */
+/* line 28, ../scss/layouts/_layout.scss */
 .column-one-fourth, .column-one-third, .column-one-half,
-.column-two-third, .column-three-fourth {
+.column-two-third, .column-three-fourth, .column-full {
   float: left;
 }

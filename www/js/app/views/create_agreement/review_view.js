@@ -15,7 +15,12 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/review_tpl.ht
         this.render();
       },
       render: function(){
-        this.$el.html(this.template(this.model.toJSON()));
+        var totalAmount = this.model.get("payments").getTotalAmount();
+
+        this.$el.html(this.template({
+          model: this.model.toJSON(),
+          totalAmount: totalAmount
+        }));
         var paymentsView = new PaymentsView({model: this.model});
         paymentsView.render();
         this.$('#payments-section').html(paymentsView.$el);
