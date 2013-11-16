@@ -17,6 +17,7 @@
   clear: both;
 }
 
+.column-full { width: 960px }
 .column-three-fourth { width: 720px; }
 .column-two-third { width: 640px; }
 .column-one-half { width: 480px; }
@@ -24,6 +25,6 @@
 .column-one-fourth { width: 240px; }
 
 .column-one-fourth, .column-one-third, .column-one-half,
-.column-two-third,.column-three-fourth {
+.column-two-third,.column-three-fourth, .column-full {
   float: left;
 }
