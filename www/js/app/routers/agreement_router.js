@@ -8,7 +8,7 @@
   'views/agreement/read/header_view', 'views/agreement/discussion_view','models/user', 'views/agreement/progress_bar_view'],
 
   function (Backbone, AgreementModel, LayoutView, PaymentsReadView, AgrmntHistoryView, UserView,
-    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, UserModel, ClausesView, ProgressBarView) { 
+    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, UserModel, ProgressBarView) { 
 
     'use strict';
 
