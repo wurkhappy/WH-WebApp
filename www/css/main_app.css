@@ -1933,16 +1933,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-bottom: 1px solid #dedede;
 }
 
-/* line 2, ../scss/components/_review_agreement.scss */
-.review_agreement_container {
-  padding: 10px 20px;
-  border: 1px solid #dedede;
-  box-shadow: 0 0 1px 0 #dedede;
-  width: 660px;
-  margin: 0 auto;
-}
-
-/* line 10, ../scss/components/_review_agreement.scss */
+/* line 1, ../scss/components/_review_agreement.scss */
 .review_title {
   font-family: museo;
   font-weight: 100;
@@ -1952,44 +1943,52 @@ progress::-webkit-progress-value, progress.yellow_progress {
   background: #008fd1;
   padding: 12px;
   border-radius: 5px;
-  text-align: left;
+  text-align: center;
   box-shadow: 1px 1px 2px 0px #999999;
   margin-top: 10px;
 }
 
-/* line 26, ../scss/components/_review_agreement.scss */
+/* line 15, ../scss/components/_review_agreement.scss */
+.review_agreement_container {
+  padding: 15px 20px;
+  border: 1px solid #dedede;
+  box-shadow: 0 0 1px 0 #dedede;
+  width: 660px;
+  margin: 0 auto;
+}
+/* line 22, ../scss/components/_review_agreement.scss */
 .review_agreement_container .agreement_title {
   font-family: museo_sans;
   font-weight: 300;
   font-size: 24px;
   margin: 0;
 }
-/* line 31, ../scss/components/_review_agreement.scss */
+/* line 27, ../scss/components/_review_agreement.scss */
 .review_agreement_container .agreement_title span {
   display: none;
 }
-/* line 35, ../scss/components/_review_agreement.scss */
+/* line 31, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_milestone_container:nth-child(n+2n) {
   background: #972b46;
 }
-/* line 38, ../scss/components/_review_agreement.scss */
+/* line 34, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_milestone {
   color: #333333;
 }
 
-/* line 43, ../scss/components/_review_agreement.scss */
+/* line 39, ../scss/components/_review_agreement.scss */
 .review_agreement_total {
   border-top: 2px solid #008fd1;
   padding-top: 10px;
 }
 
-/* line 48, ../scss/components/_review_agreement.scss */
+/* line 44, ../scss/components/_review_agreement.scss */
 .review_continue {
-  padding-top: 10px;
+  padding-top: 20px;
   margin-top: 20px;
 }
 
-/* line 53, ../scss/components/_review_agreement.scss */
+/* line 49, ../scss/components/_review_agreement.scss */
 .review_continue_button {
   padding: 0 20px;
 }
