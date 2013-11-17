@@ -12,7 +12,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
     var PaymentItemView = Backbone.Marionette.CompositeView.extend({
 
       template: Handlebars.compile(paymentItemTemplate),
-
+      
       itemView: ScopeItemView,
       itemViewContainer:'.scope_items_container',
 

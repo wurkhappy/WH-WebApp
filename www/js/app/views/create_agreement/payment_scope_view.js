@@ -18,6 +18,20 @@
       itemView: ScopeItemView,
       itemViewContainer:'ul',
 
+      initialize: function(options) {
+        this.deposit = options.deposit;
+
+        this.render();
+      },
+
+      render: function() {
+        var deposit = this.deposit;
+
+        this.$el.html(this.template({
+          deposit: deposit
+        }));
+      },
+
       events:{
         "keypress input" : "addOnEnter",
         "click .add_comment": "addComment"

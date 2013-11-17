@@ -59,6 +59,11 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                     this.set("currentStatus",this.collection.parent.get("currentStatus"));
                 }, this)
               });
+            },
+            isDeposit: function() {
+                if (this.get("title") === "Deposit") {
+                  return true
+                }
             }
         });
 
