@@ -1,6 +1,6 @@
-define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html', 'views/agreement/edit/payments_edit_view'],
+define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html', 'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, tpl, PaymentsView) {
+  function (Backbone, Handlebars, tpl, PaymentRequestModal, Modal) {
 
     'use strict';
 
@@ -10,14 +10,27 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
       events:{
         "click #sendAgreement": "sendAgreement",
         "blur textarea": "addMessage",
-        "blur input": "addRecipient"
+        "blur input": "addRecipient",
+        "click #requestDeposit": "requestDeposit"
       },
-      initialize:function(){
+      initialize:function(options){
         this.render();
         this.message = "Please take a moment to look over the details of the services provided, refund policies and payment schedule to confirm that's what you want to do and you're comfortable with the agreement.";
+        this.user = options.user;
       },
       render: function(){
-        this.$el.html(this.template({message: this.message}));
+        this.deposit = this.model.get("payments").at(0);
+
+        var deposit;
+
+        if (this.deposit.isDeposit() && this.deposit.has("amount")) {
+          deposit = true;
+        }
+
+        this.$el.html(this.template({
+          message: this.message,
+          deposit: deposit
+        }));
       },
       sendAgreement: function(event){
         event.preventDefault();
@@ -28,6 +41,8 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
         var that = this;
 
         this.model.save({},{success:function(model, response){
+          console.log(that.model);
+
           $('.notification_container').fadeIn('fast');
 
           var changeWindow = function () {
@@ -35,7 +50,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
           };
           var submitSuccess = _.debounce(changeWindow, 800); //delay the change in window until after success notification
 
-          that.model.submit(that.message, submitSuccess);
+          //that.model.submit(that.message, submitSuccess);
         }});
       },
       addRecipient: function(event){
@@ -43,7 +58,25 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
       },
       addMessage: function(event){
         this.message = event.target.value
+      },
+      requestDeposit: function (event) {
+
+        event.preventDefault();
+
+        if (!this.modal){
+          console.log(this.user);
+          console.log(this.model);
+
+          var view = new PaymentRequestModal({model: this.deposit, collection: this.model.get("payments"), cards: this.user.get("cards"), bankAccounts: this.user.get("bank_accounts")});
+          this.modal = new Modal({view:view});
+        } 
+        this.modal.show();
       }
+
+
+
+
+
     });
 
 return SendView;
