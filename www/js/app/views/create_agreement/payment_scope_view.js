@@ -34,7 +34,7 @@
 
       events:{
         "keypress input" : "addOnEnter",
-        "click .add_comment": "addComment"
+        "click .add_comment": "addComment",
         "focus input": "fadeError"
       },
 
