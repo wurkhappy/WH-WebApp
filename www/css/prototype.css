@@ -1,14 +1,14 @@
 /*
-Syntax error: Undefined variable: "$black_light".
-        on line 143 of /Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/bases/_common.scss
-        from line 22 of /Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/_wurk-happy-style-guide.scss
-        from line 7 of /Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/prototype.scss
+Syntax error: Undefined variable: "$primary".
+        on line 28 of /Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/prototype.scss
 
 Backtrace:
-/Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/bases/_common.scss:143
-/Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/_wurk-happy-style-guide.scss:22
-/Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/prototype.scss:7
+/Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/prototype.scss:28
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/script/variable.rb:49:in `_perform'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/script/node.rb:40:in `perform'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/script/funcall.rb:99:in `block in _perform'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/script/funcall.rb:99:in `map'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/script/funcall.rb:99:in `_perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/script/node.rb:40:in `perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:298:in `visit_prop'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
@@ -21,16 +21,6 @@ Backtrace:
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -72,4 +62,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$black_light\".\A         on line 143 of /Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/bases/_common.scss\A         from line 22 of /Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/_wurk-happy-style-guide.scss\A         from line 7 of /Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/prototype.scss"; }
+  content: "Syntax error: Undefined variable: \"$primary\".\A         on line 28 of /Users/marcojelli/go/src/github.com/wurkhappy/WH-WebApp/www/scss/prototype.scss"; }

@@ -20,7 +20,10 @@
 
       initialize: function (options) {
         this.router = options.router;
-        console.log(this.collection);
+        /*if (!this.collection.length) {
+          this.collection.unshift({deposit:true});
+        }*/
+        
       },
 
       events:{

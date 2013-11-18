@@ -1,27 +1,11 @@
 /*
- * Initialize App for `Create Agreement Page`.
+ * Initialize App for Create Agreement Page.
+ *
+ * A require.config here will be ignored in r.js optimizer
  *
  */
- require.config({
 
- 	paths: {
- 		marionette: 'lib/backbone.marionette/lib/backbone.marionette',
- 		kalendae: 'lib/kalendae/build/kalendae.standalone.min'
- 	},
-
- 	shim: {
- 		marionette : {
- 			deps : ['jquery', 'underscore', 'backbone'],
- 			exports : 'Marionette'
- 		},
- 		kalendae : {
- 			exports : 'Kalendae'
- 		}
- 	}
- });
  define(function (require) {
-
-
 
  	'use strict';
 

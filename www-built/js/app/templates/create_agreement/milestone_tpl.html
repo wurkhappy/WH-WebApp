@@ -1,0 +1,25 @@
+{{#if this.deposit}}
+  <div class="deposit_container">
+    <label>Deposit</label>
+    <span class="helper_text">Receive a deposit upon acceptance of this agreement.</span>
+    <input id="deposit" type="text" name="deposit_amount" placeholder="$0.00">
+  </div>
+{{else}}
+<fieldset class="create_milestone_container">
+    <label for="">Payment Milestone Name<span>Examples: Certain deliverables, 30% job complete, final payment, etc.</span></label>
+    <input type="text" name="title" placeholder="{{this.title}}" id="" size="50">
+    <label for="">Payment Milestone Amount<span>Please enter an amount between $1.00 and $100,000.00</span></label>
+    <input class="paymentAmount" type="text" name="amount" placeholder="$0.00" id="" size="25">
+    <label for="">Expected Payment Date</label>
+    <input type="text" name="dateExpected" class="kal" size="25">
+  </fieldset>
+
+{{/if}}
+
+  
+  <fieldset class="removeButton">
+  	<p class="remove_icon">
+  		<a>Remove milestone</a>
+  	</p>
+  </fieldset>
+

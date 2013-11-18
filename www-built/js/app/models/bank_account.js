@@ -1,0 +1,1 @@
+define(["backbone","backbone-relational"],function(e,t){var n=e.RelationalModel.extend({urlRoot:function(){return"/user/"+this.collection.user.id+"/bank_account"},verify:function(e,t){$.ajax({type:"POST",url:this.url()+"/verify",contentType:"application/json",dataType:"json",data:JSON.stringify(e),success:_.bind(function(e){this.set("can_debit",!0),t(e)},this)})}});return n});

@@ -12,7 +12,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
       itemView: CommentView,
       itemViewOptions:function(options){
-        return {agreement: this.model, user: this.user};
+        return {agreement: this.model, user: this.user, otherUser: this.otherUser};
       },
       itemViewContainer:'ul',
       events: {
@@ -29,6 +29,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.userIsClient = window.thisUser.id === this.model.get("clientID");
         this.collection = this.model.get("comments");
         this.user = options.user;
+        this.otherUser = options.otherUser;
 
       },
       onRender:function(){

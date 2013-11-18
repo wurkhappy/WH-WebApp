@@ -1,0 +1,23 @@
+<h2>Messages</h2>
+<h3 class="helper_text">We send out an email everytime you post a message.</h3>
+<ul class="discussion_container">
+	{{#if this.comments}}
+		<h2 class="discussion_placeholder">Have something important to say? Leave a message in the box below.</h2>
+	{{/if}}
+</ul>
+<div class="add_comment_container">
+	<textarea class="enter_comment_input inline" placeholder="Click here to leave a message."></textarea>
+	<div class="comment_action_container">
+		<div id="select" class="selectdiv">  
+			<select class="inline comment_select_padding selectboxdiv" id="milestoneSelect">
+				<option value="General" disabled selected>Choose Milestone...</option>
+				{{#each this.payments}}
+				<option value="{{id}}">{{title}}</option>
+				{{/each}}
+			</select>
+			<div class="out">Choose Milestone...</div>
+		</div>
+		<div id="action-select-wrapper" class="inline comment_select_padding"></div>
+		<a class="send_comment">Send</a>
+	</div>
+</div>

@@ -21,29 +21,35 @@ var user = {{.user}};
 			<div id="progress-section">
 				<h2 class="create_agreement_title">Agreement Overview</h2>
 				<div class="progress-large create_agreement_progress">
-					<div class="create_agreement_icon_container">
-						<a class="create_agreement_navigation_link overview_link" href="proposal">
-							<h2 class="create_agreement_navigation">Overview</h2>
-							<i class="fa fa-circle green_icon create_agreement_progress_icon"></i>
-						</a>
-						<a class="create_agreement_navigation_link payment_schedule_link" href="estimate">
-							<h2 class="create_agreement_navigation">Payment</h2>
-							<i class="fa fa-circle create_agreement_progress_icon"></i>
-						</a>
-						<a class="create_agreement_navigation_link recipient_link" href="recipient">
-							<h2 class="create_agreement_navigation">Review</h2>
-							<i class="fa fa-circle create_agreement_progress_icon"></i>
-						</a>
-					</div>
-					<progress class="agreement_progress" max="100" value="" data-skill="html5">
-						<!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
-						<p data-value="">HTML5</p>
-						<div class="agreement_progress_bar">
-							<span></span>
-						</div>
-					</progress>
+				  <div class="create_agreement_icon_container">
+				    <a class="create_agreement_navigation_link overview_link" href="#proposal">
+				      <h2 class="create_agreement_navigation">Overview</h2>
+				      <i class="fa fa-circle green_progrss create_agreement_progress_icon"></i>
+				    </a>
+				    <a class="create_agreement_navigation_link payment_schedule_link" href="#estimate">
+				      <h2 class="create_agreement_navigation">Payment</h2>
+				      <i class="fa fa-circle create_agreement_progress_icon"></i>
+				    </a>
+				    <a class="create_agreement_navigation_link review_link" href="#review">
+				      <h2 class="create_agreement_navigation">Review</h2>
+				      <i class="fa fa-circle create_agreement_progress_icon"></i>
+				    </a>
+				    <a class="create_agreement_navigation_link send_link" href="#send">
+				      <h2 class="create_agreement_navigation">Send</h2>
+				      <i class="fa fa-circle create_agreement_progress_icon"></i>
+				    </a>
+				  </div>
+				  <progress class="agreement_progress" max="100" value="0" data-skill="html5">
+				    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+				    <p style="width:50%" data-value="50"></p>
+				    <div class="agreement_progress_bar">
+				      <span style="width:50%"></span>
+				    </div>
+				  </progress>
 				</div>
 			</div>
+
+
 
 			<div id="main-section">
 				<form action="#" method="get" accept-charset="utf-8">

@@ -1,0 +1,1 @@
+define(["backbone","handlebars","text!templates/agreement/edit/user_tpl.html"],function(e,t,n){var r=e.View.extend({template:t.compile(n),render:function(){return this.$el.html(this.template(window.otherUser)),this},events:{"blur input":"updateFields"},updateFields:function(e){this.model.set(e.target.name,e.target.value),console.log(this.model)}});return r});

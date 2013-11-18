@@ -1,6 +1,5 @@
 
 .meta {
-  border-bottom: 1px solid rgb(240,240,240);
   padding-bottom: 20px;
 }
 
@@ -76,6 +75,10 @@
   border-bottom-left-radius: 3px;
 }
 
+.work_item_container {
+  margin: 0;
+}
+
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
@@ -86,4 +89,8 @@
   border: 1px solid;
   padding: 10px;
   border-radius: 5px;
+}
+
+.home_container {
+  min-height:150px;
 }

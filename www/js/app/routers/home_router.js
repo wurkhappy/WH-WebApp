@@ -30,20 +30,24 @@
 
         //var paymentProgress = this.collection.paymentProgress();
 
-        var waitingView = new SectionView({
-          title:"Waiting for Response", 
-          collection: sortedAgreements.waitingOnRespAgrmnts,
-          otherUsers: this.otherUsers, 
-          currentUser: this.currentUser, 
-          el:'#waitingSection'
-        });
-        var progressView = new SectionView({
-          title:"In Progress", 
-          collection: sortedAgreements.inProgressAgrmnts,
-          otherUsers: this.otherUsers,
-          currentUser: this.currentUser, 
-          el:'#progressSection'
-        });
+        if (sortedAgreements.waitingOnRespAgrmnts.length > 0) {
+          var waitingView = new SectionView({
+            title: 'Waiting for Response', 
+            collection: sortedAgreements.waitingOnRespAgrmnts,
+            otherUsers: this.otherUsers, 
+            currentUser: this.currentUser, 
+            el:'#waitingSection'
+          });
+        }
+        if (sortedAgreements.inProgressAgrmnts.length > 0) {
+          var progressView = new SectionView({
+            title:"In Progress", 
+            collection: sortedAgreements.inProgressAgrmnts,
+            otherUsers: this.otherUsers,
+            currentUser: this.currentUser, 
+            el:'#progressSection'
+          });
+        }
         if (sortedAgreements.draftAgrmnts.length > 0) {
           var draftView = new SectionView({
             title:"Drafts", 

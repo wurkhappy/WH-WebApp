@@ -1,0 +1,17 @@
+<header class="bottom_divider pay_header_container">
+	<h2 class="send_header">Send Agreement</h2>
+	<form class="send_email" action="#" method="get" accept-charset="utf-8">
+		<fieldset>
+			{{#unless clientID}}
+			<label class="send_email_recipient" for="clientEmail">Recipient:</label> 
+			<input class="recipient_input" name="clientEmail" placeholder="Please enter recipient's email">
+			{{/unless}}
+			<span class="helper_text personal_message_helper"><a class="personal_message_link">Include a personal message</a></span>
+			<div class="personal_message_container hide">
+				<label for="message">Personal message in email:</label>
+				<textarea name="message" rows="5" cols="100">Please take a moment to look over the details of the services provided, refund policies and payment schedule to confirm that's what you want to do and you're comfortable with the agreement.</textarea>
+			</div>
+			<a id="submit-button" class="button action_button">Send Agreement</a>
+		</fieldset>
+	</form>
+</header>

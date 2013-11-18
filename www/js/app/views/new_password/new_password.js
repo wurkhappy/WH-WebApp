@@ -1,7 +1,7 @@
 /*
- * Login View.
+ * New Password View.
+ *
  */
-
  define(['backbone', 'handlebars', 'parsley'],
 
   function (Backbone, Handlebars, parsley) {

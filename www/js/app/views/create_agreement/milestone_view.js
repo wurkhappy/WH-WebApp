@@ -2,12 +2,14 @@
 * Scope of Work - Create Agreement View.
 */ 
 
-define(['backbone', 'handlebars', 'underscore', 'kalendae',
-  'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
+define(['backbone', 'handlebars', 'underscore', 'kalendae', 'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
 
   function (Backbone, Handlebars, _, Kalendae, milestoneTemplate, PaymentScopeView) {
 
     'use strict';
+    Handlebars.registerHelper('dateFormat', function(date) {
+      return date.format('MMM D, YYYY');
+    });
 
     var MilestoneView = Backbone.View.extend({
 
@@ -22,8 +24,18 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
       },
 
       render: function () {
-        this.$el.html(this.template(this.model.toJSON()));
-        var paymentScopeView = new PaymentScopeView({model: this.model, collection:this.model.get('scopeItems')});
+
+        var deposit = this.model.isDeposit();
+
+        this.$el.html(this.template({
+          model: this.model.toJSON(),
+          deposit: deposit
+        }));
+        var paymentScopeView = new PaymentScopeView({
+          model: this.model,
+          collection:this.model.get('scopeItems'),
+          deposit: deposit
+        });
         paymentScopeView.render();
         paymentScopeView.$el.insertBefore(this.$('.removeButton'));
         this.$el.fadeIn('slow');
@@ -43,7 +55,6 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
       updateFields: function(event){
         if (!event.target.name) return;
         this.model.set(event.target.name, event.target.value);
-        console.log(this.collection);
       },
       triggerCalender: function (event) {
         if (!this.calendar){

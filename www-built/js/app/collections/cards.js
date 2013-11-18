@@ -1,0 +1,1 @@
+define(["backbone","models/comment"],function(e,t){var n=e.Collection.extend({model:t,url:function(){return"/user/"+this.user.id+"/cards"}});return n});

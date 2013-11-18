@@ -17,12 +17,13 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
         this.user = options.user;
         this.otherUser = options.otherUser
         this.changeState();
+        this.waiting = this.model.get("currentStatus").StatusWaiting;
       },
 
       render:function(){
-        var waiting;
+        var waiting; 
 
-        if (this.state.button1Title === 'Waiting for Response') {
+        if (this.state.button1Title === this.waiting) {
           waiting = true;
         }
 

@@ -1,0 +1,1 @@
+define(["backbone","backbone-relational","moment"],function(e,t,n){var r=e.RelationalModel.extend({});return r});

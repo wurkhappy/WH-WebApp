@@ -1,37 +1,10 @@
 /*
- * Initialize App for `Account Page`.
+ * Initialize App for Agreement Page.
+ *
+ * A require.config here would be ignored in r.js optimizer
  *
  */
- require.config({
 
- 	paths: {
- 		marionette: 'lib/backbone.marionette/lib/backbone.marionette',
- 		noty: 'lib/noty/js/noty/jquery.noty',
- 		"noty-inline": 'lib/noty/js/noty/layouts/inline',
- 		"noty-default": 'lib/noty/js/noty/themes/default',
- 		"intro": 'lib/intro.js/intro',
- 	},
-
- 	shim: {
- 		marionette : {
- 			deps : ['jquery', 'underscore', 'backbone'],
- 			exports : 'Marionette'
- 		},
- 		noty : {
- 			deps : ['jquery'],
- 			exports : 'noty'
- 		},
- 		"noty-inline" : {
- 			deps : ['noty']
- 		},
- 		"noty-default" : {
- 			deps : ['noty']
- 		},
- 		"intro" : {
- 			exports : ['introJs']
- 		}
- 	}
- });
  define(function (require) {
 
  	'use strict';

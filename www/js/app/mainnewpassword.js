@@ -1,22 +1,9 @@
 /*
- * Initialize App for `Landing Page`.
+ * Initialize App for Create Agreement Page.
+ *
+ * A require.config here will be ignored in r.js optimizer
  *
  */
-
-
- require.config({
-
- 	paths: {
- 		parsley: 'lib/parsleyjs/dist/parsley.min'
- 	},
-
- 	shim: {
- 		parsley : {
- 			deps : ['jquery'],
- 			exports : 'parsley'
- 		}
- 	}
- });
 
 define(function (require) {
 

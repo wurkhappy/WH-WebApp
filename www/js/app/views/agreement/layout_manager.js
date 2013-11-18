@@ -17,7 +17,6 @@
         profile: "#agreement-profile",
         agreementProgressBar: "#agreement-progress-bar",
         paymentSchedule: "#payment-schedule",
-        clauses:"#clauses",
         agreementHistory: "#agreement-history",
         header: "#header-section",
         discussion: "#discussion"

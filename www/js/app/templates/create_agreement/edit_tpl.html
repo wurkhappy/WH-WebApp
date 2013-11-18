@@ -1,6 +1,13 @@
-	<input name="title" value="{{title}}" placeholder="Title">
-	<textarea name="proposedServices" placeholder="Summary">{{proposedServices}}</textarea>
+<div class="review_agreement_container">
+	<h2 class="review_title edit_title"><input name="title" value="{{title}}" placeholder="Title"></h2>
+	<h2 class="agreement_title">Summary</h2>
+	<textarea class="edit_summary" name="proposedServices" placeholder="Summary">{{proposedServices}}</textarea>
 	<div id="payments-section"></div>
+	<div>
+		<h2 class="agreement_title review_agreement_total">Agreement Total:<strong> ${{totalAmount}} </strong></h2>
+	</div>
+</div>
+
 	<fieldset class="action_button_container column-one-fourth">
 		<a id="saveAgreement" class="button action_button">Save Agreement</a>
 	</fieldset>

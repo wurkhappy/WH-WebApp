@@ -9,6 +9,7 @@ define(['backbone','backbone-relational', 'moment'],
             StatusSubmitted:"submitted",
             StatusAccepted:"accepted",
             StatusRejected:"rejected",
+            StatusWaiting:"Waiting for Response",
 
             set: function( key, value, options ) {
                 Backbone.RelationalModel.prototype.set.apply( this, arguments );

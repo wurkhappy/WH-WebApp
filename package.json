@@ -1,7 +1,7 @@
 {
   "name": "wurk-happy",
   "version": "0.0.1",
-  "description": "Internal Node package for use in development",
+  "description": "Wurk Happy Web Application",
   "main": "Gruntfile.js",
   "dependencies": {},
   "devDependencies": {
