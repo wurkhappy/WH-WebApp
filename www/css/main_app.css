@@ -1097,12 +1097,17 @@ fieldset {
 }
 
 /* line 78, ../scss/components/_agreement.scss */
+.work_item_container {
+  margin: 0;
+}
+
+/* line 82, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 83, ../scss/components/_agreement.scss */
+/* line 87, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -1110,7 +1115,7 @@ fieldset {
   border-radius: 5px;
 }
 
-/* line 90, ../scss/components/_agreement.scss */
+/* line 94, ../scss/components/_agreement.scss */
 .home_container {
   min-height: 150px;
 }
@@ -1991,6 +1996,16 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 49, ../scss/components/_review_agreement.scss */
 .review_continue_button {
   padding: 0 20px;
+}
+
+/* line 53, ../scss/components/_review_agreement.scss */
+.edit_summary {
+  width: 100%;
+}
+
+/* line 57, ../scss/components/_review_agreement.scss */
+.edit_title {
+  line-height: 40px;
 }
 
 /* line 1, ../scss/components/_create_work_item.scss */

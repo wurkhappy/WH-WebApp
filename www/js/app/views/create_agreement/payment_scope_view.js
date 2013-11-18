@@ -35,7 +35,7 @@
       events:{
         "keypress input" : "addOnEnter",
         "click .add_comment": "addComment"
-        //"focus input": "fadeError"
+        "focus input": "fadeError"
       },
 
       addOnEnter: function(event){
@@ -65,7 +65,6 @@
       },
 
       fadeError: function(event) {
-        console.log("hello");
         $('.add_work_item_error').fadeOut('fast');
       }
 

@@ -21,7 +21,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 				"blur .amount":"updateAmount",
 				"blur .title":"updateTitle",
 				"click .removeButton" : "removeMilestone",
-				"keypress .edit_work_item" : "addScopeItem"
+				"keypress .edit_work_item" : "addScopeItem",
+				"click .add_comment": "addComment",
+				"focus input": "fadeError"
 			},
 			updateAmount:function(event){
 				var amount = event.target.value;
@@ -41,7 +43,28 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 					this.collection.add({text:event.target.value});
 					event.target.value = null;
 				}
-			}
+			},
+			addComment: function(event) {
+		        var $text = $(event.target).prev('.add_work_item_input'),
+		            $input = $('input'),
+		            $error = $(event.target).next('.add_work_item_error');
+
+		        if ($text.val() === '') {
+		          $error.fadeIn('fast');
+		          $input.keypress( function() {
+		            $('.add_work_item_error').fadeOut('fast');
+		          });
+		          $text.focus();
+
+		        } else {
+		          this.collection.add({text:$text.val()});
+		          $text.val(null);
+		          $text.focus();
+		        }
+		    },
+			fadeError: function(event) {
+		        $('.add_work_item_error').fadeOut('fast');
+		    }
 
 		});
 
