@@ -1,5 +1,5 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html'],
+define(['backbone', 'handlebars', 'text!templates/agreement/edit/header_edit_tpl.html'],
 
   function (Backbone, Handlebars, userTemplate) {
 
@@ -11,7 +11,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
       render:function(){
         this.$el.html(this.template({
           model: this.model.toJSON(), 
-          button1Title: "Submit Agreement",
+          button1Title: "Save and Send Agreement",
           button2Title: "Save Draft"
         }));
 

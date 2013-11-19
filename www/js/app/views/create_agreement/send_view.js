@@ -72,17 +72,8 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
             that.modal = new Modal({view:view});
           } 
           that.modal.show();
-        }});
-
-
-
-        
+        }});        
       }
-
-
-
-
-
     });
 
 return SendView;
