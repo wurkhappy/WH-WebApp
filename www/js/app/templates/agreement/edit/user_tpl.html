@@ -1,5 +1,5 @@
+{{#if this}}
 <table border="0" cellspacing="0" cellpadding="0">
-	{{#if this}}
   <tr>
     <td class="meta">
       <span><img src="{{avatarURL}}"></span>
@@ -9,7 +9,8 @@
       <p>{{email}} {{#if phoneNumber}}&mdash; {{phoneNumber}}{{/if}}</p>
     </td>
   </tr>
-  {{else}}
-  <h3>Who should we send this to?</h3><input name="clientEmail" placeholder="Client E-mail Address"></input>
-  {{/if}}
 </table>
+{{else}}
+  <h2 class="edit_recipient">Recipient</h2>
+  <input class="edit_email_input" name="clientEmail" placeholder="Recipient E-mail Address"></input>
+  {{/if}}

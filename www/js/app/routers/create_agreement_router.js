@@ -25,7 +25,7 @@
         this.model = new AgreementModel({freelancerID:this.user.id});
         this.model.get("payments").add({title: 'Deposit'});
         this.mainContainer = new MainContainerView({model: this.model});
-        this.layout = new Layout({model: this.model});
+        this.layout = new Layout({model: this.model, user: this.user});
       },
       proposal: function () {
         this.layout.switchToProposal();

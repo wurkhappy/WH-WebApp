@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
     var DraftState = BaseState.extend({
       initialize:function(){
         BaseState.prototype.initialize.apply(this);
-        this.button1Title = (this.userIsClient) ? null : "Submit Agreement"; 
+        this.button1Title = (this.userIsClient) ? null : "Send Agreement"; 
         this.button2Title = (this.userIsClient) ? null : "Edit Draft"; 
       },
       button1:function(event){

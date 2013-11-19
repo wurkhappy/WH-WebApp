@@ -1914,6 +1914,16 @@ progress::-webkit-progress-value, progress.yellow_progress {
   display: none;
 }
 
+/* line 1, ../scss/components/_edit_agreement.scss */
+.edit_email_input {
+  width: 215px;
+}
+
+/* line 5, ../scss/components/_edit_agreement.scss */
+.edit_recipient {
+  padding: 0;
+}
+
 /* line 1, ../scss/components/_create_estimate.scss */
 .addMoreButton {
   width: 100%;
@@ -2303,6 +2313,11 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-bottom: 1px solid #e1e1e1;
   padding: 10px 0;
   list-style: none;
+}
+
+/* line 17, ../scss/components/_agreement_history.scss */
+.agreement_history_title {
+  padding: 0;
 }
 
 /* line 1, ../scss/components/_account.scss */

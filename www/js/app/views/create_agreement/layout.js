@@ -20,6 +20,10 @@
         progress: "#progress-section",
         main: "#main-section",
       },
+
+      initialize: function(options) {
+        this.user = options.user;
+      },
       switchToProposal: function(){
         this.header.show(new HeaderCancel({model: this.model}));
         this.progress.show(new ProgressBar({title: "Agreement Overview", value: 0}));
@@ -43,7 +47,7 @@
       switchToSend: function(){
         this.header.show(new HeaderCancel({model: this.model}));
         this.progress.show(new ProgressBar({title: "Agreement Review", value: 3}));
-        this.main.show(new SendView({model: this.model}));
+        this.main.show(new SendView({model: this.model, user: this.user}));
       }
     });
 

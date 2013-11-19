@@ -8,12 +8,16 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
 	"net/http"
+	"log"
 )
 
 func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.UserService, "/user", buf.Bytes())
+	log.Print(config.UserService)	
+resp, statusCode := sendServiceRequest("POST", config.UserService, "/user", buf.Bytes())
+	log.Printf("resp is %s", resp)
+	log.Printf("statuscode is %d", statusCode)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
