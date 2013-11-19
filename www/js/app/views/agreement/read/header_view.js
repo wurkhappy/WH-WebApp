@@ -17,16 +17,15 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
         this.user = options.user;
         this.otherUser = options.otherUser
         this.changeState();
-        this.currentStatus = this.model.get("currentStatus");
-        console.log(options);
-
+        console.log(this.model);
       },
 
       render:function(){
-        var waiting; 
+        var waiting;
+        var currentStatus = this.model.get("currentStatus");
 
         if (this.currentStatus !== null) {
-          if (this.state.button1Title === this.waiting) {
+          if (this.state.button1Title === this.model.get("currentStatus").StatusWaiting) {
             waiting = true;
           }
         } else {
