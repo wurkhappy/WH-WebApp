@@ -29,6 +29,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         }});
       },
       submit: function(){
+        this.model.set("version", this.model.get("version") + 1);
+        this.model.unset("versionID");
         this.model.set("draft", false);
         this.model.save({},{success:_.bind(function(model, response){
           var submitSuccess = function(){

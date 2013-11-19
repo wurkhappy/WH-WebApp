@@ -247,7 +247,7 @@ func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 	status.UserID = session.Values["id"].(string)
 	data, _ := json.Marshal(status)
 
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/status", data)
+	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID+"/status", data)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
