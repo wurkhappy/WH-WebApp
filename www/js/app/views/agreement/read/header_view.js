@@ -18,6 +18,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
         this.otherUser = options.otherUser
         this.changeState();
         this.currentStatus = this.model.get("currentStatus");
+        console.log(options);
 
       },
 

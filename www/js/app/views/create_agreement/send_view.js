@@ -1,6 +1,6 @@
-define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html', 'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
+define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html', 'views/agreement/read/modals/deposit_request', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, tpl, PaymentRequestModal, Modal) {
+  function (Backbone, Handlebars, tpl, DepositRequestModal, Modal) {
 
     'use strict';
 
@@ -20,10 +20,9 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
       },
       render: function(){
         this.deposit = this.model.get("payments").at(0);
-
         var deposit;
 
-        if (this.deposit.isDeposit() && this.deposit.has("amount")) {
+        if (this.deposit.get("required") && this.deposit.get("amount") > 0) {
           deposit = true;
         }
 
@@ -68,7 +67,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
 
         this.model.save({},{success:function(model, response){
           if (!that.modal){
-            var view = new PaymentRequestModal({model: that.deposit, collection: that.model.get("payments"), cards: that.user.get("cards"), bankAccounts: that.user.get("bank_accounts")});
+            var view = new DepositRequestModal({model: that.deposit, collection: that.model.get("payments"), cards: that.user.get("cards"), bankAccounts: that.user.get("bank_accounts")});
             that.modal = new Modal({view:view});
           } 
           that.modal.show();

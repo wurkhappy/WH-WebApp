@@ -1013,6 +1013,11 @@ fieldset {
   margin-bottom: 20px;
 }
 
+/* line 59, ../scss/components/_create_agreement.scss */
+.require_deposit_text {
+  display: inline;
+}
+
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
   padding-bottom: 20px;

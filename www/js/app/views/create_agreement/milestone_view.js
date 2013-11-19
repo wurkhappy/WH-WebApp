@@ -46,6 +46,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'text!templates/crea
       events: {
         "blur input":"updateFields",
         "blur .paymentAmount":"updateAmount",
+        "blur #require_checkbox": "requireDeposit",
         "focus .kal": "triggerCalender",
         "click .remove_icon > a":"removeModel"
       },
@@ -56,6 +57,14 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'text!templates/crea
         if (!event.target.name) return;
         this.model.set(event.target.name, event.target.value);
       },
+
+      requireDeposit: function(event) {
+        if (!event.target.name) return;
+        if (event.target.value === 'true') {
+          this.model.set(event.target.name, true);
+        }
+      },
+
       triggerCalender: function (event) {
         if (!this.calendar){
           this.calendar = new Kalendae.Input(this.$(".kal")[0], {});
