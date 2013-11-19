@@ -41,7 +41,6 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
         var that = this;
 
         this.model.save({},{success:function(model, response){
-          console.log(that.model);
 
           $('.notification_container').fadeIn('fast');
 
@@ -50,7 +49,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
           };
           var submitSuccess = _.debounce(changeWindow, 800); //delay the change in window until after success notification
 
-          //that.model.submit(that.message, submitSuccess);
+          that.model.submit(that.message, submitSuccess);
         }});
       },
       addRecipient: function(event){
@@ -60,17 +59,24 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
         this.message = event.target.value
       },
       requestDeposit: function (event) {
-
         event.preventDefault();
+        event.stopPropagation();
 
-        if (!this.modal){
-          console.log(this.user);
-          console.log(this.model);
+        if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
 
-          var view = new PaymentRequestModal({model: this.deposit, collection: this.model.get("payments"), cards: this.user.get("cards"), bankAccounts: this.user.get("bank_accounts")});
-          this.modal = new Modal({view:view});
-        } 
-        this.modal.show();
+        var that = this;
+
+        this.model.save({},{success:function(model, response){
+          if (!that.modal){
+            var view = new PaymentRequestModal({model: that.deposit, collection: that.model.get("payments"), cards: that.user.get("cards"), bankAccounts: that.user.get("bank_accounts")});
+            that.modal = new Modal({view:view});
+          } 
+          that.modal.show();
+        }});
+
+
+
+        
       }
 
 
