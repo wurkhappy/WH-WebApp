@@ -1023,32 +1023,32 @@ fieldset {
   padding-bottom: 20px;
 }
 
-/* line 10, ../scss/components/_agreement.scss */
+/* line 6, ../scss/components/_agreement.scss */
 .agreement_profile_container {
   padding: 15px 20px 15px 20px;
   float: left;
 }
 
-/* line 15, ../scss/components/_agreement.scss */
+/* line 11, ../scss/components/_agreement.scss */
 .agreement_title {
   padding: 0;
   margin: 20px 20px 10px 20px;
 }
 
-/* line 20, ../scss/components/_agreement.scss */
+/* line 16, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin: 0 20px 10px 20px;
   padding: 0;
 }
 
-/* line 25, ../scss/components/_agreement.scss */
+/* line 21, ../scss/components/_agreement.scss */
 .payment_milestone {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
 }
 
-/* line 31, ../scss/components/_agreement.scss */
+/* line 27, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1062,32 +1062,32 @@ fieldset {
   color: #646464;
 }
 
-/* line 45, ../scss/components/_agreement.scss */
+/* line 41, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 51, ../scss/components/_agreement.scss */
+/* line 47, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 56, ../scss/components/_agreement.scss */
+/* line 52, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 61, ../scss/components/_agreement.scss */
+/* line 57, ../scss/components/_agreement.scss */
 .scope_item {
   padding: 0;
 }
 
-/* line 65, ../scss/components/_agreement.scss */
+/* line 61, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -1101,18 +1101,18 @@ fieldset {
   border-bottom-left-radius: 3px;
 }
 
-/* line 78, ../scss/components/_agreement.scss */
+/* line 74, ../scss/components/_agreement.scss */
 .work_item_container {
   margin: 0;
 }
 
-/* line 82, ../scss/components/_agreement.scss */
+/* line 78, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 87, ../scss/components/_agreement.scss */
+/* line 83, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -1120,7 +1120,7 @@ fieldset {
   border-radius: 5px;
 }
 
-/* line 94, ../scss/components/_agreement.scss */
+/* line 90, ../scss/components/_agreement.scss */
 .home_container {
   min-height: 150px;
 }
