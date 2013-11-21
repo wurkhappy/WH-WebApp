@@ -24,8 +24,8 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
         var waiting;
         var currentStatus = this.model.get("currentStatus");
 
-        if (this.currentStatus !== null) {
-          if (this.state.button1Title === this.model.get("currentStatus").StatusWaiting) {
+        if (currentStatus !== null) {
+          if (this.state.button1Title === currentStatus.StatusWaiting) {
             waiting = true;
           }
         } else {

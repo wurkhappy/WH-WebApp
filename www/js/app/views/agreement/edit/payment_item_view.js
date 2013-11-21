@@ -6,6 +6,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 	function (Backbone, Handlebars, _, Marionette, Kalendae, paymentItemTemplate, ScopeItemView) {
 
 		'use strict';
+		Handlebars.registerHelper('dateFormat', function(date) {
+	      return date.format('MMM D, YYYY');
+	    });
 
 		var PaymentEditView = Backbone.Marionette.CompositeView.extend({
 
@@ -54,6 +57,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 		         _.delay(this.closeCalendar, 150);
 		         this.$('.kal').val(date.format('MM/DD/YYYY'))
 		         this.$('.kal').blur();
+		         
 		    },
 		    closeCalendar: function() {
 		        $('.kalendae').hide();

@@ -22,8 +22,10 @@ define(['backbone', 'handlebars', 'text!templates/agreement/edit/header_edit_tpl
       save: function(){
         if(!this.model.get("draft")) this.model.unset("versionID");
         this.model.set("draft", true);
-        this.model.save({},{success:function(model, response){
-          window.location = "/home";
+        console.log(this.model);
+        this.model.save({},{
+          success:function(model, response){
+          //window.location = "/home";
         }});
       }
 
