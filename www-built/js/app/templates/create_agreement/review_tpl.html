@@ -1,10 +1,23 @@
 	
-	<h2>Agreement Title</h2>
-	<p>{{title}}</p>
+<div class="review_agreement_container">
+	<h2 class="review_title">
+		{{#unless model.title}}
+			Title Goes Here
+		{{/unless}}
+		{{model.title}}
+	</h2>
 	<span class="helper_text edit_helper">Feel like something's missing? <a id="editAgreement" href="#edit">Edit this agreeement</a>.</span>
-	<h2 for="proposedServices">Summary</h2>
-	<p>{{proposedServices}}</p>
+	<h2 class="agreement_title">Summary</h2>
+	<p>{{model.proposedServices}}</p>
 	<div id="payments-section"></div>
-	<fieldset class="action_button_container">
-		<a href="#" id="submitAgreement" class="button cancel inline">Continue</a>
-	</fieldset>
+	<div>
+		<h2 class="agreement_title review_agreement_total">Agreement Total:
+			{{#if totalAmount}}
+			<strong> ${{totalAmount}} </strong></h2>
+			{{/if}}
+	</div>
+</div>
+<fieldset class="action_button_container review_continue">
+	<a href="#" id="submitAgreement" class="button cancel inline review_continue_button">Continue</a>
+</fieldset>
+

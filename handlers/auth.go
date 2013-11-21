@@ -8,8 +8,8 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
 	"html/template"
-	"net/http"
 	"log"
+	"net/http"
 )
 
 // var authTemplates = template.Must(template.ParseFiles("templates/login.html", "templates/newAccount.html"))
@@ -91,8 +91,9 @@ func GetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessi
 		session.Values["id"].(string),
 	}
 	m := map[string]interface{}{
-		"appName": "mainnewpassword",
-		"user":    user,
+		"appName":    "mainnewpassword",
+		"user":       user,
+		"production": Production,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

@@ -1,21 +1,32 @@
-{{#if this.deposit}}
+{{#if deposit}}
   <div class="deposit_container">
-    <label>Deposit</label>
-    <span class="helper_text">Receive a deposit upon acceptance of this agreement.</span>
-    <input id="deposit" type="text" name="deposit_amount" placeholder="$0.00">
+    <label>{{model.title}}</label>
+    <input id="require_checkbox" type="checkbox" name="required" value="true"
+    {{#if model.required}}
+    checked
+    {{/if}}
+    >
+    <span class="helper_text require_deposit_text">Require deposit?</span><br>
+    <input id="deposit" type="text" name="amount" 
+    {{#if model.amount}}
+    value="{{model.amount}}" 
+    {{else}}
+    placeholder="$0.00"
+    {{/if}}>
   </div>
 {{else}}
 <fieldset class="create_milestone_container">
     <label for="">Payment Milestone Name<span>Examples: Certain deliverables, 30% job complete, final payment, etc.</span></label>
-    <input type="text" name="title" placeholder="{{this.title}}" id="" size="50">
+    <input type="text" name="title" placeholder="{{model.title}}" id="" size="50">
     <label for="">Payment Milestone Amount<span>Please enter an amount between $1.00 and $100,000.00</span></label>
-    <input class="paymentAmount" type="text" name="amount" placeholder="$0.00" id="" size="25">
+    <input class="paymentAmount" type="text" name="amount" placeholder="{{model.amount}}" id="" size="25">
     <label for="">Expected Payment Date</label>
-    <input type="text" name="dateExpected" class="kal" size="25">
+    <input type="text" name="dateExpected" class="kal" size="25" {{#if model.dateExpected}}
+    placeholder="{{dateFormat model.dateExpected}}"
+    {{/if}}>
   </fieldset>
 
 {{/if}}
-
   
   <fieldset class="removeButton">
   	<p class="remove_icon">

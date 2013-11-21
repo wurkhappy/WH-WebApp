@@ -39,7 +39,11 @@
 </head>
 <body class="landing_background">
     {{ template "body" .}}
+    {{if .production}}
+        <script data-main="https://d3kq8dzp7eezz0.cloudfront.net/js/config" src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/requirejs/require.js"></script>
+    {{else}}
     <script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
+    {{end}}
     <script>
     // Load common code that includes config, then load the app logic for
     // this page. Do the require calls here instead of a separate file
