@@ -5,3 +5,4 @@ import (
 )
 
 var MDClient mdp.Client
+var Production bool

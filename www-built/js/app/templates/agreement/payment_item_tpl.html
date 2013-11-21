@@ -1,5 +1,9 @@
 <li class="payment_milestone">
-	<strong>${{amount}}</strong> &mdash; {{title}} {{#if dateExpected}} on {{dateFormat dateExpected}}{{/if}}
+	<strong>${{amount}}</strong> &mdash; {{title}}
+
+	{{#unless required}}
+	{{#if dateExpected}} on {{dateFormat dateExpected}}{{/if}}
+	{{/unless}}
 	<div class="paymentStatus payment_status"></div>
 </li>
 	

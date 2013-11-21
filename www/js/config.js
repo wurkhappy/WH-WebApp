@@ -1,4 +1,5 @@
 /**
+/**
  *
  * RequireJS file paths and shim config.
  *

@@ -28,6 +28,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		"otherUsers":     requestedUsers,
 		"thisUser":       thisUser,
 		"agreementCount": len(agreementsData),
+		"production":     Production,
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
@@ -123,7 +124,8 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 
 func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	m := map[string]interface{}{
-		"appName": "maincreateagreement",
+		"appName":    "maincreateagreement",
+		"production": Production,
 		"user": struct {
 			ID string `json:"id"`
 		}{
@@ -187,11 +189,12 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	thisUser := getUserInfo(userID.(string))
 
 	m := map[string]interface{}{
-		"appName":   "mainagreement",
-		"agreement": agrmntData,
-		"otherUser": otherUser,
-		"thisUser":  thisUser,
-		"comments":  commentsData,
+		"appName":    "mainagreement",
+		"agreement":  agrmntData,
+		"otherUser":  otherUser,
+		"thisUser":   thisUser,
+		"comments":   commentsData,
+		"production": Production,
 	}
 
 	format := func(date string) string {
@@ -290,9 +293,12 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 }
 
 func ShowSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	m := map[string]interface{}{
+		"production": Production,
+	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
 		"templates/sample_agreement.html",
 	))
-	index.Execute(w, nil)
+	index.Execute(w, m)
 }

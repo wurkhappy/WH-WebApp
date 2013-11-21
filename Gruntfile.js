@@ -300,7 +300,8 @@ module.exports = function (grunt) {
                                 'backbone',
                                 'underscore',
                                 'handlebars',
-                                'text'
+                                'text',
+                                'moment',
                             ]
                         },
 
@@ -321,7 +322,8 @@ module.exports = function (grunt) {
                         // is controlled in mainpage.js.
                         {
                             name: 'app/mainaccount',
-                            exclude: ['config']
+                            exclude: ['config'],
+                            
                         },
                         {
                             name: 'app/mainagreement',
@@ -451,6 +453,10 @@ module.exports = function (grunt) {
         //'yuidoc',
         'imagemin',
         'concat'
+    ]);
+
+    grunt.registerTask('rjs', [
+        'requirejs',
     ]);
 
 
