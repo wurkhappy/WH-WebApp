@@ -10,8 +10,8 @@ import (
 func initRoutes(r *mux.Router) {
 	r.HandleFunc("/", home).Methods("GET")
 
-	r.Handle("/email", handlers.EmailHead).Methods("HEAD")
-	r.Handle("/email", handlers.EmailPost).Methods("POST")
+	r.HandleFunc("/email", handlers.EmailHead).Methods("HEAD")
+	r.HandleFunc("/email", handlers.EmailPost).Methods("POST")
 
 	r.Handle("/password/forgot", loginHandler(handlers.ForgotPassword)).Methods("POST")
 	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
