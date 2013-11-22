@@ -8,7 +8,11 @@
   </fieldset>
 
   <fieldset class="submit-buttons">
-    <a id="sendAgreement" href="" class="single">Send Client Agreement</a>
+  	{{#if deposit}}
+    	<a id="requestDeposit" href="" class="single">Send Agreement and Request Deposit</a>
+	{{else}}
+		<a id="sendAgreement" href="" class="single">Send Client Agreement</a>
+	{{/if}}
   </fieldset>
 
 </form>

@@ -1,11 +1,14 @@
 
 
-define(['backbone', 'handlebars', 'underscore', 'marionette',
+define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 	'text!templates/agreement/edit/payment_item_tpl.html', 'views/agreement/edit/scope_item_view'],
 
-	function (Backbone, Handlebars, _, Marionette, paymentItemTemplate, ScopeItemView) {
+	function (Backbone, Handlebars, _, Marionette, Kalendae, paymentItemTemplate, ScopeItemView) {
 
 		'use strict';
+		Handlebars.registerHelper('dateFormat', function(date) {
+	      return date.format('MMM D, YYYY');
+	    });
 
 		var PaymentEditView = Backbone.Marionette.CompositeView.extend({
 
@@ -20,16 +23,15 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 			events:{
 				"blur .amount":"updateAmount",
 				"blur .title":"updateTitle",
-				"click .removeButton" : "removeMilestone",
+				"click #remove_icon" : "removeMilestone",
 				"keypress .edit_work_item" : "addScopeItem",
 				"click .add_comment": "addComment",
+				"focus .kal": "triggerCalender",
 				"focus input": "fadeError"
 			},
 			updateAmount:function(event){
 				var amount = event.target.value;
-				console.log(amount);
 				var adjAmount = (amount.substring(0,1) === '$') ? amount.substring(1) : amount;
-				console.log(adjAmount);
 				this.model.set("amount",adjAmount);
 			},
 			updateTitle:function(event){
@@ -44,6 +46,22 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 					event.target.value = null;
 				}
 			},
+			triggerCalender: function (event) {
+		        if (!this.calendar){
+		          this.calendar = new Kalendae.Input(this.$(".kal")[0], {});
+		          this.calendar.subscribe('date-clicked', _.bind(this.setDate, this));
+		        }
+		    },
+		    setDate: function(date, action){
+		        this.model.set("dateExpected", date);
+		         _.delay(this.closeCalendar, 150);
+		         this.$('.kal').val(date.format('MM/DD/YYYY'))
+		         this.$('.kal').blur();
+		         
+		    },
+		    closeCalendar: function() {
+		        $('.kalendae').hide();
+		    },
 			addComment: function(event) {
 		        var $text = $(event.target).prev('.add_work_item_input'),
 		            $input = $('input'),

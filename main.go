@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
-	// "github.com/wurkhappy/mdp"
+	"github.com/wurkhappy/WH-WebApp/handlers"
 	"net/http"
 	// "strconv"
 	// "time"
@@ -30,9 +30,12 @@ func main() {
 	} else {
 		config.Test()
 	}
+	handlers.Production = true
+
 	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
 	defer store.Close()
 	redisPool = store.Pool
+
 
 	r := mux.NewRouter()
 	initRoutes(r)
@@ -42,7 +45,7 @@ func main() {
 	serveSingle("/favicon.ico", "favicon.ico")
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
-	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www-built/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	err := http.ListenAndServe(":4001", nil)
 	if err != nil {

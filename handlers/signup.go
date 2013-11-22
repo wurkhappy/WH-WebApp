@@ -23,7 +23,8 @@ func GetSignup(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	// buf.ReadFrom(resp.Body)
 	// w.Write(buf.Bytes())
 	m := map[string]interface{}{
-		"appName": "mainsignup",
+		"appName":    "mainsignup",
+		"production": Production,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

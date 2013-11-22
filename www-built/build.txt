@@ -7,10 +7,6 @@ css/main_app.css
 ----------------
 css/main_app.css
 
-css/prototype.css
-----------------
-css/prototype.css
-
 js/lib/analytics/test/libs/mocha/mocha-1.12.0.css
 ----------------
 js/lib/analytics/test/libs/mocha/mocha-1.12.0.css
@@ -46,6 +42,22 @@ js/lib/backbone.babysitter/reports/coverage/prettify.css
 js/lib/backbone.wreqr/reports/coverage/prettify.css
 ----------------
 js/lib/backbone.wreqr/reports/coverage/prettify.css
+
+js/lib/chardin.js/chardinjs.css
+----------------
+js/lib/chardin.js/chardinjs.css
+
+js/lib/chardin.js/example/css/bootstrap-responsive.min.css
+----------------
+js/lib/chardin.js/example/css/bootstrap-responsive.min.css
+
+js/lib/chardin.js/example/css/bootstrap.min.css
+----------------
+js/lib/chardin.js/example/css/bootstrap.min.css
+
+js/lib/chardin.js/example/css/demo.css
+----------------
+js/lib/chardin.js/example/css/demo.css
 
 js/lib/formalize/assets/css/demo.css
 ----------------
@@ -127,6 +139,7 @@ js/lib/underscore/underscore.js
 js/lib/backbone/backbone.js
 js/lib/handlebars/handlebars.js
 js/lib/requirejs-text/text.js
+js/lib/momentjs/moment.js
 
 js/app/mainaccount.js
 ----------------
@@ -156,7 +169,6 @@ js/app/views/account/bank_account_layout.js
 text!templates/account/password.html
 js/app/views/account/password_view.js
 js/lib/backbone-relational/backbone-relational.js
-js/lib/momentjs/moment.js
 js/app/models/comment.js
 js/app/collections/cards.js
 js/app/models/card.js
@@ -171,15 +183,12 @@ js/app/mainagreement.js
 js/lib/backbone-relational/backbone-relational.js
 js/app/models/scope_item.js
 js/app/collections/scope_items.js
-js/lib/momentjs/moment.js
 js/app/models/status.js
 js/app/collections/status.js
 js/app/models/payment.js
 js/app/collections/payments.js
 js/app/models/comment.js
 js/app/collections/comments.js
-js/app/models/clause.js
-js/app/collections/clauses.js
 js/app/models/agreement.js
 js/lib/backbone.marionette/lib/backbone.marionette.js
 text!templates/agreement/layout_tpl.html
@@ -200,9 +209,10 @@ text!templates/agreement/user_tpl.html
 js/app/views/agreement/user_view.js
 text!templates/agreement/edit/user_tpl.html
 js/app/views/agreement/edit/user_edit_view.js
-text!templates/agreement/read/header_tpl.html
+text!templates/agreement/edit/header_edit_tpl.html
 js/app/views/agreement/edit/header_edit_view.js
 text!templates/agreement/edit/payment_edit_tpl.html
+js/lib/kalendae/build/kalendae.standalone.min.js
 text!templates/agreement/edit/payment_item_tpl.html
 text!templates/agreement/edit/scope_item_tpl.html
 js/app/views/agreement/edit/scope_item_view.js
@@ -211,6 +221,7 @@ js/app/views/agreement/edit/payments_edit_view.js
 js/lib/noty/js/noty/jquery.noty.js
 js/lib/noty/js/noty/layouts/inline.js
 js/lib/noty/js/noty/themes/default.js
+text!templates/agreement/read/header_tpl.html
 js/app/views/agreement/read/header_states/base_state.js
 text!templates/agreement/pay_request_tpl.html
 text!templates/agreement/pay_request_methods_tpl.html
@@ -236,8 +247,6 @@ js/app/models/card.js
 js/app/collections/bank_accounts.js
 js/app/models/bank_account.js
 js/app/models/user.js
-text!templates/agreement/clauses_tpl.html
-js/app/views/agreement/clauses_view.js
 text!templates/agreement/agreement_progress_bar_tpl.html
 js/app/views/agreement/progress_bar_view.js
 js/app/routers/agreement_router.js
@@ -248,15 +257,12 @@ js/app/maincreateagreement.js
 js/lib/backbone-relational/backbone-relational.js
 js/app/models/scope_item.js
 js/app/collections/scope_items.js
-js/lib/momentjs/moment.js
 js/app/models/status.js
 js/app/collections/status.js
 js/app/models/payment.js
 js/app/collections/payments.js
 js/app/models/comment.js
 js/app/collections/comments.js
-js/app/models/clause.js
-js/app/collections/clauses.js
 js/app/models/agreement.js
 text!templates/create_agreement/proposal_tpl.html
 js/app/views/create_agreement/proposal_view.js
@@ -303,6 +309,10 @@ js/app/views/agreement/edit/scope_item_view.js
 js/app/views/agreement/edit/payment_item_view.js
 js/app/views/agreement/edit/payments_edit_view.js
 js/app/views/create_agreement/edit_view.js
+text!templates/agreement/pay_request_tpl.html
+text!templates/agreement/pay_request_methods_tpl.html
+text!templates/agreement/pay_request_breakout.html
+js/app/views/agreement/read/modals/deposit_request.js
 js/app/views/create_agreement/send_view.js
 js/app/views/create_agreement/layout.js
 js/app/routers/create_agreement_router.js
@@ -313,15 +323,12 @@ js/app/mainhome.js
 js/lib/backbone-relational/backbone-relational.js
 js/app/models/scope_item.js
 js/app/collections/scope_items.js
-js/lib/momentjs/moment.js
 js/app/models/status.js
 js/app/collections/status.js
 js/app/models/payment.js
 js/app/collections/payments.js
 js/app/models/comment.js
 js/app/collections/comments.js
-js/app/models/clause.js
-js/app/collections/clauses.js
 js/app/models/agreement.js
 js/app/collections/agreements.js
 js/app/collections/cards.js
@@ -343,7 +350,6 @@ js/app/mainlanding.js
 js/lib/parsleyjs/parsley.js
 text!templates/landing/login.html
 js/lib/backbone-relational/backbone-relational.js
-js/lib/momentjs/moment.js
 js/app/models/comment.js
 js/app/collections/cards.js
 js/app/models/card.js
