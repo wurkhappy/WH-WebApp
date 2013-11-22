@@ -36,7 +36,6 @@ func main() {
 	defer store.Close()
 	redisPool = store.Pool
 
-
 	r := mux.NewRouter()
 	initRoutes(r)
 	http.Handle("/", r)
@@ -47,7 +46,12 @@ func main() {
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www-built/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
-	err := http.ListenAndServe(":4000", nil)
+	// err := http.ListenAndServe(":4000", nil)
+	var port string = ":4000"
+	if *production {
+		port = ":443"
+	}
+	err := http.ListenAndServeTLS(port, "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
