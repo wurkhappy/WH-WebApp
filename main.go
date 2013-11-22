@@ -44,7 +44,7 @@ func main() {
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
-	err := http.ListenAndServe(":4000", nil)
+	err := http.ListenAndServe(":4001", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
