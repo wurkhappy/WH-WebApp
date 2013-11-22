@@ -7,10 +7,6 @@ css/main_app.css
 ----------------
 css/main_app.css
 
-css/prototype.css
-----------------
-css/prototype.css
-
 js/lib/analytics/test/libs/mocha/mocha-1.12.0.css
 ----------------
 js/lib/analytics/test/libs/mocha/mocha-1.12.0.css
