@@ -30,7 +30,7 @@ func main() {
 	} else {
 		config.Test()
 	}
-	handlers.Production = true
+	handlers.Production = *production
 
 	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
 	defer store.Close()
@@ -44,7 +44,7 @@ func main() {
 	serveSingle("/favicon.ico", "favicon.ico")
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
-	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www-built/js"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	// err := http.ListenAndServe(":4000", nil)
 	var port string = ":4000"

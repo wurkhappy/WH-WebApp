@@ -84,8 +84,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
         triggerNotification();
 
         var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
-
-        this.model.submit(creditSource);
+        this.trigger("paymentRequested", creditSource);
         this.trigger('hide');
       }
 
