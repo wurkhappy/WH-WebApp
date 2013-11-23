@@ -26,6 +26,16 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 
   <!-- Wurk Happy CSS -->
+  {{if .production}}
+    <link rel="stylesheet" href="https://d3kq8dzp7eezz0.cloudfront.net/css/main_app.css">
+
+  <link rel="Shortcut Icon" type="image/x-icon" href="https://d3kq8dzp7eezz0.cloudfront.net/favicon.ico" />
+
+  <script type="text/javascript">var actions=[];</script>
+
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/analytics.min.js"></script>
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/jquery.js"></script>
+  {{else}}
   <link rel="stylesheet" href="/css/main_app.css">
 
   <link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico" />
@@ -34,7 +44,7 @@
 
   <script src="/js/lib/analytics/analytics.min.js"></script>
   <script src="/js/lib/jquery/jquery.js"></script>
-
+  {{end}}
   <script type="text/javascript">
     analytics.initialize({
       'Google Analytics' : 'UA-24101674-3',

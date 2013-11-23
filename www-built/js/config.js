@@ -1,4 +1,5 @@
-/*!
+/*! wurk-happy v0.0.1 | 21-11-2013-07:44:48
+ * Copyright (c) 2013 |/*!
  * jQuery JavaScript Library v2.0.3
  * http://jquery.com/
  *

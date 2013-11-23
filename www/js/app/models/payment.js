@@ -38,8 +38,8 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                     this.attributes.dateExpected = moment(value);
                 }
             },
-            submit: function(creditSource){
-                this.updateStatus({"action":"submitted", "creditSourceURI":creditSource});
+            submit: function(creditSource, successCallback){
+                this.updateStatus({"action":"submitted", "creditSourceURI":creditSource}, successCallback);
             },
             accept: function(debitSource){
                 this.updateStatus({"action":"accepted", "debitSourceURI": debitSource});
@@ -47,7 +47,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             reject: function(message){
                 this.updateStatus({"action":"rejected", "message":message});
             },
-            updateStatus:function(reqData){
+            updateStatus:function(reqData, successCallback){
                 $.ajax({
                   type: "POST",
                   url: "/agreement/v/"+this.collection.parent.id+"/payment/"+this.id+"/status",
@@ -57,6 +57,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                   success: _.bind(function(response){
                     this.collection.parent.set("currentStatus",response);
                     this.set("currentStatus",this.collection.parent.get("currentStatus"));
+                    successCallback();
                 }, this)
               });
             },

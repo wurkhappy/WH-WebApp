@@ -1,4 +1,5 @@
-define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html', 'views/agreement/read/modals/deposit_request', 'views/ui-modules/modal'],
+define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html',
+  'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
 
   function (Backbone, Handlebars, tpl, DepositRequestModal, Modal) {
 
@@ -69,9 +70,29 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
           if (!that.modal){
             var view = new DepositRequestModal({model: that.deposit, collection: that.model.get("payments"), cards: that.user.get("cards"), bankAccounts: that.user.get("bank_accounts")});
             that.modal = new Modal({view:view});
+            that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
           } 
           that.modal.show();
         }});        
+      },
+      depositRequested: function(creditSource){
+        if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
+
+        var that = this;
+
+        this.model.save({},{success:function(model, response){
+
+          $('.notification_container').fadeIn('fast');
+
+          var submitSuccess = function(){
+            console.log("callback");
+            that.modal.view.model.submit(creditSource, function(){
+              window.location = "/home";
+            });
+          };
+
+          that.model.submit(that.message, submitSuccess);
+        }});      
       }
     });
 

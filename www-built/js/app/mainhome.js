@@ -1,13 +1,5 @@
-/**
- * Backbone-relational.js 0.8.6
- * (c) 2011-2013 Paul Uithol and contributors (https://github.com/PaulUithol/Backbone-relational/graphs/contributors)
- * 
- * Backbone-relational may be freely distributed under the MIT license; see the accompanying LICENSE.txt.
- * For details and documentation: https://github.com/PaulUithol/Backbone-relational.
- * Depends on Backbone (and thus on Underscore as well): https://github.com/documentcloud/backbone.
- */
-
-// MarionetteJS (Backbone.Marionette)
+/*! wurk-happy v0.0.1 | 21-11-2013-07:44:48
+ * Copyright (c) 2013 |// MarionetteJS (Backbone.Marionette)
 // ----------------------------------
 // v1.0.4
 //
