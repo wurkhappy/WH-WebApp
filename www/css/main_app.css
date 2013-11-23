@@ -2069,51 +2069,53 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 1, ../scss/components/_discussion_container.scss */
 .discussion_container {
   border-radius: 5px;
-  border: 1px solid #dedede;
-  padding: 20px;
-  min-height: 250px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 0;
-  background: #dbe0e6;
-  max-height: 370px;
+  padding: 15px;
+  height: 370px;
+  margin: 0;
+  margin-bottom: 10px;
+  background: #f9fafb;
   overflow: hidden;
   overflow-y: scroll;
+  width: 755px;
+  border: 1px solid #dbe0e6;
 }
 
-/* line 15, ../scss/components/_discussion_container.scss */
+/* line 14, ../scss/components/_discussion_container.scss */
 .add_comment_container {
-  height: 75px;
-  margin: 5px;
-  padding: 10px;
+  height: 245px;
+  clear: both;
+  border: 1px solid #dbe0e6;
+  padding: 15px;
+  background: #f9fafb;
 }
 
-/* line 21, ../scss/components/_discussion_container.scss */
+/* line 22, ../scss/components/_discussion_container.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 25, ../scss/components/_discussion_container.scss */
+/* line 26, ../scss/components/_discussion_container.scss */
 .enter_comment_input {
   width: 100%;
   height: 75px;
   border-radius: 5px;
+  height: 90px;
 }
 
-/* line 31, ../scss/components/_discussion_container.scss */
+/* line 33, ../scss/components/_discussion_container.scss */
 .comment_action_container {
   float: right;
   height: 80px;
 }
 
-/* line 36, ../scss/components/_discussion_container.scss */
+/* line 38, ../scss/components/_discussion_container.scss */
 .comment_container {
   padding: 10px 0;
   min-height: 140px;
   margin-bottom: 20px;
 }
 
-/* line 42, ../scss/components/_discussion_container.scss */
+/* line 44, ../scss/components/_discussion_container.scss */
 .discussion_placeholder {
   text-align: center;
   color: #b3b3b3;
@@ -2124,14 +2126,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 90px;
 }
 
-/* line 52, ../scss/components/_discussion_container.scss */
+/* line 54, ../scss/components/_discussion_container.scss */
 .comment_date {
   font-size: 12px;
   color: #969696;
   line-height: 14px;
 }
 
-/* line 58, ../scss/components/_discussion_container.scss */
+/* line 60, ../scss/components/_discussion_container.scss */
 .comment_name {
   font-size: 12px;
   color: #1c1c1c;
@@ -2141,7 +2143,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 10px;
 }
 
-/* line 67, ../scss/components/_discussion_container.scss */
+/* line 69, ../scss/components/_discussion_container.scss */
 .milestone_tag, .status_tag {
   font-family: museo;
   font-weight: 100;
@@ -2149,45 +2151,45 @@ progress::-webkit-progress-value, progress.yellow_progress {
   position: absolute;
 }
 
-/* line 74, ../scss/components/_discussion_container.scss */
+/* line 76, ../scss/components/_discussion_container.scss */
 .milestone_tag {
   color: #7bb84c;
   bottom: 0;
   right: 20px;
 }
 
-/* line 80, ../scss/components/_discussion_container.scss */
+/* line 82, ../scss/components/_discussion_container.scss */
 .status_tag {
   color: #008bc7;
   bottom: 0;
 }
 
-/* line 86, ../scss/components/_discussion_container.scss */
+/* line 88, ../scss/components/_discussion_container.scss */
 .comment_body {
   font-weight: 300;
   padding: 0;
 }
 
-/* line 91, ../scss/components/_discussion_container.scss */
+/* line 93, ../scss/components/_discussion_container.scss */
 .send_comment {
   color: white;
   background: #009adb;
   border-radius: 5px;
   padding: 10px 21px;
 }
-/* line 96, ../scss/components/_discussion_container.scss */
+/* line 98, ../scss/components/_discussion_container.scss */
 .send_comment:hover {
   color: white;
   text-decoration: none;
   background: #008bc7;
 }
 
-/* line 103, ../scss/components/_discussion_container.scss */
+/* line 105, ../scss/components/_discussion_container.scss */
 .comment_select_padding {
   margin-left: 10px;
 }
 
-/* line 107, ../scss/components/_discussion_container.scss */
+/* line 109, ../scss/components/_discussion_container.scss */
 .selectdiv {
   display: inline-block;
   width: 175px;
@@ -2201,7 +2203,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 15px;
 }
 
-/* line 120, ../scss/components/_discussion_container.scss */
+/* line 122, ../scss/components/_discussion_container.scss */
 .selectdiv:hover, .selectdiv:focus {
   width: 175px;
   border: 1px solid #009adb;
@@ -2211,7 +2213,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 129, ../scss/components/_discussion_container.scss */
+/* line 131, ../scss/components/_discussion_container.scss */
 .out {
   z-index: -1;
   border: 0px solid #000;
@@ -2221,7 +2223,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   cursor: pointer;
 }
 
-/* line 138, ../scss/components/_discussion_container.scss */
+/* line 140, ../scss/components/_discussion_container.scss */
 .selectboxdiv {
   height: 40px;
   left: -10px;
@@ -2238,12 +2240,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 10px;
 }
 
-/* line 154, ../scss/components/_discussion_container.scss */
+/* line 156, ../scss/components/_discussion_container.scss */
 .active_select {
   border: 1px solid #009adb;
 }
 
-/* line 158, ../scss/components/_discussion_container.scss */
+/* line 160, ../scss/components/_discussion_container.scss */
 .message_photo_container {
   text-align: center;
   border-radius: 15px;
@@ -2251,36 +2253,36 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin: 0 auto;
 }
 
-/* line 165, ../scss/components/_discussion_container.scss */
+/* line 167, ../scss/components/_discussion_container.scss */
 .message_photo {
   width: 70px;
   border-radius: 20px;
 }
 
-/* line 170, ../scss/components/_discussion_container.scss */
+/* line 172, ../scss/components/_discussion_container.scss */
 .comment_post_info {
   position: relative;
   text-align: center;
   margin-top: -11px;
 }
 
-/* line 176, ../scss/components/_discussion_container.scss */
+/* line 178, ../scss/components/_discussion_container.scss */
 .personal_box {
-  border-radius: 40px;
-  border: 1px solid #dedede;
-  padding: 8px 10px;
-  background: white;
-  -webkit-box-shadow: 2px 1px 1px #d4d4d4;
-  -moz-box-shadow: 2px 1px 1px #d4d4d4;
-  box-shadow: 2px 1px 1px #d4d4d4;
+  border-radius: 15px;
+  /*border: 1px solid hsl(0, 0, 87%);*/
+  padding: 0 10px;
+  /*background: white;
+  -webkit-box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
+  -moz-box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
+  box-shadow: 2px 1px 1px hsl(0, 0%, 83%);*/
 }
 
-/* line 186, ../scss/components/_discussion_container.scss */
+/* line 188, ../scss/components/_discussion_container.scss */
 .message_box {
-  border-radius: 30px;
+  border-radius: 5px;
   border: 1px solid #dedede;
-  padding: 5px 27px;
-  width: 630px;
+  padding: 5px 25px;
+  width: 599px;
   min-height: 66px;
   margin: 0 auto;
   background: white;
@@ -2290,14 +2292,64 @@ progress::-webkit-progress-value, progress.yellow_progress {
   box-shadow: 2px 1px 1px #d4d4d4;
 }
 
-/* line 200, ../scss/components/_discussion_container.scss */
+/* line 202, ../scss/components/_discussion_container.scss */
 .float_left {
   float: left;
 }
 
-/* line 204, ../scss/components/_discussion_container.scss */
+/* line 206, ../scss/components/_discussion_container.scss */
 .float_right {
   float: right;
+}
+
+/* line 210, ../scss/components/_discussion_container.scss */
+.messages_container {
+  padding: 20px;
+}
+
+/* line 214, ../scss/components/_discussion_container.scss */
+.tags_container {
+  padding: 15px;
+  border: 1px solid #dbe0e6;
+  margin: 0;
+  background: #f9fafb;
+  height: 370px;
+  font-weight: 100;
+}
+
+/* line 223, ../scss/components/_discussion_container.scss */
+.tags_title {
+  margin-top: 0;
+  padding: 0;
+}
+
+/* line 228, ../scss/components/_discussion_container.scss */
+.message_title {
+  padding-left: 0;
+}
+
+/* line 232, ../scss/components/_discussion_container.scss */
+.enter_tags_container {
+  position: absolute;
+  margin-top: 10px;
+}
+
+/* line 237, ../scss/components/_discussion_container.scss */
+.fa-tag {
+  margin-right: 10px;
+}
+
+/* line 241, ../scss/components/_discussion_container.scss */
+.add_tag {
+  margin-left: 20px;
+}
+
+/* line 246, ../scss/components/_discussion_container.scss */
+.added_tag {
+  padding: 5px;
+  border: 1px solid #dbe0e6;
+  border-radius: 30px;
+  background: #f9fafb;
 }
 
 /* line 1, ../scss/components/_agreement_history.scss */
