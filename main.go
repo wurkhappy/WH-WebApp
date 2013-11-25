@@ -36,7 +36,6 @@ func main() {
 	defer store.Close()
 	redisPool = store.Pool
 
-
 	r := mux.NewRouter()
 	initRoutes(r)
 	http.Handle("/", r)
@@ -45,7 +44,7 @@ func main() {
 	serveSingle("/favicon.ico", "favicon.ico")
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
-	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www-built/js"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	err := http.ListenAndServe(":4000", nil)
 	if err != nil {
