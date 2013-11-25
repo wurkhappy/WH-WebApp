@@ -34,6 +34,13 @@ define(['backbone', 'models/payment'],
                 });
                 return new Collection(paymentArray);
             },
+            findFirstRequiredPayment:function(){
+                var paymentArray = this.filter(function(model){
+                    return model.get("required");
+                });
+                if (paymentArray.length == 0) return null;
+                return paymentArray[0];
+            },
             getTotalPayments: function() {
                 return this.length;
             },

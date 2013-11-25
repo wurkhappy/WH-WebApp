@@ -24,13 +24,20 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
 
         if (this.statusType === 'payment') {
           if (!this.acceptModal){
-            console.log("new accept");
-            var view = new AcceptModal({collection:this.model.get("payments"), user:this.user, otherUser: this.otherUser});
+            var view = new AcceptModal({model:this.model.get("payments").findSubmittedPayment(), user:this.user, otherUser: this.otherUser});
             this.acceptModal = new Modal({view:view});
           } 
           this.acceptModal.show();
-        }
-        else{
+
+        } else if (this.model.get("payments").findFirstRequiredPayment()){
+
+          if (!this.depositModal){
+            var view = new AcceptModal({model:this.model.get("payments").findFirstRequiredPayment(), user:this.user, otherUser: this.otherUser});
+            this.depositModal = new Modal({view:view});
+          } 
+          this.depositModal.show();   
+
+        } else{
           this.model.accept();
         }
       },
@@ -43,76 +50,9 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
         } 
         this.rejectModal.show();
 
-      },
-
-      events: {
-        "click .close": "closeModal",
-        "click #accept-button": "acceptRequest",
-        "click #reject-button": "rejectRequest",
-        "click .select_radio": "selectPaymentMethod"
-      },
-
-      closeModal: function(event) {
-        $('#overlay').fadeOut('slow');
-      },
-
-      paymentTotal: function (milestonePayment, fee) {
-        return milestonePayment - fee;
-      },
-
-      rejectRequest: function(event) {
-
-        if (this.statusType === 'payment') {
-         this.model.get("payments").findSubmittedPayment().reject();
-       } else{
-        this.model.reject();
       }
 
-    },
-
-    selectPaymentMethod: function(event) {
-
-      var $radio = $(event.target),
-      $type = $radio.val();
-
-      $(".payment_select_container").not("#"+$type).slideUp("fast");
-      $("#"+$type).slideDown("fast");
-    },
-
-    acceptRequest: function(event) {
-
-      var $debitSource = $(".select_bank_account:checked").val() || $(".select_credit_card:checked").val() || '';
-
-      this.model.get("payments").findSubmittedPayment().accept($debitSource);
-
-      var status;
-
-      if (this.statusType) {
-        status = this.statusType;
-      } else {
-        status = "";
-      }
-
-      var fadeOutModal = function () {
-        $('#overlay').fadeOut('fast');
-      };
-
-      var fadeInNotification = function () {
-        $(".notification_container").fadeIn("fast");
-        $(".notification_text").text("Request "+status+" and email sent");
-      };
-
-      $(".notification_container").hover( function() {
-        $(".notification_container").fadeOut("fast");
-      });
-
-      var triggerNotification = _.debounce(fadeInNotification, 300);
-
-      fadeOutModal();
-      triggerNotification();
-    },
-
-  });
+    });
 
 return SubmittedState;
 
