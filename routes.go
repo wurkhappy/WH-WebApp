@@ -31,6 +31,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user/{id}/password", userHandler(handlers.SetNewPassword)).Methods("PUT")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
+	r.Handle("/archive", baseHandler(handlers.GetArchives)).Methods("GET")
 
 	r.Handle("/account", baseHandler(handlers.GetAccount)).Methods("GET")
 

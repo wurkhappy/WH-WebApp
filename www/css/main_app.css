@@ -2388,6 +2388,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   list-style-type: none;
 }
 
+/* line 35, ../scss/components/_footer.scss */
+.footer_title > a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* COPYRIGHT
 ================================================================================ */
 /* line 7, ../scss/components/_copyright.scss */

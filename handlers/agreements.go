@@ -53,8 +53,52 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	tpl.Execute(w, m)
 }
 
+func GetArchives(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	userID := session.Values["id"]
+
+	agreementsData := getArchivedAgreements(userID.(string))
+
+	requestedUsers := getOtherUsers(agreementsData, userID.(string))
+
+	thisUser := getUserInfo(userID.(string))
+
+	m := map[string]interface{}{
+		"appName":        "mainarchives",
+		"agreements":     agreementsData,
+		"otherUsers":     requestedUsers,
+		"thisUser":       thisUser,
+		"agreementCount": len(agreementsData),
+		"production":     Production,
+	}
+	format := func(date string) string {
+		t, _ := time.Parse(time.RFC3339, date)
+		return t.Format("Jan 2, 2006")
+	}
+	var tpl *template.Template
+	var err error
+	tpl, err = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+		"templates/_baseApp.html",
+		"templates/archives.html",
+	)
+
+	template.Must(tpl, err)
+
+	tpl.Execute(w, m)
+}
+
 func getCurrentAgreements(userID string) []map[string]interface{} {
 	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/user/"+userID+"/agreements", nil)
+	if statusCode >= 400 {
+		return nil
+	}
+
+	var agreementsData []map[string]interface{}
+	json.Unmarshal(resp, &agreementsData)
+	return agreementsData
+}
+
+func getArchivedAgreements(userID string) []map[string]interface{} {
+	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/user/"+userID+"/archives", nil)
 	if statusCode >= 400 {
 		return nil
 	}
