@@ -19,17 +19,21 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         if (!this.modal){
           var view = new PaymentRequestModal({model:this.model.get("payments").findFirstOutstandingPayment(), collection: this.model.get("payments").findAllOutstandingPayment(), cards: this.user.get("cards"), bankAccounts: this.user.get("bank_accounts")});
           this.modal = new Modal({view:view});
+          this.listenTo(this.modal.view, "paymentRequested", this.paymentRequested)
         } 
         this.modal.show();
       },
 
       button2:function(event){
         this.edit()
+      },
+      paymentRequested: function(creditSource){
+        this.modal.view.model.submit(creditSource);
       }
 
     });
 
-    return AcceptedState;
+return AcceptedState;
 
-  }
-  );
+}
+);
