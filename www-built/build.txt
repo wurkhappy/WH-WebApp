@@ -312,7 +312,7 @@ js/app/views/create_agreement/edit_view.js
 text!templates/agreement/pay_request_tpl.html
 text!templates/agreement/pay_request_methods_tpl.html
 text!templates/agreement/pay_request_breakout.html
-js/app/views/agreement/read/modals/deposit_request.js
+js/app/views/agreement/read/modals/payment_request.js
 js/app/views/create_agreement/send_view.js
 js/app/views/create_agreement/layout.js
 js/app/routers/create_agreement_router.js
