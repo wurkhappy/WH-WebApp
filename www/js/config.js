@@ -25,6 +25,7 @@
 
         // Core libraries.
         jquery: 'lib/jquery/jquery',
+        'jquery-ui': 'lib/jquery-ui/ui/jquery-ui',
         underscore: 'lib/underscore/underscore',
         backbone: 'lib/backbone/backbone',
         marionette: 'lib/backbone.marionette/lib/backbone.marionette',
@@ -114,6 +115,10 @@
         },
         handlebars: {
             exports: 'Handlebars'
+        },
+        'jquery-ui': {
+            deps: ['jquery'],
+            exports: 'autocomplete'
         },
         'backbone-relational' : {
             deps: ['backbone']

@@ -7,7 +7,7 @@
 	background: hsl(213, 18%, 98%);
 	overflow: hidden;
 	overflow-y: scroll;
-	width: 755px;
+	width: 745px;
 	border:1px solid hsl(213, 18%, 88%);
 }
 
@@ -17,6 +17,7 @@
 	border: 1px solid hsl(213, 18%, 88%);
 	padding: 15px;
 	background: hsl(213, 18%, 98%);
+	position:relative;
 }
 
 .inline {
@@ -67,27 +68,25 @@
 }
 
 .milestone_tag, .status_tag {
-	font-family: museo;
+	padding: 0 5px;
+	border: 1px solid hsl(213, 65%, 88%);
+	border-radius: 10px;
+	background: hsl(210, 100%, 91%);
 	font-weight: 100;
+	font-family: museo;
 	font-size: 16px;
-	position: absolute;
+	float:left;
 }
 
-.milestone_tag {
-	color: $green_dark;
-	bottom: 0;
-	right: 20px;
-
-}
-.status_tag {
-	color: $blue_text_dark;
-	bottom: 0;
-
+.tag_container {
+	position:relative;
+	bottom:0;
 }
 
 .comment_body {
 	font-weight: 300;
 	padding: 0;
+	clear:both;
 }
 
 .send_comment {
@@ -95,6 +94,8 @@
 	background: hsl(198, 100%, 43%);
 	border-radius: 5px;
 	padding: 10px 21px;
+	position:absolute;
+	right:15px;
 	&:hover {
 		color: white;
 		text-decoration: none;
@@ -188,8 +189,8 @@
 .message_box {
 	border-radius: 5px;
 	border: 1px solid hsl(0, 0, 87%);
-	padding: 5px 25px;
-	width: 599px;
+	padding: 10px 15px;
+	width: 589px;
 	min-height: 66px;
 	margin: 0 auto;
 	background: white;
@@ -214,14 +215,15 @@
 .tags_container {
 	padding:15px;
 	border: 1px solid hsl(213, 18%, 88%);
-	margin: 0;
 	background: hsl(213, 18%, 98%);
 	height: 370px;
 	font-weight:100;
 }
 
 .tags_title {
-	margin-top:0;
+	margin-top:5px;
+	margin-bottom:0;
+	margin-right:5px;
 	padding: 0;
 }
 
@@ -240,25 +242,68 @@
 
 .add_tag {
 	margin-left: 20px;
+	&:hover{
+		cursor:pointer;
+	}
 }
 
 
 .added_tag {
-	padding: 5px;
-	border: 1px solid hsl(213, 18%, 88%);
-	border-radius: 30px;
-	background: hsl(213, 18%, 98%);
+	padding: 0 5px;
+	border: 1px solid hsl(213, 65%, 88%);
+	border-radius: 10px;
+	background: hsl(210, 100%, 91%);
+	font-weight: 100;
+	font-family: museo;
+	font-size: 16px;
+	&:hover {
+		cursor:pointer;
+	}
 }
 
+.tag_filter {
+	border-radius: 5px;
+	padding: 2px 5px;
+	margin: 2px 0;
+}
 
+.tag_filter:hover {
+	background: hsl(0, 0%, 60%);
+	color: hsl(0, 100%, 100%);
+	cursor: pointer;
+}
 
+.tag_filter_active {
+	background: hsl(0, 0%, 60%);
+	color: hsl(0, 100%, 100%);
+}
 
+.tag_active {
+	color:white;
+	background: hsl(210, 100%, 75%);
+}
 
+.new_tag_container {
+	margin-left:15px;
+}
 
+.new_tag {
+	font-weight:100;
+	font-family: museo;
+	font-size:16px;
+	border:none;
+	background:hsl(210, 20%, 90%);
+	overflow:hidden;
+	padding:0 10px;
+	border-radius:10px;
+	&:focus {
+		outline:none;
+	}
+}
 
-
-
-
+.new_added_tag {
+	margin-left: 5px;
+}
 
 
 
