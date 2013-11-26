@@ -77,6 +77,20 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                     if (_.isFunction(successCallback)) successCallback();
                 }, this)
               });
+            },
+            archive: function(successCallback){
+                $.ajax({
+                  type: "POST",
+                  url: "/agreement/v/"+this.id+"/archive",
+                  contentType: "application/json",
+                  dataType: "json",
+                  data:JSON.stringify({}),
+                  success: _.bind(function(response){
+                    this.set(response);
+                    this.get("currentStatus").trigger("change");
+                    if (_.isFunction(successCallback)) successCallback();
+                }, this)
+              });
             }
         });
 
