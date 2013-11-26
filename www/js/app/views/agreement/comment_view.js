@@ -90,7 +90,9 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           otherAvatar: otherAvatar
         }));
 
+
         this.fadeIn(this.$el);
+
 
         return this;
 

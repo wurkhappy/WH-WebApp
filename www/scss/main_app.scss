@@ -46,6 +46,7 @@ $legacy-support-for-mozilla: false !default;
 //////////////////////////////
 // COMPONENTS
 @import "components/jquery_ui";
+@import "components/editor";
 @import "components/notifications";
 @import "components/forms";
 @import "components/form_feedback";

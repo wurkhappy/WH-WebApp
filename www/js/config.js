@@ -32,49 +32,6 @@
         modernizr: 'lib/modernizr/modernizr',
         'backbone-relational' : 'lib/backbone-relational/backbone-relational',
 
-        // Models
-        /*agreementModel: 'app/models/agreement',
-        bankAccountModel: 'app/models/bank_account',
-        cardModel: 'app/models/card',
-        commentModel: 'app/models/comment',
-        paymentModel: 'app/models/payment',
-        scopeItemModel: 'app/models/scope_item',
-        statusModel: 'app/models/status',
-        userModel: 'app/models/user',
-
-        // Collections
-        agreementCollection: 'app/collections/agreements',
-        bankAccountCollection: 'app/collections/bank_accounts',
-        cardCollection: 'app/collections/cards',
-        commentCollection: 'app/collections/comments',
-        paymentCollection: 'app/collections/payments',
-        scopeItemCollection: 'app/collections/scope_items',
-        statusCollection: 'app/collections/status',
-        userCollection: 'app/collections/users',
-
-
-        //from grunt file
-        'agreementModel',
-        'bankAccountModel',
-        'cardModel',
-        'clauseModel',
-        'commentModel',
-        'paymentModel',
-        'scopeItemModel',
-        'statusModel',
-        'userModel',
-        'agreementCollection',
-        'bankAccountCollection',
-        'cardCollection',
-        'clauseCollection',
-        'commentCollection',
-        'paymentCollection',
-        'scopeItemCollection',
-        'statusCollection',
-        'userCollection'
-
-        */
-
         // Templating.
         handlebars: 'lib/handlebars/handlebars',
 
@@ -87,6 +44,8 @@
         "intro": 'lib/intro.js/intro',
         kalendae: 'lib/kalendae/build/kalendae.standalone.min',
         parsley: 'lib/parsleyjs/parsley',
+        ckeditor: 'lib/ckeditor/ckeditor',
+        ckadapter: 'lib/ckeditor/adapters/jquery',
 
         // Custom AMD modules.
         // utils: 'app/utils',
@@ -142,6 +101,13 @@
         },
         kalendae : {
             exports : 'Kalendae'
+        },
+        ckeditor: {
+            deps: ['jquery'],
+            exports:'CKEDITOR'
+        },
+        ckadapter : {
+            deps : ['ckeditor', 'jquery']
         }
     }
 });
