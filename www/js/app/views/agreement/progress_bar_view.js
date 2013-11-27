@@ -102,7 +102,8 @@
           var list = '';
           var history = this.model.get("statusHistory").filterByPaymentID(id);
           history.each(function(model){
-            list +='<li>'+model.get("action")+'</li>';
+            var action = model.get("action");
+            list +='<li>'+action.charAt(0).toUpperCase() + action.slice(1) + " on " + model.get("date").format('MMM DD, YYYY')+'</li>';
           })
           if (history.length === 0) {list = 'No actions taken yet'}
           $(event.target).html('<div class="tooltip" style="position: absolute;"><ul>'+list+'</ul></div>');
