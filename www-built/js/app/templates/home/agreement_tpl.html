@@ -3,7 +3,11 @@
             </td>
             <td>
               {{#with model}}
+              {{#if version}}
               <h3><a href="/agreement/v/{{versionID}}">{{title}}</a></h3>
+              {{else}}
+              <h3><a href="/agreements/new?versionID={{versionID}}">{{title}}</a></h3>
+              {{/if}}
               {{/with}}
               {{#with statusInfo}}
               <p>{{lastAction}}</p>
