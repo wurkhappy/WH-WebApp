@@ -24,6 +24,7 @@
         this.user = new UserModel(window.user);
         this.model = new AgreementModel({freelancerID:this.user.id});
         this.model.get("payments").add({title: 'Deposit'});
+        if (window.agreement) {this.model = new AgreementModel(window.agreement)}
         this.mainContainer = new MainContainerView({model: this.model});
         this.layout = new Layout({model: this.model, user: this.user});
       },

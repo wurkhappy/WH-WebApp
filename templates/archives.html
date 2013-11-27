@@ -1,0 +1,29 @@
+{{define "content"}}
+<script>
+var agreements = {{.agreements}};
+var currentUser = {{.thisUser}};
+var otherUsers = {{.otherUsers}};
+</script>
+  <div id="intro" class="clear intro">
+
+    <div class="column-three-fourth">
+
+      <h1>Archives</h1>
+
+    </div>
+    <div class="column-one-fourth">
+    </div>
+
+  </div>
+
+
+  <div id="content" class="clear white_background home_container">
+
+    <div class="clear">
+      <div id="freelancerSection"></div>
+      <div id="clientSection"></div>
+    </div>
+
+  </div>
+{{end}}
+

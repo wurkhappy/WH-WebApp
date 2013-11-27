@@ -30,7 +30,7 @@
         'blur input[type="radio"]': "updateRole",
         'blur input[type="checkbox"]': "updateClauses",
         "blur textarea": "updateField",
-        "click .submit-buttons > a" : "saveAndContinue",
+        "click .submit-buttons" : "saveAndContinue",
         "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
         "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
         "click .create_agreement_navigation_link": "showPage"

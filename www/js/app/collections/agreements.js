@@ -34,6 +34,18 @@ define(['backbone', 'models/agreement'],
                               inProgressAgrmnts: inProgressAgrmnts,
                               draftAgrmnts: draftAgrmnts
                         };
+                  },
+                  findFreelancerAgreements: function(userID){
+                        var agreementArray = this.filter(function(model){
+                              return model.get("freelancerID") === userID;
+                        });
+                        return new Collection(agreementArray);
+                  },
+                  findClientAgreements: function(userID){
+                        var agreementArray = this.filter(function(model){
+                              return model.get("clientID") === userID;
+                        });
+                        return new Collection(agreementArray);
                   }
 
             });

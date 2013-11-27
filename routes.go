@@ -31,6 +31,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user/{id}/password", userHandler(handlers.SetNewPassword)).Methods("PUT")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
+	r.Handle("/archive", baseHandler(handlers.GetArchives)).Methods("GET")
 
 	r.Handle("/account", baseHandler(handlers.GetAccount)).Methods("GET")
 
@@ -46,7 +47,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.GetAgreementDetails)).Methods("GET")
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.DeleteAgreement)).Methods("DELETE")
-	r.Handle("/agreements/v/{versionID}/archive", versionHandler(handlers.ArchiveAgreement)).Methods("POST")
+	r.Handle("/agreement/v/{versionID}/archive", versionHandler(handlers.ArchiveAgreement)).Methods("POST")
 }
 
 func home(w http.ResponseWriter, req *http.Request) {
