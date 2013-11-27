@@ -51,7 +51,8 @@ func main() {
 	if *production {
 		err = http.ListenAndServeTLS(":443", "/root/go/bin/ssl/wurkhappy.com.pem", "/root/go/bin/ssl/wurkhappy.com.key", nil)
 	} else {
-		err = http.ListenAndServeTLS(":4000", "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil)
+		err = http.ListenAndServe(":4000", nil)
+		// err = http.ListenAndServeTLS(":4000", "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil)
 	}
 	if err != nil {
 		log.Fatal(err)
