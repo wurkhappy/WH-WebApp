@@ -56,6 +56,10 @@
 	font-size: 12px;
 	color: hsl(0, 0%, 59%);
 	line-height: 14px;
+	text-align: right;
+	margin-bottom:10px;
+	padding-bottom:5px;
+	border-bottom: 1px solid hsl(0,0, 90%);
 }
 
 .comment_name {
@@ -69,12 +73,14 @@
 
 .milestone_tag, .status_tag {
 	padding: 0 5px;
+	margin-left: 5px;
+	margin-bottom:5px;
 	border: 1px solid hsl(213, 65%, 88%);
 	border-radius: 10px;
 	background: hsl(210, 100%, 91%);
 	font-weight: 100;
 	font-family: museo;
-	font-size: 16px;
+	font-size: 14px;
 	float:left;
 }
 
@@ -84,8 +90,10 @@
 }
 
 .comment_body {
-	font-weight: 300;
+	font-weight: 100;
 	padding: 0;
+	padding-left:5px;
+	margin:0;
 	clear:both;
 }
 
@@ -198,6 +206,12 @@
 	-webkit-box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
 	-moz-box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
 	box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
+	p {
+		margin: 0;
+		padding: 0;
+		padding-left:5px;
+		font-weight: 100;
+	}
 }
 
 .float_left {
@@ -255,7 +269,7 @@
 	background: hsl(210, 100%, 91%);
 	font-weight: 100;
 	font-family: museo;
-	font-size: 16px;
+	font-size: 14px;
 	&:hover {
 		cursor:pointer;
 	}
@@ -265,6 +279,7 @@
 	border-radius: 5px;
 	padding: 2px 5px;
 	margin: 2px 0;
+	font-size:16px;
 }
 
 .tag_filter:hover {
