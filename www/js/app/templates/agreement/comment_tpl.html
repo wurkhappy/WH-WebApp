@@ -1,15 +1,18 @@
 <div>
 	{{#if isThisUserMessage}}
 		<div class="personal_box float_right">
-			<div class="message_photo_container">
+			<!-- <div class="message_photo_container">
 				<img class="message_photo" width="100" src="{{thisAvatar}}">
-			</div>
+			</div> -->
 			<div class="comment_post_info">
 				<div class="comment_name">{{name}}</div>
 			</div>
 		</div>
 		<div class="message_box float_right">
 			<div class="notification_container message_notification_container hide"><p class="notification_text"><i class="fa fa-check"></i> Message sent!<p></div>
+			<div class="comment_post_info">
+				<div class="comment_name">{{name}}</div>
+			</div>
 			<div class="tag_container">
 				<!-- <div class="milestone_tag">{{milestoneTitle}}</div> -->
 				<div class="comment_date">{{dateCreated}}</div>
@@ -17,12 +20,13 @@
 				<div class="milestone_tag">Wireframes</div>
 				<div class="milestone_tag">2nd Payment</div>
 			</div>
-			<p class="comment_body">{{{model.text}}}</p>
+			<div class="comment_body">{{{model.text}}}</div>
 		</div>
 	{{else}}
 		<div class="personal_box float_left">
-			<div class="message_photo_container">
-				<img class="message_photo" width="100" src="{{otherAvatar}}"></div>
+			<!-- <div class="message_photo_container">
+				<img class="message_photo" width="100" src="{{otherAvatar}}">
+			</div> -->
 			<div class="comment_post_info">
 				<div class="comment_name">{{otherName}}</div>
 			</div>
@@ -36,7 +40,7 @@
 				<div class="milestone_tag">Wireframes</div>
 				<div class="milestone_tag">2nd Payment</div>
 			</div>
-			<p class="comment_body">{{{model.text}}}</p>
+			<div class="comment_body">{{{model.text}}}</div>
 		</div>
 	{{/if}}
 </div>

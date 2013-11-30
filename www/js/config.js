@@ -32,10 +32,7 @@
         modernizr: 'lib/modernizr/modernizr',
         'backbone-relational' : 'lib/backbone-relational/backbone-relational',
 
-        // Templating.
-        handlebars: 'lib/handlebars/handlebars',
-
-        // Plugins.
+        //plugins - bower
         text: 'lib/requirejs-text/text',
         moment: 'lib/momentjs/moment',
         noty: 'lib/noty/js/noty/jquery.noty',
@@ -46,6 +43,10 @@
         parsley: 'lib/parsleyjs/parsley',
         ckeditor: 'lib/ckeditor/ckeditor',
         ckadapter: 'lib/ckeditor/adapters/jquery',
+        'auto-grow': 'lib/jquery-autogrow/lib/jquery-autogrow.min',
+
+        // Templating.
+        handlebars: 'lib/handlebars/handlebars',
 
         // Custom AMD modules.
         // utils: 'app/utils',
@@ -55,7 +56,8 @@
         models: 'app/models',
         routers: 'app/routers',
         templates: 'app/templates',
-        views: 'app/views'
+        views: 'app/views',
+        plugins:'app/plugins'
         
     },
 
@@ -108,6 +110,10 @@
         },
         ckadapter : {
             deps : ['ckeditor', 'jquery']
+        },
+        'auto-grow' : {
+            deps : ['jquery'],
+            exports:'autoGrow'
         }
     }
 });

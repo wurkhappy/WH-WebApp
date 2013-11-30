@@ -48,7 +48,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         }
 
         if (this.commentCreatedDate) {
-          dateCreated = this.commentCreatedDate.format('MMMM Do YYYY, h:mm:ss a');
+          dateCreated = this.commentCreatedDate.format('MMMM Do YYYY, h:mm a');
         }
 
         var isThisUserMessage = (this.userID === this.messageUserID);

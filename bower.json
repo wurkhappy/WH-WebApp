@@ -25,6 +25,7 @@
     "analytics": "0.17.6",
     "noty": "2.1.0",
     "intro.js": "0.5.0",
-    "ckeditor": "#stable/standard"
+    "ckeditor": "#stable/standard",
+    "jquery-autogrow": "latest"
   }
 }

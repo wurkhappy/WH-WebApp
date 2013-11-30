@@ -3,12 +3,13 @@
 	padding: 15px;
 	height:	370px;
 	margin: 0;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	background: hsl(213, 18%, 98%);
 	overflow: hidden;
 	overflow-y: scroll;
-	width: 745px;
+	width: 738px;
 	border:1px solid hsl(213, 18%, 88%);
+	margin-left:5px;
 }
 
 .add_comment_container {
@@ -18,6 +19,7 @@
 	background: hsl(213, 18%, 98%);
 	position:relative;
 	padding-bottom:65px;
+	border-radius:5px;
 }
 
 .inline {
@@ -40,6 +42,7 @@
 	padding: 10px 0;
 	min-height: 140px;
 	margin-bottom: 20px;
+	overflow:hidden;
 }
 
 .discussion_placeholder {
@@ -57,18 +60,20 @@
 	color: hsl(0, 0%, 59%);
 	line-height: 14px;
 	text-align: right;
-	margin-bottom:10px;
+	margin-bottom:5px;
 	padding-bottom:5px;
 	border-bottom: 1px solid hsl(0,0, 90%);
+
 }
 
 .comment_name {
 	font-size: 12px;
-	color: hsl(0, 0%, 11%);
+	color: hsl(0, 0%, 30%);
 	font-weight: 900;
 	display: inline-block;
 	line-height: 14px;
-	margin-top: 10px;
+	position:absolute;
+	left:0;
 }
 
 .milestone_tag, .status_tag {
@@ -87,12 +92,14 @@
 .tag_container {
 	position:relative;
 	bottom:0;
+	overflow: hidden;
+	border-bottom: 1px solid hsl(0, 0%, 90%);
+	margin-bottom: 5px;
 }
 
 .comment_body {
 	font-weight: 100;
 	padding: 0;
-	padding-left:5px;
 	margin:0;
 	clear:both;
 }
@@ -102,6 +109,7 @@
 	background: hsl(198, 100%, 43%);
 	border-radius: 5px;
 	padding: 10px 21px;
+	margin-top: 10px;
 	position:absolute;
 	right:15px;
 	&:hover {
@@ -180,8 +188,7 @@
 
 .comment_post_info {
 	position: relative;
-	text-align: center;
-	margin-top: -11px;
+	text-align: left;
 }
 
 .personal_box {
@@ -198,7 +205,8 @@
 	border-radius: 5px;
 	border: 1px solid hsl(0, 0, 87%);
 	padding: 10px 15px;
-	width: 589px;
+	//width: 584px;
+	width: 100%;
 	min-height: 66px;
 	margin: 0 auto;
 	background: white;
@@ -232,6 +240,7 @@
 	background: hsl(213, 18%, 98%);
 	height: 370px;
 	font-weight:100;
+	border-radius:5px;
 }
 
 .tags_title {
@@ -259,6 +268,10 @@
 	&:hover{
 		cursor:pointer;
 	}
+	border:1px solid hsl(210, 20%, 98%); //hack to prevent the movement of the plus sign from leaving a trail during animation.
+	position: relative;
+	top: 3px;
+	padding:4px;
 }
 
 
@@ -279,7 +292,6 @@
 	border-radius: 5px;
 	padding: 2px 5px;
 	margin: 2px 0;
-	font-size:16px;
 }
 
 .tag_filter:hover {
@@ -299,10 +311,13 @@
 }
 
 .new_tag_container {
-	margin-left:15px;
+	margin-left:5px;
 }
 
 .new_tag {
+	min-width: 0;
+	max-width: 200px;
+	//transition: width 100ms linear;
 	font-weight:100;
 	font-family: museo;
 	font-size:16px;
