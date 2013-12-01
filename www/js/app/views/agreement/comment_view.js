@@ -48,7 +48,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
         }
 
         if (this.commentCreatedDate) {
-          dateCreated = this.commentCreatedDate.format('h:mm a');
+          dateCreated = this.commentCreatedDate.format('MMMM Do YYYY, h:mm a');
         }
 
         var isThisUserMessage = (this.userID === this.messageUserID);
@@ -90,7 +90,9 @@ define(['backbone', 'handlebars', 'text!templates/agreement/comment_tpl.html'],
           otherAvatar: otherAvatar
         }));
 
+
         this.fadeIn(this.$el);
+
 
         return this;
 

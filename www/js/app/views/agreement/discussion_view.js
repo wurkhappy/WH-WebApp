@@ -1,10 +1,12 @@
-define(['backbone', 'handlebars', 'underscore', 'marionette',
+define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckeditor', 'ckadapter',
   'text!templates/agreement/discussion_tpl.html', 'views/agreement/comment_view',
-  'views/agreement/action_select'],
+  'views/agreement/action_select', 'plugins/preventBackSpaceDefault', 'auto-grow'],
 
-  function (Backbone, Handlebars, _, Marionette, discussionTemplate, CommentView, ActionSelect) {
+  function (Backbone, Handlebars, _, Marionette, autocomplete, CKEDITOR, ckadapter, discussionTemplate, CommentView, ActionSelect, preventBackSpaceDefault, autoGrow) {
 
     'use strict';
+    preventBackSpaceDefault();
+    
 
     var DiscussionView = Backbone.Marionette.CompositeView.extend({
 
@@ -22,7 +24,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         "change #actionSelect":"updateStatus",
         "focus select": "addSelectActive",
         "blur select": "removeSelectActive",
-        "change select": "updateSelect"
+        "change select": "updateSelect",
+        "click .tag_filter": "toggleFilterActive",
+        "click .added_tag": "toggleTagActive",
+        "keyup .added_tag": "removeTag",
+        "focus .new_tag": "triggerAutoComplete",
+        "keydown .new_tag": "createNewTag",
+        "click .add_tag": "showTagInput"
       },
 
       initialize:function(options){
@@ -41,13 +49,25 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
           this.$('#actionSelect').val(lastComment.get("statusID")).trigger('change');
         }
 
+        _.defer(function(that) {
+          CKEDITOR.replace('message_editor', {
+            toolbar: [
+            {items: ['Bold','-', 'Italic', '-', 'Underline']}
+            ],
+            disableNativeSpellChecker: false,
+            skin: 'wurkhappy'
+          });
+        });
+        
       },
-      addComment: function(event){
-        var $text = $('textarea.enter_comment_input');
 
-        if (event.keyCode == 13 || event.type == "click") {
+      addComment: function(event){
+        var editor = CKEDITOR.instances.message_editor;
+        var html = editor.getData();
+
+        if (event.type == "click") {
           var model = new this.collection.model({
-            text: $text.val(),
+            text: html,
             dateCreated: moment(),
             userID:window.thisUser.id,
             milestoneID: this.milestone,
@@ -56,16 +76,14 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
           })
           this.collection.add(model);
           model.save();
-          $text.val('');
-          $text.focus();
+
+          editor.setData('');
 
           $(".notification_container").last().fadeIn("slow").fadeOut(2000);
 
           _.defer( function() {
             $(".discussion_container").scrollTop($(".discussion_container")[0].scrollHeight);
           });
-
-         
 
         }
       },
@@ -97,6 +115,84 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       removeSelectActive: function (event) {
         var $fakeSelect = $(event.target.parentNode);
         $fakeSelect.removeClass('active_select')
+      },
+
+      toggleFilterActive: function(event) {
+        $(event.currentTarget).toggleClass("tag_filter_active");
+      },
+
+      toggleTagActive: function(event) {
+        $(".added_tag").removeClass("tag_active");
+
+        var $elem = $(event.currentTarget);
+          $elem.toggleClass("tag_active");
+          $elem.focus();
+      },
+
+      removeTag: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var $elem = $(event.currentTarget);
+
+        if (event.keyCode === 8) {
+          $elem.remove();
+        }
+      },
+
+      createNewTag: function(event) {
+
+        var $elem = $(event.currentTarget);
+
+        if (event.keyCode === 9) {
+          event.preventDefault();
+        }
+
+        if ($elem.val() === '') {return};
+
+        if (event.keyCode === 13 || event.keyCode === 9) {
+          var beg = '<div class="inline added_tag new_added_tag" tabindex="-1">'
+          var end = '</div>'
+          var htmlString = beg + $elem.val() + end;
+
+          $(htmlString).appendTo(".enter_tags_sub_container");
+          $elem.val('');
+          $elem.hide();
+        }
+      },
+
+      showTagInput: function(event) {
+        var $input = $(".new_tag");
+        $input.show();
+        $input.focus();
+
+      },
+
+      triggerAutoComplete: function(event) {
+        var availableTags = [
+          "writing",
+          "wireframes",
+          "2nd payment",
+          "update",
+          "product page",
+          "footer",
+          "header",
+          "waffle",
+          "candy"
+        ];
+
+        $(".new_tag").autocomplete({
+          source: availableTags
+        });
+
+        this.triggerAutoGrow();
+      },
+
+      triggerAutoGrow: function(event) {
+
+        $('.new_tag').autoGrow({
+          comfortZone: 3
+        });
       }
 
     });
