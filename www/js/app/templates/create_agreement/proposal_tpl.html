@@ -8,8 +8,11 @@
       <input type="radio" name="role" value="freelancerID" checked>Freelancer
       <input class="role_type" type="radio" name="role" value="clientID">Client
     {{/if}}
-    <label for="title">Title</label>
-    <input type="text" name="title" placeholder="Title of project" id="" size="50" value="{{title}}">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" placeholder="Title of project" id="" size="50" value="{{title}}">
+      <span class="error_message hide"></span>
+    </div>
     <label for="proposedServices">Summary <span>Manage service agreement template in the <a href="">preferences</a> section.</span></label>
     <textarea name="proposedServices" rows="3" cols="100" placeholder="What kind of work will you be doing?" value="{{proposedServices}}">{{proposedServices}}</textarea>
     <fieldset class="submit-buttons">

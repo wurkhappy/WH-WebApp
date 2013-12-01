@@ -3,13 +3,31 @@
 */
 
 
-define(['backbone','backbone-relational', 'models/payment', 'collections/payments',
+define(['backbone','backbone-relational', 'backbone-validation', 'models/payment', 'collections/payments',
     'models/status', 'collections/status',  'models/comment', 'collections/comments'],
 
-    function(Backbone, Relational, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
+    function(Backbone, Relational, validation, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
         CommentModel, CommentCollection, ClausesCollection, ClauseModel) {
 
         'use strict';
+
+        //provide custom callbacks for global backbone-validation
+        _.extend(Backbone.Validation.callbacks, {
+            valid: function (view, attr, selector) {
+                var $el = view.$('[name=' + attr + ']'), 
+                    $group = $el.closest('.form-group');
+                
+                $group.removeClass('has-error');
+                $group.find('.error_message').html('').addClass('hide');
+            },
+            invalid: function (view, attr, error, selector) {
+                var $el = view.$('[name=' + attr + ']'), 
+                    $group = $el.closest('.form-group');
+                
+                $group.addClass('has-error');
+                $group.find('.error_message').html(error).removeClass('hide');
+            }
+        });
 
         var Agreement = Backbone.RelationalModel.extend({
             relations: [{
@@ -52,7 +70,15 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 }
             }
             ],
+
             idAttribute: "versionID",
+
+            validation: {
+                title: {
+                    required: true,
+                    msg: 'Please enter an agreement title'
+                }
+            },
             urlRoot:function(){
                 return "/agreement/v";
             },

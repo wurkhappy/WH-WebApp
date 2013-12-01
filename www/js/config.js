@@ -87,6 +87,9 @@
         'backbone-relational' : {
             deps: ['backbone']
         },
+        'backbone-validation' : {
+            deps: ['backbone']
+        },
         parsley : {
             deps : ['jquery'],
             exports : 'parsley'

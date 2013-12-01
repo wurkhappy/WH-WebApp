@@ -2704,6 +2704,11 @@ body .ui-tooltip {
   left: 247px;
 }
 
+/* line 58, ../scss/components/_notifications.scss */
+.error_message {
+  color: #972b46;
+}
+
 /* FORMS
 ================================================================================ */
 /* line 4, ../scss/components/_forms.scss */

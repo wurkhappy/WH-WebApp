@@ -2,9 +2,9 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'moment', 'text!templates/create_agreement/proposal_tpl.html'],
+ define(['backbone', 'handlebars', 'underscore', 'backbone-validation', 'moment', 'text!templates/create_agreement/proposal_tpl.html'],
 
-  function (Backbone, Handlebars, _, moment, scopeTemplate) {
+  function (Backbone, Handlebars, _, Validation, moment, scopeTemplate) {
 
     'use strict';
 
@@ -17,6 +17,7 @@
 
       initialize: function (options) {
         this.userID = options.userID;
+        Backbone.Validation.bind(this);
         this.render();
       },
 
@@ -37,7 +38,8 @@
       },
 
       updateField: function(event){
-        this.model.set(event.target.name, event.target.value)
+        this.model.set(event.target.name, event.target.value);
+        this.model.validate();
       },
       updateRole: function(event){
         this.model.unset("clientID");
