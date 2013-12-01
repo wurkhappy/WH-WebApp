@@ -1530,7 +1530,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #86ce50;
 }
 
-/* line 238, ../scss/components/_progress_bars.scss */
+/* line 237, ../scss/components/_progress_bars.scss */
 .tooltip {
   background: #fff;
   background: rgba(255, 255, 255, 0.8);
@@ -1550,14 +1550,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #646464;
 }
 
-/* line 256, ../scss/components/_progress_bars.scss */
+/* line 255, ../scss/components/_progress_bars.scss */
 .tooltip > ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 261, ../scss/components/_progress_bars.scss */
+/* line 260, ../scss/components/_progress_bars.scss */
 .tooltip:after {
   content: "";
   position: absolute;
