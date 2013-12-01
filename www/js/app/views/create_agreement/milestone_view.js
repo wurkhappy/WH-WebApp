@@ -2,9 +2,9 @@
 * Scope of Work - Create Agreement View.
 */ 
 
-define(['backbone', 'handlebars', 'underscore', 'kalendae', 'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
+define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
 
-  function (Backbone, Handlebars, _, Kalendae, milestoneTemplate, PaymentScopeView) {
+  function (Backbone, Handlebars, _, Kalendae, autoNumeric, milestoneTemplate, PaymentScopeView) {
 
     'use strict';
     Handlebars.registerHelper('dateFormat', function(date) {
@@ -48,7 +48,8 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'text!templates/crea
         "blur .paymentAmount":"updateAmount",
         "blur #require_checkbox": "requireDeposit",
         "focus .kal": "triggerCalender",
-        "click .remove_icon > a":"removeModel"
+        "click .remove_icon > a":"removeModel",
+        'focus .currency_format': 'triggerCurrencyFormat'
       },
       updateAmount: function(event){
         this.model.set(event.target.name, parseFloat(event.target.value));
@@ -86,6 +87,10 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'text!templates/crea
         _.delay( function() {
           that.model.collection.remove(that.model);
         }, 1000);
+      },
+
+      triggerCurrencyFormat: function() {
+        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '1.00', vMax: '100000.00' });
       }
 
     });

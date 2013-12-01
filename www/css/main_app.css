@@ -4330,7 +4330,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 1, ../scss/components/_discussion_container.scss */
 .discussion_container {
   border-radius: 5px;
-  padding: 15px;
+  padding: 15px 25px;
   height: 370px;
   margin: 0;
   margin-bottom: 5px;

@@ -45,6 +45,9 @@
         ckadapter: 'lib/ckeditor/adapters/jquery',
         'auto-grow': 'lib/jquery-autogrow/lib/jquery-autogrow.min',
 
+        //plugins - no bower
+        autonumeric: 'app/plugins/autoNumeric-master/autoNumeric',
+
         // Templating.
         handlebars: 'lib/handlebars/handlebars',
 
@@ -113,6 +116,10 @@
         'auto-grow' : {
             deps : ['jquery'],
             exports:'autoGrow'
+        },
+        autonumeric : {
+            deps : ['jquery'],
+            exports:'autoNumeric'
         }
     }
 });
