@@ -31,6 +31,7 @@
         marionette: 'lib/backbone.marionette/lib/backbone.marionette',
         modernizr: 'lib/modernizr/modernizr',
         'backbone-relational' : 'lib/backbone-relational/backbone-relational',
+        'backbone-validation':'lib/backbone-validation/src/backbone-validation',
 
         //plugins - bower
         text: 'lib/requirejs-text/text',
