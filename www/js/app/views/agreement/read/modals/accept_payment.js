@@ -20,7 +20,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
         this.render();
       },
       render:function(){
-        var milestonePayment = this.collection.findSubmittedPayment().get("amount");
+        var milestonePayment = this.model.get("amount");
         var amountTotal = milestonePayment;
         var creditCards = this.user.get("cards").toJSON();
         var bankAccounts = this.user.get("bank_accounts").toJSON();
@@ -57,7 +57,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
 
         var $debitSource = $(".select_bank_account:checked").val() || $(".select_credit_card:checked").val() || '';
 
-        this.collection.findSubmittedPayment().accept($debitSource);
+        this.model.accept($debitSource);
 
         var status;
 

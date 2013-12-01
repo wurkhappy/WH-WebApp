@@ -2,10 +2,10 @@
 define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!templates/agreement/read/header_tpl.html',
   'views/agreement/read/header_states/accepted_state', 'views/agreement/read/header_states/created_state',
   'views/agreement/read/header_states/submitted_state', 'views/agreement/read/header_states/rejected_state',
-  'views/agreement/read/header_states/draft_state'],
+  'views/agreement/read/header_states/draft_state', 'views/agreement/read/header_states/finished_state'],
 
   function (Backbone, Handlebars, noty, noty_layout, noty_default, userTemplate, AcceptedState,
-    CreatedState, SubmittedState, RejectedState, DraftState) {
+    CreatedState, SubmittedState, RejectedState, DraftState, FinishedState) {
 
     'use strict';
 
@@ -76,6 +76,10 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
           this.state = new SubmittedState({model: this.model, user: this.user, otherUser: this.otherUser});
           break;
           case status.StatusAccepted:
+          if (this.model.get("payments").findAllOutstandingPayment().length === 0) {
+            this.state = new FinishedState({model: this.model, user: this.user, otherUser: this.otherUser});
+            break;
+          }
           this.state = new AcceptedState({model: this.model, user: this.user});
           break;
           case status.StatusRejected:

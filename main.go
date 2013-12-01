@@ -47,11 +47,13 @@ func main() {
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	// err := http.ListenAndServe(":4000", nil)
-	var port string = ":4000"
+	var err error
 	if *production {
-		port = ":443"
+		err = http.ListenAndServeTLS(":443", "/root/go/bin/ssl/wurkhappy.com.pem", "/root/go/bin/ssl/wurkhappy.com.key", nil)
+	} else {
+		err = http.ListenAndServe(":4000", nil)
+		// err = http.ListenAndServeTLS(":4000", "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil)
 	}
-	err := http.ListenAndServeTLS(port, "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
