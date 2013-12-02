@@ -49,7 +49,8 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text
         "blur #require_checkbox": "requireDeposit",
         "focus .kal": "triggerCalender",
         "click .remove_icon > a":"removeModel",
-        'focus .currency_format': 'triggerCurrencyFormat'
+        'focus .currency_format': 'triggerCurrencyFormat',
+        'click #require_checkbox': 'showDeposit'
       },
       updateAmount: function(event){
         this.model.set(event.target.name, parseFloat(event.target.value));
@@ -91,6 +92,11 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text
 
       triggerCurrencyFormat: function() {
         $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '1.00', vMax: '100000.00' });
+      },
+
+      showDeposit: function(event) {
+        console.log('something happening');
+        $('#deposit').fadeToggle('hide');
       }
 
     });
