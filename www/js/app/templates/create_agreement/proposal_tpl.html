@@ -1,4 +1,4 @@
-<form action="" method="get" accept-charset="utf-8">
+<form action="" method="get" accept-charset="utf-8" parsley-validate>
   <fieldset>
     <label class="create_agreement_label_first" for="role">Role</label>
     {{#if clientID}}
@@ -10,7 +10,7 @@
     {{/if}}
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" name="title" placeholder="Title of project" id="" size="50" value="{{title}}">
+      <input data-required="true" data-trigger="change" type="text" name="title" placeholder="Title of project" id="" size="50" value="{{title}}">
       <span class="error_message hide"></span>
     </div>
     <label for="proposedServices">Summary <span>Manage service agreement template in the <a href="">preferences</a> section.</span></label>
@@ -19,4 +19,3 @@
       <a class="single">Save and Continue</a>
     </fieldset>
   </form>
-

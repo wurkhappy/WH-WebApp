@@ -3,10 +3,10 @@
 */
 
 
-define(['backbone','backbone-relational', 'backbone-validation', 'models/payment', 'collections/payments',
+define(['backbone','backbone-relational', 'models/payment', 'collections/payments',
     'models/status', 'collections/status',  'models/comment', 'collections/comments'],
 
-    function(Backbone, Relational, validation, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
+    function(Backbone, Relational, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
         CommentModel, CommentCollection, ClausesCollection, ClauseModel) {
 
         'use strict';

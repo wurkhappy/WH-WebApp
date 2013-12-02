@@ -2,9 +2,9 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'moment', 'text!templates/create_agreement/proposal_tpl.html'],
+ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'text!templates/create_agreement/proposal_tpl.html'],
 
-  function (Backbone, Handlebars, _, Validation, moment, scopeTemplate) {
+  function (Backbone, Handlebars, _, moment, parsley, scopeTemplate) {
 
     'use strict';
 
@@ -50,7 +50,6 @@
       updateClauses: function(event){
         var $element = $(event.target);
         this.model.get("clauses").add({id:$element.data('clauseid'), text:$element.data('text'), userID:this.userID});
-        console.log(this.model);
       },
       saveAndContinue:function(event){
         event.preventDefault();
