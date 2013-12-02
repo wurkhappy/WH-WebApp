@@ -54,12 +54,18 @@
       saveAndContinue:function(event){
         event.preventDefault();
         event.stopPropagation();
-        this.model.set("draft", true);
-        this.model.save({},{
-          success:_.bind(function(model, response){
-            window.location.hash = 'estimate';
-          }, this)
-        });
+
+        $( '.proposal_form' ).parsley( 'validate' );
+        var isValid = $( '.proposal_form' ).parsley( 'isValid' );
+
+        if (isValid) {
+          this.model.set("draft", true);
+          this.model.save({},{
+            success:_.bind(function(model, response){
+              window.location.hash = 'estimate';
+            }, this)
+          });
+        }
       },
 
       showPage: function(event) {
