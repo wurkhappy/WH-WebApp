@@ -11,24 +11,6 @@ define(['backbone','backbone-relational', 'backbone-validation', 'models/payment
 
         'use strict';
 
-        //provide custom callbacks for global backbone-validation
-        _.extend(Backbone.Validation.callbacks, {
-            valid: function (view, attr, selector) {
-                var $el = view.$('[name=' + attr + ']'), 
-                    $group = $el.closest('.form-group');
-                
-                $group.removeClass('has-error');
-                $group.find('.error_message').html('').addClass('hide');
-            },
-            invalid: function (view, attr, error, selector) {
-                var $el = view.$('[name=' + attr + ']'), 
-                    $group = $el.closest('.form-group');
-                
-                $group.addClass('has-error');
-                $group.find('.error_message').html(error).removeClass('hide');
-            }
-        });
-
         var Agreement = Backbone.RelationalModel.extend({
             relations: [{
                 type: Backbone.HasMany,
@@ -72,13 +54,6 @@ define(['backbone','backbone-relational', 'backbone-validation', 'models/payment
             ],
 
             idAttribute: "versionID",
-
-            validation: {
-                title: {
-                    required: true,
-                    msg: 'Please enter an agreement title'
-                }
-            },
             urlRoot:function(){
                 return "/agreement/v";
             },
