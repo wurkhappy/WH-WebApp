@@ -12,7 +12,7 @@
 
  			model: Model,
  			comparator:function(item){
- 				return -item.get("dateCreated").valueOf();
+ 				return item.get("dateCreated").valueOf();
  			}
 
  		});

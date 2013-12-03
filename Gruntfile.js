@@ -300,6 +300,9 @@ module.exports = function (grunt) {
                                 'backbone',
                                 'underscore',
                                 'handlebars',
+                                'hbs',
+                                'json2',
+                                'i18nprecompile',
                                 'text',
                                 'moment',
                             ]

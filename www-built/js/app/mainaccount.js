@@ -1,5 +1,4 @@
-/*! wurk-happy v0.0.1 | 27-11-2013-09:17:20
- * Copyright (c) 2013 |// MarionetteJS (Backbone.Marionette)
+// MarionetteJS (Backbone.Marionette)
 // ----------------------------------
 // v1.0.4
 //
