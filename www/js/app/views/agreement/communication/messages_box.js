@@ -7,7 +7,7 @@
 
   function (Backbone, Handlebars, _, Marionette, tpl, MessageItem, emptyTpl) {
 
-    'use strict';
+    // 'use strict';
     var EmptyView = Backbone.Marionette.ItemView.extend({
       template: emptyTpl
     });
@@ -26,7 +26,17 @@
       initialize: function(options){
         this.user = options.user;
         this.otherUser = options.otherUser;
-      }
+
+        //not sure why this isn't called anyway since a reset should retrigger this.render()
+        this.listenTo(this.collection, "reset", this.onRender);
+      },
+      onRender: function(){
+        setTimeout(_.bind(function(){
+          //MP: I hate doing stuff like this (arbitrary waiting) but we can't ask to scroll until all children have been rendered
+          this.$el[0].scrollTop = this.$el[0].scrollHeight;
+        }, this), 55);
+      },
+
     });
 
     return MessageBox;

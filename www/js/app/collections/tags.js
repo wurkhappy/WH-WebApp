@@ -39,12 +39,12 @@
  					})
  					that.add(tag);
  				},this));
- 			}
+ 			},
 
  		});
 
- 		return Collection;
+return Collection;
 
- 	}
+}
 
- 	);
+);
