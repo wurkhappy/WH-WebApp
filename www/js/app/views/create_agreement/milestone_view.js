@@ -53,10 +53,15 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text
         'click #require_checkbox': 'showDeposit'
       },
       updateAmount: function(event){
-        this.model.set(event.target.name, parseFloat(event.target.value));
+
+        var amount = event.target.value;
+        var adjAmount = (amount.substring(0,2) === '$ ') ? amount.substring(2) : amount;
+
+        this.model.set(event.target.name, parseFloat(adjAmount));
       },
       updateFields: function(event){
         if (!event.target.name) return;
+
         this.model.set(event.target.name, event.target.value);
       },
 
@@ -74,7 +79,9 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text
         }
       },
       setDate: function(date, action){
+
         this.model.set("dateExpected", date);
+
          _.delay(this.closeCalendar, 150);
          this.$('.kal').val(date.format('MM/DD/YYYY'))
          this.$('.kal').blur();
@@ -91,11 +98,10 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text
       },
 
       triggerCurrencyFormat: function() {
-        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '1.00', vMax: '100000.00' });
+        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '1', vMax: '100000' });
       },
 
       showDeposit: function(event) {
-        console.log('something happening');
         $('#deposit').fadeToggle('hide');
       }
 

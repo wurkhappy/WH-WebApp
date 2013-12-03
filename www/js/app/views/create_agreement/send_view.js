@@ -1,7 +1,7 @@
-define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html',
+define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!templates/create_agreement/send_tpl.html',
   'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, tpl, DepositRequestModal, Modal) {
+  function (Backbone, Handlebars, noty, noty_layout, noty_default, tpl, DepositRequestModal, Modal) {
 
     'use strict';
 
@@ -42,6 +42,18 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
 
         this.model.save({},{success:function(model, response){
 
+          var n = $('.notification_container').noty({
+            text: 'Message Sent Successfully!',
+            type: 'success',
+            animation: {
+              open: {height: 'toggle'},
+              close: {height: 'toggle'},
+              easing: 'swing',
+              speed: 500 // opening & closing animation speed
+            }
+          });
+
+          $('.notification_container').fadeIn('fast');
           $('.notification_container').fadeIn('fast');
 
           var changeWindow = function () {
@@ -85,7 +97,6 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
           $('.notification_container').fadeIn('fast');
 
           var submitSuccess = function(){
-            console.log("callback");
             that.modal.view.model.submit(creditSource, function(){
               window.location = "/home";
             });

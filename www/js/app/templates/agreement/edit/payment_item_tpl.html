@@ -2,7 +2,7 @@
 	<input class="amount" contenteditable ${{amount}} value="${{amount}}" style="display:inline-block;width:214px;">
 	<input type="text" value="{{title}}" class="title">
 	{{#unless required}}
-		<input {{#if dateExpected}} placeholder="{{dateFormat dateExpected}}"{{else}} placeholder="Choose Date" {{/if}} class="kal" name="dateExpected" type="text">
+		<input {{#if dateExpected}} placeholder="{{dateFormat dateExpected}}"{{else}} placeholder="Choose Date" {{/if}} class="kal" name="dateExpected"  type="text">
 	{{/unless}}
 </div>
 <input class="edit_work_item add_work_item_input" type="text" name="" value="" placeholder="Add work item" id="" size="50">
