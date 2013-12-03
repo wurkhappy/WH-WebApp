@@ -28,6 +28,17 @@
  				tagsToAdd.each(function(payment){
  					that.add({name: payment.get("title")});
  				})
+ 			},
+ 			addTags: function(tags){
+ 				var that = this;
+ 				_.each(tags, _.bind(function(tag){
+ 					this.each(function(model){
+ 						if (model.get("name") === tag.name) {
+ 							if(!model.id) that.remove(model);
+ 						}
+ 					})
+ 					that.add(tag);
+ 				},this));
  			}
 
  		});

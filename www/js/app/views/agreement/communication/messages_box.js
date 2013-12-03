@@ -26,7 +26,6 @@
       initialize: function(options){
         this.user = options.user;
         this.otherUser = options.otherUser;
-        console.log(this.collection);
       }
     });
 

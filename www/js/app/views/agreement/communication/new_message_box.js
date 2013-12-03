@@ -30,7 +30,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
           userID:this.user.id,
           tags: tags
         })
-
       },
       render: function () {
         this.$el.html(this.template({}));
@@ -61,8 +60,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
           this.trigger("commentAdded", this.model);
           this.model.save(null, {success: _.bind(function(model, response){
             var tags = model.get("tags");
-            this.tags.add(tags.toJSON());
-            this.model.get("tags").add(tags.toJSON());
+            this.tags.addTags(tags.toJSON());
+            this.model.get("tags").reset(tags.toJSON());
             this.model.unset("id");
             this.model.unset("dateCreated");
           }, this)});

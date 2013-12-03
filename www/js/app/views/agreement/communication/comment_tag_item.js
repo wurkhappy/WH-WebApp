@@ -37,7 +37,7 @@
         var $elem = $(event.currentTarget);
 
         if (event.keyCode === 8) {
-          this.model.collection.remove(this.model);
+          this.collection.remove(this.model);
         }
       },
 

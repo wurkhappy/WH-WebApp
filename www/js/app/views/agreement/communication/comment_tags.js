@@ -16,6 +16,7 @@
 
       itemView: TagItem,
       itemViewContainer: ".enter_tags_sub_container",
+      itemViewOptions:function(){return{collection: this.collection}},
       events: {
         "focus .new_tag": "triggerAutoComplete",
         "keydown .new_tag": "createNewTag",
@@ -36,8 +37,10 @@
         if ($elem.val() === '') {return};
 
         if (event.keyCode === 13 || event.keyCode === 9) {
-          var model = new this.collection.model({name: event.target.value, id: $(event.target).data("id")});
+          var id = $(event.target).data("id");
+          var model = (id) ? this.collection.model.findOrCreate({id: id, name: event.target.value}) : {id: id, name: event.target.value};
           this.collection.add(model);
+          model.collection = this.collection;
           $elem.val('');
           $elem.hide();
         }
@@ -55,6 +58,7 @@
         this.tags.each(function(model){
           tags.push({label: model.get("name"), id:model.id});
         })
+
         this.$(".new_tag").autocomplete({
           source: tags,
           select: function(event, ui){
