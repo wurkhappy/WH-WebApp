@@ -136,6 +136,11 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session := getSession(req)
 	validateSignature(req, session)
 	vars := mux.Vars(req)
+
+	if _, ok := session.Values["id"]; !ok {
+		http.Redirect(w, req, "/", http.StatusFound)
+	}
+
 	if !checkVersionOwner(vars["versionID"], session.Values["id"].(string)) {
 		http.Error(w, "Not authorized", http.StatusForbidden)
 		return

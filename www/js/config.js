@@ -50,7 +50,9 @@
 
         // Templating.
         handlebars: 'lib/handlebars/handlebars',
-
+        'i18nprecompile': 'lib/hbs/hbs/i18nprecompile',
+        'json2': 'lib/hbs/hbs/json2',
+        hbs: 'lib/hbs/hbs',
         // Custom AMD modules.
         // utils: 'app/utils',
 
@@ -121,5 +123,9 @@
             deps : ['jquery'],
             exports:'autoNumeric'
         }
+    },
+    hbs: {
+        templateExtension: "html",
+        disableI18n : true
     }
 });

@@ -235,6 +235,16 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	var commentsData []map[string]interface{}
 	json.Unmarshal(resp, &commentsData)
 
+	resp, statusCode = sendServiceRequest("GET", config.CommentsService, "/agreement/"+agrmntData["agreementID"].(string)+"/tags", nil)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+	var tagsData []map[string]interface{}
+	json.Unmarshal(resp, &tagsData)
+
 	otherID, _ := agrmntData["freelancerID"]
 	if otherID == userID {
 		otherID = agrmntData["clientID"]
@@ -251,6 +261,7 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		"otherUser":  otherUser,
 		"thisUser":   thisUser,
 		"comments":   commentsData,
+		"tags":       tagsData,
 		"production": Production,
 	}
 

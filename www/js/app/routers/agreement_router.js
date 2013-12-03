@@ -3,12 +3,13 @@
  */
 
  define(['backbone', 'models/agreement', 'views/agreement/layout_manager',
-  'views/agreement/payments_read_view', 'views/agreement/agreement_history_view', 'views/agreement/user_view',
+  'views/agreement/payments_read_view', 'views/agreement/user_view',
   'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
-  'views/agreement/read/header_view', 'views/agreement/discussion_view','models/user', 'views/agreement/progress_bar_view'],
+  'views/agreement/read/header_view', 'views/agreement/communication/communication_layout','models/user', 'views/agreement/progress_bar_view',
+  'collections/tags'],
 
-  function (Backbone, AgreementModel, LayoutView, PaymentsReadView, AgrmntHistoryView, UserView,
-    UserEditView, HeaderEditView, PaymentEditView, HeaderView, DiscussionView, UserModel, ProgressBarView) { 
+  function (Backbone, AgreementModel, LayoutView, PaymentsReadView, UserView,
+    UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, UserModel, ProgressBarView, TagCollection) { 
 
     'use strict';
 
@@ -27,6 +28,8 @@
         this.otherUser = new UserModel(window.otherUser);
         this.user.set("cards", window.cards);
         this.user.set("bank_accounts", window.bank_account);
+        this.tags = new TagCollection(window.tags);
+        this.tags.addMileStoneTags(this.model.get("payments"));
       },
 
       readAgreement: function () {
@@ -34,7 +37,9 @@
         this.layout.paymentSchedule.show(new PaymentsReadView({model: this.model}));
         this.layout.profile.show(new UserView());
         this.layout.header.show(new HeaderView({model: this.model, user: this.user, otherUser: this.otherUser}));
-        this.layout.discussion.show(new DiscussionView({model: this.model, user: this.user, otherUser: this.otherUser}));
+        var discussionView = new CommunicationLayout({messages: this.model.get("comments"), user: this.user, otherUser: this.otherUser, tags:this.tags});
+        this.listenTo(discussionView, "commentAdded", this.commentAdded);
+        this.layout.discussion.show(discussionView);
 
         if (this.model.sample) this.sample();
       },
@@ -45,6 +50,10 @@
       },
       sample: function(){
         
+      },
+      commentAdded: function(comment){
+        this.model.get("comments").add(comment.toJSON());
+        comment.collection = this.model.get("comments");
       }
 
     });
