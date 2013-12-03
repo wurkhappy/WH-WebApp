@@ -1,6 +1,6 @@
 
 define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/agreement/read/header_states/base_state',
-  'text!templates/agreement/accept_tpl.html', 'views/agreement/read/modals/reject', 'views/ui-modules/modal',
+  'hbs!templates/agreement/accept_tpl.html', 'views/agreement/read/modals/reject', 'views/ui-modules/modal',
   'views/agreement/read/modals/accept_payment'],
 
   function (Backbone, Handlebars, noty, noty_layout, noty_default, BaseState, payTemplate, RejectModal,
@@ -10,7 +10,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
 
     var SubmittedState = BaseState.extend({
 
-      payTemplate: Handlebars.compile(payTemplate),
+      payTemplate: payTemplate,
 
       initialize:function(options){
         BaseState.prototype.initialize.apply(this);

@@ -2,15 +2,15 @@
  * Credit Card Account View.
  */
 
- define(['jquery', 'backbone', 'handlebars', 'text!templates/account/new_card_tpl.html'],
+ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new_card_tpl.html'],
 
-  function ($, Backbone, Handlebars, Template) {
+  function ($, Backbone, Handlebars, toastr, Template) {
 
     'use strict';
 
     var NewCardView = Backbone.View.extend({
 
-      template: Handlebars.compile(Template),
+      template: Template,
       events:{
         "blur input":"updateFields",
         "click #save-button":"saveCard",
@@ -30,7 +30,6 @@
       },
       updateFields:function(event){
         this.card[event.target.name] = event.target.value;
-        $(".notification_container").fadeOut("slow");
       },
       saveCard:function(event){
         var that = this;
@@ -44,7 +43,7 @@
             console.log(that.user.get("cards"));
             model.save();
             $('input').val('');
-            $(".notification_container").fadeOut('fast').fadeIn("slow");
+            toastr.success('Credit Card Saved!');
 
           } else {
             console.log(response);

@@ -57,7 +57,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text
         var amount = event.target.value;
         var adjAmount = (amount.substring(0,2) === '$ ') ? amount.substring(2) : amount;
 
-        this.model.set(event.target.name, parseFloat(adjAmount));
+        this.model.set(event.target.name, parseInt(adjAmount.replace(/,/g, ''), 10));
       },
       updateFields: function(event){
         if (!event.target.name) return;

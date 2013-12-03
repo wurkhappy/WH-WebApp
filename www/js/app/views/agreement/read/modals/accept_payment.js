@@ -1,8 +1,8 @@
 
-define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/agreement/read/header_states/base_state',
+define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/base_state',
   'text!templates/agreement/accept_tpl.html', 'views/agreement/read/modals/reject', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, noty, noty_layout, noty_default, BaseState, payTemplate, RejectModal, Modal) {
+  function (Backbone, Handlebars, toastr, BaseState, payTemplate, RejectModal, Modal) {
 
     'use strict';
 
@@ -68,13 +68,8 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
         }
 
         var fadeInNotification = function () {
-          $("#notification_container").fadeIn("fast");
-          $("#notification_text").text("Request "+status+" and email sent");
+          toastr.success('Payment Accepted');
         };
-
-        $("#notification_container").hover( function() {
-          $("#notification_container").fadeOut("fast");
-        });
 
         var triggerNotification = _.debounce(fadeInNotification, 300);
         this.trigger('hide');

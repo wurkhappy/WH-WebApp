@@ -1,12 +1,12 @@
-define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!templates/create_agreement/send_tpl.html',
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send_tpl',
   'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, noty, noty_layout, noty_default, tpl, DepositRequestModal, Modal) {
+  function (Backbone, Handlebars, toastr, tpl, DepositRequestModal, Modal) {
 
     'use strict';
 
     var SendView = Backbone.View.extend({
-      template: Handlebars.compile(tpl),
+      template: tpl,
       className:'clear white_background',
       events:{
         "click #sendAgreement": "sendAgreement",
@@ -42,19 +42,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
 
         this.model.save({},{success:function(model, response){
 
-          var n = $('.notification_container').noty({
-            text: 'Message Sent Successfully!',
-            type: 'success',
-            animation: {
-              open: {height: 'toggle'},
-              close: {height: 'toggle'},
-              easing: 'swing',
-              speed: 500 // opening & closing animation speed
-            }
-          });
-
-          $('.notification_container').fadeIn('fast');
-          $('.notification_container').fadeIn('fast');
+          toastr.success('Agreement Sent!');
 
           var changeWindow = function () {
             window.location = "/home";
@@ -94,7 +82,7 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!t
 
         this.model.save({},{success:function(model, response){
 
-          $('.notification_container').fadeIn('fast');
+          toastr.success('Agreement Sent and Deposit Requested');
 
           var submitSuccess = function(){
             that.modal.view.model.submit(creditSource, function(){

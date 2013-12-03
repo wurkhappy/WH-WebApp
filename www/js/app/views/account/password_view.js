@@ -2,9 +2,9 @@
  * Password Account View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/account/password.html'],
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/account/password.html'],
 
-    function (Backbone, Handlebars, passwordTemplate) {
+    function (Backbone, Handlebars, toastr, passwordTemplate) {
 
       'use strict';
 
@@ -14,7 +14,7 @@ define(['backbone', 'handlebars', 'text!templates/account/password.html'],
 
         attributes:{'id':'content'},
 
-        template: Handlebars.compile(passwordTemplate),
+        template: passwordTemplate,
 
         events: {
           "click #submit-button":"save",
@@ -36,13 +36,12 @@ define(['backbone', 'handlebars', 'text!templates/account/password.html'],
             this.model.set("currentPassword", this.passwords["current-pw"]);
             this.model.save({},{success:_.bind(function(model, response){
               this.$('input').val('');
-              $(".notification_container").fadeIn("slow");
+              toastr.success('Password Updated!');
             },this)});
           }
         },
         updatePassword: function(event){
           this.passwords[event.target.name] = event.target.value
-          $(".notification_container").fadeOut('fast').fadeOut("slow");
         }
 
       });
