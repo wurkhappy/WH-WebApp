@@ -4584,7 +4584,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   background: #f9fafb;
   overflow: hidden;
   overflow-y: scroll;
-  width: 738px;
+  width: 704px;
   border: 1px solid #dbe0e6;
   margin-left: 5px;
 }
