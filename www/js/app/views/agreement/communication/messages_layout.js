@@ -29,8 +29,8 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/communication/message
       },
       addFilter: function(view, tag){
         var filtered;
-        var id = tag.id || 
-        var t = this.selectedTags.get(tag.id);
+        var id = tag.id || tag.cid
+        var t = this.selectedTags.get(id);
         if (t) {
           //let's check if selected tags has the model.
           //if it does then we need to remove it and refilter the original messages

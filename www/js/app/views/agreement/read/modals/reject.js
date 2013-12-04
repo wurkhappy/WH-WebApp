@@ -1,7 +1,7 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/reject_tpl.html'],
+define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/reject_tpl.html'],
 
-  function (Backbone, Handlebars, rejectTemplate) {
+  function (Backbone, Handlebars, toastr, rejectTemplate) {
 
     'use strict';
 
@@ -41,13 +41,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/reject_tpl.html'],
         }
 
         var fadeInNotification = function () {
-          $(".notification_container").fadeIn("fast");
-          $(".notification_text").text("Request "+status+" and email sent");
+          toastr.success("Request "+status+" and email sent");
         };
-
-        $(".notification_container").hover( function() {
-          $(".notification_container").fadeOut("fast");
-        });
 
         var triggerNotification = _.debounce(fadeInNotification, 300);
 

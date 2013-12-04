@@ -44,6 +44,7 @@
         ckeditor: 'lib/ckeditor/ckeditor',
         ckadapter: 'lib/ckeditor/adapters/jquery',
         'auto-grow': 'lib/jquery-autogrow/lib/jquery-autogrow.min',
+        toastr: 'lib/toastr/toastr',
 
         //plugins - no bower
         autonumeric: 'app/plugins/autoNumeric-master/autoNumeric',
@@ -53,6 +54,7 @@
         'i18nprecompile': 'lib/hbs/hbs/i18nprecompile',
         'json2': 'lib/hbs/hbs/json2',
         hbs: 'lib/hbs/hbs',
+
         // Custom AMD modules.
         // utils: 'app/utils',
 
@@ -122,6 +124,10 @@
         autonumeric : {
             deps : ['jquery'],
             exports:'autoNumeric'
+        },
+        autonumeric : {
+            deps : ['jquery'],
+            exports:'toastr'
         }
     },
     hbs: {

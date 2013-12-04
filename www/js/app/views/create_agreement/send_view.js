@@ -1,12 +1,12 @@
-define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html',
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send_tpl',
   'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, tpl, DepositRequestModal, Modal) {
+  function (Backbone, Handlebars, toastr, tpl, DepositRequestModal, Modal) {
 
     'use strict';
 
     var SendView = Backbone.View.extend({
-      template: Handlebars.compile(tpl),
+      template: tpl,
       className:'clear white_background',
       events:{
         "click #sendAgreement": "sendAgreement",
@@ -42,7 +42,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
 
         this.model.save({},{success:function(model, response){
 
-          $('.notification_container').fadeIn('fast');
+          toastr.success('Agreement Sent!');
 
           var changeWindow = function () {
             window.location = "/home";
@@ -82,10 +82,9 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/send_tpl.html
 
         this.model.save({},{success:function(model, response){
 
-          $('.notification_container').fadeIn('fast');
+          toastr.success('Agreement Sent and Deposit Requested');
 
           var submitSuccess = function(){
-            console.log("callback");
             that.modal.view.model.submit(creditSource, function(){
               window.location = "/home";
             });
