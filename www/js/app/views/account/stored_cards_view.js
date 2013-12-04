@@ -1,5 +1,5 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/account/stored_card_item.html', 'text!templates/account/stored_cards.html'],
+  'hbs!templates/account/stored_card_item', 'hbs!templates/account/stored_cards'],
 
   function (Backbone, Handlebars, _, Marionette, itemTpl, storedCardsTpl) {
 
@@ -7,7 +7,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
     var ItemView = Backbone.Marionette.View.extend({
 
-      template: Handlebars.compile(itemTpl),
+      template: itemTpl,
 
       events: {
         "click a":"removeModel"
@@ -23,7 +23,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
     });
 
     var StoredCardsView = Backbone.Marionette.CompositeView.extend({
-      template: Handlebars.compile(storedCardsTpl),
+      template: storedCardsTpl,
       itemView: ItemView,
       itemViewContainer:'table',
       events: {

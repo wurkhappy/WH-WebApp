@@ -2,7 +2,7 @@
  * Bank Account Account View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/account/bankaccount.html'],
+define(['backbone', 'handlebars', 'hbs!templates/account/bankaccount'],
 
     function (Backbone, Handlebars, bankAccountTemplate) {
 
@@ -14,7 +14,7 @@ define(['backbone', 'handlebars', 'text!templates/account/bankaccount.html'],
 
         attributes:{'id':'content'},
 
-        template: Handlebars.compile(bankAccountTemplate),
+        template: bankAccountTemplate,
 
         initialize: function () {
           this.render();

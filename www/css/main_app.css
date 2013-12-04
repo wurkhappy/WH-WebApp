@@ -3134,6 +3134,125 @@ button.toast-close-button {
   text-align: center;
 }
 
+/* line 1, ../scss/components/_legal.scss */
+.faqnav {
+  font-size: 14px;
+  font-family: museo;
+  list-style-type: none;
+  padding: 0px;
+  margin: 20px 0px 0px 20px;
+  position: fixed;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 1px #ddd;
+}
+
+/* line 13, ../scss/components/_legal.scss */
+.faqnav li {
+  padding: 5px 10px;
+  width: 285px;
+  overflow: hidden;
+}
+
+/* line 19, ../scss/components/_legal.scss */
+.faqnav a {
+  width: 100%;
+  padding: 10px 235px;
+  margin: 0px -235px;
+}
+/* line 23, ../scss/components/_legal.scss */
+.faqnav a:hover {
+  text-decoration: none;
+  color: #0072a3;
+}
+
+/* line 29, ../scss/components/_legal.scss */
+.faqcontent {
+  width: 600px;
+  min-height: 700px;
+  margin-left: 350px;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+/* line 39, ../scss/components/_legal.scss */
+.faqcontent li {
+  width: 500px;
+}
+
+/* line 43, ../scss/components/_legal.scss */
+.faqnav .current {
+  background: #0099dd;
+  color: white;
+}
+
+/* line 48, ../scss/components/_legal.scss */
+.faqnav .current a {
+  color: white;
+  background: #009adb;
+}
+
+/* line 53, ../scss/components/_legal.scss */
+div.faqcontent h2 {
+  font-family: museo;
+  width: 550px;
+}
+
+/* line 58, ../scss/components/_legal.scss */
+.box {
+  border: 1px solid black;
+  margin: 15px;
+  padding: 5px;
+  width: 525px;
+}
+
+/* line 66, ../scss/components/_legal.scss */
+.section {
+  display: none;
+}
+/* line 68, ../scss/components/_legal.scss */
+.section:first-child {
+  display: block;
+}
+
+/* line 73, ../scss/components/_legal.scss */
+.fixed {
+  position: fixed;
+  bottom: 0;
+}
+
+/* line 78, ../scss/components/_legal.scss */
+.title {
+  color: black;
+  background: #ddd;
+  opacity: .5;
+}
+/* line 82, ../scss/components/_legal.scss */
+.title a:hover {
+  color: black;
+}
+
+/* line 87, ../scss/components/_legal.scss */
+.legal_tab {
+  margin-top: 10px;
+}
+/* line 89, ../scss/components/_legal.scss */
+.legal_tab ul {
+  margin: 0;
+}
+/* line 92, ../scss/components/_legal.scss */
+.legal_tab li {
+  display: inline;
+  margin-right: 20px;
+}
+
+/* line 98, ../scss/components/_legal.scss */
+.legal_active, .legal_active:visited {
+  color: #005d85;
+}
+
 /* line 1, ../scss/components/_buttons.scss */
 .action_button_container {
   margin: 10px 20px 10px 20px;

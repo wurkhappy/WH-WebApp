@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'text!templates/account/verification.html'],
+define(['backbone', 'handlebars', 'hbs!templates/account/verification'],
 
   function (Backbone, Handlebars, verificationTemplate) {
 
@@ -6,7 +6,7 @@ define(['backbone', 'handlebars', 'text!templates/account/verification.html'],
 
     var VerificationModal = Backbone.View.extend({
 
-      template: Handlebars.compile(verificationTemplate),
+      template: verificationTemplate,
       events: {
         "click #verify-button":"verify",
         "blur input":"updateAmounts"

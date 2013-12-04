@@ -2,7 +2,7 @@
  * Credit Card Account View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/account/creditcard.html'],
+define(['backbone', 'handlebars', 'hbs!templates/account/creditcard'],
 
     function (Backbone, Handlebars, creditCardTemplate) {
 
@@ -14,7 +14,7 @@ define(['backbone', 'handlebars', 'text!templates/account/creditcard.html'],
 
         attributes:{'id':'content'},
 
-        template: Handlebars.compile(creditCardTemplate),
+        template: creditCardTemplate,
 
         initialize: function () {
           this.render();

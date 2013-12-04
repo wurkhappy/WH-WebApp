@@ -3,11 +3,11 @@
   font-family: museo;
   list-style-type: none;
   padding: 0px;
-  margin: 20px 0px 0px 30px;
+  margin: 20px 0px 0px 20px;
   position: fixed;
   border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0 0 5px 5px #ddd;
+  box-shadow: 0 0 2px 1px #ddd;
 }
 
 .faqnav li {
@@ -18,18 +18,17 @@
 
 .faqnav a {
   width: 100%;
-  padding: 5px 235px;
+  padding: 10px 235px;
   margin:0px -235px;
-}
-
-.faqnav a:hover {
-  text-decoration: none;
-  color: #0072a3;
+  &:hover {
+    text-decoration: none;
+    color: #0072a3;
+  }
 }
 
 .faqcontent {
   width: 600px;
-  min-height: 600px;
+  min-height: 700px;
   margin-left: 350px;
   text-align: justify;
   -webkit-hyphens: auto;
@@ -48,10 +47,11 @@
 
 .faqnav .current a {
   color: white;
+  background: hsl(198, 100%, 43%);
 }
 
 div.faqcontent h2 {
-  font-family: "Museo", Helvetica, Arial, sans-serif;
+  font-family: museo;
   width: 550px;
 }
 
@@ -65,6 +65,9 @@ div.faqcontent h2 {
 
 .section {
   display: none;
+  &:first-child {
+    display:block;
+  }
 }
 
 .fixed {
@@ -79,4 +82,19 @@ div.faqcontent h2 {
   a:hover {
     color: black;
   }
+}
+
+.legal_tab {
+  margin-top: 10px;
+  ul {
+    margin:0;
+  }
+  li {
+    display: inline;
+    margin-right:20px;
+  }
+}
+
+.legal_active, .legal_active:visited {
+  color: hsl(198, 100%, 26%);
 }

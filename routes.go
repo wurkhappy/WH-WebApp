@@ -78,7 +78,7 @@ func about(w http.ResponseWriter, req *http.Request) {
 
 func legal(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
-		"appName":    "mainhome",
+		"appName":    "mainlegal",
 		"production": handlers.Production,
 	}
 	var index = template.Must(template.ParseFiles(

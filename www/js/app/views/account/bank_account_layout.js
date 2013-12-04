@@ -1,5 +1,5 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/account/bank_account_layout.html', 'views/account/new_bank_account_view', 'views/account/stored_bank_accounts_view'],
+  'hbs!templates/account/bank_account_layout', 'views/account/new_bank_account_view', 'views/account/stored_bank_accounts_view'],
 
   function (Backbone, Handlebars, _, Marionette, layoutTpl, NewBankAccountView, StoredBankAccountsView) {
 
@@ -13,7 +13,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       className:'clear white_background',
 
       attributes:{'id':'content'},
-      template: Handlebars.compile(layoutTpl),
+      template: layoutTpl,
 
       regions: {
         bankAccounts: "#stored-accounts",

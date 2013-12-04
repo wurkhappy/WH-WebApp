@@ -2,7 +2,7 @@
  * Password Account View.
  */
 
-define(['backbone', 'handlebars', 'toastr', 'hbs!templates/account/password.html'],
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/account/password'],
 
     function (Backbone, Handlebars, toastr, passwordTemplate) {
 

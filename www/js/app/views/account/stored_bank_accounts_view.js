@@ -1,5 +1,5 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/account/stored_bank_account_item.html', 'text!templates/account/stored_bank_accounts.html',
+  'hbs!templates/account/stored_bank_account_item', 'hbs!templates/account/stored_bank_accounts',
   'views/ui-modules/modal', 'views/account/verification_modal'],
 
   function (Backbone, Handlebars, _, Marionette, itemTpl, storedBankAccountsTpl, Modal, VerificationModal) {
@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
     var ItemView = Backbone.Marionette.ItemView.extend({
 
-      template: Handlebars.compile(itemTpl),
+      template: itemTpl,
 
       events: {
         "click .remove":"removeModel",
@@ -30,7 +30,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
     });
 
     var StoredBankAccountsView = Backbone.Marionette.CompositeView.extend({
-      template: Handlebars.compile(storedBankAccountsTpl),
+      template: storedBankAccountsTpl,
       itemView: ItemView,
       itemViewContainer:'table',
       events: {

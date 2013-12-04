@@ -1,5 +1,5 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/account/creditcard_layout.html', 'views/account/new_card_view', 'views/account/stored_cards_view'],
+  'hbs!templates/account/creditcard_layout', 'views/account/new_card_view', 'views/account/stored_cards_view'],
 
   function (Backbone, Handlebars, _, Marionette, layoutTpl, NewCardView, StoredCardsView) {
 
@@ -9,7 +9,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       className:'clear white_background',
 
       attributes:{'id':'content'},
-      template: Handlebars.compile(layoutTpl),
+      template: layoutTpl,
 
       regions: {
         storedCards: "#stored-cards",
