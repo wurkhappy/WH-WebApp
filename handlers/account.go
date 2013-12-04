@@ -16,9 +16,11 @@ func GetAccount(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	user := getUserInfo(userID.(string))
 
 	m := map[string]interface{}{
-		"appName": "mainaccount",
-		"user":    user,
+		"appName":    "mainaccount",
+		"user":       user,
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

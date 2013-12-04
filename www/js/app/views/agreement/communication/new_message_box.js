@@ -43,7 +43,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
           {items: ['Bold','-', 'Italic', '-', 'Underline']}
           ],
           disableNativeSpellChecker: false,
-          skin: 'wurkhappy,/css/wurkhappy/'
+          skin: 'wurkhappy,https://d3kq8dzp7eezz0.cloudfront.net/css-1/wurkhappy/'
         });
         var commentTagsView = new CommentTagsView({collection: this.model.get("tags"), tags: this.tags});
         commentTagsView.render();

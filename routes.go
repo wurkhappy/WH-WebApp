@@ -56,6 +56,8 @@ func home(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"appName":    "mainlanding",
 		"production": handlers.Production,
+		"JSversion":  handlers.JSversion,
+		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseLanding.html",

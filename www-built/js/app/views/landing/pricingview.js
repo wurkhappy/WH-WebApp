@@ -1,1 +1,0 @@
-define(["backbone","handlebars","text!templates/landing/pricing.html"],function(e,t,n){var r=e.View.extend({el:"#about-container",template:t.compile(n),initialize:function(){},render:function(){return $(".tab").removeClass("current"),$("#pricing-button").addClass("current"),$(this.el).html(this.template()),this}});return r});

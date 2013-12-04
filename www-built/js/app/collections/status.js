@@ -1,1 +1,0 @@
-define(["backbone","models/status"],function(e,t){var n=e.Collection.extend({model:t,comparator:function(e){return-e.get("date").valueOf()},filterByPaymentID:function(e){var t=this.filter(function(t){return t.get("paymentID")==e});return new n(t)},waiting:"waiting"});return n});

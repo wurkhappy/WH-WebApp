@@ -32,10 +32,14 @@ func main() {
 	} else {
 		config.Test()
 	}
+<<<<<<< HEAD
+	handlers.Production = false
+=======
 	handlers.Setup()
 	handlers.JSversion = *jsversion
 	handlers.CSSversion = *csssversion
 	handlers.Production = *production
+>>>>>>> 2c2629ae31c93ca9e546ad999a9b453aa78506d2
 
 	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
 	defer store.Close()
@@ -53,7 +57,7 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	// err := http.ListenAndServe(":4000", nil)
 	var err error
-	if *production {
+	if false {
 		err = http.ListenAndServeTLS(":443", "/root/go/bin/ssl/wurkhappy.com.pem", "/root/go/bin/ssl/wurkhappy.com.key", nil)
 	} else {
 		err = http.ListenAndServe(":4000", nil)

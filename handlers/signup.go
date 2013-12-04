@@ -25,6 +25,8 @@ func GetSignup(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	m := map[string]interface{}{
 		"appName":    "mainsignup",
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

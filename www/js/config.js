@@ -122,12 +122,7 @@
             exports:'autoGrow'
         },
         autonumeric : {
-            deps : ['jquery'],
-            exports:'autoNumeric'
-        },
-        autonumeric : {
-            deps : ['jquery'],
-            exports:'toastr'
+            deps : ['jquery']
         }
     },
     hbs: {
