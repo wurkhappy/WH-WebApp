@@ -29,6 +29,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/communication/message
       },
       addFilter: function(view, tag){
         var filtered;
+        var id = tag.id || 
         var t = this.selectedTags.get(tag.id);
         if (t) {
           //let's check if selected tags has the model.
