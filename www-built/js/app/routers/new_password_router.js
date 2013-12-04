@@ -1,1 +1,0 @@
-define(["backbone","views/new_password/new_password"],function(e,t){var n=e.Router.extend({routes:{"":"index"},initialize:function(){},index:function(){this.view=new t({userID:window.user.id})}});return n});

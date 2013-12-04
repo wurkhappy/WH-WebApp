@@ -1,1 +1,0 @@
-define(["backbone","models/comment"],function(e,t){var n=e.Collection.extend({model:t,url:function(){return"/user/"+this.user.id+"/bank_account"}});return n});

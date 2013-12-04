@@ -4,9 +4,9 @@
  */
 
  define(['backbone', 'handlebars', 'jquery', 'parsley', 'views/landing/loginview', 
-  'text!templates/landing/landingview.html', 'text!templates/landing/about.html', 'text!templates/landing/pricing.html'],
+  'hbs!templates/landing/landingview'],
 
-  function (Backbone, Handlebars, $, parsley, LoginView, landingTemplate, aboutTemplate, pricingTemplate) {
+  function (Backbone, Handlebars, $, parsley, LoginView, landingTemplate) {
 
     'use strict';
 
@@ -14,7 +14,7 @@
 
       el: '#intro',
 
-      template: Handlebars.compile(landingTemplate),
+      template: landingTemplate,
 
       render: function () {
 

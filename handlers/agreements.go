@@ -29,6 +29,8 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		"thisUser":       thisUser,
 		"agreementCount": len(agreementsData),
 		"production":     Production,
+		"JSversion":      JSversion,
+		"CSSversion":     CSSversion,
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
@@ -69,6 +71,8 @@ func GetArchives(w http.ResponseWriter, req *http.Request, session *sessions.Ses
 		"thisUser":       thisUser,
 		"agreementCount": len(agreementsData),
 		"production":     Production,
+		"JSversion":      JSversion,
+		"CSSversion":     CSSversion,
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
@@ -182,6 +186,8 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 	m := map[string]interface{}{
 		"appName":    "maincreateagreement",
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 		"agreement":  agrmntData,
 		"user": struct {
 			ID string `json:"id"`
@@ -235,6 +241,16 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	var commentsData []map[string]interface{}
 	json.Unmarshal(resp, &commentsData)
 
+	resp, statusCode = sendServiceRequest("GET", config.CommentsService, "/agreement/"+agrmntData["agreementID"].(string)+"/tags", nil)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+	var tagsData []map[string]interface{}
+	json.Unmarshal(resp, &tagsData)
+
 	otherID, _ := agrmntData["freelancerID"]
 	if otherID == userID {
 		otherID = agrmntData["clientID"]
@@ -251,7 +267,10 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		"otherUser":  otherUser,
 		"thisUser":   thisUser,
 		"comments":   commentsData,
+		"tags":       tagsData,
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 	}
 
 	format := func(date string) string {
@@ -352,6 +371,8 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 func ShowSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	m := map[string]interface{}{
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

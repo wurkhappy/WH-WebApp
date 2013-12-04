@@ -2,10 +2,10 @@ package handlers
 
 import (
 	"bytes"
-	"log"
-	"net/http"
 	"encoding/json"
-	"net/url"
+	rbtmq "github.com/wurkhappy/Rabbitmq-go-wrapper"
+	"github.com/wurkhappy/WH-Config"
+	"net/http"
 )
 
 func EmailHead(w http.ResponseWriter, req *http.Request) {
@@ -15,12 +15,15 @@ func EmailHead(w http.ResponseWriter, req *http.Request) {
 func EmailPost(w http.ResponseWriter, req *http.Request) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	var m []map[string]interface{}
-	log.Print(buf.String())
-	s, err := url.QueryUnescape(buf.String())
-	s = s[16:]
-	err = json.Unmarshal([]byte(s), &m)
-	log.Print(err)
-	//log.Printf("email body is %s", m)
-	//log.Printf("email body is %s", m[0]["text"])
+
+	payload := map[string]interface{}{
+		"Body": map[string]interface{}{
+			"message": buf.String(),
+		},
+	}
+
+	body, _ := json.Marshal(payload)
+	publisher, _ := rbtmq.NewPublisher(connection, config.EmailExchange, "direct", config.EmailQueue, "/comment/reply")
+	publisher.Publish(body, true)
 }
+

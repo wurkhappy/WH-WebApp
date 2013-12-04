@@ -1,31 +1,36 @@
 .discussion_container {
 	border-radius: 5px;
-	border: 1px solid hsl(0, 0%, 87%);
-	padding: 20px;
-	min-height:	250px;
-	margin-left: 15px;
-	margin-right: 15px;
-	margin-bottom: 0;
-	background: $grey_blue;
-	max-height: 370px;
+	padding: 15px 25px;
+	height:	370px;
+	margin: 0;
+	margin-bottom: 5px;
+	background: hsl(213, 18%, 98%);
 	overflow: hidden;
 	overflow-y: scroll;
+	width: 704px;
+	border:1px solid hsl(213, 18%, 88%);
+	margin-left:5px;
 }
 
 .add_comment_container {
-	height: 75px;
-	margin: 5px;
-	padding: 10px
+	clear: both;
+	border: 1px solid hsl(213, 18%, 88%);
+	padding: 15px;
+	background: hsl(213, 18%, 98%);
+	position:relative;
+	padding-bottom:65px;
+	border-radius:5px;
 }
 
 .inline {
-	display: inline-block
+	display: inline-block;
 }
 
 .enter_comment_input {
 	width: 100%;
 	height: 75px;
 	border-radius: 5px;
+	height: 90px;
 }
 
 .comment_action_container {
@@ -37,6 +42,7 @@
 	padding: 10px 0;
 	min-height: 140px;
 	margin-bottom: 20px;
+	overflow:hidden;
 }
 
 .discussion_placeholder {
@@ -53,39 +59,49 @@
 	font-size: 12px;
 	color: hsl(0, 0%, 59%);
 	line-height: 14px;
+	text-align: right;
+	margin-bottom:5px;
+	padding-bottom:5px;
+	border-bottom: 1px solid hsl(0,0, 90%);
+
 }
 
 .comment_name {
 	font-size: 12px;
-	color: hsl(0, 0%, 11%);
+	color: hsl(0, 0%, 30%);
 	font-weight: 900;
 	display: inline-block;
 	line-height: 14px;
-	margin-top: 10px;
+	position:absolute;
+	left:0;
 }
 
 .milestone_tag, .status_tag {
-	font-family: museo;
+	padding: 0 5px;
+	margin-left: 5px;
+	margin-bottom:5px;
+	border: 1px solid hsl(213, 65%, 88%);
+	border-radius: 10px;
+	background: hsl(210, 100%, 91%);
 	font-weight: 100;
-	font-size: 16px;
-	position: absolute;
+	font-family: museo;
+	font-size: 14px;
+	float:left;
 }
 
-.milestone_tag {
-	color: $green_dark;
-	bottom: 0;
-	right: 20px;
-
-}
-.status_tag {
-	color: $blue_text_dark;
-	bottom: 0;
-
+.tag_container {
+	position:relative;
+	bottom:0;
+	overflow: hidden;
+	border-bottom: 1px solid hsl(0, 0%, 90%);
+	margin-bottom: 5px;
 }
 
 .comment_body {
-	font-weight: 300;
+	font-weight: 100;
 	padding: 0;
+	margin:0;
+	clear:both;
 }
 
 .send_comment {
@@ -93,6 +109,9 @@
 	background: hsl(198, 100%, 43%);
 	border-radius: 5px;
 	padding: 10px 21px;
+	margin-top: 10px;
+	position:absolute;
+	right:15px;
 	&:hover {
 		color: white;
 		text-decoration: none;
@@ -169,25 +188,25 @@
 
 .comment_post_info {
 	position: relative;
-	text-align: center;
-	margin-top: -11px;
+	text-align: left;
 }
 
 .personal_box {
-	border-radius: 40px;
-	border: 1px solid hsl(0, 0, 87%);
-	padding: 8px 10px;
-	background: white;
+	border-radius: 15px;
+	/*border: 1px solid hsl(0, 0, 87%);*/
+	padding: 0 10px;
+	/*background: white;
 	-webkit-box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
 	-moz-box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
-	box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
+	box-shadow: 2px 1px 1px hsl(0, 0%, 83%);*/
 }
 
 .message_box {
-	border-radius: 30px;
+	border-radius: 5px;
 	border: 1px solid hsl(0, 0, 87%);
-	padding: 5px 27px;
-	width: 630px;
+	padding: 10px 15px;
+	//width: 584px;
+	width: 100%;
 	min-height: 66px;
 	margin: 0 auto;
 	background: white;
@@ -195,6 +214,12 @@
 	-webkit-box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
 	-moz-box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
 	box-shadow: 2px 1px 1px hsl(0, 0%, 83%);
+	p {
+		margin: 0;
+		padding: 0;
+		padding-left:5px;
+		font-weight: 100;
+	}
 }
 
 .float_left {
@@ -205,33 +230,111 @@
 	float: right;
 }
 
+.messages_container {
+	padding: 20px;
+}
+
+.tags_container {
+	padding:15px;
+	border: 1px solid hsl(213, 18%, 88%);
+	background: hsl(213, 18%, 98%);
+	height: 370px;
+	font-weight:100;
+	border-radius:5px;
+}
+
+.tags_title {
+	margin-top:5px;
+	margin-bottom:0;
+	margin-right:5px;
+	padding: 0;
+}
+
+.message_title {
+	padding-left:0;
+}
+
+.enter_tags_container {
+	position:absolute;
+	margin-top: 10px;
+}
+
+.fa-tag {
+	margin-right: 10px;
+}
+
+.add_tag {
+	margin-left: 20px;
+	&:hover{
+		cursor:pointer;
+	}
+	border:1px solid hsl(210, 20%, 98%); //hack to prevent the movement of the plus sign from leaving a trail during animation.
+	position: relative;
+	top: 3px;
+	padding:4px;
+}
 
 
+.added_tag {
+	padding: 0 5px;
+	border: 1px solid hsl(213, 65%, 88%);
+	border-radius: 10px;
+	background: hsl(210, 100%, 91%);
+	font-weight: 100;
+	font-family: museo;
+	font-size: 14px;
+	&:hover {
+		cursor:pointer;
+	}
+}
 
+.tag_filter {
+	border-radius: 5px;
+	padding: 2px 5px;
+	margin: 2px 0;
+}
 
+.tag_filter:hover {
+	background: hsl(0, 0%, 60%);
+	color: hsl(0, 100%, 100%);
+	cursor: pointer;
+}
 
+.tag_filter_active {
+	background: hsl(0, 0%, 60%);
+	color: hsl(0, 100%, 100%);
+}
 
+.tag_active {
+	color:white;
+	background: hsl(210, 100%, 75%);
+}
 
+.new_tag_container {
+	margin-left:5px;
+}
 
+.new_tag {
+	min-width: 0;
+	max-width: 200px;
+	//transition: width 100ms linear;
+	font-weight:100;
+	font-family: museo;
+	font-size:16px;
+	border:none;
+	background:hsl(210, 20%, 90%);
+	overflow:hidden;
+	padding: 6px;
+	border-radius:10px;
+	&:focus {
+		outline:none;
+	}
+	line-height: 16px
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.new_added_tag {
+	margin-left: 5px;
+}
 
 
 

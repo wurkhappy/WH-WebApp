@@ -37,6 +37,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 } else if (key === 'dateExpected'){
                     this.attributes.dateExpected = moment(value);
                 }
+                return this;
             },
             submit: function(creditSource, successCallback){
                 this.updateStatus({"action":"submitted", "creditSourceURI":creditSource}, successCallback);

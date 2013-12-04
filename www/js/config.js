@@ -32,53 +32,7 @@
         modernizr: 'lib/modernizr/modernizr',
         'backbone-relational' : 'lib/backbone-relational/backbone-relational',
 
-        // Models
-        /*agreementModel: 'app/models/agreement',
-        bankAccountModel: 'app/models/bank_account',
-        cardModel: 'app/models/card',
-        commentModel: 'app/models/comment',
-        paymentModel: 'app/models/payment',
-        scopeItemModel: 'app/models/scope_item',
-        statusModel: 'app/models/status',
-        userModel: 'app/models/user',
-
-        // Collections
-        agreementCollection: 'app/collections/agreements',
-        bankAccountCollection: 'app/collections/bank_accounts',
-        cardCollection: 'app/collections/cards',
-        commentCollection: 'app/collections/comments',
-        paymentCollection: 'app/collections/payments',
-        scopeItemCollection: 'app/collections/scope_items',
-        statusCollection: 'app/collections/status',
-        userCollection: 'app/collections/users',
-
-
-        //from grunt file
-        'agreementModel',
-        'bankAccountModel',
-        'cardModel',
-        'clauseModel',
-        'commentModel',
-        'paymentModel',
-        'scopeItemModel',
-        'statusModel',
-        'userModel',
-        'agreementCollection',
-        'bankAccountCollection',
-        'cardCollection',
-        'clauseCollection',
-        'commentCollection',
-        'paymentCollection',
-        'scopeItemCollection',
-        'statusCollection',
-        'userCollection'
-
-        */
-
-        // Templating.
-        handlebars: 'lib/handlebars/handlebars',
-
-        // Plugins.
+        //plugins - bower
         text: 'lib/requirejs-text/text',
         moment: 'lib/momentjs/moment',
         noty: 'lib/noty/js/noty/jquery.noty',
@@ -87,6 +41,19 @@
         "intro": 'lib/intro.js/intro',
         kalendae: 'lib/kalendae/build/kalendae.standalone.min',
         parsley: 'lib/parsleyjs/parsley',
+        ckeditor: 'lib/ckeditor/ckeditor',
+        ckadapter: 'lib/ckeditor/adapters/jquery',
+        'auto-grow': 'lib/jquery-autogrow/lib/jquery-autogrow.min',
+        toastr: 'lib/toastr/toastr',
+
+        //plugins - no bower
+        autonumeric: 'app/plugins/autoNumeric-master/autoNumeric',
+
+        // Templating.
+        handlebars: 'lib/handlebars/handlebars',
+        'i18nprecompile': 'lib/hbs/hbs/i18nprecompile',
+        'json2': 'lib/hbs/hbs/json2',
+        hbs: 'lib/hbs/hbs',
 
         // Custom AMD modules.
         // utils: 'app/utils',
@@ -96,7 +63,8 @@
         models: 'app/models',
         routers: 'app/routers',
         templates: 'app/templates',
-        views: 'app/views'
+        views: 'app/views',
+        plugins:'app/plugins'
         
     },
 
@@ -141,6 +109,24 @@
         },
         kalendae : {
             exports : 'Kalendae'
+        },
+        ckeditor: {
+            deps: ['jquery'],
+            exports:'CKEDITOR'
+        },
+        ckadapter : {
+            deps : ['ckeditor', 'jquery']
+        },
+        'auto-grow' : {
+            deps : ['jquery'],
+            exports:'autoGrow'
+        },
+        autonumeric : {
+            deps : ['jquery']
         }
+    },
+    hbs: {
+        templateExtension: "html",
+        disableI18n : true
     }
 });

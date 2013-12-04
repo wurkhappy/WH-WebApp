@@ -1,7 +1,7 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/agreement_submit_modal.html'],
+define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/agreement_submit_modal.html'],
 
-  function (Backbone, Handlebars, tpl) {
+  function (Backbone, Handlebars, toastr, tpl) {
 
     'use strict';
 
@@ -40,13 +40,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/agreement_submit_mod
         }});
 
         var fadeInNotification = function () {
-          $(".notification_container").fadeIn("fast");
-          $(".notification_text").text("Agreement submitted and email sent");
+          toastr.success('Agreement Submitted');
         };
-
-        $(".notification_container").hover( function() {
-          $(".notification_container").fadeOut("fast");
-        });
 
         var triggerNotification = _.debounce(fadeInNotification, 300);
 

@@ -22,6 +22,8 @@ var secretKey string = "pnoy9JBBKwB2mPq5"
 var store *redistore.RediStore
 var redisPool *redis.Pool
 var production = flag.Bool("production", false, "Production settings")
+var jsversion = flag.Int("jsv", 0, "javascript version")
+var csssversion = flag.Int("cssv", 0, "css version")
 
 func main() {
 	flag.Parse()
@@ -30,7 +32,10 @@ func main() {
 	} else {
 		config.Test()
 	}
-	handlers.Production = false
+	handlers.Setup()
+	handlers.JSversion = *jsversion
+	handlers.CSSversion = *csssversion
+	handlers.Production = *production
 
 	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
 	defer store.Close()
@@ -48,7 +53,7 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	// err := http.ListenAndServe(":4000", nil)
 	var err error
-	if false {
+	if *production {
 		err = http.ListenAndServeTLS(":443", "/root/go/bin/ssl/wurkhappy.com.pem", "/root/go/bin/ssl/wurkhappy.com.key", nil)
 	} else {
 		err = http.ListenAndServe(":4000", nil)
@@ -136,6 +141,11 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session := getSession(req)
 	validateSignature(req, session)
 	vars := mux.Vars(req)
+
+	if _, ok := session.Values["id"]; !ok {
+		http.Redirect(w, req, "/", http.StatusFound)
+	}
+
 	if !checkVersionOwner(vars["versionID"], session.Values["id"].(string)) {
 		http.Error(w, "Not authorized", http.StatusForbidden)
 		return

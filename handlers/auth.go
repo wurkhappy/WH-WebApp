@@ -94,6 +94,8 @@ func GetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessi
 		"appName":    "mainnewpassword",
 		"user":       user,
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

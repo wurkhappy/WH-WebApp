@@ -1,23 +1,39 @@
-<h2>Messages</h2>
-<h3 class="helper_text">We send out an email everytime you post a message.</h3>
-<ul class="discussion_container">
+<h2 class="message_title">Communication</h2>
+<div class="tags_container float_left">
+	<h3 class="tags_title">Filter by Tag</h3>
+	<div class="tag_filter"><i class="fa fa-tag"></i>writing</div>
+	<div class="tag_filter"><i class="fa fa-tag"></i>wireframes</div>
+	<div class="tag_filter"><i class="fa fa-tag"></i>2nd payment</div>
+	<div class="tag_filter"><i class="fa fa-tag"></i>update</div>
+	<div class="tag_filter"><i class="fa fa-tag"></i>product page</div>
+	<div class="tag_filter"><i class="fa fa-tag"></i>footer</div>
+	<div class="tag_filter"><i class="fa fa-tag"></i>header</div>
+	<div class="tag_filter"><i class="fa fa-tag"></i>waffle</div>
+	<div class="tag_filter"><i class="fa fa-tag"></i>candy</div>
+</div>
+<ul class="discussion_container float_left">
+	<h3 class="tags_title">Messages</h3>
 	{{#if this.comments}}
 		<h2 class="discussion_placeholder">Have something important to say? Leave a message in the box below.</h2>
 	{{/if}}
 </ul>
 <div class="add_comment_container">
-	<textarea class="enter_comment_input inline" placeholder="Click here to leave a message."></textarea>
-	<div class="comment_action_container">
-		<div id="select" class="selectdiv">  
-			<select class="inline comment_select_padding selectboxdiv" id="milestoneSelect">
-				<option value="General" disabled selected>Choose Milestone...</option>
-				{{#each this.payments}}
-				<option value="{{id}}">{{title}}</option>
-				{{/each}}
-			</select>
-			<div class="out">Choose Milestone...</div>
-		</div>
-		<div id="action-select-wrapper" class="inline comment_select_padding"></div>
-		<a class="send_comment">Send</a>
+	<h3 class="tags_title">New Message</h3>
+	<h4 class="helper_text message_title">We send out an email everytime you send a message.</h4>
+	<div class="enter_comment_input inline">
+		<textarea id="message_editor" class="enter_comment_input inline message" placeholder="Click here to enter a message."></textarea>
 	</div>
+	<div class="enter_tags_container float_left">
+		<h3 class="tags_title float_left">Tags:</h3>
+		<div class="enter_tags_sub_container float_left">
+			<div class="inline added_tag" tabindex="-1">1st Payment</div>
+			<div class="inline added_tag" tabindex="-1">shopping cart</div>
+			<div class="inline added_tag" tabindex="-1">writing</div>
+		</div>
+		<div class="new_tag_container float_left">
+			<input type="text" name="tag" size="1" class="new_tag hide">
+			<i class="fa fa-plus inline add_tag"></i>
+		</div>
+	</div>
+	<a class="send_comment">Send Message</a>
 </div>

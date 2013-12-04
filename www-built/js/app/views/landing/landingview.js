@@ -1,1 +1,0 @@
-define(["backbone","handlebars","jquery","parsley","views/landing/loginview","text!templates/landing/landingview.html","text!templates/landing/about.html","text!templates/landing/pricing.html"],function(e,t,n,r,i,s,o,u){var a=e.View.extend({el:"#intro",template:t.compile(s),render:function(){return n(this.el).html(this.template()),this}});return a});

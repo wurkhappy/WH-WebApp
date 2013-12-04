@@ -1,10 +1,16 @@
-define(['backbone','backbone-relational', 'moment'],
+define(['backbone','backbone-relational', 'moment', 'models/tag', 'collections/tags'],
 
-	function(Backbone, Relational, moment) {
+	function(Backbone, Relational, moment, TagModel, TagCollection) {
 
 		'use strict';
 
 		var Comment = Backbone.RelationalModel.extend({
+			relations: [{
+				type: Backbone.HasMany,
+				key: 'tags',
+				relatedModel: TagModel,
+				collectionType: TagCollection,
+			}],
 			url:function(){
 				return "/agreement/"+this.collection.agreement.get("agreementID")+"/comments";
 			},
@@ -18,7 +24,8 @@ define(['backbone','backbone-relational', 'moment'],
 				} else if (key === 'dateCreated'){
 					this.attributes.dateCreated = moment(value);
 				}
-			},
+				return this;
+			}
 		});
 
 		return Comment;
