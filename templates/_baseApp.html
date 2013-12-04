@@ -15,8 +15,8 @@
   Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="Wurk Happy Style Guide">
-  <meta name="author" content="Marcus Ellison">
-  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
+  <meta name="author" content="Wurk Happy Team">
+  <title>Wurk Happy | Freelance Agreement Billing and Payment</title>
   <!--[if lte IE 8]>         <html class="no-js lte-ie8"> <![endif]-->
   <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
@@ -27,7 +27,7 @@
 
   <!-- Wurk Happy CSS -->
   {{if .production}}
-    <link rel="stylesheet" href="https://d3kq8dzp7eezz0.cloudfront.net/css/main_app.css">
+    <link rel="stylesheet" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/main_app.css">
 
   <link rel="Shortcut Icon" type="image/x-icon" href="https://d3kq8dzp7eezz0.cloudfront.net/favicon.ico" />
 
@@ -109,7 +109,7 @@
 
 
     {{if .production}}
-        <script data-main="https://d3kq8dzp7eezz0.cloudfront.net/js/config" src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/requirejs/require.js"></script>
+        <script data-main="https://d3kq8dzp7eezz0.cloudfront.net/js-{{.JSversion}}/config" src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/requirejs/require.js"></script>
     {{else}}
     <script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
     {{end}}

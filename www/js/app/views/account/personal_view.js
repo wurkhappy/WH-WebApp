@@ -2,9 +2,9 @@
  * Personal Account View.
  */
 
- define(['backbone', 'handlebars', 'text!templates/account/personal.html', 'text!templates/account/profile_preview.html'],
+ define(['backbone', 'handlebars', 'toastr', 'text!templates/account/personal.html', 'text!templates/account/profile_preview.html'],
 
-  function (Backbone, Handlebars, personalTemplate, previewTemplate) {
+  function (Backbone, Handlebars, toastr, personalTemplate, previewTemplate) {
 
     'use strict';
     Handlebars.registerHelper('phoneFormat', function(number) {
@@ -55,7 +55,6 @@
       },
       updateFields: function(event){
         this.model.set(event.target.name, event.target.value);
-        this.updatenotification();   
       },
       updateFile:function(event){
         var input = event.target;
@@ -74,9 +73,7 @@
         var number = event.target.value;
         this.model.set("phoneNumber", number.replace(/[^0-9]/g, ""));
       },
-      updatenotification: function(event){
-        $(".notification_container").fadeOut("slow");
-      },
+
       save:function(){
         $( '.account_personal_form' ).parsley( 'validate' );
 
@@ -84,7 +81,9 @@
 
         if (isValid) {
           this.model.save({},{success:_.bind(function(model, response){
-            $(".notification_container").fadeOut('fast').fadeIn("slow");
+
+            toastr.success('Profile Updated!');
+
           }, this)});
         }
 

@@ -2,15 +2,15 @@
  * New Bank Account View.
  */
 
- define(['jquery', 'backbone', 'handlebars', 'text!templates/account/new_bank_account_tpl.html'],
+ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new_bank_account_tpl'],
 
-  function ($, Backbone, Handlebars, Template) {
+  function ($, Backbone, Handlebars, toastr, Template) {
 
     'use strict';
 
     var NewBankAccountView = Backbone.View.extend({
 
-      template: Handlebars.compile(Template),
+      template: Template,
       events:{
         "blur input":"updateFields",
         "click #save-button":"saveBankAccount",
@@ -31,7 +31,6 @@
       },
       updateFields:function(event){
         this.account[event.target.name] = event.target.value;
-        $(".notification_container").fadeOut("slow");
       },
       saveBankAccount:function(event){
         event.preventDefault();
@@ -43,7 +42,7 @@
             that.user.get("bank_accounts").add(model);
             model.save();
             that.$('input').val('');
-            $(".notification_container").fadeOut('fast').fadeIn("slow");
+            toastr.success('Bank Account Saved!');
             that.account = {type: "checking"};
 
           } else {

@@ -1,8 +1,8 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html',
+define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_request_tpl.html',
   'text!templates/agreement/pay_request_methods_tpl.html', 'text!templates/agreement/pay_request_breakout.html'],
 
-  function (Backbone, Handlebars, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl) {
+  function (Backbone, Handlebars, toastr, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl) {
 
     'use strict';
     Handlebars.registerHelper('last_four_digits', function(number) {
@@ -70,13 +70,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/pay_request_tpl.html
         };
 
         var fadeInNotification = function () {
-          $("#notification_container").fadeIn("fast");
-          $("#notification_text").text("Payment requested and email sent");
+          toastr.success('Payment requested and email sent');
         };
-
-        $("#notification_container").hover( function() {
-          $("#notification_container").fadeOut("fast");
-        });
 
         var triggerNotification = _.debounce(fadeInNotification, 300);
 

@@ -22,11 +22,13 @@ define(['backbone', 'handlebars', 'text!templates/agreement/edit/header_edit_tpl
       save: function(){
         if(!this.model.get("draft")) this.model.unset("versionID");
         this.model.set("draft", true);
-        console.log(this.model);
+        console.log(this.model.get("payments").at(0).get("dateExpected").format('MMM D, YYYY'));
         this.model.save({},{
-          success:function(model, response){
-          //window.location = "/home";
-        }});
+          success:_.bind(function(model, response){
+           // window.location.hash = 'review';
+           console.log(model);
+          }, this)
+        });
       }
 
     });

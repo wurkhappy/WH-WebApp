@@ -21,6 +21,7 @@ define(['backbone','backbone-relational', 'moment'],
                 } else if (key === 'date'){
                     this.attributes.date = moment(value);
                 }
+                return this;
             },
             url:function(){
                 if(this.get("paymentID")){

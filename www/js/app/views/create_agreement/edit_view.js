@@ -9,7 +9,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/edit_tpl.html
       className:'clear white_background',
       events:{
         "click #saveAgreement": "saveAgreement",
-        "blur input, textarea": "updateFields",
+        "blur input, textarea": "updateFields"
       },
       initialize:function(){
         this.render();
@@ -34,7 +34,9 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/edit_tpl.html
         }});
       },
       updateFields: function(){
+        if (event.target.name === 'dateExpected') { return};
         this.model.set(event.target.name, event.target.value);
+        
       }
 
     });

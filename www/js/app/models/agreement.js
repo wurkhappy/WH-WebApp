@@ -52,6 +52,7 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 }
             }
             ],
+
             idAttribute: "versionID",
             urlRoot:function(){
                 return "/agreement/v";

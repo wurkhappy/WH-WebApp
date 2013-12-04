@@ -53,11 +53,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 		        }
 		    },
 		    setDate: function(date, action){
+
 		        this.model.set("dateExpected", date);
+
 		         _.delay(this.closeCalendar, 150);
-		         this.$('.kal').val(date.format('MM/DD/YYYY'))
+		         this.$('.kal').val(date.format('MM/DD/YYYY'));
 		         this.$('.kal').blur();
-		         
+
 		    },
 		    closeCalendar: function() {
 		        $('.kalendae').hide();
