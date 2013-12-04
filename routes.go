@@ -32,6 +32,8 @@ func initRoutes(r *mux.Router) {
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
 	r.Handle("/archive", baseHandler(handlers.GetArchives)).Methods("GET")
+	r.HandleFunc("/about", about).Methods("GET")
+	r.HandleFunc("/legal", legal).Methods("GET")
 
 	r.Handle("/account", baseHandler(handlers.GetAccount)).Methods("GET")
 
@@ -58,6 +60,30 @@ func home(w http.ResponseWriter, req *http.Request) {
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseLanding.html",
 		"templates/landing.html",
+	))
+	index.Execute(w, m)
+}
+
+func about(w http.ResponseWriter, req *http.Request) {
+	m := map[string]interface{}{
+		"appName":    "mainhome",
+		"production": handlers.Production,
+	}
+	var index = template.Must(template.ParseFiles(
+		"templates/_baseApp.html",
+		"templates/about.html",
+	))
+	index.Execute(w, m)
+}
+
+func legal(w http.ResponseWriter, req *http.Request) {
+	m := map[string]interface{}{
+		"appName":    "mainhome",
+		"production": handlers.Production,
+	}
+	var index = template.Must(template.ParseFiles(
+		"templates/_baseApp.html",
+		"templates/legal.html",
 	))
 	index.Execute(w, m)
 }
