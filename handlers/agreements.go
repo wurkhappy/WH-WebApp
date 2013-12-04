@@ -29,6 +29,8 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		"thisUser":       thisUser,
 		"agreementCount": len(agreementsData),
 		"production":     Production,
+		"JSversion":      JSversion,
+		"CSSversion":     CSSversion,
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
@@ -69,6 +71,8 @@ func GetArchives(w http.ResponseWriter, req *http.Request, session *sessions.Ses
 		"thisUser":       thisUser,
 		"agreementCount": len(agreementsData),
 		"production":     Production,
+		"JSversion":      JSversion,
+		"CSSversion":     CSSversion,
 	}
 	format := func(date string) string {
 		t, _ := time.Parse(time.RFC3339, date)
@@ -182,6 +186,8 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 	m := map[string]interface{}{
 		"appName":    "maincreateagreement",
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 		"agreement":  agrmntData,
 		"user": struct {
 			ID string `json:"id"`
@@ -263,6 +269,8 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		"comments":   commentsData,
 		"tags":       tagsData,
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 	}
 
 	format := func(date string) string {
@@ -363,6 +371,8 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 func ShowSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	m := map[string]interface{}{
 		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

@@ -8,6 +8,8 @@ import (
 
 var MDClient mdp.Client
 var Production bool
+var JSversion int
+var CSSversion int
 
 var connection *amqp.Connection
 

@@ -2,7 +2,7 @@
  * New Bank Account View.
  */
 
- define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new_bank_account_tpl.html'],
+ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new_bank_account_tpl'],
 
   function ($, Backbone, Handlebars, toastr, Template) {
 

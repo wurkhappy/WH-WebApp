@@ -22,6 +22,8 @@ var secretKey string = "pnoy9JBBKwB2mPq5"
 var store *redistore.RediStore
 var redisPool *redis.Pool
 var production = flag.Bool("production", false, "Production settings")
+var jsversion = flag.Int("jsv", 0, "javascript version")
+var csssversion = flag.Int("cssv", 0, "css version")
 
 func main() {
 	flag.Parse()
@@ -30,6 +32,9 @@ func main() {
 	} else {
 		config.Test()
 	}
+	handlers.Setup()
+	handlers.JSversion = *jsversion
+	handlers.CSSversion = *csssversion
 	handlers.Production = *production
 
 	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))

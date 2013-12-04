@@ -2,7 +2,7 @@
  * Credit Card Account View.
  */
 
- define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new_card_tpl.html'],
+ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new_card_tpl'],
 
   function ($, Backbone, Handlebars, toastr, Template) {
 
