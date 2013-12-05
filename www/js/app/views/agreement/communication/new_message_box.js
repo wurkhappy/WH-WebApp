@@ -5,7 +5,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
   function (Backbone, Handlebars, _, Marionette, autocomplete, CKEDITOR, ckadapter, discussionTemplate,
     preventBackSpaceDefault, autoGrow, CommentModel, CommentTagsView) {
 
-    'use strict';
+    // 'use strict';
     preventBackSpaceDefault();
     
 
@@ -38,13 +38,18 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
 
       },
       onRender:function(){
+        CKEDITOR.basePath = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
         CKEDITOR.replace('message_editor', {
           toolbar: [
           {items: ['Bold','-', 'Italic', '-', 'Underline']}
           ],
           disableNativeSpellChecker: false,
-          skin: 'wurkhappy,https://d3kq8dzp7eezz0.cloudfront.net/css-1/wurkhappy/'
+          language: 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/en.js',
+          skin: 'wurkhappy,https://d3kq8dzp7eezz0.cloudfront.net/css-1/wurkhappy/',
+          customConfig : 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/config.js'
         });
+        CKEDITOR.config.contentsCss = 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/contents.css' ;
+        CKEDITOR.config.stylesSet = 'my_styles:https://d3kq8dzp7eezz0.cloudfront.net/css-1/styles.js';
         var commentTagsView = new CommentTagsView({collection: this.model.get("tags"), tags: this.tags});
         commentTagsView.render();
         this.$('#comment-tags').html(commentTagsView.el);   
