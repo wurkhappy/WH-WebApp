@@ -5,7 +5,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
   function (Backbone, Handlebars, _, Marionette, autocomplete, CKEDITOR, ckadapter, discussionTemplate,
     preventBackSpaceDefault, autoGrow, CommentModel, CommentTagsView) {
 
-    'use strict';
+    // 'use strict';
     preventBackSpaceDefault();
     
 
