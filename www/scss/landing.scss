@@ -48,6 +48,7 @@ $legacy-support-for-mozilla: false !default;
 // COMPONENTS
 @import "components/forms";
 @import "components/form_feedback";
+@import "components/flying_focus";
 @import "components/header";
 @import "components/buttons";
 @import "components/benefits";
