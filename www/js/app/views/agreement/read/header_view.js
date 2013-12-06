@@ -1,5 +1,5 @@
 
-define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'text!templates/agreement/read/header_tpl.html',
+define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html',
   'views/agreement/read/header_states/accepted_state', 'views/agreement/read/header_states/created_state',
   'views/agreement/read/header_states/submitted_state', 'views/agreement/read/header_states/rejected_state',
   'views/agreement/read/header_states/draft_state', 'views/agreement/read/header_states/finished_state'],
