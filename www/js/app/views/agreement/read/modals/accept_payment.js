@@ -15,6 +15,8 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         this.user = options.user;
         this.user.get("cards").fetch();
         this.user.get("bank_accounts").fetch();
+        this.listenTo(this.user.get("cards"), "add", this.render);
+        this.listenTo(this.user.get("bank_accounts"), "add", this.render);
 
         this.otherUser = options.otherUser;
         this.render();
