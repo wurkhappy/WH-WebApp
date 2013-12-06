@@ -305,6 +305,7 @@ module.exports = function (grunt) {
                                 'i18nprecompile',
                                 'text',
                                 'moment',
+                                'flying-focus',
                             ]
                         },
 

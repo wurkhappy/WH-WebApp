@@ -39,6 +39,7 @@
       },
 
       addOnEnter: function(event){
+        event.preventDefault();
         if (event.keyCode == 13) {
           this.collection.add({text:event.target.value});
           event.target.value = null;
@@ -46,6 +47,7 @@
       },
 
       addComment: function(event) {
+        event.preventDefault();
         var $text = $(event.target).prev('.add_work_item_input'),
             $input = $('input'),
             $error = $(event.target).next('.add_work_item_error');

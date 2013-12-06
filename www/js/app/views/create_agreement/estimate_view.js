@@ -35,6 +35,7 @@
       },
 
       addMilestone:function(event){
+        event.preventDefault();
         this.collection.add({});
       },
       
