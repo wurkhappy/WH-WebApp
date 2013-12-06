@@ -3,6 +3,7 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	rbtmq "github.com/wurkhappy/Rabbitmq-go-wrapper"
 	"github.com/wurkhappy/WH-Config"
 	"net/http"
@@ -27,3 +28,13 @@ func EmailPost(w http.ResponseWriter, req *http.Request) {
 	publisher.Publish(body, true)
 }
 
+func BalancedHead(w http.ResponseWriter, req *http.Request) {
+
+}
+
+func BalancedPost(w http.ResponseWriter, req *http.Request) {
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+
+	fmt.Println(buf.String())
+}

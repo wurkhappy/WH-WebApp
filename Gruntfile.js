@@ -397,7 +397,6 @@ module.exports = function (grunt) {
         concat: {
             options: {
                 stripBanners: true,                     // Strip any existing JavaScript banner comments from source files.
-                banner: '<%= banner %>'                 // Get dynamic build header.
             },
             dist: {
                 files: [
