@@ -45,6 +45,7 @@
         ckadapter: 'lib/ckeditor/adapters/jquery',
         'auto-grow': 'lib/jquery-autogrow/lib/jquery-autogrow.min',
         toastr: 'lib/toastr/toastr',
+        'flying-focus': 'lib/flying-focus/standalone/flying-focus',
 
         //plugins - no bower
         autonumeric: 'app/plugins/autoNumeric-master/autoNumeric',

@@ -1,8 +1,8 @@
-define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckeditor', 'ckadapter',
+define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckeditor', 'ckadapter', 'toastr',
   'hbs!templates/agreement/communication/new_message_box',
   'plugins/preventBackSpaceDefault', 'auto-grow', 'models/comment', 'views/agreement/communication/comment_tags'],
 
-  function (Backbone, Handlebars, _, Marionette, autocomplete, CKEDITOR, ckadapter, discussionTemplate,
+  function (Backbone, Handlebars, _, Marionette, autocomplete, CKEDITOR, ckadapter, toastr, discussionTemplate,
     preventBackSpaceDefault, autoGrow, CommentModel, CommentTagsView) {
 
     // 'use strict';
@@ -73,7 +73,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
 
           editor.setData('');
 
-          $(".notification_container").last().fadeIn("slow").fadeOut(2000);
+          toastr.success('Message Sent');
 
           _.defer( function() {
             $(".discussion_container").scrollTop($(".discussion_container")[0].scrollHeight);

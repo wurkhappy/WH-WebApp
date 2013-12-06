@@ -90,6 +90,8 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text
         $('.kalendae').hide();
       },
       removeModel: function(event){
+        event.preventDefault();
+
         var that = this;
         that.$el.fadeOut('fast');
         _.delay( function() {
