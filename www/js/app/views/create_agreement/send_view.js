@@ -42,7 +42,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
 
         this.model.save({},{success:function(model, response){
 
-          toastr.success('Agreement Sent!');
+          toastr.success('Agreement Sent');
 
           var changeWindow = function () {
             window.location = "/home";

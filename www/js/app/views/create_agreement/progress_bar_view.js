@@ -27,6 +27,35 @@
         return this;
       },
 
+      events: {
+        "click .create_agreement_navigation_link": "validateProposal",
+        "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
+        "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation"
+      },
+
+      validateProposal: function(event) {
+
+        if ($( '.proposal_form' ).html()) {
+          var isValid = $( '.proposal_form' ).parsley( 'isValid' );
+          if (isValid) {
+            return;
+          } else {
+             event.preventDefault();
+             $( '.proposal_form' ).parsley( 'validate' );
+          }
+        }
+      },
+
+      mouseEnterNavigation: function (event) {
+        console.log('something happening');
+          $(event.currentTarget).find("h2").addClass("create_agreement_navigation_link_hover");
+      },
+
+      mouseLeaveNavigation: function (event) {
+          $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
+      }
+
+
     });
 
     return ProgressBarView;
