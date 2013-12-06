@@ -28,7 +28,7 @@ func EmailPost(w http.ResponseWriter, req *http.Request) {
 	publisher.Publish(body, true)
 }
 
-func BalancedlHead(w http.ResponseWriter, req *http.Request) {
+func BalancedHead(w http.ResponseWriter, req *http.Request) {
 
 }
 
