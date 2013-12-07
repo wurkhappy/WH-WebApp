@@ -35,9 +35,6 @@
         //plugins - bower
         text: 'lib/requirejs-text/text',
         moment: 'lib/momentjs/moment',
-        noty: 'lib/noty/js/noty/jquery.noty',
-        "noty-inline": 'lib/noty/js/noty/layouts/inline',
-        "noty-default": 'lib/noty/js/noty/themes/default',
         "intro": 'lib/intro.js/intro',
         kalendae: 'lib/kalendae/build/kalendae.standalone.min',
         parsley: 'lib/parsleyjs/parsley',
@@ -94,16 +91,6 @@
         parsley : {
             deps : ['jquery'],
             exports : 'parsley'
-        },
-        noty : {
-            deps : ['jquery'],
-            exports : 'noty'
-        },
-        "noty-inline" : {
-            deps : ['noty']
-        },
-        "noty-default" : {
-            deps : ['noty']
         },
         "intro" : {
             exports : ['introJs']

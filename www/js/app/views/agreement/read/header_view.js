@@ -4,7 +4,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
   'views/agreement/read/header_states/submitted_state', 'views/agreement/read/header_states/rejected_state',
   'views/agreement/read/header_states/draft_state', 'views/agreement/read/header_states/finished_state'],
 
-  function (Backbone, Handlebars, noty, noty_layout, noty_default, userTemplate, AcceptedState,
+  function (Backbone, Handlebars, userTemplate, AcceptedState,
     CreatedState, SubmittedState, RejectedState, DraftState, FinishedState) {
 
     'use strict';
@@ -47,17 +47,13 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         "click #action-button2":"button2",
       },
       button1:function(event){
-        /*if (!this.user.get("isVerified")){
-          var n = $('#notifications').noty({type: 'error',text: 'Please check your e-mail and verify your account.', timeout: 2000, dismissQueue:false});
-          return;
-        }*/
+        event.preventDefault();
+        event.stopPropagation();
         this.state.button1();
       },
       button2:function(event){
-        /*if (!this.user.get("isVerified")){
-          var n = $('#notifications').noty({type: 'error',text: 'Please check your e-mail and verify your account.', timeout: 2000,  dismissQueue:false});
-          return;
-        }*/
+        event.preventDefault();
+        event.stopPropagation();
         this.state.button2();
       },
       changeState:function(){

@@ -56,6 +56,8 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
       },
 
       acceptRequest: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
 
         var $debitSource = $(".select_bank_account:checked").val() || $(".select_credit_card:checked").val() || '';
 

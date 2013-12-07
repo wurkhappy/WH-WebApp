@@ -1,9 +1,9 @@
 
-define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/agreement/read/header_states/base_state',
+define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state',
   'hbs!templates/agreement/accept_tpl', 'views/agreement/read/modals/reject', 'views/ui-modules/modal',
   'views/agreement/read/modals/accept_payment'],
 
-  function (Backbone, Handlebars, noty, noty_layout, noty_default, BaseState, payTemplate, RejectModal,
+  function (Backbone, Handlebars, BaseState, payTemplate, RejectModal,
     Modal, AcceptModal) {
 
     'use strict';
