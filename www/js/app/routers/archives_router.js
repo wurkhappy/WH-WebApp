@@ -2,9 +2,9 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'collections/agreements', 'collections/users', 'collections/payments', 'models/user', 'views/home/home_section_view', 'moment'],
+ define(['backbone', 'flying-focus', 'collections/agreements', 'collections/users', 'collections/payments', 'models/user', 'views/home/home_section_view', 'moment'],
 
-  function (Backbone, AgreementCollection, UserCollection, PaymentCollection, UserModel, SectionView, moment) {
+  function (Backbone, FlyingFocus, AgreementCollection, UserCollection, PaymentCollection, UserModel, SectionView, moment) {
 
     'use strict';
 
@@ -20,6 +20,7 @@
         this.currentUser = new UserModel(window.currentUser);
         this.freelancerAgreements = this.collection.findFreelancerAgreements(this.currentUser.id);
         this.clientAgreements = this.collection.findClientAgreements(this.currentUser.id);
+        FlyingFocus();
       },
 
       AllAgreements: function () {

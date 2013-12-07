@@ -5,13 +5,14 @@
  define([
   'backbone',
   'parsley',
+  'flying-focus',
   'views/account/main_container_view',
   'views/account/personal_view',
   'views/account/credit_card_layout',
   'views/account/bank_account_layout',
   'views/account/password_view',
   'models/user'],
-  function (Backbone, parsley, MainContainer, PersonalView, CreditCardView, BankAccountView, PasswordView, UserModel) {
+  function (Backbone, parsley, FlyingFocus, MainContainer, PersonalView, CreditCardView, BankAccountView, PasswordView, UserModel) {
 
     'use strict';
 
@@ -30,6 +31,7 @@
         this.model = new UserModel(window.thisUser);
         this.model.set("cards", window.cards);
         this.model.set("bank_accounts", window.bank_account);
+        FlyingFocus();
       },
 
       personal: function () {

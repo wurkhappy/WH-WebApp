@@ -47,7 +47,6 @@
       },
 
       mouseEnterNavigation: function (event) {
-        console.log('something happening');
           $(event.currentTarget).find("h2").addClass("create_agreement_navigation_link_hover");
       },
 

@@ -2,13 +2,13 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'models/agreement', 'views/agreement/layout_manager',
+ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
   'views/agreement/payments_read_view', 'views/agreement/user_view',
   'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
   'views/agreement/read/header_view', 'views/agreement/communication/communication_layout','models/user', 'views/agreement/progress_bar_view',
   'collections/tags'],
 
-  function (Backbone, AgreementModel, LayoutView, PaymentsReadView, UserView,
+  function (Backbone, FlyingFocus, AgreementModel, LayoutView, PaymentsReadView, UserView,
     UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, UserModel, ProgressBarView, TagCollection) { 
 
     'use strict';
@@ -30,6 +30,7 @@
         this.user.set("bank_accounts", window.bank_account);
         this.tags = new TagCollection(window.tags);
         this.tags.addMileStoneTags(this.model.get("payments"));
+        FlyingFocus();
       },
 
       readAgreement: function () {

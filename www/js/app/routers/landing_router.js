@@ -2,10 +2,10 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'parsley', 'views/landing/landingview', 'views/landing/loginview',
+ define(['backbone', 'parsley', 'flying-focus', 'views/landing/landingview', 'views/landing/loginview',
   'views/landing/new_account', 'views/landing/forgot_password'],
 
-  function (Backbone, parsley, LandingView, LoginView, NewAccountView, ForgotPasswordView) {
+  function (Backbone, parsley, FlyingFocus, LandingView, LoginView, NewAccountView, ForgotPasswordView) {
 
     'use strict';
 
@@ -20,6 +20,7 @@
 
       initialize: function () {
         this.$mainSection = $(".fade2");
+        FlyingFocus();
       },
 
       index: function () {
