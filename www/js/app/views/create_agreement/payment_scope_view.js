@@ -3,7 +3,7 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/create_agreement/payment_scope_tpl.html', 'views/create_agreement/scope_item_view'],
+  'hbs!templates/create_agreement/payment_scope_tpl', 'views/create_agreement/scope_item_view'],
 
   function (Backbone, Handlebars, _, Marionette, paymentScopeTemplate, ScopeItemView) {
 
@@ -13,7 +13,7 @@
 
       className:'scopeWrapper',
 
-      template: Handlebars.compile(paymentScopeTemplate),
+      template: paymentScopeTemplate,
 
       itemView: ScopeItemView,
       itemViewContainer:'ul',

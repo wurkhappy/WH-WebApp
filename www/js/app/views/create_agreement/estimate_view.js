@@ -3,7 +3,7 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/create_agreement/estimate_tpl.html', 'views/create_agreement/milestone_view'],
+  'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/milestone_view'],
 
   function (Backbone, Handlebars, _, Marionette, estimateTemplate, MilestoneView) {
 
@@ -14,7 +14,7 @@
       className:'clear white_background',
       attributes:{'id':'content'},
 
-      template: Handlebars.compile(estimateTemplate),
+      template: estimateTemplate,
 
       itemView: MilestoneView,
 

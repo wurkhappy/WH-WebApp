@@ -1,11 +1,11 @@
-define(['backbone', 'handlebars', 'text!templates/create_agreement/edit_tpl.html', 'views/agreement/edit/payments_edit_view'],
+define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/payments_edit_view'],
 
   function (Backbone, Handlebars, tpl, PaymentsView) {
 
     'use strict';
 
     var EditView = Backbone.View.extend({
-      template: Handlebars.compile(tpl),
+      template: tpl,
       className:'clear white_background',
       events:{
         "click #saveAgreement": "saveAgreement",
@@ -20,7 +20,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/edit_tpl.html
         this.$el.html(this.template(this.model.toJSON()));
         var paymentsView = new PaymentsView({model: this.model});
         paymentsView.render();
-        this.$('#payments-section').html(paymentsView.$el);
+        this.$('#payments-section') (paymentsView.$el);
         return this;
       },
       saveAgreement: function(event){
