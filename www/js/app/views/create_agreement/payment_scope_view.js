@@ -34,19 +34,18 @@
 
       events:{
         "keypress input" : "addOnEnter",
-        "click .add_comment": "addComment",
+        "click .add_comment": "addScopeItem",
         "focus input": "fadeError"
       },
 
       addOnEnter: function(event){
-        event.preventDefault();
         if (event.keyCode == 13) {
           this.collection.add({text:event.target.value});
           event.target.value = null;
         }
       },
 
-      addComment: function(event) {
+      addScopeItem: function(event) {
         event.preventDefault();
         var $text = $(event.target).prev('.add_work_item_input'),
             $input = $('input'),

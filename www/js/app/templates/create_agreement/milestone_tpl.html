@@ -1,20 +1,3 @@
-{{#if deposit}}
-  <div class="deposit_container">
-    <label>{{model.title}}</label>
-    <input id="require_checkbox" type="checkbox" name="required" value="true"
-    {{#if model.required}}
-    checked
-    {{/if}}
-    >
-    <span class="helper_text require_deposit_text">Require deposit?</span><br>
-    <input id="deposit" class="currency_format hide" type="text" name="amount" 
-    {{#if model.amount}}
-    value="{{model.amount}}" 
-    {{else}}
-    placeholder="$0.00"
-    {{/if}}>
-  </div>
-{{else}}
 <fieldset class="create_milestone_container">
     <label for="">Payment Milestone Name<span>Examples: Certain deliverables, 30% job complete, final payment, etc.</span></label>
     <input type="text" name="title" placeholder="{{model.title}}" id="" size="50">
@@ -26,9 +9,7 @@
     {{/if}}>
   </fieldset>
 
-{{/if}}
-  
-  <fieldset class="removeButton">
+<fieldset class="removeButton">
   	<p class="remove_icon">
   		<a <a href="#add_milestone">Remove milestone</a>
   	</p>
