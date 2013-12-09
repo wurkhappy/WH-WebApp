@@ -42,8 +42,8 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             submit: function(creditSource, successCallback){
                 this.updateStatus({"action":"submitted", "creditSourceURI":creditSource}, successCallback);
             },
-            accept: function(debitSource){
-                this.updateStatus({"action":"accepted", "debitSourceURI": debitSource});
+            accept: function(debitSource, paymentType){
+                this.updateStatus({"action":"accepted", "debitSourceURI": debitSource, "paymentType": paymentType});
             },
             reject: function(message){
                 this.updateStatus({"action":"rejected", "message":message});
