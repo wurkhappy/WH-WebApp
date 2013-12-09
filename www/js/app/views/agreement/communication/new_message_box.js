@@ -14,7 +14,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
       template: discussionTemplate,
 
       events: {
-        "keypress input":"addComment",
         "click .send_comment": "addComment",
         "focus select": "addSelectActive",
         "blur select": "removeSelectActive"
@@ -56,6 +55,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
       },
 
       addComment: function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
         var editor = CKEDITOR.instances.message_editor;
         var html = editor.getData();
 
@@ -65,10 +67,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
           this.trigger("commentAdded", this.model);
           this.model.save(null, {success: _.bind(function(model, response){
             var tags = model.get("tags");
+            var modelTags = this.model.get("tags");
+            modelTags.reset(tags.toJSON());
             this.tags.addTags(tags.toJSON());
-            this.model.get("tags").reset(tags.toJSON());
-            this.model.unset("id");
-            this.model.unset("dateCreated");
+            this.model = new CommentModel({
+              userID:this.user.id,
+              tags: modelTags
+            })
           }, this)});
 
           editor.setData('');

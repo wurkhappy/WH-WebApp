@@ -20,6 +20,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/communication/message
         this.messages = options.messages;
         this.displayedMessages = this.messages.clone();
         this.selectedTags = new TagCollection();
+        this.listenTo(this.messages, "add", function(model){this.displayedMessages.add(model);});
       },
       onRender: function(){
         var filterBox = new FilterBox({collection: this.tags});
