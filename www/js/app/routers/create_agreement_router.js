@@ -22,10 +22,10 @@
 
       initialize: function () {
         this.user = new UserModel(window.user);
-        if (window.agreement) {this.model = new AgreementModel(window.agreement)}
-        this.model.get("payments").add({title: 'Deposit'});
+        this.model = new AgreementModel({freelancerID:this.user.id});
         this.model.set({acceptsCreditCard: true});
         this.model.set({acceptsBankTransfer: true});
+        if (window.agreement) {this.model = new AgreementModel(window.agreement)}
         this.mainContainer = new MainContainerView({model: this.model});
         this.layout = new Layout({model: this.model, user: this.user});
         FlyingFocus();

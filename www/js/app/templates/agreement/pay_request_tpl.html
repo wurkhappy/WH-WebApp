@@ -32,13 +32,17 @@
             <div class="fee_detail_container hide">
               <ul>
               <li class="fee_line_item">Wurk Happy Fee: <span class="fee_amount">${{wurkHappyFee}}</span></li>
-                {{#if creditCardFee}}
-                  <li class="fee_line_item">Payment Processing Fee*: <span class="fee_amount">${{creditCardFee}}</span></li>
+              {{#if allPaymentMethods}}
+                  <li class="fee_line_item">Payment Processing Fee*: <span class="fee_amount">${{processingFee}}</span></li>
+                  <span class="helper_text">*Depends on client payment method.</span>
+              {{else}}
+                {{#if acceptsCreditCard}}
+                   <li class="fee_line_item">Credit Card Fee: <span class="fee_amount">${{creditCardFee}}</span></li>
                 {{/if}}
-                {{#if bankTransferFee}}
-                  <!-- <li class="fee_line_item">Bank Transfer Fee: <span class="fee_amount">${{bankTransferFee}}</span></li> -->
+                {{#if acceptsBankTransfer}}
+                   <li class="fee_line_item">Bank Transfer Fee: <span class="fee_amount">${{bankTransferFee}}</span></li>
                 {{/if}}
-                <span class="helper_text">*Varies by client payment method.</span>
+              {{/if}}
               </ul>
             </div>
             <li class="line_item line_item_total"><span class="line_item_title">You Will Receive:</span> ${{amountTotal}}</li>

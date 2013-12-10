@@ -11,10 +11,10 @@
 	<p>{{model.proposedServices}}</p>
 	<h2 class="agreement_title">Accepted Methods of Payment</h2>
 	<div class="payment_method_review_container">
-		{{#if model.acceptsBankTransfer}}
-			<i class="fa fa-check-circle">  Credit Card</i>{{/if}}
 		{{#if model.acceptsCreditCard}}
-			<i class="fa fa-check-circle bank_account_method_review">  Bank Account</i>
+			<i class="fa fa-check-circle">  <span>Credit Card</span></i>{{/if}}
+		{{#if model.acceptsBankTransfer}}
+			<i class="fa fa-check-circle bank_account_method_review">  <span>Bank Account</span></i>
 		{{/if}}
 	</div>
 	<div id="payments-section"></div>

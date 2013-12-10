@@ -3,7 +3,7 @@
   <span class="helper_text pay_header_helper">Manage stored payment methods in the <a href="/account">account</a> section.</span>
 
 
-  {{#if model.acceptsCreditCards}}
+  {{#if acceptsCreditCard}}
     <input type="radio" name="payment_type" value="credit_card" class="select_radio">Pay with stored credit card<br>
     <ul id="credit_card" class="payment_select_container">
       <li>
@@ -15,7 +15,7 @@
       </li>
     </ul>
     {{/if}}
-  {{#if model.acceptsBankTransfers}}
+  {{#if acceptsBankTransfer}}
     <input type="radio" name="payment_type" value="bank_account" class="select_radio">Pay with stored bank account<br>
     <ul id="bank_account" class="payment_select_container">
       <li>

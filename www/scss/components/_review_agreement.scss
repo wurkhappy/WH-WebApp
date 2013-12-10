@@ -61,6 +61,10 @@
 .payment_method_review_container {
 	margin-top: 10px;
 	margin-bottom: 20px;
+	color: hsl(94, 56%, 56%);
+	span {
+		color: hsl(0, 0%, 39%);
+	}
 }
 
 .bank_account_method_review {

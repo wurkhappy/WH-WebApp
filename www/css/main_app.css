@@ -3772,6 +3772,11 @@ div.faqcontent h2 {
   font-weight: bold;
 }
 
+/* line 112, ../scss/components/_agreement.scss */
+.payment_methods_agreement_container {
+  padding-left: 20px;
+}
+
 /* line 1, ../scss/components/_agreement_profile.scss */
 .agreement_profile {
   border-bottom: 1px solid #e1e1e1;
@@ -4733,9 +4738,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .payment_method_review_container {
   margin-top: 10px;
   margin-bottom: 20px;
+  color: #86ce50;
+}
+/* line 65, ../scss/components/_review_agreement.scss */
+.payment_method_review_container span {
+  color: #636363;
 }
 
-/* line 66, ../scss/components/_review_agreement.scss */
+/* line 70, ../scss/components/_review_agreement.scss */
 .bank_account_method_review {
   margin-left: 15px;
 }

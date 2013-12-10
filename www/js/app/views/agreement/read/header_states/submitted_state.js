@@ -24,7 +24,13 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
         if (this.statusType === 'payment') {
           if (!this.acceptModal){
-            var view = new AcceptModal({model:this.model.get("payments").findSubmittedPayment(), user:this.user, otherUser: this.otherUser});
+            var view = new AcceptModal({
+              model:this.model.get("payments").findSubmittedPayment(),
+              user:this.user,
+              otherUser: this.otherUser,
+              acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
+              acceptsCreditCard: this.model.get("acceptsCreditCard")
+            });
             this.acceptModal = new Modal({view:view});
           } 
           this.acceptModal.show();
@@ -32,7 +38,13 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         } else if (this.model.get("payments").findFirstRequiredPayment()){
 
           if (!this.depositModal){
-            var view = new AcceptModal({model:this.model.get("payments").findFirstRequiredPayment(), user:this.user, otherUser: this.otherUser});
+            var view = new AcceptModal({
+              model:this.model.get("payments").findFirstRequiredPayment(),
+              user:this.user,
+              otherUser: this.otherUser,
+              acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
+              acceptsCreditCard: this.model.get("acceptsCreditCard")
+            });
             this.depositModal = new Modal({view:view});
           } 
           this.depositModal.show();   

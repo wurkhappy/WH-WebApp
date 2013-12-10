@@ -2,10 +2,10 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'marionette',
+ define(['backbone', 'handlebars', 'underscore', 'marionette', 'autonumeric',
   'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/milestone_view'],
 
-  function (Backbone, Handlebars, _, Marionette, estimateTemplate, MilestoneView) {
+  function (Backbone, Handlebars, _, Marionette, autoNumeric, estimateTemplate, MilestoneView) {
 
     'use strict';
 
@@ -30,19 +30,27 @@
         "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
         "click .create_agreement_navigation_link": "showPage",
         "click .payment_method":"updatePaymentMethods",
-        "blur #deposit":"updateDeposit"
+        "blur #deposit":"updateDeposit",
+        'focus .currency_format': 'triggerCurrencyFormat',
       },
 
       updatePaymentMethods: function(event){
+
         if (!event.target.name) return;
 
-        if (event.target.value === 'true') {
+        if (event.target.checked) {
           this.model.set(event.target.name, true);
+        } else {
+          this.model.set(event.target.name, false);
         }
       },
       renderModel: function(){
         var data = {};
         if(this.deposit) data = this.deposit.toJSON();
+        //if credit card & bank transfer payment methods are set by default, add them to data object to be rendered
+        // in estimate template
+        if(this.model.get("acceptsCreditCard")) data.acceptsCreditCard = this.model.get("acceptsCreditCard");
+        if(this.model.get("acceptsBankTransfer")) data.acceptsBankTransfer = this.model.get("acceptsBankTransfer");
         data = this.mixinTemplateHelpers(data);
 
         var template = this.getTemplate();
@@ -56,6 +64,10 @@
       addMilestone:function(event){
         event.preventDefault();
         this.collection.add({});
+      },
+
+      triggerCurrencyFormat: function() {
+        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '1', vMax: '100000' });
       },
       
       saveAndContinue:function(event){
