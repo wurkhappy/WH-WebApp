@@ -5,11 +5,11 @@
  define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
   'views/agreement/payments_read_view', 'views/agreement/user_view',
   'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
-  'views/agreement/read/header_view', 'views/agreement/communication/communication_layout','models/user', 'views/agreement/progress_bar_view',
+  'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
   'collections/tags'],
 
   function (Backbone, FlyingFocus, AgreementModel, LayoutView, PaymentsReadView, UserView,
-    UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, UserModel, ProgressBarView, TagCollection) { 
+    UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView, UserModel, ProgressBarView, TagCollection) { 
 
     'use strict';
 
@@ -35,6 +35,7 @@
 
       readAgreement: function () {
         this.layout.agreementProgressBar.show(new ProgressBarView({model: this.model}));
+        this.layout.paymentMethods.show(new PaymentMethodsView({model: this.model}));
         this.layout.paymentSchedule.show(new PaymentsReadView({model: this.model}));
         this.layout.profile.show(new UserView());
         this.layout.header.show(new HeaderView({model: this.model, user: this.user, otherUser: this.otherUser}));

@@ -1,5 +1,5 @@
 
-define(['backbone', 'handlebars', 'toastr' 'views/agreement/read/header_states/base_state'],
+define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/base_state'],
 
   function (Backbone, Handlebars, toastr, BaseState) {
 

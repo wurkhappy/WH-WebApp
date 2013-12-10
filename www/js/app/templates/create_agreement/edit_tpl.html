@@ -2,6 +2,22 @@
 	<h2 class="review_title edit_title"><input name="title" value="{{title}}" placeholder="Title"></h2>
 	<h2 class="agreement_title">Summary</h2>
 	<textarea class="edit_summary" name="proposedServices" placeholder="Summary">{{proposedServices}}</textarea>
+	<div class="payment_methods_container">
+	  <h2 class="agreement_title">Select Accepted Methods of Payment</h2>
+	  <input type="checkbox" name="acceptsBankAccount" value="true"
+	  	{{#if model.acceptsBankTransfer}}
+	  		checked
+	  	{{/if}}
+	  >
+	  <span class="helper_text require_deposit_text">Bank Account (costs 1% + 55 cents with $5 cap)</span><br>
+	  <input type="checkbox" name="acceptsCreditCard" value="true"
+	  	{{#if model.acceptsCreditCard}}
+	  		checked
+	  	{{/if}}
+	  >
+	  <span class="helper_text require_deposit_text">Credit Card (costs 2.9% + 55 cents)</span>
+	</div>
+	<div class="divider"></div>
 	<div id="payments-section"></div>
 	<div>
 		<h2 class="agreement_title review_agreement_total">Agreement Total:<strong> ${{totalAmount}} </strong></h2>

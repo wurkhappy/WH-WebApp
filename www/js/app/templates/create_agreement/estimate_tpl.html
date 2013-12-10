@@ -1,3 +1,20 @@
+<div class="payment_methods_container">
+  <label>Select Accepted Methods of Payment {{model.acceptsCreditCard}}</label>
+  <input type="checkbox" name="acceptsBankTransfer" value="true" class="payment_method"
+  {{#if acceptsBankTransfer}}
+   checked
+   {{/if}}
+   >
+  <span class="helper_text require_deposit_text">Bank Account (costs $5)</span><br>
+  <input type="checkbox" name="acceptsCreditCard" value="true" class="payment_method" 
+  {{#if acceptsCreditCard}}
+  checked
+  {{/if}}
+  >
+  <span class="helper_text require_deposit_text">Credit Card (costs 2.9% + 55 cents)</span>
+</div>
+<div class="divider"></div>
+
 <form action="" method="get" accept-charset="utf-8">
 
   <fieldset id="addMoreButton" class="addMoreButton add_milestone_button">

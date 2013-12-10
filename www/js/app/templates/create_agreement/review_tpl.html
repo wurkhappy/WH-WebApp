@@ -9,6 +9,14 @@
 	<span class="helper_text edit_helper">Feel like something's missing? <a id="editAgreement" href="#edit">Edit this agreeement</a>.</span>
 	<h2 class="agreement_title">Summary</h2>
 	<p>{{model.proposedServices}}</p>
+	<h2 class="agreement_title">Accepted Methods of Payment</h2>
+	<div class="payment_method_review_container">
+		{{#if model.acceptsBankTransfer}}
+			<i class="fa fa-check-circle">  Credit Card</i>{{/if}}
+		{{#if model.acceptsCreditCard}}
+			<i class="fa fa-check-circle bank_account_method_review">  Bank Account</i>
+		{{/if}}
+	</div>
 	<div id="payments-section"></div>
 	<div>
 		<h2 class="agreement_title review_agreement_total">Agreement Total:
@@ -20,4 +28,3 @@
 <fieldset class="action_button_container review_continue">
 	<a href="#" id="submitAgreement" class="button cancel inline review_continue_button">Continue</a>
 </fieldset>
-

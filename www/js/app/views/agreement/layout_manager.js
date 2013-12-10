@@ -16,6 +16,7 @@
       regions: {
         profile: "#agreement-profile",
         agreementProgressBar: "#agreement-progress-bar",
+        paymentMethods: "#payment-methods",
         paymentSchedule: "#payment-schedule",
         agreementHistory: "#agreement-history",
         header: "#header-section",

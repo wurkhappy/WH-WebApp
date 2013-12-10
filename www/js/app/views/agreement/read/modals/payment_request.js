@@ -46,16 +46,25 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
 
       events: {
         "click #pay-button": "requestPayment",
-        "change #milestoneToPay":"updateView"
+        "change #milestoneToPay":"updateView",
+        "click #show_fee_detail": "showFeeDetail"
       },
       calculatePayment: function(){
         var milestonePayment = this.model.get("amount");
         var wurkHappyFee = milestonePayment * .05;
-        var amountTotal = milestonePayment - wurkHappyFee;
+        var bankTransferFee = 5;
+        var creditCardFee = (milestonePayment * .029) +.3;
+        var feeTotal = creditCardFee+wurkHappyFee;
+        var amountTotal = milestonePayment - feeTotal;
+
+
         return {
-          milestonePayment: milestonePayment,
-          wurkHappyFee: wurkHappyFee,
-          amountTotal: amountTotal,
+          milestonePayment: milestonePayment.toFixed(2),
+          wurkHappyFee: wurkHappyFee.toFixed(2),
+          bankTransferFee: bankTransferFee.toFixed(2),
+          creditCardFee: creditCardFee.toFixed(2),
+          feeTotal: feeTotal.toFixed(2),
+          amountTotal: amountTotal.toFixed(2)
         }
       },
       updateView: function(event){
@@ -81,6 +90,12 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
         var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
         this.trigger("paymentRequested", creditSource);
         this.trigger('hide');
+      },
+
+      showFeeDetail: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $('.fee_detail_container').slideToggle('slow');
       }
 
     });

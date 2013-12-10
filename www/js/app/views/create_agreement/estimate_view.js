@@ -3,7 +3,7 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/create_agreement/estimate_tpl.html', 'views/create_agreement/milestone_view'],
+  'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/milestone_view'],
 
   function (Backbone, Handlebars, _, Marionette, estimateTemplate, MilestoneView) {
 
@@ -14,13 +14,12 @@
       className:'clear white_background',
       attributes:{'id':'content'},
 
-      template: Handlebars.compile(estimateTemplate),
+      template: estimateTemplate,
 
       itemView: MilestoneView,
 
       initialize: function (options) {
         this.router = options.router;
-        
       },
 
       events:{
@@ -28,7 +27,16 @@
         "click .submit-buttons > a" : "saveAndContinue",
         "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
         "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
-        "click .create_agreement_navigation_link": "showPage"
+        "click .create_agreement_navigation_link": "showPage",
+        "click .payment_method":"updatePaymentMethods"
+      },
+
+      updatePaymentMethods: function(event){
+        if (!event.target.name) return;
+
+        if (event.target.value === 'true') {
+          this.model.set(event.target.name, true);
+        }
       },
       appendHtml: function(collectionView, itemView, index){
         itemView.$el.insertBefore(collectionView.$('#addMoreButton'));

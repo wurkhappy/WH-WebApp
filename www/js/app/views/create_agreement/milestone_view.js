@@ -63,6 +63,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text
         if (!event.target.name) return;
 
         this.model.set(event.target.name, event.target.value);
+
       },
 
       requireDeposit: function(event) {
