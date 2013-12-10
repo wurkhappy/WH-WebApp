@@ -1,7 +1,7 @@
 
-define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state'],
+define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/base_state'],
 
-  function (Backbone, Handlebars, BaseState) {
+  function (Backbone, Handlebars, toastr, BaseState) {
 
     'use strict';
 
@@ -12,7 +12,17 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         this.button2Title = (this.userIsClient) ? null : null; 
       },
       button1:function(event){
-        this.model.archive();
+
+        toastr.success('Agreement Archived');
+
+        var changeLocation = function() {
+          window.location = "/home";
+        };
+
+      _.delay(changeLocation, 500);
+
+      _.defer(this.model.archive());
+
       },
       button2:function(event){
       }

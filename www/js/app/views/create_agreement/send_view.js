@@ -93,7 +93,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
 
           var submitSuccess = function(){
             that.modal.view.model.submit(creditSource, function(){
-              //window.location = "/home";
+              window.location = "/home";
             });
           };
 

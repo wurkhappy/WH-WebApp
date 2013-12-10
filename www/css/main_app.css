@@ -4743,9 +4743,10 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 65, ../scss/components/_review_agreement.scss */
 .payment_method_review_container span {
   color: #636363;
+  font-family: museo_sans;
 }
 
-/* line 70, ../scss/components/_review_agreement.scss */
+/* line 71, ../scss/components/_review_agreement.scss */
 .bank_account_method_review {
   margin-left: 15px;
 }
