@@ -1,11 +1,11 @@
-define(['backbone', 'handlebars', 'text!templates/create_agreement/header_review.html'],
+define(['backbone', 'handlebars', 'hbs!templates/create_agreement/header_review'],
 
   function (Backbone, Handlebars, tpl) {
 
     'use strict';
 
     var HeaderCancel = Backbone.View.extend({
-      template: Handlebars.compile(tpl),
+      template: tpl,
       events: {
         "click #submitAgreement" : "submitAgreement"
       },

@@ -54,7 +54,7 @@
         
       },
       commentAdded: function(comment){
-        this.model.get("comments").add(comment.toJSON());
+        this.model.get("comments").add(comment);
         comment.collection = this.model.get("comments");
       }
 

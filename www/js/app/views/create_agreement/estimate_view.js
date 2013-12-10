@@ -20,6 +20,7 @@
 
       initialize: function (options) {
         this.router = options.router;
+        this.deposit = this.collection.findFirstRequiredPayment()
       },
 
       events:{
@@ -28,7 +29,8 @@
         "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
         "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
         "click .create_agreement_navigation_link": "showPage",
-        "click .payment_method":"updatePaymentMethods"
+        "click .payment_method":"updatePaymentMethods",
+        "blur #deposit":"updateDeposit"
       },
 
       updatePaymentMethods: function(event){
@@ -38,7 +40,16 @@
           this.model.set(event.target.name, true);
         }
       },
+      renderModel: function(){
+        var data = {};
+        if(this.deposit) data = this.deposit.toJSON();
+        data = this.mixinTemplateHelpers(data);
+
+        var template = this.getTemplate();
+        return Marionette.Renderer.render(template, data);
+      },
       appendHtml: function(collectionView, itemView, index){
+        if (itemView.model.get("title") === 'Deposit') {return;}
         itemView.$el.insertBefore(collectionView.$('#addMoreButton'));
       },
 
@@ -74,16 +85,34 @@
       },
 
       mouseEnterNavigation: function (event) {
-          $(event.currentTarget).find("h2").addClass("create_agreement_navigation_link_hover");
+        $(event.currentTarget).find("h2").addClass("create_agreement_navigation_link_hover");
       },
 
       mouseLeaveNavigation: function (event) {
-          $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
+        $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
+      },
+      updateDeposit: function(event){
+        console.log(this.model);
+        var amount = event.target.value;
+        var adjAmount = (amount.substring(0,2) === '$ ') ? amount.substring(2) : amount;
+        var formattedAmount = parseFloat(adjAmount.replace(/,/g, ''), 10);
+        if (this.deposit){
+          this.deposit.set("amount", formattedAmount);
+
+        } else{
+          var Model = this.model.get("payments").model;
+          this.deposit = new Model({title: "Deposit", amount: formattedAmount, required: true});
+          this.model.get("payments").add(this.deposit);
+        }
+
+        if (adjAmount == 0) {
+          this.model.get("payments").remove(this.deposit);
+        }
       }
 
     });
 
-    return EstimateView;
+return EstimateView;
 
-  }
-  ); 
+}
+); 

@@ -2,21 +2,18 @@
 * Scope of Work - Create Agreement View.
 */ 
 
-define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'text!templates/create_agreement/milestone_tpl.html', 'views/create_agreement/payment_scope_view'],
+define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!templates/create_agreement/milestone_tpl', 'views/create_agreement/payment_scope_view'],
 
   function (Backbone, Handlebars, _, Kalendae, autoNumeric, milestoneTemplate, PaymentScopeView) {
 
     'use strict';
-    Handlebars.registerHelper('dateFormat', function(date) {
-      return date.format('MMM D, YYYY');
-    });
 
     var MilestoneView = Backbone.View.extend({
 
       tagName:'div',
       className: 'bottom_divider hide',
 
-      template: Handlebars.compile(milestoneTemplate),
+      template: milestoneTemplate,
 
       initialize: function (options) {
         this.router = options.router;

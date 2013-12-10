@@ -2,7 +2,7 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/send_tpl.html'],
+ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/send_tpl'],
 
   function (Backbone, Handlebars, _, recipientTemplate) {
 
@@ -13,7 +13,7 @@
       className:'clear white_background',
       attributes:{'id':'content'},
 
-      template: Handlebars.compile(recipientTemplate),
+      template: recipientTemplate,
 
       initialize: function (options) {
         this.router = options.router;

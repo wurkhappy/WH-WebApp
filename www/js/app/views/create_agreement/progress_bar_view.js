@@ -3,19 +3,15 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/create_agreement/progress_bar_tpl.html'],
+  'hbs!templates/create_agreement/progress_bar_tpl'],
 
   function (Backbone, Handlebars, _, Marionette, progressBarTemplate) {
 
     'use strict';
-    Handlebars.registerHelper('icon_color', function(position, value) {
-      if (position <= value/34 || position == 0) return 'green_icon';
-      return '';
-    });
 
     var ProgressBarView = Backbone.View.extend({
 
-      template: Handlebars.compile(progressBarTemplate),
+      template: progressBarTemplate,
 
       initialize:function(options){
         this.title = options.title;

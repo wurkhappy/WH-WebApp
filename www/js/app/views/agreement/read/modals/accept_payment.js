@@ -59,9 +59,12 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         event.preventDefault();
         event.stopPropagation();
 
-        var $debitSource = $(".select_bank_account:checked").val() || $(".select_credit_card:checked").val() || '';
+        var bankAccount = $(".select_bank_account:checked").val();
+        var creditCard = $(".select_credit_card:checked").val()
+        var $debitSource =  bankAccount || creditCard || '';
+        var paymentType = (bankAccount) ? "BankBalanced" : "CardBalanced";
 
-        this.model.accept($debitSource);
+        this.model.accept($debitSource, paymentType);
 
         var status;
 

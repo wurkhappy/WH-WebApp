@@ -2,7 +2,7 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'text!templates/create_agreement/proposal_tpl.html'],
+ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'hbs!templates/create_agreement/proposal_tpl'],
 
   function (Backbone, Handlebars, _, moment, parsley, scopeTemplate) {
 
@@ -13,7 +13,7 @@
       className:'clear white_background',
       attributes:{'id':'content'},
 
-      template: Handlebars.compile(scopeTemplate),
+      template: scopeTemplate,
 
       initialize: function (options) {
         this.userID = options.userID;
