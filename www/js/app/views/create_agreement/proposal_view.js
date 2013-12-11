@@ -30,10 +30,11 @@
         'blur input[type="radio"]': "updateRole",
         'blur input[type="checkbox"]': "updateClauses",
         "blur textarea": "updateField",
-        "click .submit-buttons" : "saveAndContinue",
+        "mousedown .submit-buttons" : "saveAndContinue",
       },
 
       updateField: function(event){
+        console.log("field");
         this.model.set(event.target.name, event.target.value);
       },
       updateRole: function(event){
@@ -49,6 +50,7 @@
         this.model.get("clauses").add({id:$element.data('clauseid'), text:$element.data('text'), userID:this.userID});
       },
       saveAndContinue:function(event){
+        console.log("save");
         event.preventDefault();
         event.stopPropagation();
 
