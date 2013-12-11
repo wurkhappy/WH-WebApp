@@ -184,10 +184,10 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		json.Unmarshal(resp, &agrmntData)
 
 		var userID string
-		if session.Values["id"] == agreementsData["freelancerID"].(string) {
-			userID = agreementsData["clientID"].(string)
+		if session.Values["id"] == agrmntData["freelancerID"].(string) {
+			userID = agrmntData["clientID"].(string)
 		} else {
-			userID = agreementsData["freelancerID"].(string)
+			userID = agrmntData["freelancerID"].(string)
 		}
 		if userID != "" {
 			otherUser = getUserInfo(userID)
