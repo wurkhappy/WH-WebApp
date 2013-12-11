@@ -53,10 +53,10 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	// err := http.ListenAndServe(":4000", nil)
 	var err error
-	if *production {
+	if false {
 		err = http.ListenAndServeTLS(":443", "/root/go/bin/ssl/wurkhappy.com.pem", "/root/go/bin/ssl/wurkhappy.com.key", nil)
 	} else {
-		err = http.ListenAndServe(":4000", nil)
+		err = http.ListenAndServe(":80", nil)
 		// err = http.ListenAndServeTLS(":4000", "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil)
 	}
 	if err != nil {
