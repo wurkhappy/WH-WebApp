@@ -20,7 +20,7 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'vi
         this.$el.html(this.template(this.model.toJSON()));
         var paymentsView = new PaymentsView({model: this.model});
         paymentsView.render();
-        this.$('#payments-section') (paymentsView.$el);
+        this.$('#payments-section').html(paymentsView.$el);
         return this;
       },
       saveAgreement: function(event){
