@@ -75,6 +75,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
           this.calendar = new Kalendae.Input(this.$(".kal")[0], {});
           this.calendar.subscribe('date-clicked', _.bind(this.setDate, this));
         }
+        // if (this.model.get("dateExpected")) this.calendar.selected(this.model.get("dateExpected"));
       },
       setDate: function(date, action){
 
