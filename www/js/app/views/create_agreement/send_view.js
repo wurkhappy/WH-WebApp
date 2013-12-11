@@ -18,18 +18,20 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
         this.render();
         this.message = "Please take a moment to look over the details of the services provided, refund policies and payment schedule to confirm that's what you want to do and you're comfortable with the agreement.";
         this.user = options.user;
+        this.otherUser = options.otherUser;
       },
       render: function(){
         this.deposit = this.model.get("payments").at(0);
         var deposit;
 
-        if (this.deposit.get("required") && this.deposit.get("amount") > 0) {
+        if (this.deposit && this.deposit.get("required") && this.deposit.get("amount") > 0) {
           deposit = true;
         }
-
+        var otherUserEmail = (this.otherUser) ? this.otherUser.get("email") : null;
         this.$el.html(this.template({
           message: this.message,
-          deposit: deposit
+          deposit: deposit,
+          otherUserEmail: otherUserEmail,
         }));
       },
       sendAgreement: function(event){
