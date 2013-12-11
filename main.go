@@ -46,7 +46,8 @@ func main() {
 	http.Handle("/", r)
 
 	//static content
-	serveSingle("/favicon.ico", "favicon.ico")
+	serveSingle("/favicon.ico", "www/favicon.ico")
+	serveSingle("/robots.txt", "www/robots.txt")
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
