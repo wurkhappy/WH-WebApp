@@ -172,6 +172,7 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 
 func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	var agrmntData map[string]interface{}
+	var otherUser map[string]interface{}
 	if id := req.URL.Query().Get("versionID"); id != "" {
 		resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/agreements/v/"+id, nil)
 		if statusCode >= 400 {
@@ -181,6 +182,16 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 			return
 		}
 		json.Unmarshal(resp, &agrmntData)
+
+		var userID string
+		if session.Values["id"] == agreementsData["freelancerID"].(string) {
+			userID = agreementsData["clientID"].(string)
+		} else {
+			userID = agreementsData["freelancerID"].(string)
+		}
+		if userID != "" {
+			otherUser = getUserInfo(userID)
+		}
 	}
 
 	m := map[string]interface{}{
@@ -189,6 +200,7 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		"JSversion":  JSversion,
 		"CSSversion": CSSversion,
 		"agreement":  agrmntData,
+		"otherUser":  otherUser,
 		"user": struct {
 			ID string `json:"id"`
 		}{

@@ -3,15 +3,15 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/agreement/layout_tpl.html'],
+  'hbs!templates/agreement/layout_tpl', 'views/agreement/read/modals/void_agreement', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, _, Marionette, layoutTpl) {
+  function (Backbone, Handlebars, _, Marionette, layoutTpl, VoidModal, Modal) {
 
     'use strict';
 
     var Layout = Backbone.Marionette.Layout.extend({
       el:'#content',
-      template: Handlebars.compile(layoutTpl),
+      template: layoutTpl,
 
       regions: {
         profile: "#agreement-profile",
@@ -22,13 +22,29 @@
         header: "#header-section",
         discussion: "#discussion"
       },
+      events:{
+        "click #voidAgreement":"voidAgreement"
+      },
 
-      initialize: function(){
+      initialize: function(options){
+        this.user = options.user;
         this.render();
+      },
+      voidAgreement: function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        if (!this.voidModal){
+          var view = new VoidModal({
+            model:this.model,
+            user: this.user,
+          });
+          this.voidModal = new Modal({view:view});
+        } 
+        this.voidModal.show();
       }
     });
 
-    return Layout;
+return Layout;
 
-  }
-  );
+}
+);

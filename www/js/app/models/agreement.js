@@ -79,13 +79,13 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 }, this)
               });
             },
-            archive: function(successCallback){
+            archive: function(userID, successCallback){
                 $.ajax({
                   type: "POST",
                   url: "/agreement/v/"+this.id+"/archive",
                   contentType: "application/json",
                   dataType: "json",
-                  data:JSON.stringify({}),
+                  data:JSON.stringify({userID: userID}),
                   success: _.bind(function(response){
                     this.set(response);
                     this.get("currentStatus").trigger("change");
