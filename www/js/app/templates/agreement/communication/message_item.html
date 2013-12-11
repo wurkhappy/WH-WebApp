@@ -1,29 +1,28 @@
 {{#if isThisUserMessage}}
-<div class="personal_box float_right">
+<div class="message_box float_right">
 	<div class="comment_post_info">
 		<div class="comment_name">{{name}}</div>
 	</div>
+	<div class="tag_container">
+		<div class="comment_date">{{dateCreated}}</div>
+		{{#each model.tags}}
+		<div class="milestone_tag">{{this.name}}</div>
+		{{/each}}
+	</div>
+	<div class="comment_body">{{{model.text}}}</div>
 </div>
-<div class="message_box float_right">
-	{{else}}
-<div class="personal_box float_left">
-
+{{else}}
+<div class="message_box float_left">
+	
 	<div class="comment_post_info">
 		<div class="comment_name">{{otherName}}</div>
 	</div>
+	<div class="tag_container">
+		<div class="comment_date">{{dateCreated}}</div>
+		{{#each model.tags}}
+		<div class="milestone_tag">{{this.name}}</div>
+		{{/each}}
+	</div>
+	<div class="comment_body">{{{model.text}}}</div>
 </div>
-<div class="message_box float_left">
-		{{/if}}
-
-		<div class="notification_container message_notification_container hide"><p class="notification_text"><i class="fa fa-check"></i> Message sent!<p></div>
-		<div class="comment_post_info">
-			<div class="comment_name">{{name}}</div>
-		</div>
-		<div class="tag_container">
-			<div class="comment_date">{{dateCreated}}</div>
-			{{#each model.tags}}
-			<div class="milestone_tag">{{this.name}}</div>
-			{{/each}}
-		</div>
-		<div class="comment_body">{{{model.text}}}</div>
-</div>
+{{/if}}
