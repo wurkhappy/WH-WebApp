@@ -17,7 +17,14 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
       button1:function(event){
         if (!this.modal){
-          var view = new PaymentRequestModal({model:this.model.get("payments").findFirstOutstandingPayment(), collection: this.model.get("payments").findAllOutstandingPayment(), cards: this.user.get("cards"), bankAccounts: this.user.get("bank_accounts")});
+          var view = new PaymentRequestModal({
+            model:this.model.get("payments").findFirstOutstandingPayment(),
+            collection: this.model.get("payments").findAllOutstandingPayment(),
+            cards: this.user.get("cards"),
+            bankAccounts: this.user.get("bank_accounts"),
+            acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
+            acceptsCreditCard: this.model.get("acceptsCreditCard")
+          });
           this.modal = new Modal({view:view});
           this.listenTo(this.modal.view, "paymentRequested", this.paymentRequested)
         } 

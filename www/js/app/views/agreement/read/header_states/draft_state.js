@@ -1,7 +1,7 @@
 
-define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state'],
+define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/base_state'],
 
-  function (Backbone, Handlebars, BaseState) {
+  function (Backbone, Handlebars, toastr, BaseState) {
 
     'use strict';
 
@@ -14,6 +14,9 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       button1:function(event){
         this.model.set("draft", false);
         this.model.save({},{success:_.bind(function(model, response){
+
+          toastr.success('Draft Saved');
+
           var submitSuccess = function(){
             window.location = "/home"
           };

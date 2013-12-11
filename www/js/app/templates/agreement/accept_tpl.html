@@ -1,27 +1,32 @@
 <header class="bottom_divider pay_header_container">
   <h2 class="pay_header">Payment Options</h2>
-  <span class="helper_text">Manage stored payment methods in the <a href="/account">account</a> section.</span>
+  <span class="helper_text pay_header_helper">Manage stored payment methods in the <a href="/account">account</a> section.</span>
 
-  <input type="radio" name="payment_type" value="credit_card" class="select_radio">Pay with stored credit card<br>
-  <ul id="credit_card" class="payment_select_container">
-    <li>
-      {{#each creditCards}}
-      <input type="radio" class="select_credit_card" name="select_credit_card" value="{{uri}}" data-url="{{uri}}">
-      <p class="payment_select_info">**** **** **** {{last_four}}</p>
-      <p class="payment_select_info"><span>Expiration:</span> {{expiration_month}}/{{expiration_year}}</p>
-      {{/each}}
-    </li>
-  </ul>
-  <input type="radio" name="payment_type" value="bank_account" class="select_radio">Pay with stored bank account<br>
-  <ul id="bank_account" class="payment_select_container">
-    <li>
-      {{#each bankAccounts}}
-      <input type="radio" class="select_bank_account" name="select_bank_account" value="{{uri}}">
-      <p class="payment_select_info"><span>Routing:</span> **** **** **** {{routing_number}}</p>
-      <p class="payment_select_info"><span>Account:</span> **** **** **** {{last_four_digits account_number}}</p>
-      {{/each}}
-    </li>
-  </ul>
+
+  {{#if acceptsCreditCard}}
+    <input type="radio" name="payment_type" value="credit_card" class="select_radio">Pay with stored credit card<br>
+    <ul id="credit_card" class="payment_select_container">
+      <li>
+        {{#each creditCards}}
+        <input type="radio" class="select_credit_card" name="select_credit_card" value="{{uri}}" data-url="{{uri}}">
+        <p class="payment_select_info">**** **** **** {{last_four}}</p>
+        <p class="payment_select_info"><span>Expiration:</span> {{expiration_month}}/{{expiration_year}}</p>
+        {{/each}}
+      </li>
+    </ul>
+    {{/if}}
+  {{#if acceptsBankTransfer}}
+    <input type="radio" name="payment_type" value="bank_account" class="select_radio">Pay with stored bank account<br>
+    <ul id="bank_account" class="payment_select_container">
+      <li>
+        {{#each bankAccounts}}
+        <input type="radio" class="select_bank_account" name="select_bank_account" value="{{uri}}">
+        <p class="payment_select_info"><span>Routing:</span> **** **** **** {{routing_number}}</p>
+        <p class="payment_select_info"><span>Account:</span> **** **** **** {{last_four_digits account_number}}</p>
+        {{/each}}
+      </li>
+    </ul>
+  {{/if}}
 </header>
 <article>
   <div class="line"></div>

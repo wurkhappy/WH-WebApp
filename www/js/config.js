@@ -35,9 +35,6 @@
         //plugins - bower
         text: 'lib/requirejs-text/text',
         moment: 'lib/momentjs/moment',
-        noty: 'lib/noty/js/noty/jquery.noty',
-        "noty-inline": 'lib/noty/js/noty/layouts/inline',
-        "noty-default": 'lib/noty/js/noty/themes/default',
         "intro": 'lib/intro.js/intro',
         kalendae: 'lib/kalendae/build/kalendae.standalone.min',
         parsley: 'lib/parsleyjs/parsley',
@@ -45,10 +42,10 @@
         ckadapter: 'lib/ckeditor/adapters/jquery',
         'auto-grow': 'lib/jquery-autogrow/lib/jquery-autogrow.min',
         toastr: 'lib/toastr/toastr',
-        'flying-focus': 'lib/flying-focus/standalone/flying-focus',
 
         //plugins - no bower
         autonumeric: 'app/plugins/autoNumeric-master/autoNumeric',
+        'flying-focus': 'app/plugins/flying-focus',
 
         // Templating.
         handlebars: 'lib/handlebars/handlebars',
@@ -95,16 +92,6 @@
             deps : ['jquery'],
             exports : 'parsley'
         },
-        noty : {
-            deps : ['jquery'],
-            exports : 'noty'
-        },
-        "noty-inline" : {
-            deps : ['noty']
-        },
-        "noty-default" : {
-            deps : ['noty']
-        },
         "intro" : {
             exports : ['introJs']
         },
@@ -124,6 +111,9 @@
         },
         autonumeric : {
             deps : ['jquery']
+        },
+        'flying-focus': {
+            exports: 'FlyingFocus'
         }
     },
     hbs: {

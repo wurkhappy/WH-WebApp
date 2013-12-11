@@ -33,12 +33,22 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
         this.bankAccounts = options.bankAccounts;
         this.bankAccounts.fetch();
         this.paymentMethodsView = new PaymentMethods({bankAccounts: this.bankAccounts});
+        this.acceptsBankTransfer = options.acceptsBankTransfer;
+        this.acceptsCreditCard = options.acceptsCreditCard;
         this.render();
       },
 
       render:function(event){
+
+        if (this.acceptsCreditCard && this.acceptsBankTransfer) {
+          var allPaymentMethods = true;
+        }
+
         this.$el.html(this.template(_.extend({
           payments: this.collection.toJSON(),
+          acceptsCreditCard: this.acceptsCreditCard,
+          acceptsBankTransfer: this.acceptsBankTransfer,
+          allPaymentMethods: allPaymentMethods
         }, this.calculatePayment())));
 
         this.$('header').html(this.paymentMethodsView.$el);
@@ -46,16 +56,33 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
 
       events: {
         "click #pay-button": "requestPayment",
-        "change #milestoneToPay":"updateView"
+        "change #milestoneToPay":"updateView",
+        "click #show_fee_detail": "showFeeDetail"
       },
       calculatePayment: function(){
         var milestonePayment = this.model.get("amount");
-        var wurkHappyFee = milestonePayment * .05;
-        var amountTotal = milestonePayment - wurkHappyFee;
+        var wurkHappyFee = (milestonePayment * .05 < 51)? (milestonePayment*.05): 50;
+        console.log(wurkHappyFee);
+        var bankTransferFee = 5;
+        var creditCardFee = (milestonePayment * .029) +.3;
+        var processingFee = (this.acceptsCreditCard === true)? creditCardFee: bankTransferFee;
+
+        if (!this.acceptsCreditCard) {
+           var feeTotal = bankTransferFee+wurkHappyFee;
+        } else {
+          var feeTotal = creditCardFee+wurkHappyFee;
+        }
+        var amountTotal = milestonePayment - feeTotal;
+
+
         return {
-          milestonePayment: milestonePayment,
-          wurkHappyFee: wurkHappyFee,
-          amountTotal: amountTotal,
+          milestonePayment: milestonePayment.toFixed(2),
+          wurkHappyFee: wurkHappyFee.toFixed(2),
+          bankTransferFee: bankTransferFee.toFixed(2),
+          creditCardFee: creditCardFee.toFixed(2),
+          processingFee: processingFee.toFixed(2),
+          feeTotal: feeTotal.toFixed(2),
+          amountTotal: amountTotal.toFixed(2)
         }
       },
       updateView: function(event){
@@ -81,6 +108,12 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
         var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
         this.trigger("paymentRequested", creditSource);
         this.trigger('hide');
+      },
+
+      showFeeDetail: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        $('.fee_detail_container').slideToggle('slow');
       }
 
     });

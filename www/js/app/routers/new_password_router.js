@@ -1,6 +1,6 @@
-define(['backbone', 'views/new_password/new_password'],
+define(['backbone', 'flying-focus', 'views/new_password/new_password'],
 
-    function (Backbone, NewPasswordView) {
+    function (Backbone, FlyingFocus, NewPasswordView) {
 
       'use strict';
 
@@ -11,6 +11,7 @@ define(['backbone', 'views/new_password/new_password'],
         },
 
         initialize: function () {
+          FlyingFocus();
         },
 
         index: function () {

@@ -32,7 +32,12 @@
       switchToEstimate: function(){
         this.header.show(new HeaderCancel({model: this.model}));
         this.progress.show(new ProgressBar({title: "Payment Schedule", value: 1}));
-        this.main.show(new EstimateView({model: this.model, collection:this.model.get("payments")}));
+        this.main.show(new EstimateView({
+          model: this.model,
+          collection: this.model.get("payments"),
+          acceptsCreditCard: this.model.get("acceptsCreditCard"),
+          acceptsBankTransfer: this.model.get("acceptsBankTransfer")
+        }));
       },
       switchToReview:function(){
         this.header.show(new HeaderCancel({model: this.model}));

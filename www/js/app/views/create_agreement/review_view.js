@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'text!templates/create_agreement/review_tpl.html', 'views/agreement/payments_read_view',
+define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl', 'views/agreement/payments_read_view',
   'views/agreement/read/modals/agreement_submit', 'views/ui-modules/modal'],
 
   function (Backbone, Handlebars, tpl, PaymentsView, AgreementSubmitModal, Modal) {
@@ -6,7 +6,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/review_tpl.ht
     'use strict';
 
     var ReviewView = Backbone.View.extend({
-      template: Handlebars.compile(tpl),
+      template: tpl,
       className:'clear white_background review_container',
       events: {
         "click #submitAgreement":"continue"
@@ -21,6 +21,7 @@ define(['backbone', 'handlebars', 'text!templates/create_agreement/review_tpl.ht
           model: this.model.toJSON(),
           totalAmount: totalAmount
         }));
+
         var paymentsView = new PaymentsView({model: this.model});
         paymentsView.render();
         this.$('#payments-section').html(paymentsView.$el);

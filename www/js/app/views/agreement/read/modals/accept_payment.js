@@ -19,6 +19,10 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         this.listenTo(this.user.get("bank_accounts"), "add", this.render);
 
         this.otherUser = options.otherUser;
+
+        this.acceptsBankTransfer = options.acceptsBankTransfer;
+        this.acceptsCreditCard = options.acceptsCreditCard;
+
         this.render();
       },
       render:function(){
@@ -26,12 +30,16 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         var amountTotal = milestonePayment;
         var creditCards = this.user.get("cards").toJSON();
         var bankAccounts = this.user.get("bank_accounts").toJSON();
+        var acceptsBankTransfer = this.acceptsBankTransfer;
+        var acceptsCreditCard = this.acceptsCreditCard;
 
         this.$el.html(this.payTemplate({
           milestonePayment: milestonePayment,
           amountTotal: amountTotal,
           creditCards: creditCards,
-          bankAccounts: bankAccounts
+          bankAccounts: bankAccounts,
+          acceptsCreditCard: acceptsCreditCard,
+          acceptsBankTransfer: acceptsBankTransfer
         }));
 
         $(".payment_select_container").hide();
@@ -56,10 +64,15 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
       },
 
       acceptRequest: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
 
-        var $debitSource = $(".select_bank_account:checked").val() || $(".select_credit_card:checked").val() || '';
+        var bankAccount = $(".select_bank_account:checked").val();
+        var creditCard = $(".select_credit_card:checked").val()
+        var $debitSource =  bankAccount || creditCard || '';
+        var paymentType = (bankAccount) ? "BankBalanced" : "CardBalanced";
 
-        this.model.accept($debitSource);
+        this.model.accept($debitSource, paymentType);
 
         var status;
 

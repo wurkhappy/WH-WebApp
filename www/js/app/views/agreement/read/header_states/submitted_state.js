@@ -1,9 +1,9 @@
 
-define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/agreement/read/header_states/base_state',
+define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state',
   'hbs!templates/agreement/accept_tpl', 'views/agreement/read/modals/reject', 'views/ui-modules/modal',
   'views/agreement/read/modals/accept_payment'],
 
-  function (Backbone, Handlebars, noty, noty_layout, noty_default, BaseState, payTemplate, RejectModal,
+  function (Backbone, Handlebars, BaseState, payTemplate, RejectModal,
     Modal, AcceptModal) {
 
     'use strict';
@@ -24,7 +24,13 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
 
         if (this.statusType === 'payment') {
           if (!this.acceptModal){
-            var view = new AcceptModal({model:this.model.get("payments").findSubmittedPayment(), user:this.user, otherUser: this.otherUser});
+            var view = new AcceptModal({
+              model:this.model.get("payments").findSubmittedPayment(),
+              user:this.user,
+              otherUser: this.otherUser,
+              acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
+              acceptsCreditCard: this.model.get("acceptsCreditCard")
+            });
             this.acceptModal = new Modal({view:view});
           } 
           this.acceptModal.show();
@@ -32,7 +38,13 @@ define(['backbone', 'handlebars', 'noty', 'noty-inline', 'noty-default', 'views/
         } else if (this.model.get("payments").findFirstRequiredPayment()){
 
           if (!this.depositModal){
-            var view = new AcceptModal({model:this.model.get("payments").findFirstRequiredPayment(), user:this.user, otherUser: this.otherUser});
+            var view = new AcceptModal({
+              model:this.model.get("payments").findFirstRequiredPayment(),
+              user:this.user,
+              otherUser: this.otherUser,
+              acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
+              acceptsCreditCard: this.model.get("acceptsCreditCard")
+            });
             this.depositModal = new Modal({view:view});
           } 
           this.depositModal.show();   

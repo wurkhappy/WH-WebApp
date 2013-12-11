@@ -42,7 +42,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
 
         this.model.save({},{success:function(model, response){
 
-          toastr.success('Agreement Sent!');
+          toastr.success('Agreement Sent');
 
           var changeWindow = function () {
             window.location = "/home";
@@ -68,7 +68,14 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
 
         this.model.save({},{success:function(model, response){
           if (!that.modal){
-            var view = new DepositRequestModal({model: that.deposit, collection: that.model.get("payments"), cards: that.user.get("cards"), bankAccounts: that.user.get("bank_accounts")});
+            var view = new DepositRequestModal({
+              model: that.deposit,
+              collection: that.model.get("payments"),
+              cards: that.user.get("cards"),
+              bankAccounts: that.user.get("bank_accounts"),
+              acceptsBankTransfer: that.model.get("acceptsBankTransfer"),
+              acceptsCreditCard: that.model.get("acceptsCreditCard")
+            });
             that.modal = new Modal({view:view});
             that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
           } 
@@ -82,7 +89,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
 
         this.model.save({},{success:function(model, response){
 
-          toastr.success('Agreement Sent and Deposit Requested');
+          //toastr.success('Agreement Sent and Deposit Requested');
 
           var submitSuccess = function(){
             that.modal.view.model.submit(creditSource, function(){

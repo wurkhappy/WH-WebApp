@@ -2,14 +2,14 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'models/agreement', 'views/agreement/layout_manager',
+ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
   'views/agreement/payments_read_view', 'views/agreement/user_view',
   'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
-  'views/agreement/read/header_view', 'views/agreement/communication/communication_layout','models/user', 'views/agreement/progress_bar_view',
+  'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
   'collections/tags'],
 
-  function (Backbone, AgreementModel, LayoutView, PaymentsReadView, UserView,
-    UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, UserModel, ProgressBarView, TagCollection) { 
+  function (Backbone, FlyingFocus, AgreementModel, LayoutView, PaymentsReadView, UserView,
+    UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView, UserModel, ProgressBarView, TagCollection) { 
 
     'use strict';
 
@@ -30,10 +30,12 @@
         this.user.set("bank_accounts", window.bank_account);
         this.tags = new TagCollection(window.tags);
         this.tags.addMileStoneTags(this.model.get("payments"));
+        FlyingFocus();
       },
 
       readAgreement: function () {
         this.layout.agreementProgressBar.show(new ProgressBarView({model: this.model}));
+        this.layout.paymentMethods.show(new PaymentMethodsView({model: this.model}));
         this.layout.paymentSchedule.show(new PaymentsReadView({model: this.model}));
         this.layout.profile.show(new UserView());
         this.layout.header.show(new HeaderView({model: this.model, user: this.user, otherUser: this.otherUser}));
@@ -52,7 +54,7 @@
         
       },
       commentAdded: function(comment){
-        this.model.get("comments").add(comment.toJSON());
+        this.model.get("comments").add(comment);
         comment.collection = this.model.get("comments");
       }
 

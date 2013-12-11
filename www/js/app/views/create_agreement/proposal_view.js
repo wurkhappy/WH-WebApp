@@ -2,7 +2,7 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'text!templates/create_agreement/proposal_tpl.html'],
+ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'hbs!templates/create_agreement/proposal_tpl'],
 
   function (Backbone, Handlebars, _, moment, parsley, scopeTemplate) {
 
@@ -13,7 +13,7 @@
       className:'clear white_background',
       attributes:{'id':'content'},
 
-      template: Handlebars.compile(scopeTemplate),
+      template: scopeTemplate,
 
       initialize: function (options) {
         this.userID = options.userID;
@@ -30,13 +30,11 @@
         'blur input[type="radio"]': "updateRole",
         'blur input[type="checkbox"]': "updateClauses",
         "blur textarea": "updateField",
-        "click .submit-buttons" : "saveAndContinue",
-        "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
-        "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
-        "click .create_agreement_navigation_link": "showPage"
+        "mousedown .submit-buttons" : "saveAndContinue",
       },
 
       updateField: function(event){
+        console.log("field");
         this.model.set(event.target.name, event.target.value);
       },
       updateRole: function(event){
@@ -52,6 +50,7 @@
         this.model.get("clauses").add({id:$element.data('clauseid'), text:$element.data('text'), userID:this.userID});
       },
       saveAndContinue:function(event){
+        console.log("save");
         event.preventDefault();
         event.stopPropagation();
 
@@ -66,28 +65,6 @@
             }, this)
           });
         }
-      },
-
-      showPage: function(event) {
-        $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
-        event.preventDefault();
-        event.stopPropagation();
-
-        var destination = $(event.currentTarget).attr('href');
-
-        this.model.save({},{
-          success:_.bind(function(model, response){
-            window.location.hash = destination;
-          }, this)
-        });
-      },
-
-      mouseEnterNavigation: function (event) {
-          $(event.currentTarget).find("h2").addClass("create_agreement_navigation_link_hover");
-      },
-
-      mouseLeaveNavigation: function (event) {
-          $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
       }
     });
 

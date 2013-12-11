@@ -2,7 +2,7 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'text!templates/create_agreement/scope_item_tpl.html'],
+ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/scope_item_tpl'],
 
   function (Backbone, Handlebars, _, itemTemplate) {
 
@@ -11,7 +11,7 @@
     var PaymentScopeItemView = Backbone.View.extend({
 
       tagName:'li',
-      template: Handlebars.compile(itemTemplate),
+      template: itemTemplate,
 
       initialize: function (options) {
         this.router = options.router;
