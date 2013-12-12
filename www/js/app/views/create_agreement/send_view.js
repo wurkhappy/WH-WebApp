@@ -24,7 +24,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
         this.deposit = this.model.get("payments").at(0);
         var deposit;
 
-        if (this.deposit && this.deposit.get("required") && this.deposit.get("amount") > 0) {
+        if (this.deposit && this.deposit.get("required") && this.deposit.get("amount") > 0 && this.user.id === this.model.get("freelancerID")) {
           deposit = true;
         }
         var otherUserEmail = (this.otherUser) ? this.otherUser.get("email") : null;
