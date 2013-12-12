@@ -24,6 +24,7 @@
         this.model = new AgreementModel(window.agreement);
         this.model.set("comments", window.comments);
         this.user = new UserModel(window.thisUser);
+        this.model.userID = this.user.id;
         this.otherUser = new UserModel(window.otherUser);
         this.user.set("cards", window.cards);
         this.user.set("bank_accounts", window.bank_account);
