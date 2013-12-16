@@ -24,6 +24,8 @@ define(['backbone', 'handlebars', 'hbs!templates/account/verification'],
         this.amounts[event.target.name] = parseFloat(event.target.value);
       },
       verify: function(event){
+        event.preventDefault();
+        event.stopPropagation();
         var callback = _.bind(function(response){
           console.log("callback")
           this.trigger('hide');

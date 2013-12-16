@@ -18,6 +18,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         return this;
       },
       removeModel:function(){
+        event.preventDefault();
+        event.stopPropagation();
         this.model.destroy();
       }
     });

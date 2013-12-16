@@ -75,6 +75,8 @@
       },
 
       save:function(){
+        event.preventDefault();
+        event.stopPropagation();
         $( '.account_personal_form' ).parsley( 'validate' );
 
         var isValid = $( '.account_personal_form' ).parsley( 'isValid' );

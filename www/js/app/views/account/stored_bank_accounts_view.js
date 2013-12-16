@@ -18,6 +18,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.listenTo(this.model, 'change', this.render);
       },
       verify: function(){
+        event.preventDefault();
+        event.stopPropagation();
         if(!this.modal){
           var view = new VerificationModal({model:this.model});
           this.modal = new Modal({view:view});
@@ -25,6 +27,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.modal.show();
       },
       removeModel:function(){
+        event.preventDefault();
+        event.stopPropagation();
         this.model.destroy();
       }
     });
