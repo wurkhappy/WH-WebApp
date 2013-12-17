@@ -20,22 +20,36 @@
 
       initialize: function(options) {
         this.deposit = options.deposit;
-
         this.render();
+        this.scopeItems = this.collection.toJSON();
       },
 
       render: function() {
         var deposit = this.deposit;
+        var scopeItems = this.scopeItems;
+        var collection = this.collection.models;
+        var that = this;
 
         this.$el.html(this.template({
-          deposit: deposit
+          deposit: deposit,
+          collection: this.collection
         }));
+
+        // iterate through collection and append existing scope items to milestone
+        _.each(collection, function(element, index, list){
+            var scopeItemView = new ScopeItemView({
+              collection: element,
+            });
+            that.$('.create_scope_item_container').append(scopeItemView.render().el);
+        });
+
       },
 
       events:{
         "keypress input" : "addOnEnter",
         "click .add_comment": "addScopeItem",
-        "focus input": "fadeError"
+        "focus input": "fadeError",
+        "click .item_delete" : "removeItem"
       },
 
       addOnEnter: function(event){
@@ -45,6 +59,7 @@
         }
       },
 
+
       addScopeItem: function(event) {
         event.preventDefault();
         var $text = $(event.target).prev('.add_work_item_input'),
@@ -52,9 +67,9 @@
             $error = $(event.target).next('.add_work_item_error');
 
         if ($text.val() === '') {
-          $error.fadeIn('fast');
+          $error.fadeIn('slow');
           $input.keypress( function() {
-            $('.add_work_item_error').fadeOut('fast');
+            $('.add_work_item_error').fadeOut('slow');
           });
           $text.focus();
 
@@ -63,6 +78,11 @@
           $text.val(null);
           $text.focus();
         }
+      },
+
+      removeItem: function(event){
+        event.preventDefault();
+        this.model.collection.remove(this.model);
       },
 
       fadeError: function(event) {

@@ -26,13 +26,14 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
 
         this.$el.html(this.template({
           model: this.model.toJSON(),
-          deposit: deposit
+          deposit: deposit,
         }));
         var paymentScopeView = new PaymentScopeView({
           model: this.model,
-          collection:this.model.get('scopeItems'),
+          collection: this.model.get('scopeItems'),
           deposit: deposit
         });
+
         paymentScopeView.render();
         paymentScopeView.$el.insertBefore(this.$('.removeButton'));
         this.$el.fadeIn('slow');
