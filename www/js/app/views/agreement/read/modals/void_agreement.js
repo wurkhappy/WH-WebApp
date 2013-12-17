@@ -30,9 +30,15 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/void_agreem
           toastr.success('Agreement Archived');
         };
 
+        var goHome = function() {
+          window.location = "/home";
+        };
+
         var triggerNotification = _.debounce(fadeInNotification, 300);
+        var triggerHome = _.debounce(goHome, 800);
         this.trigger('hide');
         triggerNotification();
+        triggerHome();
       },
 
     });
