@@ -23,11 +23,12 @@
 
       initialize: function(options) {
         this.user = options.user;
+        this.otherUser = options.otherUser;
       },
       switchToProposal: function(){
         this.header.show(new HeaderCancel({model: this.model}));
         this.progress.show(new ProgressBar({title: "Agreement Overview", value: 0}));
-        this.main.show(new ProposalView({model: this.model}));
+        this.main.show(new ProposalView({model: this.model, userID: this.user.id}));
       },
       switchToEstimate: function(){
         this.header.show(new HeaderCancel({model: this.model}));
@@ -52,7 +53,7 @@
       switchToSend: function(){
         this.header.show(new HeaderCancel({model: this.model}));
         this.progress.show(new ProgressBar({title: "Agreement Review", value: 3}));
-        this.main.show(new SendView({model: this.model, user: this.user}));
+        this.main.show(new SendView({model: this.model, user: this.user, otherUser: this.otherUser}));
       }
     });
 

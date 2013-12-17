@@ -14,13 +14,13 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
       initialize:function(options){
         BaseState.prototype.initialize.apply(this);
-        this.button1Title = (this.userIsClient) ? "Accept " + this.statusType : "Waiting for Response"; 
-        this.button2Title = (this.userIsClient) ? "Reject " + this.statusType : null;
+        this.button1Title = (this.userIsClient || !this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response"; 
+        this.button2Title = (this.userIsClient || !this.userIsStateCreator) ? "Reject " + this.statusType : null;
         this.user = options.user;
         this.otherUser = options.otherUser;
       },
       button1:function(event){
-        if (!this.userIsClient) return;
+        // if (!this.userIsClient || this.userIsStateCreator) return;
 
         if (this.statusType === 'payment') {
           if (!this.acceptModal){
@@ -35,7 +35,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
           } 
           this.acceptModal.show();
 
-        } else if (this.model.get("payments").findFirstRequiredPayment()){
+        } else if (this.model.get("payments").findFirstRequiredPayment() && this.userIsClient){
 
           if (!this.depositModal){
             var view = new AcceptModal({

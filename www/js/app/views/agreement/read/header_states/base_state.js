@@ -11,6 +11,7 @@ define(['backbone', 'handlebars'],
         if (this.model.get("draft")) return;
         this.status = this.model.get("currentStatus");
         this.statusType = (this.status.get("paymentID")) ? "payment" : "agreement";
+        this.userIsStateCreator = this.status.get("userID") == window.thisUser.id;
       },
       button1:function(event){
       },

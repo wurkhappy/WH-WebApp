@@ -40,13 +40,13 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 return this;
             },
             submit: function(creditSource, successCallback){
-                this.updateStatus({"action":"submitted", "creditSourceURI":creditSource}, successCallback);
+                this.updateStatus({"action":"submitted", "creditSourceURI":creditSource, "userID":this.collection.parent.userID}, successCallback);
             },
             accept: function(debitSource, paymentType){
-                this.updateStatus({"action":"accepted", "debitSourceURI": debitSource, "paymentType": paymentType});
+                this.updateStatus({"action":"accepted", "debitSourceURI": debitSource, "paymentType": paymentType, "userID":this.collection.parent.userID});
             },
             reject: function(message){
-                this.updateStatus({"action":"rejected", "message":message});
+                this.updateStatus({"action":"rejected", "message":message, "userID":this.collection.parent.userID});
             },
             updateStatus:function(reqData, successCallback){
                 $.ajax({

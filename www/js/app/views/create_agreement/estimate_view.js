@@ -25,7 +25,7 @@
 
       events:{
         "click #addMoreButton" : "addMilestone",
-        "mousedown .submit-buttons > a" : "saveAndContinue",
+        "click .submit-buttons > a" : "saveAndContinue",
         "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
         "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
         "click .create_agreement_navigation_link": "showPage",

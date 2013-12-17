@@ -22,6 +22,7 @@
 
       render: function () {
         this.$el.html(this.template(this.model.toJSON()));
+        _.defer(_.bind(this.onRender, this));
         return this;
       },
 
@@ -32,7 +33,9 @@
         "blur textarea": "updateField",
         "click .submit-buttons" : "saveAndContinue",
       },
-
+      onRender: function(){
+        if(this.userID === this.model.get("clientID")) this.$('input[name=role][value=clientID]').prop("checked",true);
+      },
       updateField: function(event){
         this.model.set(event.target.name, event.target.value);
       },
