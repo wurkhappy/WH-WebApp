@@ -3912,24 +3912,25 @@ div.faqcontent h2 {
 .payment_select_container {
   list-style: none;
   font-size: 14px;
+  text-align: left;
 }
-/* line 104, ../scss/components/_popup.scss */
+/* line 105, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 109, ../scss/components/_popup.scss */
+/* line 110, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 113, ../scss/components/_popup.scss */
+/* line 114, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
 }
 
-/* line 118, ../scss/components/_popup.scss */
+/* line 119, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
@@ -5127,38 +5128,49 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /* line 294, ../scss/components/_discussion_container.scss */
+.tag_filter_container {
+  width: 183px;
+  overflow: hidden;
+  border-radius: 5px;
+  margin: 4px 0;
+}
+/* line 298, ../scss/components/_discussion_container.scss */
+.tag_filter_container:hover {
+  border-radius: 5px;
+}
+
+/* line 304, ../scss/components/_discussion_container.scss */
 .tag_filter {
   border-radius: 5px;
   padding: 0 5px;
-  margin: 4px 0;
   width: 600px;
 }
-
-/* line 301, ../scss/components/_discussion_container.scss */
+/* line 308, ../scss/components/_discussion_container.scss */
 .tag_filter:hover {
   background: #bababa;
   color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-/* line 307, ../scss/components/_discussion_container.scss */
+/* line 316, ../scss/components/_discussion_container.scss */
 .tag_filter_active {
   background: #999999;
   color: white;
 }
 
-/* line 312, ../scss/components/_discussion_container.scss */
+/* line 321, ../scss/components/_discussion_container.scss */
 .tag_active {
   color: white;
   background: #80bfff;
 }
 
-/* line 317, ../scss/components/_discussion_container.scss */
+/* line 326, ../scss/components/_discussion_container.scss */
 .new_tag_container {
   margin-left: 5px;
 }
 
-/* line 321, ../scss/components/_discussion_container.scss */
+/* line 330, ../scss/components/_discussion_container.scss */
 .new_tag {
   min-width: 0;
   max-width: 200px;
@@ -5172,12 +5184,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 10px;
   line-height: 16px;
 }
-/* line 333, ../scss/components/_discussion_container.scss */
+/* line 342, ../scss/components/_discussion_container.scss */
 .new_tag:focus {
   outline: none;
 }
 
-/* line 339, ../scss/components/_discussion_container.scss */
+/* line 348, ../scss/components/_discussion_container.scss */
 .new_added_tag {
   margin-left: 5px;
 }
