@@ -23,13 +23,14 @@
       initialize: function () {
         this.model = new AgreementModel(window.agreement);
         this.model.set("comments", window.comments);
-        this.layout = new LayoutView({model: this.model});
         this.user = new UserModel(window.thisUser);
+        this.model.userID = this.user.id;
         this.otherUser = new UserModel(window.otherUser);
         this.user.set("cards", window.cards);
         this.user.set("bank_accounts", window.bank_account);
         this.tags = new TagCollection(window.tags);
         this.tags.addMileStoneTags(this.model.get("payments"));
+        this.layout = new LayoutView({model: this.model, user: this.user});
         FlyingFocus();
       },
 
@@ -51,7 +52,7 @@
         this.layout.profile.show(new UserEditView({model: this.model}));
       },
       sample: function(){
-        
+
       },
       commentAdded: function(comment){
         this.model.get("comments").add(comment);

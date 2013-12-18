@@ -245,15 +245,16 @@ fieldset {
   font-size: 12px;
   color: #969696;
   margin: 0 0 10px 0;
+  text-align: left;
 }
 
-/* line 213, ../scss/bases/_common.scss */
+/* line 214, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 218, ../scss/bases/_common.scss */
+/* line 219, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #dbe0e6;
   clear: both;
@@ -261,7 +262,7 @@ fieldset {
   width: 100%;
 }
 
-/* line 225, ../scss/bases/_common.scss */
+/* line 226, ../scss/bases/_common.scss */
 .required {
   color: #972b46;
   display: inline;
@@ -5124,13 +5125,13 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 291, ../scss/components/_discussion_container.scss */
 .tag_filter {
   border-radius: 5px;
-  padding: 2px 5px;
-  margin: 2px 0;
+  padding: 0 5px;
+  margin: 4px 0;
 }
 
 /* line 297, ../scss/components/_discussion_container.scss */
 .tag_filter:hover {
-  background: #999999;
+  background: #bababa;
   color: white;
   cursor: pointer;
 }

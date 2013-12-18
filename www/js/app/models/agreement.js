@@ -54,6 +54,7 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
             ],
 
             idAttribute: "versionID",
+            userID: "",
             urlRoot:function(){
                 return "/agreement/v";
             },
@@ -72,20 +73,20 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                   url: "/agreement/v/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
-                  data:JSON.stringify({"action":action, "message":message, "versionlessID":this.get("versionlessID")}),
+                  data:JSON.stringify({"action":action, "message":message, "userID": this.userID}),
                   success: _.bind(function(response){
                     this.set("currentStatus", response);
                     if (_.isFunction(successCallback)) successCallback();
                 }, this)
               });
             },
-            archive: function(successCallback){
+            archive: function(userID, successCallback){
                 $.ajax({
                   type: "POST",
                   url: "/agreement/v/"+this.id+"/archive",
                   contentType: "application/json",
                   dataType: "json",
-                  data:JSON.stringify({}),
+                  data:JSON.stringify({userID: userID}),
                   success: _.bind(function(response){
                     this.set(response);
                     this.get("currentStatus").trigger("change");

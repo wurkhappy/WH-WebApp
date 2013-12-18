@@ -1,13 +1,13 @@
 
 define(['backbone', 'handlebars', 'hbs!templates/agreement/communication/message_item'],
 
-  function (Backbone, Handlebars, commentTpl) {
+  function (Backbone, Handlebars, messageItemTpl) {
 
     'use strict';
 
     var CommentView = Backbone.View.extend({
 
-      template: commentTpl,
+      template: messageItemTpl,
       className: "hide comment_container",
 
       initialize: function(options){
@@ -34,9 +34,9 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/communication/message
 
         var otherName;
         if (this.otherUser.get("firstName")) {
-          name = this.otherUser.get("firstName") +' '+ this.otherUser.get("lastName");
+          otherName = this.otherUser.get("firstName") +' '+ this.otherUser.get("lastName");
         } else {
-          name = this.otherUser.get("email");
+          otherName = this.otherUser.get("email");
         }
 
         var milestoneTitle = (this.milestone) ? this.milestone.get("title") : "";
