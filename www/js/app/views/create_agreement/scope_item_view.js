@@ -24,7 +24,6 @@
       },
 
       render: function () {
-        console.log("rendering paymentscope Item");
         this.$el.html(this.template(this.model.toJSON()));
         return this;
       },

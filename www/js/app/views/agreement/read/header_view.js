@@ -21,23 +21,40 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
 
       render:function(){
         var waiting;
+        var archived = this.model.get("archived");
         var currentStatus = this.model.get("currentStatus");
+        var button1Title;
+        var button2Title;
 
-        if (currentStatus !== null) {
+        /*if (currentStatus !== null) {
           if (this.state.button1Title === currentStatus.StatusWaiting) {
             waiting = true;
           }
         } else {
           waiting = false;
-        }
+        }*/
 
-        
+        // Show the right buttons depending on the state.
+        if (archived === true) {
+          button1Title = false;
+          button2Title = false;
+          waiting = false;
+        } else if (currentStatus !== null && this.state.button1Title === currentStatus.StatusWaiting) {
+            waiting = true;
+            button1Title = false;
+            button2Title = false;
+        } else {
+          waiting = false;
+          button1Title = this.state.button1Title;
+          button2Title = this.state.button2Title;
+        }
 
         this.$el.html(this.template({
           model: this.model.toJSON(), 
-          button1Title: this.state.button1Title,
-          button2Title: this.state.button2Title,
-          waiting: waiting
+          button1Title: button1Title,
+          button2Title: button2Title,
+          waiting: waiting,
+          archived: archived
         }));
 
         return this;
