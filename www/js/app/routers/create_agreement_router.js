@@ -27,6 +27,8 @@
         this.model.set({acceptsCreditCard: true});
         this.model.set({acceptsBankTransfer: true});
         if (window.agreement) {this.model = new AgreementModel(window.agreement)}
+        this.model.userID = this.user.id;
+        console.log(this.model);
         this.mainContainer = new MainContainerView({model: this.model});
         this.layout = new Layout({model: this.model, user: this.user, otherUser: this.otherUser});
         FlyingFocus();

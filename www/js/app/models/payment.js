@@ -35,7 +35,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 } else if (key === 'amount'){
                     this.attributes.amount = parseFloat(value);
                 } else if (key === 'dateExpected'){
-                    this.attributes.dateExpected = moment(value);
+                    this.attributes.dateExpected = (typeof value === "string") ? moment(value) : value;
                 }
                 return this;
             },
