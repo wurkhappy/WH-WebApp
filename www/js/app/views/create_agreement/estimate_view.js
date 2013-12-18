@@ -35,7 +35,6 @@
       },
 
       updatePaymentMethods: function(event){
-
         if (!event.target.name) return;
 
         if (event.target.checked) {
@@ -47,6 +46,7 @@
       renderModel: function(){
         var data = {};
         if(this.deposit) data = this.deposit.toJSON();
+        
         //if credit card & bank transfer payment methods are set by default, add them to data object to be rendered
         // in estimate template
         if(this.model.get("acceptsCreditCard")) data.acceptsCreditCard = this.model.get("acceptsCreditCard");

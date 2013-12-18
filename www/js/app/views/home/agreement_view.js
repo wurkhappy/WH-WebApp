@@ -3,7 +3,7 @@
  */
 
  define(['backbone', 'handlebars', 'underscore',
-  'text!templates/home/agreement_tpl.html'],
+  'hbs!templates/home/agreement_tpl'],
 
   function (Backbone, Handlebars, _, agreementTpl) {
 
@@ -34,7 +34,7 @@
     var AgreementView = Backbone.View.extend({
 
       tagName:'tr',
-      template: Handlebars.compile(agreementTpl),
+      template: agreementTpl,
 
       initialize: function (options) {
         this.currentUser = options.currentUser;

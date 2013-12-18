@@ -2,8 +2,8 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/home/section_tpl.html', 'views/home/agreement_view'],
+ define(['backbone', 'handlebars','underscore', 'marionette',
+  'hbs!templates/home/section_tpl', 'views/home/agreement_view'],
 
   function (Backbone, Handlebars, _, Marionette, sectionTemplate, AgreementView) {
 
@@ -11,7 +11,7 @@
 
     var SectionView = Backbone.Marionette.CompositeView.extend({
 
-      template: Handlebars.compile(sectionTemplate),
+      template: sectionTemplate,
 
       itemView: AgreementView,
       itemViewContainer:'table',
@@ -29,7 +29,10 @@
       },
       onRender:function(){
         this.$('h2').text(this.title);
-      }
+      },
+       events: {
+        "click a": "isEmailVerified"
+       }
 
     });
 

@@ -20,6 +20,7 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
       render:function(){
         this.$el.html(this.template({bankAccounts: this.bankAccounts.toJSON()}));
 
+
         return this;
       }
     });
@@ -91,6 +92,11 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
         this.$('#paymentBreakout').html(this.breakoutTpl(this.calculatePayment()))
       },
       requestPayment: function (event) {
+
+        if (this.bankAccounts.length < 1) {
+          toastr.error('Please add a bank account to receive payment');
+          return;
+        }
 
         var fadeOutModal = function () {
           $('#overlay').fadeOut('fast');

@@ -8,7 +8,11 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
     var PaymentEditView = Backbone.Marionette.CompositeView.extend({
 
+<<<<<<< HEAD
+      template: paymentScopeTemplate,
+=======
       template: paymentEditTemplate,
+>>>>>>> 0566f59ec169764482eacddcd07fbabe0be2770f
 
       itemView: PaymentItemView,
       itemViewContainer:'ul',

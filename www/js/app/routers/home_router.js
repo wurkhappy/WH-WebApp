@@ -2,9 +2,9 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'flying-focus', 'collections/agreements', 'collections/users', 'collections/payments', 'models/user', 'views/home/home_section_view', 'moment'],
+ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collections/users', 'collections/payments', 'models/user', 'views/home/home_section_view', 'moment'],
 
-  function (Backbone, FlyingFocus, AgreementCollection, UserCollection, PaymentCollection, UserModel, SectionView, moment) {
+  function (Backbone, FlyingFocus, toastr, AgreementCollection, UserCollection, PaymentCollection, UserModel, SectionView, moment) {
 
     'use strict';
 
@@ -22,6 +22,12 @@
         this.payments = new PaymentCollection(window.payments);
         this.currentUser = new UserModel(window.currentUser);
         FlyingFocus();
+        this.isVerified = this.currentUser.get("isVerified");
+        if (!this.isVerified) {
+          $("#create_agreement").removeAttr('href');
+          this.notVerified();
+        }
+
       },
 
       AllAgreements: function () {
@@ -65,6 +71,11 @@
       },
       ClientAgreements: function () {
 
+      },
+      notVerified: function() {
+        $("#create_agreement").click( function(event) {
+          toastr.error("You must verify your email before you can create an agreement");
+        });
       }
 
     });
