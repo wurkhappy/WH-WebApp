@@ -241,6 +241,8 @@
 	height: 370px;
 	font-weight:100;
 	border-radius:5px;
+	width: 210px;
+	overflow-x :hidden;
 }
 
 .tags_title {
@@ -283,6 +285,7 @@
 	font-weight: 100;
 	font-family: museo;
 	font-size: 14px;
+	margin-left: 5px;
 	&:hover {
 		cursor:pointer;
 	}
@@ -292,6 +295,7 @@
 	border-radius: 5px;
 	padding: 0 5px;
 	margin: 4px 0;
+	width: 600px;
 }
 
 .tag_filter:hover {
