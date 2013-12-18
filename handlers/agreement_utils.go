@@ -8,4 +8,5 @@ type Status struct {
 	UserID          string `json:"userID,omitempty"`
 	CreditSourceURI string `json:"creditSourceURI,omitempty"`
 	DebitSourceURI  string `json:"debitSourceURI,omitempty"`
+	PaymentType     string `json:"paymentType,omitempty"`
 }

@@ -76,7 +76,10 @@
 
       save:function(){
         event.preventDefault();
+<<<<<<< HEAD
         event.stopPropagation();
+=======
+>>>>>>> 5a55670dc4614fbf890b5e55b54e60b6df3b18b9
         $( '.account_personal_form' ).parsley( 'validate' );
 
         var isValid = $( '.account_personal_form' ).parsley( 'isValid' );
