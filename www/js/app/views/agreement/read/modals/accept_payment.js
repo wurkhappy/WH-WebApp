@@ -1,6 +1,6 @@
 
 define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/base_state',
-  'text!templates/agreement/accept_tpl.html', 'views/agreement/read/modals/reject', 'views/ui-modules/modal'],
+  'hbs!templates/agreement/accept_tpl', 'views/agreement/read/modals/reject', 'views/ui-modules/modal'],
 
   function (Backbone, Handlebars, toastr, BaseState, payTemplate, RejectModal, Modal) {
 
@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
 
     var AcceptPayment = Backbone.View.extend({
 
-      payTemplate: Handlebars.compile(payTemplate),
+      payTemplate: payTemplate,
 
       initialize:function(options){
         this.button1Title = (this.userIsClient) ? "Accept " + this.statusType : "Waiting for Response"; 
@@ -24,8 +24,8 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         this.acceptsBankTransfer = options.acceptsBankTransfer;
         this.acceptsCreditCard = options.acceptsCreditCard;
 
-        this.bankAccounts = this.user.get("bank_accounts").toJSON();
-        this.creditCards = this.user.get("cards").toJSON();
+        this.bankAccounts = this.user.get("bank_accounts");
+        this.creditCards = this.user.get("cards");
 
         this.render();
       },
@@ -40,8 +40,8 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         this.$el.html(this.payTemplate({
           milestonePayment: milestonePayment,
           amountTotal: amountTotal,
-          creditCards: creditCards,
-          bankAccounts: bankAccounts,
+          creditCards: creditCards.toJSON(),
+          bankAccounts: bankAccounts.toJSON(),
           acceptsCreditCard: acceptsCreditCard,
           acceptsBankTransfer: acceptsBankTransfer
         }));

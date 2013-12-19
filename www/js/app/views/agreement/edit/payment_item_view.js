@@ -1,7 +1,7 @@
 
 
 define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
-	'text!templates/agreement/edit/payment_item_tpl.html', 'views/agreement/edit/scope_item_view'],
+	'hbs!templates/agreement/edit/payment_item_tpl', 'views/agreement/edit/scope_item_view'],
 
 	function (Backbone, Handlebars, _, Marionette, Kalendae, paymentItemTemplate, ScopeItemView) {
 
@@ -12,7 +12,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 
 		var PaymentEditView = Backbone.Marionette.CompositeView.extend({
 
-			template: Handlebars.compile(paymentItemTemplate),
+			template: paymentItemTemplate,
 
 			itemView: ScopeItemView,
 			itemViewContainer:'.scope_items_container',
@@ -53,7 +53,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 		        }
 		    },
 		    setDate: function(date, action){
-
 		        this.model.set("dateExpected", date);
 
 		         _.delay(this.closeCalendar, 150);

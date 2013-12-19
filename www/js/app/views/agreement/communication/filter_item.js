@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/communication/filter_
     var FilterItem = Backbone.View.extend({
 
       template: scopeItemTpl,
-      className: "tag_filter",
+      className: "tag_filter_container",
       events:{
         "click":"toggleFilterActive"
       },

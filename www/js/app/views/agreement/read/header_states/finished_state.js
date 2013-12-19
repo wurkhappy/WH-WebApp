@@ -9,7 +9,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
       initialize:function(){
         BaseState.prototype.initialize.apply(this);
         this.button1Title = (this.model.get("archived")) ? null : "Archive Agreement"; 
-        this.button2Title = (this.userIsClient) ? null : null; 
+        this.button2Title = (this.userIsClient) ? null : "Edit Agreement";
       },
       button1:function(event){
 
@@ -25,6 +25,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
 
       },
       button2:function(event){
+        this.edit();
       }
 
     });

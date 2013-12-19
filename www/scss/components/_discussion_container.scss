@@ -241,6 +241,8 @@
 	height: 370px;
 	font-weight:100;
 	border-radius:5px;
+	width: 210px;
+	overflow-x :hidden;
 }
 
 .tags_title {
@@ -283,21 +285,32 @@
 	font-weight: 100;
 	font-family: museo;
 	font-size: 14px;
+	margin-left: 5px;
 	&:hover {
 		cursor:pointer;
 	}
 }
 
-.tag_filter {
+.tag_filter_container {
+	width: 183px;
+	overflow: hidden;
 	border-radius: 5px;
-	padding: 0 5px;
+	&:hover {
+		border-radius: 5px;
+	}
 	margin: 4px 0;
 }
 
-.tag_filter:hover {
-	background: hsl(0, 0%, 73%);
-	color: hsl(0, 100%, 100%);
-	cursor: pointer;
+.tag_filter {
+	border-radius: 5px;
+	padding: 0 5px;
+	width: 600px;
+	&:hover {
+		background: hsl(0, 0%, 73%);
+		color: hsl(0, 100%, 100%);
+		cursor: pointer;
+		border-radius: 5px;
+	}
 }
 
 .tag_filter_active {

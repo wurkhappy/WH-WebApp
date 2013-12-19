@@ -263,13 +263,14 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	var tagsData []map[string]interface{}
 	json.Unmarshal(resp, &tagsData)
 
-	otherID, _ := agrmntData["freelancerID"]
+	otherid, _ := agrmntData["freelancerID"]
+	otherID := otherid.(string)
 	if otherID == userID {
-		otherID = agrmntData["clientID"]
+		otherID = agrmntData["clientID"].(string)
 	}
 	var otherUser map[string]interface{}
 	if otherID != "" {
-		otherUser = getUserInfo(otherID.(string))
+		otherUser = getUserInfo(otherID)
 	}
 	thisUser := getUserInfo(userID.(string))
 

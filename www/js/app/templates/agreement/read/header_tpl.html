@@ -4,14 +4,21 @@
 	</div>
 	<div class="column-one-fourth">
 		<ul class="action_button_container">
+			{{#if archived}}
+				<h3 class="waiting">This agreement is archived.</h3>
+			{{/if}}
 			{{#if waiting}}
 				<h3 class="waiting">Waiting for the other party. Nothing to do here.</h3>
-			{{else}}
-				{{#if button1Title}}
-					<li><a href="{{button1Title}}" id="action-button1" class="button action_button">{{button1Title}}</a></li>
-				{{/if}}
 			{{/if}}
-			{{#if button2Title}}<li><a href="{{button2Title}}" id="action-button2" class="button action_button">{{button2Title}}</a></li>{{/if}}
+			{{#if button1Title}}
+				<li>
+					<a href="{{button1Title}}" id="action-button1" class="button action_button">{{button1Title}}
+					</a>
+				</li>
+			{{/if}}
+			{{#if button2Title}}
+			<li><a href="{{button2Title}}" id="action-button2" class="button action_button">{{button2Title}}</a></li>
+			{{/if}}
 		</ul>
 	</div>
 </div>

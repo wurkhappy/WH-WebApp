@@ -36,21 +36,26 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
         this.paymentMethodsView = new PaymentMethods({bankAccounts: this.bankAccounts});
         this.acceptsBankTransfer = options.acceptsBankTransfer;
         this.acceptsCreditCard = options.acceptsCreditCard;
+        if (this.acceptsCreditCard && this.acceptsBankTransfer) {
+          this.allPaymentMethods = true;
+        }
+
+
+
+
         this.render();
       },
 
       render:function(event){
-
-        if (this.acceptsCreditCard && this.acceptsBankTransfer) {
-          var allPaymentMethods = true;
-        }
+        
 
         this.$el.html(this.template(_.extend({
           payments: this.collection.toJSON(),
           acceptsCreditCard: this.acceptsCreditCard,
           acceptsBankTransfer: this.acceptsBankTransfer,
-          allPaymentMethods: allPaymentMethods
-        }, this.calculatePayment())));
+          allPaymentMethods: this.allPaymentMethods
+        }, this.calculatePayment())
+        ));
 
         this.$('header').html(this.paymentMethodsView.$el);
       },
@@ -63,7 +68,6 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
       calculatePayment: function(){
         var milestonePayment = this.model.get("amount");
         var wurkHappyFee = (milestonePayment * .05 < 51)? (milestonePayment*.05): 50;
-        console.log(wurkHappyFee);
         var bankTransferFee = 5;
         var creditCardFee = (milestonePayment * .029) +.3;
         var processingFee = (this.acceptsCreditCard === true)? creditCardFee: bankTransferFee;
@@ -89,7 +93,15 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
       updateView: function(event){
         var id = event.target.value;
         this.model = this.collection.get(id);
-        this.$('#paymentBreakout').html(this.breakoutTpl(this.calculatePayment()))
+
+        console.log(this.allPaymentMethods);
+
+        this.$('#paymentBreakout').html(this.breakoutTpl(_.extend({
+          acceptsCreditCard: this.acceptsCreditCard,
+          acceptsBankTransfer: this.acceptsBankTransfer,
+          allPaymentMethods: this.allPaymentMethods
+        }, this.calculatePayment())
+        ));
       },
       requestPayment: function (event) {
 

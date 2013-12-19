@@ -32,6 +32,8 @@
         this.card[event.target.name] = event.target.value;
       },
       saveCard:function(event){
+        event.preventDefault();
+        event.stopPropagation();
         var that = this;
         balanced.card.create(this.card, function (response) {
           if(response.status === 201) {

@@ -1,12 +1,12 @@
 @charset "UTF-8";
-/* line 36, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
+/* line 36, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 4, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
+/* line 4, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
 img, video {
   max-width: 100%;
   height: auto;
@@ -3877,58 +3877,60 @@ div.faqcontent h2 {
 /* line 73, ../scss/components/_popup.scss */
 .pay_header_container {
   padding-bottom: 40px;
+  text-align: left;
 }
 
-/* line 77, ../scss/components/_popup.scss */
+/* line 78, ../scss/components/_popup.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
   text-align: left;
 }
 
-/* line 83, ../scss/components/_popup.scss */
+/* line 84, ../scss/components/_popup.scss */
 .pay_header_helper {
   text-align: left;
 }
 
-/* line 87, ../scss/components/_popup.scss */
+/* line 88, ../scss/components/_popup.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 91, ../scss/components/_popup.scss */
+/* line 92, ../scss/components/_popup.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 95, ../scss/components/_popup.scss */
+/* line 96, ../scss/components/_popup.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 100, ../scss/components/_popup.scss */
+/* line 101, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
+  text-align: left;
 }
-/* line 103, ../scss/components/_popup.scss */
+/* line 105, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 108, ../scss/components/_popup.scss */
+/* line 110, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 112, ../scss/components/_popup.scss */
+/* line 114, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
 }
 
-/* line 117, ../scss/components/_popup.scss */
+/* line 119, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
@@ -5068,9 +5070,11 @@ progress::-webkit-progress-value, progress.yellow_progress {
   height: 370px;
   font-weight: 100;
   border-radius: 5px;
+  width: 210px;
+  overflow-x: hidden;
 }
 
-/* line 246, ../scss/components/_discussion_container.scss */
+/* line 248, ../scss/components/_discussion_container.scss */
 .tags_title {
   margin-top: 5px;
   margin-bottom: 0;
@@ -5078,23 +5082,23 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding: 0;
 }
 
-/* line 253, ../scss/components/_discussion_container.scss */
+/* line 255, ../scss/components/_discussion_container.scss */
 .message_title {
   padding-left: 0;
 }
 
-/* line 257, ../scss/components/_discussion_container.scss */
+/* line 259, ../scss/components/_discussion_container.scss */
 .enter_tags_container {
   position: absolute;
   margin-top: 10px;
 }
 
-/* line 262, ../scss/components/_discussion_container.scss */
+/* line 264, ../scss/components/_discussion_container.scss */
 .fa-tag {
   margin-right: 10px;
 }
 
-/* line 266, ../scss/components/_discussion_container.scss */
+/* line 268, ../scss/components/_discussion_container.scss */
 .add_tag {
   margin-left: 20px;
   border: 1px solid #f9fafb;
@@ -5102,12 +5106,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 3px;
   padding: 4px;
 }
-/* line 268, ../scss/components/_discussion_container.scss */
+/* line 270, ../scss/components/_discussion_container.scss */
 .add_tag:hover {
   cursor: pointer;
 }
 
-/* line 278, ../scss/components/_discussion_container.scss */
+/* line 280, ../scss/components/_discussion_container.scss */
 .added_tag {
   padding: 0 5px;
   border: 1px solid #cddef4;
@@ -5116,44 +5120,57 @@ progress::-webkit-progress-value, progress.yellow_progress {
   font-weight: 100;
   font-family: museo;
   font-size: 14px;
+  margin-left: 5px;
 }
-/* line 286, ../scss/components/_discussion_container.scss */
+/* line 289, ../scss/components/_discussion_container.scss */
 .added_tag:hover {
   cursor: pointer;
 }
 
-/* line 291, ../scss/components/_discussion_container.scss */
+/* line 294, ../scss/components/_discussion_container.scss */
+.tag_filter_container {
+  width: 183px;
+  overflow: hidden;
+  border-radius: 5px;
+  margin: 4px 0;
+}
+/* line 298, ../scss/components/_discussion_container.scss */
+.tag_filter_container:hover {
+  border-radius: 5px;
+}
+
+/* line 304, ../scss/components/_discussion_container.scss */
 .tag_filter {
   border-radius: 5px;
   padding: 0 5px;
-  margin: 4px 0;
+  width: 600px;
 }
-
-/* line 297, ../scss/components/_discussion_container.scss */
+/* line 308, ../scss/components/_discussion_container.scss */
 .tag_filter:hover {
   background: #bababa;
   color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-/* line 303, ../scss/components/_discussion_container.scss */
+/* line 316, ../scss/components/_discussion_container.scss */
 .tag_filter_active {
   background: #999999;
   color: white;
 }
 
-/* line 308, ../scss/components/_discussion_container.scss */
+/* line 321, ../scss/components/_discussion_container.scss */
 .tag_active {
   color: white;
   background: #80bfff;
 }
 
-/* line 313, ../scss/components/_discussion_container.scss */
+/* line 326, ../scss/components/_discussion_container.scss */
 .new_tag_container {
   margin-left: 5px;
 }
 
-/* line 317, ../scss/components/_discussion_container.scss */
+/* line 330, ../scss/components/_discussion_container.scss */
 .new_tag {
   min-width: 0;
   max-width: 200px;
@@ -5167,12 +5184,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 10px;
   line-height: 16px;
 }
-/* line 329, ../scss/components/_discussion_container.scss */
+/* line 342, ../scss/components/_discussion_container.scss */
 .new_tag:focus {
   outline: none;
 }
 
-/* line 335, ../scss/components/_discussion_container.scss */
+/* line 348, ../scss/components/_discussion_container.scss */
 .new_added_tag {
   margin-left: 5px;
 }

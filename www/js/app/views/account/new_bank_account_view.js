@@ -34,6 +34,7 @@
       },
       saveBankAccount:function(event){
         event.preventDefault();
+        event.stopPropagation();
         var that = this;
         balanced.bankAccount.create(this.account, function (response) {
           if(response.status === 201) {

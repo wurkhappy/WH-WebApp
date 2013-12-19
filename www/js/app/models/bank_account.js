@@ -20,6 +20,18 @@ define(['backbone','backbone-relational'],
 						successCallback(response);
 					}, this)
 				});
+			},
+			set: function( key, value, options ) {
+				Backbone.RelationalModel.prototype.set.apply( this, arguments );
+
+				if (typeof key === 'object') {
+					if (_.has(key, "can_debit") && typeof key["can_debit"] === "string") {
+						this.attributes.can_debit = key["can_debit"] === "true";
+					}
+				} else if (key === 'can_debit' && typeof key === "string"){
+						this.attributes.can_debit = key === "true";
+				}
+				return this;
 			}
 		});
 
