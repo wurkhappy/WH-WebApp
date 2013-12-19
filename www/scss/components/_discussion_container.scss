@@ -291,17 +291,26 @@
 	}
 }
 
+.tag_filter_container {
+	width: 183px;
+	overflow: hidden;
+	border-radius: 5px;
+	&:hover {
+		border-radius: 5px;
+	}
+	margin: 4px 0;
+}
+
 .tag_filter {
 	border-radius: 5px;
 	padding: 0 5px;
-	margin: 4px 0;
 	width: 600px;
-}
-
-.tag_filter:hover {
-	background: hsl(0, 0%, 73%);
-	color: hsl(0, 100%, 100%);
-	cursor: pointer;
+	&:hover {
+		background: hsl(0, 0%, 73%);
+		color: hsl(0, 100%, 100%);
+		cursor: pointer;
+		border-radius: 5px;
+	}
 }
 
 .tag_filter_active {
