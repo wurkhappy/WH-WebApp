@@ -17,7 +17,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         this.user = options.user;
         this.otherUser = options.otherUser
         this.changeState();
-        console.log(this.model.toJSON());
       },
 
       render:function(){
@@ -30,10 +29,11 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         var newAgreement;
         var archived;
 
-        console.log(currentStatus);
+
+        console.log('archived: '+ isArchived);
+        console.log('finalStatus: '+ finalStatus);
+        console.log(currentStatus.get("action"));
         console.log(this.state.button1Title);
-        console.log(this.user);
-        console.log(otherUser);
 
 
         // Show the right buttons depending on the state.
@@ -45,13 +45,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
             waiting = false;
             archived = false;
             newAgreement = true;
-            if ( currentStatus.StatusAccepted === currentStatus.get("action") && this.state.button1Title !== null ) {
-              button1Title = this.state.button1Title;
-              button2Title = this.state.button2Title;
-              waiting = false;
-              archived = false;
-              newAgreement = false;
-            }
         } else if (isArchived === true) {
           button1Title = false;
           button2Title = false;
