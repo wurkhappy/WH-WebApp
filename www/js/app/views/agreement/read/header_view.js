@@ -29,10 +29,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         var newAgreement;
         var archived;
 
-
-        console.log('archived: '+ isArchived);
-        console.log('finalStatus: '+ finalStatus);
-        console.log(currentStatus.get("action"));
         console.log(this.state.button1Title);
 
 
