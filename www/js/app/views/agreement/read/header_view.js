@@ -17,7 +17,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         this.user = options.user;
         this.otherUser = options.otherUser
         this.changeState();
-        console.log(this.model);
+        console.log(this.model.toJSON());
       },
 
       render:function(){
@@ -30,28 +30,46 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         var newAgreement;
         var archived;
 
+        console.log(currentStatus);
+        console.log(this.state.button1Title);
+        console.log(this.user);
+        console.log(otherUser);
+
 
         // Show the right buttons depending on the state.
+        
+
         if ( isArchived === true && finalStatus === false) {
             button1Title = false;
             button2Title = false;
             waiting = false;
+            archived = false;
             newAgreement = true;
-        } else if (archived === true) {
+            if ( currentStatus.StatusAccepted === currentStatus.get("action") && this.state.button1Title !== null ) {
+              button1Title = this.state.button1Title;
+              button2Title = this.state.button2Title;
+              waiting = false;
+              archived = false;
+              newAgreement = false;
+            }
+        } else if (isArchived === true) {
           button1Title = false;
           button2Title = false;
           waiting = false;
           newAgreement = false;
+          archived = true;
         } else if (currentStatus !== null && this.state.button1Title === currentStatus.StatusWaiting) {
             waiting = true;
             button1Title = false;
             button2Title = false;
             newAgreement = false;
+            archived = false;
         } else {
           waiting = false;
           button1Title = this.state.button1Title;
           button2Title = this.state.button2Title;
           newAgreement = false;
+          archived = false;
         }
 
         this.$el.html(this.template({
