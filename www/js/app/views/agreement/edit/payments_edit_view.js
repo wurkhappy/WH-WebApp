@@ -26,6 +26,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       },
 
       addMilestone:function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        
         this.collection.add({amount:0.00, title:"New Milestone"});
       },
 
