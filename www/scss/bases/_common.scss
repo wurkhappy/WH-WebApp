@@ -134,6 +134,10 @@ label span {
   color: rgb(150,150,150);
 }
 
+input {
+  max-width: 350px;
+}
+
 input, textarea {
   border: 1px solid rgb(150,150,150);
   padding: 3px;

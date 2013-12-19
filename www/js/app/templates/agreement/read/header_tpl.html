@@ -4,6 +4,9 @@
 	</div>
 	<div class="column-one-fourth">
 		<ul class="action_button_container">
+			{{#if newAgreement}}
+				<h3 class="waiting">New agreement submitted.</h3>
+			{{/if}}
 			{{#if archived}}
 				<h3 class="waiting">This agreement is archived.</h3>
 			{{/if}}

@@ -73,10 +73,10 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
 
         // if user doesn't have stored payment methods, let them know
         if (this.acceptsBankTransfer && this.acceptsCreditCard ) {
-          if ( this.bankAccounts.length < 1 || this.creditCards.length < 1 ) {
+          if ( this.bankAccounts.length < 1 && this.creditCards.length < 1 ) {
             toastr.error('Please add a payment method to make payment');
             return;
-          } 
+          }
         } else if (this.acceptsBankTransfer && this.bankAccounts.length < 1) {
             toastr.error('Please add a bank account to your account to make payment');
             return;
