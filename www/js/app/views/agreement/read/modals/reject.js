@@ -30,6 +30,8 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/reject_tpl
         this.message = event.target.value
       },
       rejectRequest: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
         this.model.reject(this.message, _.bind(function(){this.trigger('hide')},this));
 
         var status;
