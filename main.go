@@ -90,6 +90,8 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	validateSignature(req, session)
 
 	if _, ok := session.Values["id"]; ok {
+		session.Options.MaxAge = 24 * 60 * 60
+		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/", http.StatusFound)
@@ -110,6 +112,8 @@ func (h userHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if _, ok := session.Values["id"]; ok {
+		session.Options.MaxAge = 24 * 60 * 60
+		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/", http.StatusFound)
@@ -129,6 +133,8 @@ func (h agreementHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if _, ok := session.Values["id"]; ok {
+		session.Options.MaxAge = 24 * 60 * 60
+		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/", http.StatusFound)
@@ -143,9 +149,6 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	validateSignature(req, session)
 	vars := mux.Vars(req)
 
-	if _, ok := session.Values["id"]; !ok {
-		http.Redirect(w, req, "/", http.StatusFound)
-	}
 
 	if !checkVersionOwner(vars["versionID"], session.Values["id"].(string)) {
 		http.Error(w, "Not authorized", http.StatusForbidden)
@@ -153,6 +156,8 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if _, ok := session.Values["id"]; ok {
+		session.Options.MaxAge = 24 * 60 * 60
+		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/", http.StatusFound)
