@@ -56,6 +56,11 @@
         var template = this.getTemplate();
         return Marionette.Renderer.render(template, data);
       },
+
+      onRender: function() {
+        $('body').scrollTop(0);
+      },
+
       appendHtml: function(collectionView, itemView, index){
         if (itemView.model.get("title") === 'Deposit') {return;}
         itemView.$el.insertBefore(collectionView.$('#addMoreButton'));
