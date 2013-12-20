@@ -29,9 +29,6 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         var newAgreement;
         var archived;
 
-        console.log(this.state.button1Title);
-
-
         // Show the right buttons depending on the state.
         
 

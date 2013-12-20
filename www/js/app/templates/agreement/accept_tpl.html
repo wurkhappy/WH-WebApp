@@ -20,7 +20,7 @@
     <ul id="bank_account" class="payment_select_container">
       <li>
         {{#each bankAccounts}}
-        <input type="radio" class="select_bank_account" name="select_bank_account" value="{{uri}}">
+        <input type="radio" class="select_bank_account" data-debit="{{can_debit}}" name="select_bank_account" value="{{uri}}">
         <p class="payment_select_info"><span>Routing:</span> **** **** **** {{routing_number}}</p>
         <p class="payment_select_info"><span>Account:</span> **** **** **** {{last_four_digits account_number}}</p>
         {{/each}}
