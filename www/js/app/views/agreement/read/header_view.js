@@ -21,32 +21,44 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
 
       render:function(){
         var waiting;
-        var archived = this.model.get("archived");
+        var isArchived = this.model.get("archived");
         var currentStatus = this.model.get("currentStatus");
+        var finalStatus = this.model.get("final");
         var button1Title;
         var button2Title;
+        var newAgreement;
+        var archived;
 
-        /*if (currentStatus !== null) {
-          if (this.state.button1Title === currentStatus.StatusWaiting) {
-            waiting = true;
-          }
-        } else {
-          waiting = false;
-        }*/
+        console.log(this.state.button1Title);
+
 
         // Show the right buttons depending on the state.
-        if (archived === true) {
+        
+
+        if ( isArchived === true && finalStatus === false) {
+            button1Title = false;
+            button2Title = false;
+            waiting = false;
+            archived = false;
+            newAgreement = true;
+        } else if (isArchived === true) {
           button1Title = false;
           button2Title = false;
           waiting = false;
+          newAgreement = false;
+          archived = true;
         } else if (currentStatus !== null && this.state.button1Title === currentStatus.StatusWaiting) {
             waiting = true;
             button1Title = false;
             button2Title = false;
+            newAgreement = false;
+            archived = false;
         } else {
           waiting = false;
           button1Title = this.state.button1Title;
           button2Title = this.state.button2Title;
+          newAgreement = false;
+          archived = false;
         }
 
         this.$el.html(this.template({
@@ -54,7 +66,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
           button1Title: button1Title,
           button2Title: button2Title,
           waiting: waiting,
-          archived: archived
+          archived: archived,
+          newAgreement: newAgreement
         }));
 
         return this;

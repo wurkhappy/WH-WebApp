@@ -348,6 +348,10 @@ module.exports = function (grunt) {
                         {
                             name: 'app/mainnewpassword',
                             exclude: ['config']
+                        },
+                        {
+                            name: 'app/mainarchives',
+                            exclude: ['config']
                         }
                     ]
                 }

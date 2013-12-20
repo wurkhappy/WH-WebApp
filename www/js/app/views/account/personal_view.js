@@ -74,7 +74,7 @@
         this.model.set("phoneNumber", number.replace(/[^0-9]/g, ""));
       },
 
-      save:function(){
+      save:function(event){
         event.preventDefault();
         event.stopPropagation();
         $( '.account_personal_form' ).parsley( 'validate' );
