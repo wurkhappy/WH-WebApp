@@ -31,19 +31,19 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
 
         // Show the right buttons depending on the state.
         
-
-        if ( isArchived === true && finalStatus === false) {
-            button1Title = false;
-            button2Title = false;
-            waiting = false;
-            archived = false;
-            newAgreement = true;
-        } else if (isArchived === true) {
+        if (isArchived === true) {
           button1Title = false;
           button2Title = false;
           waiting = false;
           newAgreement = false;
           archived = true;
+          if (finalStatus === false) {
+            button1Title = false;
+            button2Title = false;
+            waiting = false;
+            archived = false;
+            newAgreement = true;
+          }
         } else if (currentStatus !== null && this.state.button1Title === currentStatus.StatusWaiting) {
             waiting = true;
             button1Title = false;
@@ -66,6 +66,8 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
           archived: archived,
           newAgreement: newAgreement
         }));
+
+        $('body').scrollTop(0);
 
         return this;
       },

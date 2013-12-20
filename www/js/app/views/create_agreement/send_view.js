@@ -33,6 +33,9 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
           deposit: deposit,
           otherUserEmail: otherUserEmail,
         }));
+        $('body').scrollTop(0);
+
+        return this;
       },
       sendAgreement: function(event){
         event.preventDefault();
