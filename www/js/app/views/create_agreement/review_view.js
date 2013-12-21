@@ -25,6 +25,7 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl', '
         var paymentsView = new PaymentsView({model: this.model});
         paymentsView.render();
         this.$('#payments-section').html(paymentsView.$el);
+        $('body').scrollTop(0);
         return this;
       },
       continue: function(event){

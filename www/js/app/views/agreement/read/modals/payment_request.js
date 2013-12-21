@@ -67,7 +67,7 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
       },
       calculatePayment: function(){
         var milestonePayment = this.model.get("amount");
-        var wurkHappyFee = (milestonePayment * .05 < 51)? (milestonePayment*.05): 50;
+        var wurkHappyFee = this.wurkHappyFee(milestonePayment);
         var bankTransferFee = 5;
         var creditCardFee = (milestonePayment * .029) +.3;
         var processingFee = (this.acceptsCreditCard === true)? creditCardFee: bankTransferFee;
@@ -88,6 +88,18 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
           processingFee: processingFee.toFixed(2),
           feeTotal: feeTotal.toFixed(2),
           amountTotal: amountTotal.toFixed(2)
+        }
+      },
+
+      wurkHappyFee: function(amount) {
+        if (amount >= 1000) {
+          return 50;
+        } else if (amount >= 500) {
+          return 25;
+        } else if (amount >= 100) {
+          return 15;
+        } else {
+          return 5;
         }
       },
       updateView: function(event){

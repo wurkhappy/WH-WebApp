@@ -1,7 +1,7 @@
 
-define(['backbone', 'handlebars', 'hbs!templates/agreement/edit/header_edit_tpl'],
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/edit/header_edit_tpl'],
 
-  function (Backbone, Handlebars, userTemplate) {
+  function (Backbone, Handlebars, toastr, userTemplate) {
 
     'use strict';
 
@@ -22,16 +22,16 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/edit/header_edit_tpl'
       save: function(event){
         event.preventDefault();
         event.stopPropagation();
-        console.log(this.model.get("draft"));
         if(!this.model.get("draft")){
-          console.log("unsetid")
           this.model.unset("versionID");
         }
         this.model.set("draft", true);
         this.model.save({},{
           success:_.bind(function(model, response){
+            toastr.success("Agreement saved")
+
            window.location.hash = '';
-           console.log(model);
+
          }, this)
         });
       }

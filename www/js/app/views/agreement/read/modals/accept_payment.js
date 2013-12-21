@@ -28,6 +28,8 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         this.creditCards = this.user.get("cards");
 
         this.render();
+
+        console.log(options);
       },
       render:function(){
         var milestonePayment = this.model.get("amount");
@@ -36,6 +38,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         var bankAccounts = this.bankAccounts;
         var acceptsBankTransfer = this.acceptsBankTransfer;
         var acceptsCreditCard = this.acceptsCreditCard;
+        
 
         this.$el.html(this.payTemplate({
           milestonePayment: milestonePayment,
@@ -73,10 +76,10 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
 
         // if user doesn't have stored payment methods, let them know
         if (this.acceptsBankTransfer && this.acceptsCreditCard ) {
-          if ( this.bankAccounts.length < 1 || this.creditCards.length < 1 ) {
+          if ( this.bankAccounts.length < 1 && this.creditCards.length < 1 ) {
             toastr.error('Please add a payment method to make payment');
             return;
-          } 
+          }
         } else if (this.acceptsBankTransfer && this.bankAccounts.length < 1) {
             toastr.error('Please add a bank account to your account to make payment');
             return;
@@ -87,27 +90,36 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         }
 
         var bankAccount = $(".select_bank_account:checked").val();
+        var canDebit = $(".select_bank_account:checked").attr('data-debit');
         var creditCard = $(".select_credit_card:checked").val()
         var $debitSource =  bankAccount || creditCard || '';
         var paymentType = (bankAccount) ? "BankBalanced" : "CardBalanced";
 
-        this.model.accept($debitSource, paymentType);
-
-        var status;
-
-        if (this.statusType) {
-          status = this.statusType;
+        
+        if ($debitSource === bankAccount && !canDebit) {
+          toastr.error('Please verify your bank account in order to make payment');
+          return;
         } else {
-          status = "";
-        }
+          this.model.accept($debitSource, paymentType);
 
-        var fadeInNotification = function () {
-          toastr.success('Payment Accepted');
-        };
+          var status;
 
-        var triggerNotification = _.debounce(fadeInNotification, 300);
-        this.trigger('hide');
-        triggerNotification();
+          if (this.statusType) {
+            status = this.statusType;
+          } else {
+            status = "";
+          }
+
+          var fadeInNotification = function () {
+            toastr.success('Payment Accepted');
+          };
+
+          var triggerNotification = _.debounce(fadeInNotification, 300);
+          this.trigger('hide');
+          triggerNotification();
+
+          }
+        
       },
 
     });
