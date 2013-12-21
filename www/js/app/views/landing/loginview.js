@@ -16,7 +16,7 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
 
         events:{
           "blur input" : "updateModel",
-          "click input[type=submit]" : "submitModel",
+          "click input[type=submit]" : "debounceSubmitModel",
           "keypress input": "submitOnEnter"
         },
 
@@ -45,18 +45,21 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
           this.submitModel(event);
         },
 
-        submitModel: function(event){
+        debounceSubmitModel: function(event) {
           event.preventDefault();
-          event.stopPropagation();            
+          event.stopPropagation();
+          this.submitModel();
+        },
 
+        submitModel: _.debounce(function(event){
           this.model.save({}, {
             success:function(model, response){
               if (response["redirectURL"]) window.location = response["redirectURL"];
             },
             error:function(model, response){
             }
-          })
-        }
+          })       
+        }, 500, true)
 
       });
 

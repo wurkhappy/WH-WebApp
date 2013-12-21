@@ -14,7 +14,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
       template: discussionTemplate,
 
       events: {
-        "click .send_comment": "addComment",
+        "click .send_comment": "debounceAddComment",
         "focus select": "addSelectActive",
         "blur select": "removeSelectActive"
       },
@@ -54,9 +54,14 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
         this.$('#comment-tags').html(commentTagsView.el);   
       },
 
-      addComment: function(event){
+      debounceAddComment: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.addComment(event);
+
+      },
+
+      addComment: _.debounce(function(event){
 
         var editor = CKEDITOR.instances.message_editor;
         var html = editor.getData();
@@ -85,7 +90,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
           });
 
         }
-      },
+      }, 500, true),
 
       updateSelect: function (event) {
 

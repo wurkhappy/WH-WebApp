@@ -30,6 +30,7 @@
         this.user = options.user;
         this.render();
       },
+
       voidAgreement: function(event){
         event.preventDefault();
         event.stopPropagation();

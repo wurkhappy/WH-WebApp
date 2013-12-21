@@ -72,19 +72,25 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
         return this;
       },
       events:{
-        "click #action-button1":"button1",
-        "click #action-button2":"button2",
+        "click #action-button1":"debounceButton1",
+        "click #action-button2":"debounceButton2",
       },
-      button1:function(event){
+      debounceButton1: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.button1();
+      },
+      debounceButton2: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.button2();
+      },
+      button1:_.debounce(function(event){
         this.state.button1();
-      },
-      button2:function(event){
-        event.preventDefault();
-        event.stopPropagation();
+      }, 500, true),
+      button2:_.debounce(function(event){
         this.state.button2();
-      },
+      }, 500, true),
       changeState:function(){
         if (this.model.get("draft")){
           this.state = new DraftState({model: this.model});
