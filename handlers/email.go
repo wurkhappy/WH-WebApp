@@ -14,9 +14,9 @@ func EmailHead(w http.ResponseWriter, req *http.Request) {
 }
 
 func EmailPost(w http.ResponseWriter, req *http.Request) {
-	req.ParseForm()
-	data, _ := json.Marshal(req.PostForm)
-
+	req.ParseMultipartForm(32 << 20)
+	data, _ := json.Marshal(req.Form)
+	fmt.Println(string(data))
 	payload := map[string]interface{}{
 		"Body": map[string]interface{}{
 			"message": data,
