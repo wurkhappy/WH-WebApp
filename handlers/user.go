@@ -10,20 +10,10 @@ import (
 	"net/http"
 )
 
-type login struct {
-	Passcode string "passcode"
-}
-
 func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	reqBody := buf.Bytes()
-	l := new(login)
-	json.Unmarshal(reqBody, &l)
-	if l.Passcode != "freelancer" {
-		http.Error(w, "Wrong passcode", http.StatusBadRequest)
-		return
-	}
+
 	resp, statusCode := sendServiceRequest("POST", config.UserService, "/user", buf.Bytes())
 	if statusCode >= 400 {
 		var rError *responseError
