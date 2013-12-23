@@ -757,7 +757,17 @@ fieldset {
 
 /* line 125, ../scss/components/_buttons.scss */
 .button_container {
+  width: 200px;
+}
+
+/* line 129, ../scss/components/_buttons.scss */
+.send_button_container {
   width: 250px;
+}
+
+/* line 133, ../scss/components/_buttons.scss */
+.request_payment_button_container {
+  width: 350px;
 }
 
 /* LANDING INTRO

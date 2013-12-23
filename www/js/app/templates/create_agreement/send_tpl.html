@@ -9,11 +9,13 @@
     <textarea name="message" rows="5" cols="100">{{message}}</textarea>
   </fieldset>
 
-  <div class="button_container">
-  	{{#if deposit}}
+  
+  {{#if deposit}}
+    <div class="request_payment_button_container">
     	<a id="requestDeposit" href="" class="button single cancel">Send Agreement and Request Deposit</a>
 	{{else}}
-		<a id="sendAgreement" href="" class="button single cancel">Send Client Agreement</a>
+    <div class="send_button_container">
+		  <a id="sendAgreement" href="" class="button single cancel">Send Client Agreement</a>
 	{{/if}}
   </div>
 
