@@ -99,7 +99,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
       },
 
       triggerCurrencyFormat: function() {
-        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '10', vMax: '100000' });
+        this.$('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '0', vMax: '100000' });
       },
 
       showDeposit: function(event) {

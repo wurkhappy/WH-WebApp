@@ -389,7 +389,7 @@ func ShowSample(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
-		"templates/sample_agreement.html",
+		"templates/sample.html",
 	))
 	index.Execute(w, m)
 }
