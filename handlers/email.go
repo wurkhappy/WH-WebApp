@@ -14,12 +14,11 @@ func EmailHead(w http.ResponseWriter, req *http.Request) {
 }
 
 func EmailPost(w http.ResponseWriter, req *http.Request) {
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-
+	req.ParseMultipartForm(32 << 20)
+	data, _ := json.Marshal(req.Form)
 	payload := map[string]interface{}{
 		"Body": map[string]interface{}{
-			"message": buf.String(),
+			"message": data,
 		},
 	}
 

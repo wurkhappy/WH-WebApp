@@ -43,59 +43,46 @@
       },
 
       render: function () {
-        var payments = this.payments,
-        submittedPayments = payments.getNumberOfSubmittedPayments(),
-        acceptedPayments = payments.getAcceptedPayments(),
-        acceptedOrSubmittedPayments = submittedPayments + acceptedPayments,
+        var submittedPaymentsCount = this.payments.getNumberOfSubmittedPayments(),
+        acceptedPaymentsCount = this.payments.getAcceptedPayments(),
+        acceptedOrSubmittedPaymentsCount = submittedPaymentsCount + acceptedPaymentsCount,
         totalPayments = this.payments.length;
 
-        var percentComplete = this.calculatePercentage(totalPayments, acceptedOrSubmittedPayments);
+        var requiredPaymentsCount = this.payments.where({"required": true}).length;
+        var percentComplete = ((acceptedOrSubmittedPaymentsCount - requiredPaymentsCount)/(totalPayments - requiredPaymentsCount)) * 100;
+
+        var iconSize = 30;
+        var totalIconWidth= this.payments.length *iconSize;
+        var barWidth = 900 - totalIconWidth;
+
+        var numberPayments = this.payments.length - requiredPaymentsCount;
+
+
+        var payments = [];
+
+        this.payments.each(function(model){
+          var color = "grey";
+          var action = (model.get("currentStatus")) ? model.get("currentStatus").get("action") : "";
+          if (action === "submitted") {
+            color = "yellow"
+          } else if (action === "accepted"){
+            color = "green"
+          } else if (action === "rejected") {
+            color = "red"
+          }
+
+          var marginLeft = (model.get("required")) ? 0 : barWidth/numberPayments;
+          payments.push({color: color, id: model.id, margin_left: marginLeft});
+        });
 
         this.$el.html(this.template({
-          payments: this.payments.toJSON(),
+          payments: payments,
           percentComplete: percentComplete
         }));
 
-        this.afterRender();
-
         return this;
 
-      },
-
-      afterRender: function () {
-        var iconSize = 30;
-        var payments = this.payments,
-        numberPayments = payments.length;
-        var ghostIcons = (numberPayments%2 == 0) ? 3 : 2;
-        var totalIconWidth=(numberPayments + ghostIcons-1)*iconSize; //30px is size of each icon
-        _.defer( function () {
-          var barWidth = 900 - totalIconWidth, //so that there are 100px margins on each side.
-          progressIcon = $(".progress_icon"),
-          iconSpacing = barWidth/(numberPayments + ghostIcons -1);
-          $(".progress_icon").css({"margin-left": iconSpacing/2 + "px", "margin-right": iconSpacing/2 + "px"});
-          $(".progress_icon").first().css("margin-left", -(iconSize/2) + "px");
-          $(".progress_icon").last().css("margin-right", 0 + "px");
-
-          //place a gradient stop based on the percentage of accepted payments:
-          $("progress").addClass("yellow_progress");
-
-        });
-      },      
-
-      calculatePercentage: function (totalPayments, acceptedOrSubmittedPayments) {
-        var barWidth = 100,
-        ghostIcons = (totalPayments%2 == 0) ? 3 : 2,
-        numberPayments = (totalPayments + ghostIcons)-1;
-
-        if (acceptedOrSubmittedPayments < 1){
-          return 0;
-        } else if (acceptedOrSubmittedPayments === totalPayments) {
-          return 100;
-        } else {
-          return (barWidth/numberPayments*(acceptedOrSubmittedPayments));
-        }
-
-      },
+      },    
       hoverPayment: function(event){
         var id = $(event.target).data("paymentid");
         if (id) {
@@ -106,7 +93,7 @@
             list +='<li>'+action.charAt(0).toUpperCase() + action.slice(1) + " on " + model.get("date").format('MMM DD, YYYY')+'</li>';
           })
           if (history.length === 0) {list = 'No actions taken yet'}
-          $(event.target).html('<div class="tooltip" style="position: absolute;"><ul>'+list+'</ul></div>');
+            $(event.target).html('<div class="tooltip" style="position: absolute;"><ul>'+list+'</ul></div>');
         }
       },
       unhoverPayment: function(event){
