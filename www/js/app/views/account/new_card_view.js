@@ -13,7 +13,7 @@
       template: Template,
       events:{
         "blur input":"updateFields",
-        "click #save-button":"saveCard",
+        "click #save-button":"debounceSaveCard",
         "change select":"updateFields"
       },
 
@@ -31,9 +31,13 @@
       updateFields:function(event){
         this.card[event.target.name] = event.target.value;
       },
-      saveCard:function(event){
+
+      debounceSaveCard: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.saveCard();
+      },
+      saveCard:_.debounce(function(event){
         var that = this;
         balanced.card.create(this.card, function (response) {
           if(response.status === 201) {
@@ -51,7 +55,7 @@
             console.log(response);
           }
         });
-      }
+      }, 500, true)
 
     });
 
