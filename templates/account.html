@@ -6,7 +6,8 @@ var cards = {{.cards}}
 <script type="text/javascript" src="https://js.balancedpayments.com/v1/balanced.js"></script>
 <script type="text/javascript">
 {{if .production}}
-  balanced.init('/v1/marketplaces/MP1Rag3V8FGZNsrQ0v9SYyuY');
+  // balanced.init('/v1/marketplaces/MP1Rag3V8FGZNsrQ0v9SYyuY');
+    balanced.init('/v1/marketplaces/TEST-MP1f775iSL82BucxjmR83cOk');
 {{else}}
   balanced.init('/v1/marketplaces/TEST-MP1f775iSL82BucxjmR83cOk');
   {{end}}
