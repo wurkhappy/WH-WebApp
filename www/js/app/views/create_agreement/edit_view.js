@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'vi
       template: tpl,
       className:'clear white_background',
       events:{
-        "click #saveAgreement": "saveAgreement",
+        "click #saveAgreement": "debounceSaveAgreement",
         "blur input, textarea": "updateFields"
       },
       initialize:function(){
@@ -23,16 +23,19 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'vi
         this.$('#payments-section').html(paymentsView.$el);
         return this;
       },
-      saveAgreement: function(event){
+
+      debounceSaveAgreement: function(event) {
         event.preventDefault();
         event.stopPropagation();
-
+        this.saveAgreement();
+      },
+      saveAgreement: _.debounce(function(event){
         this.originalModel.set(this.model.toJSON());
         this.model = this.originalModel;
         this.model.save({},{success:function(model, response){
           window.location.hash = 'review';
         }});
-      },
+      }, 500, true),
       updateFields: function(){
         if (event.target.name === 'dateExpected') { return};
         this.model.set(event.target.name, event.target.value);

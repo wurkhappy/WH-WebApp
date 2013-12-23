@@ -9,7 +9,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
       template: tpl,
       className:'clear white_background',
       events:{
-        "click #sendAgreement": "sendAgreement",
+        "click #sendAgreement": "debounceSendAgreement",
         "blur textarea": "addMessage",
         "blur input": "addRecipient",
         "click #requestDeposit": "requestDeposit"
@@ -37,9 +37,13 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
 
         return this;
       },
-      sendAgreement: function(event){
+
+      debounceSendAgreement: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.sendAgreement();
+      },
+      sendAgreement: _.debounce(function(event){
 
         if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
 
@@ -56,7 +60,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
 
           that.model.submit(that.message, submitSuccess);
         }});
-      },
+      }, 500, true),
       addRecipient: function(event){
         this.model.set("clientEmail", event.target.value);
       },

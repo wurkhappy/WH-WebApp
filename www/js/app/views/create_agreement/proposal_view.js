@@ -31,7 +31,7 @@
         'blur input[type="radio"]': "updateRole",
         'blur input[type="checkbox"]': "updateClauses",
         "blur textarea": "updateField",
-        "click .submit-buttons" : "saveAndContinue",
+        "click #save_continue" : "debounceSaveAndContinue",
       },
       onRender: function(){
         if(this.userID === this.model.get("clientID")) this.$('input[name=role][value=clientID]').prop("checked",true);
@@ -51,9 +51,13 @@
         var $element = $(event.target);
         this.model.get("clauses").add({id:$element.data('clauseid'), text:$element.data('text'), userID:this.userID});
       },
-      saveAndContinue:function(event){
+
+      debounceSaveAndContinue: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.saveAndContinue();
+      },
+      saveAndContinue:_.debounce(function(event){
 
         $( '.proposal_form' ).parsley( 'validate' );
         var isValid = $( '.proposal_form' ).parsley( 'isValid' );
@@ -66,7 +70,7 @@
             }, this)
           });
         }
-      }
+      }, 500, true)
     });
 
     return ProposalView;
