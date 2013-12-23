@@ -39,7 +39,7 @@
       events: {
         'blur input[type="text"]':'updateFields',
         'change input[type="file"]':'updateFile',
-        "click #save-button":"save",
+        "click #save-button":"debounceSave",
         'blur input[name="phoneNumber"]':"updatePhoneNumber"
       },
 
@@ -74,22 +74,24 @@
         this.model.set("phoneNumber", number.replace(/[^0-9]/g, ""));
       },
 
-      save:function(event){
+      debounceSave: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.save();
+      },
+
+      save: _.debounce(function(event){
+
         $( '.account_personal_form' ).parsley( 'validate' );
-
         var isValid = $( '.account_personal_form' ).parsley( 'isValid' );
-
         if (isValid) {
           this.model.save({},{success:_.bind(function(model, response){
 
             toastr.success('Profile Updated!');
 
           }, this)});
-        }
-
-      }
+        }       
+      }, 500, true)
 
     });
 

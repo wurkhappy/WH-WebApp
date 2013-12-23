@@ -25,7 +25,7 @@
 
       events:{
         "click #addMoreButton" : "addMilestone",
-        "click .submit-buttons > a" : "saveAndContinue",
+        "click #save_continue" : "debounceSaveAndContinue",
         "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
         "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
         "click .create_agreement_navigation_link": "showPage",
@@ -74,17 +74,21 @@
       triggerCurrencyFormat: function() {
         $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '0', vMax: '100000' });
       },
-      
-      saveAndContinue:function(event){
+
+      debounceSaveAndContinue: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.saveAndContinue();
+      },
+      
+      saveAndContinue:_.debounce(function(event){
 
         this.model.save({},{
           success:_.bind(function(model, response){
             window.location.hash = 'review';
           }, this)
         });
-      },
+      }, 500, true),
 
       showPage: function(event) {
         event.preventDefault();

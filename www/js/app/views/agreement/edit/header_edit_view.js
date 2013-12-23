@@ -1,7 +1,7 @@
 
-define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/edit/header_edit_tpl'],
+define(['backbone', 'handlebars', 'underscore', 'toastr', 'hbs!templates/agreement/edit/header_edit_tpl'],
 
-  function (Backbone, Handlebars, toastr, userTemplate) {
+  function (Backbone, Handlebars, _, toastr, userTemplate) {
 
     'use strict';
 
@@ -17,11 +17,15 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/edit/header
         return this;
       },
       events:{
-        "click #action-button2":"save",
+        "click #action-button2":"debounceSave",
       },
-      save: function(event){
+
+      debounceSave: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.save();
+      },
+      save: _.debounce( function(event){
         if(!this.model.get("draft")){
           this.model.unset("versionID");
         }
@@ -34,7 +38,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/edit/header
 
          }, this)
         });
-      }
+      }, 500, true)
 
     });
 

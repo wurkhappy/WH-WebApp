@@ -13,7 +13,7 @@
       template: Template,
       events:{
         "blur input":"updateFields",
-        "click #save-button":"saveBankAccount",
+        "click #save-button":"debounceSaveBankAccount",
         "change select":"updateFields"
       },
 
@@ -32,9 +32,14 @@
       updateFields:function(event){
         this.account[event.target.name] = event.target.value;
       },
-      saveBankAccount:function(event){
+
+      debounceSaveBankAccount: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.saveBankAccount();
+      },
+
+      saveBankAccount:_.debounce(function(event){
         var that = this;
         balanced.bankAccount.create(this.account, function (response) {
           if(response.status === 201) {
@@ -50,7 +55,7 @@
             console.log(response);
           }
         });
-      }
+      }, 500, true)
 
     });
 

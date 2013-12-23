@@ -15,7 +15,7 @@
 
         events:{
           "blur input" : "updateModel",
-          "click input[type=submit]" : "submitModel",
+          "click input[type=submit]" : "debounceSubmitModel",
           "keypress input": "submitOnEnter"
         },
 
@@ -42,23 +42,27 @@
           }
           this.updateModel(event);
           this.submitModel(event);
+          
         },
 
-        submitModel: function(event){
+        debounceSubmitModel: function(event) {
           event.preventDefault();
-          event.stopPropagation();            
+          event.stopPropagation();
+          this.submitModel();
+        },
 
+        submitModel: _.debounce(function(event){
           $.ajax({
             type: "POST",
             url: "/password/forgot",
             contentType: "application/json",
             dataType: "json",
-            data:JSON.stringify(this.user),
+            data:JSON.stringify(that.user),
             success: _.bind(function(response){
               this.$('form').html("Please check your e-mail to renew your password.");
             }, this)
-          });
-        }
+          })
+        }, 500, true)
 
       });
 

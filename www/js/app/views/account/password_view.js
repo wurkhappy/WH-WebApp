@@ -17,7 +17,7 @@
       template: passwordTemplate,
 
       events: {
-        "click #submit-button":"save",
+        "click #submit-button":"debounceSave",
         "blur input" : "updatePassword"
       },
 
@@ -30,9 +30,14 @@
         this.$el.html(this.template());
         return this;
       },
-      save:function(event){
+
+      debounceSave: function(event) {
         event.preventDefault();
         event.stopPropagation();
+        this.save();
+      },
+
+      save:_.debounce(function(event){
         if (this.passwords["new-pw"] === this.passwords["confirm-new-pw"]) {
           this.model.set("newPassword", this.passwords["new-pw"]);
           this.model.set("currentPassword", this.passwords["current-pw"]);
@@ -41,7 +46,7 @@
             toastr.success('Password Updated!');
           },this)});
         }
-      },
+      }, 500, true),
       updatePassword: function(event){
         this.passwords[event.target.name] = event.target.value
       }
