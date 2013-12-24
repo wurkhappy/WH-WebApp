@@ -7,7 +7,7 @@
   border-radius: 10px;
   margin: 0;
   padding: 20px 10px;
-  height: 372px;
+  height: 358px;
   width: 330px;
   position: fixed;
   top: 35%;
@@ -40,7 +40,7 @@
 
 
 .create_account_form {
-  height: 439px;
+  height: 348px;
   width: 356px;
 }
 
@@ -67,4 +67,28 @@
 
 .other_login {
   margin-bottom: 20px;
+}
+
+.email_screen_title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.email_button {
+  margin: 0 auto;
+  margin-top: 20px;
+  float: none;
+}
+
+#mce-EMAIL{
+  margin-top: 30px;
+  margin-left: 48px;
+  border-radius: 3px;
+  width: 200px;
+}
+
+.email_helper {
+  text-align:center;
 }

@@ -2,9 +2,9 @@
  * Login View.
  */
 
-define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/new_account.html', 'models/user'],
+define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'text!templates/landing/new_account.html', 'models/user', 'views/ui-modules/modal', 'views/agreement/read/modals/email_subscribe', 'text!templates/landing/email.html' ],
 
-    function (Backbone, Handlebars, parsley, newAccountTemplate, UserModel) {
+    function (Backbone, Handlebars, parsley, ajaxChimp, newAccountTemplate, UserModel, Modal, EmailModal, emailTemplate) {
 
       'use strict';
 
@@ -13,11 +13,13 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/new_account
         // Compile our footer template.
         template: Handlebars.compile(newAccountTemplate),
         model: new UserModel(),
+        emailTemplate: Handlebars.compile(emailTemplate),
 
         events:{
           "blur input" : "updateModel",
-          "click input[type=submit]" : "debounceSubmitModel",
-          "keypress input": "submitOnEnter"
+          "click .create_account_button" : "debounceSubmitModel",
+          "keypress input": "submitOnEnter",
+          "click .email_button": "registerEmail"
         },
 
         initialize: function () {
@@ -44,21 +46,39 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/new_account
           this.submitModel(event);
         },
 
+        registerEmail: function(event) {
+          //$('#mc-embedded-subscribe-form').ajaxChimp();
+        },
+
         debounceSubmitModel: function(event) {
           event.preventDefault();
           event.stopPropagation();
           this.submitModel();
         },
 
-        submitModel: _.debounce(function(event){       
+        submitModel: _.debounce(function(event){
 
-            this.model.save({}, {
-              success:function(model, response){
-                if (response["redirectURL"]) window.location = response["redirectURL"];
-              },
-              error:function(model, response){
-              }
-            })
+          var that = this;       
+
+          this.model.save({}, {
+            success:function(model, response){
+              if (response["redirectURL"]) window.location = response["redirectURL"];
+            },
+            error:function(model, response){
+              /*if (!that.modal){
+                var view = new EmailModal();
+                that.modal = new Modal({view:view});
+              } 
+              that.modal.show();*/
+
+              $('#login_form').html(that.emailTemplate());
+              $('.email_signup').fadeIn("slow");
+              //$('#mc-embedded-subscribe-form').ajaxChimp();
+              
+              
+
+            }
+          })
 
         }, 500, true)
 

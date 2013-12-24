@@ -495,6 +495,20 @@ fieldset {
   line-height: 11px;
 }
 
+/* line 29, ../scss/components/_form_feedback.scss */
+.error {
+  color: #B94A48;
+  text-align: center;
+  margin-bottom: -20px;
+}
+
+/* line 35, ../scss/components/_form_feedback.scss */
+.valid {
+  color: #468847;
+  text-align: center;
+  margin-bottom: -20px;
+}
+
 /* line 1, ../scss/components/_flying_focus.scss */
 #flying-focus {
   position: absolute;
@@ -1004,7 +1018,7 @@ label {
   border-radius: 10px;
   margin: 0;
   padding: 20px 10px;
-  height: 372px;
+  height: 358px;
   width: 330px;
   position: fixed;
   top: 35%;
@@ -1040,7 +1054,7 @@ label {
 
 /* line 42, ../scss/components/_login.scss */
 .create_account_form {
-  height: 439px;
+  height: 348px;
   width: 356px;
 }
 
@@ -1072,6 +1086,34 @@ label {
 /* line 68, ../scss/components/_login.scss */
 .other_login {
   margin-bottom: 20px;
+}
+
+/* line 72, ../scss/components/_login.scss */
+.email_screen_title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+/* line 79, ../scss/components/_login.scss */
+.email_button {
+  margin: 0 auto;
+  margin-top: 20px;
+  float: none;
+}
+
+/* line 85, ../scss/components/_login.scss */
+#mce-EMAIL {
+  margin-top: 30px;
+  margin-left: 48px;
+  border-radius: 3px;
+  width: 200px;
+}
+
+/* line 92, ../scss/components/_login.scss */
+.email_helper {
+  text-align: center;
 }
 
 /* FOOTER

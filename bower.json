@@ -29,6 +29,7 @@
     "jquery-autogrow": "latest",
     "hbs": "0.4.0",
     "toastr": "2.0.1",
-    "flying-focus": "1.2.1"
+    "flying-focus": "1.2.1",
+    "ajaxchimp": "1.1.0"
   }
 }
