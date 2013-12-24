@@ -55,14 +55,24 @@ func main() {
 	// err := http.ListenAndServe(":4000", nil)
 	var err error
 	if *production {
-		err = http.ListenAndServeTLS(":443", "/root/go/bin/ssl/wurkhappy.com.pem", "/root/go/bin/ssl/wurkhappy.com.key", nil)
+		go func() {
+			if err := http.ListenAndServeTLS(":443", "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil); err != nil {
+				log.Fatalf("ListenAndServeTLS error: %v", err)
+			}
+		}()
+		if err := http.ListenAndServe(":80", http.HandlerFunc(redir)); err != nil {
+			log.Fatalf("ListenAndServe error: %v", err)
+		}
 	} else {
 		err = http.ListenAndServe(":4000", nil)
-		// err = http.ListenAndServeTLS(":4000", "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil)
 	}
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func redir(w http.ResponseWriter, req *http.Request) {
+	http.Redirect(w, req, "https://wurkhappy.com"+req.RequestURI, http.StatusMovedPermanently)
 }
 
 func serveSingle(pattern string, filename string) {
@@ -148,7 +158,6 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session := getSession(req)
 	validateSignature(req, session)
 	vars := mux.Vars(req)
-
 
 	if !checkVersionOwner(vars["versionID"], session.Values["id"].(string)) {
 		http.Error(w, "Not authorized", http.StatusForbidden)
