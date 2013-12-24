@@ -42,10 +42,12 @@
         ckadapter: 'lib/ckeditor/adapters/jquery',
         'auto-grow': 'lib/jquery-autogrow/lib/jquery-autogrow.min',
         toastr: 'lib/toastr/toastr',
+        ajaxchimp: 'lib/ajaxchimp/jquery.ajaxchimp',
 
         //plugins - no bower
         autonumeric: 'app/plugins/autoNumeric-master/autoNumeric',
         'flying-focus': 'app/plugins/flying-focus',
+
 
         // Templating.
         handlebars: 'lib/handlebars/handlebars',
@@ -114,6 +116,10 @@
         },
         'flying-focus': {
             exports: 'FlyingFocus'
+        },
+        ajaxchimp: {
+            deps: ['jquery'],
+            exports: 'ajaxChimp'
         }
     },
     hbs: {
