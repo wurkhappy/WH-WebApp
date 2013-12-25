@@ -72,6 +72,8 @@ func about(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"appName":    "mainhome",
 		"production": handlers.Production,
+		"JSversion":  handlers.JSversion,
+		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
@@ -84,6 +86,8 @@ func legal(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"appName":    "mainlegal",
 		"production": handlers.Production,
+		"JSversion":  handlers.JSversion,
+		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
