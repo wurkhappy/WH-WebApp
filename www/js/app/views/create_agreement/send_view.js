@@ -1,7 +1,7 @@
-define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send_tpl',
+define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agreement/send_tpl',
   'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, toastr, tpl, DepositRequestModal, Modal) {
+  function (Backbone, Handlebars, toastr, parsley, tpl, DepositRequestModal, Modal) {
 
     'use strict';
 
@@ -45,7 +45,15 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
       },
       sendAgreement: _.debounce(function(event){
 
-        if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
+        //return if there isn't a valid email
+        var isValid = $('#create_agreement_send_email').parsley('validate');
+        if (!isValid) {
+          return;
+        }
+
+        if (!this.model.get("clientID") && !this.model.get("clientEmail")) {
+          return;
+        } 
 
         var that = this;
 
@@ -70,6 +78,12 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
       requestDeposit: function (event) {
         event.preventDefault();
         event.stopPropagation();
+
+        //return if there isn't a valid email
+        var isValid = $('#create_agreement_send_email').parsley('validate');
+        if (!isValid) {
+          return;
+        }
 
         if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
 

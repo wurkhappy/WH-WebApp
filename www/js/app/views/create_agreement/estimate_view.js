@@ -73,7 +73,7 @@
       },
 
       triggerCurrencyFormat: function() {
-        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '10', vMax: '100000' });
+        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '0', vMax: '100000' });
       },
 
       debounceSaveAndContinue: function(event) {
@@ -114,7 +114,6 @@
         $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
       },
       updateDeposit: function(event){
-        console.log(this.model);
         var amount = event.target.value;
         var adjAmount = (amount.substring(0,2) === '$ ') ? amount.substring(2) : amount;
         var formattedAmount = parseFloat(adjAmount.replace(/,/g, ''), 10);
