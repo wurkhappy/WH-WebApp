@@ -15,7 +15,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
         "click #requestDeposit": "requestDeposit"
       },
       initialize:function(options){
-        this.message = "Please take a moment to look over the details of the services provided, refund policies and payment schedule to confirm that's what you want to do and you're comfortable with the agreement.";
+        this.message = "Please take a moment to look over the details of the services provided and the payment schedule. Let me know if you'd like to suggest any changes. When you're ready, just accept the agreement and we'll get started.";
         this.user = options.user;
         this.otherUser = options.otherUser;
         this.render();
