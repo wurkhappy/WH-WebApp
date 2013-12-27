@@ -21,6 +21,7 @@
       initialize: function (options) {
         this.router = options.router;
         this.deposit = this.collection.findFirstRequiredPayment()
+        _.once(this.collection.add({'dateExpected': moment().add('days', 7).calendar()}));
       },
 
       events:{
@@ -68,7 +69,6 @@
 
       addMilestone:function(event){
         event.preventDefault();
-        var oneWeekFromToday = moment().add('days', 7).calendar();
         this.collection.add({'dateExpected': moment().add('days', 7).calendar()});
       },
 
