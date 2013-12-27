@@ -25,6 +25,7 @@
         this.isVerified = this.currentUser.get("isVerified");
         if (!this.isVerified) {
           $("#create_agreement").removeAttr('href');
+          toastr.info("Please verify your email");
           this.notVerified();
         }
 
@@ -74,7 +75,7 @@
       },
       notVerified: function() {
         $("#create_agreement").click( function(event) {
-          toastr.error("You must verify your email before you can create an agreement");
+          toastr.info("You must verify your email before you can create an agreement");
         });
       }
 
