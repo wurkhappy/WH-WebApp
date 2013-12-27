@@ -53,7 +53,12 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
 
         if (!this.model.get("clientID") && !this.model.get("clientEmail")) {
           return;
-        } 
+        }
+
+        if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
+          toastr.error("Please select a payment method in the Payment Section");
+          return;
+        }
 
         var that = this;
 
@@ -82,6 +87,11 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
         //return if there isn't a valid email
         var isValid = $('#create_agreement_send_email').parsley('validate');
         if (!isValid) {
+          return;
+        }
+
+        if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
+          toastr.error("Please select a payment method in the Payment Section");
           return;
         }
 

@@ -2,10 +2,10 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'marionette', 'autonumeric',
+ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'autonumeric',
   'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/milestone_view'],
 
-  function (Backbone, Handlebars, _, Marionette, autoNumeric, estimateTemplate, MilestoneView) {
+  function (Backbone, Handlebars, _, Marionette, toastr, autoNumeric, estimateTemplate, MilestoneView) {
 
     'use strict';
 
@@ -20,8 +20,14 @@
 
       initialize: function (options) {
         this.router = options.router;
-        this.deposit = this.collection.findFirstRequiredPayment()
-        _.once(this.collection.add({'dateExpected': moment().add('days', 7).calendar()}));
+        this.deposit = this.collection.findFirstRequiredPayment();
+        this.bankAccounts = options.user.get("bank_accounts");
+        this.creditCards = options.user.get("cards");
+        if (this.model.get("payments").length < 1) {
+          this.collection.add({'dateExpected': moment().add('days', 7).calendar()})
+        }
+
+        this.clientPaymentMethods();
       },
 
       events:{
@@ -35,8 +41,34 @@
         'focus .currency_format': 'triggerCurrencyFormat',
       },
 
+      clientPaymentMethods: function() {
+
+        if (this.model.get("clientID")) {
+          if (this.bankAccounts.length < 1) {
+            this.model.set('acceptsBankTransfer', false);
+          } 
+          if (this.creditCards.length < 1) {
+            this.model.set('acceptsCreditCard', false);
+          }
+        }
+        console.log(this.model);
+      },
+
       updatePaymentMethods: function(event){
         if (!event.target.name) return;
+
+        // if the user is a client check to see they have the right payment method setup 
+        if (this.model.get("clientID")) {
+          if (this.bankAccounts.length < 1 && event.target.name === "acceptsBankTransfer") {
+            event.preventDefault();
+            toastr.info("Please add a bank account in the accounts section");
+          } else if (this.creditCards.length < 1 && event.target.name === "acceptsCreditCard") {
+              event.preventDefault();
+              toastr.info("Please add a Credit Card in the accounts section");
+            }
+        }
+
+        
 
         if (event.target.checked) {
           this.model.set(event.target.name, true);
@@ -48,10 +80,13 @@
         var data = {};
         if(this.deposit) data = this.deposit.toJSON();
         
-        //if credit card & bank transfer payment methods are set by default, add them to data object to be rendered
+        //if it's not the client and if credit card & bank transfer payment methods are set by default, add them to data object to be rendered
         // in estimate template
-        if(this.model.get("acceptsCreditCard")) data.acceptsCreditCard = this.model.get("acceptsCreditCard");
-        if(this.model.get("acceptsBankTransfer")) data.acceptsBankTransfer = this.model.get("acceptsBankTransfer");
+        if (!this.model.get("clientID")){
+          if(this.model.get("acceptsCreditCard")) data.acceptsCreditCard = this.model.get("acceptsCreditCard");
+          if(this.model.get("acceptsBankTransfer")) data.acceptsBankTransfer = this.model.get("acceptsBankTransfer");
+        }
+        
         data = this.mixinTemplateHelpers(data);
 
         var template = this.getTemplate();
