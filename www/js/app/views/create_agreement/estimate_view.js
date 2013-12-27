@@ -72,7 +72,7 @@
       },
 
       triggerCurrencyFormat: function() {
-        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '0', vMax: '100000' });
+        $('.currency_format').autoNumeric('init', {aSign:'$ ', pSign:'p', vMin: '10', vMax: '100000' });
       },
 
       debounceSaveAndContinue: function(event) {
