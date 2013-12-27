@@ -68,7 +68,8 @@
 
       addMilestone:function(event){
         event.preventDefault();
-        this.collection.add({});
+        var oneWeekFromToday = moment().add('days', 7).calendar();
+        this.collection.add({'dateExpected': moment().add('days', 7).calendar()});
       },
 
       triggerCurrencyFormat: function() {
