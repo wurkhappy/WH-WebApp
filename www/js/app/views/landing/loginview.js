@@ -2,7 +2,7 @@
  * Login View.
  */
 
-define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html', 'models/user'],
+define(['backbone', 'handlebars', 'parsley', 'hbs!templates/landing/login', 'models/user'],
 
     function (Backbone, Handlebars, parsley, loginTemplate, UserModel) {
 
@@ -11,7 +11,7 @@ define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/login.html'
       var LoginView = Backbone.View.extend({
 
         // Compile our footer template.
-        template: Handlebars.compile(loginTemplate),
+        template: loginTemplate,
         model: new UserModel(),
 
         events:{

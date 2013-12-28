@@ -2,10 +2,10 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'autonumeric',
+ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley', 'autonumeric',
   'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/milestone_view'],
 
-  function (Backbone, Handlebars, _, Marionette, toastr, autoNumeric, estimateTemplate, MilestoneView) {
+  function (Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, estimateTemplate, MilestoneView) {
 
     'use strict';
 
@@ -51,7 +51,6 @@
             this.model.set('acceptsCreditCard', false);
           }
         }
-        console.log(this.model);
       },
 
       updatePaymentMethods: function(event){
@@ -67,8 +66,6 @@
               toastr.info("Please add a Credit Card in the accounts section");
             }
         }
-
-        
 
         if (event.target.checked) {
           this.model.set(event.target.name, true);
@@ -114,6 +111,7 @@
       debounceSaveAndContinue: function(event) {
         event.preventDefault();
         event.stopPropagation();
+
         this.saveAndContinue();
       },
       
@@ -152,6 +150,7 @@
         var amount = event.target.value;
         var adjAmount = (amount.substring(0,2) === '$ ') ? amount.substring(2) : amount;
         var formattedAmount = parseFloat(adjAmount.replace(/,/g, ''), 10);
+
         if (this.deposit){
           this.deposit.set("amount", formattedAmount);
 

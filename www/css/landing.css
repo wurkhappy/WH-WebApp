@@ -1167,12 +1167,19 @@ label {
 }
 
 /* line 46, ../scss/components/_footer.scss */
+.landing_footer_login {
+  position: absolute;
+  position: absolute;
+  bottom: 80px;
+}
+
+/* line 52, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 51, ../scss/components/_footer.scss */
+/* line 57, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 33%;
   float: left;
