@@ -352,6 +352,10 @@ module.exports = function (grunt) {
                         {
                             name: 'app/mainarchives',
                             exclude: ['config']
+                        },
+                        {
+                            name: 'app/mainlegal',
+                            exclude: ['config']
                         }
                     ]
                 }

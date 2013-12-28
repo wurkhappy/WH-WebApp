@@ -35,6 +35,7 @@
         this.progress.show(new ProgressBar({title: "Payment Schedule", value: 1}));
         this.main.show(new EstimateView({
           model: this.model,
+          user: this.user,
           collection: this.model.get("payments"),
           acceptsCreditCard: this.model.get("acceptsCreditCard"),
           acceptsBankTransfer: this.model.get("acceptsBankTransfer")
