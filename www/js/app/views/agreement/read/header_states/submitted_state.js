@@ -14,8 +14,8 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
       initialize:function(options){
         BaseState.prototype.initialize.apply(this);
-        this.button1Title = (this.userIsClient || !this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response"; 
-        this.button2Title = (this.userIsClient || !this.userIsStateCreator) ? "Reject " + this.statusType : null;
+        this.button1Title = (!this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response"; 
+        this.button2Title = (!this.userIsStateCreator) ? "Reject " + this.statusType : null;
         this.user = options.user;
         this.otherUser = options.otherUser;
       },
