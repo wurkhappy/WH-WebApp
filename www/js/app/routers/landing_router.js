@@ -53,6 +53,7 @@
         $('#log_out').show();
         $('#create_account').hide();
         $('.copyright').addClass('copyright_login');
+        $('.landing_footer').addClass('landing_footer_login');
       },
       hideForm: function(){
         if (!this.formView) return;
@@ -60,6 +61,7 @@
         this.$mainSection.hide();
         this.$mainSection.fadeIn('fast');
         $('.copyright').removeClass('copyright_login');
+        $('.landing_footer').removeClass('landing_footer_login');
 
         $('#log_out').hide();
         $('#log_in').show();
