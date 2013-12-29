@@ -2,10 +2,10 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'marionette', 'autonumeric',
+ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley', 'autonumeric',
   'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/milestone_view'],
 
-  function (Backbone, Handlebars, _, Marionette, autoNumeric, estimateTemplate, MilestoneView) {
+  function (Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, estimateTemplate, MilestoneView) {
 
     'use strict';
 
@@ -20,7 +20,13 @@
 
       initialize: function (options) {
         this.router = options.router;
-        this.deposit = this.collection.findFirstRequiredPayment()
+        this.deposit = this.collection.findFirstRequiredPayment();
+        this.bankAccounts = options.user.get("bank_accounts");
+        this.creditCards = options.user.get("cards");
+        if (this.model.get("payments").length < 1) {
+          this.collection.add({'dateExpected': moment().add('days', 7).calendar()})
+        }
+
       },
 
       events:{
@@ -36,7 +42,6 @@
 
       updatePaymentMethods: function(event){
         if (!event.target.name) return;
-
         if (event.target.checked) {
           this.model.set(event.target.name, true);
         } else {
@@ -51,6 +56,7 @@
         // in estimate template
         if(this.model.get("acceptsCreditCard")) data.acceptsCreditCard = this.model.get("acceptsCreditCard");
         if(this.model.get("acceptsBankTransfer")) data.acceptsBankTransfer = this.model.get("acceptsBankTransfer");
+        
         data = this.mixinTemplateHelpers(data);
 
         var template = this.getTemplate();
@@ -68,7 +74,7 @@
 
       addMilestone:function(event){
         event.preventDefault();
-        this.collection.add({});
+        this.collection.add({'dateExpected': moment().add('days', 7).calendar()});
       },
 
       triggerCurrencyFormat: function() {
@@ -78,6 +84,7 @@
       debounceSaveAndContinue: function(event) {
         event.preventDefault();
         event.stopPropagation();
+
         this.saveAndContinue();
       },
       
@@ -113,17 +120,17 @@
         $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
       },
       updateDeposit: function(event){
-        console.log(this.model);
         var amount = event.target.value;
         var adjAmount = (amount.substring(0,2) === '$ ') ? amount.substring(2) : amount;
         var formattedAmount = parseFloat(adjAmount.replace(/,/g, ''), 10);
+
         if (this.deposit){
           this.deposit.set("amount", formattedAmount);
 
         } else{
           var Model = this.model.get("payments").model;
           this.deposit = new Model({title: "Deposit", amount: formattedAmount, required: true});
-          this.model.get("payments").add(this.deposit);
+          this.model.get("payments").unshift(this.deposit);
         }
 
         if (adjAmount == 0) {

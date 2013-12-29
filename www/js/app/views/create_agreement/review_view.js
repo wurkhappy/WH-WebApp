@@ -17,8 +17,13 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl', '
       render: function(){
         var totalAmount = this.model.get("payments").getTotalAmount();
 
+        if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
+          var noPaymentMethods = true;
+        }
+
         this.$el.html(this.template({
           model: this.model.toJSON(),
+          noPaymentMethods: noPaymentMethods,
           totalAmount: totalAmount
         }));
 

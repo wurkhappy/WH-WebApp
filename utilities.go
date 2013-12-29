@@ -105,7 +105,7 @@ func checkOwner(agreementid, userid, path string) bool {
 	//check redis for the agreement
 	v, err := redis.Values(c.Do("HGETALL", agreementid))
 	redis.ScanStruct(v, &owners)
-	if err != nil || len(v) == 0 || owners.ClientID == "" {
+	if err != nil || len(v) == 0 || owners.ClientID == "" || owners.FreelancerID == "" {
 		//if we can't find the agreement then let's ask the agreement service for the owners
 		resp, statusCode := sendServiceRequest("GET", config.AgreementsService, path, []byte(""))
 		if statusCode >= 400 {

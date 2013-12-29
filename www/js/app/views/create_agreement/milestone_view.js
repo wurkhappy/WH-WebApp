@@ -72,8 +72,11 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
       },
 
       triggerCalender: function (event) {
+
+        var oneWeekFromToday = moment().add('days', 7).calendar();
+
         if (!this.calendar){
-          this.calendar = new Kalendae.Input(this.$(".kal")[0], {});
+          this.calendar = new Kalendae.Input(this.$(".kal")[0], {selected: oneWeekFromToday,direction:'today-future'});
           this.calendar.subscribe('date-clicked', _.bind(this.setDate, this));
         }
       },

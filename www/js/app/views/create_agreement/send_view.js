@@ -1,7 +1,7 @@
-define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send_tpl',
+define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agreement/send_tpl',
   'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, toastr, tpl, DepositRequestModal, Modal) {
+  function (Backbone, Handlebars, toastr, parsley, tpl, DepositRequestModal, Modal) {
 
     'use strict';
 
@@ -15,7 +15,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
         "click #requestDeposit": "requestDeposit"
       },
       initialize:function(options){
-        this.message = "Please take a moment to look over the details of the services provided, refund policies and payment schedule to confirm that's what you want to do and you're comfortable with the agreement.";
+        this.message = "Please take a moment to look over the details of the services provided and the payment schedule. Let me know if you'd like to suggest any changes. When you're ready, just accept the agreement and we'll get started.";
         this.user = options.user;
         this.otherUser = options.otherUser;
         this.render();
@@ -45,7 +45,20 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
       },
       sendAgreement: _.debounce(function(event){
 
-        if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
+        //return if there isn't a valid email
+        var isValid = $('#create_agreement_send_email').parsley('validate');
+        if (!isValid) {
+          return;
+        }
+
+        if (!this.model.get("clientID") && !this.model.get("clientEmail")) {
+          return;
+        }
+
+        if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
+          toastr.error("Please select a payment method in the Payment Section");
+          return;
+        }
 
         var that = this;
 
@@ -70,6 +83,17 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/send
       requestDeposit: function (event) {
         event.preventDefault();
         event.stopPropagation();
+
+        //return if there isn't a valid email
+        var isValid = $('#create_agreement_send_email').parsley('validate');
+        if (!isValid) {
+          return;
+        }
+
+        if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
+          toastr.error("Please select a payment method in the Payment Section");
+          return;
+        }
 
         if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
 

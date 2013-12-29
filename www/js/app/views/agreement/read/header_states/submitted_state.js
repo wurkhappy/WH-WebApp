@@ -14,14 +14,14 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
       initialize:function(options){
         BaseState.prototype.initialize.apply(this);
-        this.button1Title = (this.userIsClient || !this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response"; 
-        this.button2Title = (this.userIsClient || !this.userIsStateCreator) ? "Reject " + this.statusType : null;
+        this.button1Title = (!this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response"; 
+        this.button2Title = (!this.userIsStateCreator) ? "Reject " + this.statusType : null;
         this.user = options.user;
         this.otherUser = options.otherUser;
       },
       button1:function(event){
         // if (!this.userIsClient || this.userIsStateCreator) return;
-        var deposit = this.model.get("payments").findFirstRequiredPayment();
+        var deposit = (this.userIsClient) ? this.model.get("payments").findFirstRequiredPayment() : null;
         if (this.statusType === 'payment') {
           if (!this.acceptModal){
             var view = new AcceptModal({
