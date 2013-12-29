@@ -21,7 +21,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       },
       button1:function(event){
         // if (!this.userIsClient || this.userIsStateCreator) return;
-        var deposit = this.model.get("payments").findFirstRequiredPayment();
+        var deposit = (this.userIsClient) ? this.model.get("payments").findFirstRequiredPayment() : null;
         if (this.statusType === 'payment') {
           if (!this.acceptModal){
             var view = new AcceptModal({
