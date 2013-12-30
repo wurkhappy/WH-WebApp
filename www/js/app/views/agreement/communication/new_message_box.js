@@ -49,7 +49,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
         });
         CKEDITOR.config.contentsCss = 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/contents.css' ;
         CKEDITOR.config.stylesSet = 'my_styles:https://d3kq8dzp7eezz0.cloudfront.net/css-1/styles.js';
-        CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
         var commentTagsView = new CommentTagsView({collection: this.model.get("tags"), tags: this.tags});
         commentTagsView.render();
         this.$('#comment-tags').html(commentTagsView.el);   

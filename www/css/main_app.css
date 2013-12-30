@@ -3812,6 +3812,11 @@ div.faqcontent h2 {
   padding-left: 20px;
 }
 
+/* line 116, ../scss/components/_agreement.scss */
+.proposed_services_container p {
+  margin: 0;
+}
+
 /* line 1, ../scss/components/_agreement_profile.scss */
 .agreement_profile {
   border-bottom: 1px solid #e1e1e1;
