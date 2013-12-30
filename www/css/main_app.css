@@ -3947,24 +3947,40 @@ div.faqcontent h2 {
   list-style: none;
   font-size: 14px;
   text-align: left;
+  background: #dbe0e6;
+  max-height: 130px;
+  overflow-y: scroll;
+  -moz-box-shadow: inset 0 0 5px #9facbc;
+  -webkit-box-shadow: inset 0 0 5px #9facbc;
+  box-shadow: inset 0 0px 5px #9facbc;
+  margin-left: 20px;
 }
 /* line 105, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 110, ../scss/components/_popup.scss */
+/* line 117, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 114, ../scss/components/_popup.scss */
+/* line 121, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
+  display: inline-block;
 }
 
-/* line 119, ../scss/components/_popup.scss */
+/* line 127, ../scss/components/_popup.scss */
+.account_select_info {
+  margin-left: 22px;
+  margin-bottom: 0;
+  padding: 0;
+  display: block;
+}
+
+/* line 134, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;

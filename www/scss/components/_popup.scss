@@ -105,6 +105,13 @@
 	li {
 		margin-bottom: 10px;
 	}
+	background: hsl(213, 18%, 88%);
+	max-height: 130px;
+	overflow-y: scroll;
+	-moz-box-shadow: inset 0 0 5px hsl(213, 18%, 68%);
+	-webkit-box-shadow: inset 0 0 5px hsl(213, 18%, 68%);
+	box-shadow: inset 0 0px 5px hsl(213, 18%, 68%);
+	margin-left: 20px;
 }
 
 .first_select_info {
@@ -114,6 +121,14 @@
 .payment_select_info {
 	margin: 0;
 	padding: 0;
+	display:inline-block;
+}
+
+.account_select_info {
+	margin-left: 22px;
+	margin-bottom: 0;
+	padding: 0;
+	display: block;
 }
 
 .close {
