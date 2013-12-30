@@ -4746,61 +4746,66 @@ progress::-webkit-progress-value, progress.yellow_progress {
   font-family: museo_sans;
   font-weight: 300;
   font-size: 24px;
-  margin: 0;
+  margin: 10px 0;
 }
 /* line 28, ../scss/components/_review_agreement.scss */
 .review_agreement_container .agreement_title span {
   display: none;
 }
-/* line 32, ../scss/components/_review_agreement.scss */
+/* line 33, ../scss/components/_review_agreement.scss */
+.review_agreement_container .payment_methods_title {
+  margin-top: 20px;
+  margin-left: -20px;
+}
+/* line 38, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_milestone_container:nth-child(n+2n) {
   background: #972b46;
 }
-/* line 35, ../scss/components/_review_agreement.scss */
+/* line 41, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_milestone {
   color: #333333;
 }
 
-/* line 40, ../scss/components/_review_agreement.scss */
+/* line 46, ../scss/components/_review_agreement.scss */
 .review_agreement_total {
   border-top: 2px solid #008fd1;
   padding-top: 10px;
 }
 
-/* line 45, ../scss/components/_review_agreement.scss */
+/* line 51, ../scss/components/_review_agreement.scss */
 .review_continue {
   padding-top: 20px;
   margin-top: 20px;
 }
 
-/* line 50, ../scss/components/_review_agreement.scss */
+/* line 56, ../scss/components/_review_agreement.scss */
 .review_continue_button {
   padding: 0 20px;
 }
 
-/* line 54, ../scss/components/_review_agreement.scss */
+/* line 60, ../scss/components/_review_agreement.scss */
 .edit_summary {
   width: 100%;
 }
 
-/* line 58, ../scss/components/_review_agreement.scss */
+/* line 64, ../scss/components/_review_agreement.scss */
 .edit_title {
   line-height: 40px;
 }
 
-/* line 62, ../scss/components/_review_agreement.scss */
+/* line 68, ../scss/components/_review_agreement.scss */
 .payment_method_review_container {
   margin-top: 10px;
   margin-bottom: 20px;
   color: #86ce50;
 }
-/* line 66, ../scss/components/_review_agreement.scss */
+/* line 72, ../scss/components/_review_agreement.scss */
 .payment_method_review_container span {
   color: #636363;
   font-family: museo_sans;
 }
 
-/* line 72, ../scss/components/_review_agreement.scss */
+/* line 78, ../scss/components/_review_agreement.scss */
 .bank_account_method_review {
   margin-left: 15px;
 }
