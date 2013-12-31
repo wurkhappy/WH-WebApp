@@ -3678,6 +3678,11 @@ div.faqcontent h2 {
   overflow: hidden;
 }
 
+/* line 67, ../scss/components/_create_agreement.scss */
+.message_editor_container {
+  width: 620px;
+}
+
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
   padding-bottom: 20px;
