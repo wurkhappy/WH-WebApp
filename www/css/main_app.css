@@ -3711,9 +3711,11 @@ div.faqcontent h2 {
   border-top: 1px solid whitesmoke;
   padding: 10px 0;
   list-style: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
-/* line 27, ../scss/components/_agreement.scss */
+/* line 29, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3727,32 +3729,100 @@ div.faqcontent h2 {
   color: #646464;
 }
 
-/* line 41, ../scss/components/_agreement.scss */
+/* line 43, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 47, ../scss/components/_agreement.scss */
+/* line 49, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 52, ../scss/components/_agreement.scss */
+/* line 54, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 57, ../scss/components/_agreement.scss */
+/* line 59, ../scss/components/_agreement.scss */
 .scope_item {
-  padding: 0;
+  text-align: left;
+  line-height: 16px;
+  position: relative;
+  top: -2px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
 }
 
-/* line 61, ../scss/components/_agreement.scss */
+/* line 69, ../scss/components/_agreement.scss */
+.check_item {
+  position: relative;
+  clear: both;
+  margin: 0 0 4px 4px;
+  padding: 0 0 4px 36px;
+}
+
+/* line 76, ../scss/components/_agreement.scss */
+.checkbox {
+  background: white;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #bababa;
+  border-bottom-color: #999999;
+  border-top-color: #cccccc;
+  font-weight: bold;
+  position: absolute;
+  left: 6px;
+  line-height: 16px;
+  overflow: hidden;
+  text-align: center;
+  text-indent: 100%;
+  top: 0;
+  height: 16px;
+  width: 16px;
+  white-space: nowrap;
+}
+
+/* line 97, ../scss/components/_agreement.scss */
+.check_item .checkbox:hover {
+  background-color: #dedede;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #949494;
+  cursor: pointer;
+  text-indent: 0;
+  font-size: 13px;
+  line-height: 5px;
+}
+
+/* line 108, ../scss/components/_agreement.scss */
+.checkbox_complete {
+  background-color: #f2f2f2;
+  border: 1px solid #bababa;
+  border-bottom-color: #cccccc;
+  border-top-color: #999999;
+  -webkit-box-shadow: 0 1px 0 white;
+  box-shadow: 0 1px 0 white;
+  text-indent: 0;
+  font-size: 13px;
+  line-height: 5px;
+}
+
+/* line 120, ../scss/components/_agreement.scss */
+.scope_item.complete {
+  color: #949494;
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+/* line 126, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -3766,18 +3836,18 @@ div.faqcontent h2 {
   border-bottom-left-radius: 3px;
 }
 
-/* line 74, ../scss/components/_agreement.scss */
+/* line 139, ../scss/components/_agreement.scss */
 .work_item_container {
   margin: 0;
 }
 
-/* line 78, ../scss/components/_agreement.scss */
+/* line 143, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 83, ../scss/components/_agreement.scss */
+/* line 148, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -3785,39 +3855,39 @@ div.faqcontent h2 {
   border-radius: 5px;
 }
 
-/* line 90, ../scss/components/_agreement.scss */
+/* line 155, ../scss/components/_agreement.scss */
 .home_container {
   min-height: 150px;
 }
 
-/* line 94, ../scss/components/_agreement.scss */
+/* line 159, ../scss/components/_agreement.scss */
 .fee_detail_container {
   padding-left: 10px;
 }
-/* line 96, ../scss/components/_agreement.scss */
+/* line 161, ../scss/components/_agreement.scss */
 .fee_detail_container ul {
   padding: 0;
 }
 
-/* line 101, ../scss/components/_agreement.scss */
+/* line 166, ../scss/components/_agreement.scss */
 .fee_line_item {
   font-size: 12px;
   list-style-type: none;
 }
 
-/* line 106, ../scss/components/_agreement.scss */
+/* line 171, ../scss/components/_agreement.scss */
 .fee_amount {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 112, ../scss/components/_agreement.scss */
+/* line 177, ../scss/components/_agreement.scss */
 .payment_methods_agreement_container {
   padding-left: 20px;
 }
 
-/* line 116, ../scss/components/_agreement.scss */
+/* line 181, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
 }
@@ -3964,25 +4034,26 @@ div.faqcontent h2 {
   -webkit-box-shadow: inset 0 0 5px #9facbc;
   box-shadow: inset 0 0px 5px #9facbc;
   margin-left: 20px;
+  border-radius: 5px;
 }
 /* line 105, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 117, ../scss/components/_popup.scss */
+/* line 118, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 121, ../scss/components/_popup.scss */
+/* line 122, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
   display: inline-block;
 }
 
-/* line 127, ../scss/components/_popup.scss */
+/* line 128, ../scss/components/_popup.scss */
 .account_select_info {
   margin-left: 22px;
   margin-bottom: 0;
@@ -3990,7 +4061,7 @@ div.faqcontent h2 {
   display: block;
 }
 
-/* line 134, ../scss/components/_popup.scss */
+/* line 135, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;

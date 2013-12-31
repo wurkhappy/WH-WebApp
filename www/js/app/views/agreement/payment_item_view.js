@@ -1,8 +1,8 @@
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/agreement/payment_item_tpl.html', 'views/agreement/scope_item_view'],
+  'text!templates/agreement/payment_item_tpl.html', 'views/agreement/work_item_view', 'views/agreement/scope_item_view',  'views/ui-modules/modal'],
 
-  function (Backbone, Handlebars, _, Marionette, paymentItemTemplate, ScopeItemView) {
+  function (Backbone, Handlebars, _, Marionette, paymentItemTemplate, WorkItemView, ScopeItemView, Modal) {
 
     'use strict';
     Handlebars.registerHelper('dateFormat', function(date) {
@@ -22,9 +22,27 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.listenTo(this.model, 'change',this.checkStatus)
           //.get("dateExpected").format("MMM Do YYYY"))
       },
+
+      events:{
+        "click .payment_milestone": "showWorkItem"
+      },
       onRender:function(){
         this.checkStatus();
       },
+
+      showWorkItem: function(event) {
+        console.log(this.model);
+        console.log("this is the item");
+
+        console.log(event.currentTarget.getAttribute('data-work-item'))
+
+        var view = new WorkItemView({model: this.model, collection: this.model.get("scopeItems")});
+
+        this.modal = new Modal({view:view});
+        this.modal.show();
+        
+      },
+
       checkStatus:function(){
         var status = this.model.get("currentStatus");
         if (!status) {

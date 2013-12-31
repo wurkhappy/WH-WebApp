@@ -22,6 +22,8 @@
   border-top: 1px solid rgb(245,245,245);
   padding: 10px 0;
   list-style: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .payment_status {
@@ -55,7 +57,70 @@
 }
 
 .scope_item {
-  padding: 0;
+  text-align: left;
+  line-height: 16px;
+  position: relative;
+  top: -2px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+.check_item {
+  position: relative;
+  clear: both;
+  margin: 0 0 4px 4px;
+  padding: 0 0 4px 36px;
+}
+
+.checkbox {
+  background: hsl(0, 100%, 100%);
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.1);
+  border: 1px solid hsl(0, 0%, 73%);
+  border-bottom-color: hsl(0, 0%, 60%);
+  border-top-color: hsl(0, 0%, 80%);
+  font-weight: bold;
+  position: absolute;
+  left: 6px;
+  line-height: 16px;
+  overflow: hidden;
+  text-align: center;
+  text-indent: 100%;
+  top: 0;
+  height: 16px;
+  width: 16px;
+  white-space: nowrap;
+}
+
+.check_item .checkbox:hover {
+  background-color: hsl(0, 0%, 87%);
+  -webkit-box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.1);
+  color: hsl(0, 0%, 58%);
+  cursor: pointer;
+  text-indent: 0;
+  font-size: 13px;
+  line-height: 5px;
+}
+
+.checkbox_complete {
+  background-color: hsl(0, 0%, 95%);
+  border: 1px solid hsl(0, 0%, 73%);
+  border-bottom-color: hsl(0, 0%, 80%);
+  border-top-color: hsl(0, 0%, 60%);
+  -webkit-box-shadow: 0 1px 0 hsl(0, 100%, 100%);
+  box-shadow: 0 1px 0 hsl(0, 100%, 100%);
+  text-indent: 0;
+  font-size: 13px;
+  line-height: 5px;
+}
+
+.scope_item.complete {
+  color: hsl(0, 0%, 58%);
+  font-style: italic;
+  text-decoration: line-through;
 }
 
 .void_agreement {

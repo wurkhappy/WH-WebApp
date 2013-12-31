@@ -29,7 +29,6 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
 
         this.render();
 
-        console.log(options);
       },
       render:function(){
         var milestonePayment = this.model.get("amount");
