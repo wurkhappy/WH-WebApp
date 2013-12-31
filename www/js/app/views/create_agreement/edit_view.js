@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/payments_edit_view'],
+define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/work_items_edit_view'],
 
   function (Backbone, Handlebars, tpl, WorkItemsView) {
 

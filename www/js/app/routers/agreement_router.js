@@ -3,8 +3,8 @@
  */
 
  define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
-  'views/agreement/payments_read_view', 'views/agreement/user_view',
-  'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
+  'views/agreement/work_items_read_view', 'views/agreement/user_view',
+  'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
   'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
   'collections/tags'],
 

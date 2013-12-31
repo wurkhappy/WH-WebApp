@@ -1,16 +1,16 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'hbs!templates/agreement/edit/payment_edit_tpl', 'views/agreement/edit/payment_item_view',
-  'views/agreement/payment_item_view'],
+  'hbs!templates/agreement/edit/work_item_edit_tpl', 'views/agreement/edit/work_item_view',
+  'views/agreement/work_item_view'],
 
-  function (Backbone, Handlebars, _, Marionette, paymentEditTemplate, PaymentItemView, PaymentPaidView) {
+  function (Backbone, Handlebars, _, Marionette, workItemEditTemplate, WorkItemView, WorkItemPaidView) {
 
     'use strict';
 
-    var PaymentEditView = Backbone.Marionette.CompositeView.extend({
+    var WorkItemEditView = Backbone.Marionette.CompositeView.extend({
 
-      template: paymentEditTemplate,
+      template: workItemEditTemplate,
 
-      itemView: PaymentItemView,
+      itemView: WorkItemView,
       itemViewContainer:'ul',
 
       initialize:function(){
@@ -20,8 +20,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         "click #addMoreButton" : "addMilestone"
       },
       getItemView: function(item) {
-        if (item.get("amount") === item.get("amountPaid")) return PaymentPaidView;
-        return PaymentItemView;
+        if (item.get("amount") === item.get("amountPaid")) return WorkItemPaidView;
+        return WorkItemView;
       },
 
       addMilestone:function(event){
@@ -33,7 +33,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
     });
 
-    return PaymentEditView;
+    return WorkItemEditView;
 
   }
   );
