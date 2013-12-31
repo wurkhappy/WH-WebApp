@@ -14,14 +14,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       itemViewContainer:'ul',
 
       initialize:function(){
-        this.collection = this.model.get("payments");
+        this.collection = this.model.get("workItems");
       },
       events:{
         "click #addMoreButton" : "addMilestone"
       },
       getItemView: function(item) {
-        var status  = item.get("currentStatus");
-        if (status && (status.get("action") === "accepted" || status.get("action") === "submitted")) return PaymentPaidView;
+        if (item.get("amount") === item.get("amountPaid")) return PaymentPaidView;
         return PaymentItemView;
       },
 

@@ -41,7 +41,8 @@ func initRoutes(r *mux.Router) {
 
 	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
 
-	r.Handle("/agreement/v/{versionID}/payment/{paymentID}/status", versionHandler(handlers.CreatePaymentStatus)).Methods("POST")
+	r.Handle("/agreement/v/{versionID}/payment/{paymentID}/status", versionHandler(handlers.UpdatePaymentStatus)).Methods("PUT")
+	r.Handle("/agreement/v/{versionID}/payment/", versionHandler(handlers.CreatePayment)).Methods("POST")
 	r.Handle("/agreement/v/{versionID}/status", versionHandler(handlers.CreateAgreementStatus)).Methods("POST")
 	r.Handle("/agreement/{agreementID}/comments", agreementHandler(handlers.CreateComment)).Methods("POST")
 

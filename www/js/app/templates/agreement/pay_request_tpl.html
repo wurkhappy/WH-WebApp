@@ -21,7 +21,7 @@
       <article>
         <div class="line"></div>
         <h2 class="pay_header pay_milestone">Get Paid for Milestone 
-          <select id="milestoneToPay">{{#each payments}}
+          <select id="milestoneToPay" value="{{this.model.id}}">{{#each payments}}
             <option value="{{this.id}}">{{this.title}}</option>
             {{/each}}
             </select></h2>

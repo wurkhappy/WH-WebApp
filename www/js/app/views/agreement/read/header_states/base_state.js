@@ -10,7 +10,7 @@ define(['backbone', 'handlebars'],
         this.userIsClient = this.model.get("clientID") == window.thisUser.id;//thisUser is set by server directly into html
         if (this.model.get("draft")) return;
         this.status = this.model.get("currentStatus");
-        this.statusType = (this.status.get("paymentID")) ? "payment" : "agreement";
+        this.statusType = (this.status.get("parentID") === this.model.id || this.status.get("parentID") === "") ? "agreement" : "payment";
         this.userIsStateCreator = this.status.get("userID") == window.thisUser.id;
       },
       button1:function(event){

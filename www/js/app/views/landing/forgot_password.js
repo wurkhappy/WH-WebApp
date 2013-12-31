@@ -2,7 +2,7 @@
  * Login View.
  */
 
- define(['backbone', 'handlebars', 'parsley', 'text!templates/landing/forgot_password.html', 'models/user'],
+ define(['backbone', 'handlebars', 'parsley', 'hbs!templates/landing/forgot_password', 'models/user'],
 
   function (Backbone, Handlebars, parsley, forgotPWTemplate, UserModel) {
 
@@ -11,7 +11,7 @@
     var ForgotPasswordView = Backbone.View.extend({
 
         // Compile our footer template.
-        template: Handlebars.compile(forgotPWTemplate),
+        template: forgotPWTemplate,
 
         events:{
           "blur input" : "updateModel",

@@ -21,7 +21,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
         this.render();
       },
       render: function(){
-        this.deposit = this.model.get("payments").at(0);
+        this.deposit = this.model.get("workItems").at(0);
         var deposit;
 
         if (this.deposit && this.deposit.get("required") && this.deposit.get("amount") > 0 && this.user.id === this.model.get("freelancerID")) {
@@ -103,7 +103,8 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
           if (!that.modal){
             var view = new DepositRequestModal({
               model: that.deposit,
-              collection: that.model.get("payments"),
+              collection: that.model.get("workItems"),
+              payments: that.model.get("payments"),
               cards: that.user.get("cards"),
               bankAccounts: that.user.get("bank_accounts"),
               acceptsBankTransfer: that.model.get("acceptsBankTransfer"),
@@ -115,23 +116,10 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
           that.modal.show();
         }});        
       },
-      depositRequested: function(creditSource){
-        if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
-
-        var that = this;
-
-        this.model.save({},{success:function(model, response){
-
-          //toastr.success('Agreement Sent and Deposit Requested');
-
-          var submitSuccess = function(){
-            that.modal.view.model.submit(creditSource, function(){
-              window.location = "/home";
-            });
-          };
-
-          that.model.submit(that.message, submitSuccess);
-        }});      
+      depositRequested: function(){
+        this.model.submit(this.message, function(){
+          window.location = "/home";
+        });
       }
     });
 

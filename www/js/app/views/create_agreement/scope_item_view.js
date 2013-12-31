@@ -8,7 +8,7 @@
 
     'use strict';
 
-    var PaymentScopeItemView = Backbone.View.extend({
+    var WorkScopeItemView = Backbone.View.extend({
 
       tagName:'li',
       template: itemTemplate,
@@ -43,7 +43,7 @@
 
 });
 
-    return PaymentScopeItemView;
+    return WorkScopeItemView;
 
   }
   );

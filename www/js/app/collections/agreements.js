@@ -10,7 +10,9 @@ define(['backbone', 'models/agreement'],
 
             var Collection = Backbone.Collection.extend({
                   model: Model,
-
+                  comparator: function(model){
+                        return -model.get("lastModified").valueOf();
+                  },
                   sortByStatus: function(){
                         var waitingOnRespAgrmnts = new Collection();
                         var inProgressAgrmnts = new Collection();

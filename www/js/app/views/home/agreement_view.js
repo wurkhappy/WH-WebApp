@@ -8,28 +8,6 @@
   function (Backbone, Handlebars, _, agreementTpl) {
 
     'use strict';
-    //helper functions
-    var createStatusInfo = function(status, client){
-      var currentState;
-      var prefix = (status.get("paymentID")) ? "Payment" : "Agreement"
-      var lastAction = prefix + " " +status.get("action") + " on " + status.get("date").format('MMM D, YYYY');
-        switch (status.get("action")){
-          case status.StatusSubmitted:
-          currentState = "Waiting for " + prefix;
-          break;
-          case status.StatusCreated:
-          currentState = null;
-          lastAction = null;
-          break;
-          default:
-          currentState = "Waiting for Current Milestone";
-        }
-
-      return {
-        lastAction:lastAction,
-        currentState:currentState
-      };
-    };
 
     var AgreementView = Backbone.View.extend({
 
@@ -45,11 +23,11 @@
 
       render: function () {
         var status = this.model.get("currentStatus");
-        var payment = this.model.get("payments");
+        var workItems = this.model.get("workItems");
 
-        var percentComplete = payment.getPercentComplete() * 100;
+        var percentComplete = workItems.getPercentComplete();
 
-        var statusInfo = (this.model.get("draft")) ? {lastAction:"Draft Saved", currentState: "Waiting to be submitted"} : createStatusInfo(status, this.userIsClient);
+        var statusInfo = this.createStatusInfo();
 
         this.$el.html(this.template({
           model: this.model.toJSON(),
@@ -59,11 +37,35 @@
           percentComplete: percentComplete
         }));
         return this;
+      },
+      createStatusInfo: function(){
+        if (this.model.get("draft")) {
+          return {lastAction: "Draft Saved", currentState: "Waiting to be submitted"};
+        }
+        var currentState;
+        var status = this.model.get("currentStatus");
+        var prefix = (status.get("parentID") === this.model.id || status.get("parentID") === "") ? "Agreement" : "Payment";
+        var lastAction = prefix + " " +status.get("action") + " on " + status.get("date").format('MMM D, YYYY');
+        switch (status.get("action")){
+          case status.StatusSubmitted:
+          currentState = "Waiting for " + prefix;
+          break;
+          case status.StatusCreated:
+          currentState = null;
+          lastAction = null;
+          break;
+          default:
+          currentState = "Waiting for Current Milestone";
+        }
 
+        return {
+          lastAction:lastAction,
+          currentState:currentState
+        };
       }
     });
 
-    return AgreementView;
+return AgreementView;
 
-  }
-  );
+}
+);

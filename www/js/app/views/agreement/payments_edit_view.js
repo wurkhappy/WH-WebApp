@@ -17,7 +17,7 @@
       itemViewContainer:'ul',
 
       initialize:function(){
-        this.collection = this.model.get("payments");
+        this.collection = this.model.get("workItems");
       }
 
     });

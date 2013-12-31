@@ -1,6 +1,6 @@
 define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/payments_edit_view'],
 
-  function (Backbone, Handlebars, tpl, PaymentsView) {
+  function (Backbone, Handlebars, tpl, WorkItemsView) {
 
     'use strict';
 
@@ -18,9 +18,9 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'vi
       },
       render: function(){
         this.$el.html(this.template(this.model.toJSON()));
-        var paymentsView = new PaymentsView({model: this.model});
-        paymentsView.render();
-        this.$('#payments-section').html(paymentsView.$el);
+        var workItemsView = new WorkItemsView({model: this.model});
+        workItemsView.render();
+        this.$('#work-items-section').html(workItemsView.$el);
         return this;
       },
 
