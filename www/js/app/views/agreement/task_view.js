@@ -1,13 +1,13 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/new_scope_item_tpl.html'],
+define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl'],
 
-  function (Backbone, Handlebars, scopeItemTpl) {
+  function (Backbone, Handlebars, taskTpl) {
 
     'use strict';
 
-    var ScopeItemView = Backbone.View.extend({
+    var TaskView = Backbone.View.extend({
 
-      template: Handlebars.compile(scopeItemTpl),
+      template: taskTpl,
       className: "check_item",
 
       initialize: function() {
@@ -24,7 +24,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/new_scope_item_tpl.h
 
     });
 
-    return ScopeItemView;
+    return TaskView;
 
   }
   );

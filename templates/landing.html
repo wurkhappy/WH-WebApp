@@ -33,7 +33,7 @@
 
 
 
-  <script type="text/javascript" async>
+  <script type="text/javascript">
     analytics.initialize({
       'Google Analytics' : 'UA-24101674-3',
       'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
@@ -103,6 +103,7 @@
 </div> <!-- class fade2 -->
 <script>
 	// non-jquery fade function takes ('in' or 'out' as type), duration in miliseconds, element, and flag to designate if I.E. 8 is supported
+	//fading in the benefits section on window load adds a nice effect and makes everything appear at the same time.
 	function fade(type, ms, el, IE) {
 	    var isIn = type === 'in',
 	        opacity = isIn ? 0 : 1,

@@ -39,7 +39,14 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         var view = new WorkItemView({model: this.model, collection: this.model.get("scopeItems")});
 
         this.modal = new Modal({view:view});
+        this.modal.$(".panel").addClass("milestone_panel");
         this.modal.show();
+
+        if ($('.panel').is(":visible")) {
+          $('body').addClass('hide_overflow');
+        } else {
+          $('body').removeClass('hide_overflow');
+        }
         
       },
 

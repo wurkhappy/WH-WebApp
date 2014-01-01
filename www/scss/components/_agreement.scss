@@ -66,6 +66,21 @@
   font-weight: 300;
 }
 
+.tasks_container {
+  list-style-type: none;
+  margin: 0;
+}
+
+.task {
+  text-align: left;
+  line-height: 16px;
+  position: relative;
+  top: -2px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
 .check_item {
   position: relative;
   clear: both;
@@ -117,7 +132,7 @@
   line-height: 5px;
 }
 
-.scope_item.complete {
+.task_complete {
   color: hsl(0, 0%, 58%);
   font-style: italic;
   text-decoration: line-through;
