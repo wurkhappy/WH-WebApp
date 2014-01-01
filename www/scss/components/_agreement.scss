@@ -81,6 +81,47 @@
   font-weight: 300;
 }
 
+.new_task_container {
+  text-align: left;
+  margin-left: 40px;
+}
+
+.new_task {
+  width: 460px;
+  resize: vertical;
+  height: 68px;
+  border-color: hsl(202, 60%, 42%);
+  cursor:text;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+.work_item_description {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.add_task_button {
+  display: inline-block;
+  margin-right:10px;
+  line-height: 30px;
+  width: 75px;
+}
+
+.add_task_close {
+  &:visited {
+    color: $grey;
+  }
+  &:hover {
+    color: hsl(345, 56%, 38%);
+    text-decoration:none;
+  }
+} 
+
 .check_item {
   position: relative;
   clear: both;

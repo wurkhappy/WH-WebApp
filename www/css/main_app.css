@@ -172,29 +172,30 @@ input, textarea {
   font-size: 100%;
   font: inherit;
   color: #636363;
+  border-radius: 3px;
 }
 
-/* line 150, ../scss/bases/_common.scss */
+/* line 151, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 157, ../scss/bases/_common.scss */
+/* line 158, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 162, ../scss/bases/_common.scss */
+/* line 163, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 167, ../scss/bases/_common.scss */
+/* line 168, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -203,25 +204,25 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 175, ../scss/bases/_common.scss */
+/* line 176, ../scss/bases/_common.scss */
 .content {
   background-color: white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 
-/* line 181, ../scss/bases/_common.scss */
+/* line 182, ../scss/bases/_common.scss */
 .landing_background {
   background: #dce0e4 url(/img/bg.png) fixed;
 }
 
-/* line 185, ../scss/bases/_common.scss */
+/* line 186, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 190, ../scss/bases/_common.scss */
+/* line 191, ../scss/bases/_common.scss */
 .main_content_container {
   float: left;
   border-radius: 15px;
@@ -230,12 +231,12 @@ fieldset {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 198, ../scss/bases/_common.scss */
+/* line 199, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 202, ../scss/bases/_common.scss */
+/* line 203, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -244,7 +245,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 210, ../scss/bases/_common.scss */
+/* line 211, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -253,13 +254,13 @@ fieldset {
   text-align: left;
 }
 
-/* line 218, ../scss/bases/_common.scss */
+/* line 219, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 223, ../scss/bases/_common.scss */
+/* line 224, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #dbe0e6;
   clear: both;
@@ -267,13 +268,13 @@ fieldset {
   width: 100%;
 }
 
-/* line 230, ../scss/bases/_common.scss */
+/* line 231, ../scss/bases/_common.scss */
 .required {
   color: #972b46;
   display: inline;
 }
 
-/* line 235, ../scss/bases/_common.scss */
+/* line 236, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
@@ -3783,6 +3784,51 @@ div.faqcontent h2 {
 }
 
 /* line 84, ../scss/components/_agreement.scss */
+.new_task_container {
+  text-align: left;
+  margin-left: 40px;
+}
+
+/* line 89, ../scss/components/_agreement.scss */
+.new_task {
+  width: 460px;
+  resize: vertical;
+  height: 68px;
+  border-color: #2b7cab;
+  cursor: text;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+/* line 100, ../scss/components/_agreement.scss */
+.work_item_description {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+/* line 108, ../scss/components/_agreement.scss */
+.add_task_button {
+  display: inline-block;
+  margin-right: 10px;
+  line-height: 30px;
+  width: 75px;
+}
+
+/* line 116, ../scss/components/_agreement.scss */
+.add_task_close:visited {
+  color: #969696;
+}
+/* line 119, ../scss/components/_agreement.scss */
+.add_task_close:hover {
+  color: #972b46;
+  text-decoration: none;
+}
+
+/* line 125, ../scss/components/_agreement.scss */
 .check_item {
   position: relative;
   clear: both;
@@ -3790,7 +3836,7 @@ div.faqcontent h2 {
   padding: 0 0 4px 36px;
 }
 
-/* line 91, ../scss/components/_agreement.scss */
+/* line 132, ../scss/components/_agreement.scss */
 .checkbox {
   background: white;
   border-radius: 3px;
@@ -3812,7 +3858,7 @@ div.faqcontent h2 {
   white-space: nowrap;
 }
 
-/* line 112, ../scss/components/_agreement.scss */
+/* line 153, ../scss/components/_agreement.scss */
 .check_item .checkbox:hover {
   background-color: #dedede;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -3824,7 +3870,7 @@ div.faqcontent h2 {
   line-height: 5px;
 }
 
-/* line 123, ../scss/components/_agreement.scss */
+/* line 164, ../scss/components/_agreement.scss */
 .checkbox_complete {
   background-color: #f2f2f2;
   border: 1px solid #bababa;
@@ -3837,14 +3883,14 @@ div.faqcontent h2 {
   line-height: 5px;
 }
 
-/* line 135, ../scss/components/_agreement.scss */
+/* line 176, ../scss/components/_agreement.scss */
 .task_complete {
   color: #949494;
   font-style: italic;
   text-decoration: line-through;
 }
 
-/* line 141, ../scss/components/_agreement.scss */
+/* line 182, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -3858,18 +3904,18 @@ div.faqcontent h2 {
   border-bottom-left-radius: 3px;
 }
 
-/* line 154, ../scss/components/_agreement.scss */
+/* line 195, ../scss/components/_agreement.scss */
 .work_item_container {
   margin: 0;
 }
 
-/* line 158, ../scss/components/_agreement.scss */
+/* line 199, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 163, ../scss/components/_agreement.scss */
+/* line 204, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -3877,39 +3923,39 @@ div.faqcontent h2 {
   border-radius: 5px;
 }
 
-/* line 170, ../scss/components/_agreement.scss */
+/* line 211, ../scss/components/_agreement.scss */
 .home_container {
   min-height: 150px;
 }
 
-/* line 174, ../scss/components/_agreement.scss */
+/* line 215, ../scss/components/_agreement.scss */
 .fee_detail_container {
   padding-left: 10px;
 }
-/* line 176, ../scss/components/_agreement.scss */
+/* line 217, ../scss/components/_agreement.scss */
 .fee_detail_container ul {
   padding: 0;
 }
 
-/* line 181, ../scss/components/_agreement.scss */
+/* line 222, ../scss/components/_agreement.scss */
 .fee_line_item {
   font-size: 12px;
   list-style-type: none;
 }
 
-/* line 186, ../scss/components/_agreement.scss */
+/* line 227, ../scss/components/_agreement.scss */
 .fee_amount {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 192, ../scss/components/_agreement.scss */
+/* line 233, ../scss/components/_agreement.scss */
 .payment_methods_agreement_container {
   padding-left: 20px;
 }
 
-/* line 196, ../scss/components/_agreement.scss */
+/* line 237, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
 }
