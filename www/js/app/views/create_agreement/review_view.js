@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl', 'views/agreement/payments_read_view',
+define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl', 'views/agreement/work_items_read_view',
   'views/agreement/read/modals/agreement_submit', 'views/ui-modules/modal'],
 
   function (Backbone, Handlebars, tpl, WorkItemsView, AgreementSubmitModal, Modal) {

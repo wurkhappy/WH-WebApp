@@ -71,7 +71,6 @@ func home(w http.ResponseWriter, req *http.Request) {
 
 func about(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
-		"appName":    "mainhome",
 		"production": handlers.Production,
 		"JSversion":  handlers.JSversion,
 		"CSSversion": handlers.CSSversion,

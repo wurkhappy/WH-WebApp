@@ -24,10 +24,16 @@
 		font-family: museo_sans;
 		font-weight: 300;
 		font-size: 24px;
-		margin:0;
+		margin: 10px 0;
 		span {
 			display: none;
 		}
+	}
+
+	.payment_methods_title {
+		margin-top: 20px;
+		margin-left: -20px;
+	
 	}
 	.payment_milestone_container:nth-child(n+2n) {
 		background: $red;

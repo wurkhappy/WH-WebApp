@@ -1,6 +1,6 @@
-define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/work_items_edit_view'],
+define(['backbone', 'handlebars', 'ckeditor', 'ckadapter', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/work_items_edit_view'],
 
-  function (Backbone, Handlebars, tpl, WorkItemsView) {
+  function (Backbone, Handlebars, CKEDITOR, ckadapter, tpl, PaymentsView) {
 
     'use strict';
 
@@ -9,7 +9,8 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'vi
       className:'clear white_background',
       events:{
         "click #saveAgreement": "debounceSaveAgreement",
-        "blur input, textarea": "updateFields"
+        "blur input, textarea": "updateFields",
+        "blur #message_editor": "message"
       },
       initialize:function(){
         this.render();
@@ -21,7 +22,23 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'vi
         var workItemsView = new WorkItemsView({model: this.model});
         workItemsView.render();
         this.$('#work-items-section').html(workItemsView.$el);
+        setTimeout(_.bind(this.onRender, this),5);
         return this;
+      },
+
+      onRender: function() {
+        CKEDITOR.basePath = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
+        CKEDITOR.replace('message_editor', {
+          toolbar: [
+          {items: ['Bold','-', 'Italic', '-', 'Underline']}
+          ],
+          disableNativeSpellChecker: false,
+          language: 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/en.js',
+          skin: 'wurkhappy,https://d3kq8dzp7eezz0.cloudfront.net/css-1/wurkhappy/',
+          customConfig : 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/config.js'
+        });
+        CKEDITOR.config.contentsCss = 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/contents.css' ;
+        CKEDITOR.config.stylesSet = 'my_styles:https://d3kq8dzp7eezz0.cloudfront.net/css-1/styles.js';
       },
 
       debounceSaveAgreement: function(event) {
@@ -40,6 +57,9 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/edit_tpl', 'vi
         if (event.target.name === 'dateExpected') { return};
         this.model.set(event.target.name, event.target.value);
         
+      },
+      message: function(event) {
+        console.log("something here");
       }
 
     });

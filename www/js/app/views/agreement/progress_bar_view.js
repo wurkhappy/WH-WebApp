@@ -48,8 +48,9 @@
 
       render: function () {
         var deposit = this.workItems.findDeposit();
-        var totalAmountExDeposit = this.workItems.getTotalAmount() - deposit.get("amount");
-        var percentComplete = ((this.payments.getTotalAmount()- deposit.get("amount"))/totalAmountExDeposit) * 100;
+        var depositAmount = (deposit) ? deposit.get("amount") : 0;
+        var totalAmountExDeposit = this.workItems.getTotalAmount() - depositAmount;
+        var percentComplete = ((this.payments.getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
         var requiredPaymentsCount = (deposit) ? 1 : 0;
 
         var iconSize = 30;

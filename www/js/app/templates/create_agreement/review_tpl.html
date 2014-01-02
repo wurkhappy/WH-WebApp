@@ -8,7 +8,7 @@
 	</h2>
 	<span class="helper_text edit_helper">Feel like something's missing? <a id="editAgreement" href="#edit">Edit this agreeement</a>.</span>
 	<h2 class="agreement_title">Summary</h2>
-	<p>{{model.proposedServices}}</p>
+	<div class="proposed_services_container">{{{model.proposedServices}}}</div>
 	<h2 class="agreement_title">Accepted Methods of Payment</h2>
 	<div class="payment_method_review_container">
 		{{#if model.acceptsCreditCard}}

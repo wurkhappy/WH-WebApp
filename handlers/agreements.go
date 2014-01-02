@@ -291,7 +291,7 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		return t.Format("Jan 2, 2006")
 	}
 
-	tpl, err := template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+	tpl, err := template.New("_baseApp.html").Funcs(template.FuncMap{"format": format, "unescape": unescaped}).ParseFiles(
 		"templates/_baseApp.html",
 		"templates/freelancer_perspective_agreement.html",
 	)

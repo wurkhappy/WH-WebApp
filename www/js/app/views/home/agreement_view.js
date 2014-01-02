@@ -17,24 +17,24 @@
       initialize: function (options) {
         this.currentUser = options.currentUser;
         this.userIsClient = this.model.get("clientID") === this.currentUser.id;
-        var otherUserID = (otherUserID) ? this.model.get("freelancerID") : this.model.get("clientID");
+        var otherUserID = (this.userIsClient) ? this.model.get("freelancerID") : this.model.get("clientID");
         this.otherUser = options.otherUsers.get(otherUserID);
+        this.percentComplete = this.model.percentComplete();
       },
 
       render: function () {
         var status = this.model.get("currentStatus");
         var workItems = this.model.get("workItems");
 
-        var percentComplete = workItems.getPercentComplete();
 
         var statusInfo = this.createStatusInfo();
-
+        console.log(this.otherUser);
         this.$el.html(this.template({
           model: this.model.toJSON(),
           statusInfo: statusInfo,
           client:this.userIsClient,
-          otherUser: this.otherUser,
-          percentComplete: percentComplete
+          otherUser: this.otherUser.toJSON(),
+          percentComplete: this.percentComplete
         }));
         return this;
       },
@@ -56,6 +56,7 @@
           break;
           default:
           currentState = "Waiting for Current Milestone";
+          if (this.percentComplete == 100) {currentState = "Agreement Completed";}
         }
 
         return {

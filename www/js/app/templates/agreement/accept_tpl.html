@@ -10,7 +10,7 @@
         {{#each creditCards}}
         <input type="radio" class="select_credit_card" name="select_credit_card" value="{{uri}}" data-url="{{uri}}">
         <p class="payment_select_info">**** **** **** {{last_four}}</p>
-        <p class="payment_select_info"><span>Expiration:</span> {{expiration_month}}/{{expiration_year}}</p>
+        <p class="account_select_info"><span>Expiration:</span> {{expiration_month}}/{{expiration_year}}</p>
         {{/each}}
       </li>
     </ul>
@@ -22,7 +22,7 @@
         {{#each bankAccounts}}
         <input type="radio" class="select_bank_account" data-debit="{{can_debit}}" name="select_bank_account" value="{{uri}}">
         <p class="payment_select_info"><span>Routing:</span> **** **** **** {{routing_number}}</p>
-        <p class="payment_select_info"><span>Account:</span> **** **** **** {{last_four_digits account_number}}</p>
+        <p class="account_select_info"><span>Account:</span> **** **** **** {{last_four_digits account_number}}</p>
         {{/each}}
       </li>
     </ul>

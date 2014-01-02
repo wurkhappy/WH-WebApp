@@ -102,6 +102,12 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                     if (_.isFunction(successCallback)) successCallback();
                 }, this)
               });
+            },
+            percentComplete: function(){
+                var deposit = this.get("workItems").findDeposit();
+                var depositAmount = (deposit) ? deposit.get("amount") : 0;
+                var totalAmountExDeposit = this.get("workItems").getTotalAmount() - depositAmount;
+                return ((this.get("payments").getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
             }
         });
 
