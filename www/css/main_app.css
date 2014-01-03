@@ -4220,7 +4220,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding-bottom: 0;
 }
 
-/* line 210, ../scss/components/_progress_bars.scss */
+/* line 213, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation {
   text-align: center;
   margin: 0;
@@ -4236,27 +4236,27 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 5px;
 }
 
-/* line 225, ../scss/components/_progress_bars.scss */
+/* line 228, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link_hover {
   background: #a9b3bc;
 }
 
-/* line 229, ../scss/components/_progress_bars.scss */
+/* line 232, ../scss/components/_progress_bars.scss */
 .create_agreement_title {
   float: left;
 }
 
-/* line 233, ../scss/components/_progress_bars.scss */
+/* line 236, ../scss/components/_progress_bars.scss */
 .create_agreement_label_first {
   padding-top: 5px;
 }
 
-/* line 237, ../scss/components/_progress_bars.scss */
+/* line 240, ../scss/components/_progress_bars.scss */
 .green_icon {
   color: #86ce50;
 }
 
-/* line 241, ../scss/components/_progress_bars.scss */
+/* line 244, ../scss/components/_progress_bars.scss */
 .tooltip {
   background: #fff;
   background: rgba(255, 255, 255, 0.8);
@@ -4276,14 +4276,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #646464;
 }
 
-/* line 259, ../scss/components/_progress_bars.scss */
+/* line 262, ../scss/components/_progress_bars.scss */
 .tooltip > ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 264, ../scss/components/_progress_bars.scss */
+/* line 267, ../scss/components/_progress_bars.scss */
 .tooltip:after {
   content: "";
   position: absolute;
