@@ -57,7 +57,6 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       button2:function(event){
         var model = (this.statusType === 'payment') ? this.model.get("payments").findSubmittedPayment() : this.model;
         if (!this.rejectModal){
-          console.log("new reject");
           var view = new RejectModal({model:model, otherUser: this.otherUser});
           this.rejectModal = new Modal({view:view});
         } 

@@ -63,7 +63,6 @@
 
         var payments = [];
 
-        console.log(percentComplete)
         this.payments.each(function(model){
           var color = "grey";
           var action = (model.get("currentStatus")) ? model.get("currentStatus").get("action") : "";
@@ -74,7 +73,6 @@
           } else if (action === "rejected") {
             color = "red"
           }
-          console.log((model.getTotalAmount()/totalAmountExDeposit));
           var marginLeft = (model.get("includesDeposit")) ? 0 - iconSize/2: barWidth * (model.getTotalAmount()/totalAmountExDeposit) - iconSize;
 
           payments.push({color: color, id: model.id, margin_left: marginLeft});

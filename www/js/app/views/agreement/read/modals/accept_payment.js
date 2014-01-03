@@ -29,8 +29,6 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         this.creditCards = this.user.get("cards");
 
         this.render();
-
-        console.log(options);
       },
       render:function(){
         var milestonePayment = this.model.getTotalAmount();
