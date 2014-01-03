@@ -29,7 +29,6 @@
 
         var otherUser = (this.otherUser) ? this.otherUser.toJSON() : null;
         var statusInfo = this.createStatusInfo();
-        console.log(this.otherUser);
         this.$el.html(this.template({
           model: this.model.toJSON(),
           statusInfo: statusInfo,
