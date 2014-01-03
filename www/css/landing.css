@@ -272,6 +272,11 @@ fieldset {
   display: inline;
 }
 
+/* line 235, ../scss/bases/_common.scss */
+.overflow_hidden {
+  overflow: hidden;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("https://wurkhappy.com/css/fonts/museo100-italic-webfont.eot");

@@ -24,6 +24,9 @@ define(['backbone', 'handlebars'],
         this.$el.html(this.template);
         this.$('#panel').append(this.view.$el);
         this.holder.append(this.$el);
+        this.holder.addClass('overflow_hidden');
+        $("#popup_container").show();
+        
       },
 
       events: {
@@ -35,6 +38,8 @@ define(['backbone', 'handlebars'],
       },
       hide: function(event) {
         this.$('#overlay').fadeOut('slow');
+        this.holder.removeClass('overflow_hidden');
+        $("#popup_container").hide();
       },
       showPersonalMessage: function() {
         $(".panel").animate({

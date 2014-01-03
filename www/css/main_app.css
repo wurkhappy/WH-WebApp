@@ -273,6 +273,11 @@ fieldset {
   display: inline;
 }
 
+/* line 235, ../scss/bases/_common.scss */
+.overflow_hidden {
+  overflow: hidden;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("https://wurkhappy.com/css/fonts/museo100-italic-webfont.eot");
@@ -3839,17 +3844,28 @@ div.faqcontent h2 {
 }
 
 /* line 1, ../scss/components/_popup.scss */
+#popup_container {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  display: none;
+}
+
+/* line 13, ../scss/components/_popup.scss */
 .panel {
   width: 400px;
-  position: fixed;
+  position: relative;
   background: #dedede;
   border-radius: 5px;
   padding: 20px;
-  top: 50%;
+  top: 50px;
   left: 50%;
   margin-left: -200px;
   height: auto;
-  margin-top: -200px;
   background: #fafafa;
   background-image: -webkit-linear-gradient(white, #fafafa);
   background-image: -moz-linear-gradient(white, #fafafa);
@@ -3862,9 +3878,9 @@ div.faqcontent h2 {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 24, ../scss/components/_popup.scss */
+/* line 35, ../scss/components/_popup.scss */
 .cover {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
@@ -3877,82 +3893,80 @@ div.faqcontent h2 {
   background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-/* line 38, ../scss/components/_popup.scss */
+/* line 49, ../scss/components/_popup.scss */
 .overlay {
-  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
   z-index: 10;
 }
 
-/* line 48, ../scss/components/_popup.scss */
+/* line 57, ../scss/components/_popup.scss */
 .line_item_container {
   list-style: none;
   text-align: right;
 }
 
-/* line 53, ../scss/components/_popup.scss */
+/* line 62, ../scss/components/_popup.scss */
 .line_item_title {
   display: inline-block;
   margin-right: 10px;
 }
 
-/* line 58, ../scss/components/_popup.scss */
+/* line 67, ../scss/components/_popup.scss */
 .line_item_title_small {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 63, ../scss/components/_popup.scss */
+/* line 72, ../scss/components/_popup.scss */
 .line_item {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 69, ../scss/components/_popup.scss */
+/* line 78, ../scss/components/_popup.scss */
 .line_item_total {
   font-size: 20px;
 }
 
-/* line 73, ../scss/components/_popup.scss */
+/* line 82, ../scss/components/_popup.scss */
 .pay_header_container {
   padding-bottom: 40px;
   text-align: left;
 }
 
-/* line 78, ../scss/components/_popup.scss */
+/* line 87, ../scss/components/_popup.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
   text-align: left;
 }
 
-/* line 84, ../scss/components/_popup.scss */
+/* line 93, ../scss/components/_popup.scss */
 .pay_header_helper {
   text-align: left;
 }
 
-/* line 88, ../scss/components/_popup.scss */
+/* line 97, ../scss/components/_popup.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 92, ../scss/components/_popup.scss */
+/* line 101, ../scss/components/_popup.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 96, ../scss/components/_popup.scss */
+/* line 105, ../scss/components/_popup.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 101, ../scss/components/_popup.scss */
+/* line 110, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
@@ -3965,24 +3979,24 @@ div.faqcontent h2 {
   box-shadow: inset 0 0px 5px #9facbc;
   margin-left: 20px;
 }
-/* line 105, ../scss/components/_popup.scss */
+/* line 114, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 117, ../scss/components/_popup.scss */
+/* line 126, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 121, ../scss/components/_popup.scss */
+/* line 130, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
   display: inline-block;
 }
 
-/* line 127, ../scss/components/_popup.scss */
+/* line 136, ../scss/components/_popup.scss */
 .account_select_info {
   margin-left: 22px;
   margin-bottom: 0;
@@ -3990,7 +4004,7 @@ div.faqcontent h2 {
   display: block;
 }
 
-/* line 134, ../scss/components/_popup.scss */
+/* line 143, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
