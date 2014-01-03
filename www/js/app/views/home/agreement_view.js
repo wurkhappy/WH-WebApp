@@ -27,13 +27,14 @@
         var workItems = this.model.get("workItems");
 
 
+        var otherUser = (this.otherUser) ? this.otherUser.toJSON() : null;
         var statusInfo = this.createStatusInfo();
         console.log(this.otherUser);
         this.$el.html(this.template({
           model: this.model.toJSON(),
           statusInfo: statusInfo,
           client:this.userIsClient,
-          otherUser: this.otherUser.toJSON(),
+          otherUser: otherUser,
           percentComplete: this.percentComplete
         }));
         return this;
