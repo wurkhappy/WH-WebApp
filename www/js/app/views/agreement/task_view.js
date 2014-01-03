@@ -1,17 +1,21 @@
 
-define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl'],
+define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templates/agreement/empty_tasks_tpl'],
 
-  function (Backbone, Handlebars, taskTpl) {
+  function (Backbone, Handlebars, taskTpl, EmptyTemplate) {
 
     'use strict';
+
+    var NoItemsView = Backbone.Marionette.ItemView.extend({
+      template: EmptyTemplate,
+    });
 
     var TaskView = Backbone.View.extend({
 
       template: taskTpl,
+      emptyView: NoItemsView,
       className: "check_item",
 
       initialize: function() {
-        console.log("something")
         this.render();
       },
 

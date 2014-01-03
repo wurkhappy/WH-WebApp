@@ -347,7 +347,17 @@
 	margin-left: 5px;
 }
 
-
+.activity_container {
+	.discussion_container {
+		text-align: left;
+		width: 500px;
+		height: auto;
+		background: none;
+		border: none;
+		overflow-y:visible;
+	}
+	  
+}
 
 
 

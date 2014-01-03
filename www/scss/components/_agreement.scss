@@ -22,8 +22,11 @@
   border-top: 1px solid rgb(245,245,245);
   padding: 10px 0;
   list-style: none;
-  display: inline-block;
   cursor: pointer;
+  margin-top: 5px;
+  &:hover {
+    background: hsl(210, 20%, 98%);
+  }
 }
 
 .payment_status {
@@ -69,6 +72,7 @@
 .tasks_container {
   list-style-type: none;
   margin: 0;
+  margin-bottom:10px;
 }
 
 .task {
@@ -81,38 +85,84 @@
   font-weight: 300;
 }
 
-.new_task_container {
-  text-align: left;
-  margin-left: 40px;
+.work_item_title {
+  padding:0;
+  margin:0;
+  text-align:left;
 }
 
-.new_task {
-  width: 460px;
-  resize: vertical;
-  height: 68px;
-  border-color: hsl(202, 60%, 42%);
-  cursor:text;
+.work_item_header {
+  padding: 0;
+  margin-top:10px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.work_item_description_container {
   font-size: 16px;
   line-height: 20px;
   font-weight: 300;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  text-align: left;
+  .work_item_description {
+    background: hsla(0, 0%, 0%, 0);
+    border-color: hsla(0, 0%, 0%, 0);
+    clear: both;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: hsl(0, 0%, 36%);
+    display: block;
+    height: 32px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    width: 100%;
+    resize: none;
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .work_item_description {
+  color: hsl(0, 0%, 36%);
+}
+
+.work_item_description_container_focus {
   font-size: 16px;
   line-height: 20px;
   font-weight: 300;
   margin-bottom: 0;
-  margin-top: 20px;
+  margin-top: 5px;
+  text-align: left;
+  padding-bottom: 10px;
+  .work_item_description {
+    width: 460px;
+    resize: vertical;
+    height: 68px;
+    border-color: hsl(202, 60%, 42%);
+    cursor:text;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .save_description_button {
+    display: inline-block;
+  }
+  .save_description_close {
+    display: inline-block;
+  }
 }
 
-.add_task_button {
+.save_description_button {
   display: inline-block;
   margin-right:10px;
   line-height: 30px;
   width: 75px;
+  display: none;
 }
 
-.add_task_close {
+.save_description_close {
+  display: none;
   &:visited {
     color: $grey;
   }
@@ -120,7 +170,68 @@
     color: hsl(345, 56%, 38%);
     text-decoration:none;
   }
-} 
+}
+
+.new_task_container {
+  text-align: left;
+  margin-left: 40px;
+  .new_task {
+    background: hsla(0, 0%, 0%, 0);
+    border-color: hsla(0, 0%, 0%, 0);
+    clear: both;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: hsl(0, 0%, 58%);
+    display: block;
+    height: 32px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    width: 100%;
+    resize: none;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.new_task_container_focus {
+  text-align: left;
+  margin-left: 40px;
+  .new_task {
+    width: 460px;
+    resize: vertical;
+    height: 68px;
+    border-color: hsl(202, 60%, 42%);
+    cursor:text;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .add_task_button {
+    display: inline-block;
+  }
+  .add_task_close {
+    display: inline-block;
+  }
+}
+
+.add_task_button {
+  display: inline-block;
+  margin-right:10px;
+  line-height: 30px;
+  width: 75px;
+  display: none;
+}
+
+.add_task_close {
+  display: none;
+  &:visited {
+    color: $grey;
+  }
+  &:hover {
+    color: hsl(345, 56%, 38%);
+    text-decoration:none;
+  }
+}
 
 .check_item {
   position: relative;

@@ -15,9 +15,19 @@
 
       itemView: PaymentItemView,
       itemViewContainer:'ul',
+      itemViewOptions: function() {
+         return {
+          user: this.user,
+          otherUser: this.otherUser,
+          messages: this.messages
+         };
+      },
 
-      initialize:function(){
+      initialize:function(options){
         this.collection = this.model.get("payments");
+        this.user = options.user;
+        this.otherUser = options.otherUser;
+        this.messages = options.model.get('comments');
       },
       onRender:function(){
         this.$('#payments-total').text('$'+this.collection.getTotalAmount());

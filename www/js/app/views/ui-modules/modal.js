@@ -32,9 +32,11 @@ define(['backbone', 'handlebars'],
       },
       show: function(){
         this.$('#overlay').fadeIn('slow');
+        $('body').addClass('hide_overflow');
       },
       hide: function(event) {
         this.$('#overlay').fadeOut('slow');
+        $('body').removeClass('hide_overflow');
       },
       showPersonalMessage: function() {
         $(".panel").animate({

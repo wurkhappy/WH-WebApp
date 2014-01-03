@@ -63,7 +63,7 @@ table {
 ================================================================================ */
 /* line 52, ../scss/bases/_common.scss */
 body {
-  text-align: center;
+  text-align: left;
   font-family: museo_sans;
   background: #c7ced1;
   color: #636363;
@@ -276,6 +276,11 @@ fieldset {
 /* line 236, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
+}
+
+/* line 240, ../scss/bases/_common.scss */
+.gutter {
+  margin-left: 40px;
 }
 
 @font-face {
