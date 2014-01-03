@@ -34,7 +34,7 @@ define(['backbone', 'handlebars', 'underscore', 'toastr', 'hbs!templates/agreeme
           success:_.bind(function(model, response){
             toastr.success("Agreement saved")
 
-           window.location.hash = '';
+           window.location = '/agreement/v/' + model.id;
 
          }, this)
         });

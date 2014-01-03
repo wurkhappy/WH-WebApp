@@ -1,15 +1,15 @@
-define(['backbone','backbone-relational', 'models/scope_item', 'collections/scope_items', 'models/status', 'collections/status'],
+define(['backbone','backbone-relational', 'models/payment_item', 'collections/payment_items', 'models/status', 'collections/status'],
 
-    function(Backbone, Relational, ScopeItemModel, ScopeItemCollection, StatusModel, StatusCollection) {
+    function(Backbone, Relational, PaymentItemModel, PaymentItemCollection, StatusModel, StatusCollection) {
 
         'use strict';
 
         var Payment = Backbone.RelationalModel.extend({
         	relations: [{
                 type: Backbone.HasMany,
-                key: 'scopeItems',
-                relatedModel: ScopeItemModel,
-                collectionType: ScopeItemCollection,
+                key: 'paymentItems',
+                relatedModel: PaymentItemModel,
+                collectionType: PaymentItemCollection,
             },
             {
                 type: Backbone.HasOne,
@@ -18,9 +18,6 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 collectionType: StatusCollection,
             }
             ],
-            urlRoot:function(){
-                return "/agreement/v/"+this.collection.parent.id+"/payment";
-            },
             set: function( key, value, options ) {
                 Backbone.RelationalModel.prototype.set.apply( this, arguments );
 
@@ -39,8 +36,20 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 }
                 return this;
             },
-            submit: function(creditSource, successCallback){
-                this.updateStatus({"action":"submitted", "creditSourceURI":creditSource, "userID":this.collection.parent.userID}, successCallback);
+            submit: function(data, successCallback){
+                $.ajax({
+                  type: "POST",
+                  url: "/agreement/v/"+this.collection.parent.id+"/payment/",
+                  contentType: "application/json",
+                  dataType: "json",
+                  data:JSON.stringify(_.extend(this.toJSON(), data)),
+                  success: _.bind(function(response){
+                    this.set(response);
+                    this.collection.parent.set("currentStatus",response.currentStatus);
+                    successCallback();
+                }, this)
+              });
+
             },
             accept: function(debitSource, paymentType){
                 this.updateStatus({"action":"accepted", "debitSourceURI": debitSource, "paymentType": paymentType, "userID":this.collection.parent.userID});
@@ -50,7 +59,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             },
             updateStatus:function(reqData, successCallback){
                 $.ajax({
-                  type: "POST",
+                  type: "PUT",
                   url: "/agreement/v/"+this.collection.parent.id+"/payment/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
@@ -65,9 +74,12 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             isDeposit: function() {
                 if (this.get("title") === "Deposit") {
                   return true
-                }
+              }
+          },
+          getTotalAmount:function(){
+                return this.get("paymentItems").reduce(function(memo, value) { return memo + value.get("amount") }, 0);
             }
-        });
+      });
 
 return Payment;
 

@@ -20,8 +20,9 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         this.otherUser = options.otherUser;
       },
       button1:function(event){
+        var depositPayments = this.model.get("payments").where({includesDeposit: true});
         // if (!this.userIsClient || this.userIsStateCreator) return;
-        var deposit = (this.userIsClient) ? this.model.get("payments").findFirstRequiredPayment() : null;
+        var deposit = (this.userIsClient) ? depositPayments[depositPayments.length -1] : null;
         if (this.statusType === 'payment') {
           if (!this.acceptModal){
             var view = new AcceptModal({
@@ -39,7 +40,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
           if (!this.depositModal){
             var view = new AcceptModal({
-              model:this.model.get("payments").findFirstRequiredPayment(),
+              model:this.model.get("payments").findSubmittedPayment(),
               user:this.user,
               otherUser: this.otherUser,
               acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
@@ -54,9 +55,8 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
         }
       },
       button2:function(event){
-        var model = (this.statusType === 'payment') ? this.model.get("payments").findFirstOutstandingPayment() : this.model;
+        var model = (this.statusType === 'payment') ? this.model.get("payments").findSubmittedPayment() : this.model;
         if (!this.rejectModal){
-          console.log("new reject");
           var view = new RejectModal({model:model, otherUser: this.otherUser});
           this.rejectModal = new Modal({view:view});
         } 

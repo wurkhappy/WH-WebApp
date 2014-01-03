@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'ckeditor', 'ckadapter', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/payments_edit_view'],
+define(['backbone', 'handlebars', 'ckeditor', 'ckadapter', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/work_items_edit_view'],
 
   function (Backbone, Handlebars, CKEDITOR, ckadapter, tpl, PaymentsView) {
 
@@ -11,7 +11,6 @@ define(['backbone', 'handlebars', 'ckeditor', 'ckadapter', 'hbs!templates/create
         "click #saveAgreement": "debounceSaveAgreement",
         "blur input, textarea": "updateFields",
         "blur #message_editor": "message"
-
       },
       initialize:function(){
         this.render();
@@ -20,12 +19,10 @@ define(['backbone', 'handlebars', 'ckeditor', 'ckadapter', 'hbs!templates/create
       },
       render: function(){
         this.$el.html(this.template(this.model.toJSON()));
-        var paymentsView = new PaymentsView({model: this.model});
-        paymentsView.render();
-        this.$('#payments-section').html(paymentsView.$el);
-
+        var workItemsView = new WorkItemsView({model: this.model});
+        workItemsView.render();
+        this.$('#work-items-section').html(workItemsView.$el);
         setTimeout(_.bind(this.onRender, this),5);
-
         return this;
       },
 

@@ -2,7 +2,8 @@
  * Login View.
  */
 
-define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'text!templates/landing/new_account.html', 'models/user', 'views/ui-modules/modal', 'views/agreement/read/modals/email_subscribe', 'text!templates/landing/email.html' ],
+define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing/new_account', 'models/user',
+  'views/ui-modules/modal', 'views/agreement/read/modals/email_subscribe', 'hbs!templates/landing/email' ],
 
     function (Backbone, Handlebars, parsley, ajaxChimp, newAccountTemplate, UserModel, Modal, EmailModal, emailTemplate) {
 
@@ -11,9 +12,9 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'text!templates/landin
       var NewAccountView = Backbone.View.extend({
 
         // Compile our footer template.
-        template: Handlebars.compile(newAccountTemplate),
+        template: newAccountTemplate,
         model: new UserModel(),
-        emailTemplate: Handlebars.compile(emailTemplate),
+        emailTemplate: emailTemplate,
 
         events:{
           "blur input" : "updateModel",

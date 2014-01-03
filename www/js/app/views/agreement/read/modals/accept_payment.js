@@ -11,6 +11,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
       payTemplate: payTemplate,
 
       initialize:function(options){
+        console.log(this.model);
         this.button1Title = (this.userIsClient) ? "Accept " + this.statusType : "Waiting for Response"; 
         this.user = options.user;
         this.user.get("cards").fetch();
@@ -28,11 +29,9 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         this.creditCards = this.user.get("cards");
 
         this.render();
-
-        console.log(options);
       },
       render:function(){
-        var milestonePayment = this.model.get("amount");
+        var milestonePayment = this.model.getTotalAmount();
         var amountTotal = milestonePayment;
         var creditCards = this.creditCards;
         var bankAccounts = this.bankAccounts;

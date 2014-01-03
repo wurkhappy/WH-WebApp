@@ -36,7 +36,7 @@
         this.main.show(new EstimateView({
           model: this.model,
           user: this.user,
-          collection: this.model.get("payments"),
+          collection: this.model.get("workItems"),
           acceptsCreditCard: this.model.get("acceptsCreditCard"),
           acceptsBankTransfer: this.model.get("acceptsBankTransfer")
         }));

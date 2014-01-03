@@ -16,7 +16,7 @@
             },
             filterByPaymentID:function(paymentID){
                 var filtered = this.filter(function(model){
-                    return model.get("paymentID") == paymentID;
+                    return model.get("parentID") == paymentID;
                 });
                 return new Collection(filtered);
             },

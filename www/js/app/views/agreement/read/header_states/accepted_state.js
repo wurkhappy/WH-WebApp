@@ -18,8 +18,9 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       button1:function(event){
         if (!this.modal){
           var view = new PaymentRequestModal({
-            model:this.model.get("payments").findFirstOutstandingPayment(),
-            collection: this.model.get("payments").findAllOutstandingPayment(),
+            model:this.model.get("workItems").findFirstOutstanding(),
+            collection: this.model.get("workItems").findAllOutstanding(),
+            payments: this.model.get("payments"),
             cards: this.user.get("cards"),
             bankAccounts: this.user.get("bank_accounts"),
             acceptsBankTransfer: this.model.get("acceptsBankTransfer"),

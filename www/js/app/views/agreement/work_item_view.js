@@ -1,17 +1,17 @@
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'text!templates/agreement/payment_item_tpl.html', 'views/agreement/scope_item_view'],
+  'hbs!templates/agreement/work_item_tpl', 'views/agreement/scope_item_view'],
 
-  function (Backbone, Handlebars, _, Marionette, paymentItemTemplate, ScopeItemView) {
+  function (Backbone, Handlebars, _, Marionette, tpl, ScopeItemView) {
 
     'use strict';
     Handlebars.registerHelper('dateFormat', function(date) {
       return date.format('MMM D, YYYY');
     });
 
-    var PaymentItemView = Backbone.Marionette.CompositeView.extend({
+    var WorkItemView = Backbone.Marionette.CompositeView.extend({
 
-      template: Handlebars.compile(paymentItemTemplate),
+      template: tpl,
       
       itemView: ScopeItemView,
       itemViewContainer:'.scope_items_container',
@@ -49,7 +49,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
     });
 
-return PaymentItemView;
+return WorkItemView;
 
 }
 );

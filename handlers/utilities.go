@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/wurkhappy/WH-Config"
 	"github.com/wurkhappy/mdp"
+	"html/template"
 	"net/http"
 )
 
@@ -13,6 +14,8 @@ var UserService string = config.UserService
 var PaymentInfoService string = config.PaymentInfoService
 var AgreementsService string = config.AgreementsService
 var CommentsService string = config.CommentsService
+
+func unescaped(x string) interface{} { return template.HTML(x) }
 
 func getUserInfo(id string) map[string]interface{} {
 	if id == "" {
