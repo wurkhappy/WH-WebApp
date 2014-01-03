@@ -8,11 +8,44 @@
   function (Backbone, Handlebars, _, agreementTpl) {
 
     'use strict';
-    //helper functions
-    var createStatusInfo = function(status, client){
-      var currentState;
-      var prefix = (status.get("paymentID")) ? "Payment" : "Agreement"
-      var lastAction = prefix + " " +status.get("action") + " on " + status.get("date").format('MMM D, YYYY');
+
+    var AgreementView = Backbone.View.extend({
+
+      tagName:'tr',
+      template: agreementTpl,
+
+      initialize: function (options) {
+        this.currentUser = options.currentUser;
+        this.userIsClient = this.model.get("clientID") === this.currentUser.id;
+        var otherUserID = (this.userIsClient) ? this.model.get("freelancerID") : this.model.get("clientID");
+        this.otherUser = options.otherUsers.get(otherUserID);
+        this.percentComplete = this.model.percentComplete();
+      },
+
+      render: function () {
+        var status = this.model.get("currentStatus");
+        var workItems = this.model.get("workItems");
+
+
+        var statusInfo = this.createStatusInfo();
+        console.log(this.otherUser);
+        this.$el.html(this.template({
+          model: this.model.toJSON(),
+          statusInfo: statusInfo,
+          client:this.userIsClient,
+          otherUser: this.otherUser.toJSON(),
+          percentComplete: this.percentComplete
+        }));
+        return this;
+      },
+      createStatusInfo: function(){
+        if (this.model.get("draft")) {
+          return {lastAction: "Draft Saved", currentState: "Waiting to be submitted"};
+        }
+        var currentState;
+        var status = this.model.get("currentStatus");
+        var prefix = (status.get("parentID") === this.model.id || status.get("parentID") === "") ? "Agreement" : "Payment";
+        var lastAction = prefix + " " +status.get("action") + " on " + status.get("date").format('MMM D, YYYY');
         switch (status.get("action")){
           case status.StatusSubmitted:
           currentState = "Waiting for " + prefix;
@@ -23,47 +56,17 @@
           break;
           default:
           currentState = "Waiting for Current Milestone";
+          if (this.percentComplete == 100) {currentState = "Agreement Completed";}
         }
 
-      return {
-        lastAction:lastAction,
-        currentState:currentState
-      };
-    };
-
-    var AgreementView = Backbone.View.extend({
-
-      tagName:'tr',
-      template: agreementTpl,
-
-      initialize: function (options) {
-        this.currentUser = options.currentUser;
-        this.userIsClient = this.model.get("clientID") === this.currentUser.id;
-        var otherUserID = (otherUserID) ? this.model.get("freelancerID") : this.model.get("clientID");
-        this.otherUser = options.otherUsers.get(otherUserID);
-      },
-
-      render: function () {
-        var status = this.model.get("currentStatus");
-        var payment = this.model.get("payments");
-
-        var percentComplete = payment.getPercentComplete() * 100;
-
-        var statusInfo = (this.model.get("draft")) ? {lastAction:"Draft Saved", currentState: "Waiting to be submitted"} : createStatusInfo(status, this.userIsClient);
-
-        this.$el.html(this.template({
-          model: this.model.toJSON(),
-          statusInfo: statusInfo,
-          client:this.userIsClient,
-          otherUser: this.otherUser,
-          percentComplete: percentComplete
-        }));
-        return this;
-
+        return {
+          lastAction:lastAction,
+          currentState:currentState
+        };
       }
     });
 
-    return AgreementView;
+return AgreementView;
 
-  }
-  );
+}
+);

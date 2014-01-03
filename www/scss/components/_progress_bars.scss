@@ -1,6 +1,6 @@
 .progress-large {
   margin: 20px;
-  padding: 10px;
+  padding: 0px 60px 0px 60px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -16,7 +16,11 @@
 
 .progress-large span img {
   display: block;
-  width: 900px;
+  width: 800px;
+}
+
+.progress-large progress[value]{
+  width: 800px;
 }
 
 progress[value] {
@@ -143,7 +147,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 .icon_container {
   position: absolute;
-  top: 14.5px;
+  top: 7.5px;
   z-index:5;
 }
 

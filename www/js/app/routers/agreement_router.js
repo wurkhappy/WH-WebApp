@@ -3,8 +3,8 @@
  */
 
  define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
-  'views/agreement/payments_read_view', 'views/agreement/user_view',
-  'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/payments_edit_view',
+  'views/agreement/work_items_read_view', 'views/agreement/user_view',
+  'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
   'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
   'collections/tags'],
 
@@ -29,7 +29,8 @@
         this.user.set("cards", window.cards);
         this.user.set("bank_accounts", window.bank_account);
         this.tags = new TagCollection(window.tags);
-        this.tags.addMileStoneTags(this.model.get("payments"));
+        this.tags.addMileStoneTags(this.model.get("workItems"));
+        console.log(this.model.get("payments"));
         this.layout = new LayoutView({model: this.model, user: this.user});
         FlyingFocus();
       },
@@ -37,7 +38,7 @@
       readAgreement: function () {
         this.layout.agreementProgressBar.show(new ProgressBarView({model: this.model}));
         this.layout.paymentMethods.show(new PaymentMethodsView({model: this.model}));
-        this.layout.paymentSchedule.show(new PaymentsReadView({model: this.model}));
+        this.layout.paymentSchedule.show(new PaymentsReadView({collection: this.model.get("workItems")}));
         this.layout.profile.show(new UserView());
         this.layout.header.show(new HeaderView({model: this.model, user: this.user, otherUser: this.otherUser}));
         var discussionView = new CommunicationLayout({messages: this.model.get("comments"), user: this.user, otherUser: this.otherUser, tags:this.tags});

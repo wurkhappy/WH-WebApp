@@ -291,7 +291,7 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		return t.Format("Jan 2, 2006")
 	}
 
-	tpl, err := template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+	tpl, err := template.New("_baseApp.html").Funcs(template.FuncMap{"format": format, "unescape": unescaped}).ParseFiles(
 		"templates/_baseApp.html",
 		"templates/freelancer_perspective_agreement.html",
 	)
@@ -322,8 +322,30 @@ func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *se
 	}
 	w.Write(resp)
 }
+func CreatePayment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	id := vars["versionID"]
 
-func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	reqBytes := buf.Bytes()
+	var reqData map[string]interface{}
+	json.Unmarshal(reqBytes, &reqData)
+
+	reqData["userID"] = session.Values["id"].(string)
+	data, _ := json.Marshal(reqData)
+
+	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/payment/", data)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+	w.Write(resp)
+}
+
+func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["versionID"]
 	paymentID := vars["paymentID"]
@@ -339,7 +361,7 @@ func CreatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 	status.UserID = session.Values["id"].(string)
 	data, _ := json.Marshal(status)
 
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID+"/status", data)
+	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID+"/status", data)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)

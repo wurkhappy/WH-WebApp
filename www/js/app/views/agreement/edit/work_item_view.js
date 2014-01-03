@@ -1,7 +1,7 @@
 
 
 define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
-	'hbs!templates/agreement/edit/payment_item_tpl', 'views/agreement/edit/scope_item_view'],
+	'hbs!templates/agreement/edit/work_item_tpl', 'views/agreement/edit/scope_item_view'],
 
 	function (Backbone, Handlebars, _, Marionette, Kalendae, paymentItemTemplate, ScopeItemView) {
 
@@ -10,7 +10,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 	      return date.format('MMM D, YYYY');
 	    });
 
-		var PaymentEditView = Backbone.Marionette.CompositeView.extend({
+		var WorkItemEditView = Backbone.Marionette.CompositeView.extend({
 
 			template: paymentItemTemplate,
 
@@ -87,7 +87,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 
 		});
 
-		return PaymentEditView;
+		return WorkItemEditView;
 
 	}
 	);

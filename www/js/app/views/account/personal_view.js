@@ -2,21 +2,14 @@
  * Personal Account View.
  */
 
- define(['backbone', 'handlebars', 'toastr', 'text!templates/account/personal.html', 'text!templates/account/profile_preview.html'],
+ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/account/personal', 'hbs!templates/account/profile_preview'],
 
   function (Backbone, Handlebars, toastr, personalTemplate, previewTemplate) {
 
     'use strict';
-    Handlebars.registerHelper('phoneFormat', function(number) {
-      if (!number) return;
-      var areaCode = number.substring(0,3);
-      var firstChunk = number.substring(3,6);
-      var secondChunk = number.substring(6,10);
-      return "("+areaCode +") "+firstChunk+"-"+secondChunk;
-    });
 
     var ProfilePreview = Backbone.View.extend({
-      template: Handlebars.compile(previewTemplate),
+      template: previewTemplate,
 
       initialize: function () {
         this.listenTo(this.model, "change", this.render);
@@ -34,7 +27,7 @@
 
       attributes:{'id':'content'},
 
-      template: Handlebars.compile(personalTemplate),
+      template: personalTemplate,
 
       events: {
         'blur input[type="text"]':'updateFields',

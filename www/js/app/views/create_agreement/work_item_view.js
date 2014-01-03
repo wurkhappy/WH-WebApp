@@ -2,18 +2,18 @@
 * Scope of Work - Create Agreement View.
 */ 
 
-define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!templates/create_agreement/milestone_tpl', 'views/create_agreement/payment_scope_view'],
+define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!templates/create_agreement/work_item_tpl', 'views/create_agreement/work_scope_view'],
 
-  function (Backbone, Handlebars, _, Kalendae, autoNumeric, milestoneTemplate, PaymentScopeView) {
+  function (Backbone, Handlebars, _, Kalendae, autoNumeric, WorkItemTpl, WorkScopeView) {
 
     'use strict';
 
-    var MilestoneView = Backbone.View.extend({
+    var WorkItemView = Backbone.View.extend({
 
       tagName:'div',
       className: 'bottom_divider hide',
 
-      template: milestoneTemplate,
+      template: WorkItemTpl,
 
       initialize: function (options) {
         this.router = options.router;
@@ -28,14 +28,14 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
           model: this.model.toJSON(),
           deposit: deposit,
         }));
-        var paymentScopeView = new PaymentScopeView({
+        var workScopeView = new WorkScopeView({
           model: this.model,
           collection: this.model.get('scopeItems'),
           deposit: deposit
         });
 
-        paymentScopeView.render();
-        paymentScopeView.$el.insertBefore(this.$('.removeButton'));
+        workScopeView.render();
+        workScopeView.$el.insertBefore(this.$('.removeButton'));
         this.$el.fadeIn('slow');
 
         return this;
@@ -111,7 +111,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
 
     });
 
-return MilestoneView;
+return WorkItemView;
 
 }
 );

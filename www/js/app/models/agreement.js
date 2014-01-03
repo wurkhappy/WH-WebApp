@@ -4,10 +4,10 @@
 
 
 define(['backbone','backbone-relational', 'models/payment', 'collections/payments',
-    'models/status', 'collections/status',  'models/comment', 'collections/comments'],
+    'models/status', 'collections/status',  'models/comment', 'collections/comments', 'models/work_item', 'collections/work_items',],
 
     function(Backbone, Relational, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
-        CommentModel, CommentCollection, ClausesCollection, ClauseModel) {
+        CommentModel, CommentCollection, WorkItemModel, WorkItemCollection) {
 
         'use strict';
 
@@ -21,6 +21,12 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                     key: 'parent',
                     includeInJSON: false
                 }
+            },
+            {
+                type: Backbone.HasMany,
+                key: 'workItems',
+                relatedModel: WorkItemModel,
+                collectionType: WorkItemCollection,
             },
             {
                 type: Backbone.HasMany,
@@ -55,6 +61,9 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
 
             idAttribute: "versionID",
             userID: "",
+            initialize: function(){
+                this.get("workItems").AgreementVersionID = this.id;
+            },
             urlRoot:function(){
                 return "/agreement/v";
             },
@@ -93,6 +102,12 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                     if (_.isFunction(successCallback)) successCallback();
                 }, this)
               });
+            },
+            percentComplete: function(){
+                var deposit = this.get("workItems").findDeposit();
+                var depositAmount = (deposit) ? deposit.get("amount") : 0;
+                var totalAmountExDeposit = this.get("workItems").getTotalAmount() - depositAmount;
+                return ((this.get("payments").getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
             }
         });
 

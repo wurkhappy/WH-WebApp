@@ -9,7 +9,7 @@
                 <input type="radio" class="select_bank_account" name="select_bank_account" value="{{uri}}">
                 <p class="payment_select_info first_select_info"><span>Account NickName:</span> {{nick_name}}</p>
                 <p class="payment_select_info"><span>Routing:</span> **** **** **** {{last_four_routing}}</p>
-                <p class="payment_select_info"><span>Account:</span> **** **** **** {{last_four_account}}</p>
+                <p class="account_select_info"><span>Account:</span> **** **** **** {{last_four_account}}</p>
                 {{/each}}
                 <h2> 
             </li>
@@ -21,7 +21,7 @@
       <article>
         <div class="line"></div>
         <h2 class="pay_header pay_milestone">Get Paid for Milestone 
-          <select id="milestoneToPay">{{#each payments}}
+          <select id="milestoneToPay" value="{{this.model.id}}">{{#each payments}}
             <option value="{{this.id}}">{{this.title}}</option>
             {{/each}}
             </select></h2>
