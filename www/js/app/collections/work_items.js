@@ -19,7 +19,7 @@
                 }
             },
             getTotalAmount:function(){
-                return this.reduce(function(memo, value) { return memo + value.get("amount") }, 0);
+                return this.reduce(function(memo, value) { return memo + value.get("amountDue") }, 0);
             },
             findSubmitted:function(){
                 var models = this.filter(function(model){
@@ -29,13 +29,13 @@
             },
             findFirstOutstanding:function(){
                 var models = this.filter(function(model){
-                    return model.get("amount") > model.get("amountPaid");
+                    return model.get("amountDue") > model.get("amountPaid");
                 });
                 return models[0];
             },
             findAllOutstanding:function(){
                 var models = this.filter(function(model){
-                    return model.get("amount") > model.get("amountPaid");
+                    return model.get("amountDue") > model.get("amountPaid");
                 });
                 return new Collection(models);
             },

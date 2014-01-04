@@ -20,7 +20,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         "click #addMoreButton" : "addMilestone"
       },
       getItemView: function(item) {
-        if (item.get("amount") === item.get("amountPaid")) return WorkItemPaidView;
+        if (item.get("amountDue") === item.get("amountPaid")) return WorkItemPaidView;
         return WorkItemView;
       },
 
@@ -28,7 +28,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         event.preventDefault();
         event.stopPropagation();
         
-        this.collection.add({amount:0.00, title:"New Milestone"});
+        this.collection.add({amountDue:0.00, title:"New Milestone"});
       },
 
     });

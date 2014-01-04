@@ -125,14 +125,12 @@
         var formattedAmount = parseFloat(adjAmount.replace(/,/g, ''), 10);
 
         if (this.deposit){
-          this.deposit.set("amount", formattedAmount);
+          this.deposit.set("amountDue", formattedAmount);
 
         } else{
           var Model = this.model.get("workItems").model;
-          this.deposit = new Model({title: "Deposit", amount: formattedAmount, required: true});
-          console.log(this.deposit);
+          this.deposit = new Model({title: "Deposit", amountDue: formattedAmount, required: true});
           this.model.get("workItems").unshift(this.deposit);
-          console.log(this.model.get("workItems"));
         }
 
         if (adjAmount == 0) {
