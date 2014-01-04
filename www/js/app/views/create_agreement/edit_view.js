@@ -1,6 +1,6 @@
 define(['backbone', 'handlebars', 'ckeditor', 'ckadapter', 'hbs!templates/create_agreement/edit_tpl', 'views/agreement/edit/work_items_edit_view'],
 
-  function (Backbone, Handlebars, CKEDITOR, ckadapter, tpl, PaymentsView) {
+  function (Backbone, Handlebars, CKEDITOR, ckadapter, tpl, WorkItemsView) {
 
     'use strict';
 

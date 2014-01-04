@@ -35,7 +35,16 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
       },
       initialize:function(options){
         this.payment = new PaymentModel();
-        options.payments.add(this.payment);
+
+        //work around here. The collection holds the IDs for the agreement
+        //the way the models are set up is they need to call up to their collections
+        var collection = options.payments.clone();
+        console.log(options.payments);
+        collection.agreementVersionID = options.payments.agreementVersionID;
+        collection.agreementID = options.payments.agreementID;
+        collection.add(this.payment);
+
+
         this.bankAccounts = options.bankAccounts;
         this.bankAccounts.fetch();
         this.paymentMethodsView = new PaymentMethods({bankAccounts: this.bankAccounts});

@@ -4,7 +4,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
 
         'use strict';
 
-        var Payment = Backbone.RelationalModel.extend({
+        var WorkItem = Backbone.RelationalModel.extend({
         	relations: [{
                 type: Backbone.HasMany,
                 key: 'scopeItems',
@@ -41,7 +41,7 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             }
         });
 
-return Payment;
+return WorkItem;
 
 }
 

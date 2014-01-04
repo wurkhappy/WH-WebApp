@@ -39,34 +39,34 @@ define(['backbone','backbone-relational', 'models/payment_item', 'collections/pa
             submit: function(data, successCallback){
                 $.ajax({
                   type: "POST",
-                  url: "/agreement/v/"+this.collection.parent.id+"/payment/",
+                  url: "/agreement/v/"+this.collection.agreementVersionID+"/payment/",
                   contentType: "application/json",
                   dataType: "json",
                   data:JSON.stringify(_.extend(this.toJSON(), data)),
                   success: _.bind(function(response){
-                    this.set(response);
-                    this.collection.parent.set("currentStatus",response.currentStatus);
+                    this.set("currentStatus",response);
+                    Backbone.trigger("updateCurrentStatus", this.get("currentStatus"))
                     successCallback();
                 }, this)
               });
 
             },
             accept: function(debitSource, paymentType){
-                this.updateStatus({"action":"accepted", "debitSourceURI": debitSource, "paymentType": paymentType, "userID":this.collection.parent.userID});
+                this.updateStatus({"action":"accepted", "debitSourceURI": debitSource, "paymentType": paymentType});
             },
             reject: function(message){
-                this.updateStatus({"action":"rejected", "message":message, "userID":this.collection.parent.userID});
+                this.updateStatus({"action":"rejected", "message":message});
             },
             updateStatus:function(reqData, successCallback){
                 $.ajax({
                   type: "PUT",
-                  url: "/agreement/v/"+this.collection.parent.id+"/payment/"+this.id+"/status",
+                  url: "/agreement/v/"+this.collection.agreementVersionID+"/payment/"+this.id+"/status",
                   contentType: "application/json",
                   dataType: "json",
                   data:JSON.stringify(reqData),
                   success: _.bind(function(response){
-                    this.collection.parent.set("currentStatus",response);
-                    this.set("currentStatus",this.collection.parent.get("currentStatus"));
+                    this.set("currentStatus",response);
+                    Backbone.trigger("updateCurrentStatus", this.get("currentStatus"))
                     successCallback();
                 }, this)
               });
