@@ -3860,9 +3860,10 @@ div.faqcontent h2 {
   height: 100%;
   overflow-y: scroll;
   display: none;
+  z-index: 10;
 }
 
-/* line 13, ../scss/components/_popup.scss */
+/* line 14, ../scss/components/_popup.scss */
 .panel {
   width: 400px;
   position: relative;
@@ -3885,7 +3886,7 @@ div.faqcontent h2 {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 35, ../scss/components/_popup.scss */
+/* line 36, ../scss/components/_popup.scss */
 .cover {
   position: fixed;
   left: 0;
@@ -3900,7 +3901,7 @@ div.faqcontent h2 {
   background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-/* line 49, ../scss/components/_popup.scss */
+/* line 50, ../scss/components/_popup.scss */
 .overlay {
   top: 0;
   left: 0;
@@ -3909,71 +3910,71 @@ div.faqcontent h2 {
   z-index: 10;
 }
 
-/* line 57, ../scss/components/_popup.scss */
+/* line 58, ../scss/components/_popup.scss */
 .line_item_container {
   list-style: none;
   text-align: right;
 }
 
-/* line 62, ../scss/components/_popup.scss */
+/* line 63, ../scss/components/_popup.scss */
 .line_item_title {
   display: inline-block;
   margin-right: 10px;
 }
 
-/* line 67, ../scss/components/_popup.scss */
+/* line 68, ../scss/components/_popup.scss */
 .line_item_title_small {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 72, ../scss/components/_popup.scss */
+/* line 73, ../scss/components/_popup.scss */
 .line_item {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 78, ../scss/components/_popup.scss */
+/* line 79, ../scss/components/_popup.scss */
 .line_item_total {
   font-size: 20px;
 }
 
-/* line 82, ../scss/components/_popup.scss */
+/* line 83, ../scss/components/_popup.scss */
 .pay_header_container {
   padding-bottom: 40px;
   text-align: left;
 }
 
-/* line 87, ../scss/components/_popup.scss */
+/* line 88, ../scss/components/_popup.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
   text-align: left;
 }
 
-/* line 93, ../scss/components/_popup.scss */
+/* line 94, ../scss/components/_popup.scss */
 .pay_header_helper {
   text-align: left;
 }
 
-/* line 97, ../scss/components/_popup.scss */
+/* line 98, ../scss/components/_popup.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 101, ../scss/components/_popup.scss */
+/* line 102, ../scss/components/_popup.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 105, ../scss/components/_popup.scss */
+/* line 106, ../scss/components/_popup.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 110, ../scss/components/_popup.scss */
+/* line 111, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
@@ -3986,24 +3987,24 @@ div.faqcontent h2 {
   box-shadow: inset 0 0px 5px #9facbc;
   margin-left: 20px;
 }
-/* line 114, ../scss/components/_popup.scss */
+/* line 115, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 126, ../scss/components/_popup.scss */
+/* line 127, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 130, ../scss/components/_popup.scss */
+/* line 131, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
   display: inline-block;
 }
 
-/* line 136, ../scss/components/_popup.scss */
+/* line 137, ../scss/components/_popup.scss */
 .account_select_info {
   margin-left: 22px;
   margin-bottom: 0;
@@ -4011,7 +4012,7 @@ div.faqcontent h2 {
   display: block;
 }
 
-/* line 143, ../scss/components/_popup.scss */
+/* line 144, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
@@ -4185,7 +4186,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .icon_container {
   position: absolute;
   top: 7.5px;
-  z-index: 5;
+  z-index: 1;
 }
 
 /* line 165, ../scss/components/_progress_bars.scss */

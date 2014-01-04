@@ -1,6 +1,6 @@
-define(['backbone','backbone-relational', 'models/payment_item', 'collections/payment_items', 'models/status', 'collections/status'],
+define(['backbone','backbone-relational', 'underscore', 'models/payment_item', 'collections/payment_items', 'models/status', 'collections/status'],
 
-    function(Backbone, Relational, PaymentItemModel, PaymentItemCollection, StatusModel, StatusCollection) {
+    function(Backbone, Relational, _, PaymentItemModel, PaymentItemCollection, StatusModel, StatusCollection) {
 
         'use strict';
 
@@ -46,7 +46,7 @@ define(['backbone','backbone-relational', 'models/payment_item', 'collections/pa
                   success: _.bind(function(response){
                     this.set("currentStatus",response);
                     Backbone.trigger("updateCurrentStatus", this.get("currentStatus"))
-                    successCallback();
+                    if (_.isFunction(successCallback)) successCallback();
                 }, this)
               });
 
@@ -67,7 +67,7 @@ define(['backbone','backbone-relational', 'models/payment_item', 'collections/pa
                   success: _.bind(function(response){
                     this.set("currentStatus",response);
                     Backbone.trigger("updateCurrentStatus", this.get("currentStatus"))
-                    successCallback();
+                    if (_.isFunction(successCallback)) successCallback();
                 }, this)
               });
             },

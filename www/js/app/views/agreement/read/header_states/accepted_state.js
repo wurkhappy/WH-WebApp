@@ -27,16 +27,12 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
             acceptsCreditCard: this.model.get("acceptsCreditCard")
           });
           this.modal = new Modal({view:view});
-          this.listenTo(this.modal.view, "paymentRequested", this.paymentRequested)
         } 
         this.modal.show();
       },
 
       button2:function(event){
         this.edit()
-      },
-      paymentRequested: function(creditSource){
-        this.modal.view.model.submit(creditSource);
       }
 
     });
