@@ -1,12 +1,12 @@
 @charset "UTF-8";
-/* line 36, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
+/* line 36, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 4, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
+/* line 4, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
 img, video {
   max-width: 100%;
   height: auto;
@@ -271,6 +271,11 @@ fieldset {
 .required {
   color: #972b46;
   display: inline;
+}
+
+/* line 235, ../scss/bases/_common.scss */
+.overflow_hidden {
+  overflow: hidden;
 }
 
 @font-face {
@@ -3201,6 +3206,7 @@ button.toast-close-button {
   font-family: museo;
   list-style-type: none;
   padding: 0px;
+  background: white;
   margin: 20px 0px 0px 20px;
   position: fixed;
   border: 1px solid #ddd;
@@ -3208,26 +3214,26 @@ button.toast-close-button {
   box-shadow: 0 0 2px 1px #ddd;
 }
 
-/* line 13, ../scss/components/_legal.scss */
+/* line 14, ../scss/components/_legal.scss */
 .faqnav li {
   padding: 5px 10px;
   width: 285px;
   overflow: hidden;
 }
 
-/* line 19, ../scss/components/_legal.scss */
+/* line 20, ../scss/components/_legal.scss */
 .faqnav a {
   width: 100%;
   padding: 10px 235px;
   margin: 0px -235px;
 }
-/* line 23, ../scss/components/_legal.scss */
+/* line 24, ../scss/components/_legal.scss */
 .faqnav a:hover {
   text-decoration: none;
   color: #0072a3;
 }
 
-/* line 29, ../scss/components/_legal.scss */
+/* line 30, ../scss/components/_legal.scss */
 .faqcontent {
   width: 600px;
   min-height: 700px;
@@ -3238,30 +3244,30 @@ button.toast-close-button {
   hyphens: auto;
 }
 
-/* line 39, ../scss/components/_legal.scss */
+/* line 40, ../scss/components/_legal.scss */
 .faqcontent li {
   width: 500px;
 }
 
-/* line 43, ../scss/components/_legal.scss */
+/* line 44, ../scss/components/_legal.scss */
 .faqnav .current {
   background: #0099dd;
   color: white;
 }
 
-/* line 48, ../scss/components/_legal.scss */
+/* line 49, ../scss/components/_legal.scss */
 .faqnav .current a {
   color: white;
   background: #009adb;
 }
 
-/* line 53, ../scss/components/_legal.scss */
+/* line 54, ../scss/components/_legal.scss */
 div.faqcontent h2 {
   font-family: museo;
   width: 550px;
 }
 
-/* line 58, ../scss/components/_legal.scss */
+/* line 59, ../scss/components/_legal.scss */
 .box {
   border: 1px solid black;
   margin: 15px;
@@ -3269,49 +3275,55 @@ div.faqcontent h2 {
   width: 525px;
 }
 
-/* line 66, ../scss/components/_legal.scss */
+/* line 67, ../scss/components/_legal.scss */
 .section {
   display: none;
 }
-/* line 68, ../scss/components/_legal.scss */
+/* line 69, ../scss/components/_legal.scss */
 .section:first-child {
   display: block;
 }
 
-/* line 73, ../scss/components/_legal.scss */
+/* line 74, ../scss/components/_legal.scss */
 .fixed {
   position: fixed;
   bottom: 0;
 }
 
-/* line 78, ../scss/components/_legal.scss */
+/* line 79, ../scss/components/_legal.scss */
 .title {
   color: black;
   background: #ddd;
   opacity: .5;
 }
-/* line 82, ../scss/components/_legal.scss */
+/* line 83, ../scss/components/_legal.scss */
 .title a:hover {
   color: black;
 }
 
-/* line 87, ../scss/components/_legal.scss */
+/* line 88, ../scss/components/_legal.scss */
 .legal_tab {
   margin-top: 10px;
 }
-/* line 89, ../scss/components/_legal.scss */
+/* line 90, ../scss/components/_legal.scss */
 .legal_tab ul {
   margin: 0;
 }
-/* line 92, ../scss/components/_legal.scss */
+/* line 93, ../scss/components/_legal.scss */
 .legal_tab li {
   display: inline;
   margin-right: 20px;
 }
 
-/* line 98, ../scss/components/_legal.scss */
+/* line 99, ../scss/components/_legal.scss */
 .legal_active, .legal_active:visited {
   color: #005d85;
+}
+
+/* line 103, ../scss/components/_legal.scss */
+.fixed_bottom {
+  position: absolute;
+  bottom: 27px;
 }
 
 /* line 1, ../scss/components/_buttons.scss */
@@ -3678,6 +3690,11 @@ div.faqcontent h2 {
   overflow: hidden;
 }
 
+/* line 67, ../scss/components/_create_agreement.scss */
+.message_editor_container {
+  width: 620px;
+}
+
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
   padding-bottom: 20px;
@@ -3834,17 +3851,28 @@ div.faqcontent h2 {
 }
 
 /* line 1, ../scss/components/_popup.scss */
+#popup_container {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  display: none;
+}
+
+/* line 13, ../scss/components/_popup.scss */
 .panel {
   width: 400px;
-  position: fixed;
+  position: relative;
   background: #dedede;
   border-radius: 5px;
   padding: 20px;
-  top: 50%;
+  top: 50px;
   left: 50%;
   margin-left: -200px;
   height: auto;
-  margin-top: -200px;
   background: #fafafa;
   background-image: -webkit-linear-gradient(white, #fafafa);
   background-image: -moz-linear-gradient(white, #fafafa);
@@ -3857,97 +3885,95 @@ div.faqcontent h2 {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 24, ../scss/components/_popup.scss */
+/* line 35, ../scss/components/_popup.scss */
 .cover {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
   right: 0;
   background: black;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
   background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
   background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
   background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-/* line 38, ../scss/components/_popup.scss */
+/* line 49, ../scss/components/_popup.scss */
 .overlay {
-  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
   z-index: 10;
 }
 
-/* line 48, ../scss/components/_popup.scss */
+/* line 57, ../scss/components/_popup.scss */
 .line_item_container {
   list-style: none;
   text-align: right;
 }
 
-/* line 53, ../scss/components/_popup.scss */
+/* line 62, ../scss/components/_popup.scss */
 .line_item_title {
   display: inline-block;
   margin-right: 10px;
 }
 
-/* line 58, ../scss/components/_popup.scss */
+/* line 67, ../scss/components/_popup.scss */
 .line_item_title_small {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 63, ../scss/components/_popup.scss */
+/* line 72, ../scss/components/_popup.scss */
 .line_item {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 69, ../scss/components/_popup.scss */
+/* line 78, ../scss/components/_popup.scss */
 .line_item_total {
   font-size: 20px;
 }
 
-/* line 73, ../scss/components/_popup.scss */
+/* line 82, ../scss/components/_popup.scss */
 .pay_header_container {
   padding-bottom: 40px;
   text-align: left;
 }
 
-/* line 78, ../scss/components/_popup.scss */
+/* line 87, ../scss/components/_popup.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
   text-align: left;
 }
 
-/* line 84, ../scss/components/_popup.scss */
+/* line 93, ../scss/components/_popup.scss */
 .pay_header_helper {
   text-align: left;
 }
 
-/* line 88, ../scss/components/_popup.scss */
+/* line 97, ../scss/components/_popup.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 92, ../scss/components/_popup.scss */
+/* line 101, ../scss/components/_popup.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 96, ../scss/components/_popup.scss */
+/* line 105, ../scss/components/_popup.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 101, ../scss/components/_popup.scss */
+/* line 110, ../scss/components/_popup.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
@@ -3960,24 +3986,24 @@ div.faqcontent h2 {
   box-shadow: inset 0 0px 5px #9facbc;
   margin-left: 20px;
 }
-/* line 105, ../scss/components/_popup.scss */
+/* line 114, ../scss/components/_popup.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 117, ../scss/components/_popup.scss */
+/* line 126, ../scss/components/_popup.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 121, ../scss/components/_popup.scss */
+/* line 130, ../scss/components/_popup.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
   display: inline-block;
 }
 
-/* line 127, ../scss/components/_popup.scss */
+/* line 136, ../scss/components/_popup.scss */
 .account_select_info {
   margin-left: 22px;
   margin-bottom: 0;
@@ -3985,7 +4011,7 @@ div.faqcontent h2 {
   display: block;
 }
 
-/* line 134, ../scss/components/_popup.scss */
+/* line 143, ../scss/components/_popup.scss */
 .close {
   position: absolute;
   right: 10px;
@@ -4007,35 +4033,24 @@ div.faqcontent h2 {
 }
 
 /* line 11, ../scss/components/_progress_bars.scss */
-.create_agreement_progress {
-  margin: 20px;
-  padding: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #f9fafb;
-  position: relative;
-}
-
-/* line 21, ../scss/components/_progress_bars.scss */
 .progress-large span {
   display: block;
   background-color: #dce0e4;
   background-repeat: no-repeat;
 }
 
-/* line 27, ../scss/components/_progress_bars.scss */
+/* line 17, ../scss/components/_progress_bars.scss */
 .progress-large span img {
   display: block;
   width: 800px;
 }
 
-/* line 32, ../scss/components/_progress_bars.scss */
-.agreement_progress progress[value] {
+/* line 22, ../scss/components/_progress_bars.scss */
+.progress-large progress[value] {
   width: 800px;
 }
 
-/* line 36, ../scss/components/_progress_bars.scss */
+/* line 26, ../scss/components/_progress_bars.scss */
 progress[value] {
   /* Get rid of the default appearance */
   appearance: none;
@@ -4052,33 +4067,33 @@ progress[value] {
   border-radius: 10px;
 }
 
-/* line 52, ../scss/components/_progress_bars.scss */
+/* line 42, ../scss/components/_progress_bars.scss */
 progress[value]::-webkit-progress-bar {
   background-color: #dce0e4;
   border-radius: 10px;
 }
 
-/* line 57, ../scss/components/_progress_bars.scss */
+/* line 47, ../scss/components/_progress_bars.scss */
 progress[value]::-webkit-progress-value {
   position: relative;
   border-radius: 10px;
 }
 
 /* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
-/* line 65, ../scss/components/_progress_bars.scss */
+/* line 55, ../scss/components/_progress_bars.scss */
 progress[value]::-moz-progress-bar {
   background: #86ce50;
   border-radius: 10px;
 }
 
-/* line 70, ../scss/components/_progress_bars.scss */
+/* line 60, ../scss/components/_progress_bars.scss */
 progress::-webkit-progress-value, progress.yellow_progress {
   background: #86ce50;
   border-radius: 10px;
 }
 
 /* Fallback technique styles */
-/* line 77, ../scss/components/_progress_bars.scss */
+/* line 67, ../scss/components/_progress_bars.scss */
 .progress-bar {
   background-color: #86ce50;
   border-radius: 10px;
@@ -4087,46 +4102,45 @@ progress::-webkit-progress-value, progress.yellow_progress {
   height: 2px;
 }
 
-/* line 86, ../scss/components/_progress_bars.scss */
+/* line 76, ../scss/components/_progress_bars.scss */
 .progress-bar span {
   background-color: #dce0e4;
   display: block;
   text-indent: -9999px;
 }
 
-/* line 94, ../scss/components/_progress_bars.scss */
+/* line 84, ../scss/components/_progress_bars.scss */
 .agreement_progress[value] {
   height: 10px;
-  width: 100%;
   border-radius: 10px;
 }
 
-/* line 100, ../scss/components/_progress_bars.scss */
+/* line 89, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-bar {
   height: 10px;
   border-radius: 10px;
 }
 
-/* line 106, ../scss/components/_progress_bars.scss */
+/* line 95, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-moz-progress-bar {
   height: 10px;
   border-radius: 10px;
   background: #86ce50;
 }
 
-/* line 112, ../scss/components/_progress_bars.scss */
+/* line 101, ../scss/components/_progress_bars.scss */
 .agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
   background: -webkit-linear-gradient(left, #cec150);
   border-radius: 10px;
 }
 
-/* line 119, ../scss/components/_progress_bars.scss */
+/* line 108, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-value {
   position: relative;
   border-radius: 10px;
 }
 
-/* line 131, ../scss/components/_progress_bars.scss */
+/* line 120, ../scss/components/_progress_bars.scss */
 .agreement_progress_bar {
   background-color: #86ce50;
   /* Dimensions should be similar to the parent progress element. */
@@ -4135,74 +4149,74 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 10px;
 }
 
-/* line 143, ../scss/components/_progress_bars.scss */
+/* line 132, ../scss/components/_progress_bars.scss */
 .green_progress {
   background: #86ce50;
 }
 
-/* line 147, ../scss/components/_progress_bars.scss */
+/* line 136, ../scss/components/_progress_bars.scss */
 .yellow_progress {
   background: #cec150;
 }
 
-/* line 151, ../scss/components/_progress_bars.scss */
+/* line 140, ../scss/components/_progress_bars.scss */
 .red_progress {
   background: #ce5058;
 }
 
-/* line 155, ../scss/components/_progress_bars.scss */
+/* line 144, ../scss/components/_progress_bars.scss */
 .grey_progress {
   background: #d4d9de;
 }
 
-/* line 159, ../scss/components/_progress_bars.scss */
+/* line 148, ../scss/components/_progress_bars.scss */
 .icon_container {
   position: absolute;
   top: 7.5px;
   z-index: 5;
 }
 
-/* line 165, ../scss/components/_progress_bars.scss */
+/* line 154, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link {
   position: absolute;
   left: 0px;
   text-align: center;
   width: 100px;
 }
-/* line 170, ../scss/components/_progress_bars.scss */
+/* line 159, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link:hover {
   text-decoration: none;
 }
 
-/* line 175, ../scss/components/_progress_bars.scss */
+/* line 164, ../scss/components/_progress_bars.scss */
 .overview_link {
   left: 0px;
 }
 
-/* line 179, ../scss/components/_progress_bars.scss */
+/* line 168, ../scss/components/_progress_bars.scss */
 .payment_schedule_link {
   left: 150px;
 }
 
-/* line 183, ../scss/components/_progress_bars.scss */
+/* line 172, ../scss/components/_progress_bars.scss */
 .review_link {
   left: 300px;
 }
 
-/* line 187, ../scss/components/_progress_bars.scss */
+/* line 176, ../scss/components/_progress_bars.scss */
 .send_link {
   left: 450px;
 }
 
-/* line 191, ../scss/components/_progress_bars.scss */
+/* line 180, ../scss/components/_progress_bars.scss */
 .create_agreement_icon_container {
   position: absolute;
-  top: -22.5px;
-  left: -50px;
+  top: -32.5px;
+  left: -25px;
   z-index: 5;
 }
 
-/* line 199, ../scss/components/_progress_bars.scss */
+/* line 188, ../scss/components/_progress_bars.scss */
 .progress_icon {
   font-size: 26px;
   width: 30px;
@@ -4210,24 +4224,60 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 50%;
 }
 
-/* line 206, ../scss/components/_progress_bars.scss */
+/* line 195, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_icon {
   color: #d4d9de;
   position: relative;
   font-size: 36px;
 }
 
-/* line 212, ../scss/components/_progress_bars.scss */
+/* line 201, ../scss/components/_progress_bars.scss */
 .create_agreement_progress {
-  width: 450px;
+  width: 500px;
   float: right;
   margin-right: 60px;
   margin-top: 42px;
   margin-bottom: 0;
   padding-bottom: 0;
 }
+/* line 209, ../scss/components/_progress_bars.scss */
+.create_agreement_progress .agreement_progress[value] {
+  height: 10px;
+  border-radius: 10px;
+  width: 450px;
+  right: 30px;
+}
+/* line 215, ../scss/components/_progress_bars.scss */
+.create_agreement_progress .agreement_progress[value]::-webkit-progress-bar {
+  height: 10px;
+  border-radius: 10px;
+  width: 450px;
+  right: 30px;
+}
+/* line 222, ../scss/components/_progress_bars.scss */
+.create_agreement_progress .agreement_progress[value]::-moz-progress-bar {
+  height: 10px;
+  border-radius: 10px;
+  background: #86ce50;
+  width: 450px;
+  right: 30px;
+}
+/* line 229, ../scss/components/_progress_bars.scss */
+.create_agreement_progress .agreement_progress::-webkit-progress-value, .create_agreement_progress .agreement_progress[value].yellow_progress {
+  background: -webkit-linear-gradient(left, #cec150);
+  border-radius: 10px;
+  width: 450px;
+  right: 30px;
+}
+/* line 236, ../scss/components/_progress_bars.scss */
+.create_agreement_progress .agreement_progress[value]::-webkit-progress-value {
+  position: relative;
+  border-radius: 10px;
+  width: 450px;
+  right: 30px;
+}
 
-/* line 221, ../scss/components/_progress_bars.scss */
+/* line 244, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation {
   text-align: center;
   margin: 0;
@@ -4243,27 +4293,27 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 5px;
 }
 
-/* line 236, ../scss/components/_progress_bars.scss */
+/* line 259, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link_hover {
   background: #a9b3bc;
 }
 
-/* line 240, ../scss/components/_progress_bars.scss */
+/* line 263, ../scss/components/_progress_bars.scss */
 .create_agreement_title {
   float: left;
 }
 
-/* line 244, ../scss/components/_progress_bars.scss */
+/* line 267, ../scss/components/_progress_bars.scss */
 .create_agreement_label_first {
   padding-top: 5px;
 }
 
-/* line 248, ../scss/components/_progress_bars.scss */
+/* line 271, ../scss/components/_progress_bars.scss */
 .green_icon {
   color: #86ce50;
 }
 
-/* line 252, ../scss/components/_progress_bars.scss */
+/* line 275, ../scss/components/_progress_bars.scss */
 .tooltip {
   background: #fff;
   background: rgba(255, 255, 255, 0.8);
@@ -4283,14 +4333,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #646464;
 }
 
-/* line 270, ../scss/components/_progress_bars.scss */
+/* line 293, ../scss/components/_progress_bars.scss */
 .tooltip > ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 275, ../scss/components/_progress_bars.scss */
+/* line 298, ../scss/components/_progress_bars.scss */
 .tooltip:after {
   content: "";
   position: absolute;
@@ -5454,3 +5504,4 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .column-two-third, .column-three-fourth, .column-full {
   float: left;
 }
+
