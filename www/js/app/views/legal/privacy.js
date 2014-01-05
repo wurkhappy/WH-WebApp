@@ -15,6 +15,7 @@
 
       initialize:  function() {
         this.render();
+        $(window).scroll(this.updatePosition);
       },
 
       render: function () {
@@ -24,6 +25,14 @@
 
       events: {
           "click .faqnav a" : "toggleSection"
+      },
+
+      updatePosition: function() {
+        if ( $(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+          $(".faqnav").addClass('fixed_bottom');
+        } else{
+          $(".faqnav").removeClass('fixed_bottom');
+        }
       },
 
       toggleSection: function(event) {

@@ -35,7 +35,16 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
       },
       initialize:function(options){
         this.payment = new PaymentModel();
-        options.payments.add(this.payment);
+
+        //work around here. The collection holds the IDs for the agreement
+        //the way the models are set up is they need to call up to their collections
+        var collection = options.payments.clone();
+        console.log(options.payments);
+        collection.agreementVersionID = options.payments.agreementVersionID;
+        collection.agreementID = options.payments.agreementID;
+        collection.add(this.payment);
+
+
         this.bankAccounts = options.bankAccounts;
         this.bankAccounts.fetch();
         this.paymentMethodsView = new PaymentMethods({bankAccounts: this.bankAccounts});
@@ -62,7 +71,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
         this.$('header').html(this.paymentMethodsView.$el);
       },
       calculatePayment: function(){
-        var milestonePayment = this.model.get("amount");
+        var milestonePayment = this.model.get("amountDue");
         var wurkHappyFee = this.wurkHappyFee(milestonePayment);
         var bankTransferFee = 5;
         var creditCardFee = (milestonePayment * .029) +.3;
@@ -126,7 +135,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
 
       var triggerNotification = _.debounce(fadeInNotification, 300);
 
-      this.payment.get("paymentItems").add({workItemID: this.model.id, amount: this.model.get("amount")});
+      this.payment.get("paymentItems").add({workItemID: this.model.id, amount: this.model.get("amountDue")});
       var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
       this.payment.submit({creditSourceURI: creditSource}, _.bind(function(){
         fadeOutModal();

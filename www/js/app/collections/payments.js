@@ -2,7 +2,7 @@
  * Collection.
  */
 
-define(['backbone', 'models/payment'],
+ define(['backbone', 'models/payment'],
 
     function(Backbone, Model) {
 
@@ -12,6 +12,12 @@ define(['backbone', 'models/payment'],
 
             // Reference to this collection's model.
             model: Model,
+            initialize: function(models, options){
+                if (options) {
+                    this.agreementVersionID = options.agreementVersionID;
+                    this.agreementID = options.agreementID;
+                }
+            },
             comparator: function(model){
                 return (model.get("dateCreated")) ? model.get("dateCreated").valueOf() : 0;
             },
@@ -42,7 +48,7 @@ define(['backbone', 'models/payment'],
             },
             getPercentComplete: function() {
                 var paymentsAccepted = this.getAccepted().length,
-                    totalPayments = this.length;
+                totalPayments = this.length;
 
                 if (paymentsAccepted === 0) {
                     return 0;
@@ -53,8 +59,8 @@ define(['backbone', 'models/payment'],
 
         });
 
-        return Collection;
+return Collection;
 
-    }
+}
 
 );

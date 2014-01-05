@@ -48,7 +48,7 @@
 
       render: function () {
         var deposit = this.workItems.findDeposit();
-        var depositAmount = (deposit) ? deposit.get("amount") : 0;
+        var depositAmount = (deposit) ? deposit.get("amountDue") : 0;
         var totalAmountExDeposit = this.workItems.getTotalAmount() - depositAmount;
         var percentComplete = ((this.payments.getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
         var requiredPaymentsCount = (deposit) ? 1 : 0;

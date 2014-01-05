@@ -2,9 +2,9 @@
  * Collection.
  */
 
-define(['backbone', 'models/work_item'],
+ define(['backbone', 'underscore', 'models/work_item'],
 
-    function(Backbone, Model) {
+    function(Backbone, _, Model) {
 
         'use strict';
 
@@ -12,10 +12,14 @@ define(['backbone', 'models/work_item'],
 
             // Reference to this collection's model.
             model: Model,
-            AgreementVersionID: "",
-
+            initialize: function(models, options){
+                if(options){
+                    this.agreementVersionID = options.agreementVersionID;
+                    this.agreementID = options.agreementID;
+                }
+            },
             getTotalAmount:function(){
-                return this.reduce(function(memo, value) { return memo + value.get("amount") }, 0);
+                return this.reduce(function(memo, value) { return memo + value.get("amountDue") }, 0);
             },
             findSubmitted:function(){
                 var models = this.filter(function(model){
@@ -25,13 +29,13 @@ define(['backbone', 'models/work_item'],
             },
             findFirstOutstanding:function(){
                 var models = this.filter(function(model){
-                    return model.get("amount") > model.get("amountPaid");
+                    return model.get("amountDue") > model.get("amountPaid");
                 });
                 return models[0];
             },
             findAllOutstanding:function(){
                 var models = this.filter(function(model){
-                    return model.get("amount") > model.get("amountPaid");
+                    return model.get("amountDue") > model.get("amountPaid");
                 });
                 return new Collection(models);
             },
@@ -71,8 +75,8 @@ define(['backbone', 'models/work_item'],
 
         });
 
-        return Collection;
+return Collection;
 
-    }
+}
 
 );

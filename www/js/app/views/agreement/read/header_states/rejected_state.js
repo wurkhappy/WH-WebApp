@@ -18,7 +18,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
           this.model.get("payments").findFirstOutstandingPayment().submit();
         }
         else{
-          this.edit()
+          this.model.submit()
         }
       },
       button2:function(event){

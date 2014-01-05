@@ -8,6 +8,16 @@
   position: relative;
 }
 
+.create_agreement_progress {
+  margin: 20px;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: rgb(249,250,251);
+  position: relative;
+}
+
 .progress-large span {
   display: block;
   background-color: rgb(220,224,228);
@@ -19,7 +29,7 @@
   width: 800px;
 }
 
-.progress-large progress[value]{
+.agreement_progress progress[value]{
   width: 800px;
 }
 
@@ -83,6 +93,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 .agreement_progress[value] {
   height: 10px;
+  width: 100%;
   border-radius:10px;
 }
 
@@ -148,7 +159,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .icon_container {
   position: absolute;
   top: 7.5px;
-  z-index:5;
+  z-index:1;
 }
 
 .create_agreement_navigation_link {
@@ -280,6 +291,5 @@ progress::-webkit-progress-value, progress.yellow_progress {
   -o-transform: rotate(45deg);
   tranform: rotate(45deg);
 }
-
 
 
