@@ -11,7 +11,31 @@ import (
 	"time"
 )
 
-// var agreementTemplates = template.Must(template.ParseFiles("templates/agreements.html", "templates/createAgreements.html"))
+var homeTpl *template.Template
+var emptyHomeTpl *template.Template
+var archivesTpl *template.Template
+
+func init() {
+	format := func(date string) string {
+		t, _ := time.Parse(time.RFC3339, date)
+		return t.Format("Jan 2, 2006")
+	}
+
+	homeTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+		"templates/_baseApp.html",
+		"templates/home.html",
+	)
+
+	emptyHomeTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+		"templates/_baseApp.html",
+		"templates/empty_home.html",
+	)
+
+	archivesTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+		"templates/_baseApp.html",
+		"templates/archives.html",
+	)
+}
 
 func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	userID := session.Values["id"]
@@ -32,25 +56,13 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		"JSversion":      JSversion,
 		"CSSversion":     CSSversion,
 	}
-	format := func(date string) string {
-		t, _ := time.Parse(time.RFC3339, date)
-		return t.Format("Jan 2, 2006")
-	}
-	var tpl *template.Template
-	var err error
-	if len(agreementsData) > 0 {
-		tpl, err = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
-			"templates/_baseApp.html",
-			"templates/home.html",
-		)
-	} else {
-		tpl, err = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
-			"templates/_baseApp.html",
-			"templates/empty_home.html",
-		)
-	}
 
-	template.Must(tpl, err)
+	var tpl *template.Template
+	if len(agreementsData) > 0 {
+		tpl = homeTpl
+	} else {
+		tpl = emptyHomeTpl
+	}
 
 	tpl.Execute(w, m)
 }
@@ -74,20 +86,8 @@ func GetArchives(w http.ResponseWriter, req *http.Request, session *sessions.Ses
 		"JSversion":      JSversion,
 		"CSSversion":     CSSversion,
 	}
-	format := func(date string) string {
-		t, _ := time.Parse(time.RFC3339, date)
-		return t.Format("Jan 2, 2006")
-	}
-	var tpl *template.Template
-	var err error
-	tpl, err = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
-		"templates/_baseApp.html",
-		"templates/archives.html",
-	)
 
-	template.Must(tpl, err)
-
-	tpl.Execute(w, m)
+	archivesTpl.Execute(w, m)
 }
 
 func getCurrentAgreements(userID string) []map[string]interface{} {
