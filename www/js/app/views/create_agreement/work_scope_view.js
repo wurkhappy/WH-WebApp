@@ -3,25 +3,25 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'hbs!templates/create_agreement/payment_scope_tpl', 'views/create_agreement/scope_item_view'],
+  'hbs!templates/create_agreement/work_scope_tpl', 'views/create_agreement/scope_item_view'],
 
-  function (Backbone, Handlebars, _, Marionette, paymentScopeTemplate, ScopeItemView) {
+  function (Backbone, Handlebars, _, Marionette, workScopeTpl, ScopeItemView) {
 
     'use strict';
 
-    var PaymentScopeView = Backbone.Marionette.CompositeView.extend({
+    var WorkScopeView = Backbone.Marionette.CompositeView.extend({
 
       className:'scopeWrapper',
 
-      template: paymentScopeTemplate,
+      template: workScopeTpl,
 
       itemView: ScopeItemView,
       itemViewContainer:'ul',
 
       initialize: function(options) {
         this.deposit = options.deposit;
-        this.render();
         this.scopeItems = this.collection.toJSON();
+        this.render();
       },
 
       render: function() {
@@ -37,10 +37,10 @@
 
         // iterate through collection and append existing scope items to milestone
         _.each(collection, function(element, index, list){
-            var scopeItemView = new ScopeItemView({
-              collection: element,
-            });
-            that.$('.create_scope_item_container').append(scopeItemView.render().el);
+          var scopeItemView = new ScopeItemView({
+            collection: element,
+          });
+          that.$('.create_scope_item_container').append(scopeItemView.render().el);
         });
 
       },
@@ -63,8 +63,8 @@
       addScopeItem: function(event) {
         event.preventDefault();
         var $text = $(event.target).prev('.add_work_item_input'),
-            $input = $('input'),
-            $error = $(event.target).next('.add_work_item_error');
+        $input = $('input'),
+        $error = $(event.target).next('.add_work_item_error');
 
         if ($text.val() === '') {
           $error.fadeIn('slow');
@@ -91,7 +91,7 @@
 
     });
 
-    return PaymentScopeView;
+return WorkScopeView;
 
-  }
-  );
+}
+);

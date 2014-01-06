@@ -2,7 +2,7 @@
  * Footer View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/landing/pricing.html'],
+define(['backbone', 'handlebars', 'hbs!templates/landing/pricing'],
 
     function (Backbone, Handlebars, pricingTemplate) {
 
@@ -13,7 +13,7 @@ define(['backbone', 'handlebars', 'text!templates/landing/pricing.html'],
         el: '#about-container',
 
         // Compile our footer template.
-        template: Handlebars.compile(pricingTemplate),
+        template: pricingTemplate,
 
         initialize: function () {
 

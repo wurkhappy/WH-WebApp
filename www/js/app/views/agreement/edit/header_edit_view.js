@@ -23,22 +23,22 @@ define(['backbone', 'handlebars', 'underscore', 'toastr', 'hbs!templates/agreeme
       debounceSave: function(event) {
         event.preventDefault();
         event.stopPropagation();
-        this.save();
-      },
-      save: _.debounce( function(event){
-        if(!this.model.get("draft")){
-          this.model.unset("versionID");
-        }
-        this.model.set("draft", true);
-        this.model.save({},{
-          success:_.bind(function(model, response){
-            toastr.success("Agreement saved")
+        var that = this;
+        _.debounce( function(event){
+          if(!that.model.get("draft")){
+            that.model.unset("versionID");
+          }
+          that.model.set("draft", true);
+          that.model.save({},{
+            success:function(model, response){
+              toastr.success("Agreement saved")
 
-           window.location.hash = '';
+              window.location = '/agreement/v/' + model.id;
 
-         }, this)
-        });
-      }, 500, true)
+            }
+          });
+        }, 500, true)();
+      }
 
     });
 

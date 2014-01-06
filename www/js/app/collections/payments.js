@@ -2,7 +2,7 @@
  * Collection.
  */
 
-define(['backbone', 'models/payment'],
+ define(['backbone', 'models/payment'],
 
     function(Backbone, Model) {
 
@@ -12,37 +12,28 @@ define(['backbone', 'models/payment'],
 
             // Reference to this collection's model.
             model: Model,
+            initialize: function(models, options){
+                if (options) {
+                    this.agreementVersionID = options.agreementVersionID;
+                    this.agreementID = options.agreementID;
+                }
+            },
+            comparator: function(model){
+                return (model.get("dateCreated")) ? model.get("dateCreated").valueOf() : 0;
+            },
 
             getTotalAmount:function(){
-                return this.reduce(function(memo, value) { return memo + value.get("amount") }, 0);
+                return this.reduce(function(memo, value) {
+                    return memo + value.get("paymentItems").reduce(function(count, val){
+                        return count + val.get("amount");
+                    }, 0) 
+                }, 0);
             },
             findSubmittedPayment:function(){
                 var paymentArray = this.filter(function(model){
                     return model.get("currentStatus") && model.get("currentStatus").get("action") === 'submitted';
                 });
                 return paymentArray[0];
-            },
-            findFirstOutstandingPayment:function(){
-                var paymentArray = this.filter(function(model){
-                    return !model.get("currentStatus") || model.get("currentStatus").get("action") !== 'accepted';
-                });
-                return paymentArray[0];
-            },
-            findAllOutstandingPayment:function(){
-                var paymentArray = this.filter(function(model){
-                    return !model.get("currentStatus") || model.get("currentStatus").get("action") !== 'accepted';
-                });
-                return new Collection(paymentArray);
-            },
-            findFirstRequiredPayment:function(){
-                var paymentArray = this.filter(function(model){
-                    return model.get("required");
-                });
-                if (paymentArray.length == 0) return null;
-                return paymentArray[0];
-            },
-            getTotalPayments: function() {
-                return this.length;
             },
             getAcceptedPayments: function() {
                 var paymentArray = this.filter(function(model) {
@@ -53,18 +44,11 @@ define(['backbone', 'models/payment'],
                         return 0;
                     }
                 });
-                return paymentArray.length;
-            },
-
-            getNumberOfSubmittedPayments: function () {
-                var paymentArray = this.filter(function(model){
-                    return model.get("currentStatus") && model.get("currentStatus").get("action") === 'submitted';
-                });
-                return paymentArray.length;
+                return new Collection(paymentArray);
             },
             getPercentComplete: function() {
-                var paymentsAccepted = this.getAcceptedPayments(),
-                    totalPayments = this.getTotalPayments();
+                var paymentsAccepted = this.getAccepted().length,
+                totalPayments = this.length;
 
                 if (paymentsAccepted === 0) {
                     return 0;
@@ -75,8 +59,8 @@ define(['backbone', 'models/payment'],
 
         });
 
-        return Collection;
+return Collection;
 
-    }
+}
 
 );

@@ -3,11 +3,11 @@
 */
 
 
-define(['backbone','backbone-relational', 'models/payment', 'collections/payments',
-    'models/status', 'collections/status',  'models/comment', 'collections/comments'],
+define(['backbone','backbone-relational', 'moment', 'models/payment', 'collections/payments',
+    'models/status', 'collections/status',  'models/comment', 'collections/comments', 'models/work_item', 'collections/work_items',],
 
-    function(Backbone, Relational, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
-        CommentModel, CommentCollection, ClausesCollection, ClauseModel) {
+    function(Backbone, Relational, moment, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
+        CommentModel, CommentCollection, WorkItemModel, WorkItemCollection) {
 
         'use strict';
 
@@ -17,9 +17,23 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 key: 'payments',
                 relatedModel: PaymentModel,
                 collectionType: PaymentCollection,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
+                collectionOptions: function(model){
+                    return {
+                        agreementVersionID: model.id,
+                        agreementID: model.get("agreementID"),
+                    };
+                }
+            },
+            {
+                type: Backbone.HasMany,
+                key: 'workItems',
+                relatedModel: WorkItemModel,
+                collectionType: WorkItemCollection,
+                collectionOptions: function(model){
+                    return {
+                        agreementVersionID: model.id,
+                        agreementID: model.get("agreementID"),
+                    };
                 }
             },
             {
@@ -46,15 +60,35 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
                 relatedModel: CommentModel,
                 collectionType: CommentCollection,
                 includeInJSON: false,
-                reverseRelation: {
-                    key: 'agreement',
-                    includeInJSON: false
+                collectionOptions: function(model){
+                    return {
+                        agreementVersionID: model.id,
+                        agreementID: model.get("agreementID"),
+                    };
                 }
             }
             ],
 
             idAttribute: "versionID",
             userID: "",
+            initialize: function(){
+                this.listenTo(Backbone, "updateCurrentStatus", this.setCurrentStatus);
+            },
+            set: function( key, value, options ) {
+                Backbone.RelationalModel.prototype.set.apply( this, arguments );
+
+                if (typeof key === 'object') {
+                    if (_.has(key, "dateCreated")) {
+                        this.attributes.dateCreated = moment(key["dateCreated"]);
+                    }
+                } else if (key === 'dateCreated'){
+                    this.attributes.dateCreated = moment(value);
+                }
+                return this;
+            },
+            setCurrentStatus: function(model){
+                this.set("currentStatus", model);
+            },
             urlRoot:function(){
                 return "/agreement/v";
             },
@@ -69,30 +103,36 @@ define(['backbone','backbone-relational', 'models/payment', 'collections/payment
             },
             updateStatus:function(action, message, successCallback){
                 $.ajax({
-                  type: "POST",
-                  url: "/agreement/v/"+this.id+"/status",
-                  contentType: "application/json",
-                  dataType: "json",
-                  data:JSON.stringify({"action":action, "message":message, "userID": this.userID}),
-                  success: _.bind(function(response){
-                    this.set("currentStatus", response);
-                    if (_.isFunction(successCallback)) successCallback();
-                }, this)
-              });
+                    type: "POST",
+                    url: "/agreement/v/"+this.id+"/status",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data:JSON.stringify({"action":action, "message":message}),
+                    success: _.bind(function(response){
+                        this.set("currentStatus", response);
+                        if (_.isFunction(successCallback)) successCallback();
+                    }, this)
+                });
             },
             archive: function(userID, successCallback){
                 $.ajax({
-                  type: "POST",
-                  url: "/agreement/v/"+this.id+"/archive",
-                  contentType: "application/json",
-                  dataType: "json",
-                  data:JSON.stringify({userID: userID}),
-                  success: _.bind(function(response){
-                    this.set(response);
-                    this.get("currentStatus").trigger("change");
-                    if (_.isFunction(successCallback)) successCallback();
-                }, this)
-              });
+                    type: "POST",
+                    url: "/agreement/v/"+this.id+"/archive",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data:JSON.stringify({userID: userID}),
+                    success: _.bind(function(response){
+                        this.set(response);
+                        this.get("currentStatus").trigger("change");
+                        if (_.isFunction(successCallback)) successCallback();
+                    }, this)
+                });
+            },
+            percentComplete: function(){
+                var deposit = this.get("workItems").findDeposit();
+                var depositAmount = (deposit) ? deposit.get("amount") : 0;
+                var totalAmountExDeposit = this.get("workItems").getTotalAmount() - depositAmount;
+                return ((this.get("payments").getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
             }
         });
 

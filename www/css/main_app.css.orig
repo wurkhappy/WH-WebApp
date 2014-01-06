@@ -274,6 +274,7 @@ fieldset {
   display: inline;
 }
 
+<<<<<<< HEAD
 /* line 236, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
@@ -284,6 +285,13 @@ fieldset {
   margin-left: 40px;
 }
 
+=======
+/* line 235, ../scss/bases/_common.scss */
+.overflow_hidden {
+  overflow: hidden;
+}
+
+>>>>>>> dev
 @font-face {
   font-family: 'museo';
   src: url("https://wurkhappy.com/css/fonts/museo100-italic-webfont.eot");
@@ -4119,7 +4127,10 @@ div.faqcontent h2 {
   padding-bottom: 20px;
 }
 
+<<<<<<< HEAD
 /* line 1, ../scss/components/_modals.scss */
+=======
+/* line 1, ../scss/components/_popup.scss */
 #popup_container {
   overflow: hidden;
   position: fixed;
@@ -4132,18 +4143,8 @@ div.faqcontent h2 {
   z-index: 10;
 }
 
-/* line 13, ../scss/components/_modals.scss */
-.milestone_panel {
-  width: 550px;
-  position: absolute;
-  top: 75px;
-  margin-left: -275px;
-  margin-top: 0;
-  bottom: 100px;
-  overflow-y: scroll;
-}
-
-/* line 23, ../scss/components/_modals.scss */
+/* line 14, ../scss/components/_popup.scss */
+>>>>>>> dev
 .panel {
   width: 400px;
   position: relative;
@@ -4166,7 +4167,22 @@ div.faqcontent h2 {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 45, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 24, ../scss/components/_modals.scss */
+.milestone_panel {
+  width: 550px;
+  position: absolute;
+  top: 75px;
+  margin-left: -275px;
+  margin-top: 0;
+  bottom: 100px;
+  overflow-y: scroll;
+}
+
+/* line 34, ../scss/components/_modals.scss */
+=======
+/* line 36, ../scss/components/_popup.scss */
+>>>>>>> dev
 .cover {
   position: fixed;
   left: 0;
@@ -4181,80 +4197,136 @@ div.faqcontent h2 {
   background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-/* line 59, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 48, ../scss/components/_modals.scss */
+=======
+/* line 50, ../scss/components/_popup.scss */
+>>>>>>> dev
 .overlay {
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+<<<<<<< HEAD
+  overflow-x: hidden;
   z-index: 10;
 }
 
-/* line 67, ../scss/components/_modals.scss */
+/* line 58, ../scss/components/_modals.scss */
+=======
+  z-index: 10;
+}
+
+/* line 58, ../scss/components/_popup.scss */
+>>>>>>> dev
 .line_item_container {
   list-style: none;
   text-align: right;
 }
 
-/* line 72, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 63, ../scss/components/_modals.scss */
+=======
+/* line 63, ../scss/components/_popup.scss */
+>>>>>>> dev
 .line_item_title {
   display: inline-block;
   margin-right: 10px;
 }
 
-/* line 77, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 68, ../scss/components/_modals.scss */
+=======
+/* line 68, ../scss/components/_popup.scss */
+>>>>>>> dev
 .line_item_title_small {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 82, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 73, ../scss/components/_modals.scss */
+=======
+/* line 73, ../scss/components/_popup.scss */
+>>>>>>> dev
 .line_item {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 88, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 79, ../scss/components/_modals.scss */
+=======
+/* line 79, ../scss/components/_popup.scss */
+>>>>>>> dev
 .line_item_total {
   font-size: 20px;
 }
 
-/* line 92, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 83, ../scss/components/_modals.scss */
+=======
+/* line 83, ../scss/components/_popup.scss */
+>>>>>>> dev
 .pay_header_container {
   padding-bottom: 40px;
   text-align: left;
 }
 
-/* line 97, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 88, ../scss/components/_modals.scss */
+=======
+/* line 88, ../scss/components/_popup.scss */
+>>>>>>> dev
 .pay_header {
   padding: 0;
   margin-bottom: 0;
   text-align: left;
 }
 
-/* line 103, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 94, ../scss/components/_modals.scss */
+=======
+/* line 94, ../scss/components/_popup.scss */
+>>>>>>> dev
 .pay_header_helper {
   text-align: left;
 }
 
-/* line 107, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 98, ../scss/components/_modals.scss */
+=======
+/* line 98, ../scss/components/_popup.scss */
+>>>>>>> dev
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 111, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 102, ../scss/components/_modals.scss */
+=======
+/* line 102, ../scss/components/_popup.scss */
+>>>>>>> dev
 .pay_button {
   width: 340px;
 }
 
-/* line 115, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 106, ../scss/components/_modals.scss */
+=======
+/* line 106, ../scss/components/_popup.scss */
+>>>>>>> dev
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 120, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 111, ../scss/components/_modals.scss */
+=======
+/* line 111, ../scss/components/_popup.scss */
+>>>>>>> dev
 .payment_select_container {
   list-style: none;
   font-size: 14px;
@@ -4266,25 +4338,42 @@ div.faqcontent h2 {
   -webkit-box-shadow: inset 0 0 5px #9facbc;
   box-shadow: inset 0 0px 5px #9facbc;
   margin-left: 20px;
+  border-radius: 5px;
 }
-/* line 124, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 115, ../scss/components/_modals.scss */
+=======
+/* line 115, ../scss/components/_popup.scss */
+>>>>>>> dev
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 136, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 128, ../scss/components/_modals.scss */
+=======
+/* line 127, ../scss/components/_popup.scss */
+>>>>>>> dev
 .first_select_info {
   display: inline-block;
 }
 
-/* line 140, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 132, ../scss/components/_modals.scss */
+=======
+/* line 131, ../scss/components/_popup.scss */
+>>>>>>> dev
 .payment_select_info {
   margin: 0;
   padding: 0;
   display: inline-block;
 }
 
-/* line 146, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 138, ../scss/components/_modals.scss */
+=======
+/* line 137, ../scss/components/_popup.scss */
+>>>>>>> dev
 .account_select_info {
   margin-left: 22px;
   margin-bottom: 0;
@@ -4292,14 +4381,20 @@ div.faqcontent h2 {
   display: block;
 }
 
-/* line 153, ../scss/components/_modals.scss */
+<<<<<<< HEAD
+/* line 145, ../scss/components/_modals.scss */
+=======
+/* line 144, ../scss/components/_popup.scss */
+>>>>>>> dev
 .close {
   position: absolute;
-  right: 10px;
+  right: 15px;
   top: 10px;
-  padding: 5px;
-  border: 1px solid #dedede;
   cursor: pointer;
+}
+/* line 150, ../scss/components/_modals.scss */
+.close:hover {
+  color: #972b46;
 }
 
 /* line 1, ../scss/components/_progress_bars.scss */

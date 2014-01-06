@@ -1,40 +1,56 @@
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'hbs!templates/agreement/work_item_tpl','hbs!templates/agreement/empty_tasks_tpl', 'views/agreement/task_view'],
+  'hbs!templates/agreement/work_item_tpl', 'views/ui-modules/modal', 'views/agreement/tasks_layout'],
 
-  function (Backbone, Handlebars, _, Marionette, WorkItemTemplate, EmptyTemplate, TaskItemView) {
+  function (Backbone, Handlebars, _, Marionette, tpl, Modal, TasksLayout) {
 
     'use strict';
+    var WorkItemView = Backbone.Marionette.ItemView.extend({
 
-    var NoItemsView = Backbone.Marionette.ItemView.extend({
-      template: EmptyTemplate
-    });
-
-
-    var WorkItemView = Backbone.Marionette.CompositeView.extend({
-
-      template: WorkItemTemplate,
-      
-      itemView: TaskItemView,
-      emptyView: NoItemsView,
-      itemViewContainer:'.tasks_container',
+      template: tpl,
 
       initialize:function(options){
-        this.model = options.model;
-        this.collection = options.collection;
-        this.render();
+        this.collection = this.model.get("scopeItems");
+        this.userIsClient = options.userIsClient;
+        this.listenTo(this.model, 'change',this.checkStatus)
+        this.user = options.user;
+        this.otherUser = options.otherUser;
       },
 
       events:{
-        "click .checkbox": "toggleCheckbox"
+        "click .payment_milestone": "showWorkItem"
+      },
+      onRender:function(){
+        this.checkStatus();
       },
 
-      toggleCheckbox: function(event) {
-        var $checkbox = $(event.target),
-            $text = $(event.target).siblings('.task');
+      showWorkItem: function(event) {
+        var view = new TasksLayout({model: this.model, collection: this.model.get("scopeItems"), user: this.user, otherUser: this.otherUser});
+        this.modal = new Modal({view:view});
+        this.modal.$(".panel").addClass("milestone_panel");
+        this.modal.show();
+      },
 
-        $checkbox.toggleClass("checkbox_complete");
-        $text.toggleClass("task_complete");
+      checkStatus:function(){
+        var status = this.model.get("currentStatus");
+        if (!status) {
+          return;
+        }
+        switch (status.get("action")){
+          case status.StatusSubmitted:
+          this.submittedState();
+          break;
+          case status.StatusAccepted:
+          this.acceptedState();
+          break;
+          default:
+        }
+      },
+      submittedState:function(){
+        this.$('.paymentStatus').html('<span class="payment_status">Payment Pending</span>');
+      },
+      acceptedState:function(){
+        this.$('.paymentStatus').html('<span class="payment_status">Payment Made</span>');
       }
 
     });

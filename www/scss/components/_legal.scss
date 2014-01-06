@@ -3,6 +3,7 @@
   font-family: museo;
   list-style-type: none;
   padding: 0px;
+  background: white;
   margin: 20px 0px 0px 20px;
   position: fixed;
   border: 1px solid #ddd;
@@ -97,4 +98,9 @@ div.faqcontent h2 {
 
 .legal_active, .legal_active:visited {
   color: hsl(198, 100%, 26%);
+}
+
+.fixed_bottom{
+    position:absolute;
+    bottom:27px;
 }

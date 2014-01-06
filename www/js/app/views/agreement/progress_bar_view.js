@@ -34,7 +34,11 @@
       template: Handlebars.compile(progressBarTemplate),
 
       initialize:function(options){
-        this.payments = options.model.get("payments");
+
+        //we want all accepted payments as well as the most recent payment
+        this.payments = options.model.get("payments").getAcceptedPayments();
+        this.payments.add(options.model.get("payments").at(options.model.get("payments").length -1));
+        this.workItems = options.model.get("workItems");
         this.listenTo(this.payments, "change", this.render);
       },
       events:{
@@ -43,17 +47,16 @@
       },
 
       render: function () {
-        var submittedPaymentsCount = this.payments.getNumberOfSubmittedPayments(),
-        acceptedPaymentsCount = this.payments.getAcceptedPayments(),
-        acceptedOrSubmittedPaymentsCount = submittedPaymentsCount + acceptedPaymentsCount,
-        totalPayments = this.payments.length;
-
-        var requiredPaymentsCount = this.payments.where({"required": true}).length;
-        var percentComplete = ((acceptedOrSubmittedPaymentsCount - requiredPaymentsCount)/(totalPayments - requiredPaymentsCount)) * 100;
+        var deposit = this.workItems.findDeposit();
+        var depositAmount = (deposit) ? deposit.get("amountDue") : 0;
+        var totalAmountExDeposit = this.workItems.getTotalAmount() - depositAmount;
+        var percentComplete = ((this.payments.getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
+        var requiredPaymentsCount = (deposit) ? 1 : 0;
 
         var iconSize = 30;
-        var totalIconWidth= this.payments.length *iconSize;
-        var barWidth = 900 - totalIconWidth;
+
+        var totalIconWidth= this.payments.length*iconSize;
+        var barWidth = 800 - 0;
 
         var numberPayments = this.payments.length - requiredPaymentsCount;
 
@@ -70,8 +73,8 @@
           } else if (action === "rejected") {
             color = "red"
           }
+          var marginLeft = (model.get("includesDeposit")) ? 0 - iconSize/2: barWidth * (model.getTotalAmount()/totalAmountExDeposit) - iconSize;
 
-          var marginLeft = (model.get("required")) ? 0 : barWidth/numberPayments;
           payments.push({color: color, id: model.id, margin_left: marginLeft});
         });
 

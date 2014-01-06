@@ -14,7 +14,9 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templ
       template: taskTpl,
       emptyView: NoItemsView,
       className: "check_item",
-
+      events:{
+        "click .checkbox": "toggleCheckbox"
+      },
       initialize: function() {
         this.render();
       },
@@ -24,6 +26,13 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templ
 
         return this;
 
+      },
+      toggleCheckbox: function(event) {
+        var $checkbox = $(event.target),
+        $text = $(event.target).siblings('.task');
+
+        $checkbox.toggleClass("checkbox_complete");
+        $text.toggleClass("task_complete");
       }
 
     });

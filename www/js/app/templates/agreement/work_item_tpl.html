@@ -1,5 +1,10 @@
-    
-      <h2 class="work_item_header">To Do List</h2>
-      <span class="helper_text">To add a task, you will need to <a href="#">edit this agreement</a></span>
-      <div class="tasks_container">
-      </div>
+<li class="payment_milestone" data-work-item="something awesome">
+	<strong>${{amountDue}}</strong> &mdash; {{title}}
+
+	{{#unless required}}
+	{{#if dateExpected}} on {{dateFormat dateExpected}}{{/if}}
+	{{/unless}}
+	<div class="paymentStatus payment_status"></div>
+</li>
+	
+<ul class="scope_items_container"></ul>

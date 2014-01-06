@@ -24,6 +24,9 @@ define(['backbone', 'handlebars'],
         this.$el.html(this.template);
         this.$('#panel').append(this.view.$el);
         this.holder.append(this.$el);
+        this.holder.addClass('overflow_hidden');
+        $("#popup_container").show();
+        
       },
 
       events: {
@@ -32,11 +35,13 @@ define(['backbone', 'handlebars'],
       },
       show: function(){
         this.$('#overlay').fadeIn('slow');
-        $('body').addClass('hide_overflow');
+        $("#popup_container").show();
       },
       hide: function(event) {
         this.$('#overlay').fadeOut('slow');
-        $('body').removeClass('hide_overflow');
+        this.holder.removeClass('overflow_hidden');
+        $("#popup_container").fadeOut('slow');
+        this.remove();
       },
       showPersonalMessage: function() {
         $(".panel").animate({

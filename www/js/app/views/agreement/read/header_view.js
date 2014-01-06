@@ -106,7 +106,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
           this.state = new SubmittedState({model: this.model, user: this.user, otherUser: this.otherUser});
           break;
           case status.StatusAccepted:
-          if (this.model.get("payments").findAllOutstandingPayment().length === 0) {
+          if (this.model.get("workItems").findAllOutstanding().length === 0) {
             this.state = new FinishedState({model: this.model, user: this.user, otherUser: this.otherUser});
             break;
           }

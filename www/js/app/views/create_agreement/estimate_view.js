@@ -3,9 +3,9 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley', 'autonumeric',
-  'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/milestone_view'],
+  'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/work_item_view'],
 
-  function (Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, estimateTemplate, MilestoneView) {
+  function (Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, estimateTemplate, WorkItemView) {
 
     'use strict';
 
@@ -16,14 +16,14 @@
 
       template: estimateTemplate,
 
-      itemView: MilestoneView,
+      itemView: WorkItemView,
 
       initialize: function (options) {
         this.router = options.router;
-        this.deposit = this.collection.findFirstRequiredPayment();
+        this.deposit = this.collection.findDeposit();
         this.bankAccounts = options.user.get("bank_accounts");
         this.creditCards = options.user.get("cards");
-        if (this.model.get("payments").length < 1) {
+        if (this.model.get("workItems").length < 1) {
           this.collection.add({'dateExpected': moment().add('days', 7).calendar()})
         }
 
@@ -125,16 +125,16 @@
         var formattedAmount = parseFloat(adjAmount.replace(/,/g, ''), 10);
 
         if (this.deposit){
-          this.deposit.set("amount", formattedAmount);
+          this.deposit.set("amountDue", formattedAmount);
 
         } else{
-          var Model = this.model.get("payments").model;
-          this.deposit = new Model({title: "Deposit", amount: formattedAmount, required: true});
-          this.model.get("payments").unshift(this.deposit);
+          var Model = this.model.get("workItems").model;
+          this.deposit = new Model({title: "Deposit", amountDue: formattedAmount, required: true});
+          this.model.get("workItems").unshift(this.deposit);
         }
 
         if (adjAmount == 0) {
-          this.model.get("payments").remove(this.deposit);
+          this.model.get("workItems").remove(this.deposit);
         }
       }
 
