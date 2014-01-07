@@ -5455,29 +5455,79 @@ progress::-webkit-progress-value, progress.yellow_progress {
   bottom: 0;
 }
 
+/* line 1, ../scss/components/_pricing.scss */
+.price_level_container {
+  clear: both;
+  width: 930px;
+  margin: 0 auto;
+}
 /* line 3, ../scss/components/_pricing.scss */
+.price_level_container p {
+  margin-bottom: 10px;
+  font-weight: 300;
+  max-width: 430px;
+}
+
+/* line 12, ../scss/components/_pricing.scss */
+.price_level {
+  background: #dbe0e6;
+  border: 1px solid #c3cbd5;
+  border-radius: 3px;
+  width: 300px;
+  float: left;
+  margin: 5px;
+}
+/* line 14, ../scss/components/_pricing.scss */
 .price_level h2 {
   font-weight: 400;
   margin-top: 10px;
   font-family: museo_sans;
 }
-/* line 8, ../scss/components/_pricing.scss */
-.price_level p {
-  margin-bottom: 10px;
+
+/* line 27, ../scss/components/_pricing.scss */
+.fees_intro_p {
+  font-weight: 300;
 }
 
-/* line 13, ../scss/components/_pricing.scss */
+/* line 30, ../scss/components/_pricing.scss */
 .receive_text {
-  font-size: 12px;
+  font-size: 16px;
   color: #969696;
   font-weight: normal;
+  color: #636363;
 }
 
-/* line 19, ../scss/components/_pricing.scss */
+/* line 37, ../scss/components/_pricing.scss */
 .pay_text {
-  font-size: 12px;
+  font-size: 16px;
   color: #969696;
   font-weight: normal;
+  color: #636363;
+}
+
+/* line 45, ../scss/components/_pricing.scss */
+.processing_container p {
+  margin-bottom: 10px;
+  font-weight: 300;
+  max-width: 430px;
+}
+
+/* line 52, ../scss/components/_pricing.scss */
+.processing_description, .processing_costs {
+  float: left;
+  width: 480px;
+}
+
+/* line 57, ../scss/components/_pricing.scss */
+.processing_costs {
+  margin-top: 60px;
+}
+
+/* line 61, ../scss/components/_pricing.scss */
+.signup_button_container {
+  float: left;
+  margin: 20px;
+  clear: both;
 }
 
 /* line 8, ../scss/layouts/_layout.scss */
