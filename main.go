@@ -122,8 +122,6 @@ func (h userHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if _, ok := session.Values["id"]; ok {
-		session.Options.MaxAge = 24 * 60 * 60
-		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/", http.StatusFound)
@@ -143,8 +141,6 @@ func (h agreementHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if _, ok := session.Values["id"]; ok {
-		session.Options.MaxAge = 24 * 60 * 60
-		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/", http.StatusFound)
@@ -165,8 +161,6 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if _, ok := session.Values["id"]; ok {
-		session.Options.MaxAge = 24 * 60 * 60
-		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/", http.StatusFound)
