@@ -104,7 +104,7 @@ func (h baseHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		session.Save(req, w)
 		h(w, req, session)
 	} else {
-		http.Redirect(w, req, "/", http.StatusFound)
+		http.Redirect(w, req, "/#login", http.StatusFound)
 	}
 
 }
@@ -116,15 +116,15 @@ func (h userHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session := getSession(req)
 	validateSignature(req, session)
 	vars := mux.Vars(req)
-	if vars["id"] != session.Values["id"].(string) {
-		http.Error(w, "Not authorized", http.StatusForbidden)
-		return
-	}
 
 	if _, ok := session.Values["id"]; ok {
+		if vars["id"] != session.Values["id"].(string) {
+			http.Error(w, "Not authorized", http.StatusForbidden)
+			return
+		}
 		h(w, req, session)
 	} else {
-		http.Redirect(w, req, "/", http.StatusFound)
+		http.Redirect(w, req, "/#login", http.StatusFound)
 	}
 }
 
@@ -135,15 +135,15 @@ func (h agreementHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	session := getSession(req)
 	validateSignature(req, session)
 	vars := mux.Vars(req)
-	if !checkAgreementOwner(vars["agreementID"], session.Values["id"].(string)) {
-		http.Error(w, "Not authorized", http.StatusForbidden)
-		return
-	}
 
 	if _, ok := session.Values["id"]; ok {
+		if !checkAgreementOwner(vars["agreementID"], session.Values["id"].(string)) {
+			http.Error(w, "Not authorized", http.StatusForbidden)
+			return
+		}
 		h(w, req, session)
 	} else {
-		http.Redirect(w, req, "/", http.StatusFound)
+		http.Redirect(w, req, "/#login", http.StatusFound)
 	}
 }
 
@@ -155,14 +155,13 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	validateSignature(req, session)
 	vars := mux.Vars(req)
 
-	if !checkVersionOwner(vars["versionID"], session.Values["id"].(string)) {
-		http.Error(w, "Not authorized", http.StatusForbidden)
-		return
-	}
-
 	if _, ok := session.Values["id"]; ok {
+		if !checkVersionOwner(vars["versionID"], session.Values["id"].(string)) {
+			http.Error(w, "Not authorized", http.StatusForbidden)
+			return
+		}
 		h(w, req, session)
 	} else {
-		http.Redirect(w, req, "/", http.StatusFound)
+		http.Redirect(w, req, "/#login", http.StatusFound)
 	}
 }
