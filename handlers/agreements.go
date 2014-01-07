@@ -3,7 +3,6 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
@@ -44,7 +43,6 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	agreementsData := getCurrentAgreements(userID.(string))
 
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
-	fmt.Println(requestedUsers)
 
 	thisUser := getUserInfo(userID.(string))
 
