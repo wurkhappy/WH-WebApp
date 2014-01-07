@@ -1,5 +1,5 @@
 
-define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/agreement_submit_modal.html'],
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/agreement_submit_modal'],
 
   function (Backbone, Handlebars, toastr, tpl) {
 
@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/agreement_
     var AgreementSubmit = Backbone.View.extend({
 
 
-      template: Handlebars.compile(tpl),
+      template: tpl,
 
 
       initialize:function(options){

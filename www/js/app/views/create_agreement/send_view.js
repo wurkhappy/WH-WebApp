@@ -100,19 +100,17 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
         var that = this;
 
         this.model.save({},{success:function(model, response){
-          if (!that.modal){
-            var view = new DepositRequestModal({
-              model: that.deposit,
-              collection: that.model.get("workItems"),
-              payments: that.model.get("payments"),
-              cards: that.user.get("cards"),
-              bankAccounts: that.user.get("bank_accounts"),
-              acceptsBankTransfer: that.model.get("acceptsBankTransfer"),
-              acceptsCreditCard: that.model.get("acceptsCreditCard")
-            });
-            that.modal = new Modal({view:view});
-            that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
-          } 
+          var view = new DepositRequestModal({
+            model: that.deposit,
+            collection: that.model.get("workItems"),
+            payments: that.model.get("payments"),
+            cards: that.user.get("cards"),
+            bankAccounts: that.user.get("bank_accounts"),
+            acceptsBankTransfer: that.model.get("acceptsBankTransfer"),
+            acceptsCreditCard: that.model.get("acceptsCreditCard")
+          });
+          that.modal = new Modal({view:view});
+          that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
           that.modal.show();
         }});        
       },

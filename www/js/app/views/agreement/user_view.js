@@ -2,14 +2,14 @@
  * Create Agreement Main - Create Agreement View.
  */
 
-define(['backbone', 'handlebars', 'text!templates/agreement/user_tpl.html'],
+define(['backbone', 'handlebars', 'hbs!templates/agreement/user_tpl'],
 
     function (Backbone, Handlebars, userTemplate) {
 
       'use strict';
 
       var UserView = Backbone.View.extend({
-        template: Handlebars.compile(userTemplate),
+        template: userTemplate,
 
         render:function(){
           this.$el.html(this.template(window.otherUser));

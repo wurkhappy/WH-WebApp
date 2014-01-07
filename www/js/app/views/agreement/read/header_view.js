@@ -1,5 +1,5 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html',
+define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
   'views/agreement/read/header_states/accepted_state', 'views/agreement/read/header_states/created_state',
   'views/agreement/read/header_states/submitted_state', 'views/agreement/read/header_states/rejected_state',
   'views/agreement/read/header_states/draft_state', 'views/agreement/read/header_states/finished_state'],
@@ -10,7 +10,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/read/header_tpl.html
     'use strict';
 
     var HeaderView = Backbone.View.extend({
-      template: Handlebars.compile(userTemplate),
+      template: userTemplate,
 
       initialize:function(options){
         this.listenTo(this.model, 'change:currentStatus', this.changeState);

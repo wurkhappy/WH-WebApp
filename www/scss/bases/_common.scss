@@ -50,7 +50,7 @@ table {
 
 
 body {
-  text-align: center;
+  text-align: left;
   font-family: museo_sans;
   background: hsl(200, 9%, 80%);
   color: $black_light;
@@ -145,6 +145,7 @@ input, textarea {
   font-size: 100%;
   font: inherit;
   color: $black_light;
+  border-radius: 3px;
 }
 
 input[disabled] {
@@ -232,12 +233,10 @@ fieldset {
   display: inline;
 }
 
-.overflow_hidden {
+.hide_overflow {
   overflow: hidden;
 }
 
-
-
-
-
-
+.gutter {
+  margin-left: 40px;
+}

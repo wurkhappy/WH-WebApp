@@ -11,7 +11,7 @@ define(['backbone', 'collections/cards', 'models/card', 'collections/bank_accoun
                 relatedModel: CardModel,
                 collectionType: CardCollection,
                 reverseRelation: {
-                    key: 'user',
+                    key: 'parent',
                     includeInJSON: false
                 }},
                  {           
@@ -20,7 +20,7 @@ define(['backbone', 'collections/cards', 'models/card', 'collections/bank_accoun
                  relatedModel: AccountModel,
                  collectionType: AccountCollection,
                  reverseRelation: {
-                     key: 'user',
+                     key: 'parent',
                      includeInJSON: false
                  }}
                 ],

@@ -16,7 +16,6 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
       },
 
       button1:function(event){
-        if (!this.modal){
           var view = new PaymentRequestModal({
             model:this.model.get("workItems").findFirstOutstanding(),
             collection: this.model.get("workItems").findAllOutstanding(),
@@ -27,7 +26,6 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
             acceptsCreditCard: this.model.get("acceptsCreditCard")
           });
           this.modal = new Modal({view:view});
-        } 
         this.modal.show();
       },
 

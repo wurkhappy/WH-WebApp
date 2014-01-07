@@ -12,12 +12,6 @@
 
             // Reference to this collection's model.
             model: Model,
-            initialize: function(models, options){
-                if(options){
-                    this.agreementVersionID = options.agreementVersionID;
-                    this.agreementID = options.agreementID;
-                }
-            },
             getTotalAmount:function(){
                 return this.reduce(function(memo, value) { return memo + value.get("amountDue") }, 0);
             },
@@ -37,7 +31,7 @@
                 var models = this.filter(function(model){
                     return model.get("amountDue") > model.get("amountPaid");
                 });
-                return new Collection(models);
+                return new Collection(models, this.modelOptions);
             },
             findDeposit:function(){
                 var models = this.filter(function(model){
@@ -55,7 +49,7 @@
                         return false;
                     }
                 });
-                return new Collection(models);
+                return new Collection(models, this.modelOptions);
             },
             getNumberOfSubmitted: function () {
                 var models = this.filter(function(model){

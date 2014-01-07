@@ -10,6 +10,15 @@
 	z-index:10;
 }
 
+.milestone_panel {
+        width: 550px;
+        position: absolute;
+        top: 75px;
+        margin-left: -275px;
+        margin-top:0;
+        bottom: 100px;
+        overflow-y: scroll;
+}
 
 .panel {
 	width: 400px;

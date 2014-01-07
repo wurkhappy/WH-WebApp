@@ -3,43 +3,25 @@
  */
 
  define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-ui',
-  'text!templates/agreement/agreement_progress_bar_tpl.html'],
+  'hbs!templates/agreement/agreement_progress_bar_tpl'],
 
   function ($, Backbone, Handlebars, _, Marionette, jquery_ui, progressBarTemplate) {
 
     'use strict';
 
-    Handlebars.registerHelper('adjustIconColor', function(action) {
-      if ( action === 'submitted') {
-        return 'yellow_progress';
-      } else if (action === 'accepted') {
-        return 'green_progress';
-      } else if (action === 'rejected') {
-        return 'red_progress';
-      } else {
-        return 'grey_progress';
-      }
-    });
-
-    Handlebars.registerHelper('midpoint', function(index, options) {
-      var total = options.payments.length;
-      if (total%2 ==0 && (index == total/2 || index == total - 0.5)){
-        return '<i class="fa fa-circle progress_icon" style="opacity:0;"></i>';
-      }
-      return '';
-    });
-
     var ProgressBarView = Backbone.View.extend({
 
-      template: Handlebars.compile(progressBarTemplate),
+      template: progressBarTemplate,
 
       initialize:function(options){
 
         //we want all accepted payments as well as the most recent payment
+        this.allPayments = options.model.get("payments");
         this.payments = options.model.get("payments").getAcceptedPayments();
         this.payments.add(options.model.get("payments").at(options.model.get("payments").length -1));
         this.workItems = options.model.get("workItems");
-        this.listenTo(this.payments, "change", this.render);
+        this.listenTo(this.payments, "change:currentStatus", this.render);
+        this.listenTo(this.allPayments, "add", this.updateCollections);
       },
       events:{
         "mouseover .progress_icon":"hoverPayment",
@@ -85,7 +67,12 @@
 
         return this;
 
-      },    
+      },   
+      updateCollections: function(){
+        this.payments = this.allPayments.getAcceptedPayments();
+        this.payments.add(this.allPayments.at(this.allPayments.length -1));
+        this.render();
+      },
       hoverPayment: function(event){
         var id = $(event.target).data("paymentid");
         if (id) {

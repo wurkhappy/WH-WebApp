@@ -1,5 +1,5 @@
 
-define(['backbone', 'handlebars', 'text!templates/agreement/scope_item_tpl.html'],
+define(['backbone', 'handlebars', 'hbs!templates/agreement/scope_item_tpl'],
 
   function (Backbone, Handlebars, scopeItemTpl) {
 
@@ -7,7 +7,7 @@ define(['backbone', 'handlebars', 'text!templates/agreement/scope_item_tpl.html'
 
     var PaymentItemView = Backbone.View.extend({
 
-      template: Handlebars.compile(scopeItemTpl),
+      template: scopeItemTpl,
 
       render: function () {
         this.$el.html(this.template(this.model.toJSON()));

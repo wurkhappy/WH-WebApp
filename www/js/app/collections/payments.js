@@ -12,12 +12,6 @@
 
             // Reference to this collection's model.
             model: Model,
-            initialize: function(models, options){
-                if (options) {
-                    this.agreementVersionID = options.agreementVersionID;
-                    this.agreementID = options.agreementID;
-                }
-            },
             comparator: function(model){
                 return (model.get("dateCreated")) ? model.get("dateCreated").valueOf() : 0;
             },
@@ -35,6 +29,13 @@
                 });
                 return paymentArray[0];
             },
+            findFirstOutstandingPayment:function(){
+                var model = this.at(this.length -1);
+                    if (model.get("currentStatus") && (model.get("currentStatus").get("action") === 'submitted' || model.get("currentStatus").get("action") === 'rejected')){
+                        return model;
+                    }
+                return null;
+            },
             getAcceptedPayments: function() {
                 var paymentArray = this.filter(function(model) {
 
@@ -44,7 +45,7 @@
                         return 0;
                     }
                 });
-                return new Collection(paymentArray);
+                return new Collection(paymentArray, this.modelOptions);
             },
             getPercentComplete: function() {
                 var paymentsAccepted = this.getAccepted().length,
@@ -55,6 +56,9 @@
                 } else {
                     return paymentsAccepted/totalPayments;
                 }
+            },
+            getAgreementVersionID: function(){
+                return this.parent.id;
             }
 
         });

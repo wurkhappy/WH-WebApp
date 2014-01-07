@@ -1,13 +1,13 @@
 
-define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_request_tpl.html',
-  'text!templates/agreement/pay_request_methods_tpl.html', 'text!templates/agreement/pay_request_breakout.html'],
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request_tpl',
+  'hbs!templates/agreement/pay_request_methods_tpl', 'hbs!templates/agreement/pay_request_breakout'],
 
   function (Backbone, Handlebars, toastr, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl) {
 
     'use strict';
     var PaymentMethods = Backbone.View.extend({
 
-      template: Handlebars.compile(paymentMethodsTpl),
+      template: paymentMethodsTpl,
       initialize: function(options){
         this.bankAccounts = options.bankAccounts;
         this.listenTo(this.bankAccounts, 'add', this.render);
@@ -22,8 +22,8 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/pay_reques
 
     var DepositRequestModal = Backbone.View.extend({
 
-      template: Handlebars.compile(payRequestTemplate),
-      breakoutTpl : Handlebars.compile(paymentBreakoutTpl),
+      template: payRequestTemplate,
+      breakoutTpl : paymentBreakoutTpl,
 
       initialize:function(options){
         this.bankAccounts = options.bankAccounts;

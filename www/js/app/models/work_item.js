@@ -5,11 +5,15 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
         'use strict';
 
         var WorkItem = Backbone.RelationalModel.extend({
-        	relations: [{
+            relations: [{
                 type: Backbone.HasMany,
                 key: 'scopeItems',
                 relatedModel: ScopeItemModel,
                 collectionType: ScopeItemCollection,
+                reverseRelation: {
+                    key: 'parent',
+                    includeInJSON: false
+                }
             },
             {
                 type: Backbone.HasOne,
@@ -18,6 +22,9 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                 collectionType: StatusCollection,
             }
             ],
+            urlRoot: function(){
+                return "/agreement/v/"+this.getAgreementVersionID()+"/work_item";
+            },
             set: function( key, value, options ) {
                 Backbone.RelationalModel.prototype.set.apply( this, arguments );
 
@@ -38,6 +45,12 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             },
             isDeposit: function() {
                 return this.get("title") === "Deposit";
+            },
+            getAgreementVersionID: function(){
+                return this.collection.parent.id;
+            },
+            getAgreementID: function(){
+                return this.collection.parent.get("agreementID")
             }
         });
 

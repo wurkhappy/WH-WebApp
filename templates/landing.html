@@ -71,7 +71,7 @@
 
 <div class="fade2">
 	<div id="intro" class="clear intro_container landing_container fade">
-		<div class="container">
+		<div id="benefits_container" class="container hide">
 		  	<div class="clear headline_container">
 		  		<h1 class="logo_white">Wurk Happy</h1>
 		    	<h1 class="headline">Build Seamless Freelance Relationships</h1>
@@ -85,15 +85,15 @@
 				</ul>
 		  	</div>
 		  	<div class="benefits_container">
-			  	<div class="column-one-third">
+			  	<div id="communication" class="column-one-third">
 			    	<h3 class="benefit_title">Organize Communication</h3>
 			    	<p class="benefit_description">Create agreements in minutes.<br> Organize your important conversations.</p>
 			  	</div>
-			  	<div class="column-one-third">
+			  	<div id="billing" class="column-one-third">
 			    	<h3 class="benefit_title">Automate Billing</h3>
 			    	<p class="benefit_description">Stop Invoicing.<br> We do it for you.</p>
 			  	</div>
-			  	<div class="column-one-third">
+			  	<div id="payment" class="column-one-third">
 			    	<h3 class="benefit_title">Simplify Payment</h3>
 						<p class="benefit_description">Securely accept payment online.<br> Your clients will love paying you.</p>
 			  	</div>
@@ -101,19 +101,68 @@
 		</div>
 	</div>
 </div> <!-- class fade2 -->
+<script>
+	// non-jquery fade function takes ('in' or 'out' as type), duration in miliseconds, element, and flag to designate if I.E. 8 is supported
+	//fading in the benefits section on window load adds a nice effect and makes everything appear at the same time.
+	function fade(type, ms, el, IE) {
+	    var isIn = type === 'in',
+	        opacity = isIn ? 0 : 1,
+	        interval = 50,
+	        gap = interval / ms;
+	        
+	    if(isIn) {
+	         el.style.display = 'block';
+	         el.style.opacity = opacity;
+	         if(IE) {
+	            el.style.filter = 'alpha(opacity=' + opacity + ')';
+	            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity + ')';
+	        }
+	    }
+	    
+	    function func() {
+	        opacity = isIn ? opacity + gap : opacity - gap; 
+	        el.style.opacity = opacity;
+	        if(IE) {
+	            el.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
+	            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity * 100 + ')';
+	        }
+	        
+	        if(opacity <= 0 || opacity >= 1) window.clearInterval(fading);
+	        if(opacity <= 0) el.style.display = 'none';
+	    }
+	    
+	    var fading = window.setInterval(func, interval);
+	}
+
+	window.onload = function() {
+		var benefits_container = document.getElementById('benefits_container');
+		var communication = document.getElementById('communication');
+		var billing = document.getElementById('billing');
+		var payment = document.getElementById('payment');
+		fade('in', 500, benefits_container, true);
+		fade('in', 1000, communication, true);
+		fade('in', 1000, billing, true);
+		fade('in', 1000, payment, true);
+	}
+</script>
+
 <!-- landing footer-->
 
     <div id="footer" class="clear landing_footer">
     	<div class="landing_footer_column_container">
-	      <div class="landing_footer_column">
-	        <h3 class="footer_title"><a href="/about">About</a></h3>
-	      </div>
-	      <div class="landing_footer_column">
-	        <h3 class="footer_title"><a href="http://wurkhappy.tumblr.com/">Blog</a></h3>
-	      </div>
-	      <div class="landing_footer_column">
-	        <h3 class="footer_title"><a href="/legal">Legal</a></h3>
-	      </div>
+    		<div class="column-one-fourth">
+		        <h3 class="footer_title"><a href="/pricing">Pricing</a></h3>
+		    </div>
+		    <div class="column-one-fourth">
+		      <h3 class="footer_title"><a href="/about">About</a></h3>
+		    </div>
+	        <div class="column-one-fourth">
+	        	<h3 class="footer_title"><a href="http://wurkhappy.tumblr.com/">Blog</a></h3>
+	        </div>
+
+	        <div class="column-one-fourth">
+	        	<h3 class="footer_title"><a href="/legal">Legal</a></h3>
+	        </div>
 	    </div>
     </div>
 <div class="copyright clear">

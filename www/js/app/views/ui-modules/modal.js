@@ -41,6 +41,7 @@ define(['backbone', 'handlebars'],
         this.$('#overlay').fadeOut('slow');
         this.holder.removeClass('overflow_hidden');
         $("#popup_container").fadeOut('slow');
+        this.remove();
       },
       showPersonalMessage: function() {
         $(".panel").animate({

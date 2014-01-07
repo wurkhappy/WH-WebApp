@@ -21,16 +21,16 @@
       },
 
       initialize: function () {
-        this.model = new AgreementModel(window.agreement);
-        this.model.set("comments", window.comments);
+        window.agreement.comments = window.comments;
+
+        this.model = new AgreementModel(window.agreement, {userID: window.thisUser.id, otherUserID: window.otherUser.id});
         this.user = new UserModel(window.thisUser);
         this.model.userID = this.user.id;
         this.otherUser = new UserModel(window.otherUser);
         this.user.set("cards", window.cards);
         this.user.set("bank_accounts", window.bank_account);
         this.tags = new TagCollection(window.tags);
-        this.tags.addMileStoneTags(this.model.get("workItems"));
-        console.log(this.model.get("payments"));
+        this.tags.addMileStoneTags(this.model.get("workItems").models);
         this.layout = new LayoutView({model: this.model, user: this.user});
         FlyingFocus();
       },
@@ -38,7 +38,7 @@
       readAgreement: function () {
         this.layout.agreementProgressBar.show(new ProgressBarView({model: this.model}));
         this.layout.paymentMethods.show(new PaymentMethodsView({model: this.model}));
-        this.layout.paymentSchedule.show(new PaymentsReadView({collection: this.model.get("workItems")}));
+        this.layout.paymentSchedule.show(new PaymentsReadView({collection: this.model.get("workItems"), user: this.user, otherUser: this.otherUser}));
         this.layout.profile.show(new UserView());
         this.layout.header.show(new HeaderView({model: this.model, user: this.user, otherUser: this.otherUser}));
         var discussionView = new CommunicationLayout({messages: this.model.get("comments"), user: this.user, otherUser: this.otherUser, tags:this.tags});

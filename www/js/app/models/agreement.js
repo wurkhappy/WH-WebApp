@@ -17,11 +17,9 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                 key: 'payments',
                 relatedModel: PaymentModel,
                 collectionType: PaymentCollection,
-                collectionOptions: function(model){
-                    return {
-                        agreementVersionID: model.id,
-                        agreementID: model.get("agreementID"),
-                    };
+                reverseRelation: {
+                    key: 'parent',
+                    includeInJSON: false
                 }
             },
             {
@@ -29,11 +27,9 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                 key: 'workItems',
                 relatedModel: WorkItemModel,
                 collectionType: WorkItemCollection,
-                collectionOptions: function(model){
-                    return {
-                        agreementVersionID: model.id,
-                        agreementID: model.get("agreementID"),
-                    };
+                reverseRelation: {
+                    key: 'parent',
+                    includeInJSON: false
                 }
             },
             {
@@ -42,7 +38,7 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                 relatedModel: StatusModel,
                 collectionType: StatusCollection,
                 reverseRelation: {
-                    key: 'ownerModel',
+                    key: 'parent',
                     includeInJSON: false
                 }
             },
@@ -50,9 +46,6 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                 type: Backbone.HasOne,
                 key: 'currentStatus',
                 relatedModel: StatusModel,
-                reverseRelation: {
-                    includeInJSON: false
-                }
             },
             {
                 type: Backbone.HasMany,
@@ -60,11 +53,9 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                 relatedModel: CommentModel,
                 collectionType: CommentCollection,
                 includeInJSON: false,
-                collectionOptions: function(model){
-                    return {
-                        agreementVersionID: model.id,
-                        agreementID: model.get("agreementID"),
-                    };
+                reverseRelation: {
+                    key: 'parent',
+                    includeInJSON: false
                 }
             }
             ],

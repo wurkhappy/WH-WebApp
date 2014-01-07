@@ -1,30 +1,36 @@
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'hbs!templates/agreement/work_item_tpl', 'views/agreement/scope_item_view'],
+  'hbs!templates/agreement/work_item_tpl', 'views/ui-modules/modal', 'views/agreement/tasks_layout'],
 
-  function (Backbone, Handlebars, _, Marionette, tpl, ScopeItemView) {
+  function (Backbone, Handlebars, _, Marionette, tpl, Modal, TasksLayout) {
 
     'use strict';
-    Handlebars.registerHelper('dateFormat', function(date) {
-      return date.format('MMM D, YYYY');
-    });
-
-    var WorkItemView = Backbone.Marionette.CompositeView.extend({
+    var WorkItemView = Backbone.Marionette.ItemView.extend({
 
       template: tpl,
-      
-      itemView: ScopeItemView,
-      itemViewContainer:'.scope_items_container',
 
       initialize:function(options){
         this.collection = this.model.get("scopeItems");
         this.userIsClient = options.userIsClient;
         this.listenTo(this.model, 'change',this.checkStatus)
-          //.get("dateExpected").format("MMM Do YYYY"))
+        this.user = options.user;
+        this.otherUser = options.otherUser;
+      },
+
+      events:{
+        "click .payment_milestone": "showWorkItem"
       },
       onRender:function(){
         this.checkStatus();
       },
+
+      showWorkItem: function(event) {
+        var view = new TasksLayout({model: this.model, collection: this.model.get("scopeItems"), user: this.user, otherUser: this.otherUser});
+        this.modal = new Modal({view:view});
+        this.modal.$(".panel").addClass("milestone_panel");
+        this.modal.show();
+      },
+
       checkStatus:function(){
         var status = this.model.get("currentStatus");
         if (!status) {
