@@ -1,0 +1,23 @@
+.price_level {
+	//border: 1px solid black;
+	h2 {
+		font-weight: 400;
+		margin-top:10px;
+		font-family: museo_sans;
+	}
+	p {
+		margin-bottom: 10px;
+	}
+}
+
+.receive_text {
+	font-size:12px;
+	color:$grey;
+	font-weight: normal;
+}
+
+.pay_text {
+	font-size: 12px;
+	color: $grey;
+	font-weight: normal;
+}

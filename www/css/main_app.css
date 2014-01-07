@@ -5455,6 +5455,31 @@ progress::-webkit-progress-value, progress.yellow_progress {
   bottom: 0;
 }
 
+/* line 3, ../scss/components/_pricing.scss */
+.price_level h2 {
+  font-weight: 400;
+  margin-top: 10px;
+  font-family: museo_sans;
+}
+/* line 8, ../scss/components/_pricing.scss */
+.price_level p {
+  margin-bottom: 10px;
+}
+
+/* line 13, ../scss/components/_pricing.scss */
+.receive_text {
+  font-size: 12px;
+  color: #969696;
+  font-weight: normal;
+}
+
+/* line 19, ../scss/components/_pricing.scss */
+.pay_text {
+  font-size: 12px;
+  color: #969696;
+  font-weight: normal;
+}
+
 /* line 8, ../scss/layouts/_layout.scss */
 .container {
   margin: 0 auto;
