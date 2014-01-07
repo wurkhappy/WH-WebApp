@@ -11,17 +11,6 @@ define(['backbone','backbone-relational'],
 				//is warranted.
 				return "/user/"+this.collection.user.id+"/cards";
 			},
-			// set: function( key, value, options ) {
-			// 	Backbone.RelationalModel.prototype.set.apply( this, arguments );
-
-			// 	if (typeof key === 'object') {
-			// 		if (_.has(key, "dateCreated")) {
-			// 			this.attributes.dateCreated = moment(key["dateCreated"]);
-			// 		}
-			// 	} else if (key === 'dateCreated'){
-			// 		this.attributes.dateCreated = moment(value);
-			// 	}
-			// },
 		});
 
 		return Card;

@@ -43,7 +43,7 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/reject_tpl
         }
 
         var fadeInNotification = function () {
-          toastr.success("Request "+status+" and email sent");
+          toastr.success("Disputed "+status+" and email sent");
         };
 
         var triggerNotification = _.debounce(fadeInNotification, 300);

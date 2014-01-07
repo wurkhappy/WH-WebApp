@@ -12,7 +12,7 @@ define(['backbone','backbone-relational', 'moment', 'models/tag', 'collections/t
 				collectionType: TagCollection,
 			}],
 			url:function(){
-				return "/agreement/"+this.collection.agreement.get("agreementID")+"/comments";
+				return "/agreement/"+this.collection.agreementID+"/comments";
 			},
 			set: function( key, value, options ) {
 				Backbone.RelationalModel.prototype.set.apply( this, arguments );

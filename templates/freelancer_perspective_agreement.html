@@ -38,8 +38,8 @@ var cards = {{.cards}};
     </div>
     <h2>Payment Milestones for</h2>
     <ul class="payment_milestone_container">
-      {{range .agreement.payments}}
-      <li class="payment_milestone"><strong>${{.amount}}</strong> &mdash; {{.title}} <!-- on June 28, 2011 --></li>
+      {{range .agreement.workItems}}
+      <li class="payment_milestone"><strong>${{.amountDue}}</strong> &mdash; {{.title}} <!-- on June 28, 2011 --></li>
       {{end}}
     </ul>
   </div>

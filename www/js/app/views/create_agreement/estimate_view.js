@@ -23,7 +23,7 @@
         this.deposit = this.collection.findDeposit();
         this.bankAccounts = options.user.get("bank_accounts");
         this.creditCards = options.user.get("cards");
-        if (this.model.get("payments").length < 1) {
+        if (this.model.get("workItems").length < 1) {
           this.collection.add({'dateExpected': moment().add('days', 7).calendar()})
         }
 
@@ -125,11 +125,11 @@
         var formattedAmount = parseFloat(adjAmount.replace(/,/g, ''), 10);
 
         if (this.deposit){
-          this.deposit.set("amount", formattedAmount);
+          this.deposit.set("amountDue", formattedAmount);
 
         } else{
           var Model = this.model.get("workItems").model;
-          this.deposit = new Model({title: "Deposit", amount: formattedAmount, required: true});
+          this.deposit = new Model({title: "Deposit", amountDue: formattedAmount, required: true});
           this.model.get("workItems").unshift(this.deposit);
         }
 

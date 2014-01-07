@@ -32,7 +32,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 			updateAmount:function(event){
 				var amount = event.target.value;
 				var adjAmount = (amount.substring(0,1) === '$') ? amount.substring(1) : amount;
-				this.model.set("amount",adjAmount);
+				this.model.set("amountDue",adjAmount);
 			},
 			updateTitle:function(event){
 				this.model.set("title",event.target.value)

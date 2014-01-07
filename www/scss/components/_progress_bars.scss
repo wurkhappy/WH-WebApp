@@ -8,6 +8,16 @@
   position: relative;
 }
 
+.create_agreement_progress {
+  margin: 20px;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: rgb(249,250,251);
+  position: relative;
+}
+
 .progress-large span {
   display: block;
   background-color: rgb(220,224,228);
@@ -19,7 +29,7 @@
   width: 800px;
 }
 
-.progress-large progress[value]{
+.agreement_progress progress[value]{
   width: 800px;
 }
 
@@ -83,6 +93,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 .agreement_progress[value] {
   height: 10px;
+  width: 100%;
   border-radius:10px;
 }
 
@@ -148,7 +159,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .icon_container {
   position: absolute;
   top: 7.5px;
-  z-index:5;
+  z-index:1;
 }
 
 .create_agreement_navigation_link {
@@ -179,8 +190,8 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 .create_agreement_icon_container {
   position: absolute;
-  top: -32.5px;
-  left: -25px;
+  top: -22.5px;
+  left:-50px;
   z-index:5;
 }
 
@@ -199,46 +210,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .create_agreement_progress {
-  width: 500px;
+  width: 450px;
   float: right;
   margin-right: 60px;
   margin-top: 42px;
   margin-bottom: 0;
   padding-bottom: 0;
-
-  .agreement_progress[value] {
-    height: 10px;
-    border-radius:10px;
-    width: 450px;
-    right: 30px;
-  }
-  .agreement_progress[value]::-webkit-progress-bar {
-    height: 10px;
-    border-radius:10px;
-    //background-size: 900px 10px;
-    width: 450px;
-    right: 30px;
-  }
-  .agreement_progress[value]::-moz-progress-bar {
-    height: 10px;
-    border-radius:10px;
-    background: $green_progress;
-    width: 450px;
-    right: 30px;
-  }
-  .agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
-    background: -webkit-linear-gradient( left, $yellow_progress);
-    border-radius:10px;
-    //background-size: 900px 10px;
-    width: 450px;
-    right: 30px;
-  }
-  .agreement_progress[value]::-webkit-progress-value {
-    position: relative;
-    border-radius:10px;
-    width: 450px;
-    right: 30px;
-  }
 }
 
 .create_agreement_navigation {
@@ -314,6 +291,5 @@ progress::-webkit-progress-value, progress.yellow_progress {
   -o-transform: rotate(45deg);
   tranform: rotate(45deg);
 }
-
 
 
