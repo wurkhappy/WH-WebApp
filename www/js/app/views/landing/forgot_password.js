@@ -57,7 +57,7 @@
             url: "/password/forgot",
             contentType: "application/json",
             dataType: "json",
-            data:JSON.stringify(that.user),
+            data:JSON.stringify(this.user),
             success: _.bind(function(response){
               this.$('form').html("Please check your e-mail to renew your password.");
             }, this)
