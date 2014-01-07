@@ -12,7 +12,7 @@ define(['backbone','backbone-relational', 'moment', 'models/tag', 'collections/t
 				collectionType: TagCollection,
 			}],
 			url:function(){
-				return "/agreement/"+this.collection.agreementID+"/comments";
+				return "/agreement/"+this.getAgreementID()+"/comments";
 			},
 			set: function( key, value, options ) {
 				Backbone.RelationalModel.prototype.set.apply( this, arguments );
@@ -25,6 +25,9 @@ define(['backbone','backbone-relational', 'moment', 'models/tag', 'collections/t
 					this.attributes.dateCreated = moment(value);
 				}
 				return this;
+			},
+			getAgreementID: function(){
+				return this.collection.getAgreementID();
 			}
 		});
 

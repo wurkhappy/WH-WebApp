@@ -3,6 +3,7 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
@@ -43,6 +44,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	agreementsData := getCurrentAgreements(userID.(string))
 
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
+	fmt.Println(requestedUsers)
 
 	thisUser := getUserInfo(userID.(string))
 
@@ -129,10 +131,12 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 	var requestedUsers string
 	for _, agreement := range agreements {
 		clientID, _ := agreement["clientID"]
-		// freelancerID, _ := agreement["freelancerID"]
+		freelancerID, _ := agreement["freelancerID"]
 		if draft, ok := agreement["draft"]; ok && !draft.(bool) {
 			if clientID != "" && clientID != userID {
 				requestedUsers += "userid=" + clientID.(string) + "&"
+			} else if freelancerID != "" && freelancerID != userID {
+				requestedUsers += "userid=" + freelancerID.(string) + "&"
 			}
 		}
 	}
@@ -414,4 +418,36 @@ func ShowSample(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 		"templates/sample.html",
 	))
 	index.Execute(w, m)
+}
+
+func UpdateTasks(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+vars["versionID"]+"/work_item/"+vars["workItemID"]+"/tasks", buf.Bytes())
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+
+	w.Write(resp)
+}
+
+func UpdateWorkItem(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+vars["versionID"]+"/work_item/"+vars["workItemID"]+"", buf.Bytes())
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+
+	w.Write(resp)
 }

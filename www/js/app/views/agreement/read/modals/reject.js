@@ -1,5 +1,5 @@
 
-define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/reject_tpl.html'],
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/reject_tpl'],
 
   function (Backbone, Handlebars, toastr, rejectTemplate) {
 
@@ -8,7 +8,7 @@ define(['backbone', 'handlebars', 'toastr', 'text!templates/agreement/reject_tpl
     var RejectModal = Backbone.View.extend({
 
 
-      template: Handlebars.compile(rejectTemplate),
+      template: rejectTemplate,
 
 
       initialize:function(options){

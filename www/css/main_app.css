@@ -4573,7 +4573,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 252, ../scss/components/_progress_bars.scss */
 .tooltip {
   background: #fff;
-  background: rgba(255, 255, 255, 0.8);
+  background: white;
   border-radius: 5px;
   border-color: #969696;
   border-width: 1px;

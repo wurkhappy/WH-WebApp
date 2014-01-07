@@ -2,9 +2,9 @@
  * Collection.
  */
 
- define(['backbone', 'models/tag'],
+ define(['backbone', 'underscore', 'models/tag'],
 
- 	function(Backbone, Model) {
+ 	function(Backbone, _, Model) {
 
  		'use strict';
 
@@ -12,21 +12,21 @@
 
  			model: Model,
 
- 			addMileStoneTags: function(payments){
+ 			addMileStoneTags: function(workItemsArray){
  				var that = this;
- 				var tagsToAdd = payments.clone();
- 				var pCount = payments.length;
+ 				var tagsToAdd = _.clone(workItemsArray);
+ 				var pCount = tagsToAdd.length;
  				this.each(function(tag){
  					for (var i = 0; i < pCount; i++) {
- 						var payment = payments.at(i);
- 						if (payment.get("title") === tag.get("name")){
- 							tagsToAdd.remove(tagsToAdd.get(payment.id));
+ 						var tagCheck = tagsToAdd[i];
+ 						if (tagCheck.get("title") === tag.get("name")){
+ 							tagsToAdd.splice(i, 1);
  							break;
  						}
  					}
  				})
- 				tagsToAdd.each(function(payment){
- 					that.add({name: payment.get("title")});
+ 				_.each(tagsToAdd, function(workItem){
+ 					that.add({name: workItem.get("title")});
  				})
  			},
  			addTags: function(tags){

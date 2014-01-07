@@ -24,11 +24,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
         this.tags = options.tags;
 
         //build comment model with the tags from the last comment
-        var tags = (options.lastMessage) ? options.lastMessage.get("tags").toJSON() : null;
+        var lastMessage = options.lastMessage;
+        var tags = (lastMessage) ? lastMessage.get("tags").toJSON() : null;
         this.model = new CommentModel({
           userID:this.user.id,
-          tags: tags
-        })
+          tags: tags,
+        agreementVersionID:lastMessage.agreementVersionID, agreementID: lastMessage.agreementID});
       },
       render: function () {
         this.$el.html(this.template({}));

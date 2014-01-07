@@ -21,15 +21,16 @@
       },
 
       initialize: function () {
-        this.model = new AgreementModel(window.agreement);
-        this.model.set("comments", window.comments);
+        window.agreement.comments = window.comments;
+
+        this.model = new AgreementModel(window.agreement, {userID: window.thisUser.id, otherUserID: window.otherUser.id});
         this.user = new UserModel(window.thisUser);
         this.model.userID = this.user.id;
         this.otherUser = new UserModel(window.otherUser);
         this.user.set("cards", window.cards);
         this.user.set("bank_accounts", window.bank_account);
         this.tags = new TagCollection(window.tags);
-        this.tags.addMileStoneTags(this.model.get("workItems"));
+        this.tags.addMileStoneTags(this.model.get("workItems").models);
         this.layout = new LayoutView({model: this.model, user: this.user});
         FlyingFocus();
       },

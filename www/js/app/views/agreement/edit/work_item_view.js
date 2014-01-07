@@ -6,9 +6,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','kalendae',
 	function (Backbone, Handlebars, _, Marionette, Kalendae, paymentItemTemplate, ScopeItemView) {
 
 		'use strict';
-		Handlebars.registerHelper('dateFormat', function(date) {
-	      return date.format('MMM D, YYYY');
-	    });
 
 		var WorkItemEditView = Backbone.Marionette.CompositeView.extend({
 

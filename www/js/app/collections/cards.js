@@ -2,7 +2,7 @@
  * Collection.
  */
 
- define(['backbone', 'models/comment'],
+ define(['backbone', 'models/card'],
 
  	function(Backbone, Model) {
 
@@ -11,8 +11,16 @@
  		var Collection = Backbone.Collection.extend({
 
  			model: Model,
+ 			initialize:function(models, options){
+ 				if (options) {
+ 					this.userID = options.userID;
+ 				}
+ 			},
  			url: function(){
- 				return "/user/"+this.user.id+"/cards";
+ 				return "/user/"+this.getUserID()+"/cards";
+ 			},
+ 			getUserID:function(){
+ 				return this.parent.id;
  			}
 
  		});

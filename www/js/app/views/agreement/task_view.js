@@ -33,6 +33,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templ
 
         $checkbox.toggleClass("checkbox_complete");
         $text.toggleClass("task_complete");
+        this.model.set("completed", !this.model.get("completed"));
       }
 
     });
