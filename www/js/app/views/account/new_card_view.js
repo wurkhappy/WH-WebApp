@@ -21,7 +21,6 @@
         this.render();
         this.card = {"expiration_month":1, "expiration_year":2013};
         this.user = options.user;
-        console.log(this.user);
       },
 
       render: function () {
@@ -41,12 +40,9 @@
         var that = this;
         balanced.card.create(this.card, function (response) {
           if(response.status === 201) {
-            delete response.data.id;
-            console.log(response);
+            if (response.data.id) {delete response.data.id}
             var model = new that.user.attributes["cards"].model(response.data);
-            console.log(_.clone(model));
             that.user.get("cards").add(model);
-            console.log(that.user.get("cards"));
             model.save();
             $('input').val('');
             toastr.success('Credit Card Saved!');
