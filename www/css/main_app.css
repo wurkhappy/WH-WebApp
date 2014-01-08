@@ -4515,16 +4515,17 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  margin-top: -4px;
 }
 
-/* line 206, ../scss/components/_progress_bars.scss */
+/* line 207, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_icon {
   color: #d4d9de;
   position: relative;
   font-size: 36px;
 }
 
-/* line 212, ../scss/components/_progress_bars.scss */
+/* line 213, ../scss/components/_progress_bars.scss */
 .create_agreement_progress {
   width: 450px;
   float: right;
@@ -4534,7 +4535,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding-bottom: 0;
 }
 
-/* line 221, ../scss/components/_progress_bars.scss */
+/* line 222, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation {
   text-align: center;
   margin: 0;
@@ -4550,27 +4551,27 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 5px;
 }
 
-/* line 236, ../scss/components/_progress_bars.scss */
+/* line 237, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link_hover {
   background: #a9b3bc;
 }
 
-/* line 240, ../scss/components/_progress_bars.scss */
+/* line 241, ../scss/components/_progress_bars.scss */
 .create_agreement_title {
   float: left;
 }
 
-/* line 244, ../scss/components/_progress_bars.scss */
+/* line 245, ../scss/components/_progress_bars.scss */
 .create_agreement_label_first {
   padding-top: 5px;
 }
 
-/* line 248, ../scss/components/_progress_bars.scss */
+/* line 249, ../scss/components/_progress_bars.scss */
 .green_icon {
   color: #86ce50;
 }
 
-/* line 252, ../scss/components/_progress_bars.scss */
+/* line 253, ../scss/components/_progress_bars.scss */
 .tooltip {
   background: #fff;
   background: white;
@@ -4590,14 +4591,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #646464;
 }
 
-/* line 270, ../scss/components/_progress_bars.scss */
+/* line 271, ../scss/components/_progress_bars.scss */
 .tooltip > ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 275, ../scss/components/_progress_bars.scss */
+/* line 276, ../scss/components/_progress_bars.scss */
 .tooltip:after {
   content: "";
   position: absolute;

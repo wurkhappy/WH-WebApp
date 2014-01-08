@@ -14,12 +14,12 @@
               {{/with}}
             </td>
             <td class="progress">
-              <progress max="100" value="{{percentComplete}}" data-skill="html5">
+              <progress max="100" value="{{percentComplete}}">
                 <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
-                <p style="width:{{percentComplete}}%" data-value="{{percentComplete}}">HTML5</p>
-                <div class="progress-bar">
-                  <span style="width: {{percentComplete}}%">{{percentComplete}}%</span>
-                </div>
+                <!-- <p style="width:{{percentComplete}}%" data-value="{{percentComplete}}">HTML5</p> -->
+                <!-- <div class="progress-bar">
+                  <span style="width: {{percentComplete}}%"></span>
+                </div> -->
               </progress>
               <p>{{statusInfo.currentState}}</p>
               
