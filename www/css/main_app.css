@@ -3089,23 +3089,28 @@ button.toast-close-button {
 /* Header - Common
 ================================================================================ */
 /* line 5, ../scss/components/_header.scss */
+.navigation {
+  min-height: 67px;
+}
+
+/* line 9, ../scss/components/_header.scss */
 .navigation ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 11, ../scss/components/_header.scss */
+/* line 15, ../scss/components/_header.scss */
 .navigation li {
   float: left;
 }
 
-/* line 15, ../scss/components/_header.scss */
+/* line 19, ../scss/components/_header.scss */
 .admin_nav li {
   float: right;
 }
 
-/* line 19, ../scss/components/_header.scss */
+/* line 23, ../scss/components/_header.scss */
 .logo {
   font-family: museo;
   font-size: 24px;
@@ -3121,11 +3126,11 @@ button.toast-close-button {
   text-decoration: none;
   width: 210px;
 }
-/* line 33, ../scss/components/_header.scss */
+/* line 37, ../scss/components/_header.scss */
 .logo:visited {
   color: black;
 }
-/* line 36, ../scss/components/_header.scss */
+/* line 40, ../scss/components/_header.scss */
 .logo:hover, .logo:active {
   text-decoration: none;
   color: #646464;
@@ -3133,12 +3138,12 @@ button.toast-close-button {
 
 /* Header - Main App
 ================================================================================ */
-/* line 45, ../scss/components/_header.scss */
+/* line 49, ../scss/components/_header.scss */
 .main_top_padding {
   padding-top: 13px;
 }
 
-/* line 49, ../scss/components/_header.scss */
+/* line 53, ../scss/components/_header.scss */
 .navigation_links a {
   display: block;
   float: left;
@@ -3147,7 +3152,7 @@ button.toast-close-button {
 
 /* Header - Landing
 ================================================================================ */
-/* line 58, ../scss/components/_header.scss */
+/* line 62, ../scss/components/_header.scss */
 .landing_navigation_links {
   padding-left: 85px;
   line-height: 38px;
@@ -3155,12 +3160,12 @@ button.toast-close-button {
   padding-top: 23px;
 }
 
-/* line 65, ../scss/components/_header.scss */
+/* line 69, ../scss/components/_header.scss */
 .top_padding {
   padding-top: 20px;
 }
 
-/* line 69, ../scss/components/_header.scss */
+/* line 73, ../scss/components/_header.scss */
 .create_account {
   padding-top: 20px;
   padding-bottom: 20px;

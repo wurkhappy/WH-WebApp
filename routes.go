@@ -92,7 +92,7 @@ func pricing(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
-		"templates/_baseApp.html",
+		"templates/_base_footer_landing.html",
 		"templates/pricing.html",
 	))
 	index.Execute(w, m)
