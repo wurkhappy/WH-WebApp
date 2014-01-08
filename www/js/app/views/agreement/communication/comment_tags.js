@@ -20,10 +20,27 @@
       events: {
         "focus .new_tag": "triggerAutoComplete",
         "keydown .new_tag": "createNewTag",
+        "blur .new_tag": "blurCreateNewTag",
         "click .add_tag": "showTagInput"
       },
       initialize: function(options){
         this.tags = options.tags;
+      },
+
+      blurCreateNewTag: function(event) {
+
+        var $elem = $(event.currentTarget);
+        if ($elem.val() === '') {return};
+
+        console.log()
+
+        var id = $(event.target).data("id");
+        var model = (id) ? this.collection.model.findOrCreate({id: id, name: event.target.value}) : {id: id, name: event.target.value};
+        this.collection.add(model);
+        model.collection = this.collection;
+        $elem.val('');
+        $elem.hide();
+
       },
 
       createNewTag: function(event) {
@@ -43,6 +60,7 @@
           model.collection = this.collection;
           $elem.val('');
           $elem.hide();
+          this.showTagInput();
         }
       },
 
