@@ -6,10 +6,11 @@
   'views/agreement/work_items_read_view', 'views/agreement/user_view',
   'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
   'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
-  'collections/tags'],
+  'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account'],
 
   function (Backbone, FlyingFocus, AgreementModel, LayoutView, PaymentsReadView, UserView,
-    UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView, UserModel, ProgressBarView, TagCollection) { 
+    UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
+    UserModel, ProgressBarView, TagCollection, Modal, NewAccountView) { 
 
     'use strict';
 
@@ -17,7 +18,8 @@
 
       routes: {
         '': 'readAgreement',
-        'edit': 'editAgreement'
+        'edit': 'editAgreement',
+        'new-account': 'newAccount'
       },
 
       initialize: function () {
@@ -52,8 +54,13 @@
         this.layout.paymentSchedule.show(new PaymentEditView({model: this.model}));
         this.layout.profile.show(new UserEditView({model: this.model}));
       },
-      sample: function(){
-
+      newAccount: function(){
+        this.readAgreement();
+        var view = new NewAccountView({model: new UserModel()});
+        view.render();
+        var modal = new Modal({view:view});
+        modal.show();
+        this.listenTo(view, 'saveSuccess', function(){modal.hide(); window.location.hash = "";});
       },
       commentAdded: function(comment){
         this.model.get("comments").add(comment);

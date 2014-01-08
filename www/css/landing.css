@@ -1020,86 +1020,60 @@ label {
 }
 
 /* line 1, ../scss/components/_login.scss */
-.login_form {
-  position: relative;
+.form_holder {
   border: 1px solid #ddd;
   background-color: #fdfdfd;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 10px;
   margin: 0;
+  margin-left: -160px;
   padding: 20px 10px;
-  height: 358px;
-  width: 330px;
-  position: fixed;
-  top: 35%;
-  left: 50%;
-  margin-left: -170px;
-  margin-top: -119px;
-  z-index: 2;
+  position: relative;
+  text-align: left;
 }
 
-/* line 20, ../scss/components/_login.scss */
+/* line 14, ../scss/components/_login.scss */
 .login_form_container {
-  height: 250px;
-  width: 220px;
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  margin-left: -149px;
-  margin-top: -119px;
+  padding-left: 50%;
 }
 
-/* line 30, ../scss/components/_login.scss */
+/* line 18, ../scss/components/_login.scss */
 .forgot_password {
   display: inline-block;
   margin-top: 10px;
   margin-bottom: 0;
 }
 
-/* line 36, ../scss/components/_login.scss */
+/* line 24, ../scss/components/_login.scss */
 .login_screen_title {
   margin: 0;
   padding: 0;
 }
 
-/* line 42, ../scss/components/_login.scss */
-.create_account_form {
-  height: 348px;
-  width: 356px;
-}
-
-/* line 47, ../scss/components/_login.scss */
-.create_account_button {
-  margin-top: 0px;
-  width: 200px;
-  left: 50%;
-  margin-left: -150px;
-}
-
-/* line 54, ../scss/components/_login.scss */
+/* line 29, ../scss/components/_login.scss */
 .forgot_password_button {
   margin-top: 5px;
 }
 
-/* line 58, ../scss/components/_login.scss */
+/* line 33, ../scss/components/_login.scss */
 .forgot_password_form {
   height: 260px;
   width: 350px;
 }
 
-/* line 63, ../scss/components/_login.scss */
+/* line 38, ../scss/components/_login.scss */
 .login_helper {
   line-height: 16px;
   margin-bottom: 0px;
 }
 
-/* line 68, ../scss/components/_login.scss */
+/* line 43, ../scss/components/_login.scss */
 .other_login {
   margin-bottom: 20px;
 }
 
-/* line 72, ../scss/components/_login.scss */
+/* line 47, ../scss/components/_login.scss */
 .email_screen_title {
   text-align: center;
   margin: 0;
@@ -1107,14 +1081,14 @@ label {
   padding: 0;
 }
 
-/* line 79, ../scss/components/_login.scss */
+/* line 54, ../scss/components/_login.scss */
 .email_button {
   margin: 0 auto;
   margin-top: 20px;
   float: none;
 }
 
-/* line 85, ../scss/components/_login.scss */
+/* line 60, ../scss/components/_login.scss */
 #mce-EMAIL {
   margin-top: 30px;
   margin-left: 48px;
@@ -1122,7 +1096,7 @@ label {
   width: 200px;
 }
 
-/* line 92, ../scss/components/_login.scss */
+/* line 67, ../scss/components/_login.scss */
 .email_helper {
   text-align: center;
 }
@@ -1179,18 +1153,16 @@ label {
 
 /* line 46, ../scss/components/_footer.scss */
 .landing_footer_login {
-  position: absolute;
-  position: absolute;
   bottom: 80px;
 }
 
-/* line 52, ../scss/components/_footer.scss */
+/* line 50, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 57, ../scss/components/_footer.scss */
+/* line 55, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 33%;
   float: left;
@@ -1209,7 +1181,6 @@ label {
 
 /* line 15, ../scss/components/_copyright.scss */
 .copyright_login {
-  position: absolute;
   bottom: 0;
 }
 

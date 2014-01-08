@@ -63,7 +63,7 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
 
           this.model.save({}, {
             success:function(model, response){
-              if (response["redirectURL"]) window.location = response["redirectURL"];
+              that.trigger('saveSuccess');
             },
             error:function(model, response){
               /*if (!that.modal){

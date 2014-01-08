@@ -1,30 +1,18 @@
-.login_form {
-  position: relative;
+.form_holder {
   border: 1px solid #ddd;
   background-color: rgb(253,253,253);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 10px;
   margin: 0;
+  margin-left: -160px;
   padding: 20px 10px;
-  height: 358px;
-  width: 330px;
-  position: fixed;
-  top: 35%;
-  left: 50%;
-  margin-left: -170px;
-  margin-top: -119px;
-  z-index: 2;
+  position: relative;
+  text-align: left;
 }
 
 .login_form_container {
-  height: 250px;
-  width: 220px;
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  margin-left: -149px;
-  margin-top: -119px;
+  padding-left:50%;
 }
 
 .forgot_password {
@@ -36,19 +24,6 @@
 .login_screen_title {
   margin: 0;
   padding: 0;
-}
-
-
-.create_account_form {
-  height: 348px;
-  width: 356px;
-}
-
-.create_account_button {
-  margin-top: 0px;
-  width: 200px;
-  left: 50%;
-  margin-left: -150px;
 }
 
 .forgot_password_button {

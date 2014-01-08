@@ -3,9 +3,9 @@
  */
 
  define(['backbone', 'parsley', 'flying-focus', 'views/landing/landingview', 'views/landing/loginview',
-  'views/landing/new_account', 'views/landing/forgot_password'],
+  'views/landing/new_account', 'views/landing/forgot_password', 'views/landing/form_modal'],
 
-  function (Backbone, parsley, FlyingFocus, LandingView, LoginView, NewAccountView, ForgotPasswordView) {
+  function (Backbone, parsley, FlyingFocus, LandingView, LoginView, NewAccountView, ForgotPasswordView, FormModal) {
 
     'use strict';
 
@@ -29,23 +29,21 @@
         this.$mainSection.html(this.landingView.el);
       },
       login: function(){
-        this.formView = new LoginView();
-        this.$mainSection.html(this.formView.el);
-        this.showForm();
+        var view = new LoginView();
+        this.showForm(view);
       },
       newAccount: function(){
-        console.log("new form");
-        this.formView = new NewAccountView();
-        this.$mainSection.html(this.formView.el);
-        this.showForm();
+        var view = new NewAccountView();
+        this.listenTo(view, 'saveSuccess', this.loginSuccess);
+        this.showForm(view);
       },
       forgotPassword: function(){
-        this.formView = new ForgotPasswordView();
-        this.$mainSection.html(this.formView.el);
-        this.showForm();
+        var view = new ForgotPasswordView();
+        this.showForm(view);
       },
-      showForm: function(){
-        if (!this.formView) return;
+      showForm: function(view){
+        this.formView = new FormModal({childView: view});     
+        this.$mainSection.html(this.formView.el);
         $('#logindiv').fadeIn('slow');
         $('#target').focus();
         $('#login_form').parsley();
@@ -70,6 +68,9 @@
         this.formView.remove();
         this.formView = null;
       },
+      loginSuccess: function(){
+        window.location = "/home";
+      }
 
     });
 

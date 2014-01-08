@@ -5688,18 +5688,16 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 46, ../scss/components/_footer.scss */
 .landing_footer_login {
-  position: absolute;
-  position: absolute;
   bottom: 80px;
 }
 
-/* line 52, ../scss/components/_footer.scss */
+/* line 50, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 57, ../scss/components/_footer.scss */
+/* line 55, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 33%;
   float: left;
@@ -5718,7 +5716,6 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 15, ../scss/components/_copyright.scss */
 .copyright_login {
-  position: absolute;
   bottom: 0;
 }
 
@@ -5795,6 +5792,88 @@ progress::-webkit-progress-value, progress.yellow_progress {
   float: left;
   margin: 20px;
   clear: both;
+}
+
+/* line 1, ../scss/components/_login.scss */
+.form_holder {
+  border: 1px solid #ddd;
+  background-color: #fdfdfd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 10px;
+  margin: 0;
+  margin-left: -160px;
+  padding: 20px 10px;
+  position: relative;
+  text-align: left;
+}
+
+/* line 14, ../scss/components/_login.scss */
+.login_form_container {
+  padding-left: 50%;
+}
+
+/* line 18, ../scss/components/_login.scss */
+.forgot_password {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* line 24, ../scss/components/_login.scss */
+.login_screen_title {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 29, ../scss/components/_login.scss */
+.forgot_password_button {
+  margin-top: 5px;
+}
+
+/* line 33, ../scss/components/_login.scss */
+.forgot_password_form {
+  height: 260px;
+  width: 350px;
+}
+
+/* line 38, ../scss/components/_login.scss */
+.login_helper {
+  line-height: 16px;
+  margin-bottom: 0px;
+}
+
+/* line 43, ../scss/components/_login.scss */
+.other_login {
+  margin-bottom: 20px;
+}
+
+/* line 47, ../scss/components/_login.scss */
+.email_screen_title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+/* line 54, ../scss/components/_login.scss */
+.email_button {
+  margin: 0 auto;
+  margin-top: 20px;
+  float: none;
+}
+
+/* line 60, ../scss/components/_login.scss */
+#mce-EMAIL {
+  margin-top: 30px;
+  margin-left: 48px;
+  border-radius: 3px;
+  width: 200px;
+}
+
+/* line 67, ../scss/components/_login.scss */
+.email_helper {
+  text-align: center;
 }
 
 /* line 8, ../scss/layouts/_layout.scss */
