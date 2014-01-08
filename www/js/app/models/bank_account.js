@@ -6,7 +6,7 @@ define(['backbone','backbone-relational'],
 
 		var Account = Backbone.RelationalModel.extend({
 			urlRoot:function(){
-				return "/user/"+this.collection.user.id+"/bank_account";
+				return "/user/"+this.getUserID()+"/bank_account";
 			},
 			verify: function(amounts, successCallback){
 				$.ajax({
@@ -32,6 +32,9 @@ define(['backbone','backbone-relational'],
 						this.attributes.can_debit = key === "true";
 				}
 				return this;
+			},
+			getUserID: function(){
+				return this.collection.getUserID();
 			}
 		});
 

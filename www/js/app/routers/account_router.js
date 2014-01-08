@@ -35,34 +35,26 @@
       },
 
       personal: function () {
-        if (!this.personalView) {
-          this.personalView = new PersonalView({model: this.model});
-        }
+        this.personalView = new PersonalView({model: this.model});
         this.mainContainer.switchToView(this.personalView);
         this.mainContainer.switchTab($('#personal'));
         $('.account_personal_form').parsley();
       },
 
       password: function () {
-        if (!this.passwordView) {
-          this.passwordView = new PasswordView({model: this.model});
-        }
+        this.passwordView = new PasswordView({model: this.model});
         this.mainContainer.switchToView(this.passwordView);
         this.mainContainer.switchTab($('#password'));
       },
 
       creditCard: function () {
-        if (!this.creditCardView) {
-          this.creditCardView = new CreditCardView({model: this.model});
-        }
+        this.creditCardView = new CreditCardView({model: this.model});
         this.mainContainer.switchToView(this.creditCardView);
         this.mainContainer.switchTab($('#creditcard'));
       },
 
       bankAccount: function () {
-        if (!this.bankAccountView) {
-          this.bankAccountView = new BankAccountView({model: this.model});
-        }
+        this.bankAccountView = new BankAccountView({model: this.model});
         this.mainContainer.switchToView(this.bankAccountView);
         this.mainContainer.switchTab($('#bankaccount'));
       }

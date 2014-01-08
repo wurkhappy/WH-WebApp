@@ -21,7 +21,6 @@
         this.user = options.user;
         if (this.user.get("firstName")) var name = this.user.attributes.firstName + ' ' + this.user.attributes.lastName;
         this.account = { name: name, type:"checking"};
-        console.log(this.user);
         this.render();
       },
 
