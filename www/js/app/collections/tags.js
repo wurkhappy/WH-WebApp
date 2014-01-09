@@ -21,6 +21,7 @@
  						var tagCheck = tagsToAdd[i];
  						if (tagCheck.get("title") === tag.get("name")){
  							tagsToAdd.splice(i, 1);
+ 							pCount -= 1;
  							break;
  						}
  					}

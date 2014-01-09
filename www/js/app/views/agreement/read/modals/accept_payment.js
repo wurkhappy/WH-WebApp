@@ -93,6 +93,11 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         var $debitSource =  bankAccount || creditCard || '';
         var paymentType = (bankAccount) ? "BankBalanced" : "CardBalanced";
 
+        if (!$debitSource) {
+          toastr.error('Please select a credit card or bank account');
+          return;
+        }
+
         
         if ($debitSource === bankAccount && !canDebit) {
           toastr.error('Please verify your bank account in order to make payment');
