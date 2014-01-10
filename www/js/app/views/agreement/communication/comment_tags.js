@@ -30,9 +30,10 @@
       blurCreateNewTag: function(event) {
 
         var $elem = $(event.currentTarget);
-        if ($elem.val() === '') {return};
-
-        console.log()
+        if ($elem.val() === '') {
+          $elem.hide();
+          return
+        };
 
         var id = $(event.target).data("id");
         var model = (id) ? this.collection.model.findOrCreate({id: id, name: event.target.value}) : {id: id, name: event.target.value};
