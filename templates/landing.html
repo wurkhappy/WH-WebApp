@@ -13,11 +13,23 @@
   <link rel="stylesheet" type="text/css" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/landing.css" media="all" />
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/analytics.min.js"></script>
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/jquery.js"></script>
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/app/plugins/better_browser/public/javascripts/abetterbrowser.js"></script>
 {{else}}
   <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
   <link rel="stylesheet" type="text/css" href="/css/landing.css" media="all" />
   <script src="/js/lib/analytics/analytics.min.js"></script>
   <script src="/js/lib/jquery/jquery.js"></script>
+  <script type="text/javascript"> 
+      var $buoop = {}; 
+      $buoop.ol = window.onload; 
+      window.onload=function(){ 
+       try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+       var e = document.createElement("script"); 
+       e.setAttribute("type", "text/javascript"); 
+       e.setAttribute("src", "//browser-update.org/update.js"); 
+       document.body.appendChild(e); 
+      } 
+    </script> 
 {{end}}
   <noscript>
     <style>
