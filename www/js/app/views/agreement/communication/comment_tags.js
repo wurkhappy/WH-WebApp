@@ -41,7 +41,6 @@
         model.collection = this.collection;
         $elem.val('');
         $elem.hide();
-
       },
 
       createNewTag: function(event) {
