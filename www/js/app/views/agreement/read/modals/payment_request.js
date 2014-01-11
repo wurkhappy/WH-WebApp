@@ -95,13 +95,9 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
 
     wurkHappyFee: function(amount) {
       if (amount >= 1000) {
-        return 50;
-      } else if (amount >= 500) {
-        return 25;
-      } else if (amount >= 100) {
-        return 15;
+        return 10;
       } else {
-        return 5;
+        return amount * .01;
       }
     },
     updateMilestone: function(event){

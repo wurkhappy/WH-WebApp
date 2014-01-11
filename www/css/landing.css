@@ -1096,13 +1096,12 @@ label {
 
 /* line 60, ../scss/components/_login.scss */
 #mce-EMAIL {
-  margin-top: 30px;
-  margin-left: 48px;
   border-radius: 3px;
   width: 200px;
+  margin: 0 auto;
 }
 
-/* line 67, ../scss/components/_login.scss */
+/* line 66, ../scss/components/_login.scss */
 .email_helper {
   text-align: center;
 }

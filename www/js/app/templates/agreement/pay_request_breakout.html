@@ -6,7 +6,7 @@
         <li class="fee_line_item">Wurk Happy Fee: <span class="fee_amount">${{wurkHappyFee}}</span></li>
         {{#if allPaymentMethods}}
             <li class="fee_line_item">Payment Processing Fee*: <span class="fee_amount">${{processingFee}}</span></li>
-            <span class="helper_text">*Depends on client payment method.</span>
+            <span class="helper_text">*Credit card fee shown. Actual fee depends on selected payment method.</span>
         {{else}}
           {{#if acceptsCreditCard}}
              <li class="fee_line_item">Credit Card Fee: <span class="fee_amount">${{creditCardFee}}</span></li>

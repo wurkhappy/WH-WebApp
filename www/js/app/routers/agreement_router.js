@@ -58,6 +58,8 @@
         this.readAgreement();
         var view = new NewAccountView({model: new UserModel()});
         view.render();
+        console.log(this.user);
+        console.log(view);
         var modal = new Modal({view:view});
         modal.show();
         this.listenTo(view, 'saveSuccess', function(){modal.hide(); window.location.hash = "";});
