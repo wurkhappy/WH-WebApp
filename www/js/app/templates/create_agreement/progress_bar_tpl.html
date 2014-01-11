@@ -21,8 +21,8 @@
   <progress class="agreement_progress" max="100" value="{{value}}">
     <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
     <!-- <p style="width:50%" data-value="50"></p> -->
-    <div class="agreement_progress_bar">
-      <span style="width:50%"></span>
+    <div class="agreement_progress_bar" style="width:{{value}}%">
+      <span></span>
     </div>
   </progress>
 </div>

@@ -67,8 +67,11 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
       calculatePayment: function(){
         var milestonePayment = this.model.get("amountDue");
         var wurkHappyFee = this.wurkHappyFee(milestonePayment);
-        var bankTransferFee = 5;
-        var creditCardFee = (milestonePayment * .029) +.3;
+        var bankTransferFee = (milestonePayment * .01) + .55;
+        if (bankTransferFee > 5) {
+          bankTransferFee = 5;
+        }
+        var creditCardFee = (milestonePayment * .029) +.55;
         var processingFee = (this.acceptsCreditCard === true)? creditCardFee: bankTransferFee;
 
         if (!this.acceptsCreditCard) {
