@@ -47,6 +47,7 @@
             that.user.get("bank_accounts").add(model);
             model.save();
             that.$('input').val('');
+            that.trigger('accountSaved');
             toastr.success('Bank Account Saved!');
             that.account = {type: "checking"};
 
