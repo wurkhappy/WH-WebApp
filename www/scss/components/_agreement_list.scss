@@ -62,3 +62,22 @@
   display: block;
   width: 50px;
 }
+
+.data-table table tr td.progress {
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.data-table table tr td.progress span {
+  display: block;
+  margin: 14px 0 13px 0;
+  background-color: rgb(220,224,228);
+  background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/progress-bar-small.png);
+  background-repeat: no-repeat;
+}
+
+.data-table table tr td.progress span img {
+  display: block;
+  width: 200px;
+}
