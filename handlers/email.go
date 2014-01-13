@@ -23,7 +23,10 @@ func EmailPost(w http.ResponseWriter, req *http.Request) {
 	}
 
 	body, _ := json.Marshal(payload)
-	publisher, _ := rbtmq.NewPublisher(connection, config.EmailExchange, "direct", config.EmailQueue, "/comment/reply")
+	publisher, err := rbtmq.NewPublisher(connection, config.EmailExchange, "direct", config.EmailQueue, "/comment/reply")
+	if err != nil {
+		publisher, _ = rbtmq.NewPublisher(connection, config.EmailExchange, "direct", config.EmailQueue, "/comment/reply")
+	}
 	publisher.Publish(body, true)
 }
 
@@ -48,7 +51,10 @@ func BalancedPost(w http.ResponseWriter, req *http.Request) {
 		}
 
 		body, _ := json.Marshal(payload)
-		publisher, _ := rbtmq.NewPublisher(connection, config.TransactionsExchange, "direct", config.TransactionsQueue, "/debit/process")
+		publisher, err := rbtmq.NewPublisher(connection, config.TransactionsExchange, "direct", config.TransactionsQueue, "/debit/process")
+		if err != nil {
+			publisher, _ = rbtmq.NewPublisher(connection, config.TransactionsExchange, "direct", config.TransactionsQueue, "/debit/process")
+		}
 		publisher.Publish(body, true)
 	}
 
