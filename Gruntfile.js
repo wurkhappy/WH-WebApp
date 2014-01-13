@@ -1,24 +1,24 @@
 /*
  * Gruntfile for the Grunt Front-End Workflow/Boilerplate
- * (previously called Backbone/RequireJS multipage boilerplate). 
- * 
+ * (previously called Backbone/RequireJS multipage boilerplate).
+ *
  * DEV URL: http://localhost:9001/
- * 
+ *
  * @author Aki Karkkainen
  * @url https://github.com/akikoo/grunt-frontend-workflow
  * Twitter: http://twitter.com/akikoo
- * 
+ *
  */
 
 // Needed for `grunt-contrib-livereload`.
-var path        = require('path'),
-    lrSnippet   = require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
+var path = require('path'),
+    lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
     folderMount = function folderMount(connect, point) {
         return connect.static(path.resolve(point));
     };
 
 // Grunt configuration wrapper function.
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
     'use strict';
 
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         /*
-         * Get configuration options. 
+         * Get configuration options.
          */
         config: config,
 
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
 
 
         /*
-         * Create a dynamic build header. 
+         * Create a dynamic build header.
          */
         banner: '/*! <%= pkg.name %> v<%= pkg.version %> | ' +
             '<%= grunt.template.today("dd-mm-yyyy-hh:MM:ss") %>\n' +
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
 
 
         /*
-         * Start a static web server. 
+         * Start a static web server.
          * DEV URL http://localhost:9001/.
          * To view the local site on another device on the same LAN, use your master machine's IP address instead, for example http://10.0.0.32:9001/.
          */
@@ -64,7 +64,7 @@ module.exports = function (grunt) {
                     port: 9001, // The port on which the webserver will respond.
                     hostname: '*', // Default 'localhost'. Setting this to '*' will make the server accessible from anywhere. Useful for cross-device testing.
                     base: '<%= config.webroot %>', // The base (or root) directory from which files will be served. Defaults to the project Gruntfile's directory.
-                    middleware: function (connect, options) {
+                    middleware: function(connect, options) {
                         return [lrSnippet, folderMount(connect, options.base)];
                     }
                 }
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
                 // Reload assets live in the browser.
                 livereload: 35729 // Default livereload listening port.
             },
-            
+
             //html: {
             //    files: ['<%= config.webroot %>/html/**/*.html'],
             //    tasks: [
@@ -201,33 +201,57 @@ module.exports = function (grunt) {
                 // Source-destination file mappings where the property name is the 
                 // destination directory, and its value is the source file to 
                 // perform replacements and includes with.
-                files: [
-                    {'<%= config.webroot %>/landing/': '<%= config.webroot %>/html/landing/landing.html'},
-                    {'<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/privacy.html'},
-                    {'<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/terms.html'},
-                    {'<%= config.webroot %>/help': '<%= config.webroot %>/html/help/faq.html'},
-                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/styleguide.html'},
-                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/components.html'},
-                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/colors.html'},
-                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/elements.html'},
-                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/style-tile.html'},
-                    {'<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/typography.html'},
-                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/signup.html'},
-                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/personal.html'},
-                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/password.html'},
-                    {'<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/payment.html'},
-                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/bankaccount.html'},
-                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/creditcard.html'},
-                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/password.html'},
-                    {'<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/personal.html'},
-                    {'<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/client_home.html'},
-                    {'<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/freelancer_home.html'},
-                    {'<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/client_perspective.html'},
-                    {'<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/freelancer_perspective.html'},
-                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/scopeofwork.html'},
-                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/paymentschedule.html'},
-                    {'<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/recipientdetails.html'}
-                ]
+                files: [{
+                    '<%= config.webroot %>/landing/': '<%= config.webroot %>/html/landing/landing.html'
+                }, {
+                    '<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/privacy.html'
+                }, {
+                    '<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/terms.html'
+                }, {
+                    '<%= config.webroot %>/help': '<%= config.webroot %>/html/help/faq.html'
+                }, {
+                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/styleguide.html'
+                }, {
+                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/components.html'
+                }, {
+                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/colors.html'
+                }, {
+                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/elements.html'
+                }, {
+                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/style-tile.html'
+                }, {
+                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/typography.html'
+                }, {
+                    '<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/signup.html'
+                }, {
+                    '<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/personal.html'
+                }, {
+                    '<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/password.html'
+                }, {
+                    '<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/payment.html'
+                }, {
+                    '<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/bankaccount.html'
+                }, {
+                    '<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/creditcard.html'
+                }, {
+                    '<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/password.html'
+                }, {
+                    '<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/personal.html'
+                }, {
+                    '<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/client_home.html'
+                }, {
+                    '<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/freelancer_home.html'
+                }, {
+                    '<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/client_perspective.html'
+                }, {
+                    '<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/freelancer_perspective.html'
+                }, {
+                    '<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/scopeofwork.html'
+                }, {
+                    '<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/paymentschedule.html'
+                }, {
+                    '<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/recipientdetails.html'
+                }]
             }
         },
 
@@ -280,13 +304,13 @@ module.exports = function (grunt) {
         requirejs: {
             compile: {
                 options: {
-                    baseUrl: 'js',                          // The JS source dir, relative to the 'appDir' if set below. No forward slash here!
-                    appDir: '<%= config.webroot %>',        // The top level assets directory, relative to this file. All the files from this directory will be copied to 'dir'.
-                    dir: '<%= config.dist %>',              // The CSS and JS output dir, relative to this file.
+                    baseUrl: 'js', // The JS source dir, relative to the 'appDir' if set below. No forward slash here!
+                    appDir: '<%= config.webroot %>', // The top level assets directory, relative to this file. All the files from this directory will be copied to 'dir'.
+                    dir: '<%= config.dist %>', // The CSS and JS output dir, relative to this file.
                     mainConfigFile: '<%= config.webroot %>/js/config.js', // Include the main configuration file (paths, shim). Relative to this file.
-                    optimize: 'uglify',                     // (default) uses UglifyJS to minify the code.
-                    skipDirOptimize: false,                  // Set to true, to skip optimizing other non-build layer JS files (speeds up builds).
-                    optimizeCss: 'standard',                // @import inlining, comment removal and line returns.
+                    optimize: 'uglify', // (default) uses UglifyJS to minify the code.
+                    skipDirOptimize: false, // Set to true, to skip optimizing other non-build layer JS files (speeds up builds).
+                    optimizeCss: 'standard', // @import inlining, comment removal and line returns.
                     fileExclusionRegExp: /^\.|\.((json))|scss$/, // If the regexp matches, it means the file/directory will be excluded.
 
                     // List of modules that will be optimized. All their immediate and deep dependencies will be included.
@@ -327,33 +351,26 @@ module.exports = function (grunt) {
                         {
                             name: 'app/mainaccount',
                             exclude: ['config'],
-                            
-                        },
-                        {
+
+                        }, {
                             name: 'app/mainagreement',
                             exclude: ['config']
-                        },
-                        {
+                        }, {
                             name: 'app/maincreateagreement',
                             exclude: ['config']
-                        },
-                        {
+                        }, {
                             name: 'app/mainhome',
                             exclude: ['config']
-                        },
-                        {
+                        }, {
                             name: 'app/mainlanding',
                             exclude: ['config']
-                        },
-                        {
+                        }, {
                             name: 'app/mainnewpassword',
                             exclude: ['config']
-                        },
-                        {
+                        }, {
                             name: 'app/mainarchives',
                             exclude: ['config']
-                        },
-                        {
+                        }, {
                             name: 'app/mainlegal',
                             exclude: ['config']
                         }
@@ -368,8 +385,8 @@ module.exports = function (grunt) {
          */
         karma: {
             unit: {
-              configFile: 'karma.conf.js',
-              background: true // Don't block subsequent grunt tasks.
+                configFile: 'karma.conf.js',
+                background: true // Don't block subsequent grunt tasks.
             },
             // Continuous integration mode: run tests once in PhantomJS browser.
             // Run this with `grunt karma:continuous`
@@ -390,10 +407,10 @@ module.exports = function (grunt) {
                     optimizationLevel: 3 // PNG only.
                 },
                 files: [{
-                    expand: true,                       // Enable dynamic expansion.
-                    cwd: '<%= config.webroot %>/img/',  // Src matches are relative to this path.
-                    src: '**/*.{png,jpg,jpeg}',         // Actual pattern(s) to match.
-                    dest: '<%= config.dist %>/img/'     // Destination path prefix.
+                    expand: true, // Enable dynamic expansion.
+                    cwd: '<%= config.webroot %>/img/', // Src matches are relative to this path.
+                    src: '**/*.{png,jpg,jpeg}', // Actual pattern(s) to match.
+                    dest: '<%= config.dist %>/img/' // Destination path prefix.
                 }]
             }
         },
@@ -404,22 +421,74 @@ module.exports = function (grunt) {
          */
         concat: {
             options: {
-                stripBanners: true,                     // Strip any existing JavaScript banner comments from source files.
+                stripBanners: true, // Strip any existing JavaScript banner comments from source files.
             },
             dist: {
-                files: [
-                    {
-                        expand: true,                   // Enable dynamic expansion.
-                        cwd: '<%= config.dist %>/',     // Src matches are relative to this path.
-                        src: [                          // Actual pattern(s) to match.
-                            'css/*.css',                // Process only main css files in CSS root.
-                            'js/app/*.js',              // Process only main js files in JS app root.
-                            'js/config.js'              // Process also the common layer. 
-                        ],
-                        dest: '<%= config.dist %>/',    // Destination path prefix.
-                        nonull: false                   // Set nonull to true if you want the concat task to warn if a given file is missing or invalid.
-                    }
-                ]
+                files: [{
+                    expand: true, // Enable dynamic expansion.
+                    cwd: '<%= config.dist %>/', // Src matches are relative to this path.
+                    src: [ // Actual pattern(s) to match.
+                        'css/*.css', // Process only main css files in CSS root.
+                        'js/app/*.js', // Process only main js files in JS app root.
+                        'js/config.js' // Process also the common layer. 
+                    ],
+                    dest: '<%= config.dist %>/', // Destination path prefix.
+                    nonull: false // Set nonull to true if you want the concat task to warn if a given file is missing or invalid.
+                }]
+            }
+        },
+
+        compress: {
+            main: {
+                options: {
+                    mode: 'gzip'
+                },
+                files: [{
+                    expand: true,
+                    src: ['www-built/js/config.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/mainaccount.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/mainagreement.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/mainarchives.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/maincreateagreement.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/mainhome.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/mainlanding.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/mainlegal.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/mainnewpassword.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }]
             }
         }
 
@@ -440,6 +509,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-compress');
 
     // The default (DEV) task can be run just by typing "grunt" on the command line.
     grunt.registerTask('default', [
@@ -463,7 +533,8 @@ module.exports = function (grunt) {
         'requirejs',
         //'yuidoc',
         'imagemin',
-        'concat'
+        'concat',
+        'compress'
     ]);
 
     grunt.registerTask('rjs', [
