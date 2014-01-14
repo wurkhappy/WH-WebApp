@@ -79,7 +79,7 @@ func about(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
-		"templates/_baseApp.html",
+		"templates/_base_footer_landing.html",
 		"templates/about.html",
 	))
 	index.Execute(w, m)
@@ -106,7 +106,7 @@ func legal(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
-		"templates/_baseApp.html",
+		"templates/_base_footer_landing.html",
 		"templates/legal.html",
 	))
 	index.Execute(w, m)
