@@ -5,10 +5,6 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
     function(Backbone, Handlebars, toastr, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl, PaymentModel) {
 
         'use strict';
-        Handlebars.registerHelper('last_four_digits', function(number) {
-            if (!number) return;
-            return number.slice(-4);
-        });
         var PaymentMethods = Backbone.View.extend({
 
             template: paymentMethodsTpl,
