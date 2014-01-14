@@ -8,7 +8,7 @@
     <ul id="credit_card" class="payment_select_container">
       <li>
         {{#each creditCards}}
-        <input type="radio" class="select_credit_card" name="select_credit_card" value="{{uri}}" data-url="{{uri}}">
+        <input type="radio" class="select_credit_card" name="select_debit_source" value="{{uri}}" data-url="{{uri}}">
         <p class="payment_select_info">**** **** **** {{last_four}}</p>
         <p class="account_select_info"><span>Expiration:</span> {{expiration_month}}/{{expiration_year}}</p>
         {{/each}}
@@ -20,15 +20,21 @@
     <ul id="bank_account" class="payment_select_container">
       <li>
         {{#each bankAccounts}}
-        <input type="radio" class="select_bank_account" data-debit="{{can_debit}}" name="select_bank_account" value="{{uri}}">
+        <input type="radio" class="select_bank_account" data-debit="{{can_debit}}" name="select_debit_source" value="{{uri}}">
         <p class="payment_select_info"><span>Routing:</span> **** **** **** {{routing_number}}</p>
         <p class="account_select_info"><span>Account:</span> **** **** **** {{last_four_digits account_number}}</p>
         {{/each}}
       </li>
     </ul>
   {{/if}}
+  <p style="margin-left:20px;" class="add-more">
+      <a id="add_card" href="">Add A Credit Card</a>
+    </p>
+<p style="margin-left:20px;" class="add-more">
+      <a id="add_account" href="">Add A Bank Account</a>
+    </p>
 </header>
-<article>
+    <article>
   <div class="line"></div>
   <h2 class="pay_header pay_milestone">Pay Milestone "Deposit"</h2>
   <div>
@@ -39,3 +45,4 @@
   </div>
   <a href="make_payment" id="accept-button" class="button action_button pay_button">Pay</a>
 </article>
+<div id="addView" style="background-color:white; margin-left: -20px;margin-top:50px; height: 600px; width:100%; position:absolute;"><a id="back-button" style="margin-left:20px;">Back</a></div>

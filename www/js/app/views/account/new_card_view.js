@@ -18,9 +18,9 @@
       },
 
       initialize: function (options) {
-        this.render();
         this.card = {"expiration_month":1, "expiration_year":2013};
         this.user = options.user;
+        this.render();
       },
 
       render: function () {
@@ -41,10 +41,11 @@
         balanced.card.create(this.card, function (response) {
           if(response.status === 201) {
             if (response.data.id) {delete response.data.id}
-            var model = new that.user.attributes["cards"].model(response.data);
+              var model = new that.user.attributes["cards"].model(response.data);
             that.user.get("cards").add(model);
             model.save();
             $('input').val('');
+            that.trigger('cardSaved');
             toastr.success('Credit Card Saved!');
 
           } else {

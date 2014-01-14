@@ -3601,7 +3601,24 @@ div.faqcontent h2 {
 }
 
 /* line 66, ../scss/components/_agreement_list.scss */
-.progress {
+.data-table table tr td.progress {
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* line 72, ../scss/components/_agreement_list.scss */
+.data-table table tr td.progress span {
+  display: block;
+  margin: 14px 0 13px 0;
+  background-color: #dce0e4;
+  background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/progress-bar-small.png);
+  background-repeat: no-repeat;
+}
+
+/* line 80, ../scss/components/_agreement_list.scss */
+.data-table table tr td.progress span img {
+  display: block;
   width: 200px;
 }
 
@@ -4153,9 +4170,10 @@ div.faqcontent h2 {
   -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
 }
 
-/* line 45, ../scss/components/_modals.scss */
+/* line 46, ../scss/components/_modals.scss */
 .cover {
   position: fixed;
   left: 0;
@@ -4170,7 +4188,7 @@ div.faqcontent h2 {
   background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-/* line 59, ../scss/components/_modals.scss */
+/* line 60, ../scss/components/_modals.scss */
 .overlay {
   top: 0;
   left: 0;
@@ -4179,71 +4197,71 @@ div.faqcontent h2 {
   z-index: 10;
 }
 
-/* line 67, ../scss/components/_modals.scss */
+/* line 68, ../scss/components/_modals.scss */
 .line_item_container {
   list-style: none;
   text-align: right;
 }
 
-/* line 72, ../scss/components/_modals.scss */
+/* line 73, ../scss/components/_modals.scss */
 .line_item_title {
   display: inline-block;
   margin-right: 10px;
 }
 
-/* line 77, ../scss/components/_modals.scss */
+/* line 78, ../scss/components/_modals.scss */
 .line_item_title_small {
   font-size: 12px;
   font-weight: normal;
 }
 
-/* line 82, ../scss/components/_modals.scss */
+/* line 83, ../scss/components/_modals.scss */
 .line_item {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 88, ../scss/components/_modals.scss */
+/* line 89, ../scss/components/_modals.scss */
 .line_item_total {
   font-size: 20px;
 }
 
-/* line 92, ../scss/components/_modals.scss */
+/* line 93, ../scss/components/_modals.scss */
 .pay_header_container {
   padding-bottom: 40px;
   text-align: left;
 }
 
-/* line 97, ../scss/components/_modals.scss */
+/* line 98, ../scss/components/_modals.scss */
 .pay_header {
   padding: 0;
   margin-bottom: 0;
   text-align: left;
 }
 
-/* line 103, ../scss/components/_modals.scss */
+/* line 104, ../scss/components/_modals.scss */
 .pay_header_helper {
   text-align: left;
 }
 
-/* line 107, ../scss/components/_modals.scss */
+/* line 108, ../scss/components/_modals.scss */
 .pay_milestone {
   margin-bottom: 10px;
 }
 
-/* line 111, ../scss/components/_modals.scss */
+/* line 112, ../scss/components/_modals.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 115, ../scss/components/_modals.scss */
+/* line 116, ../scss/components/_modals.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 120, ../scss/components/_modals.scss */
+/* line 121, ../scss/components/_modals.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
@@ -4256,24 +4274,24 @@ div.faqcontent h2 {
   box-shadow: inset 0 0px 5px #9facbc;
   margin-left: 0;
 }
-/* line 124, ../scss/components/_modals.scss */
+/* line 125, ../scss/components/_modals.scss */
 .payment_select_container li {
   margin-bottom: 10px;
 }
 
-/* line 136, ../scss/components/_modals.scss */
+/* line 137, ../scss/components/_modals.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 140, ../scss/components/_modals.scss */
+/* line 141, ../scss/components/_modals.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
   display: inline-block;
 }
 
-/* line 146, ../scss/components/_modals.scss */
+/* line 147, ../scss/components/_modals.scss */
 .account_select_info {
   margin-left: 22px;
   margin-bottom: 0;
@@ -4281,7 +4299,7 @@ div.faqcontent h2 {
   display: block;
 }
 
-/* line 153, ../scss/components/_modals.scss */
+/* line 154, ../scss/components/_modals.scss */
 .close {
   position: absolute;
   right: 10px;

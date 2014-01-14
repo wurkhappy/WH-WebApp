@@ -14,6 +14,9 @@ var CSSversion int
 var connection *amqp.Connection
 
 func Setup() {
+	dialRMQ()
+}
+func dialRMQ() {
 	var err error
 	connection, err = amqp.Dial(config.RMQBroker)
 	if err != nil {

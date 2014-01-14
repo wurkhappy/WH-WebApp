@@ -29,7 +29,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
         this.model = new CommentModel({
           userID:this.user.id,
           tags: tags,
-        agreementVersionID:lastMessage.agreementVersionID, agreementID: lastMessage.agreementID});
+        agreementVersionID:window.VersionID, agreementID: window.agreementID});
       },
       render: function () {
         this.$el.html(this.template({}));

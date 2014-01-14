@@ -24,6 +24,7 @@ func checkForValidSignature(req *http.Request, c redis.Conn) (valid bool, userID
 		Method     string `redis:"method"`
 		Expiration int    `redis:"expiration"`
 		UserID     string `redis:"userID"`
+		IsVerified bool   `redis:"verified"`
 	}
 	reqSig.Path = req.URL.Path
 	reqSig.Method = req.Method
@@ -36,6 +37,9 @@ func checkForValidSignature(req *http.Request, c redis.Conn) (valid bool, userID
 		return false, "", fmt.Errorf("%s", "There was an error parsing that token")
 	}
 	if sig.Method == reqSig.Method && sig.Path == reqSig.Path {
+		if !sig.IsVerified {
+			go sendServiceRequest("POST", config.UserService, "/user/"+sig.UserID+"/verify", nil)
+		}
 		now := time.Now()
 		exp := time.Unix(int64(sig.Expiration), 0)
 		if now.After(exp) {

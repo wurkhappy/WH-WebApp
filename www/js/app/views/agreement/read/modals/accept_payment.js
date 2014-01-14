@@ -1,8 +1,9 @@
 
 define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/base_state',
-  'hbs!templates/agreement/accept_tpl', 'views/agreement/read/modals/reject', 'views/ui-modules/modal'],
+  'hbs!templates/agreement/accept_tpl', 'views/agreement/read/modals/reject', 'views/ui-modules/modal',
+  'views/account/new_card_view', 'views/account/new_bank_account_view'],
 
-  function (Backbone, Handlebars, toastr, BaseState, payTemplate, RejectModal, Modal) {
+  function (Backbone, Handlebars, toastr, BaseState, payTemplate, RejectModal, Modal, NewCardView, NewBankAccountView) {
 
     'use strict';
 
@@ -52,7 +53,10 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
 
       events: {
         "click #accept-button": "acceptRequest",
-        "click .select_radio": "selectPaymentMethod"
+        "click .select_radio": "selectPaymentMethod",
+        "click #add_card": "addCreditCard",
+        "click #add_account": "addBankAccount",
+        "click #back-button": "backToMain"
       },
 
       paymentTotal: function (milestonePayment, fee) {
@@ -72,17 +76,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         event.preventDefault();
         event.stopPropagation();
 
-        // if user doesn't have stored payment methods, let them know
-        if (this.acceptsBankTransfer && this.acceptsCreditCard ) {
-          if ( this.bankAccounts.length < 1 && this.creditCards.length < 1 ) {
-            toastr.error('Please add a payment method to make payment');
-            return;
-          }
-        } else if (this.acceptsBankTransfer && this.bankAccounts.length < 1) {
-            toastr.error('Please add a bank account to your account to make payment');
-            return;
-
-        } else if (this.acceptsCreditCard && this.creditCards.length < 1){
+        if (this.acceptsCreditCard && this.creditCards.length < 1){
           toastr.error('Please add a credit card to your account to make payment');
           return;
         }
@@ -105,14 +99,6 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         } else {
           this.model.accept($debitSource, paymentType);
 
-          var status;
-
-          if (this.statusType) {
-            status = this.statusType;
-          } else {
-            status = "";
-          }
-
           var fadeInNotification = function () {
             toastr.success('Payment Accepted');
           };
@@ -121,9 +107,42 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
           this.trigger('hide');
           triggerNotification();
 
-          }
+        }
         
       },
+      addCreditCard: function(){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var view =  new NewCardView({user:this.user});
+        this.listenTo(view, 'cardSaved', this.backToMain);
+        this.$('#addView').append(view.el);
+
+        this.addPaymentMethodAnimate(550);
+      },
+      addBankAccount: function(){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var view =  new NewBankAccountView({user:this.user});
+        this.listenTo(view, 'accountSaved', this.backToMain);
+        this.$('#addView').append(view.el);
+        
+        this.addPaymentMethodAnimate(650);
+      },
+      addPaymentMethodAnimate: function(height){
+        var panel = $('#panel')
+        this.$('#addView').animate({'margin-top':'-'+panel.height()+'px', "height":panel.height()});
+        $('#panel').height(height);
+      },
+      backToMain: function(){
+        this.$('#addView').animate({"margin-left":"-500px"});
+        setTimeout(_.bind(function(){
+          this.$('#addView').css({"margin-top":"50px", "margin-left":"-20px"});
+          this.render();
+        }, this), 1000);
+        $('#panel').css({'height':'auto'});
+      }
 
     });
 
