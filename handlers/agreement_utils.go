@@ -9,4 +9,5 @@ type Status struct {
 	CreditSourceURI string `json:"creditSourceURI,omitempty"`
 	DebitSourceURI  string `json:"debitSourceURI,omitempty"`
 	PaymentType     string `json:"paymentType,omitempty"`
+	IPAddress       string `json:"ipAddress,omitempty"`
 }
