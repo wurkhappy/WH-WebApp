@@ -83,8 +83,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
           }, this)});
 
           editor.setData('');
-
           toastr.success('Message Sent');
+          analytics.track('New Message Sent');
 
           _.defer( function() {
             $(".discussion_container").scrollTop($(".discussion_container")[0].scrollHeight);

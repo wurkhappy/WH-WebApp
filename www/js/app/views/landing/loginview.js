@@ -62,8 +62,6 @@ define(['backbone', 'handlebars', 'parsley', 'hbs!templates/landing/login', 'mod
         }, 500, true)
 
       });
-
       return LoginView;
-
     }
 );

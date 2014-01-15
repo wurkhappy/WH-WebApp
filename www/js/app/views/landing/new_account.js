@@ -70,6 +70,7 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
                 this.model.save({}, {
                     success: function(model, response) {
                         that.trigger('saveSuccess');
+                        analytics.track('New Sign Up');
                     },
                     error: function(model, response) {
                         /*if (!that.modal){

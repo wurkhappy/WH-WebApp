@@ -43,6 +43,9 @@
 
     {{if .production}}
         <script data-main="https://d3kq8dzp7eezz0.cloudfront.net/js-{{.JSversion}}/config" src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/requirejs/require.js"></script>
+        <script>
+            analytics.track('Hit Landing Page');
+        </script>
     {{else}}
     <script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
     {{end}}
@@ -63,10 +66,7 @@
           plan : 'Enterprise'
         });
 
-        analytics.track('On Landing Page', {
-        revenue        : 39.95,
-        shippingMethod : '2-day'
-    });
+        
     });
   </script>
 </body>

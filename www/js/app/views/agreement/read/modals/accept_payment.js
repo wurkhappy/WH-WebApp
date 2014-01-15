@@ -106,7 +106,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
           var triggerNotification = _.debounce(fadeInNotification, 300);
           this.trigger('hide');
           triggerNotification();
-
+          analytics.track('Payment Made');
         }
         
       },
