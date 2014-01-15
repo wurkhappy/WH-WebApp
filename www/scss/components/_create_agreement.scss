@@ -62,8 +62,17 @@
 
 .progress_section {
   overflow:hidden;
+  min-height: 100px;
 }
 
 .message_editor_container {
   width: 620px;
+}
+
+.progress_area {
+  position: relative;
+  float:right;
+  width: 600px;
+  margin-top:40px;
+
 }

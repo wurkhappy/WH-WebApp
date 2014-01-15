@@ -11,6 +11,11 @@
   text-align: left;
 }
 
+.form_holder_layout {
+  float: left;
+  width: 360px;
+}
+
 .login_form_container {
   padding-left:50%;
 }
@@ -63,6 +68,14 @@
   margin: 0 auto;
 }
 
+#mc_embed_signup {
+  text-align:center;
+}
+
 .email_helper {
+  text-align:center;
+}
+
+.email_confirm {
   text-align:center;
 }
