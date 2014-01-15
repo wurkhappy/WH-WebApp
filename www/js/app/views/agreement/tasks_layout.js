@@ -25,7 +25,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/tasks_layout', 'under
       onRender: function(){
         this.headerBox.show( new TaskHeaderview({model: this.model}));
         this.tasksBox.show(new TaskView({model: this.model, collection: this.model.get("scopeItems")}));
-        // this.messagesBox.show(new MessagesBoxView({collection: this.filteredMessages, user:this.user, otherUser: this.otherUser}));
+        this.messagesBox.show(new MessagesBoxView({collection: this.filteredMessages, user:this.user, otherUser: this.otherUser}));
       },
 
       filterMessages: function() {
