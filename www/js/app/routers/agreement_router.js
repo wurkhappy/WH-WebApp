@@ -42,6 +42,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     user: this.user
                 });
                 FlyingFocus();
+                if (!this.user.get("isRegistered")){this.newAccount();}
             },
 
             readAgreement: function() {
