@@ -54,12 +54,9 @@
         this.model.set(event.target.name, event.target.value);
       },
       updateRole: function(event){
-        this.model.unset("clientID");
-        this.model.unset("freelancerID");
+        this.model.set("clientID", "");
+        this.model.set("freelancerID", "");
         this.model.set(event.target.value, this.userID);
-        if (event.target.value == 'clientID') {
-          
-        };
       },
       updateClauses: function(event){
         var $element = $(event.target);
