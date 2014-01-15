@@ -21,12 +21,12 @@ var agreement = {{.agreement}};
 	<div id="contentWrapper"> <!-- div for content -->
 		<div id="content" class="clear white_background">
 			<div id="progress-section" class="progress_section">
-				<h2 class="create_agreement_title">Agreement Overview</h2>
-				<div class="progress-large create_agreement_progress">
+				<h2 class="create_agreement_title"></h2>
+				<div class="progress_area">
 				  <div class="create_agreement_icon_container">
 				    <a class="create_agreement_navigation_link overview_link" href="#proposal">
 				      <h2 class="create_agreement_navigation">Overview</h2>
-				      <i class="fa fa-circle green_progrss create_agreement_progress_icon"></i>
+				      <i class="fa fa-circle create_agreement_progress_icon"></i>
 				    </a>
 				    <a class="create_agreement_navigation_link payment_schedule_link" href="#estimate">
 				      <h2 class="create_agreement_navigation">Payment</h2>
@@ -41,13 +41,15 @@ var agreement = {{.agreement}};
 				      <i class="fa fa-circle create_agreement_progress_icon"></i>
 				    </a>
 				  </div>
-				  <progress class="agreement_progress" max="100" value="0" data-skill="html5">
+				  <div class="create_agreement_progress">
+				  <progress class="agreement_progress" max="100" value="">
 				    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
-				    <p style="width:50%" data-value="50"></p>
+				     <!-- <p style="width:50%" data-value="50"></p> -->
 				    <div class="agreement_progress_bar">
-				      <span style="width:50%"></span>
+				      <span></span>
 				    </div>
 				  </progress>
+				  </div>
 				</div>
 			</div>
 

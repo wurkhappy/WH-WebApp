@@ -33,6 +33,7 @@
         var depositAmount = (deposit) ? deposit.get("amountDue") : 0;
         var totalAmountExDeposit = this.workItems.getTotalAmount() - depositAmount;
         var percentComplete = ((this.payments.getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
+        if(totalAmountExDeposit === 0){percentComplete = 0;}
         var requiredPaymentsCount = (deposit) ? 1 : 0;
 
         var iconSize = 30;

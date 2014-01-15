@@ -1,12 +1,8 @@
 <div class="progress-large">
 	<progress class="agreement_progress" max="100" value="{{percentComplete}}">
 		<!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
-		<!-- <p style="width:{{percentComplete}}%" data-value="{{percentComplete}}">HTML5</p> -->
-		<!-- <div class="agreement_progress_bar">
-			<span style="width: {{percentComplete}}%"></span>
-		</div> -->
 		<div class="agreement_progress_bar" style="width:{{percentComplete}}%">
-      		<span></span>
+      		<span style="width:{{percentComplete}}%" ></span>
     	</div>
 	</progress>
 		<div class="icon_container">

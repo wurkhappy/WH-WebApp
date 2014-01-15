@@ -95,6 +95,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   height: 10px;
   width: 100%;
   border-radius:10px;
+  margin-top: 17px;
 }
 
 .agreement_progress[value]::-webkit-progress-bar {
@@ -135,6 +136,8 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 100%; 
   height: 10px;
   border-radius:10px;
+  position: relative;
+  top:10px;
 }
 
 
@@ -158,7 +161,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 .icon_container {
   position: absolute;
-  top: 7.5px;
+  top: 10.5px;
   z-index:1;
 }
 
@@ -190,8 +193,8 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 .create_agreement_icon_container {
   position: absolute;
-  top: -22.5px;
-  left:-50px;
+  top: -23.5px;
+  left:0px;
   z-index:5;
 }
 
@@ -213,8 +216,8 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .create_agreement_progress {
   width: 450px;
   float: right;
-  margin-right: 60px;
-  margin-top: 42px;
+  margin-right: 100px;
+  margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0;
 }
@@ -309,4 +312,11 @@ progress::-webkit-progress-value, progress.yellow_progress {
   }
 }
 
+.small_progress_bar_fallback {
+  top: 0;
+}
+
+.create_agreement_progress_bar_fallback {
+  top: 15px;
+}
 

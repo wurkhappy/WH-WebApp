@@ -3700,11 +3700,20 @@ div.faqcontent h2 {
 /* line 63, ../scss/components/_create_agreement.scss */
 .progress_section {
   overflow: hidden;
+  min-height: 100px;
 }
 
-/* line 67, ../scss/components/_create_agreement.scss */
+/* line 68, ../scss/components/_create_agreement.scss */
 .message_editor_container {
   width: 620px;
+}
+
+/* line 72, ../scss/components/_create_agreement.scss */
+.progress_area {
+  position: relative;
+  float: right;
+  width: 600px;
+  margin-top: 40px;
 }
 
 /* line 2, ../scss/components/_agreement.scss */
@@ -4109,6 +4118,11 @@ div.faqcontent h2 {
   margin: 0;
 }
 
+/* line 352, ../scss/components/_agreement.scss */
+.agreement_header_helper {
+  min-width: 250px;
+}
+
 /* line 1, ../scss/components/_agreement_profile.scss */
 .agreement_profile {
   border-bottom: 1px solid #e1e1e1;
@@ -4413,110 +4427,113 @@ progress::-webkit-progress-value, progress.yellow_progress {
   height: 10px;
   width: 100%;
   border-radius: 10px;
+  margin-top: 17px;
 }
 
-/* line 100, ../scss/components/_progress_bars.scss */
+/* line 101, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-bar {
   height: 10px;
   border-radius: 10px;
 }
 
-/* line 106, ../scss/components/_progress_bars.scss */
+/* line 107, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-moz-progress-bar {
   height: 10px;
   border-radius: 10px;
   background: #86ce50;
 }
 
-/* line 112, ../scss/components/_progress_bars.scss */
+/* line 113, ../scss/components/_progress_bars.scss */
 .agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
   background: -webkit-linear-gradient(left, #cec150);
   border-radius: 10px;
 }
 
-/* line 119, ../scss/components/_progress_bars.scss */
+/* line 120, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-value {
   position: relative;
   border-radius: 10px;
 }
 
-/* line 131, ../scss/components/_progress_bars.scss */
+/* line 132, ../scss/components/_progress_bars.scss */
 .agreement_progress_bar {
   background-color: #86ce50;
   /* Dimensions should be similar to the parent progress element. */
   width: 100%;
   height: 10px;
   border-radius: 10px;
+  position: relative;
+  top: 10px;
 }
 
-/* line 143, ../scss/components/_progress_bars.scss */
+/* line 146, ../scss/components/_progress_bars.scss */
 .green_progress {
   background: #86ce50;
 }
 
-/* line 147, ../scss/components/_progress_bars.scss */
+/* line 150, ../scss/components/_progress_bars.scss */
 .yellow_progress {
   background: #cec150;
 }
 
-/* line 151, ../scss/components/_progress_bars.scss */
+/* line 154, ../scss/components/_progress_bars.scss */
 .red_progress {
   background: #ce5058;
 }
 
-/* line 155, ../scss/components/_progress_bars.scss */
+/* line 158, ../scss/components/_progress_bars.scss */
 .grey_progress {
   background: #d4d9de;
 }
 
-/* line 159, ../scss/components/_progress_bars.scss */
+/* line 162, ../scss/components/_progress_bars.scss */
 .icon_container {
   position: absolute;
-  top: 7.5px;
+  top: 10.5px;
   z-index: 1;
 }
 
-/* line 165, ../scss/components/_progress_bars.scss */
+/* line 168, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link {
   position: absolute;
   left: 0px;
   text-align: center;
   width: 100px;
 }
-/* line 170, ../scss/components/_progress_bars.scss */
+/* line 173, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link:hover {
   text-decoration: none;
 }
 
-/* line 175, ../scss/components/_progress_bars.scss */
+/* line 178, ../scss/components/_progress_bars.scss */
 .overview_link {
   left: 0px;
 }
 
-/* line 179, ../scss/components/_progress_bars.scss */
+/* line 182, ../scss/components/_progress_bars.scss */
 .payment_schedule_link {
   left: 150px;
 }
 
-/* line 183, ../scss/components/_progress_bars.scss */
+/* line 186, ../scss/components/_progress_bars.scss */
 .review_link {
   left: 300px;
 }
 
-/* line 187, ../scss/components/_progress_bars.scss */
+/* line 190, ../scss/components/_progress_bars.scss */
 .send_link {
   left: 450px;
 }
 
-/* line 191, ../scss/components/_progress_bars.scss */
+/* line 194, ../scss/components/_progress_bars.scss */
 .create_agreement_icon_container {
   position: absolute;
-  top: -22.5px;
-  left: -50px;
+  top: -23.5px;
+  left: 0px;
   z-index: 5;
 }
 
-/* line 199, ../scss/components/_progress_bars.scss */
+/* line 202, ../scss/components/_progress_bars.scss */
 .progress_icon {
   font-size: 26px;
   width: 30px;
@@ -4525,24 +4542,24 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: -4px;
 }
 
-/* line 207, ../scss/components/_progress_bars.scss */
+/* line 210, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_icon {
   color: #d4d9de;
   position: relative;
   font-size: 36px;
 }
 
-/* line 213, ../scss/components/_progress_bars.scss */
+/* line 216, ../scss/components/_progress_bars.scss */
 .create_agreement_progress {
   width: 450px;
   float: right;
-  margin-right: 60px;
-  margin-top: 42px;
+  margin-right: 100px;
+  margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-/* line 222, ../scss/components/_progress_bars.scss */
+/* line 225, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation {
   text-align: center;
   margin: 0;
@@ -4558,27 +4575,27 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 5px;
 }
 
-/* line 237, ../scss/components/_progress_bars.scss */
+/* line 240, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link_hover {
   background: #a9b3bc;
 }
 
-/* line 241, ../scss/components/_progress_bars.scss */
+/* line 244, ../scss/components/_progress_bars.scss */
 .create_agreement_title {
   float: left;
 }
 
-/* line 245, ../scss/components/_progress_bars.scss */
+/* line 248, ../scss/components/_progress_bars.scss */
 .create_agreement_label_first {
   padding-top: 5px;
 }
 
-/* line 249, ../scss/components/_progress_bars.scss */
+/* line 252, ../scss/components/_progress_bars.scss */
 .green_icon {
   color: #86ce50;
 }
 
-/* line 253, ../scss/components/_progress_bars.scss */
+/* line 256, ../scss/components/_progress_bars.scss */
 .tooltip {
   background: #fff;
   background: white;
@@ -4598,14 +4615,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #646464;
 }
 
-/* line 271, ../scss/components/_progress_bars.scss */
+/* line 274, ../scss/components/_progress_bars.scss */
 .tooltip > ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 276, ../scss/components/_progress_bars.scss */
+/* line 279, ../scss/components/_progress_bars.scss */
 .tooltip:after {
   content: "";
   position: absolute;
@@ -4626,7 +4643,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   tranform: rotate(45deg);
 }
 
-/* line 297, ../scss/components/_progress_bars.scss */
+/* line 300, ../scss/components/_progress_bars.scss */
 .small_progress_bar {
   background: #dce0e4;
   /* Dimensions should be similar to the parent progress element. */
@@ -4634,13 +4651,23 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 10px;
   height: 2px;
 }
-/* line 303, ../scss/components/_progress_bars.scss */
+/* line 306, ../scss/components/_progress_bars.scss */
 .small_progress_bar span {
   display: block;
   margin: 14px 0 13px 0;
   background-color: #86ce50;
   height: 2px;
   width: 0;
+}
+
+/* line 315, ../scss/components/_progress_bars.scss */
+.small_progress_bar_fallback {
+  top: 0;
+}
+
+/* line 319, ../scss/components/_progress_bars.scss */
+.create_agreement_progress_bar_fallback {
+  top: 15px;
 }
 
 /** Base container **/
