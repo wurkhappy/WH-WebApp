@@ -3,9 +3,9 @@
  */
 
  define(['backbone', 'parsley', 'flying-focus', 'views/landing/landingview', 'views/landing/loginview',
-  'views/landing/new_account', 'views/landing/forgot_password', 'views/landing/form_modal'],
+  'views/landing/new_account', 'views/landing/forgot_password','views/landing/check_email_view', 'views/landing/form_modal'],
 
-  function (Backbone, parsley, FlyingFocus, LandingView, LoginView, NewAccountView, ForgotPasswordView, FormModal) {
+  function (Backbone, parsley, FlyingFocus, LandingView, LoginView, NewAccountView, ForgotPasswordView, CheckEmailView, FormModal) {
 
     'use strict';
 
@@ -16,6 +16,7 @@
         'login':"login",
         'new-account':"newAccount",
         'forgot-password': "forgotPassword",
+        'check-email': "checkEmail"
       },
 
       initialize: function () {
@@ -34,11 +35,15 @@
       },
       newAccount: function(){
         var view = new NewAccountView();
-        this.listenTo(view, 'saveSuccess', this.loginSuccess);
+        this.listenTo(view, 'saveSuccess', this.createAccountSuccess);
         this.showForm(view);
       },
       forgotPassword: function(){
         var view = new ForgotPasswordView();
+        this.showForm(view);
+      },
+      checkEmail: function(){
+        var view = new CheckEmailView();
         this.showForm(view);
       },
       showForm: function(view){
@@ -68,8 +73,8 @@
         this.formView.remove();
         this.formView = null;
       },
-      loginSuccess: function(){
-        window.location = "/home";
+      createAccountSuccess: function(){
+        window.location = "/#check-email";
       }
 
     });
