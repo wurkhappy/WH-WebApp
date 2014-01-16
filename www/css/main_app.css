@@ -249,7 +249,7 @@ fieldset {
 /* line 212, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: #969696;
   margin: 0 0 10px 0;
   text-align: left;
@@ -4251,7 +4251,7 @@ div.faqcontent h2 {
 .pay_header {
   padding: 0;
   margin-bottom: 0;
-  text-align: left;
+  text-align: center;
 }
 
 /* line 104, ../scss/components/_modals.scss */
@@ -4262,20 +4262,21 @@ div.faqcontent h2 {
 /* line 108, ../scss/components/_modals.scss */
 .pay_milestone {
   margin-bottom: 10px;
+  text-align: left;
 }
 
-/* line 112, ../scss/components/_modals.scss */
+/* line 113, ../scss/components/_modals.scss */
 .pay_button {
   width: 340px;
 }
 
-/* line 116, ../scss/components/_modals.scss */
+/* line 117, ../scss/components/_modals.scss */
 .reject_button {
   margin-top: 20px;
   width: 308px;
 }
 
-/* line 121, ../scss/components/_modals.scss */
+/* line 122, ../scss/components/_modals.scss */
 .payment_select_container {
   list-style: none;
   font-size: 14px;
@@ -4288,24 +4289,25 @@ div.faqcontent h2 {
   box-shadow: inset 0 0px 5px #9facbc;
   margin-left: 0;
 }
-/* line 125, ../scss/components/_modals.scss */
+/* line 126, ../scss/components/_modals.scss */
 .payment_select_container li {
   margin-bottom: 10px;
+  padding-top: 15px;
 }
 
-/* line 137, ../scss/components/_modals.scss */
+/* line 139, ../scss/components/_modals.scss */
 .first_select_info {
   display: inline-block;
 }
 
-/* line 141, ../scss/components/_modals.scss */
+/* line 143, ../scss/components/_modals.scss */
 .payment_select_info {
   margin: 0;
   padding: 0;
   display: inline-block;
 }
 
-/* line 147, ../scss/components/_modals.scss */
+/* line 149, ../scss/components/_modals.scss */
 .account_select_info {
   margin-left: 22px;
   margin-bottom: 0;
@@ -4313,7 +4315,7 @@ div.faqcontent h2 {
   display: block;
 }
 
-/* line 154, ../scss/components/_modals.scss */
+/* line 156, ../scss/components/_modals.scss */
 .close {
   position: absolute;
   right: 10px;
