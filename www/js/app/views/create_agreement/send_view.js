@@ -115,6 +115,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
           that.modal = new Modal({view:view});
           that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
           that.modal.show();
+          analytics.track('Agreement Sent');
         }});        
       },
       depositRequested: function(){

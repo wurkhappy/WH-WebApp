@@ -98,7 +98,7 @@
 .pay_header {
 	padding: 0;
 	margin-bottom:0;
-	text-align:left;
+	text-align:center;
 }
 
 .pay_header_helper {
@@ -107,6 +107,7 @@
 
 .pay_milestone {
 	margin-bottom: 10px;
+	text-align:left;
 }
 
 .pay_button {
@@ -124,6 +125,7 @@
 	text-align:left;
 	li {
 		margin-bottom: 10px;
+		padding-top: 15px;
 	}
 	background: hsl(213, 18%, 88%);
 	max-height: 187px;

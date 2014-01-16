@@ -248,7 +248,7 @@ fieldset {
 /* line 212, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: #969696;
   margin: 0 0 10px 0;
   text-align: left;
