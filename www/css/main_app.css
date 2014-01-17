@@ -5108,6 +5108,11 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding: 0 20px;
 }
 
+/* line 26, ../scss/components/_create_estimate.scss */
+.payment_method_title {
+  color: black;
+}
+
 /* line 1, ../scss/components/_review_agreement.scss */
 .review_title {
   font-family: museo;
