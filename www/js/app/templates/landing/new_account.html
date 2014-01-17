@@ -15,7 +15,11 @@
         <span class="helper_text">Already have an account? <a href="#login" title="login">Login</a>.</span>
         {{/if}}
         <div>
-          <input type="submit" value="Create Free Account" class="submit-button create_account_button">
+          <input type="submit"
+          {{#unless showHaveAccount}}
+          style="float:left;"
+          {{/unless}}
+           value="Create Free Account" class="submit-button create_account_button">
         </div>
         <div style="clear:both;"></div>
       </form>

@@ -176,17 +176,7 @@
   {{end}}
 
   <script>
-    $( document ).ready(function() {
-        var createAgreement = $('.button');
-        var tracks = analytics.trackLink(createAgreement, 'Clicked Create Agreement Button', {
-          plan : 'Enterprise'
-        });
-
-        analytics.track('On Home Page', {
-        revenue        : 39.95,
-        shippingMethod : '2-day'
-        });
-    });
+    analytics.track('Hit Home Page');
   </script>
 
 </body>

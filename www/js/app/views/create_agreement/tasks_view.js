@@ -3,9 +3,9 @@
  */
 
  define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'hbs!templates/create_agreement/work_scope_tpl', 'views/create_agreement/scope_item_view'],
+  'hbs!templates/create_agreement/tasks_tpl', 'views/create_agreement/task_view'],
 
-  function (Backbone, Handlebars, _, Marionette, workScopeTpl, ScopeItemView) {
+  function (Backbone, Handlebars, _, Marionette, TasksTpl, TaskView) {
 
     'use strict';
 
@@ -13,9 +13,9 @@
 
       className:'scopeWrapper',
 
-      template: workScopeTpl,
+      template: TasksTpl,
 
-      itemView: ScopeItemView,
+      itemView: TaskView,
       itemViewContainer:'ul',
 
       initialize: function(options) {
@@ -37,10 +37,10 @@
 
         // iterate through collection and append existing scope items to milestone
         _.each(collection, function(element, index, list){
-          var scopeItemView = new ScopeItemView({
+          var taskView = new TaskView({
             collection: element,
           });
-          that.$('.create_scope_item_container').append(scopeItemView.render().el);
+          that.$('.create_scope_item_container').append(taskView.render().el);
         });
 
       },

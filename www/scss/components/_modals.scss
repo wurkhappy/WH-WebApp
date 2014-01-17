@@ -10,15 +10,7 @@
 	z-index:10;
 }
 
-.milestone_panel {
-        width: 550px;
-        position: absolute;
-        top: 75px;
-        margin-left: -275px;
-        margin-top:0;
-        bottom: 100px;
-        overflow-y: scroll;
-}
+
 
 .panel {
 	width: 400px;
@@ -41,6 +33,16 @@
 	-webkit-box-shadow: 0 0 1px 1px hsla(0, 0%, 0%, 0.2), 0 10px 27px hsla(0, 0%, 0%, 0.7);
 	box-shadow: 0 0 1px 1px hsla(0, 0%, 0%, 0.2), 0 10px 27px hsla(0, 0%, 0%, 0.7);
 	overflow:hidden;
+}
+
+.milestone_panel {
+        width: 550px;
+        position: absolute;
+        top: 75px;
+        margin-left: -275px;
+        margin-top:0;
+        bottom: 100px;
+        overflow-y: scroll;
 }
 
 .cover {
@@ -98,7 +100,7 @@
 .pay_header {
 	padding: 0;
 	margin-bottom:0;
-	text-align:left;
+	text-align:center;
 }
 
 .pay_header_helper {
@@ -107,6 +109,7 @@
 
 .pay_milestone {
 	margin-bottom: 10px;
+	text-align:left;
 }
 
 .pay_button {
@@ -124,6 +127,7 @@
 	text-align:left;
 	li {
 		margin-bottom: 10px;
+		padding-top: 15px;
 	}
 	background: hsl(213, 18%, 88%);
 	max-height: 187px;

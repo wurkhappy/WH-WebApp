@@ -142,6 +142,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                     this.payments.trigger('add');
                     this.trigger("paymentRequested");
                     this.trigger('hide');
+                    analytics.track('Payment Requested');
                 }, this));
             },
 

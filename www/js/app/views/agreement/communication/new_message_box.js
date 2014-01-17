@@ -41,7 +41,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
         CKEDITOR.basePath = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
         CKEDITOR.replace('message_editor', {
           toolbar: [
-          {items: ['Bold','-', 'Italic', '-', 'Underline']}
+          {items: ['Bold','-', 'Italic', '-', 'Underline', 'BulletedList']}
           ],
           disableNativeSpellChecker: false,
           language: 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/en.js',
@@ -83,8 +83,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
           }, this)});
 
           editor.setData('');
-
           toastr.success('Message Sent');
+          analytics.track('New Message Sent');
 
           _.defer( function() {
             $(".discussion_container").scrollTop($(".discussion_container")[0].scrollHeight);

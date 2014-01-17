@@ -24,9 +24,6 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
         this.deposit = this.model.get("workItems").at(0);
         var deposit;
 
-        console.log(this.model.get("freelancerID"));
-        console.log(this.model.get("clientID"));
-        console.log(this.user.id);
         if (this.deposit && this.deposit.get("required") && this.deposit.get("amountDue") > 0 && this.user.id === this.model.get("freelancerID")) {
           deposit = true;
         }
@@ -115,6 +112,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
           that.modal = new Modal({view:view});
           that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
           that.modal.show();
+          analytics.track('Agreement Sent');
         }});        
       },
       depositRequested: function(){

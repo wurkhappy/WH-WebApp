@@ -17,6 +17,7 @@
       events: {
         "click": "toggleTagActive",
         "keyup": "removeTag",
+        "blur": "removeActive"
       },
 
       initialize:function(){
@@ -28,6 +29,9 @@
         var $elem = $(event.currentTarget);
         $elem.toggleClass("tag_active");
         $elem.focus();
+      },
+      removeActive: function(event){
+        this.$el.removeClass("tag_active");
       },
 
       removeTag: function(event) {
