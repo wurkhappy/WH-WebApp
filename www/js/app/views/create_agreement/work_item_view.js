@@ -2,9 +2,9 @@
 * Scope of Work - Create Agreement View.
 */ 
 
-define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!templates/create_agreement/work_item_tpl', 'views/create_agreement/work_scope_view'],
+define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!templates/create_agreement/work_item_tpl', 'views/create_agreement/tasks_view'],
 
-  function (Backbone, Handlebars, _, Kalendae, autoNumeric, WorkItemTpl, WorkScopeView) {
+  function (Backbone, Handlebars, _, Kalendae, autoNumeric, WorkItemTpl, TasksView) {
 
     'use strict';
 
@@ -28,14 +28,14 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
           model: this.model.toJSON(),
           deposit: deposit,
         }));
-        var workScopeView = new WorkScopeView({
+        var tasksView = new TasksView({
           model: this.model,
           collection: this.model.get('scopeItems'),
           deposit: deposit
         });
 
-        workScopeView.render();
-        workScopeView.$el.insertBefore(this.$('.removeButton'));
+        tasksView.render();
+        tasksView.$el.insertBefore(this.$('#payment_amount'));
         this.$el.fadeIn('slow');
 
         return this;

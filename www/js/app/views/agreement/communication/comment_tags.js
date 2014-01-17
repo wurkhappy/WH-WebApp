@@ -39,12 +39,12 @@
         var model = (id) ? this.collection.model.findOrCreate({id: id, name: event.target.value}) : {id: id, name: event.target.value};
         this.collection.add(model);
         model.collection = this.collection;
+        $elem.data("id", "");
         $elem.val('');
         $elem.hide();
       },
 
       createNewTag: function(event) {
-
         var $elem = $(event.currentTarget);
 
         if (event.keyCode === 9) {
@@ -55,12 +55,12 @@
 
         if (event.keyCode === 13 || event.keyCode === 9) {
           var id = $(event.target).data("id");
-          var model = (id) ? this.collection.model.findOrCreate({id: id, name: event.target.value}) : {id: id, name: event.target.value};
+          var model = (id) ? this.collection.model.findOrCreate({id: id, name: event.target.value}) : {name: event.target.value};
           this.collection.add(model);
           model.collection = this.collection;
+          $elem.data("id", "");
           $elem.val('');
           $elem.hide();
-          this.showTagInput();
         }
       },
 

@@ -2,16 +2,16 @@
  * Scope of Work - Create Agreement View.
  */
 
- define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/scope_item_tpl'],
+ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/task_tpl'],
 
-  function (Backbone, Handlebars, _, itemTemplate) {
+  function (Backbone, Handlebars, _, taskTemplate) {
 
     'use strict';
 
     var WorkScopeItemView = Backbone.View.extend({
 
       tagName:'li',
-      template: itemTemplate,
+      template: taskTemplate,
 
       initialize: function (options) {
         this.router = options.router;

@@ -37,7 +37,20 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         var bankAccounts = this.bankAccounts;
         var acceptsBankTransfer = this.acceptsBankTransfer;
         var acceptsCreditCard = this.acceptsCreditCard;
-        
+        var hasBankAccounts;
+        var hasCreditCards;
+
+        if (bankAccounts.length > 0) {
+          hasBankAccounts = true;
+        } else {
+          hasBankAccounts = false;
+        }
+
+        if (creditCards.length > 0) {
+          hasCreditCards = true;
+        } else {
+          hasCreditCards = false;
+        }
 
         this.$el.html(this.payTemplate({
           milestonePayment: milestonePayment,
@@ -45,7 +58,9 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
           creditCards: creditCards.toJSON(),
           bankAccounts: bankAccounts.toJSON(),
           acceptsCreditCard: acceptsCreditCard,
-          acceptsBankTransfer: acceptsBankTransfer
+          acceptsBankTransfer: acceptsBankTransfer,
+          hasCreditCards: hasCreditCards,
+          hasBankAccounts: hasBankAccounts
         }));
 
         $(".payment_select_container").hide();
@@ -66,10 +81,15 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
       selectPaymentMethod: function(event) {
 
         var $radio = $(event.target),
-        $type = $radio.val();
+        $type = $radio.val(),
+        paymentMethod;
 
         $(".payment_select_container").not("#"+$type).slideUp("fast");
         $("#"+$type).slideDown("fast");
+
+        paymentMethod = document.querySelector('.select_'+$type);
+        paymentMethod.setAttribute("checked", "checked");
+        paymentMethod.checked = true;
       },
 
       acceptRequest: function(event) {
@@ -118,7 +138,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
         this.listenTo(view, 'cardSaved', this.backToMain);
         this.$('#addView').append(view.el);
 
-        this.addPaymentMethodAnimate(550);
+        this.addPaymentMethodAnimate(610);
       },
       addBankAccount: function(){
         event.preventDefault();
