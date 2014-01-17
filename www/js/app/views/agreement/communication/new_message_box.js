@@ -39,7 +39,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette','jquery-ui', 'ckedi
       },
       onRender:function(){
         CKEDITOR.basePath = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
-        CKEDITOR.replace('message_editor', {
+        CKEDITOR.replace(this.$('#message_editor')[0], {
           toolbar: [
           {items: ['Bold','-', 'Italic', '-', 'Underline', 'BulletedList']}
           ],

@@ -12,11 +12,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       itemView: WorkItemView,
       itemViewContainer:'ul',
       itemViewOptions: function(){
-        return {user: this.user, otherUser: this.otherUser};
+        return {user: this.user, otherUser: this.otherUser, messages: this.messages};
       },
       initialize: function(options){
         this.user = options.user;
         this.otherUser = options.otherUser;
+        this.messages = options.messages;
       },
       onRender:function(){
         this.$('#payments-total').text('$'+this.collection.getTotalAmount());

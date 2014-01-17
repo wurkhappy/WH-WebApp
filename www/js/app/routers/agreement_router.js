@@ -9,7 +9,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
         'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account'
     ],
 
-    function(Backbone, FlyingFocus, AgreementModel, LayoutView, PaymentsReadView, UserView,
+    function(Backbone, FlyingFocus, AgreementModel, LayoutView, WorkItemsReadView, UserView,
         UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
         UserModel, ProgressBarView, TagCollection, Modal, NewAccountView) {
 
@@ -52,10 +52,11 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 this.layout.paymentMethods.show(new PaymentMethodsView({
                     model: this.model
                 }));
-                this.layout.paymentSchedule.show(new PaymentsReadView({
+                this.layout.paymentSchedule.show(new WorkItemsReadView({
                     collection: this.model.get("workItems"),
                     user: this.user,
-                    otherUser: this.otherUser
+                    otherUser: this.otherUser,
+                    messages: this.model.get("comments"),
                 }));
                 this.layout.profile.show(new UserView());
                 this.layout.header.show(new HeaderView({

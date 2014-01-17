@@ -15,6 +15,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         this.listenTo(this.model, 'change',this.checkStatus)
         this.user = options.user;
         this.otherUser = options.otherUser;
+        this.messages = options.messages;
       },
 
       events:{
@@ -25,7 +26,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       },
 
       showWorkItem: function(event) {
-        var view = new TasksLayout({model: this.model, collection: this.model.get("scopeItems"), user: this.user, otherUser: this.otherUser});
+        var view = new TasksLayout({model: this.model, collection: this.model.get("scopeItems"), user: this.user, otherUser: this.otherUser, messages: this.messages});
         this.modal = new Modal({view:view});
         this.modal.$(".panel").addClass("milestone_panel");
         this.modal.show();
