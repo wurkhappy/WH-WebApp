@@ -3748,11 +3748,19 @@ div.faqcontent h2 {
   margin-top: 5px;
 }
 /* line 27, ../scss/components/_agreement.scss */
+.payment_milestone .task_icon {
+  margin-left: 30px;
+}
+/* line 30, ../scss/components/_agreement.scss */
 .payment_milestone:hover {
   background: #f9fafb;
 }
-
 /* line 32, ../scss/components/_agreement.scss */
+.payment_milestone:hover .work_item_detail_link {
+  color: #009adb;
+}
+
+/* line 38, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3766,27 +3774,27 @@ div.faqcontent h2 {
   color: #646464;
 }
 
-/* line 46, ../scss/components/_agreement.scss */
+/* line 52, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 52, ../scss/components/_agreement.scss */
+/* line 58, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 57, ../scss/components/_agreement.scss */
+/* line 63, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 62, ../scss/components/_agreement.scss */
+/* line 68, ../scss/components/_agreement.scss */
 .scope_item {
   text-align: left;
   line-height: 16px;
@@ -3797,14 +3805,14 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 72, ../scss/components/_agreement.scss */
+/* line 78, ../scss/components/_agreement.scss */
 .tasks_container {
   list-style-type: none;
   margin: 0;
   margin-bottom: 10px;
 }
 
-/* line 78, ../scss/components/_agreement.scss */
+/* line 84, ../scss/components/_agreement.scss */
 .task {
   text-align: left;
   line-height: 16px;
@@ -3815,14 +3823,14 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 88, ../scss/components/_agreement.scss */
+/* line 94, ../scss/components/_agreement.scss */
 .work_item_title {
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-/* line 94, ../scss/components/_agreement.scss */
+/* line 100, ../scss/components/_agreement.scss */
 .work_item_header {
   padding: 0;
   margin-top: 10px;
@@ -3830,7 +3838,7 @@ div.faqcontent h2 {
   text-align: left;
 }
 
-/* line 101, ../scss/components/_agreement.scss */
+/* line 107, ../scss/components/_agreement.scss */
 .work_item_description_container {
   font-size: 16px;
   line-height: 20px;
@@ -3839,7 +3847,7 @@ div.faqcontent h2 {
   margin-top: 5px;
   text-align: left;
 }
-/* line 108, ../scss/components/_agreement.scss */
+/* line 114, ../scss/components/_agreement.scss */
 .work_item_description_container .work_item_description {
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -3857,12 +3865,12 @@ div.faqcontent h2 {
   line-height: 20px;
 }
 
-/* line 126, ../scss/components/_agreement.scss */
+/* line 132, ../scss/components/_agreement.scss */
 .work_item_description {
   color: #5c5c5c;
 }
 
-/* line 130, ../scss/components/_agreement.scss */
+/* line 136, ../scss/components/_agreement.scss */
 .work_item_description_container_focus {
   font-size: 16px;
   line-height: 20px;
@@ -3872,7 +3880,7 @@ div.faqcontent h2 {
   text-align: left;
   padding-bottom: 10px;
 }
-/* line 138, ../scss/components/_agreement.scss */
+/* line 144, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .work_item_description {
   width: 460px;
   resize: vertical;
@@ -3883,16 +3891,16 @@ div.faqcontent h2 {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 148, ../scss/components/_agreement.scss */
+/* line 154, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .save_description_button {
   display: inline-block;
 }
-/* line 151, ../scss/components/_agreement.scss */
+/* line 157, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .save_description_close {
   display: inline-block;
 }
 
-/* line 156, ../scss/components/_agreement.scss */
+/* line 162, ../scss/components/_agreement.scss */
 .save_description_button {
   display: inline-block;
   margin-right: 10px;
@@ -3901,26 +3909,26 @@ div.faqcontent h2 {
   display: none;
 }
 
-/* line 164, ../scss/components/_agreement.scss */
+/* line 170, ../scss/components/_agreement.scss */
 .save_description_close {
   display: none;
 }
-/* line 166, ../scss/components/_agreement.scss */
+/* line 172, ../scss/components/_agreement.scss */
 .save_description_close:visited {
   color: #969696;
 }
-/* line 169, ../scss/components/_agreement.scss */
+/* line 175, ../scss/components/_agreement.scss */
 .save_description_close:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 175, ../scss/components/_agreement.scss */
+/* line 181, ../scss/components/_agreement.scss */
 .new_task_container {
   text-align: left;
   margin-left: 40px;
 }
-/* line 178, ../scss/components/_agreement.scss */
+/* line 184, ../scss/components/_agreement.scss */
 .new_task_container .new_task {
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -3938,12 +3946,12 @@ div.faqcontent h2 {
   line-height: 20px;
 }
 
-/* line 196, ../scss/components/_agreement.scss */
+/* line 202, ../scss/components/_agreement.scss */
 .new_task_container_focus {
   text-align: left;
   margin-left: 40px;
 }
-/* line 199, ../scss/components/_agreement.scss */
+/* line 205, ../scss/components/_agreement.scss */
 .new_task_container_focus .new_task {
   width: 460px;
   resize: vertical;
@@ -3954,16 +3962,16 @@ div.faqcontent h2 {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 209, ../scss/components/_agreement.scss */
+/* line 215, ../scss/components/_agreement.scss */
 .new_task_container_focus .add_task_button {
   display: inline-block;
 }
-/* line 212, ../scss/components/_agreement.scss */
+/* line 218, ../scss/components/_agreement.scss */
 .new_task_container_focus .add_task_close {
   display: inline-block;
 }
 
-/* line 217, ../scss/components/_agreement.scss */
+/* line 223, ../scss/components/_agreement.scss */
 .add_task_button {
   display: inline-block;
   margin-right: 10px;
@@ -3972,21 +3980,21 @@ div.faqcontent h2 {
   display: none;
 }
 
-/* line 225, ../scss/components/_agreement.scss */
+/* line 231, ../scss/components/_agreement.scss */
 .add_task_close {
   display: none;
 }
-/* line 227, ../scss/components/_agreement.scss */
+/* line 233, ../scss/components/_agreement.scss */
 .add_task_close:visited {
   color: #969696;
 }
-/* line 230, ../scss/components/_agreement.scss */
+/* line 236, ../scss/components/_agreement.scss */
 .add_task_close:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 236, ../scss/components/_agreement.scss */
+/* line 242, ../scss/components/_agreement.scss */
 .check_item {
   position: relative;
   clear: both;
@@ -3994,7 +4002,7 @@ div.faqcontent h2 {
   padding: 0 0 4px 36px;
 }
 
-/* line 243, ../scss/components/_agreement.scss */
+/* line 249, ../scss/components/_agreement.scss */
 .checkbox {
   background: white;
   border-radius: 3px;
@@ -4016,7 +4024,7 @@ div.faqcontent h2 {
   white-space: nowrap;
 }
 
-/* line 264, ../scss/components/_agreement.scss */
+/* line 270, ../scss/components/_agreement.scss */
 .check_item .checkbox:hover {
   background-color: #dedede;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -4028,7 +4036,7 @@ div.faqcontent h2 {
   line-height: 5px;
 }
 
-/* line 275, ../scss/components/_agreement.scss */
+/* line 281, ../scss/components/_agreement.scss */
 .checkbox_complete {
   background-color: #f2f2f2;
   border: 1px solid #bababa;
@@ -4041,14 +4049,14 @@ div.faqcontent h2 {
   line-height: 5px;
 }
 
-/* line 287, ../scss/components/_agreement.scss */
+/* line 293, ../scss/components/_agreement.scss */
 .task_complete {
   color: #949494;
   font-style: italic;
   text-decoration: line-through;
 }
 
-/* line 293, ../scss/components/_agreement.scss */
+/* line 299, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -4062,18 +4070,18 @@ div.faqcontent h2 {
   border-bottom-left-radius: 3px;
 }
 
-/* line 306, ../scss/components/_agreement.scss */
+/* line 312, ../scss/components/_agreement.scss */
 .work_item_container {
   margin: 0;
 }
 
-/* line 310, ../scss/components/_agreement.scss */
+/* line 316, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 315, ../scss/components/_agreement.scss */
+/* line 321, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -4081,44 +4089,44 @@ div.faqcontent h2 {
   border-radius: 5px;
 }
 
-/* line 322, ../scss/components/_agreement.scss */
+/* line 328, ../scss/components/_agreement.scss */
 .home_container {
   min-height: 150px;
 }
 
-/* line 326, ../scss/components/_agreement.scss */
+/* line 332, ../scss/components/_agreement.scss */
 .fee_detail_container {
   padding-left: 10px;
 }
-/* line 328, ../scss/components/_agreement.scss */
+/* line 334, ../scss/components/_agreement.scss */
 .fee_detail_container ul {
   padding: 0;
 }
 
-/* line 333, ../scss/components/_agreement.scss */
+/* line 339, ../scss/components/_agreement.scss */
 .fee_line_item {
   font-size: 12px;
   list-style-type: none;
 }
 
-/* line 338, ../scss/components/_agreement.scss */
+/* line 344, ../scss/components/_agreement.scss */
 .fee_amount {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 344, ../scss/components/_agreement.scss */
+/* line 350, ../scss/components/_agreement.scss */
 .payment_methods_agreement_container {
   padding-left: 20px;
 }
 
-/* line 348, ../scss/components/_agreement.scss */
+/* line 354, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
 }
 
-/* line 352, ../scss/components/_agreement.scss */
+/* line 358, ../scss/components/_agreement.scss */
 .agreement_header_helper {
   min-width: 250px;
 }
