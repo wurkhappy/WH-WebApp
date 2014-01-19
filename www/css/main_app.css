@@ -66,7 +66,7 @@ table {
 body {
   text-align: left;
   font-family: museo_sans;
-  background: #c7ced1;
+  background: #dce0e4 url(/img/bg.png) fixed;
   color: #636363;
   font-size: 18px;
   font-weight: 300;
@@ -213,17 +213,12 @@ fieldset {
 }
 
 /* line 183, ../scss/bases/_common.scss */
-.landing_background {
-  background: #dce0e4 url(/img/bg.png) fixed;
-}
-
-/* line 187, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 192, ../scss/bases/_common.scss */
+/* line 188, ../scss/bases/_common.scss */
 .main_content_container {
   float: left;
   border-radius: 15px;
@@ -232,12 +227,12 @@ fieldset {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 200, ../scss/bases/_common.scss */
+/* line 196, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 204, ../scss/bases/_common.scss */
+/* line 200, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -246,7 +241,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 212, ../scss/bases/_common.scss */
+/* line 208, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 14px;
@@ -255,13 +250,13 @@ fieldset {
   text-align: left;
 }
 
-/* line 220, ../scss/bases/_common.scss */
+/* line 216, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 225, ../scss/bases/_common.scss */
+/* line 221, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #dbe0e6;
   clear: both;
@@ -269,18 +264,18 @@ fieldset {
   width: 100%;
 }
 
-/* line 232, ../scss/bases/_common.scss */
+/* line 228, ../scss/bases/_common.scss */
 .required {
   color: #972b46;
   display: inline;
 }
 
-/* line 237, ../scss/bases/_common.scss */
+/* line 233, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 241, ../scss/bases/_common.scss */
+/* line 237, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
@@ -3155,7 +3150,7 @@ button.toast-close-button {
 ================================================================================ */
 /* line 62, ../scss/components/_header.scss */
 .landing_navigation_links {
-  padding-left: 85px;
+  padding-left: 50px;
   line-height: 38px;
   float: left;
   padding-top: 23px;
@@ -5108,6 +5103,11 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding: 0 20px;
 }
 
+/* line 26, ../scss/components/_create_estimate.scss */
+.payment_method_title {
+  color: black;
+}
+
 /* line 1, ../scss/components/_review_agreement.scss */
 .review_title {
   font-family: museo;
@@ -5761,7 +5761,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 55, ../scss/components/_footer.scss */
 .landing_footer_column {
-  width: 33%;
+  width: 25%;
   float: left;
 }
 

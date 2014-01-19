@@ -52,7 +52,7 @@ table {
 body {
   text-align: left;
   font-family: museo_sans;
-  background: hsl(200, 9%, 80%);
+  background: hsl(210, 13%, 88%) url(/img/bg.png) fixed;
   color: $black_light;
   font-size: 18px;
   font-weight: 300;
@@ -178,10 +178,6 @@ fieldset {
   background-color: rgb(255,255,255);
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-}
-
-.landing_background {
-  background: rgb(220,224,228) url(/img/bg.png) fixed;
 }
 
 .white_background {

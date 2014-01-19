@@ -1,0 +1,25 @@
+@media all and (max-width: 515px) {
+  .landing_admin_container {
+  	width: 40%;
+  }
+  .create_account {
+  	display: none;
+  }
+
+  .benefit_container {
+    width: 100%;
+    float:left;
+  }
+}
+
+@media all and (min-width: 960px) {
+	.benefits_container {
+		width: 960px;
+		margin: 0 auto;
+	}
+
+  .benefit_container {
+    width: 320px;
+    float:left;
+  }
+}

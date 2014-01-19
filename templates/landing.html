@@ -61,32 +61,30 @@
 {{define "body"}}
 
     <div class="clear navigation navigation_header_padding">
-		<div class="container">
-			<div class="column-one-half top_padding">
-        		<a class="logo" href="/">Wurk Happy</a>
-			</div>
-			<div class="column-one-half">
-				<ul class="admin_nav">
-        			<li id="log_in">
-        				<a class="landing_navigation_links" id="login" href="#login">Log In</a>
-        			</li>
-					<li id="log_out" class="hide">
-						<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
-					</li>
-					<li id="create_account" class="create_account">
-						<a class="button action_button" href="#new-account">Signup Free</a>
-					</li>
-				</ul>
-			</div>
+		<div class="landing_logo_container">
+    		<a class="logo" href="/">Wurk Happy</a>
+		</div>
+		<div class="landing_admin_container">
+			<ul class="admin_nav">
+    			<li id="log_in">
+    				<a class="landing_navigation_links" id="login" href="#login">Log In</a>
+    			</li>
+				<li id="log_out" class="hide">
+					<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
+				</li>
+				<li id="create_account" class="create_account">
+					<a class="button action_button" href="#new-account">Signup Free</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 
 <div class="fade2">
 	<div id="intro" class="clear intro_container landing_container fade">
-		<div id="benefits_container" class="container hide">
+		<div id="benefits_container" class="hide benefits_container">
 		  	<div class="clear headline_container">
 		  		<h1 class="logo_white">Wurk Happy</h1>
-		    	<h1 class="headline">Build Seamless Freelance Relationships</h1>
+		    	<h1 class="headline">Build Better Freelance Relationships</h1>
 				<ul class="admin_nav signup_button_container">
 					<li id="create_account" class="create_account explore_button_container">
 						<a class="button action_button" href="/agreement/v/sample">Explore</a>
@@ -96,16 +94,16 @@
 					</li>					
 				</ul>
 		  	</div>
-		  	<div class="benefits_container">
-			  	<div id="communication" class="column-one-third">
+		  	<div class="clear">
+			  	<div id="communication" class="benefit_container">
 			    	<h3 class="benefit_title">Organize Communication</h3>
 			    	<p class="benefit_description">Create agreements in minutes.<br> Organize your important conversations.</p>
 			  	</div>
-			  	<div id="billing" class="column-one-third">
+			  	<div id="billing" class="benefit_container">
 			    	<h3 class="benefit_title">Automate Billing</h3>
 			    	<p class="benefit_description">Stop Invoicing.<br> We do it for you.</p>
 			  	</div>
-			  	<div id="payment" class="column-one-third">
+			  	<div id="payment" class="benefit_container">
 			    	<h3 class="benefit_title">Simplify Payment</h3>
 						<p class="benefit_description">Securely accept payment online.<br> Your clients will love paying you.</p>
 			  	</div>
@@ -161,18 +159,18 @@
 <!-- landing footer-->
 
     <div id="footer" class="clear landing_footer">
-    	<div class="landing_footer_column_container">
-    		<div class="column-one-fourth">
+    	<div>
+    		<div class="landing_footer_column">
 		        <h3 class="footer_title"><a href="/pricing">Pricing</a></h3>
 		    </div>
-		    <div class="column-one-fourth">
+		    <div class="landing_footer_column">
 		      <h3 class="footer_title"><a href="/about">About</a></h3>
 		    </div>
-	        <div class="column-one-fourth">
+	        <div class="landing_footer_column">
 	        	<h3 class="footer_title"><a href="http://wurkhappy.tumblr.com/">Blog</a></h3>
 	        </div>
 
-	        <div class="column-one-fourth">
+	        <div class="landing_footer_column">
 	        	<h3 class="footer_title"><a href="/legal">Legal</a></h3>
 	        </div>
 	    </div>
