@@ -142,7 +142,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                     fadeOutModal();
                     triggerNotification();
                     this.payments.trigger('add');
-                    this.trigger("paymentRequested");
+                    this.trigger("paymentRequested", this.payment);
                     this.trigger('hide');
                     analytics.track('Payment Requested');
                 }, this));
