@@ -6,7 +6,7 @@
 <ul class="payment_select_container">
   <li>
     {{#each bankAccounts}}
-    <input type="radio" class="select_bank_account" name="select_bank_account" value="{{credits_uri}}">
+    <input type="radio" class="select_bank_account" name="select_bank_account" value="{{id}}">
     <p class="payment_select_info"><span>Routing:</span> {{routing_number}}</p>
     <p class="account_select_info"><span>Account:</span> *********{{last_four_digits account_number}}</p>
     {{/each}}

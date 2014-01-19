@@ -1,22 +1,5 @@
 
       <header class="bottom_divider pay_header_container">
-        <h2 class="pay_header">Where should we send your funds?</h2>
-        {{#if bankAccounts}}
-        <h3>Select bank account</h3>
-          <ul class="payment_select_container">
-            <li>
-                {{#each bankAccounts}}
-                <input type="radio" class="select_bank_account" checked name="select_bank_account" value="{{uri}}">
-                <p class="payment_select_info first_select_info"><span>Account NickName:</span> {{nick_name}}</p>
-                <p class="payment_select_info"><span>Routing:</span> **** **** **** {{last_four_routing}}</p>
-                <p class="account_select_info"><span>Account:</span> **** **** **** {{last_four_account}}</p>
-                {{/each}}
-                <h2> 
-            </li>
-          </ul>
-         {{else}}
-          <h3>Please add a bank account in the <a href="/account#bankaccount">account</a> page to receive payment.</h3>
-         {{/if}}
       </header>
       <article>
         <div class="line"></div>
