@@ -65,7 +65,7 @@ table {
 body {
   text-align: left;
   font-family: museo_sans;
-  background: #c7ced1;
+  background: #dce0e4 url(/img/bg.png) fixed;
   color: #636363;
   font-size: 18px;
   font-weight: 300;
@@ -212,17 +212,12 @@ fieldset {
 }
 
 /* line 183, ../scss/bases/_common.scss */
-.landing_background {
-  background: #dce0e4 url(/img/bg.png) fixed;
-}
-
-/* line 187, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 192, ../scss/bases/_common.scss */
+/* line 188, ../scss/bases/_common.scss */
 .main_content_container {
   float: left;
   border-radius: 15px;
@@ -231,12 +226,12 @@ fieldset {
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
 }
 
-/* line 200, ../scss/bases/_common.scss */
+/* line 196, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 204, ../scss/bases/_common.scss */
+/* line 200, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -245,7 +240,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 212, ../scss/bases/_common.scss */
+/* line 208, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 14px;
@@ -254,13 +249,13 @@ fieldset {
   text-align: left;
 }
 
-/* line 220, ../scss/bases/_common.scss */
+/* line 216, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 225, ../scss/bases/_common.scss */
+/* line 221, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #dbe0e6;
   clear: both;
@@ -268,18 +263,18 @@ fieldset {
   width: 100%;
 }
 
-/* line 232, ../scss/bases/_common.scss */
+/* line 228, ../scss/bases/_common.scss */
 .required {
   color: #972b46;
   display: inline;
 }
 
-/* line 237, ../scss/bases/_common.scss */
+/* line 233, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 241, ../scss/bases/_common.scss */
+/* line 237, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
@@ -631,7 +626,7 @@ fieldset {
 ================================================================================ */
 /* line 62, ../scss/components/_header.scss */
 .landing_navigation_links {
-  padding-left: 85px;
+  padding-left: 50px;
   line-height: 38px;
   float: left;
   padding-top: 23px;
@@ -810,10 +805,9 @@ fieldset {
   border-bottom: 1px solid #007ab1;
   padding: 20px 0 20px 0;
   color: #cde6f0;
-  height: 600px;
 }
 
-/* line 14, ../scss/components/_benefits.scss */
+/* line 13, ../scss/components/_benefits.scss */
 .benefit {
   border: 5px solid white;
   border-radius: 200px;
@@ -827,7 +821,7 @@ fieldset {
   margin-right: auto;
 }
 
-/* line 29, ../scss/components/_benefits.scss */
+/* line 28, ../scss/components/_benefits.scss */
 .headline,
 .subline,
 .benefit_title {
@@ -835,13 +829,13 @@ fieldset {
   color: white;
 }
 
-/* line 34, ../scss/components/_benefits.scss */
+/* line 33, ../scss/components/_benefits.scss */
 .headline {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   margin-bottom: 0;
 }
 
-/* line 39, ../scss/components/_benefits.scss */
+/* line 38, ../scss/components/_benefits.scss */
 .subline {
   font-family: museo_sans;
   font-weight: 100;
@@ -849,13 +843,19 @@ fieldset {
   font-size: 20px;
 }
 
-/* line 46, ../scss/components/_benefits.scss */
+/* line 45, ../scss/components/_benefits.scss */
+.benefit_container {
+  width: 33%;
+  float: left;
+}
+
+/* line 50, ../scss/components/_benefits.scss */
 .benefit_description {
   text-align: center;
   font-weight: 300;
 }
 
-/* line 51, ../scss/components/_benefits.scss */
+/* line 55, ../scss/components/_benefits.scss */
 .benefit_title {
   font-size: 22px;
   font-weight: 300;
@@ -863,35 +863,50 @@ fieldset {
   margin: 20px 0 8px 0;
 }
 
-/* line 58, ../scss/components/_benefits.scss */
+/* line 62, ../scss/components/_benefits.scss */
 .benefits_container {
-  padding-top: 220px;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* line 62, ../scss/components/_benefits.scss */
+/* line 67, ../scss/components/_benefits.scss */
 .signup_button_container {
   width: 300px;
   margin: 0 auto;
   list-style-type: none;
   margin-top: 50px;
 }
-/* line 66, ../scss/components/_benefits.scss */
+/* line 71, ../scss/components/_benefits.scss */
 .signup_button_container li {
   display: inline;
 }
 
-/* line 72, ../scss/components/_benefits.scss */
+/* line 77, ../scss/components/_benefits.scss */
 .landing_container {
   padding-top: 90px;
 }
 
-/* line 76, ../scss/components/_benefits.scss */
+/* line 81, ../scss/components/_benefits.scss */
 .explore_button_container {
   margin-left: 20px;
   width: 120px;
 }
 
-/* line 81, ../scss/components/_benefits.scss */
+/* line 86, ../scss/components/_benefits.scss */
+.landing_logo_container {
+  padding-top: 20px;
+  float: left;
+  width: 42%;
+  margin-left: 40px;
+}
+
+/* line 93, ../scss/components/_benefits.scss */
+.landing_admin_container {
+  width: 50%;
+  float: left;
+}
+
+/* line 98, ../scss/components/_benefits.scss */
 .logo_white {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   color: white;
@@ -902,7 +917,7 @@ fieldset {
   margin: 0 auto;
 }
 
-/* line 91, ../scss/components/_benefits.scss */
+/* line 108, ../scss/components/_benefits.scss */
 .headline_container {
   margin-bottom: 40px;
 }
@@ -1185,7 +1200,7 @@ label {
 
 /* line 55, ../scss/components/_footer.scss */
 .landing_footer_column {
-  width: 33%;
+  width: 25%;
   float: left;
 }
 
@@ -1205,6 +1220,36 @@ label {
   bottom: 0;
 }
 
+@media all and (max-width: 515px) {
+  /* line 2, ../scss/components/_landing_responsive.scss */
+  .landing_admin_container {
+    width: 40%;
+  }
+
+  /* line 5, ../scss/components/_landing_responsive.scss */
+  .create_account {
+    display: none;
+  }
+
+  /* line 9, ../scss/components/_landing_responsive.scss */
+  .benefit_container {
+    width: 100%;
+    float: left;
+  }
+}
+@media all and (min-width: 960px) {
+  /* line 16, ../scss/components/_landing_responsive.scss */
+  .benefits_container {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  /* line 21, ../scss/components/_landing_responsive.scss */
+  .benefit_container {
+    width: 320px;
+    float: left;
+  }
+}
 /* line 8, ../scss/layouts/_layout.scss */
 .container {
   margin: 0 auto;
