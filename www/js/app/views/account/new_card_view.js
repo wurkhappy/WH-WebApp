@@ -48,9 +48,12 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
                         }
                         var model = new that.user.attributes["cards"].model(response.data);
                         that.user.get("cards").add(model);
-                        model.save();
+                        model.save({}, {
+                            success: function() {
+                                that.trigger('cardSaved');
+                            }
+                        });
                         $('input').val('');
-                        that.trigger('cardSaved');
                         toastr.success('Credit Card Saved!');
 
                     } else {
