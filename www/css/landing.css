@@ -731,7 +731,7 @@ fieldset {
 
 /* line 78, ../scss/components/_buttons.scss */
 .login_button {
-  margin-top: -20px;
+  margin-top: 0;
   width: 200px;
   left: 50%;
   margin-left: -150px;
