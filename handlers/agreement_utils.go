@@ -6,8 +6,8 @@ type Status struct {
 	AgreementID     string `json:"agreementID,omitempty"`
 	PaymentID       string `json:"paymentID,omitempty"`
 	UserID          string `json:"userID,omitempty"`
-	CreditSourceURI string `json:"creditSourceURI,omitempty"`
-	DebitSourceURI  string `json:"debitSourceURI,omitempty"`
+	CreditSourceURI string `json:"creditSourceID,omitempty"`
+	DebitSourceURI  string `json:"debitSourceID,omitempty"`
 	PaymentType     string `json:"paymentType,omitempty"`
 	IPAddress       string `json:"ipAddress,omitempty"`
 }

@@ -3,6 +3,7 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
@@ -334,6 +335,7 @@ func CreatePayment(w http.ResponseWriter, req *http.Request, session *sessions.S
 	reqBytes := buf.Bytes()
 	var reqData map[string]interface{}
 	json.Unmarshal(reqBytes, &reqData)
+	fmt.Println(reqData)
 
 	reqData["userID"] = session.Values["id"].(string)
 	reqData["ipAddress"] = req.RemoteAddr

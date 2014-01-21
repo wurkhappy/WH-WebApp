@@ -15,6 +15,7 @@ import (
 	// "time"
 	"flag"
 	"log"
+	"strings"
 )
 
 //for hashing cookies
@@ -51,6 +52,7 @@ func main() {
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/_img/", http.StripPrefix("/_img/", http.FileServer(http.Dir("www/img"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
+	http.HandleFunc("/css/fonts/", serveFonts)
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
 	// err := http.ListenAndServe(":4000", nil)
 	var err error
@@ -73,6 +75,13 @@ func main() {
 
 func redir(w http.ResponseWriter, req *http.Request) {
 	http.Redirect(w, req, "https://wurkhappy.com"+req.RequestURI, http.StatusMovedPermanently)
+}
+
+func serveFonts(w http.ResponseWriter, req *http.Request) {
+	filename := strings.TrimPrefix(req.URL.Path, "/css/fonts/")
+	w.Header().Set("Cache-control", "public, max-age=315360000")
+	w.Header().Set("Expires", "Sat, 08 Feb 2020 20:00:00 GMT")
+	http.ServeFile(w, req, "www/css/fonts/"+filename)
 }
 
 func serveSingle(pattern string, filename string) {

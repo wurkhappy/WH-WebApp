@@ -14,6 +14,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 this.render();
             },
             render: function() {
+                console.log(this.bankAccounts.toJSON());
                 this.$el.html(this.template({
                     bankAccounts: this.bankAccounts.toJSON()
                 }));
@@ -29,7 +30,8 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
             events: {
                 "click #pay-button": "requestPayment",
                 "change #milestoneToPay": "updateMilestone",
-                "click #show_fee_detail": "showFeeDetail"
+                "click #show_fee_detail": "showFeeDetail",
+                "change input[name=select_bank_account]": "changeAccount"
             },
             initialize: function(options) {
                 this.payment = new PaymentModel();
@@ -135,12 +137,12 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 })
                 var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
                 this.payment.submit({
-                    creditSourceURI: creditSource
+                    creditSourceID: creditSource
                 }, _.bind(function(response) {
                     fadeOutModal();
                     triggerNotification();
                     this.payments.trigger('add');
-                    this.trigger("paymentRequested");
+                    this.trigger("paymentRequested", this.payment);
                     this.trigger('hide');
                     analytics.track('Payment Requested');
                 }, this));
@@ -150,6 +152,9 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 event.preventDefault();
                 event.stopPropagation();
                 $('.fee_detail_container').slideToggle('slow');
+            },
+            changeAccount: function(event) {
+                console.log(event.target.value);
             }
 
         });
