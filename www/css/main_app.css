@@ -1,12 +1,12 @@
 @charset "UTF-8";
-/* line 36, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
+/* line 36, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 4, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
+/* line 4, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
 img, video {
   max-width: 100%;
   height: auto;
@@ -232,7 +232,12 @@ fieldset {
   display: none;
 }
 
-/* line 200, ../scss/bases/_common.scss */
+/* line 199, ../scss/bases/_common.scss */
+.inline_block {
+  display: inline-block;
+}
+
+/* line 203, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -241,7 +246,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 208, ../scss/bases/_common.scss */
+/* line 211, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 14px;
@@ -250,13 +255,13 @@ fieldset {
   text-align: left;
 }
 
-/* line 216, ../scss/bases/_common.scss */
+/* line 219, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 221, ../scss/bases/_common.scss */
+/* line 224, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #dbe0e6;
   clear: both;
@@ -264,18 +269,18 @@ fieldset {
   width: 100%;
 }
 
-/* line 228, ../scss/bases/_common.scss */
+/* line 231, ../scss/bases/_common.scss */
 .required {
   color: #972b46;
   display: inline;
 }
 
-/* line 233, ../scss/bases/_common.scss */
+/* line 236, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 237, ../scss/bases/_common.scss */
+/* line 240, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
@@ -5696,6 +5701,41 @@ progress::-webkit-progress-value, progress.yellow_progress {
   top: 16px;
   right: 55px;
   width: 200px;
+}
+
+/* line 23, ../scss/components/_account.scss */
+.account_personal_form {
+  width: 50%;
+  padding-right: 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* line 29, ../scss/components/_account.scss */
+.account_personal_form h2 {
+  margin: 0px;
+  margin-top: 10px;
+  padding: 0px;
+}
+
+/* line 35, ../scss/components/_account.scss */
+.account_verification_form {
+  width: 47%;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 0;
+}
+
+/* line 42, ../scss/components/_account.scss */
+.account_verification_form h2 {
+  margin: 0px;
+  margin-top: 10px;
+  padding: 0px;
+}
+
+/* line 48, ../scss/components/_account.scss */
+.account_save {
+  padding: 20px;
 }
 
 /* FOOTER

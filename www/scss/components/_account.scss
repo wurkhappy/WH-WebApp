@@ -19,3 +19,33 @@
   right: 55px;
   width: 200px;
 }
+
+.account_personal_form{
+  width:50%;
+  padding-right:0;
+  display:inline-block;
+  vertical-align: top;
+}
+.account_personal_form h2{
+  margin:0px;
+  margin-top:10px;
+  padding:0px;
+}
+
+.account_verification_form{
+  width:47%;
+  display:inline-block;
+  vertical-align: top;
+  padding-left:0;
+}
+
+.account_verification_form h2{
+  margin:0px;
+  margin-top:10px;
+  padding:0px;
+}
+
+.account_save{
+  padding: 20px;
+}
+

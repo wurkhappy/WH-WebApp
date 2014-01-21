@@ -1,19 +1,37 @@
 
 <h2>Personal Details</h2>
 <form action="" method="get" accept-charset="utf-8" class="account_personal_form">
-  <fieldset>
+      <h2>Profile Information</h2>
+        <p class="helper_text" style="color:white;">--------------------------------------------------------------------------------------</p>
     <label for="">First Name<span class="required">*</span></label>
     <input data-required="true" type="text" name="firstName" placeholder="Your first name" id="" size="50" value="{{firstName}}">
     <label for="">Last Name<span class="required">*</span></label>
-    <input data-required="true" type="text" name="lastName" placeholder="You last name" id="" size="50" value="{{lastName}}">
+    <input data-required="true" type="text" name="lastName" placeholder="Your last name" id="" size="50" value="{{lastName}}">
     <label for="">Photo</label>
     <input type="file" name="avatarData" class="upload">
     <label for="">Email</label>
     <input type="text" name="email" placeholder="email@domain.com" id="" size="50" value="{{email}}">
     <label for="">Phone Number</label>
     <input type="text" name="phoneNumber" placeholder="(480) 329-7537" id="" size="50" value="{{phoneFormat phoneNumber}}">
-  </fieldset>
-  <fieldset class="submit-buttons">
+</form>
+<form class="account_verification_form"> 
+  <h2>Verification Information</h2>
+  <p class="helper_text">This will be kept private. We use this information to verify users and keep the Wurk Happy community safe.</p>
+  <label for="">Full First Name<span class="required">*</span></label>
+      <span class="helper_text">Just in case your profile name isn't your full name</span>
+    <input data-required="true" type="text" name="fullFirstName" placeholder="Your first name" id="" size="50" value="{{fullFirstName}}">
+    <label for="">Street Address<span class="required">*</span></label>
+    <span class="helper_text">Please use a permanent address (e.g. address on your driver's license)</span>
+    <input data-required="true" type="text" name="streetAddress" placeholder="123 Main St." id="" size="50" value="{{streetAddress}}">
+    <label for="">Zip Code<span class="required">*</span></label>
+    <input data-required="true" type="text" name="postalCode" placeholder="10013" id="" size="50" value="{{postalCode}}" >
+    <label for="">SSN Last Four Digits<span class="required">*</span></label>
+    <input data-required="true" type="text" name="ssnLastFour" placeholder="0004" id="" size="50" value="{{ssnLastFour}}" >
+    <label for="">Date of Birth<span class="required">*</span></label>
+    <input data-required="true" type="text" name="dobMonth" placeholder="MM" id="" size="5" value="{{dobMonth}}" class="inline_block">
+    <input data-required="true" type="text" name="dobDay" placeholder="DD" id="" size="5" value="{{dobDay}}" class="inline_block">
+    <input data-required="true" type="text" name="dobYear" placeholder="YYYY" id="" size="10" value="{{dobYear}}" class="inline_block">
+</form>
+  <fieldset class="submit-buttons account_save">
     <a href="save_personal" id="save-button" class="single">Save Personal Details</a>
   </fieldset>
-</form>
