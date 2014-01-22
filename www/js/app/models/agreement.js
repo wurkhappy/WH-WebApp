@@ -121,9 +121,14 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
             },
             percentComplete: function(){
                 var deposit = this.get("workItems").findDeposit();
-                var depositAmount = (deposit) ? deposit.get("amount") : 0;
+                var depositAmount = (deposit) ? deposit.get("amountDue") : 0;
                 var totalAmountExDeposit = this.get("workItems").getTotalAmount() - depositAmount;
-                return ((this.get("payments").getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
+                if (totalAmountExDeposit === 0) {
+                    return 0;
+                } else {
+                    return ((this.get("payments").getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
+                }
+
             }
         });
 

@@ -66,7 +66,6 @@
                     return (numberAccepted/this.length) * 100;
                 }
             }
-
         });
 
 return Collection;
