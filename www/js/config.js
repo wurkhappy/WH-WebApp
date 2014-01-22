@@ -19,7 +19,7 @@
  *
  */
 
- require.config({
+require.config({
 
     paths: {
 
@@ -30,7 +30,7 @@
         backbone: 'lib/backbone/backbone',
         marionette: 'lib/backbone.marionette/lib/backbone.marionette',
         modernizr: 'lib/modernizr/modernizr',
-        'backbone-relational' : 'lib/backbone-relational/backbone-relational',
+        'backbone-relational': 'lib/backbone-relational/backbone-relational',
 
         //plugins - bower
         text: 'lib/requirejs-text/text',
@@ -64,8 +64,9 @@
         routers: 'app/routers',
         templates: 'app/templates',
         views: 'app/views',
-        plugins:'app/plugins'
-        
+        plugins: 'app/plugins',
+        spinjs: "lib/spin.js/spin"
+
     },
 
     // Dependencies for scripts that are not wrapped as AMD modules.
@@ -77,9 +78,9 @@
         underscore: {
             exports: '_'
         },
-        marionette : {
-            deps : ['jquery', 'underscore', 'backbone'],
-            exports : 'Marionette'
+        marionette: {
+            deps: ['jquery', 'underscore', 'backbone'],
+            exports: 'Marionette'
         },
         handlebars: {
             exports: 'Handlebars'
@@ -87,32 +88,32 @@
         "jquery-ui": {
             deps: ['jquery']
         },
-        'backbone-relational' : {
+        'backbone-relational': {
             deps: ['backbone']
         },
-        parsley : {
-            deps : ['jquery'],
-            exports : 'parsley'
+        parsley: {
+            deps: ['jquery'],
+            exports: 'parsley'
         },
-        "intro" : {
-            exports : ['introJs']
+        "intro": {
+            exports: ['introJs']
         },
-        kalendae : {
-            exports : 'Kalendae'
+        kalendae: {
+            exports: 'Kalendae'
         },
         ckeditor: {
             deps: ['jquery'],
-            exports:'CKEDITOR'
+            exports: 'CKEDITOR'
         },
-        ckadapter : {
-            deps : ['ckeditor', 'jquery']
+        ckadapter: {
+            deps: ['ckeditor', 'jquery']
         },
-        'auto-grow' : {
-            deps : ['jquery'],
-            exports:'autoGrow'
+        'auto-grow': {
+            deps: ['jquery'],
+            exports: 'autoGrow'
         },
-        autonumeric : {
-            deps : ['jquery']
+        autonumeric: {
+            deps: ['jquery']
         },
         'flying-focus': {
             exports: 'FlyingFocus'
@@ -120,10 +121,13 @@
         ajaxchimp: {
             deps: ['jquery'],
             exports: 'ajaxChimp'
+        },
+        spinjs: {
+            exports: 'Spinner'
         }
     },
     hbs: {
         templateExtension: "html",
-        disableI18n : true
+        disableI18n: true
     }
 });
