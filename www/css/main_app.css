@@ -4123,11 +4123,20 @@ div.faqcontent h2 {
 }
 
 /* line 354, ../scss/components/_agreement.scss */
+.proposed_services_container {
+  max-height: 300px;
+  border: 1px solid #f9fafb;
+  overflow-y: scroll;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+/* line 362, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
 }
 
-/* line 358, ../scss/components/_agreement.scss */
+/* line 366, ../scss/components/_agreement.scss */
 .agreement_header_helper {
   min-width: 250px;
 }
