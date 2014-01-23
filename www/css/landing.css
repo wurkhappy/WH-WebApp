@@ -801,6 +801,13 @@ fieldset {
   width: 350px;
 }
 
+/* line 137, ../scss/components/_buttons.scss */
+.delete_method_button {
+  width: 229px;
+  margin-left: 20px;
+  margin-top: 45px;
+}
+
 /* LANDING INTRO
 ================================================================================ */
 /* line 5, ../scss/components/_benefits.scss */
