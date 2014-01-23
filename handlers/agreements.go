@@ -204,11 +204,7 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		"CSSversion": CSSversion,
 		"agreement":  agrmntData,
 		"otherUser":  otherUser,
-		"user": struct {
-			ID string `json:"id"`
-		}{
-			session.Values["id"].(string),
-		},
+		"user":       getUserInfo(session.Values["id"].(string)),
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

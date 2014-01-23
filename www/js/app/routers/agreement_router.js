@@ -9,7 +9,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
         'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account'
     ],
 
-    function(Backbone, FlyingFocus, AgreementModel, LayoutView, PaymentsReadView, UserView,
+    function(Backbone, FlyingFocus, AgreementModel, LayoutView, WorkItemsReadView, UserView,
         UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
         UserModel, ProgressBarView, TagCollection, Modal, NewAccountView) {
 
@@ -42,7 +42,9 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     user: this.user
                 });
                 FlyingFocus();
-                if (!this.user.get("isRegistered")){this.newAccount();}
+                if (!this.user.get("isRegistered")) {
+                    this.newAccount();
+                }
             },
 
             readAgreement: function() {
@@ -52,10 +54,12 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 this.layout.paymentMethods.show(new PaymentMethodsView({
                     model: this.model
                 }));
-                this.layout.paymentSchedule.show(new PaymentsReadView({
+                this.layout.paymentSchedule.show(new WorkItemsReadView({
                     collection: this.model.get("workItems"),
                     user: this.user,
-                    otherUser: this.otherUser
+                    otherUser: this.otherUser,
+                    messages: this.model.get("comments"),
+                    tags: this.tags
                 }));
                 this.layout.profile.show(new UserView());
                 this.layout.header.show(new HeaderView({
@@ -69,9 +73,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     otherUser: this.otherUser,
                     tags: this.tags
                 });
-                this.listenTo(discussionView, "commentAdded", this.commentAdded);
                 this.layout.discussion.show(discussionView);
-                if (this.model.sample) this.sample();
             },
             editAgreement: function() {
                 this.layout.header.show(new HeaderEditView({
@@ -101,10 +103,6 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     modal.hide();
                     window.location.hash = "";
                 });
-            },
-            commentAdded: function(comment) {
-                this.model.get("comments").add(comment);
-                comment.collection = this.model.get("comments");
             }
 
         });

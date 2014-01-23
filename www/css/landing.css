@@ -736,7 +736,7 @@ fieldset {
 
 /* line 78, ../scss/components/_buttons.scss */
 .login_button {
-  margin-top: -20px;
+  margin-top: 0;
   width: 200px;
   left: 50%;
   margin-left: -150px;
@@ -889,15 +889,16 @@ fieldset {
 /* line 77, ../scss/components/_benefits.scss */
 .landing_container {
   padding-top: 90px;
+  height: 540px;
 }
 
-/* line 81, ../scss/components/_benefits.scss */
+/* line 82, ../scss/components/_benefits.scss */
 .explore_button_container {
   margin-left: 20px;
   width: 120px;
 }
 
-/* line 86, ../scss/components/_benefits.scss */
+/* line 87, ../scss/components/_benefits.scss */
 .landing_logo_container {
   padding-top: 20px;
   float: left;
@@ -905,13 +906,13 @@ fieldset {
   margin-left: 40px;
 }
 
-/* line 93, ../scss/components/_benefits.scss */
+/* line 94, ../scss/components/_benefits.scss */
 .landing_admin_container {
   width: 50%;
   float: left;
 }
 
-/* line 98, ../scss/components/_benefits.scss */
+/* line 99, ../scss/components/_benefits.scss */
 .logo_white {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   color: white;
@@ -922,7 +923,7 @@ fieldset {
   margin: 0 auto;
 }
 
-/* line 108, ../scss/components/_benefits.scss */
+/* line 109, ../scss/components/_benefits.scss */
 .headline_container {
   margin-bottom: 40px;
 }

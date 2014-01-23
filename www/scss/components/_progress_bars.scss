@@ -95,7 +95,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   height: 10px;
   width: 100%;
   border-radius:10px;
-  margin-top: 17px;
+  margin-top: 15px;
 }
 
 .agreement_progress[value]::-webkit-progress-bar {
@@ -136,8 +136,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 100%; 
   height: 10px;
   border-radius:10px;
-  position: relative;
-  top:10px;
+  position: absolute;
 }
 
 
@@ -314,9 +313,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 .small_progress_bar_fallback {
   top: 0;
+  height: 2px;
+  position:absolute;
 }
 
 .create_agreement_progress_bar_fallback {
-  top: 15px;
+  top: 0;
+  position: absolute;
 }
 
