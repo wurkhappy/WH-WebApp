@@ -11,9 +11,17 @@ import (
 )
 
 func GetAccount(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	userID := session.Values["id"]
+	userID := session.Values["id"].(string)
 
-	user := getUserInfo(userID.(string))
+	resp, statusCode := sendServiceRequest("GET", config.UserService, "/user/"+userID+"/details", nil)
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+	var user map[string]interface{}
+	json.Unmarshal(resp, &user)
 
 	m := map[string]interface{}{
 		"appName":    "mainaccount",
