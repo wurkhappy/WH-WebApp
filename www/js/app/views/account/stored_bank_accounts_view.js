@@ -1,8 +1,8 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
   'hbs!templates/account/stored_bank_account_item', 'hbs!templates/account/stored_bank_accounts',
-  'views/ui-modules/modal', 'views/account/verification_modal'],
+  'views/ui-modules/modal', 'views/account/verification_modal', 'views/account/delete_payment_method_modal'],
 
-  function (Backbone, Handlebars, _, Marionette, itemTpl, storedBankAccountsTpl, Modal, VerificationModal) {
+  function (Backbone, Handlebars, _, Marionette, itemTpl, storedBankAccountsTpl, Modal, VerificationModal, DeletePaymentMethodModal) {
 
     'use strict';
 
@@ -11,7 +11,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       template: itemTpl,
 
       events: {
-        "click .remove":"removeModel",
+        "click .remove":"showRemoveModelModal",
         "click .verify":"verify"
       },
       initialize: function(){
@@ -20,16 +20,24 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
       verify: function(){
         event.preventDefault();
         event.stopPropagation();
-        if(!this.modal){
+
+        if(!view){
           var view = new VerificationModal({model:this.model});
-          this.modal = new Modal({view:view});
         }
+          this.modal = new Modal({view:view});
+
         this.modal.show();
       },
-      removeModel:function(){
+      showRemoveModelModal:function(){
         event.preventDefault();
         event.stopPropagation();
-        this.model.destroy();
+
+        if(!view){
+          var view = new DeletePaymentMethodModal({model:this.model});
+        }
+          this.modal = new Modal({view:view});
+
+        this.modal.show();
       }
     });
 
