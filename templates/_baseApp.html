@@ -127,7 +127,7 @@
   });
   </script>
     <script type="text/javascript" async>
-
+    setTimeout(function(){
     analytics.initialize({
         'Google Analytics': {
           trackingId: 'UA-24101674-3'
@@ -149,18 +149,13 @@
           accountNumber: '00197985'
         }
     });
-  </script>
 
-  <script type="text/javascript">
   analytics.track('Page viewed', {
     date: new Date()
   });
-</script>
 
-  <!-- identify our users on every page they're logged in -->
   {{if .thisUser}}
       
-      <script>
         analytics.identify({{.user.id}}, {
           {{with .thisUser}}
           email            : {{.email}},
@@ -171,13 +166,11 @@
           agreementCount   : {{.agreementCount}}
           
         });
-        
-      </script>
-      
+              
   {{end}}
 
-  <script>
     analytics.track('Hit Home Page');
+  }, 2000);
   </script>
 
 </body>
