@@ -17,7 +17,6 @@
 {{else}}
   <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
   <link rel="stylesheet" type="text/css" href="/css/landing.css" media="all" />
-  <script src="/js/lib/analytics/analytics.min.js"></script>
   <script src="/js/lib/jquery/jquery.js"></script>
   <script type="text/javascript"> 
       var $buoop = {}; 
@@ -46,12 +45,14 @@
 
 
   <script type="text/javascript">
-    analytics.initialize({
-      'Google Analytics' : 'UA-24101674-3',
-      'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
-      'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
-      'CrazyEgg'		 : '00197985'
-    });
+	  if (production){
+	  	analytics.initialize({
+	      'Google Analytics' : 'UA-24101674-3',
+	      'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
+	      'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+	      'CrazyEgg'		 : '00197985'
+	    });
+	  }
   </script>
 
 
@@ -73,7 +74,7 @@
 					<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
 				</li>
 				<li id="create_account" class="create_account">
-					<a class="button action_button" href="#new-account">Signup Free</a>
+					<a id="signup" class="button action_button" href="#new-account">Signup Free</a>
 				</li>
 			</ul>
 		</div>
@@ -87,10 +88,10 @@
 		    	<h1 class="headline">Build Better Freelance Relationships</h1>
 				<ul class="admin_nav signup_button_container">
 					<li id="create_account" class="create_account explore_button_container">
-						<a class="button action_button" href="/agreement/v/sample">Explore</a>
+						<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
 					</li>
 					<li id="create_account" class="create_account">
-						<a class="button action_button" href="#new-account">Signup Free</a>
+						<a id="signup" class="button action_button" href="#new-account">Signup Free</a>
 					</li>					
 				</ul>
 		  	</div>
@@ -161,17 +162,17 @@
     <div id="footer" class="clear landing_footer">
     	<div>
     		<div class="landing_footer_column">
-		        <h3 class="footer_title"><a href="/pricing">Pricing</a></h3>
+		        <h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
 		    </div>
 		    <div class="landing_footer_column">
-		      <h3 class="footer_title"><a href="/about">About</a></h3>
+		      <h3 class="footer_title"><a id="about" href="/about">About</a></h3>
 		    </div>
 	        <div class="landing_footer_column">
-	        	<h3 class="footer_title"><a href="http://wurkhappy.tumblr.com/">Blog</a></h3>
+	        	<h3 class="footer_title"><a id="blog" href="http://wurkhappy.tumblr.com/">Blog</a></h3>
 	        </div>
 
 	        <div class="landing_footer_column">
-	        	<h3 class="footer_title"><a href="/legal">Legal</a></h3>
+	        	<h3 class="footer_title"><a id="legal" href="/legal">Legal</a></h3>
 	        </div>
 	    </div>
     </div>

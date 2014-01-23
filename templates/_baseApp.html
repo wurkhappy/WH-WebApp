@@ -25,6 +25,10 @@
   <!-- Font Awesome -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 
+  <script>
+    var production = {{.production}};
+  </script>
+
   <!-- Wurk Happy CSS -->
   {{if .production}}
     <link rel="stylesheet" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/main_app.css">
@@ -52,8 +56,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 
   <script type="text/javascript">var actions=[];</script>
-
-  <script src="/js/lib/analytics/analytics.js"></script>
   <script src="/js/lib/jquery/jquery.js"></script>
   {{end}}
 
@@ -126,41 +128,42 @@
     require(['app/{{.appName}}']);
   });
   </script>
-    <script type="text/javascript" async>
+  
 
-    analytics.initialize({
-        'Google Analytics': {
-          trackingId: 'UA-24101674-3'
-        },
-        'Mixpanel': {
-          token: '4333aa84dfd94220eef310c77eab7372',
-          nameTag : true,
-          people  : false
-        },
-        'LiveChat':{
-          license: '3602861'
-        },
-        'Intercom': {
-          appId: '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
-          activator : '#IntercomDefaultWidget',
-          counter   : true
-        },
-        'CrazyEgg': {
-          accountNumber: '00197985'
-        }
-    });
+  
+  <script type="text/javascript" async>
+
+    if (production) {
+
+      analytics.initialize({
+          'Google Analytics': {
+            trackingId: 'UA-24101674-3'
+          },
+          'Mixpanel': {
+            token: '4333aa84dfd94220eef310c77eab7372',
+            nameTag : true,
+            people  : false
+          },
+          'LiveChat':{
+            license: '3602861'
+          },
+          'Intercom': {
+            appId: '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+            activator : '#IntercomDefaultWidget',
+            counter   : true
+          },
+          'CrazyEgg': {
+            accountNumber: '00197985'
+          }
+      });
+    }
   </script>
-
-  <script type="text/javascript">
-  analytics.track('Page viewed', {
-    date: new Date()
-  });
-</script>
 
   <!-- identify our users on every page they're logged in -->
   {{if .thisUser}}
       
-      <script>
+    <script>
+      if (production) {
         analytics.identify({{.user.id}}, {
           {{with .thisUser}}
           email            : {{.email}},
@@ -169,16 +172,14 @@
           //phoneNumber      : {{.phone}},
           {{end}}
           agreementCount   : {{.agreementCount}}
-          
         });
+
+      }
+        
         
       </script>
       
   {{end}}
-
-  <script>
-    analytics.track('Hit Home Page');
-  </script>
 
 </body>
 </html>

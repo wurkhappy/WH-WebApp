@@ -25,6 +25,9 @@
         padding: 0.5em;
     }
     </style>
+    <script>
+        var production = {{.production}};
+    </script>
 
     <!--[if (gt IE 8) | (IEMobile)]>
     <link rel="stylesheet" href="/css/main.css">
@@ -61,11 +64,20 @@
 
   <script>
     $( document ).ready(function() {
-        var createAgreement = $('.button');
-        var tracks = analytics.trackLink(createAgreement, 'Clicked Create Agreement Button', {
-          plan : 'Enterprise'
-        });
-
+        if (production) {
+            var pricing = $('#pricing');
+            var about = $('#about');
+            var blog = $('#blog');
+            var legal = $('#legal');
+            var signup = $('#signup');
+            var explore = $('#explore');
+            var tracks = analytics.trackLink(pricing, 'Clicked Pricing Link');
+            var tracks = analytics.trackLink(about, 'Clicked About Link');
+            var tracks = analytics.trackLink(blog, 'Clicked Blog Link');
+            var tracks = analytics.trackLink(legal, 'Clicked Legal Link');
+             var tracks = analytics.trackLink(signup, 'Clicked Signup Link');
+            var tracks = analytics.trackLink(explore, 'Clicked Explore Link');
+        }
         
     });
   </script>
