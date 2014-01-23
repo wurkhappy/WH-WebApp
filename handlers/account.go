@@ -106,7 +106,7 @@ func SaveBankAccount(w http.ResponseWriter, req *http.Request, session *sessions
 
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.PaymentInfoService, "/user/"+id+"/bank_account", buf.Bytes())
+	resp, statusCode := sendServiceRequestWithTimeout("POST", config.PaymentInfoService, "/user/"+id+"/bank_account", buf.Bytes(), 10000)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -139,7 +139,7 @@ func VerifyBankAccount(w http.ResponseWriter, req *http.Request, session *sessio
 
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.PaymentInfoService, "/user/"+id+"/bank_account/"+accountID+"/verify", buf.Bytes())
+	resp, statusCode := sendServiceRequestWithTimeout("POST", config.PaymentInfoService, "/user/"+id+"/bank_account/"+accountID+"/verify", buf.Bytes(), 10000)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)

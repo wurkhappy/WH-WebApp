@@ -197,6 +197,16 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		}
 	}
 
+	userResp, userStatusCode := sendServiceRequest("GET", config.UserService, "/user/"+session.Values["id"].(string)+"/details", nil)
+	if userStatusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(userResp, &rError)
+		http.Error(w, rError.Description, userStatusCode)
+		return
+	}
+	var user map[string]interface{}
+	json.Unmarshal(userResp, &user)
+
 	m := map[string]interface{}{
 		"appName":    "maincreateagreement",
 		"production": Production,
@@ -204,7 +214,7 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		"CSSversion": CSSversion,
 		"agreement":  agrmntData,
 		"otherUser":  otherUser,
-		"user":       getUserInfo(session.Values["id"].(string)),
+		"user":       user,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",

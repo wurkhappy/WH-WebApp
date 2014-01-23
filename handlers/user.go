@@ -37,7 +37,7 @@ func UpdateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequestWithTimeout("PUT", config.UserService, "/user/"+vars["id"], buf.Bytes(), 3000)
+	resp, statusCode := sendServiceRequestWithTimeout("PUT", config.UserService, "/user/"+vars["id"], buf.Bytes(), 10000)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
