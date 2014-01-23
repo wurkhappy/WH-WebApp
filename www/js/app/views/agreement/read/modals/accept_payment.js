@@ -158,7 +158,10 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
             },
             backToMain: function() {
                 this.$('#addView').animate({
-                    "margin-left": "-500px"
+                    "margin-left": "-1000px"
+                });
+                $('#panel').css({
+                    'height': 'auto'
                 });
                 setTimeout(_.bind(function() {
                     this.$('#addView').css({
@@ -167,9 +170,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                     });
                     this.render();
                 }, this), 1000);
-                $('#panel').css({
-                    'height': 'auto'
-                });
+
             }
 
         });

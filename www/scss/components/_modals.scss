@@ -1,28 +1,33 @@
-#popup_container {
-	overflow: hidden;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow-y: scroll;
-	display:none;
-	z-index:10;
+
+.cover {
+    position: fixed;
+    bottom: 0; left: 0; top: 0; right: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    	z-index: 10;
+}
+
+.cover > * {
+    -webkit-transform: translateZ(0px);
+}
+
+.cover {
+    background: rgba(0,0,0,0.5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000); /* IE6–IE8 */
+    zoom: 1;
 }
 
 
 
 .panel {
-	width: 400px;
-	position: relative;
-	background: hsl(0, 0%, 87%);
+	width: 550px;
+	margin: 20px auto;
+/*	position: relative;
+*/	background: hsl(0, 0%, 87%);
 	border-radius: 5px;
 	padding: 20px;
-	top: 50px;
-	left: 50%;
-	margin-left: -200px;
-	height: auto;
-	background: hsl(0, 0%, 98%);
+/*	height: auto;
+*/	background: hsl(0, 0%, 98%);
 	background-image: -webkit-linear-gradient(hsl(0, 100%, 100%), hsl(0, 0%, 98%));
 	background-image: -moz-linear-gradient(white, #fafafa);
 	background-image: -ms-linear-gradient(white, #fafafa);
@@ -35,7 +40,7 @@
 	overflow:hidden;
 }
 
-.milestone_panel {
+/*.milestone_panel {
         width: 550px;
         position: absolute;
         top: 75px;
@@ -43,9 +48,9 @@
         margin-top:0;
         bottom: 100px;
         overflow-y: scroll;
-}
+}*/
 
-.cover {
+/*.cover {
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -57,7 +62,7 @@
 	background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
 	background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
 	background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
-}
+}*/
 
 .overlay {
 	top: 0;
