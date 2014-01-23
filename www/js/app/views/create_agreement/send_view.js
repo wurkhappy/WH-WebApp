@@ -124,7 +124,10 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                         });
                         that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
                         that.modal.show();
-                        analytics.track('Agreement Sent');
+                        if (window.production) {
+                            analytics.track('Agreement Sent');    
+                        }
+                        
                     }
                 });
             },

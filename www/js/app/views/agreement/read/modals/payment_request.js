@@ -144,7 +144,9 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                     this.payments.trigger('add');
                     this.trigger("paymentRequested", this.payment);
                     this.trigger('hide');
-                    analytics.track('Payment Requested');
+                    if (window.production) {
+                        analytics.track('Payment Requested');
+                    }
                 }, this));
             },
 

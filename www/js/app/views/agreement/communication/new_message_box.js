@@ -90,7 +90,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'jquery-ui', 'cked
 
                     this.editor.setData('');
                     toastr.success('Message Sent');
-                    analytics.track('New Message Sent');
+                    if (window.production) {
+                        analytics.track('New Message Sent');
+                    }
                     this.trigger("commentSaved");
 
                     _.defer(function() {
