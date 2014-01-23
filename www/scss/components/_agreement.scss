@@ -351,6 +351,14 @@
   padding-left: 20px;
 }
 
+.proposed_services_container {
+  max-height: 300px;
+  border: 1px solid hsl(210, 20%, 98%);
+  overflow-y: scroll;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
 .proposed_services_container p {
   margin:0;
 }

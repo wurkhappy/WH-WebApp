@@ -26,6 +26,7 @@
         var status = this.model.get("currentStatus");
         var workItems = this.model.get("workItems");
 
+        var percentComplete = this.percentComplete;
 
         var otherUser = (this.otherUser) ? this.otherUser.toJSON() : null;
         var statusInfo = this.createStatusInfo();
@@ -34,7 +35,7 @@
           statusInfo: statusInfo,
           client:this.userIsClient,
           otherUser: otherUser,
-          percentComplete: this.percentComplete
+          percentComplete: percentComplete
         }));
         return this;
       },

@@ -18,8 +18,9 @@
 	padding: 15px;
 	background: hsl(213, 18%, 98%);
 	position:relative;
-	padding-bottom:65px;
 	border-radius:5px;
+	min-height: 465px;
+
 }
 
 .inline {
@@ -110,6 +111,7 @@
 	margin-top: 10px;
 	position:absolute;
 	right:15px;
+	bottom: 10px;
 	&:hover {
 		color: white;
 		text-decoration: none;
@@ -255,8 +257,8 @@
 }
 
 .enter_tags_container {
-	position:absolute;
 	margin-top: 10px;
+	width: 715px;
 }
 
 .fa-tag {
@@ -284,6 +286,7 @@
 	font-family: museo;
 	font-size: 14px;
 	margin-left: 5px;
+	margin-bottom: 5px;
 	&:hover {
 		cursor:pointer;
 	}
@@ -361,14 +364,21 @@
 
 
 
+.comment_tags {
+	overflow:hidden;
+}
+
+
+.enter_tags_sub_container {
+	/*width: 600px;*/
+}
 
 
 
-
-
-
-
-
+.tag_label_container {
+	overflow:hidden;
+	height: 35px;
+}
 
 
 
