@@ -50,7 +50,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                     return;
                 }
                 //return if there isn't a valid email
-                var isValid = $('#create_agreement_send_email').parsley('validate');
+                var isValid = this.$('#create_agreement_send_email').parsley('validate');
                 if (!isValid) {
                     return;
                 }
