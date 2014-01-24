@@ -11,13 +11,15 @@ define(['backbone', 'handlebars', 'underscore', 'toastr', 'hbs!templates/agreeme
       render:function(){
         this.$el.html(this.template({
           model: this.model.toJSON(), 
-          button2Title: "Save Draft"
+          button1Title: "Save Draft",
+          button2Title: "Cancel Draft",
         }));
 
         return this;
       },
       events:{
-        "click #action-button2":"debounceSave",
+        "click #action-button1":"debounceSave",
+        "click #action-button2":"cancelAgreement",
       },
 
       debounceSave: function(event) {
@@ -38,6 +40,11 @@ define(['backbone', 'handlebars', 'underscore', 'toastr', 'hbs!templates/agreeme
             }
           });
         }, 500, true)();
+      },
+      cancelAgreement: function(){
+        event.preventDefault();
+        event.stopPropagation();
+        window.location= '';
       }
 
     });
