@@ -2,11 +2,11 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
-        'views/agreement/work_items_read_view', 'views/agreement/user_view',
-        'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
-        'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
-        'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account'
+ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
+    'views/agreement/work_items_read_view', 'views/agreement/user_view',
+    'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
+    'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
+    'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account'
     ],
 
     function(Backbone, FlyingFocus, AgreementModel, LayoutView, WorkItemsReadView, UserView,
@@ -48,6 +48,11 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
             },
 
             readAgreement: function() {
+                if (this.originalModelData) {
+                    this.model.clear({silent:true});
+                    this.model.set(this.originalModelData);
+                    this.originalModelData = null;
+                }
                 this.layout.agreementProgressBar.show(new ProgressBarView({
                     model: this.model
                 }));
@@ -76,6 +81,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 this.layout.discussion.show(discussionView);
             },
             editAgreement: function() {
+                this.originalModelData = this.model.toJSON();
                 this.layout.header.show(new HeaderEditView({
                     model: this.model,
                     user: this.user
@@ -107,7 +113,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
 
         });
 
-        return AgreementRouter;
+return AgreementRouter;
 
-    }
+}
 );

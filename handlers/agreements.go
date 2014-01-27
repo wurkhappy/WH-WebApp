@@ -15,6 +15,7 @@ import (
 var homeTpl *template.Template
 var emptyHomeTpl *template.Template
 var archivesTpl *template.Template
+var emptyArchivesTpl *template.Template
 
 func init() {
 	format := func(date string) string {
@@ -35,6 +36,10 @@ func init() {
 	archivesTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
 		"templates/_baseApp.html",
 		"templates/archives.html",
+	)
+	emptyArchivesTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+		"templates/_baseApp.html",
+		"templates/empty_archives.html",
 	)
 }
 
@@ -86,6 +91,10 @@ func GetArchives(w http.ResponseWriter, req *http.Request, session *sessions.Ses
 		"production":     Production,
 		"JSversion":      JSversion,
 		"CSSversion":     CSSversion,
+	}
+	if len(agreementsData) == 0 {
+		emptyArchivesTpl.Execute(w, m)
+		return
 	}
 
 	archivesTpl.Execute(w, m)

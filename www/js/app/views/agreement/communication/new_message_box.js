@@ -50,7 +50,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'jquery-ui', 'cked
                     skin: 'wurkhappy,https://d3kq8dzp7eezz0.cloudfront.net/css-1/wurkhappy/',
                     customConfig: 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/config.js'
                 }).ckeditorGet();
-                CKEDITOR.config.contentsCss = 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/contents.css';
+                CKEDITOR.config.contentsCss = 'https://d3kq8dzp7eezz0.cloudfront.net/css/contents.css';
                 CKEDITOR.config.stylesSet = 'my_styles:https://d3kq8dzp7eezz0.cloudfront.net/css-1/styles.js';
                 var commentTagsView = new CommentTagsView({
                     collection: this.model.get("tags"),
