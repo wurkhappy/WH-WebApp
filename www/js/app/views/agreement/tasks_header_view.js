@@ -21,29 +21,30 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/tasks_header_tpl'],
 
       events: {
         "click .js_save_description": "saveDescription",
-        "keypress .work_item_description": "saveDescriptionOnEnter",
+        //"keypress .work_item_description": "saveDescriptionOnEnter",
         "mousedown .js_show_description_input":"showDescriptionInput",
         "click .js_close_description_input": "closeDescriptionInput",
       },
 
       showDescriptionInput: function(event) {
-        $(event.target).parent().attr('class', 'work_item_description_container_focus gutter');
+        $(event.target).parent().attr('class', 'work_item_description_container_focus');
       },
 
       closeDescriptionInput: function(event) {
         event.preventDefault();
-        $(event.target).parent().parent().attr('class', 'work_item_description_container gutter');
+        $(event.target).parent().parent().attr('class', 'work_item_description_container');
       },
 
-      saveDescriptionOnEnter: function(event) {
+      // Allowing enter in a textarea is good karma
+      /*saveDescriptionOnEnter: function(event) {
         if (event.keyCode == 13) {
           event.preventDefault();
           this.model.set({description:event.target.value});
           event.target.value = null;
           //close input
-          $(event.target).parent().attr('class', 'work_item_description_container gutter');
+          $(event.target).parent().attr('class', 'work_item_description_container');
         }
-      },
+      },*/
 
       saveDescription: function(event) {
         event.preventDefault();

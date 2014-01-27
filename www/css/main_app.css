@@ -3869,10 +3869,10 @@ div.faqcontent h2 {
   box-shadow: none;
   color: #5c5c5c;
   display: block;
-  height: 32px;
+  height: 100px;
   margin-bottom: 4px;
   text-decoration: none;
-  width: 100%;
+  width: 496px;
   resize: none;
   font-size: 16px;
   line-height: 20px;
@@ -3895,9 +3895,9 @@ div.faqcontent h2 {
 }
 /* line 144, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .work_item_description {
-  width: 460px;
+  width: 496px;
   resize: vertical;
-  height: 68px;
+  height: 100px;
   border-color: #2b7cab;
   cursor: text;
   font-weight: 300;
