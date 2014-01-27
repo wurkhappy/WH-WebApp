@@ -19,6 +19,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/edit/scope_item_tpl']
         "click a" : "removeItem"
       },
       removeItem: function(event){
+        event.preventDefault();
         this.model.collection.remove(this.model);
       },
 
