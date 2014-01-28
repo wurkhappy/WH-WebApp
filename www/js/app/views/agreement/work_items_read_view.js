@@ -9,6 +9,11 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         var WorkItemsReadView = Backbone.Marionette.CompositeView.extend({
 
             template: tpl,
+            templateHelpers:function(){
+                return {
+                    agreementTotal: this.agreementTotal
+                }
+            },
 
             itemView: WorkItemView,
             itemViewContainer: 'ul',
@@ -25,9 +30,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.otherUser = options.otherUser;
                 this.messages = options.messages;
                 this.tags = options.tags;
-            },
-            onRender: function() {
-                this.$('#payments-total').text('$' + this.collection.getTotalAmount());
+                this.agreementTotal = this.collection.getTotalAmount();
             }
         });
 
