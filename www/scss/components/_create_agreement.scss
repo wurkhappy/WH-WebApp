@@ -18,6 +18,26 @@
   padding-bottom:0;
 }
 
+.new_deliverable_container{
+  display: inline-block;
+}
+.preview_container{
+  display: inline-block;
+  vertical-align: top;
+}
+.deliverable_preview_item{
+    -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+    border: 1px solid rgb(225,225,225);
+    min-height: 50px;
+    width: 400px;
+    margin-left: 20px;
+}
+.deliverable_preview_item > ul{
+  list-style: none;
+}
+
 .edit_helper {
   position: absolute;
   top: -47px;

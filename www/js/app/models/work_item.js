@@ -1,4 +1,4 @@
-define(['backbone','backbone-relational', 'models/scope_item', 'collections/scope_items', 'models/status', 'collections/status'],
+define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/scope_items', 'models/status', 'collections/status'],
 
     function(Backbone, Relational, ScopeItemModel, ScopeItemCollection, StatusModel, StatusCollection) {
 
@@ -14,20 +14,17 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                     key: 'parent',
                     includeInJSON: false
                 }
-            },
-            {
+            }, {
                 type: Backbone.HasOne,
                 key: 'currentStatus',
                 relatedModel: StatusModel,
                 collectionType: StatusCollection,
-            }
-            ],
-            urlRoot: function(){
-                return "/agreement/v/"+this.getAgreementVersionID()+"/work_item";
+            }],
+            urlRoot: function() {
+                return "/agreement/v/" + this.getAgreementVersionID() + "/work_item";
             },
-            set: function( key, value, options ) {
-                Backbone.RelationalModel.prototype.set.apply( this, arguments );
-
+            set: function(key, value, options) {
+                Backbone.RelationalModel.prototype.set.apply(this, arguments);
                 //amount has to be a float or integer. Backend won't accept number as string.
                 if (typeof key === 'object') {
                     if (_.has(key, "amountDue")) {
@@ -36,9 +33,9 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
                     if (_.has(key, "dateExpected")) {
                         this.attributes.dateExpected = moment(key["dateExpected"]);
                     }
-                } else if (key === 'amountDue'){
+                } else if (key === 'amountDue') {
                     this.attributes.amountDue = parseFloat(value);
-                } else if (key === 'dateExpected'){
+                } else if (key === 'dateExpected') {
                     this.attributes.dateExpected = (typeof value === "string") ? moment(value) : value;
                 }
                 return this;
@@ -46,16 +43,16 @@ define(['backbone','backbone-relational', 'models/scope_item', 'collections/scop
             isDeposit: function() {
                 return this.get("title") === "Deposit";
             },
-            getAgreementVersionID: function(){
+            getAgreementVersionID: function() {
                 return this.collection.parent.id;
             },
-            getAgreementID: function(){
+            getAgreementID: function() {
                 return this.collection.parent.get("agreementID")
             }
         });
 
-return WorkItem;
+        return WorkItem;
 
-}
+    }
 
 );
