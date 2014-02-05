@@ -1,0 +1,3 @@
+<div class="col-2-3">{{#if paid}}<i class="fa fa-check-circle"></i>{{/if}} {{title}}</div><div class="col-1-3" style="text-align:right;">${{amountDue}}</div>
+{{#if isDeposit}}{{else}}
+<span class="helper_text">Expected on {{dateFormat dateExpected}}</span>{{/if}}

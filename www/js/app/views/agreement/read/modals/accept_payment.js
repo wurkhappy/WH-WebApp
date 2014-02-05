@@ -31,7 +31,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                 this.render();
             },
             render: function() {
-                var milestonePayment = this.model.getTotalAmount();
+                var milestonePayment = this.model.get("amountDue");
                 var amountTotal = milestonePayment;
                 var creditCards = this.creditCards;
                 var bankAccounts = this.bankAccounts;

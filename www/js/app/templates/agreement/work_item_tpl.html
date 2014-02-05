@@ -1,11 +1,11 @@
-<li class="payment_milestone" data-work-item="something awesome">
-	<strong>${{ReplaceNumberWithCommas amountDue}}</strong> &mdash; {{title}}
+<li class="payment_milestone">
+	<div class="grid deliverable_header">
+	<div class="deliverable_title">{{title}}</div>
+<div class="helper_text col-1-2">{{#if dateExpected}} on {{dateFormat dateExpected}}{{/if}}
+</div>
+	<div class="deliverable_info col-1-2"><div class="tasks_meta">{{tasksCompleted}} out of {{numberOfTasks}} tasks complete/</div><div class="show_details_button"> Hide Details</div></div>
+</div>
+	<ul class="tasks_container"></ul>
 
-	{{#unless required}}
-	{{#if dateExpected}} on {{dateFormat dateExpected}}{{/if}}
-	<i class="fa fa-tasks task_icon">  <span class="work_item_detail_link">Click for Detail</span></i>
-	{{/unless}}
-	<div class="paymentStatus payment_status"></div>
 </li>
-	
-<ul class="scope_items_container"></ul>
+

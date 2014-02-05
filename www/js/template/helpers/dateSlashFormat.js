@@ -1,3 +1,6 @@
     Handlebars.registerHelper('dateSlashFormat', function(date) {
-      return date.format('MM/DD/YYYY');
+        if (!date) {
+            return;
+        }
+        return date.format('MM/DD/YYYY');
     });

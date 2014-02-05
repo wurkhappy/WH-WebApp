@@ -46,6 +46,10 @@
 .review_agreement_total {
 	border-top: 2px solid hsl(199, 100%, 41%);
 	padding-top:10px;
+	position: relative;
+}
+.review_agreement_total > strong{
+	padding-top: inherit;
 }
 
 .review_continue {
@@ -77,4 +81,16 @@
 
 .bank_account_method_review {
 	margin-left:15px;
+}
+
+.ca_payment_list{
+  padding-right: 0px;
+}
+.ca_payment_list > li{
+  position: relative;
+}
+.ca_payment_amount{
+  position: absolute;
+  right:0;
+  top:0;
 }

@@ -34,10 +34,6 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 "change input[name=select_bank_account]": "changeAccount"
             },
             initialize: function(options) {
-                this.payment = new PaymentModel();
-                this.payment.agreementVersionID = options.payments.agreementVersionID;
-                this.payment.agreementID = options.payments.agreementID;
-                this.payments = options.payments;
 
                 this.bankAccounts = options.bankAccounts;
                 this.bankAccounts.fetch();
@@ -49,6 +45,9 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 if (this.acceptsCreditCard && this.acceptsBankTransfer) {
                     this.allPaymentMethods = true;
                 }
+                this.payment = this.collection.findWhere({
+                    currentStatus: null
+                });
                 this.render();
             },
 
@@ -58,6 +57,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 this.$el.html(this.template(_.extend({
                     model: this.model.toJSON(),
                     payments: this.collection.toJSON(),
+                    payment: this.payment.toJSON(),
                     acceptsCreditCard: this.acceptsCreditCard,
                     acceptsBankTransfer: this.acceptsBankTransfer,
                     allPaymentMethods: this.allPaymentMethods
@@ -128,20 +128,12 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
 
                 var triggerNotification = _.debounce(fadeInNotification, 300);
 
-                this.payment.get("paymentItems").add({
-                    workItemID: this.model.id,
-                    amount: this.model.get("amountDue")
-                });
-                this.payments.add(this.payment, {
-                    silent: true
-                })
                 var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
                 this.payment.submit({
                     creditSourceID: creditSource
                 }, _.bind(function(response) {
                     fadeOutModal();
                     triggerNotification();
-                    this.payments.trigger('add');
                     this.trigger("paymentRequested", this.payment);
                     this.trigger('hide');
                     if (window.production) {

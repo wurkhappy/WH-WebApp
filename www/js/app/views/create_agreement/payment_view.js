@@ -3,25 +3,28 @@
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley', 'autonumeric',
-        'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/work_item_view',
-        'views/create_agreement/payment_schedule'
+        'hbs!templates/create_agreement/payment_view', 'views/create_agreement/payment_item',
     ],
 
-    function(Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, estimateTemplate, WorkItemView,
-        PaymentSchedule) {
+    function(Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, tpl, PaymentItem) {
 
         'use strict';
 
-        var EstimateView = Backbone.Marionette.CompositeView.extend({
+        var PaymentView = Backbone.Marionette.CompositeView.extend({
 
             className: 'clear white_background',
             attributes: {
                 'id': 'content'
             },
 
-            template: estimateTemplate,
+            template: tpl,
 
-            itemView: WorkItemView,
+            itemView: PaymentItem,
+            itemViewOptions: function() {
+                return {
+                    workItems: this.model.get("workItems")
+                };
+            },
 
             initialize: function(options) {
                 this.router = options.router;
@@ -30,7 +33,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                 this.creditCards = options.user.get("cards");
                 if (this.collection.length === 0) {
                     this.collection.add({})
-                };
+                }
             },
 
             events: {
@@ -55,6 +58,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
             renderModel: function() {
                 var data = {};
                 if (this.deposit) data = this.deposit.toJSON();
+                data.totalAmount = this.model.get("totalAmount");
 
                 //if credit card & bank transfer payment methods are set by default, add them to data object to be rendered
                 // in estimate template
@@ -95,11 +99,23 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
             debounceSaveAndContinue: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
+                var err;
                 _.clone(this.collection).each(_.bind(function(model) {
+                    console.log(_.values(model.attributes).length);
+                    console.log(_.values(model.attributes));
+                    if ((!model.get("title") || !model.get("amountDue") || !model.get("dateExpected")) && !model.get("isDeposit")) {
+                        err = "Please fill out all missing fields";
+                        return;
+                    };
                     if (!model.get("title")) {
                         this.collection.remove(model);
                     };
                 }, this));
+                if (err) {
+                    toastr.error(err);
+                    return;
+                }
+
                 this.saveAndContinue();
             },
 
@@ -107,7 +123,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
 
                 this.model.save({}, {
                     success: _.bind(function(model, response) {
-                        window.location.hash = 'payment';
+                        window.location.hash = 'review';
                     }, this)
                 });
             }, 500, true),
@@ -130,7 +146,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
             mouseEnterNavigation: function(event) {
                 $(event.currentTarget).find("h2").addClass("create_agreement_navigation_link_hover");
             },
-
             mouseLeaveNavigation: function(event) {
                 $(event.currentTarget).find("h2").removeClass("create_agreement_navigation_link_hover");
             },
@@ -141,25 +156,24 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
 
                 if (this.deposit) {
                     this.deposit.set("amountDue", formattedAmount);
-
                 } else {
-                    var Model = this.model.get("workItems").model;
+                    var Model = this.model.get("payments").model;
                     this.deposit = new Model({
                         title: "Deposit",
                         amountDue: formattedAmount,
-                        required: true
+                        isDeposit: true
                     });
-                    this.model.get("workItems").unshift(this.deposit);
+                    this.model.get("payments").unshift(this.deposit);
                 }
 
                 if (adjAmount == 0) {
-                    this.model.get("workItems").remove(this.deposit);
+                    this.model.get("payments").remove(this.deposit);
                 }
             }
 
         });
 
-        return EstimateView;
+        return PaymentView;
 
     }
 );

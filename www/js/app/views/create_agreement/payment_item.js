@@ -2,21 +2,23 @@
  * Scope of Work - Create Agreement View.
  */
 
-define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!templates/create_agreement/work_item_tpl',
-        'views/create_agreement/tasks_view', 'views/create_agreement/deliverable_preview'
+define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
+        'hbs!templates/create_agreement/payment_item'
     ],
 
-    function(Backbone, Handlebars, _, Kalendae, autoNumeric, WorkItemTpl, TasksView, DeliverablePreview) {
+    function(Backbone, Handlebars, _, Kalendae, autoNumeric, itemTpl) {
 
         'use strict';
 
         var WorkItemView = Backbone.View.extend({
 
             tagName: 'div',
+            className: 'paymentItemCreate',
 
-            template: WorkItemTpl,
+            template: itemTpl,
 
             initialize: function(options) {
+                this.workItems = options.workItems;
                 this.router = options.router;
                 this.render();
             },
@@ -24,36 +26,22 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
             render: function() {
 
                 var deposit = this.model.isDeposit();
-                var tasksView = new TasksView({
-                    model: this.model,
-                    collection: this.model.get('scopeItems'),
-                    deposit: deposit
-                });
-                tasksView.render();
-                var preview = new DeliverablePreview({
-                    model: this.model
-                });
-                var html = $(this.template({
+                this.$el.html(this.template({
                     model: this.model.toJSON(),
                     deposit: deposit,
+                    workItems: this.workItems.toJSON(),
                 }));
-                html.find('.tasks_section').html(tasksView.el);
-                this.$el.html(html);
-                this.$('.preview_container').html(preview.el);
-
                 this.$el.fadeIn('slow');
-
                 return this;
 
             },
             events: {
                 "blur input": "updateFields",
                 "blur .paymentAmount": "updateAmount",
-                "blur #require_checkbox": "requireDeposit",
                 "focus .kal": "triggerCalender",
                 "click .remove_icon > a": "removeModel",
                 'focus .currency_format': 'triggerCurrencyFormat',
-                'click #require_checkbox': 'showDeposit'
+                "change .item_check": "updateItemsIncluded"
             },
             updateAmount: function(event) {
 
@@ -70,16 +58,9 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
                 }
 
                 this.model.set(event.target.name, event.target.value);
+                console.log(this.model);
 
             },
-
-            requireDeposit: function(event) {
-                if (!event.target.name) return;
-                if (event.target.value === 'true') {
-                    this.model.set(event.target.name, true);
-                }
-            },
-
             triggerCalender: function(event) {
 
                 var oneWeekFromToday = moment().add('days', 7).calendar();
@@ -122,9 +103,22 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
                     vMax: '100000'
                 });
             },
-
-            showDeposit: function(event) {
-                $('#deposit').fadeToggle('hide');
+            updateItemsIncluded: function(event) {
+                var paymentItems = this.model.get("paymentItems");
+                console.log($(event.target).data("cid"));
+                if (paymentItems.get($(event.target).data("cid"))) {
+                    paymentItems.remove(paymentItems.get($(event.target).data("cid")));
+                    console.log(paymentItems);
+                    return;
+                }
+                var workItemID = $(event.target).data("itemid");
+                var taskID = $(event.target).data("taskid");
+                var collection = paymentItems.add({
+                    taskID: taskID,
+                    workItemID: workItemID
+                });
+                $(event.target).data("cid", collection.at(collection.length - 1).cid);
+                console.log(paymentItems);
             }
 
         });

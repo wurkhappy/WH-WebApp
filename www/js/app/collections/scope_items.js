@@ -2,39 +2,45 @@
  * Collection.
  */
 
- define(['backbone', 'models/scope_item'],
+define(['backbone', 'models/scope_item'],
 
- 	function(Backbone, Model) {
+    function(Backbone, Model) {
 
- 		'use strict';
+        'use strict';
 
- 		var Collection = Backbone.Collection.extend({
+        var Collection = Backbone.Collection.extend({
 
- 			model: Model,
+            model: Model,
 
- 			update: function(){
- 				$.ajax({
- 					type: "PUT",
- 					url: "/agreement/v/"+this.getAgreementVersionID()+"/work_item/"+this.getWorkItemID()+"/tasks",
- 					contentType: "application/json",
- 					dataType: "json",
- 					data:JSON.stringify(this.toJSON()),
- 					success: function(response){
- 						if (_.isFunction(successCallback)) successCallback();
- 					}
- 				});
- 			},
- 			getAgreementVersionID:function(){
- 				return this.parent.getAgreementVersionID();
- 			},
- 			getWorkItemID: function(){
- 				return this.parent.id;
- 			}
+            update: function() {
+                $.ajax({
+                    type: "PUT",
+                    url: "/agreement/v/" + this.getAgreementVersionID() + "/work_item/" + this.getWorkItemID() + "/tasks",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(this.toJSON()),
+                    success: function(response) {
+                        if (_.isFunction(successCallback)) successCallback();
+                    }
+                });
+            },
+            getAgreementVersionID: function() {
+                return this.parent.getAgreementVersionID();
+            },
+            getWorkItemID: function() {
+                return this.parent.id;
+            },
+            getCompleted: function() {
+                var scopeItems = this.filter(function(model) {
+                    return model.get("completed");
+                });
+                return new Collection(scopeItems);
+            }
 
- 		});
+        });
 
- 		return Collection;
+        return Collection;
 
- 	}
+    }
 
- 	);
+);

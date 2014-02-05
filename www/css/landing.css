@@ -24,7 +24,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
@@ -87,34 +87,37 @@ a:active {
 }
 
 /* line 74, ../scss/bases/_common.scss */
-p, ul, ol, dl {
+p {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
 /* line 79, ../scss/bases/_common.scss */
-ul, ol {
-  margin-left: 30px;
+ul {
+  margin: 0px;
+  padding: 0px;
+  padding-left: 20px;
+  list-style: none;
 }
 
-/* line 83, ../scss/bases/_common.scss */
+/* line 87, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 87, ../scss/bases/_common.scss */
+/* line 91, ../scss/bases/_common.scss */
 h1, h2, h3 {
   color: #333333;
   padding: 0 20px;
   font-family: museo;
 }
 
-/* line 93, ../scss/bases/_common.scss */
+/* line 97, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 97, ../scss/bases/_common.scss */
+/* line 101, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
   line-height: 40px;
@@ -122,7 +125,7 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-/* line 104, ../scss/bases/_common.scss */
+/* line 108, ../scss/bases/_common.scss */
 h2 {
   font-size: 24px;
   line-height: 30px;
@@ -130,7 +133,7 @@ h2 {
   font-weight: 100;
 }
 
-/* line 111, ../scss/bases/_common.scss */
+/* line 115, ../scss/bases/_common.scss */
 h3 {
   font-size: 16px;
   line-height: 20px;
@@ -140,31 +143,31 @@ h3 {
 
 /* Forms
 ================================================================================ */
-/* line 122, ../scss/bases/_common.scss */
+/* line 126, ../scss/bases/_common.scss */
 form {
   padding: 0 20px 20px 20px;
 }
 
-/* line 126, ../scss/bases/_common.scss */
+/* line 130, ../scss/bases/_common.scss */
 label, .faux-label {
   display: block;
   padding: 20px 0 5px 0;
   margin: 0;
 }
 
-/* line 132, ../scss/bases/_common.scss */
+/* line 136, ../scss/bases/_common.scss */
 label span {
   display: block;
   font-size: .75em;
   color: #969696;
 }
 
-/* line 138, ../scss/bases/_common.scss */
+/* line 142, ../scss/bases/_common.scss */
 input {
   max-width: 350px;
 }
 
-/* line 142, ../scss/bases/_common.scss */
+/* line 146, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
@@ -175,27 +178,27 @@ input, textarea {
   border-radius: 3px;
 }
 
-/* line 152, ../scss/bases/_common.scss */
+/* line 156, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 159, ../scss/bases/_common.scss */
+/* line 163, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 164, ../scss/bases/_common.scss */
+/* line 168, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 169, ../scss/bases/_common.scss */
+/* line 173, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -204,39 +207,36 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 177, ../scss/bases/_common.scss */
-.content {
-  background-color: white;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-
-/* line 183, ../scss/bases/_common.scss */
+/* line 182, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 188, ../scss/bases/_common.scss */
+/* line 187, ../scss/bases/_common.scss */
 .main_content_container {
-  float: left;
-  border-radius: 15px;
-  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
-  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 3px 5px 3px #CDCED3;
+  -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
+  box-shadow: 0px 3px 5px 3px #CDCED3;
+  background-color: white;
 }
 
-/* line 196, ../scss/bases/_common.scss */
+/* line 194, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 199, ../scss/bases/_common.scss */
+/* line 197, ../scss/bases/_common.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 203, ../scss/bases/_common.scss */
+/* line 200, ../scss/bases/_common.scss */
+.no_bullet {
+  list-style: none;
+}
+
+/* line 204, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -245,7 +245,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 211, ../scss/bases/_common.scss */
+/* line 212, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 14px;
@@ -254,34 +254,61 @@ fieldset {
   text-align: left;
 }
 
-/* line 219, ../scss/bases/_common.scss */
+/* line 220, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 224, ../scss/bases/_common.scss */
+/* line 225, ../scss/bases/_common.scss */
 .divider {
-  border-bottom: 1px solid #dbe0e6;
-  clear: both;
+  border-bottom: 1px solid #c7e0e4;
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 231, ../scss/bases/_common.scss */
+/* line 230, ../scss/bases/_common.scss */
+.divider_left {
+  border-left: 1px solid #c7e0e4;
+}
+
+/* line 233, ../scss/bases/_common.scss */
+.divider_right {
+  border-right: 1px solid #c7e0e4;
+}
+
+/* line 238, ../scss/bases/_common.scss */
 .required {
   color: #972b46;
   display: inline;
 }
 
-/* line 236, ../scss/bases/_common.scss */
+/* line 243, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 240, ../scss/bases/_common.scss */
+/* line 247, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
+}
+
+/* line 250, ../scss/bases/_common.scss */
+.right_align {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* line 255, ../scss/bases/_common.scss */
+.fa.fa-check-circle {
+  color: #9dd573;
+  margin-left: -1.1em;
+}
+
+/* line 259, ../scss/bases/_common.scss */
+.checkmark_holder {
+  position: relative;
 }
 
 @font-face {
@@ -690,11 +717,11 @@ fieldset {
 
 /* line 38, ../scss/components/_buttons.scss */
 .action_button {
-  background-color: #86ce50;
+  background-color: #9dd573;
 }
 /* line 40, ../scss/components/_buttons.scss */
 .action_button:hover {
-  background-color: #7bb84c;
+  background-color: #5ca032;
 }
 
 /* line 45, ../scss/components/_buttons.scss */
@@ -1155,63 +1182,57 @@ label {
 /* line 5, ../scss/components/_footer.scss */
 .footer {
   background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
-  -webkit-border-bottom-right-radius: 10px;
-  -webkit-border-bottom-left-radius: 10px;
-  -moz-border-radius-bottomright: 10px;
-  -moz-border-radius-bottomleft: 10px;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
   border-top: 1px solid #7d7d7d;
   padding-bottom: 10px;
 }
 
-/* line 17, ../scss/components/_footer.scss */
+/* line 11, ../scss/components/_footer.scss */
 .footer_title {
   color: #dce1e6;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
-/* line 23, ../scss/components/_footer.scss */
+/* line 17, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 25, ../scss/components/_footer.scss */
+/* line 19, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 30, ../scss/components/_footer.scss */
+/* line 24, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 35, ../scss/components/_footer.scss */
+/* line 29, ../scss/components/_footer.scss */
 .footer_title > a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 40, ../scss/components/_footer.scss */
+/* line 34, ../scss/components/_footer.scss */
 .landing_footer {
   background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
   border-top: 1px solid #7d7d7d;
   padding-bottom: 10px;
 }
 
-/* line 46, ../scss/components/_footer.scss */
+/* line 40, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 50, ../scss/components/_footer.scss */
+/* line 44, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 55, ../scss/components/_footer.scss */
+/* line 49, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;

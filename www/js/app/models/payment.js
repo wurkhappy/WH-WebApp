@@ -35,18 +35,9 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
                 return this;
             },
             submit: function(data, successCallback) {
-                $.ajax({
-                    type: "POST",
-                    url: "/agreement/v/" + this.getAgreementVersionID() + "/payment/",
-                    contentType: "application/json",
-                    dataType: "json",
-                    data: JSON.stringify(_.extend(this.toJSON(), data)),
-                    success: _.bind(function(response) {
-                        this.set(response);
-                        Backbone.trigger("updateCurrentStatus", this.get("currentStatus"))
-                        if (_.isFunction(successCallback)) successCallback();
-                    }, this)
-                });
+                this.updateStatus(_.extend(data, {
+                    "action": "submitted"
+                }), successCallback);
 
             },
             accept: function(debitSource, paymentType) {

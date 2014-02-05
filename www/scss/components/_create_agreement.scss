@@ -16,8 +16,23 @@
 
 .create_milestone_container {
   padding-bottom:0;
+  display: inline-block;
 }
-
+.include_items_container{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 60px;
+}
+.include_items_container > ul{
+  list-style: none;
+  width: 390px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(150,150,150);
+  height: 233px;
+  overflow-y:scroll;
+}
 .new_deliverable_container{
   display: inline-block;
 }
@@ -26,13 +41,13 @@
   vertical-align: top;
 }
 .deliverable_preview_item{
-    -webkit-border-radius: 5px;
+  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-    border: 1px solid rgb(225,225,225);
-    min-height: 50px;
-    width: 400px;
-    margin-left: 20px;
+  border: 1px solid rgb(225,225,225);
+  min-height: 50px;
+  width: 400px;
+  margin-left: 20px;
 }
 .deliverable_preview_item > ul{
   list-style: none;
@@ -95,4 +110,8 @@
   width: 600px;
   margin-top:40px;
 
+}
+#schedule_templates{
+  vertical-align: top;
+  padding-left: 10px;
 }
