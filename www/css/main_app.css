@@ -4141,14 +4141,15 @@ div.faqcontent h2 {
   overflow-y: scroll;
   border-radius: 5px;
   margin: 0 10px;
+  background: white;
 }
 
-/* line 362, ../scss/components/_agreement.scss */
+/* line 363, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
 }
 
-/* line 366, ../scss/components/_agreement.scss */
+/* line 367, ../scss/components/_agreement.scss */
 .agreement_header_helper {
   min-width: 250px;
 }
@@ -5169,6 +5170,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 660px;
   margin: 0 auto;
   overflow: hidden;
+  background: #f8fbfc;
 }
 /* line 23, ../scss/components/_review_agreement.scss */
 .review_agreement_container .agreement_title {

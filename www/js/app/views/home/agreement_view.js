@@ -20,6 +20,7 @@
         var otherUserID = (this.userIsClient) ? this.model.get("freelancerID") : this.model.get("clientID");
         this.otherUser = options.otherUsers.get(otherUserID);
         this.percentComplete = this.model.percentComplete();
+        console.log(this.percentComplete);
       },
 
       render: function () {
