@@ -30,11 +30,17 @@ define(['backbone', 'models/scope_item'],
             getWorkItemID: function() {
                 return this.parent.id;
             },
+            getUnpaid: function() {
+                var models = this.filter(function(model) {
+                    return !model.get("isPaid");
+                });
+                return new Collection(models);
+            },
             getCompleted: function() {
-                var scopeItems = this.filter(function(model) {
+                var models = this.filter(function(model) {
                     return model.get("completed");
                 });
-                return new Collection(scopeItems);
+                return new Collection(models);
             }
 
         });

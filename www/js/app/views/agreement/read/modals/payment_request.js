@@ -1,8 +1,9 @@
 define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request_tpl',
-        'hbs!templates/agreement/pay_request_methods_tpl', 'hbs!templates/agreement/pay_request_breakout', 'models/payment'
+        'hbs!templates/agreement/pay_request_methods_tpl', 'hbs!templates/agreement/pay_request_breakout', 'models/payment',
+        'views/agreement/invoice_view'
     ],
 
-    function(Backbone, Handlebars, toastr, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl, PaymentModel) {
+    function(Backbone, Handlebars, toastr, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl, PaymentModel, InvoiceView) {
 
         'use strict';
         var PaymentMethods = Backbone.View.extend({
@@ -14,7 +15,6 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 this.render();
             },
             render: function() {
-                console.log(this.bankAccounts.toJSON());
                 this.$el.html(this.template({
                     bankAccounts: this.bankAccounts.toJSON()
                 }));
@@ -40,6 +40,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 this.paymentMethodsView = new PaymentMethods({
                     bankAccounts: this.bankAccounts
                 });
+
                 this.acceptsBankTransfer = options.acceptsBankTransfer;
                 this.acceptsCreditCard = options.acceptsCreditCard;
                 if (this.acceptsCreditCard && this.acceptsBankTransfer) {
@@ -48,6 +49,13 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 this.payment = this.collection.findWhere({
                     currentStatus: null
                 });
+                if (!this.model.get("isDeposit")) {
+
+                    this.invoiceView = new InvoiceView({
+                        model: options.agreement,
+                        payment: this.payment
+                    });
+                }
                 this.render();
             },
 
@@ -64,6 +72,9 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 }, this.calculatePayment())));
 
                 this.$('header').html(this.paymentMethodsView.$el);
+                if (!this.model.get("isDeposit")) {
+                    this.$('#invoice_table').html(this.invoiceView.$el);
+                }
             },
             calculatePayment: function() {
                 var milestonePayment = this.model.get("amountDue");

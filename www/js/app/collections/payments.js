@@ -46,12 +46,11 @@ define(['backbone', 'models/payment'],
                 });
                 return paymentArray[0];
             },
-            findFirstOutstandingPayment: function() {
-                var model = this.at(this.length - 1);
-                if (model.get("currentStatus") && (model.get("currentStatus").get("action") === 'submitted' || model.get("currentStatus").get("action") === 'rejected')) {
-                    return model;
-                }
-                return null;
+            findAllOutstanding: function() {
+                var paymentArray = this.filter(function(model) {
+                    return !model.get("currentStatus") || model.get("currentStatus").get("action") === 'rejected';
+                });
+                return new Collection(paymentArray);
             },
             getAcceptedPayments: function() {
                 var paymentArray = this.filter(function(model) {

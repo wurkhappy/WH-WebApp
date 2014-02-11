@@ -23,11 +23,9 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
 
             render: function() {
 
-                var deposit = this.model.isDeposit();
                 var tasksView = new TasksView({
                     model: this.model,
                     collection: this.model.get('scopeItems'),
-                    deposit: deposit
                 });
                 tasksView.render();
                 var preview = new DeliverablePreview({
@@ -35,7 +33,6 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric', 'hbs!
                 });
                 var html = $(this.template({
                     model: this.model.toJSON(),
-                    deposit: deposit,
                 }));
                 html.find('.tasks_section').html(tasksView.el);
                 this.$el.html(html);

@@ -40,9 +40,6 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
                 }
                 return this;
             },
-            isDeposit: function() {
-                return this.get("title") === "Deposit";
-            },
             getAgreementVersionID: function() {
                 return this.collection.parent.id;
             },
@@ -51,6 +48,9 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
             },
             isComplete: function() {
                 return this.get("scopeItems").getCompleted().length === this.get("scopeItems").length;
+            },
+            isPaid: function() {
+                return this.get("isPaid");
             }
         });
 

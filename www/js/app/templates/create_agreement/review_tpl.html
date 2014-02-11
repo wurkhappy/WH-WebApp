@@ -24,8 +24,9 @@
 	</ul>
 	<h2 class="agreement_title">Accepted Methods of Payment</h2>
 	<div class="payment_method_review_container">
+		<div style="display:inline-block; width:1em; height:1em;"></div>
 		{{#if model.acceptsCreditCard}}
-		<i class="fa fa-check-circle">  <span>Credit Card</span></i>
+		<i class="fa fa-check-circle">  <span>Credit Card</span></i><div style="display:inline-block; width:1em; height:1em;"></div>
 		{{/if}}
 		{{#if model.acceptsBankTransfer}}
 		<i class="fa fa-check-circle bank_account_method_review">  <span>Bank Account</span></i>

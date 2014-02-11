@@ -53,6 +53,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                 }
 
                 this.$el.html(this.payTemplate({
+                    model: this.model.toJSON(),
                     milestonePayment: milestonePayment,
                     amountTotal: amountTotal,
                     creditCards: creditCards.toJSON(),

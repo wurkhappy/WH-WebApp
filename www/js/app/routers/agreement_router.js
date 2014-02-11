@@ -10,7 +10,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
     ],
 
     function(Backbone, FlyingFocus, AgreementModel, LayoutView, WorkItemsReadView, UserView,
-        UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
+        UserEditView, HeaderEditView, DeliverablesEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
         UserModel, ProgressBarView, TagCollection, Modal, NewAccountView, PaymentSchedule) {
 
         'use strict';
@@ -93,10 +93,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     model: this.model,
                     user: this.user
                 }));
-                this.layout.paymentSchedule.show(new PaymentEditView({
-                    model: this.model
-                }));
-                this.layout.profile.show(new UserEditView({
+                this.layout.deliverables.show(new DeliverablesEditView({
                     model: this.model
                 }));
             },

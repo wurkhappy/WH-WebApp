@@ -114,7 +114,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                         });
                         break;
                     case status.StatusAccepted:
-                        if (this.model.get("workItems").findAllOutstanding().length === 0) {
+                        if (this.model.get("payments").getTotalDue() === this.model.get("payments").getTotalPaid()) {
                             this.state = new FinishedState({
                                 model: this.model,
                                 user: this.user,

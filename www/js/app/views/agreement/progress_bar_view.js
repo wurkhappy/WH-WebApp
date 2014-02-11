@@ -100,8 +100,6 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                 });
             },
             updateCollections: function() {
-                this.payments = this.allPayments.getAcceptedPayments();
-                this.payments.add(this.allPayments.at(this.allPayments.length - 1));
                 this.render();
             },
             hoverPayment: function(event) {

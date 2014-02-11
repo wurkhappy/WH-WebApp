@@ -2,9 +2,9 @@
  * Collection.
  */
 
-define(['backbone', 'underscore', 'models/work_item'],
+define(['backbone', 'underscore', 'models/work_item', 'collections/scope_items'],
 
-    function(Backbone, _, Model) {
+    function(Backbone, _, Model, TasksCollection) {
 
         'use strict';
 
@@ -67,6 +67,25 @@ define(['backbone', 'underscore', 'models/work_item'],
                 } else {
                     return (numberAccepted / this.length) * 100;
                 }
+            },
+            getTasks: function() {
+                var collection = new TasksCollection();
+                this.each(function(model) {
+                    collection.add(model.get("scopeItems").models);
+                });
+                return collection;
+            },
+            getUnpaid: function() {
+                var models = this.filter(function(model) {
+                    return !model.get("isPaid");
+                });
+                return new Collection(models);
+            },
+            getCompleted: function() {
+                var models = this.filter(function(model) {
+                    return model.get("completed");
+                });
+                return new Collection(models);
             }
         });
 

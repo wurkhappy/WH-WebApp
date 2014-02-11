@@ -3676,7 +3676,7 @@ div.faqcontent h2 {
 
 /* line 17, ../scss/components/_create_agreement.scss */
 .create_milestone_container {
-  padding-bottom: 0;
+  padding: 0;
   display: inline-block;
 }
 
