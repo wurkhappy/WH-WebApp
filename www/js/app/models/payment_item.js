@@ -11,7 +11,18 @@ define(['backbone', 'backbone-relational'],
                     if (_.has(key, "amountDue")) {
                         key["amountDue"] = parseFloat(key["amountDue"]);
                     }
+                    if (_.has(key, "hours")) {
+                        key["hours"] = parseFloat(key["hours"]);
+                    }
+                    if (_.has(key, "rate")) {
+                        key["rate"] = parseFloat(key["rate"]);
+                    }
+
                 } else if (key === 'amountDue') {
+                    value = parseFloat(value);
+                } else if (key === 'hours') {
+                    value = parseFloat(value);
+                } else if (key === 'rate') {
                     value = parseFloat(value);
                 }
                 Backbone.RelationalModel.prototype.set.apply(this, [key, value, options]);

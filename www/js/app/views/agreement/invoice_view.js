@@ -12,10 +12,22 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/invoice', 'views/agre
             },
             initialize: function(options) {
                 this.payment = options.payment;
-                this.workItems = this.model.get("workItems").getUnpaid().getCompleted();
+                console.log(this.model.get("workItems").getNonPartiallyPaid());
+                this.workItems = this.model.get("workItems").getNonPartiallyPaid().getCompleted();
                 this.tasks = this.model.get("workItems").getTasks().getUnpaid().getCompleted();
                 this.tasks.remove(this.workItems.getTasks().models);
-                this.payment.get("paymentItems").set(this.workItems.toJSON().concat(this.tasks.toJSON()));
+                var workItemsJSON = this.workItems.toJSON();
+                _.each(workItemsJSON, function(item) {
+                    item.workItemID = item.id;
+                });
+                var tasks = [];
+                this.tasks.each(function(model) {
+                    var json = model.toJSON();
+                    json.taskID = model.id;
+                    json.workItemID = model.getWorkItemID();
+                    tasks.push(json);
+                })
+                this.payment.get("paymentItems").set(workItemsJSON.concat(tasks));
                 this.listenTo(this.payment.get("paymentItems"), "change:amountDue", this.upateCost);
                 this.render();
             },

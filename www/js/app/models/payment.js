@@ -16,19 +16,22 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
                 relatedModel: StatusModel,
                 collectionType: StatusCollection,
             }],
+            urlRoot: function() {
+                return "/agreement/v/" + this.getAgreementVersionID() + "/payment";
+            },
             set: function(key, value, options) {
                 Backbone.RelationalModel.prototype.set.apply(this, arguments);
 
                 //amount has to be a float or integer. Backend won't accept number as string.
                 if (typeof key === 'object') {
-                    if (_.has(key, "amount")) {
-                        this.attributes.amount = parseFloat(key["amount"]);
+                    if (_.has(key, "amountDue")) {
+                        this.attributes.amountDue = parseFloat(key["amountDue"]);
                     }
                     if (_.has(key, "dateExpected")) {
                         this.attributes.dateExpected = moment(key["dateExpected"]);
                     }
-                } else if (key === 'amount') {
-                    this.attributes.amount = parseFloat(value);
+                } else if (key === 'amountDue') {
+                    this.attributes.amountDue = parseFloat(value);
                 } else if (key === 'dateExpected') {
                     this.attributes.dateExpected = (typeof value === "string") ? moment(value) : value;
                 }

@@ -140,17 +140,22 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 var triggerNotification = _.debounce(fadeInNotification, 300);
 
                 var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
-                this.payment.submit({
-                    creditSourceID: creditSource
-                }, _.bind(function(response) {
-                    fadeOutModal();
-                    triggerNotification();
-                    this.trigger("paymentRequested", this.payment);
-                    this.trigger('hide');
-                    if (window.production) {
-                        analytics.track('Payment Requested');
-                    }
-                }, this));
+                this.payment.save({}, {
+                    success: _.bind(function() {
+                        this.payment.submit({
+                            creditSourceID: creditSource
+                        }, _.bind(function(response) {
+                            fadeOutModal();
+                            triggerNotification();
+                            this.trigger("paymentRequested", this.payment);
+                            this.trigger('hide');
+                            if (window.production) {
+                                analytics.track('Payment Requested');
+                            }
+                        }, this));
+                    }, this)
+                });
+
             },
 
             showFeeDetail: function(event) {

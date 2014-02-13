@@ -51,6 +51,9 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
             },
             isPaid: function() {
                 return this.get("isPaid");
+            },
+            isPartiallyPaid: function() {
+                return this.get("scopeItems").getPaid().length > 0;
             }
         });
 

@@ -36,6 +36,12 @@ define(['backbone', 'models/scope_item'],
                 });
                 return new Collection(models);
             },
+            getPaid: function() {
+                var models = this.filter(function(model) {
+                    return model.get("isPaid");
+                });
+                return new Collection(models);
+            },
             getCompleted: function() {
                 var models = this.filter(function(model) {
                     return model.get("completed");

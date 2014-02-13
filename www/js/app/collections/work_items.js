@@ -86,7 +86,13 @@ define(['backbone', 'underscore', 'models/work_item', 'collections/scope_items']
                     return model.get("completed");
                 });
                 return new Collection(models);
-            }
+            },
+            getNonPartiallyPaid: function() {
+                var models = this.filter(function(model) {
+                    return !model.isPartiallyPaid();
+                });
+                return new Collection(models);
+            },
         });
 
         return Collection;
