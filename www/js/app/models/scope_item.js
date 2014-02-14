@@ -7,6 +7,9 @@ define(['backbone', 'backbone-relational'],
         var ScopeItem = Backbone.RelationalModel.extend({
             getWorkItemID: function() {
                 return this.collection.getWorkItemID();
+            },
+            isPaid: function() {
+                return this.get("isPaid");
             }
         });
 

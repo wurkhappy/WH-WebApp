@@ -77,11 +77,15 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
             },
             getTotalAmount: function() {
                 return this.get("paymentItems").reduce(function(memo, value) {
-                    return memo + value.get("amount")
+                    var amountDue = value.get("amountDue") || 0;
+                    return memo + amountDue
                 }, 0);
             },
             getAgreementVersionID: function() {
                 return this.collection.getAgreementVersionID();
+            },
+            isPaid: function() {
+                return this.get("amountDue") === this.get("amountPaid") && this.get("amountDue") > 0;
             }
         });
 

@@ -8,6 +8,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/invoice_table', 'view
 
             template: tpl,
             initialize: function(options) {
+                this.listenTo(this.collection, "remove", this.render);
                 this.render();
             },
             render: function() {

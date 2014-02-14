@@ -1,24 +1,10 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette', 'jquery-ui',
-        'hbs!templates/agreement/payment_schedule', 'hbs!templates/agreement/payment_item'
+        'hbs!templates/agreement/payment_schedule', 'views/agreement/payment_item'
     ],
 
-    function(Backbone, Handlebars, _, Marionette, ui, tpl, ItemTpl) {
+    function(Backbone, Handlebars, _, Marionette, ui, tpl, PaymentItemView) {
 
         'use strict';
-
-        var PaymentItemView = Backbone.Marionette.ItemView.extend({
-            template: ItemTpl,
-            tagName: "li",
-            serializeData: function() {
-                var data = {};
-
-                data = this.model.toJSON();
-                data.paid = this.model.get("amountPaid") === this.model.get("amountDue");
-
-                return data;
-            },
-        });
-
 
         var PaymentView = Backbone.Marionette.CompositeView.extend({
 

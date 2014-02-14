@@ -6,12 +6,12 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
         'views/agreement/work_items_read_view', 'views/agreement/user_view',
         'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
         'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
-        'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account', 'views/agreement/payment_schedule'
+        'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account', 'views/agreement/payment_schedule', 'views/agreement/edit/payments_edit'
     ],
 
     function(Backbone, FlyingFocus, AgreementModel, LayoutView, WorkItemsReadView, UserView,
         UserEditView, HeaderEditView, DeliverablesEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
-        UserModel, ProgressBarView, TagCollection, Modal, NewAccountView, PaymentSchedule) {
+        UserModel, ProgressBarView, TagCollection, Modal, NewAccountView, PaymentSchedule, PaymentsEditSchedule) {
 
         'use strict';
 
@@ -95,6 +95,11 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 }));
                 this.layout.deliverables.show(new DeliverablesEditView({
                     model: this.model
+                }));
+                this.layout.paymentSchedule.show(new PaymentsEditSchedule({
+                    collection: this.model.get("payments"),
+                    user: this.user,
+                    otherUser: this.otherUser
                 }));
             },
             newAccount: function() {

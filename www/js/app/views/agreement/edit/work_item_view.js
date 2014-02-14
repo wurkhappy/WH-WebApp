@@ -1,8 +1,8 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette', 'kalendae',
-        'hbs!templates/agreement/edit/work_item_tpl', 'views/agreement/edit/scope_item_view'
+        'hbs!templates/agreement/edit/work_item_tpl', 'views/agreement/edit/scope_item_view', 'views/agreement/task_view'
     ],
 
-    function(Backbone, Handlebars, _, Marionette, Kalendae, paymentItemTemplate, ScopeItemView) {
+    function(Backbone, Handlebars, _, Marionette, Kalendae, paymentItemTemplate, ScopeItemView, TaskPaidView) {
 
         'use strict';
 
@@ -21,9 +21,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'kalendae',
                 "blur .title": "updateTitle",
                 "click #remove_icon": "removeMilestone",
                 "keypress .edit_work_item": "addScopeItem",
-                "click .add_comment": "addComment",
+                "click .add_comment": "addTask",
                 "focus .kal": "triggerCalender",
                 "focus input": "fadeError"
+            },
+            getItemView: function(item) {
+                if (item.isPaid()) return TaskPaidView;
+                return ScopeItemView;
             },
             updateAmount: function(event) {
                 var amount = event.target.value;
@@ -39,7 +43,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'kalendae',
             addScopeItem: function(event) {
                 if (event.keyCode == 13) {
                     this.collection.add({
-                        text: event.target.value
+                        title: event.target.value
                     });
                     event.target.value = null;
                 }
@@ -61,7 +65,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'kalendae',
             closeCalendar: function() {
                 $('.kalendae').hide();
             },
-            addComment: function(event) {
+            addTask: function(event) {
                 var $text = $(event.target).prev('.add_work_item_input'),
                     $input = $('input'),
                     $error = $(event.target).next('.add_work_item_error');
@@ -75,7 +79,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'kalendae',
 
                 } else {
                     this.collection.add({
-                        text: $text.val()
+                        title: $text.val()
                     });
                     $text.val(null);
                     $text.focus();

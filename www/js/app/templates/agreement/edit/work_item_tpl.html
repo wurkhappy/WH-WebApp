@@ -1,5 +1,5 @@
 <div>
-	<input type="text" value="{{title}}"><br>
+	<input class="title" type="text" value="{{title}}"><br>
 	{{#unless required}}
 		<input {{#if dateExpected}} value="{{dateSlashFormat dateExpected}}"{{else}} placeholder="Choose Date" {{/if}} class="kal" name="dateExpected"  type="text">
 	{{/unless}}

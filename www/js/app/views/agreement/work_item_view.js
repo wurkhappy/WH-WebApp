@@ -37,10 +37,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             },
             onRender: function() {
                 this.checkStatus();
+                if (this.model.isPaid()) {
+                    _.defer(_.bind(this.showWorkItem, this));
+                }
             },
 
             showWorkItem: function(event) {
-                console.log("clicked")
                 this.showingItem = !this.showingItem;
                 if (this.showingItem) {
                     if (!this.height) this.height = this.$('.payment_milestone').height();

@@ -28,6 +28,9 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templ
             },
             toggleCheckbox: function(event) {
                 event.stopPropagation();
+                if (this.model.get("isPaid")) {
+                    return;
+                };
                 var $checkbox = $(event.target),
                     $text = $(event.target).siblings('.task');
 

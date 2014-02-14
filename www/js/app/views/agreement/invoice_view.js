@@ -32,7 +32,12 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/invoice', 'views/agre
                 this.render();
             },
             render: function() {
-                this.$el.html(this.template({}));
+                this.$el.html(this.template({
+                    "AGREEMENT_NAME": this.model.get("title"),
+                    "SENDER_FULLNAME": window.thisUser.firstName + " " + window.thisUser.lastName,
+                    "RECIPIENT_FULLNAME": window.otherUser.firstName + " " + window.otherUser.lastName,
+                    "PAYMENT_REQUESTED_DATE": moment().format("MM/DD/YYYY")
+                }));
                 this.table = new InvoiceTable({
                     collection: this.payment.get("paymentItems")
                 });

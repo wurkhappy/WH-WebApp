@@ -27,7 +27,7 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+table, caption {
   margin: 0;
   padding: 0;
   border: 0;
@@ -56,13 +56,12 @@ q:before, q:after {
 
 /* line 42, ../scss/bases/_common.scss */
 table {
-  border-collapse: collapse;
   border-spacing: 0;
 }
 
 /* Typography
 ================================================================================ */
-/* line 52, ../scss/bases/_common.scss */
+/* line 51, ../scss/bases/_common.scss */
 body {
   text-align: left;
   font-family: museo_sans;
@@ -72,14 +71,14 @@ body {
   font-weight: 300;
 }
 
-/* line 62, ../scss/bases/_common.scss */
+/* line 61, ../scss/bases/_common.scss */
 a,
 a:visited {
   text-decoration: none;
   color: #0099dd;
 }
 
-/* line 68, ../scss/bases/_common.scss */
+/* line 67, ../scss/bases/_common.scss */
 a:hover,
 a:active {
   text-decoration: underline;
@@ -87,13 +86,13 @@ a:active {
   cursor: pointer;
 }
 
-/* line 74, ../scss/bases/_common.scss */
+/* line 73, ../scss/bases/_common.scss */
 p {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-/* line 79, ../scss/bases/_common.scss */
+/* line 78, ../scss/bases/_common.scss */
 ul {
   margin: 0px;
   padding: 0px;
@@ -101,24 +100,24 @@ ul {
   list-style: none;
 }
 
-/* line 87, ../scss/bases/_common.scss */
+/* line 86, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 91, ../scss/bases/_common.scss */
+/* line 90, ../scss/bases/_common.scss */
 h1, h2, h3 {
   color: #333333;
   padding: 0 20px;
   font-family: museo;
 }
 
-/* line 97, ../scss/bases/_common.scss */
+/* line 96, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 101, ../scss/bases/_common.scss */
+/* line 100, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
   line-height: 40px;
@@ -126,7 +125,7 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-/* line 108, ../scss/bases/_common.scss */
+/* line 107, ../scss/bases/_common.scss */
 h2 {
   font-size: 24px;
   line-height: 30px;
@@ -134,7 +133,7 @@ h2 {
   font-weight: 100;
 }
 
-/* line 115, ../scss/bases/_common.scss */
+/* line 114, ../scss/bases/_common.scss */
 h3 {
   font-size: 16px;
   line-height: 20px;
@@ -144,31 +143,31 @@ h3 {
 
 /* Forms
 ================================================================================ */
-/* line 126, ../scss/bases/_common.scss */
+/* line 125, ../scss/bases/_common.scss */
 form {
   padding: 0 20px 20px 20px;
 }
 
-/* line 130, ../scss/bases/_common.scss */
+/* line 129, ../scss/bases/_common.scss */
 label, .faux-label {
   display: block;
   padding: 20px 0 5px 0;
   margin: 0;
 }
 
-/* line 136, ../scss/bases/_common.scss */
+/* line 135, ../scss/bases/_common.scss */
 label span {
   display: block;
   font-size: .75em;
   color: #969696;
 }
 
-/* line 142, ../scss/bases/_common.scss */
+/* line 141, ../scss/bases/_common.scss */
 input {
   max-width: 350px;
 }
 
-/* line 146, ../scss/bases/_common.scss */
+/* line 145, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
@@ -179,27 +178,27 @@ input, textarea {
   border-radius: 3px;
 }
 
-/* line 156, ../scss/bases/_common.scss */
+/* line 155, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 163, ../scss/bases/_common.scss */
+/* line 162, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 168, ../scss/bases/_common.scss */
+/* line 167, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 173, ../scss/bases/_common.scss */
+/* line 172, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -208,13 +207,13 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 182, ../scss/bases/_common.scss */
+/* line 181, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 187, ../scss/bases/_common.scss */
+/* line 186, ../scss/bases/_common.scss */
 .main_content_container {
   -moz-box-shadow: 0px 3px 5px 3px #CDCED3;
   -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
@@ -222,22 +221,22 @@ fieldset {
   background-color: white;
 }
 
-/* line 194, ../scss/bases/_common.scss */
+/* line 193, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 197, ../scss/bases/_common.scss */
+/* line 196, ../scss/bases/_common.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 200, ../scss/bases/_common.scss */
+/* line 199, ../scss/bases/_common.scss */
 .no_bullet {
   list-style: none;
 }
 
-/* line 204, ../scss/bases/_common.scss */
+/* line 203, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -246,7 +245,7 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 212, ../scss/bases/_common.scss */
+/* line 211, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 14px;
@@ -255,59 +254,59 @@ fieldset {
   text-align: left;
 }
 
-/* line 220, ../scss/bases/_common.scss */
+/* line 219, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 225, ../scss/bases/_common.scss */
+/* line 224, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #c7e0e4;
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 230, ../scss/bases/_common.scss */
+/* line 229, ../scss/bases/_common.scss */
 .divider_left {
   border-left: 1px solid #c7e0e4;
 }
 
-/* line 233, ../scss/bases/_common.scss */
+/* line 232, ../scss/bases/_common.scss */
 .divider_right {
   border-right: 1px solid #c7e0e4;
 }
 
-/* line 238, ../scss/bases/_common.scss */
+/* line 237, ../scss/bases/_common.scss */
 .required {
   color: #972b46;
   display: inline;
 }
 
-/* line 243, ../scss/bases/_common.scss */
+/* line 242, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 247, ../scss/bases/_common.scss */
+/* line 246, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
 
-/* line 250, ../scss/bases/_common.scss */
+/* line 249, ../scss/bases/_common.scss */
 .right_align {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 255, ../scss/bases/_common.scss */
+/* line 254, ../scss/bases/_common.scss */
 .fa.fa-check-circle {
   color: #9dd573;
   margin-left: -1.1em;
 }
 
-/* line 259, ../scss/bases/_common.scss */
+/* line 258, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }

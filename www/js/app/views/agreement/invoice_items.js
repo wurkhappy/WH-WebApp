@@ -10,7 +10,8 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/invoice_cost', 'hbs!t
             tagName: 'tr',
             events: {
                 "blur input": "updateFields",
-                "keypress input": "validateInput"
+                "keypress input": "validateInput",
+                "click a": "removeItem"
             },
             initialize: function(options) {
                 if (options.hourly) {
@@ -48,6 +49,9 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/invoice_cost', 'hbs!t
                     this.model.set("amountDue", this.model.get("hours") * this.model.get("rate"));
                     this.costCell.text(this.model.get("amountDue"))
                 }
+            },
+            removeItem: function(event) {
+                this.model.collection.remove(this.model);
             }
 
         });
