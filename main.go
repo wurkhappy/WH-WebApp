@@ -54,20 +54,8 @@ func main() {
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.HandleFunc("/css/fonts/", serveFonts)
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
-	// err := http.ListenAndServe(":4000", nil)
 	var err error
-	if *production {
-		go func() {
-			if err := http.ListenAndServeTLS(":443", "ssl/wurkhappy.com.pem", "ssl/wurkhappy.com.key", nil); err != nil {
-				log.Fatalf("ListenAndServeTLS error: %v", err)
-			}
-		}()
-		if err := http.ListenAndServe(":80", http.HandlerFunc(redir)); err != nil {
-			log.Fatalf("ListenAndServe error: %v", err)
-		}
-	} else {
-		err = http.ListenAndServe(":4000", nil)
-	}
+	err = http.ListenAndServe(":4000", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
