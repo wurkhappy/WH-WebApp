@@ -14,7 +14,6 @@ log.txt
 *.gem
 .tmp
 www/js/lib
-WH-WebApp
 dump.rdb
 www-built
 js-gz
