@@ -9,7 +9,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         var WorkItemsReadView = Backbone.Marionette.CompositeView.extend({
 
             template: tpl,
-            templateHelpers:function(){
+            templateHelpers: function() {
                 return {
                     agreementTotal: this.agreementTotal
                 }
@@ -32,6 +32,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.tags = options.tags;
                 this.agreementTotal = this.collection.getTotalAmount();
             }
+
         });
 
         return WorkItemsReadView;

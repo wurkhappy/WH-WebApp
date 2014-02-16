@@ -3,14 +3,8 @@
 
 
 .intro {
-  background: rgb(0,122,177) url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-intro.png) repeat-x top;
+  background-color: $blue_light;
   color: rgb(191,229,246);
-  -webkit-border-top-left-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  -moz-border-radius-topleft: 10px;
-  -moz-border-radius-topright: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   border-bottom: 1px solid rgb(0,122,177);
   padding: 0 0 10px 0;
 }

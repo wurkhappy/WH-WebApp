@@ -1,8 +1,9 @@
 define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request_tpl',
-        'hbs!templates/agreement/pay_request_methods_tpl', 'hbs!templates/agreement/pay_request_breakout', 'models/payment'
+        'hbs!templates/agreement/pay_request_methods_tpl', 'hbs!templates/agreement/pay_request_breakout', 'models/payment',
+        'views/agreement/invoice_view'
     ],
 
-    function(Backbone, Handlebars, toastr, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl, PaymentModel) {
+    function(Backbone, Handlebars, toastr, payRequestTemplate, paymentMethodsTpl, paymentBreakoutTpl, PaymentModel, InvoiceView) {
 
         'use strict';
         var PaymentMethods = Backbone.View.extend({
@@ -14,7 +15,6 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 this.render();
             },
             render: function() {
-                console.log(this.bankAccounts.toJSON());
                 this.$el.html(this.template({
                     bankAccounts: this.bankAccounts.toJSON()
                 }));
@@ -29,26 +29,31 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
 
             events: {
                 "click #pay-button": "requestPayment",
-                "change #milestoneToPay": "updateMilestone",
+                "change #milestoneToPay": "changeMilestone",
                 "click #show_fee_detail": "showFeeDetail",
                 "change input[name=select_bank_account]": "changeAccount"
             },
             initialize: function(options) {
-                this.payment = new PaymentModel();
-                this.payment.agreementVersionID = options.payments.agreementVersionID;
-                this.payment.agreementID = options.payments.agreementID;
-                this.payments = options.payments;
 
                 this.bankAccounts = options.bankAccounts;
                 this.bankAccounts.fetch();
                 this.paymentMethodsView = new PaymentMethods({
                     bankAccounts: this.bankAccounts
                 });
+
                 this.acceptsBankTransfer = options.acceptsBankTransfer;
                 this.acceptsCreditCard = options.acceptsCreditCard;
                 if (this.acceptsCreditCard && this.acceptsBankTransfer) {
                     this.allPaymentMethods = true;
                 }
+                if (!this.model.get("isDeposit")) {
+
+                    this.invoiceView = new InvoiceView({
+                        model: options.agreement,
+                        payment: this.model
+                    });
+                }
+                this.listenTo(this.model.get("paymentItems"), "change:amountDue", this.updateMilestone);
                 this.render();
             },
 
@@ -58,15 +63,21 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 this.$el.html(this.template(_.extend({
                     model: this.model.toJSON(),
                     payments: this.collection.toJSON(),
+                    payment: this.model.toJSON(),
                     acceptsCreditCard: this.acceptsCreditCard,
                     acceptsBankTransfer: this.acceptsBankTransfer,
-                    allPaymentMethods: this.allPaymentMethods
+                    allPaymentMethods: this.allPaymentMethods,
+                    estimatedAmount: this.model.get("amountDue"),
                 }, this.calculatePayment())));
 
                 this.$('header').html(this.paymentMethodsView.$el);
+                if (!this.model.get("isDeposit")) {
+                    this.$('#invoice_table').html(this.invoiceView.$el);
+                }
+                _.defer(_.bind(this.updateMilestone, this));
             },
             calculatePayment: function() {
-                var milestonePayment = this.model.get("amountDue");
+                var milestonePayment = this.model.getTotalAmount();
                 var wurkHappyFee = this.wurkHappyFee(milestonePayment);
                 var bankTransferFee = (milestonePayment * .01) + .55;
                 if (bankTransferFee > 5) {
@@ -101,14 +112,19 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 }
                 return fee;
             },
-            updateMilestone: function(event) {
+            changeMilestone: function(event) {
                 var id = event.target.value;
-                this.model = this.collection.get(id);
-
+                var newModel = this.collection.get(id);
+                newModel.get("paymentItems").set(this.model.get("paymentItems").models);
+                this.model = newModel;
+                this.updateMilestone();
+            },
+            updateMilestone: function() {
                 this.$('#paymentBreakout').html(this.breakoutTpl(_.extend({
                     acceptsCreditCard: this.acceptsCreditCard,
                     acceptsBankTransfer: this.acceptsBankTransfer,
-                    allPaymentMethods: this.allPaymentMethods
+                    allPaymentMethods: this.allPaymentMethods,
+                    estimatedAmount: this.model.get("amountDue"),
                 }, this.calculatePayment())));
             },
             requestPayment: function(event) {
@@ -128,26 +144,23 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
 
                 var triggerNotification = _.debounce(fadeInNotification, 300);
 
-                this.payment.get("paymentItems").add({
-                    workItemID: this.model.id,
-                    amount: this.model.get("amountDue")
-                });
-                this.payments.add(this.payment, {
-                    silent: true
-                })
                 var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
-                this.payment.submit({
-                    creditSourceID: creditSource
-                }, _.bind(function(response) {
-                    fadeOutModal();
-                    triggerNotification();
-                    this.payments.trigger('add');
-                    this.trigger("paymentRequested", this.payment);
-                    this.trigger('hide');
-                    if (window.production) {
-                        analytics.track('Payment Requested');
-                    }
-                }, this));
+                this.model.save({}, {
+                    success: _.bind(function() {
+                        this.model.submit({
+                            creditSourceID: creditSource
+                        }, _.bind(function(response) {
+                            fadeOutModal();
+                            triggerNotification();
+                            this.trigger("paymentRequested", this.model);
+                            this.trigger('hide');
+                            if (window.production) {
+                                analytics.track('Payment Requested');
+                            }
+                        }, this));
+                    }, this)
+                });
+
             },
 
             showFeeDetail: function(event) {

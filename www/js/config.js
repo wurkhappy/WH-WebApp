@@ -36,7 +36,7 @@ require.config({
         text: 'lib/requirejs-text/text',
         moment: 'lib/momentjs/moment',
         "intro": 'lib/intro.js/intro',
-        kalendae: 'lib/kalendae/build/kalendae.standalone.min',
+        kalendae: 'lib/kalendae/build/kalendae.standalone',
         parsley: 'lib/parsleyjs/parsley',
         ckeditor: 'lib/ckeditor/ckeditor',
         ckadapter: 'lib/ckeditor/adapters/jquery',

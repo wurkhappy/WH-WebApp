@@ -1,0 +1,17 @@
+<form parsley-validate parsley-bind class="create_milestone_container">
+  <label for="">Payment Name<span>Examples: Certain deliverables, 30% job complete, final payment, etc.</span></label>
+  <input data-required="true" data-trigger="change" type="text" name="title" placeholder="{{model.title}}" id="" size="50"
+  value="{{model.title}}">
+  <label id="payment_amount" for="">Payment Amount<span>Please enter an amount between $10 and $15,000</span></label>
+  <input data-required="true" data-trigger="change" class="paymentAmount currency_format" type="text" name="amountDue" id="" size="25"
+  value="{{model.amountDue}}" required>
+  <label for="">Expected Payment Date</label>
+  <input data-required="true" data-trigger="change" type="text" name="dateExpected" class="kal" size="25" 
+  value="{{dateSlashFormat model.dateExpected}}" required>
+</form>
+
+<fieldset class="removeButton">
+ <p class="remove_icon">
+  <a <a href="#add_milestone">Remove payment</a>
+</p>
+</fieldset>

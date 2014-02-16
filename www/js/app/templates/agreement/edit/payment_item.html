@@ -1,0 +1,10 @@
+<div class="grid">
+	<input class="col-2-3" type="text" name="title" value="{{title}}" placeholder="Payment Name">
+	<input class="col-1-3" type="text" name="amountDue" value="{{amountDue}}" placeholder="Amount">
+</div>
+	<input {{#if dateExpected}} value="{{dateSlashFormat dateExpected}}"{{else}} placeholder="Choose Date" {{/if}} class="kal" name="dateExpected"  type="text">
+<fieldset class="removeButton">
+	<p class="remove_icon">
+		<a href="remove_milestone" id="remove_icon">Remove Payment</a>
+	</p>
+</fieldset>
