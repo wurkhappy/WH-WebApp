@@ -44,7 +44,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     model: this.model
                 }));
                 this.progress.show(new ProgressBar({
-                    title: "Agreement Deliverables",
+                    title: "Agreement Services",
                     value: 1
                 }));
                 this.main.show(new EstimateView({
@@ -74,7 +74,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     model: this.model
                 }));
                 this.progress.show(new ProgressBar({
-                    title: "Agreement Review",
+                    title: "Send Agreement",
                     value: 3
                 }));
                 this.main.show(new EditView({
