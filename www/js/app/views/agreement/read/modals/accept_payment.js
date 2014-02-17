@@ -130,7 +130,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                 }
 
             },
-            addCreditCard: function() {
+            addCreditCard: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
 
@@ -142,7 +142,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
 
                 this.addPaymentMethodAnimate(610);
             },
-            addBankAccount: function() {
+            addBankAccount: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
 
