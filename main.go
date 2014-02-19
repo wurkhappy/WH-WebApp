@@ -138,6 +138,7 @@ func (h agreementHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, "Not authorized", http.StatusForbidden)
 			return
 		}
+		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/#login", http.StatusFound)
@@ -157,6 +158,7 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, "Not authorized", http.StatusForbidden)
 			return
 		}
+		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/#login", http.StatusFound)
