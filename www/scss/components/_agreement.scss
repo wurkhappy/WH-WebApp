@@ -35,11 +35,12 @@
 }
 
 .payment_milestone {
-  border-top: 1px solid rgb(245,245,245);
-  padding: 10px 0;
+  border-top: 2px dotted hsl(188, 35%, 84%);
+  padding: 10px 5;
+  margin-top: 15px;
   list-style: none;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top:5px;
   overflow: hidden;
   .task_icon {
     margin-left:30px;
@@ -374,10 +375,10 @@
   overflow-y: scroll;
   border-radius: 5px;
   background: hsl(0, 100%, 100%);
-}
-
-.proposed_services_container p {
-  margin:0;
+  p {
+    margin:0;
+    font-size: 16px;
+  }
 }
 
 .agreement_header_helper {

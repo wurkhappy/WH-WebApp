@@ -90,7 +90,7 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                                 "width": (1 - (itemsCompleted / itemsTotal)) * modelSection + "%",
                                 "height": "100%",
                                 "display": "block",
-                                "background": "hsl(210, 13%, 85%)",
+                                "background": "hsl(0, 0%, 73%)",
                                 "float": "left"
                             });
                             wrapper.append(segment);
