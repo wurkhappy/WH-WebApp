@@ -320,7 +320,7 @@ func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *se
 
 	status.AgreementID = id
 	status.UserID = session.Values["id"].(string)
-	status.IPAddress = req.RemoteAddr
+	status.IPAddress = req.Header.Get("X-Real-Ip")
 	data, _ := json.Marshal(status)
 
 	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/status", data)
@@ -344,7 +344,7 @@ func CreatePayment(w http.ResponseWriter, req *http.Request, session *sessions.S
 	fmt.Println(reqData)
 
 	reqData["userID"] = session.Values["id"].(string)
-	reqData["ipAddress"] = req.RemoteAddr
+	status.IPAddress = req.Header.Get("X-Real-Ip")
 	data, _ := json.Marshal(reqData)
 
 	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/payment/", data)
@@ -371,7 +371,7 @@ func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sess
 	status.AgreementID = id
 	status.PaymentID = paymentID
 	status.UserID = session.Values["id"].(string)
-	status.IPAddress = req.RemoteAddr
+	status.IPAddress = req.Header.Get("X-Real-Ip")
 	data, _ := json.Marshal(status)
 
 	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID+"/status", data)
