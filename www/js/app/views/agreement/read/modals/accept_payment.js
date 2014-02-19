@@ -96,11 +96,6 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                 event.preventDefault();
                 event.stopPropagation();
 
-                if (this.acceptsCreditCard && this.creditCards.length < 1) {
-                    toastr.error('Please add a credit card to your account to make payment');
-                    return;
-                }
-
                 var bankAccount = $(".select_bank_account:checked").val();
                 var canDebit = $(".select_bank_account:checked").attr('data-debit');
                 var creditCard = $(".select_credit_card:checked").val()
