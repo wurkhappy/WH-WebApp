@@ -12,6 +12,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'hbs!templates/cre
                 this.listenTo(this.model.get("scopeItems"), "remove", this.render);
                 this.listenTo(this.model, "change", this.render);
                 this.render();
+                console.log(this.model.toJSON());
             },
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));

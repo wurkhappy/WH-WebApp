@@ -1,12 +1,12 @@
 <div class="new_deliverable_container">
   <fieldset class="create_milestone_container">
-    <label for="">Deliverable Name<span>Examples: Certain deliverables, 30% job complete, final payment, etc.</span></label>
+    <label for="">Service Name<span>Examples: Design, wireframes, logo, testing</span></label>
     <input type="text" name="title" placeholder="{{model.title}}" id="" size="50"
     {{#if model.title}}
     value="{{model.title}}"
     {{/if}}
     >
-    <label for="">Expected Date</label>
+    <label for="">Due Date</label>
     <input type="text" name="dateExpected" class="kal" size="25" 
     {{#if model.dateExpected}}
     value="{{dateSlashFormat model.dateExpected}}"
