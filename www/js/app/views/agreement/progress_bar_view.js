@@ -36,6 +36,7 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                 var progressBarWidth = 920;
                 var bulletWidth = 42;
                 var deliverablesCount = this.deliverables.length;
+                var deliverablesWidth = progressBarWidth / deliverablesCount;
                 var deliverables = [];
                 this.deliverables.each(function(model) {
                     var m = model.toJSON();
@@ -45,9 +46,11 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                     } else {
                         m.color = "grey"
                     }
-                    m.margin_left = (progressBarWidth / deliverablesCount) * (index + 1);
+                    m.margin_left = (deliverablesWidth) * (index + 1);
+                    m.title_left = m.margin_left - (deliverablesWidth*.75);
                     deliverables.push(m);
-                })
+                });
+                console.log(deliverables);
 
                 this.$el.html(this.template({
                     deliverables: deliverables,
@@ -65,17 +68,20 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                         var progressvalue = progress.children(".ui-progressbar-value");
                         progressvalue.css("overflow", "hidden");
                         var wrapper = $("<div>");
+                        var wrapperWidth = "920";
                         wrapper.css({
-                            "width": "920px",
+                            "width": wrapperWidth + "px",
                             "height": "100%",
                             "display": "block"
                         });
                         progressvalue.append(wrapper);
                         var deliverablesCount = that.deliverables.length;
-                        that.deliverables.each(function(model) {
+                        that.deliverables.each(function(model,index) {
+                            var bulletWidth = 42;
                             var modelSection = (1 / deliverablesCount) * 100;
                             var itemsCompleted = model.get("scopeItems").getCompleted().length;
                             var itemsTotal = model.get("scopeItems").length;
+                            var items = model.get("scopeItems");
                             var seg = $("<span>");
                             seg.css({
                                 "width": (itemsCompleted / itemsTotal) * modelSection + "%",
@@ -91,9 +97,36 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                                 "height": "100%",
                                 "display": "block",
                                 "background": "hsl(0, 0%, 73%)",
-                                "float": "left"
+                                "float": "left",
                             });
                             wrapper.append(segment);
+                            var itemContainer = $("<div>");
+                            var itemContainerWidth = (wrapperWidth / deliverablesCount);
+                            var itemContainerMargin = itemContainerWidth * index;
+                            itemContainer.css({
+                                "width": itemContainerWidth+"px",
+                                "height": "100%",
+                                "display": "block",
+                                "background": "none",
+                                "margin-left": itemContainerMargin +"px",
+                                "position": "absolute"
+                            });
+                            wrapper.append(itemContainer);
+                            items.each(function(list, index, model) {
+                                var segmentWidth = (wrapperWidth / deliverablesCount);
+                                var itemCount = model.length;
+                                var segLine_margin_left = (segmentWidth/itemCount) * (index + 1);
+                                var segLine = $("<span>");
+                                segLine.css({
+                                    "height":"15px",
+                                    "width": "5px",
+                                    "background":"black",
+                                    "display": "block",
+                                    "position": "absolute",
+                                    "left": segLine_margin_left + "px"
+                                });
+                            itemContainer.append(segLine);
+                            });
                         });
                     }
 

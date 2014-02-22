@@ -1,6 +1,12 @@
 <div class="progress-large progress_bar">
+	{{#each deliverables}}
+		<h2 style="position:absolute;top: -60px;left: {{title_left}}px">{{title}}</h2>
+	{{/each}}
 
 </div>
 <div class="icon_container" style="position:relative;">
-	<div class="progress_icon green_progress" data-paymentid="{{this.id}}" style="left:10px; margin-right:0;"></div>{{#each deliverables}}<div class="progress_icon {{this.color}}_progress" data-paymentid="{{this.id}}" style="left:{{this.margin_left}}px; margin-right:0;"></div>{{/each}}
+	<div class="progress_icon green_progress" data-paymentid="{{this.id}}" style="left:10px; margin-right:0;"></div>
+	{{#each deliverables}}
+	<div class="progress_icon {{this.color}}_progress" data-paymentid="{{this.id}}" style="left:{{this.margin_left}}px; margin-right:0;"></div>
+	{{/each}}
 	</div>

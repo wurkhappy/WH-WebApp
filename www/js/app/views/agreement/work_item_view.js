@@ -12,7 +12,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             itemView: TaskItem,
             itemViewContainer: ".tasks_container",
             events: {
-                "click .payment_milestone": "showWorkItem"
+                "click .show_details_button": "showWorkItem"
             },
             initialize: function(options) {
                 this.collection = this.model.get("scopeItems");
@@ -42,10 +42,14 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 }
 
                 // delay hiding of slightly so that height of the item can be stored.
-                var that = this;
-                _.delay( function() {
-                    that.hideWorkItemsOnLoad();
-                }, 100);
+                // but only trigger if the height hasn't been set, i.e. page hasn't refreshed.
+                // otherwise close will be triggered when task is checked.
+                if (!this.height) {
+                    var that = this;
+                    _.delay( function() {
+                        that.hideWorkItemsOnLoad();
+                    }, 100);
+                }
                 
             },
 
@@ -53,9 +57,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.showingItem = !this.showingItem;
 
                 if (this.showingItem) {
-                    console.log(this);
                     if (!this.height) this.height = this.$('.payment_milestone').height();
-                    console.log(this.$('.payment_milestone').height());
                     this.$('.payment_milestone').animate({
                         'height': '63px'
                     });
