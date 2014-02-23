@@ -1,6 +1,6 @@
 <div class="progress-large progress_bar">
 	{{#each deliverables}}
-		<h2 style="position:absolute;top: -60px;left: {{title_left}}px">{{title}}</h2>
+		<h2 style="color:hsl(200, 80%, 43%);font-weight:300;font-family:museo_sans;font-style:italic;position:absolute;top: -60px;left: {{title_left}}px">{{title}}</h2>
 	{{/each}}
 
 </div>
@@ -10,3 +10,15 @@
 	<div class="progress_icon {{this.color}}_progress" data-paymentid="{{this.id}}" style="left:{{this.margin_left}}px; margin-right:0;"></div>
 	{{/each}}
 	</div>
+
+
+	{{#each deliverables}}
+	<div style="width:{{segment_width}}px;height:4px;background:none;position:absolute;top:0;left:{{placement_left}}px">
+		{{#each scopeItems}}
+			<span class="{{this.color}}_progress_tick agreement_progress_tick" data-paymentid="{{this.id}}" style="height:18px;width:4px;position:absolute;left:{{task_margin_left}}px;top:-7px;"></span>
+		{{/each}}
+	</div>
+	{{/each}}
+
+
+	

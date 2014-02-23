@@ -139,6 +139,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   background: $yellow_progress;
 }
 
+.green_progress_tick {
+  background: $green_progress;
+}
+
+.grey_progress_tick {
+  background: $grey;
+}
+
 .red_progress {
   background: $red_progress;
 }
@@ -331,7 +339,11 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 0px;
 }
 .progress_bar.ui-progressbar{
-  height: 5px;
+  height: 4px;
   border-radius: 0px;
+}
+
+.agreement_progress_tick:last-child {
+  display:none;
 }
 

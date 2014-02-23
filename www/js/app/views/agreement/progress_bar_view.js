@@ -38,22 +38,47 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                 var deliverablesCount = this.deliverables.length;
                 var deliverablesWidth = progressBarWidth / deliverablesCount;
                 var deliverables = [];
+                var tasks = [];
+                var that = this;
                 this.deliverables.each(function(model) {
+
+                    // sort tasks whenever one is checked off so ticks remain consistent 
+                    // with agreement progress percentage
+                    model.get("scopeItems").comparator = function (item) {
+                        if (item.get('completed')) {
+                            return true;
+                        }
+                    };
+                    model.get("scopeItems").sort();
+
                     var m = model.toJSON();
                     var index = model.collection.indexOf(model);
                     if (model.isComplete()) {
                         m.color = "green";
                     } else {
-                        m.color = "grey"
+                        m.color = "grey";
                     }
+
+                    for (var x in m.scopeItems) {
+                        // set how far each task is from the tick container
+                        m.scopeItems[x].task_margin_left = (deliverablesWidth/m.scopeItems.length)*(parseInt(x) + 1) + bulletWidth/2 - 2;
+                        if (m.scopeItems[x].completed === true) {
+                            m.scopeItems[x].color = "green";
+                        } else {
+                            m.scopeItems[x].color = "grey";
+                        }
+                    }
+
+                    m.segment_width = deliverablesWidth;
+                    m.placement_left = (deliverablesWidth) * (index);
                     m.margin_left = (deliverablesWidth) * (index + 1);
                     m.title_left = m.margin_left - (deliverablesWidth*.75);
                     deliverables.push(m);
                 });
-                console.log(deliverables);
 
                 this.$el.html(this.template({
                     deliverables: deliverables,
+                    tasks: tasks
                 }));
                 _.defer(_.bind(this.onRender, this));
                 return this;
@@ -100,33 +125,6 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                                 "float": "left",
                             });
                             wrapper.append(segment);
-                            var itemContainer = $("<div>");
-                            var itemContainerWidth = (wrapperWidth / deliverablesCount);
-                            var itemContainerMargin = itemContainerWidth * index;
-                            itemContainer.css({
-                                "width": itemContainerWidth+"px",
-                                "height": "100%",
-                                "display": "block",
-                                "background": "none",
-                                "margin-left": itemContainerMargin +"px",
-                                "position": "absolute"
-                            });
-                            wrapper.append(itemContainer);
-                            items.each(function(list, index, model) {
-                                var segmentWidth = (wrapperWidth / deliverablesCount);
-                                var itemCount = model.length;
-                                var segLine_margin_left = (segmentWidth/itemCount) * (index + 1);
-                                var segLine = $("<span>");
-                                segLine.css({
-                                    "height":"15px",
-                                    "width": "5px",
-                                    "background":"black",
-                                    "display": "block",
-                                    "position": "absolute",
-                                    "left": segLine_margin_left + "px"
-                                });
-                            itemContainer.append(segLine);
-                            });
                         });
                     }
 
