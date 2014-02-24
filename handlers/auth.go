@@ -18,7 +18,7 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.UserService, "/auth/login", buf.Bytes())
+	resp, statusCode := sendServiceRequest("POST", config.UserService, "/auth/login", buf.Bytes(), "")
 	log.Print(string(resp))
 	if statusCode >= 400 {
 		var rError *responseError
@@ -49,7 +49,7 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	vars := mux.Vars(req)
 	id := vars["id"]
 
-	resp, statusCode := sendServiceRequest("POST", config.UserService, "/user/"+id+"/verify", nil)
+	resp, statusCode := sendServiceRequest("POST", config.UserService, "/user/"+id+"/verify", nil, session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -70,7 +70,7 @@ func VerifyUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 func ForgotPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.UserService, "/password/forgot", buf.Bytes())
+	resp, statusCode := sendServiceRequest("POST", config.UserService, "/password/forgot", buf.Bytes(), "")
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -107,7 +107,7 @@ func GetNewPasswordPage(w http.ResponseWriter, req *http.Request, session *sessi
 func SetNewPassword(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("PUT", config.UserService, "/user/"+session.Values["id"].(string)+"/password", buf.Bytes())
+	resp, statusCode := sendServiceRequest("PUT", config.UserService, "/user/"+session.Values["id"].(string)+"/password", buf.Bytes(), session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
