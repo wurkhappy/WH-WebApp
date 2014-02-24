@@ -12,7 +12,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             itemView: TaskItem,
             itemViewContainer: ".tasks_container",
             events: {
-                "click .show_details_button": "showWorkItem"
+                "click .payment_milestone": "showWorkItem"
             },
             initialize: function(options) {
                 this.collection = this.model.get("scopeItems");

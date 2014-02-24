@@ -17,6 +17,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                 this.user = options.user;
                 this.otherUser = options.otherUser
                 this.changeState();
+                console.log(options);
             },
 
             render: function() {
@@ -28,6 +29,21 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                 var button2Title;
                 var newAgreement;
                 var archived;
+                var user = this.user.toJSON();
+                var otherUser = this.otherUser.toJSON();
+                var client;
+                var freelancer;
+
+                // Determine if this user is the client or the freelancer
+
+                if (this.model.get("clientID") === this.user.get("id")) {
+                    console.log("this is the client");
+                    client = user;
+                    freelancer = otherUser;
+                } else {
+                    client = otherUser;
+                    freelancer = user;
+                }
 
                 // Show the right buttons depending on the state.
 
@@ -64,7 +80,9 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                     button2Title: button2Title,
                     waiting: waiting,
                     archived: archived,
-                    newAgreement: newAgreement
+                    newAgreement: newAgreement,
+                    client: client,
+                    freelancer: freelancer
                 }));
 
                 $('body').scrollTop(0);

@@ -144,7 +144,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .grey_progress_tick {
-  background: $grey;
+  background: $grey_light;
 }
 
 .red_progress {
@@ -159,9 +159,10 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .icon_container {
-  position: absolute;
+  position: relative;
   top: 10.5px;
   z-index:1;
+  left: 40px;
 }
 
 .create_agreement_navigation_link {
@@ -200,20 +201,20 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .progress_icon {
   width: 0;
   height: 0;
-  border: 15px solid transparent;
+  border: 10px solid transparent;
   position: absolute;
-  top: -14px;
-  margin-top: -90px;
+  top: -93px;
   display: inline-block;
+  margin-left:10px;
 }
 .progress_icon:after {
   content: '';
   position: absolute;
-  left: -15px;
-  top: 15px;
+  left: -10px;
+  top: 10px;
   width: 0;
   height: 0;
-  border: 15px solid transparent;
+  border: 10px solid transparent;
 }
 
 .create_agreement_progress_icon {
@@ -341,6 +342,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .progress_bar.ui-progressbar{
   height: 4px;
   border-radius: 0px;
+  width: 800px;
+  margin: 60px;
+  margin-top:80px;
 }
 
 .agreement_progress_tick:last-child {

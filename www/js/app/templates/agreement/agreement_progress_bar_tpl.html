@@ -1,11 +1,13 @@
 <div class="progress-large progress_bar">
 	{{#each deliverables}}
-		<h2 style="color:hsl(200, 80%, 43%);font-weight:300;font-family:museo_sans;font-style:italic;position:absolute;top: -60px;left: {{title_left}}px">{{title}}</h2>
+	<div style="width:{{segment_width}}px;text-align:center;position:absolute;top: -70px;left: {{title_left}}px">
+		<h2 style="font-size:14px;text-transform:uppercase;font-weight:400;color:hsl(200, 80%, 43%);font-family:museo_sans;font-style:italic;">{{title}}</h2>
+	</div>
 	{{/each}}
 
 </div>
-<div class="icon_container" style="position:relative;">
-	<div class="progress_icon green_progress" data-paymentid="{{this.id}}" style="left:10px; margin-right:0;"></div>
+<div class="icon_container">
+	<div class="progress_icon green_progress" data-paymentid="{{this.id}}"></div>
 	{{#each deliverables}}
 	<div class="progress_icon {{this.color}}_progress" data-paymentid="{{this.id}}" style="left:{{this.margin_left}}px; margin-right:0;"></div>
 	{{/each}}
