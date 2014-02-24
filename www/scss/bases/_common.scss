@@ -12,9 +12,9 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+table, caption{
   margin: 0;
   padding: 0;
   border: 0;
@@ -40,7 +40,6 @@ q:before, q:after {
 }
 
 table {
-  border-collapse: collapse;
   border-spacing: 0;
 }
 
@@ -71,14 +70,18 @@ a:active {
   cursor: pointer;
 }
 
-p, ul, ol, dl {
+p{
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-ul, ol {
-  margin-left: 30px;
+ul{
+  margin: 0px;
+  padding: 0px;
+  padding-left: 20px;
+  list-style: none;
 }
+
 
 strong {
   font-weight: bold;
@@ -174,11 +177,6 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-.content {
-  background-color: rgb(255,255,255);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
 
 .white_background {
   background: white;
@@ -186,11 +184,10 @@ fieldset {
 }
 
 .main_content_container {
-  float:left;
-  border-radius: 15px;
-  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
-  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow:    0px 3px 5px 3px #CDCED3;
+  -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
+  box-shadow:         0px 3px 5px 3px #CDCED3;
+  background-color: white;
 }
 
 .hide {
@@ -198,6 +195,9 @@ fieldset {
 }
 .inline_block{
   display: inline-block;
+}
+.no_bullet{
+  list-style: none;
 }
 
 .checkmark {
@@ -222,11 +222,17 @@ fieldset {
 }
 
 .divider {
-  border-bottom: 1px solid hsl(213, 18%, 88%);
-  clear: both;
+  border-bottom: 1px solid $divider;
   margin: 0 auto;
   width: 100%;
 }
+.divider_left{
+  border-left: 1px solid $divider;
+}
+.divider_right{
+  border-right: 1px solid $divider;
+}
+
 
 .required {
   color: $red;
@@ -239,4 +245,16 @@ fieldset {
 
 .gutter {
   margin-left: 40px;
+}
+.right_align{
+  position:absolute;
+  top:0;
+  right:0; 
+}
+.fa.fa-check-circle{
+  color: $green_light;
+  margin-left: -1.1em;
+}
+.checkmark_holder{
+  position: relative;
 }

@@ -1,35 +1,20 @@
 
       <header class="bottom_divider pay_header_container">
       </header>
+              <div class="divider"></div>
+              <br>
       <article>
+<div id="invoice_section">
+  <div id="invoice_table"></div>
+</div>
         <div class="line"></div>
-        <h2 class="pay_header pay_milestone">Get Paid for Milestone 
-          <select id="milestoneToPay" value="{{this.model.id}}">{{#each payments}}
+        <h2 class="pay_header pay_milestone">Get Paid for 
+          <select id="milestoneToPay" value="{{this.payment.id}}">{{#each payments}}
             <option value="{{this.id}}">{{this.title}}</option>
             {{/each}}
             </select></h2>
         <div id="paymentBreakout">
-          <ul class="line_item_container">
-            <li class="line_item"><span class="line_item_title line_item_title_small">Milestone Amount:</span> ${{milestonePayment}}</li>
-            <li class="line_item"><span class="line_item_title line_item_title_small">Fees (<a id="show_fee_detail" href="#show_fees">detail</a>):</span> ${{feeTotal}}</li>
-            <div class="fee_detail_container hide">
-              <ul>
-              <li class="fee_line_item">Wurk Happy Fee: <span class="fee_amount">${{wurkHappyFee}}</span></li>
-              {{#if allPaymentMethods}}
-                  <li class="fee_line_item">Payment Processing Fee*: <span class="fee_amount">${{processingFee}}</span></li>
-                  <span class="helper_text">*Credit card fee shown. Actual fee depends on selected payment method.</span>
-              {{else}}
-                {{#if acceptsCreditCard}}
-                   <li class="fee_line_item">Credit Card Fee: <span class="fee_amount">${{creditCardFee}}</span></li>
-                {{/if}}
-                {{#if acceptsBankTransfer}}
-                   <li class="fee_line_item">Bank Transfer Fee: <span class="fee_amount">${{bankTransferFee}}</span></li>
-                {{/if}}
-              {{/if}}
-              </ul>
-            </div>
-            <li class="line_item line_item_total"><span class="line_item_title">You Will Receive:</span> ${{amountTotal}}</li>
-          </ul>
+
         </div>
         <a id="pay-button" class="button action_button pay_button">Request Payment</a>
       </article>

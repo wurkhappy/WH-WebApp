@@ -1,0 +1,10 @@
+<h3>Preview</h3>
+<div class="deliverable_preview_item">
+<h3>{{title}}
+{{#if dateExpected}}<span class="helper_text">Due on {{dateFormat dateExpected}}</span>{{/if}}</h3>
+<ul>
+	{{#each scopeItems}}
+	<li>{{title}}</li>
+	{{/each}}
+</ul>
+</div>

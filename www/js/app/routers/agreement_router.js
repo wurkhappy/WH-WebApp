@@ -2,16 +2,16 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
- define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
-    'views/agreement/work_items_read_view', 'views/agreement/user_view',
-    'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
-    'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
-    'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account'
+define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
+        'views/agreement/work_items_read_view', 'views/agreement/user_view',
+        'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
+        'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
+        'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account', 'views/agreement/payment_schedule', 'views/agreement/edit/payments_edit'
     ],
 
     function(Backbone, FlyingFocus, AgreementModel, LayoutView, WorkItemsReadView, UserView,
-        UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
-        UserModel, ProgressBarView, TagCollection, Modal, NewAccountView) {
+        UserEditView, HeaderEditView, DeliverablesEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
+        UserModel, ProgressBarView, TagCollection, Modal, NewAccountView, PaymentSchedule, PaymentsEditSchedule) {
 
         'use strict';
 
@@ -49,7 +49,9 @@
 
             readAgreement: function() {
                 if (this.originalModelData) {
-                    this.model.clear({silent:true});
+                    this.model.clear({
+                        silent: true
+                    });
                     this.model.set(this.originalModelData);
                     this.originalModelData = null;
                 }
@@ -59,14 +61,19 @@
                 this.layout.paymentMethods.show(new PaymentMethodsView({
                     model: this.model
                 }));
-                this.layout.paymentSchedule.show(new WorkItemsReadView({
+                this.layout.deliverables.show(new WorkItemsReadView({
                     collection: this.model.get("workItems"),
                     user: this.user,
                     otherUser: this.otherUser,
                     messages: this.model.get("comments"),
                     tags: this.tags
                 }));
-                this.layout.profile.show(new UserView());
+                this.layout.paymentSchedule.show(new PaymentSchedule({
+                    collection: this.model.get("payments"),
+                    user: this.user,
+                    otherUser: this.otherUser
+                }));
+                // this.layout.profile.show(new UserView());
                 this.layout.header.show(new HeaderView({
                     model: this.model,
                     user: this.user,
@@ -86,11 +93,13 @@
                     model: this.model,
                     user: this.user
                 }));
-                this.layout.paymentSchedule.show(new PaymentEditView({
+                this.layout.deliverables.show(new DeliverablesEditView({
                     model: this.model
                 }));
-                this.layout.profile.show(new UserEditView({
-                    model: this.model
+                this.layout.paymentSchedule.show(new PaymentsEditSchedule({
+                    collection: this.model.get("payments"),
+                    user: this.user,
+                    otherUser: this.otherUser
                 }));
             },
             newAccount: function() {
@@ -113,7 +122,7 @@
 
         });
 
-return AgreementRouter;
+        return AgreementRouter;
 
-}
+    }
 );

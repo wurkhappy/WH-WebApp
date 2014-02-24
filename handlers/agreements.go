@@ -366,6 +366,23 @@ func CreatePayment(w http.ResponseWriter, req *http.Request, session *sessions.S
 	w.Write(resp)
 }
 
+func UpdatePayment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	id := vars["versionID"]
+	paymentID := vars["paymentID"]
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID, buf.Bytes())
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+	w.Write(resp)
+}
+
 func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 	id := vars["versionID"]

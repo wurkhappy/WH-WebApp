@@ -16,37 +16,31 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
                 relatedModel: StatusModel,
                 collectionType: StatusCollection,
             }],
+            urlRoot: function() {
+                return "/agreement/v/" + this.getAgreementVersionID() + "/payment";
+            },
             set: function(key, value, options) {
                 Backbone.RelationalModel.prototype.set.apply(this, arguments);
 
                 //amount has to be a float or integer. Backend won't accept number as string.
                 if (typeof key === 'object') {
-                    if (_.has(key, "amount")) {
-                        this.attributes.amount = parseFloat(key["amount"]);
+                    if (_.has(key, "amountDue")) {
+                        this.attributes.amountDue = parseFloat(key["amountDue"]);
                     }
                     if (_.has(key, "dateExpected")) {
                         this.attributes.dateExpected = moment(key["dateExpected"]);
                     }
-                } else if (key === 'amount') {
-                    this.attributes.amount = parseFloat(value);
+                } else if (key === 'amountDue') {
+                    this.attributes.amountDue = parseFloat(value);
                 } else if (key === 'dateExpected') {
                     this.attributes.dateExpected = (typeof value === "string") ? moment(value) : value;
                 }
                 return this;
             },
             submit: function(data, successCallback) {
-                $.ajax({
-                    type: "POST",
-                    url: "/agreement/v/" + this.getAgreementVersionID() + "/payment/",
-                    contentType: "application/json",
-                    dataType: "json",
-                    data: JSON.stringify(_.extend(this.toJSON(), data)),
-                    success: _.bind(function(response) {
-                        this.set(response);
-                        Backbone.trigger("updateCurrentStatus", this.get("currentStatus"))
-                        if (_.isFunction(successCallback)) successCallback();
-                    }, this)
-                });
+                this.updateStatus(_.extend(data, {
+                    "action": "submitted"
+                }), successCallback);
 
             },
             accept: function(debitSource, paymentType) {
@@ -83,11 +77,15 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
             },
             getTotalAmount: function() {
                 return this.get("paymentItems").reduce(function(memo, value) {
-                    return memo + value.get("amount")
+                    var amountDue = value.get("amountDue") || 0;
+                    return memo + amountDue
                 }, 0);
             },
             getAgreementVersionID: function() {
                 return this.collection.getAgreementVersionID();
+            },
+            isPaid: function() {
+                return this.get("amountDue") === this.get("amountPaid") && this.get("amountDue") > 0;
             }
         });
 

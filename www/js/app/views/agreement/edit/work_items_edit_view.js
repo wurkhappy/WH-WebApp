@@ -1,39 +1,40 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-  'hbs!templates/agreement/edit/work_item_edit_tpl', 'views/agreement/edit/work_item_view',
-  'views/agreement/work_item_view'],
+        'hbs!templates/agreement/edit/work_item_edit_tpl', 'views/agreement/edit/work_item_view',
+        'views/agreement/work_item_view'
+    ],
 
-  function (Backbone, Handlebars, _, Marionette, workItemEditTemplate, WorkItemView, WorkItemPaidView) {
+    function(Backbone, Handlebars, _, Marionette, workItemEditTemplate, WorkItemView, WorkItemPaidView) {
 
-    'use strict';
+        'use strict';
 
-    var WorkItemEditView = Backbone.Marionette.CompositeView.extend({
+        var WorkItemEditView = Backbone.Marionette.CompositeView.extend({
 
-      template: workItemEditTemplate,
+            template: workItemEditTemplate,
 
-      itemView: WorkItemView,
-      itemViewContainer:'ul',
+            itemView: WorkItemView,
+            itemViewContainer: 'ul',
 
-      initialize:function(){
-        this.collection = this.model.get("workItems");
-      },
-      events:{
-        "click #addMoreButton" : "addMilestone"
-      },
-      getItemView: function(item) {
-        if (item.get("amountDue") === item.get("amountPaid")) return WorkItemPaidView;
-        return WorkItemView;
-      },
+            initialize: function() {
+                this.collection = this.model.get("workItems");
+            },
+            events: {
+                "click #addMoreButton": "addMilestone"
+            },
+            getItemView: function(item) {
+                if (item.isPaid()) return WorkItemPaidView;
+                return WorkItemView;
+            },
 
-      addMilestone:function(event){
-        event.preventDefault();
-        event.stopPropagation();
-        
-        this.collection.add({amountDue:0.00, title:"New Milestone"});
-      },
+            addMilestone: function(event) {
+                event.preventDefault();
+                event.stopPropagation();
 
-    });
+                this.collection.add({});
+            },
 
-    return WorkItemEditView;
+        });
 
-  }
-  );
+        return WorkItemEditView;
+
+    }
+);

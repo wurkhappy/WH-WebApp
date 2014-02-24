@@ -9,7 +9,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
         var WorkItemsReadView = Backbone.Marionette.CompositeView.extend({
 
             template: tpl,
-            templateHelpers:function(){
+            templateHelpers: function() {
                 return {
                     agreementTotal: this.agreementTotal
                 }

@@ -1,10 +1,11 @@
 /*
-* Agreements Model.
-*/
+ * Agreements Model.
+ */
 
 
-define(['backbone','backbone-relational', 'moment', 'models/payment', 'collections/payments',
-    'models/status', 'collections/status',  'models/comment', 'collections/comments', 'models/work_item', 'collections/work_items',],
+define(['backbone', 'backbone-relational', 'moment', 'models/payment', 'collections/payments',
+        'models/status', 'collections/status', 'models/comment', 'collections/comments', 'models/work_item', 'collections/work_items',
+    ],
 
     function(Backbone, Relational, moment, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
         CommentModel, CommentCollection, WorkItemModel, WorkItemCollection) {
@@ -21,8 +22,7 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                     key: 'parent',
                     includeInJSON: false
                 }
-            },
-            {
+            }, {
                 type: Backbone.HasMany,
                 key: 'workItems',
                 relatedModel: WorkItemModel,
@@ -31,8 +31,7 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                     key: 'parent',
                     includeInJSON: false
                 }
-            },
-            {
+            }, {
                 type: Backbone.HasMany,
                 key: 'statusHistory',
                 relatedModel: StatusModel,
@@ -41,13 +40,11 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                     key: 'parent',
                     includeInJSON: false
                 }
-            },
-            {
+            }, {
                 type: Backbone.HasOne,
                 key: 'currentStatus',
                 relatedModel: StatusModel,
-            },
-            {
+            }, {
                 type: Backbone.HasMany,
                 key: 'comments',
                 relatedModel: CommentModel,
@@ -57,83 +54,92 @@ define(['backbone','backbone-relational', 'moment', 'models/payment', 'collectio
                     key: 'parent',
                     includeInJSON: false
                 }
-            }
-            ],
+            }],
 
             idAttribute: "versionID",
             userID: "",
-            initialize: function(){
+            initialize: function() {
                 this.listenTo(Backbone, "updateCurrentStatus", this.setCurrentStatus);
             },
-            set: function( key, value, options ) {
-                Backbone.RelationalModel.prototype.set.apply( this, arguments );
+            set: function(key, value, options) {
+                Backbone.RelationalModel.prototype.set.apply(this, arguments);
 
                 if (typeof key === 'object') {
                     if (_.has(key, "dateCreated")) {
                         this.attributes.dateCreated = moment(key["dateCreated"]);
                     }
-                } else if (key === 'dateCreated'){
+                    if (_.has(key, "totalAmount")) {
+                        this.attributes.totalAmount = parseFloat(key["totalAmount"]);
+                    }
+                } else if (key === 'dateCreated') {
                     this.attributes.dateCreated = moment(value);
+                } else if (key === 'totalAmount') {
+                    this.attributes.totalAmount = parseFloat(value);
                 }
                 return this;
             },
-            setCurrentStatus: function(model){
+            setCurrentStatus: function(model) {
                 this.set("currentStatus", model);
             },
-            urlRoot:function(){
+            urlRoot: function() {
                 return "/agreement/v";
             },
-            submit: function(message, successCallback){
+            submit: function(message, successCallback) {
                 this.updateStatus("submitted", message, successCallback);
             },
-            accept: function(message, successCallback){
+            accept: function(message, successCallback) {
                 this.updateStatus("accepted", message, successCallback);
             },
-            reject: function(message, successCallback){
+            reject: function(message, successCallback) {
                 this.updateStatus("rejected", message, successCallback);
             },
-            updateStatus:function(action, message, successCallback){
+            updateStatus: function(action, message, successCallback) {
                 $.ajax({
                     type: "POST",
-                    url: "/agreement/v/"+this.id+"/status",
+                    url: "/agreement/v/" + this.id + "/status",
                     contentType: "application/json",
                     dataType: "json",
-                    data:JSON.stringify({"action":action, "message":message}),
-                    success: _.bind(function(response){
+                    data: JSON.stringify({
+                        "action": action,
+                        "message": message
+                    }),
+                    success: _.bind(function(response) {
                         this.set("currentStatus", response);
                         if (_.isFunction(successCallback)) successCallback();
                     }, this)
                 });
             },
-            archive: function(userID, successCallback){
+            archive: function(userID, successCallback) {
                 $.ajax({
                     type: "POST",
-                    url: "/agreement/v/"+this.id+"/archive",
+                    url: "/agreement/v/" + this.id + "/archive",
                     contentType: "application/json",
                     dataType: "json",
-                    data:JSON.stringify({userID: userID}),
-                    success: _.bind(function(response){
+                    data: JSON.stringify({
+                        userID: userID
+                    }),
+                    success: _.bind(function(response) {
                         this.set(response);
                         this.get("currentStatus").trigger("change");
                         if (_.isFunction(successCallback)) successCallback();
                     }, this)
                 });
             },
-            percentComplete: function(){
+            percentComplete: function() {
                 var deposit = this.get("workItems").findDeposit();
                 var depositAmount = (deposit) ? deposit.get("amountDue") : 0;
                 var totalAmountExDeposit = this.get("workItems").getTotalAmount() - depositAmount;
                 if (totalAmountExDeposit === 0) {
                     return 0;
                 } else {
-                    return ((this.get("payments").getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
+                    return ((this.get("payments").getTotalDue() - depositAmount) / totalAmountExDeposit) * 100;
                 }
 
             }
         });
 
-return Agreement;
+        return Agreement;
 
-}
+    }
 
 );

@@ -1,39 +1,17 @@
-<div class="payment_methods_container">
-  <label>Select Accepted Methods of Payment</label>
-  <input type="checkbox" name="acceptsBankTransfer" value="true" class="payment_method"
-  {{#if acceptsBankTransfer}}
-   checked
-   {{/if}}
-   >
-  <span class="helper_text require_deposit_text"><span class="payment_method_title">Bank Account</span> (costs receiver 1% + 55 centers up to $5 cap)</span><br>
-  <input type="checkbox" name="acceptsCreditCard" value="true" class="payment_method" 
-  {{#if acceptsCreditCard}}
-  checked
-  {{/if}}
-  >
-  <span class="helper_text require_deposit_text"><span class="payment_method_title">Credit Card</span> (costs receiver 2.9% + 55 cents)</span>
-</div>
+
 <div class="divider"></div>
 
 <form id="estimate_form" action="" method="get" accept-charset="utf-8">
-  <div class="deposit_container">
-    <label>Agreement Deposit</label>
-    <span class="helper_text">Enter an amount here to require payment upon acceptance of this agreement</span>
-    <input 
-           data-minamount="3"
-           data-minlength="6"
-           type="text" id="deposit" class="currency_format" name="amountDue" 
-    value="{{ReplaceNumberWithCommas amountDue}}" 
-    placeholder="$0.00">
+
+
+    <p id="addMoreButton" class="addMoreButton add_milestone_button add-more">
+    	<a href="#add_milestone">Add Another Service</a>
+    </p>
+  <div class="divider"></div>
+  <div id="schedule_section">
   </div>
 
-  <fieldset id="addMoreButton" class="addMoreButton add_milestone_button">
-    <p class="add-more">
-    	<a href="#add_milestone">Add Another Payment</a>
-    </p>
-  </fieldset>
-
-  <div class="button_container">
+  <div class="button_container" style="margin-top:15px;">
     <a id="save_continue" href="#save_and_continue" class="button cancel single">Save and Continue</a>
   </div>
 </form>

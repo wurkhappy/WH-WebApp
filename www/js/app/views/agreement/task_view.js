@@ -1,44 +1,47 @@
-
 define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templates/agreement/empty_tasks_tpl'],
 
-  function (Backbone, Handlebars, taskTpl, EmptyTemplate) {
+    function(Backbone, Handlebars, taskTpl, EmptyTemplate) {
 
-    'use strict';
+        'use strict';
 
-    var NoItemsView = Backbone.Marionette.ItemView.extend({
-      template: EmptyTemplate,
-    });
+        var NoItemsView = Backbone.Marionette.ItemView.extend({
+            template: EmptyTemplate,
+        });
 
-    var TaskView = Backbone.View.extend({
+        var TaskView = Backbone.View.extend({
 
-      template: taskTpl,
-      emptyView: NoItemsView,
-      className: "check_item",
-      events:{
-        "click .checkbox": "toggleCheckbox"
-      },
-      initialize: function() {
-        this.render();
-      },
+            template: taskTpl,
+            emptyView: NoItemsView,
+            className: "check_item",
+            events: {
+                "click .checkbox": "toggleCheckbox"
+            },
+            initialize: function() {
+                this.render();
+            },
 
-      render: function () {
-        this.$el.html(this.template(this.model.toJSON()));
+            render: function() {
+                this.$el.html(this.template(this.model.toJSON()));
 
-        return this;
+                return this;
 
-      },
-      toggleCheckbox: function(event) {
-        var $checkbox = $(event.target),
-        $text = $(event.target).siblings('.task');
+            },
+            toggleCheckbox: function(event) {
+                event.stopPropagation();
+                if (this.model.get("isPaid")) {
+                    return;
+                };
+                var $checkbox = $(event.target),
+                    $text = $(event.target).siblings('.task');
 
-        $checkbox.toggleClass("checkbox_complete");
-        $text.toggleClass("task_complete");
-        this.model.set("completed", !this.model.get("completed"));
-      }
+                $checkbox.toggleClass("checkbox_complete");
+                $text.toggleClass("task_complete");
+                this.model.set("completed", !this.model.get("completed"));
+            }
 
-    });
+        });
 
-    return TaskView;
+        return TaskView;
 
-  }
-  );
+    }
+);

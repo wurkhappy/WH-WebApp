@@ -59,8 +59,11 @@
             dataType: "json",
             data:JSON.stringify(this.user),
             success: _.bind(function(response){
-              this.$('form').html("Please check your e-mail to renew your password.");
+              this.$('form').html("Please check your email to reset your password.");
             }, this)
+          }).fail( function(response){
+            $('#target').addClass('parsley-error');
+            $('#server_error').html('<ul class="parsley-error-list" style="display: block;"><li class="type" style="display: list-item;">'+response.responseText+'</li></ul>');
           })
         }, 500, true)
 

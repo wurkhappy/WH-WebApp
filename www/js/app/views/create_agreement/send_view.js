@@ -22,10 +22,10 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                 this.render();
             },
             render: function() {
-                this.deposit = this.model.get("workItems").at(0);
+                this.deposit = this.model.get("payments").findDeposit();
                 this.hasDeposit;
 
-                if (this.deposit && this.deposit.get("required") && this.deposit.get("amountDue") > 0 && this.user.id === this.model.get("freelancerID")) {
+                if (this.deposit && this.user.id === this.model.get("freelancerID")) {
                     this.hasDeposit = true;
                 }
                 var otherUserEmail = (this.otherUser) ? this.otherUser.get("email") : null;
@@ -112,7 +112,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                     success: function(model, response) {
                         var view = new DepositRequestModal({
                             model: that.deposit,
-                            collection: that.model.get("workItems"),
+                            collection: that.model.get("payments"),
                             payments: that.model.get("payments"),
                             cards: that.user.get("cards"),
                             bankAccounts: that.user.get("bank_accounts"),
@@ -125,9 +125,9 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                         that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
                         that.modal.show();
                         if (window.production) {
-                            analytics.track('Agreement Sent');    
+                            analytics.track('Agreement Sent');
                         }
-                        
+
                     }
                 });
             },

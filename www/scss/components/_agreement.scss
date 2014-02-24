@@ -2,6 +2,14 @@
 .meta {
   padding-bottom: 20px;
 }
+.ag_section{
+  padding: 20px;
+  padding-bottom: 0px;
+}
+.ag_subsection{
+  padding-left: 20px;
+  margin-top: 10px;
+}
 
 .agreement_profile_container {
   padding: 15px 20px 15px 20px;
@@ -9,21 +17,31 @@
 }
 
 .agreement_title {
+  color: $blue_light;
+  font-weight: 300;
+  margin: 0;
   padding: 0;
-  margin: 20px 20px 10px 20px;
+}
+.agreement_subtitle{
+  color: $blue_light;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
 }
 
 .payment_milestone_container {
-  margin: 0 20px 10px 20px;
+  margin-left: 20px;
   padding: 0;
 }
 
 .payment_milestone {
-  border-top: 1px solid rgb(245,245,245);
-  padding: 10px 0;
+  border-top: 2px dotted hsl(188, 35%, 84%);
+  padding: 10px 5;
+  margin-top: 15px;
   list-style: none;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top:5px;
+  overflow: hidden;
   .task_icon {
     margin-left:30px;
   }
@@ -356,15 +374,31 @@
   border: 1px solid hsl(210, 20%, 98%);
   overflow-y: scroll;
   border-radius: 5px;
-  margin: 0 10px;
   background: hsl(0, 100%, 100%);
-}
-
-.proposed_services_container p {
-  margin:0;
+  p {
+    margin:0;
+    font-size: 16px;
+  }
 }
 
 .agreement_header_helper {
   min-width: 250px;
+}
+.deliverable_info{
+  font-size: 14px;
+  text-align: right;
+  color: $grey;
+}
+.tasks_meta{
+  display: inline-block;
+}
+.tasks_meta.current{
+  color: $green_light;
+}
+.show_details_button{
+  display: inline-block;
+}
+.deliverable_title{
+  color: $blue_light;
 }
 
