@@ -30,6 +30,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 var data = this.model.toJSON();
                 data.numberOfTasks = this.collection.length;
                 data.tasksCompleted = this.collection.getCompleted().length;
+
+                if (this.model.isComplete()) {
+                    data.color = 'green';
+                } else {
+                    data.color = 'orange';
+                }
+
                 data = this.mixinTemplateHelpers(data);
 
                 var template = this.getTemplate();
@@ -61,13 +68,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     this.$('.payment_milestone').animate({
                         'height': '63px'
                     });
-                    this.$('.show_details_button').text('Show Details');
+                    this.$('.show_details_button').text(' Show Details');
                 } else {
 
                     this.$('.payment_milestone').animate({
                         'height': this.height + 'px'
                     });
-                    this.$('.show_details_button').text('Hide Details');
+                    this.$('.show_details_button').text(' Hide Details');
                 }
             },
 

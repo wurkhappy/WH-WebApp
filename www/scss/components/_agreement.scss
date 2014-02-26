@@ -7,7 +7,7 @@
   padding-bottom: 0px;
 }
 .ag_subsection{
-  padding-left: 20px;
+  padding: 0;
   margin-top: 10px;
 }
 
@@ -17,16 +17,15 @@
 }
 
 .agreement_title {
-  color: $blue_light;
-  font-weight: 300;
+  color: $blue;
   margin: 0;
   padding: 0;
   font-weight: 100;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .agreement_main {
-  color: $blue_light;
+  color: $blue;
   font-weight: 300;
   margin: 0;
   padding: 0;
@@ -34,10 +33,12 @@
 
 
 .agreement_subtitle{
-  color: $blue_light;
-  font-weight: 100;
+  color: hsl(202, 54%, 54%);
+  font-weight: 500;
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
 .payment_milestone_container {
@@ -61,6 +62,9 @@
     .work_item_detail_link {
       color:hsl(198, 100%, 43%);
     }
+    /*.show_details_button {
+      color: $orange;
+    }*/
   }
 }
 
@@ -394,24 +398,27 @@
 .agreement_header_helper {
   min-width: 250px;
 }
-.deliverable_info{
+.deliverable_info {
   font-size: 14px;
   text-align: right;
-  color: $grey;
 }
 .tasks_meta{
   display: inline-block;
   font-style: italic;
   font-size: 13px;
+  font-weight:400;
 }
 .tasks_meta.current{
-  color: $green_light;
+  color: $green;
 }
-.show_details_button{
+.show_details_button {
   display: inline-block;
   font-style: italic;
   font-size: 13px;
+  color: $grey;
+  font-weight:300;
 }
+
 .deliverable_title{
   color: $blue_light;
   font-family: museo;

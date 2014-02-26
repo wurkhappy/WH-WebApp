@@ -48,19 +48,19 @@ progress[value]::-webkit-progress-value {
 /* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
 
 progress[value]::-moz-progress-bar {
-  background: $green_progress;
+  background: $green;
   border-radius:10px;
 }
 
 progress::-webkit-progress-value, progress.yellow_progress {
-  background: $green_progress;
+  background: $green;
   border-radius:10px;
 }
 
 
 /* Fallback technique styles */
 .progress-bar {
-  background-color: $green_progress;
+  background-color: $green;
   border-radius:10px;
 
   /* Dimensions should be similar to the parent progress element. */
@@ -92,7 +92,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .agreement_progress[value]::-moz-progress-bar {
   height: 10px;
   border-radius:10px;
-  background: $green_progress;
+  background: $green;
 }
 
 .agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
@@ -115,7 +115,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 // Fallback for larger progress bar
 
 .agreement_progress_bar {
-  background-color: $green_progress;
+  background-color: $green;
 
   /* Dimensions should be similar to the parent progress element. */
   width: 100%; 
@@ -128,11 +128,11 @@ progress::-webkit-progress-value, progress.yellow_progress {
 // progress bar colors
 
 .progress_icon.green_progress {
-  border-bottom-color: $green_progress;
+  border-bottom-color: $green;
 }
 
 .progress_icon.green_progress:after{
-  border-top-color: $green_progress;
+  border-top-color: $green;
 }
 
 .yellow_progress {
@@ -140,7 +140,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .green_progress_tick {
-  background: $green_progress;
+  background: $green;
 }
 
 .grey_progress_tick {
@@ -260,7 +260,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .green_icon {
-  color: $green_progress;
+  color: $green;
 }
 
 .tooltip{
@@ -316,7 +316,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   span {
     display: block;
     margin: 14px 0 13px 0;
-    background-color: $green_progress;
+    background-color: $green;
     height:2px;
     width:0;
   }
@@ -334,7 +334,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .progress_bar > .ui-progressbar-value {
-  background: $green_light;
+  background: $green;
   border:none;
   margin: 0;
   border-radius: 0px;

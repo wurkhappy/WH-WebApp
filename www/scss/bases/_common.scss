@@ -53,21 +53,22 @@ body {
   font-family: museo_sans;
   background: hsl(210, 13%, 88%) url(/img/bg.png) fixed;
   color: $black_light;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 
 a,
 a:visited {
   text-decoration: none;
-  color: rgb(0,153,221);
+  color: $blue;
 }
 
 a:hover,
 a:active {
   text-decoration: underline;
-  color: rgb(0,137,198);
+  color: $orange;
   cursor: pointer;
+  text-decoration:none;
 }
 
 p{
@@ -178,6 +179,14 @@ fieldset {
 /* COMMON UI classes
 ================================================================================ */
 
+.green {
+  color: $green;
+}
+
+.orange {
+  color: $orange;
+}
+
 .white_background {
   background: white;
   position: relative;
@@ -211,9 +220,10 @@ fieldset {
 .helper_text {
   display: block;
   font-size: 12px;
-  color: hsl(0, 0%, 59%);
+  color: $grey;
   margin: 0 0 10px 0;
   text-align:left;
+  font-weight:400;
 }
 
 .secure:before {

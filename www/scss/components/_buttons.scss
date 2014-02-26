@@ -37,7 +37,7 @@
 }
 
 .action_button {
-  background-color: $green_light;
+  background-color: $green;
   &:hover {
         background-color: $green_dark;
       }
@@ -139,4 +139,12 @@
   width: 229px;
   margin-left: 20px;
   margin-top: 45px;
+}
+
+.orange_button {
+  background: $orange;
+}
+
+.green_button {
+  background: $green;
 }

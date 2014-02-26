@@ -67,7 +67,7 @@ body {
   font-family: museo_sans;
   background: #dce0e4 url(/img/bg.png) fixed;
   color: #636363;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -75,24 +75,25 @@ body {
 a,
 a:visited {
   text-decoration: none;
-  color: #0099dd;
+  color: #008bc7;
 }
 
 /* line 67, ../scss/bases/_common.scss */
 a:hover,
 a:active {
   text-decoration: underline;
-  color: #0089c6;
+  color: #ffa200;
   cursor: pointer;
+  text-decoration: none;
 }
 
-/* line 73, ../scss/bases/_common.scss */
+/* line 74, ../scss/bases/_common.scss */
 p {
   padding: 0 20px;
   margin-bottom: 20px;
 }
 
-/* line 78, ../scss/bases/_common.scss */
+/* line 79, ../scss/bases/_common.scss */
 ul {
   margin: 0px;
   padding: 0px;
@@ -100,24 +101,24 @@ ul {
   list-style: none;
 }
 
-/* line 86, ../scss/bases/_common.scss */
+/* line 87, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 90, ../scss/bases/_common.scss */
+/* line 91, ../scss/bases/_common.scss */
 h1, h2, h3 {
   color: #333333;
   padding: 0 20px;
   font-family: museo;
 }
 
-/* line 96, ../scss/bases/_common.scss */
+/* line 97, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 100, ../scss/bases/_common.scss */
+/* line 101, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
   line-height: 40px;
@@ -125,7 +126,7 @@ h1 {
   margin: 20px 0 10px 0;
 }
 
-/* line 107, ../scss/bases/_common.scss */
+/* line 108, ../scss/bases/_common.scss */
 h2 {
   font-size: 24px;
   line-height: 30px;
@@ -133,7 +134,7 @@ h2 {
   font-weight: 100;
 }
 
-/* line 114, ../scss/bases/_common.scss */
+/* line 115, ../scss/bases/_common.scss */
 h3 {
   font-size: 16px;
   line-height: 20px;
@@ -143,31 +144,31 @@ h3 {
 
 /* Forms
 ================================================================================ */
-/* line 125, ../scss/bases/_common.scss */
+/* line 126, ../scss/bases/_common.scss */
 form {
   padding: 0 20px 20px 20px;
 }
 
-/* line 129, ../scss/bases/_common.scss */
+/* line 130, ../scss/bases/_common.scss */
 label, .faux-label {
   display: block;
   padding: 20px 0 5px 0;
   margin: 0;
 }
 
-/* line 135, ../scss/bases/_common.scss */
+/* line 136, ../scss/bases/_common.scss */
 label span {
   display: block;
   font-size: .75em;
   color: #969696;
 }
 
-/* line 141, ../scss/bases/_common.scss */
+/* line 142, ../scss/bases/_common.scss */
 input {
   max-width: 350px;
 }
 
-/* line 145, ../scss/bases/_common.scss */
+/* line 146, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
@@ -178,27 +179,27 @@ input, textarea {
   border-radius: 3px;
 }
 
-/* line 155, ../scss/bases/_common.scss */
+/* line 156, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 162, ../scss/bases/_common.scss */
+/* line 163, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 167, ../scss/bases/_common.scss */
+/* line 168, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 172, ../scss/bases/_common.scss */
+/* line 173, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
@@ -207,13 +208,23 @@ fieldset {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 181, ../scss/bases/_common.scss */
+/* line 182, ../scss/bases/_common.scss */
+.green {
+  color: #87cf54;
+}
+
+/* line 186, ../scss/bases/_common.scss */
+.orange {
+  color: #ffa200;
+}
+
+/* line 190, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 186, ../scss/bases/_common.scss */
+/* line 195, ../scss/bases/_common.scss */
 .main_content_container {
   -moz-box-shadow: 0px 3px 5px 3px #CDCED3;
   -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
@@ -221,22 +232,22 @@ fieldset {
   background-color: white;
 }
 
-/* line 193, ../scss/bases/_common.scss */
+/* line 202, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 196, ../scss/bases/_common.scss */
+/* line 205, ../scss/bases/_common.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 199, ../scss/bases/_common.scss */
+/* line 208, ../scss/bases/_common.scss */
 .no_bullet {
   list-style: none;
 }
 
-/* line 203, ../scss/bases/_common.scss */
+/* line 212, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -245,68 +256,69 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 211, ../scss/bases/_common.scss */
+/* line 220, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
-  color: #969696;
+  color: gray;
   margin: 0 0 10px 0;
   text-align: left;
+  font-weight: 400;
 }
 
-/* line 219, ../scss/bases/_common.scss */
+/* line 229, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 224, ../scss/bases/_common.scss */
+/* line 234, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #c7e0e4;
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 229, ../scss/bases/_common.scss */
+/* line 239, ../scss/bases/_common.scss */
 .divider_left {
   border-left: 1px solid #c7e0e4;
 }
 
-/* line 232, ../scss/bases/_common.scss */
+/* line 242, ../scss/bases/_common.scss */
 .divider_right {
   border-right: 1px solid #c7e0e4;
 }
 
-/* line 237, ../scss/bases/_common.scss */
+/* line 247, ../scss/bases/_common.scss */
 .required {
   color: #972b46;
   display: inline;
 }
 
-/* line 242, ../scss/bases/_common.scss */
+/* line 252, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 246, ../scss/bases/_common.scss */
+/* line 256, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
 
-/* line 249, ../scss/bases/_common.scss */
+/* line 259, ../scss/bases/_common.scss */
 .right_align {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 254, ../scss/bases/_common.scss */
+/* line 264, ../scss/bases/_common.scss */
 .fa.fa-check-circle {
-  color: #9dd573;
+  color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 258, ../scss/bases/_common.scss */
+/* line 268, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }
@@ -3180,11 +3192,14 @@ button.toast-close-button {
   display: block;
   float: left;
   padding: 20px;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 /* Header - Landing
 ================================================================================ */
-/* line 62, ../scss/components/_header.scss */
+/* line 65, ../scss/components/_header.scss */
 .landing_navigation_links {
   padding-left: 50px;
   line-height: 38px;
@@ -3192,12 +3207,12 @@ button.toast-close-button {
   padding-top: 23px;
 }
 
-/* line 69, ../scss/components/_header.scss */
+/* line 72, ../scss/components/_header.scss */
 .top_padding {
   padding-top: 20px;
 }
 
-/* line 73, ../scss/components/_header.scss */
+/* line 76, ../scss/components/_header.scss */
 .create_account {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -3403,7 +3418,7 @@ div.faqcontent h2 {
 
 /* line 39, ../scss/components/_buttons.scss */
 .action_button {
-  background-color: #9dd573;
+  background-color: #87cf54;
 }
 /* line 41, ../scss/components/_buttons.scss */
 .action_button:hover {
@@ -3519,6 +3534,16 @@ div.faqcontent h2 {
   width: 229px;
   margin-left: 20px;
   margin-top: 45px;
+}
+
+/* line 144, ../scss/components/_buttons.scss */
+.orange_button {
+  background: #ffa200;
+}
+
+/* line 148, ../scss/components/_buttons.scss */
+.green_button {
+  background: #87cf54;
 }
 
 /* Sub- Navigation 
@@ -3812,7 +3837,7 @@ div.faqcontent h2 {
 
 /* line 9, ../scss/components/_agreement.scss */
 .ag_subsection {
-  padding-left: 20px;
+  padding: 0;
   margin-top: 10px;
 }
 
@@ -3824,37 +3849,38 @@ div.faqcontent h2 {
 
 /* line 19, ../scss/components/_agreement.scss */
 .agreement_title {
-  color: #168dc7;
-  font-weight: 300;
+  color: #008bc7;
   margin: 0;
   padding: 0;
   font-weight: 100;
-  font-size: 20px;
+  font-size: 22px;
 }
 
-/* line 28, ../scss/components/_agreement.scss */
+/* line 27, ../scss/components/_agreement.scss */
 .agreement_main {
-  color: #168dc7;
+  color: #008bc7;
   font-weight: 300;
   margin: 0;
   padding: 0;
 }
 
-/* line 36, ../scss/components/_agreement.scss */
+/* line 35, ../scss/components/_agreement.scss */
 .agreement_subtitle {
-  color: #168dc7;
-  font-weight: 100;
+  color: #4a9bc9;
+  font-weight: 500;
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
-/* line 43, ../scss/components/_agreement.scss */
+/* line 44, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin-left: 20px;
   padding: 0;
 }
 
-/* line 48, ../scss/components/_agreement.scss */
+/* line 49, ../scss/components/_agreement.scss */
 .payment_milestone {
   border-bottom: 2px dotted #c8e1e4;
   padding: 10px 5;
@@ -3864,20 +3890,23 @@ div.faqcontent h2 {
   margin-top: 5px;
   overflow: hidden;
 }
-/* line 56, ../scss/components/_agreement.scss */
+/* line 57, ../scss/components/_agreement.scss */
 .payment_milestone .task_icon {
   margin-left: 30px;
 }
-/* line 59, ../scss/components/_agreement.scss */
+/* line 60, ../scss/components/_agreement.scss */
 .payment_milestone:hover {
   background: #f9fafb;
+  /*.show_details_button {
+    color: $orange;
+  }*/
 }
-/* line 61, ../scss/components/_agreement.scss */
+/* line 62, ../scss/components/_agreement.scss */
 .payment_milestone:hover .work_item_detail_link {
   color: #009adb;
 }
 
-/* line 67, ../scss/components/_agreement.scss */
+/* line 71, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3891,27 +3920,27 @@ div.faqcontent h2 {
   color: #646464;
 }
 
-/* line 81, ../scss/components/_agreement.scss */
+/* line 85, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 87, ../scss/components/_agreement.scss */
+/* line 91, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 92, ../scss/components/_agreement.scss */
+/* line 96, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 97, ../scss/components/_agreement.scss */
+/* line 101, ../scss/components/_agreement.scss */
 .scope_item {
   text-align: left;
   line-height: 16px;
@@ -3922,14 +3951,14 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 107, ../scss/components/_agreement.scss */
+/* line 111, ../scss/components/_agreement.scss */
 .tasks_container {
   list-style-type: none;
   margin: 0;
   margin-bottom: 10px;
 }
 
-/* line 113, ../scss/components/_agreement.scss */
+/* line 117, ../scss/components/_agreement.scss */
 .task {
   text-align: left;
   line-height: 16px;
@@ -3940,14 +3969,14 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 123, ../scss/components/_agreement.scss */
+/* line 127, ../scss/components/_agreement.scss */
 .work_item_title {
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-/* line 129, ../scss/components/_agreement.scss */
+/* line 133, ../scss/components/_agreement.scss */
 .work_item_header {
   padding: 0;
   margin-top: 10px;
@@ -3955,7 +3984,7 @@ div.faqcontent h2 {
   text-align: left;
 }
 
-/* line 136, ../scss/components/_agreement.scss */
+/* line 140, ../scss/components/_agreement.scss */
 .work_item_description_container {
   font-size: 16px;
   line-height: 20px;
@@ -3964,7 +3993,7 @@ div.faqcontent h2 {
   margin-top: 5px;
   text-align: left;
 }
-/* line 143, ../scss/components/_agreement.scss */
+/* line 147, ../scss/components/_agreement.scss */
 .work_item_description_container .work_item_description {
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -3982,12 +4011,12 @@ div.faqcontent h2 {
   line-height: 20px;
 }
 
-/* line 161, ../scss/components/_agreement.scss */
+/* line 165, ../scss/components/_agreement.scss */
 .work_item_description {
   color: #5c5c5c;
 }
 
-/* line 165, ../scss/components/_agreement.scss */
+/* line 169, ../scss/components/_agreement.scss */
 .work_item_description_container_focus {
   font-size: 16px;
   line-height: 20px;
@@ -3997,7 +4026,7 @@ div.faqcontent h2 {
   text-align: left;
   padding-bottom: 10px;
 }
-/* line 173, ../scss/components/_agreement.scss */
+/* line 177, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .work_item_description {
   width: 496px;
   resize: vertical;
@@ -4008,16 +4037,16 @@ div.faqcontent h2 {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 183, ../scss/components/_agreement.scss */
+/* line 187, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .save_description_button {
   display: inline-block;
 }
-/* line 186, ../scss/components/_agreement.scss */
+/* line 190, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .save_description_close {
   display: inline-block;
 }
 
-/* line 191, ../scss/components/_agreement.scss */
+/* line 195, ../scss/components/_agreement.scss */
 .save_description_button {
   display: inline-block;
   margin-right: 10px;
@@ -4026,26 +4055,26 @@ div.faqcontent h2 {
   display: none;
 }
 
-/* line 199, ../scss/components/_agreement.scss */
+/* line 203, ../scss/components/_agreement.scss */
 .save_description_close {
   display: none;
 }
-/* line 201, ../scss/components/_agreement.scss */
+/* line 205, ../scss/components/_agreement.scss */
 .save_description_close:visited {
   color: gray;
 }
-/* line 204, ../scss/components/_agreement.scss */
+/* line 208, ../scss/components/_agreement.scss */
 .save_description_close:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 210, ../scss/components/_agreement.scss */
+/* line 214, ../scss/components/_agreement.scss */
 .new_task_container {
   text-align: left;
   margin-left: 40px;
 }
-/* line 213, ../scss/components/_agreement.scss */
+/* line 217, ../scss/components/_agreement.scss */
 .new_task_container .new_task {
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -4063,12 +4092,12 @@ div.faqcontent h2 {
   line-height: 20px;
 }
 
-/* line 231, ../scss/components/_agreement.scss */
+/* line 235, ../scss/components/_agreement.scss */
 .new_task_container_focus {
   text-align: left;
   margin-left: 40px;
 }
-/* line 234, ../scss/components/_agreement.scss */
+/* line 238, ../scss/components/_agreement.scss */
 .new_task_container_focus .new_task {
   width: 460px;
   resize: vertical;
@@ -4079,16 +4108,16 @@ div.faqcontent h2 {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 244, ../scss/components/_agreement.scss */
+/* line 248, ../scss/components/_agreement.scss */
 .new_task_container_focus .add_task_button {
   display: inline-block;
 }
-/* line 247, ../scss/components/_agreement.scss */
+/* line 251, ../scss/components/_agreement.scss */
 .new_task_container_focus .add_task_close {
   display: inline-block;
 }
 
-/* line 252, ../scss/components/_agreement.scss */
+/* line 256, ../scss/components/_agreement.scss */
 .add_task_button {
   display: inline-block;
   margin-right: 10px;
@@ -4097,21 +4126,21 @@ div.faqcontent h2 {
   display: none;
 }
 
-/* line 260, ../scss/components/_agreement.scss */
+/* line 264, ../scss/components/_agreement.scss */
 .add_task_close {
   display: none;
 }
-/* line 262, ../scss/components/_agreement.scss */
+/* line 266, ../scss/components/_agreement.scss */
 .add_task_close:visited {
   color: gray;
 }
-/* line 265, ../scss/components/_agreement.scss */
+/* line 269, ../scss/components/_agreement.scss */
 .add_task_close:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 271, ../scss/components/_agreement.scss */
+/* line 275, ../scss/components/_agreement.scss */
 .check_item {
   position: relative;
   clear: both;
@@ -4119,7 +4148,7 @@ div.faqcontent h2 {
   padding: 0 0 4px 36px;
 }
 
-/* line 278, ../scss/components/_agreement.scss */
+/* line 282, ../scss/components/_agreement.scss */
 .checkbox {
   background: white;
   border-radius: 3px;
@@ -4141,7 +4170,7 @@ div.faqcontent h2 {
   white-space: nowrap;
 }
 
-/* line 299, ../scss/components/_agreement.scss */
+/* line 303, ../scss/components/_agreement.scss */
 .check_item .checkbox:hover {
   background-color: #dedede;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -4153,7 +4182,7 @@ div.faqcontent h2 {
   line-height: 5px;
 }
 
-/* line 310, ../scss/components/_agreement.scss */
+/* line 314, ../scss/components/_agreement.scss */
 .checkbox_complete {
   background-color: #f2f2f2;
   border: 1px solid #bababa;
@@ -4166,14 +4195,14 @@ div.faqcontent h2 {
   line-height: 5px;
 }
 
-/* line 322, ../scss/components/_agreement.scss */
+/* line 326, ../scss/components/_agreement.scss */
 .task_complete {
   color: #949494;
   font-style: italic;
   text-decoration: line-through;
 }
 
-/* line 328, ../scss/components/_agreement.scss */
+/* line 332, ../scss/components/_agreement.scss */
 .void_agreement {
   margin: 0 20px 20px 20px;
   padding: 10px;
@@ -4187,18 +4216,18 @@ div.faqcontent h2 {
   border-bottom-left-radius: 3px;
 }
 
-/* line 341, ../scss/components/_agreement.scss */
+/* line 345, ../scss/components/_agreement.scss */
 .work_item_container {
   margin: 0;
 }
 
-/* line 345, ../scss/components/_agreement.scss */
+/* line 349, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 350, ../scss/components/_agreement.scss */
+/* line 354, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -4206,83 +4235,85 @@ div.faqcontent h2 {
   border-radius: 5px;
 }
 
-/* line 357, ../scss/components/_agreement.scss */
+/* line 361, ../scss/components/_agreement.scss */
 .home_container {
   min-height: 150px;
 }
 
-/* line 361, ../scss/components/_agreement.scss */
+/* line 365, ../scss/components/_agreement.scss */
 .fee_detail_container {
   padding-left: 10px;
 }
-/* line 363, ../scss/components/_agreement.scss */
+/* line 367, ../scss/components/_agreement.scss */
 .fee_detail_container ul {
   padding: 0;
 }
 
-/* line 368, ../scss/components/_agreement.scss */
+/* line 372, ../scss/components/_agreement.scss */
 .fee_line_item {
   font-size: 12px;
   list-style-type: none;
 }
 
-/* line 373, ../scss/components/_agreement.scss */
+/* line 377, ../scss/components/_agreement.scss */
 .fee_amount {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 379, ../scss/components/_agreement.scss */
+/* line 383, ../scss/components/_agreement.scss */
 .payment_methods_agreement_container {
   padding-left: 20px;
 }
 
-/* line 383, ../scss/components/_agreement.scss */
+/* line 387, ../scss/components/_agreement.scss */
 .proposed_services_container {
   max-height: 300px;
   overflow-y: scroll;
   border-radius: 5px;
 }
-/* line 387, ../scss/components/_agreement.scss */
+/* line 391, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
   font-size: 16px;
   padding: 0;
 }
 
-/* line 394, ../scss/components/_agreement.scss */
+/* line 398, ../scss/components/_agreement.scss */
 .agreement_header_helper {
   min-width: 250px;
 }
 
-/* line 397, ../scss/components/_agreement.scss */
+/* line 401, ../scss/components/_agreement.scss */
 .deliverable_info {
   font-size: 14px;
   text-align: right;
-  color: gray;
 }
 
-/* line 402, ../scss/components/_agreement.scss */
+/* line 405, ../scss/components/_agreement.scss */
 .tasks_meta {
   display: inline-block;
   font-style: italic;
   font-size: 13px;
+  font-weight: 400;
 }
 
-/* line 407, ../scss/components/_agreement.scss */
+/* line 411, ../scss/components/_agreement.scss */
 .tasks_meta.current {
-  color: #9dd573;
+  color: #87cf54;
 }
 
-/* line 410, ../scss/components/_agreement.scss */
+/* line 414, ../scss/components/_agreement.scss */
 .show_details_button {
   display: inline-block;
   font-style: italic;
   font-size: 13px;
+  color: gray;
+  font-weight: 300;
 }
 
-/* line 415, ../scss/components/_agreement.scss */
+/* line 422, ../scss/components/_agreement.scss */
 .deliverable_title {
   color: #168dc7;
   font-family: museo;
@@ -4557,20 +4588,20 @@ progress[value]::-webkit-progress-value {
 /* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
 /* line 50, ../scss/components/_progress_bars.scss */
 progress[value]::-moz-progress-bar {
-  background: #86ce50;
+  background: #87cf54;
   border-radius: 10px;
 }
 
 /* line 55, ../scss/components/_progress_bars.scss */
 progress::-webkit-progress-value, progress.yellow_progress {
-  background: #86ce50;
+  background: #87cf54;
   border-radius: 10px;
 }
 
 /* Fallback technique styles */
 /* line 62, ../scss/components/_progress_bars.scss */
 .progress-bar {
-  background-color: #86ce50;
+  background-color: #87cf54;
   border-radius: 10px;
   /* Dimensions should be similar to the parent progress element. */
   width: 100%;
@@ -4602,7 +4633,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .agreement_progress[value]::-moz-progress-bar {
   height: 10px;
   border-radius: 10px;
-  background: #86ce50;
+  background: #87cf54;
 }
 
 /* line 98, ../scss/components/_progress_bars.scss */
@@ -4619,7 +4650,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 117, ../scss/components/_progress_bars.scss */
 .agreement_progress_bar {
-  background-color: #86ce50;
+  background-color: #87cf54;
   /* Dimensions should be similar to the parent progress element. */
   width: 100%;
   height: 10px;
@@ -4629,12 +4660,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 130, ../scss/components/_progress_bars.scss */
 .progress_icon.green_progress {
-  border-bottom-color: #86ce50;
+  border-bottom-color: #87cf54;
 }
 
 /* line 134, ../scss/components/_progress_bars.scss */
 .progress_icon.green_progress:after {
-  border-top-color: #86ce50;
+  border-top-color: #87cf54;
 }
 
 /* line 138, ../scss/components/_progress_bars.scss */
@@ -4644,7 +4675,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 142, ../scss/components/_progress_bars.scss */
 .green_progress_tick {
-  background: #86ce50;
+  background: #87cf54;
 }
 
 /* line 146, ../scss/components/_progress_bars.scss */
@@ -4787,7 +4818,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 262, ../scss/components/_progress_bars.scss */
 .green_icon {
-  color: #86ce50;
+  color: #87cf54;
 }
 
 /* line 266, ../scss/components/_progress_bars.scss */
@@ -4850,7 +4881,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .small_progress_bar span {
   display: block;
   margin: 14px 0 13px 0;
-  background-color: #86ce50;
+  background-color: #87cf54;
   height: 2px;
   width: 0;
 }
@@ -4870,7 +4901,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 336, ../scss/components/_progress_bars.scss */
 .progress_bar > .ui-progressbar-value {
-  background: #9dd573;
+  background: #87cf54;
   border: none;
   margin: 0;
   border-radius: 0px;
