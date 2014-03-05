@@ -33,8 +33,9 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
             },
 
             render: function() {
-                var progressBarWidth = 920;
+                var progressBarWidth = 800;
                 var bulletWidth = 42;
+                var barLeftMargin = 40;
                 var deliverablesCount = this.deliverables.length;
                 var deliverablesWidth = progressBarWidth / deliverablesCount;
                 var deliverables = [];
@@ -61,7 +62,7 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
 
                     for (var x in m.scopeItems) {
                         // set how far each task is from the tick container
-                        m.scopeItems[x].task_margin_left = (deliverablesWidth/m.scopeItems.length)*(parseInt(x) + 1) + bulletWidth/2 - 2;
+                        m.scopeItems[x].task_margin_left = (deliverablesWidth/m.scopeItems.length)*(parseInt(x) + 1) + bulletWidth/2 - 2 + barLeftMargin;
                         if (m.scopeItems[x].completed === true) {
                             m.scopeItems[x].color = "green";
                         } else {
@@ -93,7 +94,7 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                         var progressvalue = progress.children(".ui-progressbar-value");
                         progressvalue.css("overflow", "hidden");
                         var wrapper = $("<div>");
-                        var wrapperWidth = "920";
+                        var wrapperWidth = "800";
                         wrapper.css({
                             "width": wrapperWidth + "px",
                             "height": "100%",

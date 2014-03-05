@@ -10,14 +10,15 @@
 
 .button, .button:visited {
   display: block;
-  font-weight: bold;
+  font-weight: 300;
   text-align: center;
   padding: 0 10px;
   color: $white;
   text-decoration: none;
-  line-height: 40px;
-  background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-button.png);
-  background-repeat: repeat-x;
+  line-height: 38px;
+  text-transform:uppercase;
+  //background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-button.png);
+  /*background-repeat: repeat-x;
   background-position: center;
   -webkit-box-shadow: 0 0 3px rgba(0,0,0,.5);
   -moz-box-shadow: 0 0 3px rgba(0,0,0,.5);
@@ -25,7 +26,7 @@
   text-shadow: 0 -1px 0 rgba(0,0,0,.5);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px; */
 
 }
 
