@@ -8,7 +8,6 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
 	"html/template"
-	"log"
 	"net/http"
 )
 
@@ -19,7 +18,6 @@ func PostLogin(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
 	resp, statusCode := sendServiceRequest("POST", config.UserService, "/auth/login", buf.Bytes(), "")
-	log.Print(string(resp))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
