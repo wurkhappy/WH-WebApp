@@ -347,6 +347,15 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top:80px;
 }
 
+#payment_progress.progress_bar{
+  height: 2px;
+  border-radius: 0px;
+  margin: 30px 22px;
+  width:auto;
+  background: $grey_light;
+}
+
+
 .agreement_progress_tick:last-child {
   display:none;
 }

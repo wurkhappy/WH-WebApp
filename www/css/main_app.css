@@ -318,7 +318,23 @@ fieldset {
   margin-left: -1.1em;
 }
 
-/* line 268, ../scss/bases/_common.scss */
+/* line 269, ../scss/bases/_common.scss */
+.fa-check {
+  color: #87cf54;
+  margin-left: -1.1em;
+}
+
+/* line 274, ../scss/bases/_common.scss */
+.fa-check.task_check {
+  color: inherit;
+  margin-left: 0;
+  position: relative;
+  top: -2px;
+  left: -1px;
+  font-size: 16px;
+}
+
+/* line 282, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }
@@ -3073,13 +3089,11 @@ button.toast-close-button {
   background: whitesmoke url(https://d3kq8dzp7eezz0.cloudfront.net/img/lock.png) no-repeat 1% 50%;
 }
 
-/* line 23, ../scss/components/_forms.scss */
-.checkbox {
+/*.checkbox {
   border: none;
   margin: 0;
   padding: 5px 0;
-}
-
+}*/
 /* line 30, ../scss/components/_forms.scss */
 .upload {
   border: none;
@@ -3228,26 +3242,35 @@ button.toast-close-button {
 }
 
 /* line 12, ../scss/components/_intro.scss */
-.intro h1 {
+.header_title {
   color: white;
+  margin: 0;
+  padding: 0;
 }
 
-/* line 16, ../scss/components/_intro.scss */
+/* line 18, ../scss/components/_intro.scss */
 .intro p {
   line-height: 40px;
   margin-bottom: 10px;
 }
 
-/* line 21, ../scss/components/_intro.scss */
+/* line 23, ../scss/components/_intro.scss */
 .intro p span {
   color: white;
 }
 
-/* line 25, ../scss/components/_intro.scss */
+/* line 27, ../scss/components/_intro.scss */
 .empty_home {
   margin-top: 150px;
   margin-bottom: 150px;
   text-align: center;
+}
+
+/* line 33, ../scss/components/_intro.scss */
+.home_header {
+  background-color: #168bc5;
+  border-bottom: 1px solid #007ab3;
+  padding: 30px;
 }
 
 /* line 1, ../scss/components/_legal.scss */
@@ -3378,17 +3401,19 @@ div.faqcontent h2 {
 
 /* line 1, ../scss/components/_buttons.scss */
 .action_button_container {
-  margin: 10px 20px 10px 20px;
+  width: 200px;
+  float: right;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 5, ../scss/components/_buttons.scss */
+/* line 8, ../scss/components/_buttons.scss */
 .action_button_container li {
-  padding: 10px 0 0 0;
+  padding: 0;
   margin: 0;
 }
 
-/* line 11, ../scss/components/_buttons.scss */
+/* line 14, ../scss/components/_buttons.scss */
 .button, .button:visited {
   display: block;
   font-weight: 300;
@@ -3409,32 +3434,32 @@ div.faqcontent h2 {
   border-radius: 5px; */
 }
 
-/* line 33, ../scss/components/_buttons.scss */
+/* line 36, ../scss/components/_buttons.scss */
 .button:hover {
   text-decoration: none;
   cursor: pointer;
   color: white;
 }
 
-/* line 39, ../scss/components/_buttons.scss */
+/* line 42, ../scss/components/_buttons.scss */
 .action_button {
   background-color: #87cf54;
 }
-/* line 41, ../scss/components/_buttons.scss */
+/* line 44, ../scss/components/_buttons.scss */
 .action_button:hover {
   background-color: #5ca032;
 }
 
-/* line 46, ../scss/components/_buttons.scss */
+/* line 49, ../scss/components/_buttons.scss */
 .cancel {
   background-color: #be3557;
 }
-/* line 48, ../scss/components/_buttons.scss */
+/* line 51, ../scss/components/_buttons.scss */
 .cancel:hover {
   background-color: #972a45;
 }
 
-/* line 53, ../scss/components/_buttons.scss */
+/* line 56, ../scss/components/_buttons.scss */
 .submit-button {
   font-size: 1em;
   padding: 10px 20px;
@@ -3455,14 +3480,14 @@ div.faqcontent h2 {
   float: right;
 }
 
-/* line 74, ../scss/components/_buttons.scss */
+/* line 77, ../scss/components/_buttons.scss */
 .submit-button:hover,
 .submit-button:focus {
   outline: none;
   background-color: #0091d2;
 }
 
-/* line 79, ../scss/components/_buttons.scss */
+/* line 82, ../scss/components/_buttons.scss */
 .login_button {
   margin-top: 0;
   width: 200px;
@@ -3470,12 +3495,12 @@ div.faqcontent h2 {
   margin-left: -150px;
 }
 
-/* line 87, ../scss/components/_buttons.scss */
+/* line 90, ../scss/components/_buttons.scss */
 .submit-buttons {
   padding: 20px 0 0 0;
 }
 
-/* line 91, ../scss/components/_buttons.scss */
+/* line 94, ../scss/components/_buttons.scss */
 .submit-buttons a {
   display: block;
   float: left;
@@ -3497,51 +3522,51 @@ div.faqcontent h2 {
   background-position: center;
 }
 
-/* line 113, ../scss/components/_buttons.scss */
+/* line 116, ../scss/components/_buttons.scss */
 .submit-buttons a,
 .submit-buttons a:visited {
   background-color: #be3557;
 }
 
-/* line 117, ../scss/components/_buttons.scss */
+/* line 120, ../scss/components/_buttons.scss */
 .submit-buttons a:active {
   margin-top: 2px;
   margin-bottom: -2px;
 }
 
-/* line 122, ../scss/components/_buttons.scss */
+/* line 125, ../scss/components/_buttons.scss */
 .submit-buttons a:hover, .submit-buttons a:active {
   background-color: #972a45;
 }
 
-/* line 126, ../scss/components/_buttons.scss */
+/* line 129, ../scss/components/_buttons.scss */
 .button_container {
   width: 200px;
 }
 
-/* line 130, ../scss/components/_buttons.scss */
+/* line 133, ../scss/components/_buttons.scss */
 .send_button_container {
   width: 250px;
 }
 
-/* line 134, ../scss/components/_buttons.scss */
+/* line 137, ../scss/components/_buttons.scss */
 .request_payment_button_container {
   width: 350px;
 }
 
-/* line 138, ../scss/components/_buttons.scss */
+/* line 141, ../scss/components/_buttons.scss */
 .delete_method_button {
   width: 229px;
   margin-left: 20px;
   margin-top: 45px;
 }
 
-/* line 144, ../scss/components/_buttons.scss */
+/* line 147, ../scss/components/_buttons.scss */
 .orange_button {
   background: #ffa200;
 }
 
-/* line 148, ../scss/components/_buttons.scss */
+/* line 151, ../scss/components/_buttons.scss */
 .green_button {
   background: #87cf54;
 }
@@ -3831,23 +3856,27 @@ div.faqcontent h2 {
 
 /* line 5, ../scss/components/_agreement.scss */
 .ag_section {
-  padding: 20px;
-  padding-bottom: 0px;
+  margin-bottom: 30px;
 }
 
-/* line 9, ../scss/components/_agreement.scss */
+/* line 8, ../scss/components/_agreement.scss */
 .ag_subsection {
   padding: 0;
   margin-top: 10px;
 }
 
-/* line 14, ../scss/components/_agreement.scss */
+/* line 13, ../scss/components/_agreement.scss */
+.agreement_region {
+  padding: 20px;
+}
+
+/* line 17, ../scss/components/_agreement.scss */
 .agreement_profile_container {
   padding: 15px 20px 15px 20px;
   float: left;
 }
 
-/* line 19, ../scss/components/_agreement.scss */
+/* line 22, ../scss/components/_agreement.scss */
 .agreement_title {
   color: #008bc7;
   margin: 0;
@@ -3856,7 +3885,7 @@ div.faqcontent h2 {
   font-size: 22px;
 }
 
-/* line 27, ../scss/components/_agreement.scss */
+/* line 30, ../scss/components/_agreement.scss */
 .agreement_main {
   color: #008bc7;
   font-weight: 300;
@@ -3864,7 +3893,7 @@ div.faqcontent h2 {
   padding: 0;
 }
 
-/* line 35, ../scss/components/_agreement.scss */
+/* line 38, ../scss/components/_agreement.scss */
 .agreement_subtitle {
   color: #4a9bc9;
   font-weight: 500;
@@ -3874,39 +3903,41 @@ div.faqcontent h2 {
   font-size: 13px;
 }
 
-/* line 44, ../scss/components/_agreement.scss */
+/* line 47, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin-left: 20px;
   padding: 0;
 }
 
-/* line 49, ../scss/components/_agreement.scss */
+/* line 52, ../scss/components/_agreement.scss */
 .payment_milestone {
   border-bottom: 2px dotted #c8e1e4;
   padding: 10px 5;
   margin-top: 15px;
   list-style: none;
-  cursor: pointer;
   margin-top: 5px;
   overflow: hidden;
 }
-/* line 57, ../scss/components/_agreement.scss */
+/* line 59, ../scss/components/_agreement.scss */
 .payment_milestone .task_icon {
   margin-left: 30px;
 }
-/* line 60, ../scss/components/_agreement.scss */
+/* line 62, ../scss/components/_agreement.scss */
 .payment_milestone:hover {
-  background: #f9fafb;
   /*.show_details_button {
     color: $orange;
   }*/
 }
-/* line 62, ../scss/components/_agreement.scss */
+/* line 63, ../scss/components/_agreement.scss */
 .payment_milestone:hover .work_item_detail_link {
   color: #009adb;
 }
+/* line 66, ../scss/components/_agreement.scss */
+.payment_milestone:hover .checkbox_complete {
+  background: #f9fafb;
+}
 
-/* line 71, ../scss/components/_agreement.scss */
+/* line 75, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3920,27 +3951,27 @@ div.faqcontent h2 {
   color: #646464;
 }
 
-/* line 85, ../scss/components/_agreement.scss */
+/* line 89, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 91, ../scss/components/_agreement.scss */
+/* line 95, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 96, ../scss/components/_agreement.scss */
+/* line 100, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 101, ../scss/components/_agreement.scss */
+/* line 105, ../scss/components/_agreement.scss */
 .scope_item {
   text-align: left;
   line-height: 16px;
@@ -3951,14 +3982,14 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 111, ../scss/components/_agreement.scss */
+/* line 115, ../scss/components/_agreement.scss */
 .tasks_container {
   list-style-type: none;
   margin: 0;
   margin-bottom: 10px;
 }
 
-/* line 117, ../scss/components/_agreement.scss */
+/* line 121, ../scss/components/_agreement.scss */
 .task {
   text-align: left;
   line-height: 16px;
@@ -3969,14 +4000,14 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 127, ../scss/components/_agreement.scss */
+/* line 131, ../scss/components/_agreement.scss */
 .work_item_title {
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-/* line 133, ../scss/components/_agreement.scss */
+/* line 137, ../scss/components/_agreement.scss */
 .work_item_header {
   padding: 0;
   margin-top: 10px;
@@ -3984,7 +4015,7 @@ div.faqcontent h2 {
   text-align: left;
 }
 
-/* line 140, ../scss/components/_agreement.scss */
+/* line 144, ../scss/components/_agreement.scss */
 .work_item_description_container {
   font-size: 16px;
   line-height: 20px;
@@ -3993,7 +4024,7 @@ div.faqcontent h2 {
   margin-top: 5px;
   text-align: left;
 }
-/* line 147, ../scss/components/_agreement.scss */
+/* line 151, ../scss/components/_agreement.scss */
 .work_item_description_container .work_item_description {
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -4011,12 +4042,12 @@ div.faqcontent h2 {
   line-height: 20px;
 }
 
-/* line 165, ../scss/components/_agreement.scss */
+/* line 169, ../scss/components/_agreement.scss */
 .work_item_description {
   color: #5c5c5c;
 }
 
-/* line 169, ../scss/components/_agreement.scss */
+/* line 173, ../scss/components/_agreement.scss */
 .work_item_description_container_focus {
   font-size: 16px;
   line-height: 20px;
@@ -4026,7 +4057,7 @@ div.faqcontent h2 {
   text-align: left;
   padding-bottom: 10px;
 }
-/* line 177, ../scss/components/_agreement.scss */
+/* line 181, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .work_item_description {
   width: 496px;
   resize: vertical;
@@ -4037,16 +4068,16 @@ div.faqcontent h2 {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 187, ../scss/components/_agreement.scss */
+/* line 191, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .save_description_button {
   display: inline-block;
 }
-/* line 190, ../scss/components/_agreement.scss */
+/* line 194, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .save_description_close {
   display: inline-block;
 }
 
-/* line 195, ../scss/components/_agreement.scss */
+/* line 199, ../scss/components/_agreement.scss */
 .save_description_button {
   display: inline-block;
   margin-right: 10px;
@@ -4055,26 +4086,26 @@ div.faqcontent h2 {
   display: none;
 }
 
-/* line 203, ../scss/components/_agreement.scss */
+/* line 207, ../scss/components/_agreement.scss */
 .save_description_close {
   display: none;
 }
-/* line 205, ../scss/components/_agreement.scss */
+/* line 209, ../scss/components/_agreement.scss */
 .save_description_close:visited {
   color: gray;
 }
-/* line 208, ../scss/components/_agreement.scss */
+/* line 212, ../scss/components/_agreement.scss */
 .save_description_close:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 214, ../scss/components/_agreement.scss */
+/* line 218, ../scss/components/_agreement.scss */
 .new_task_container {
   text-align: left;
   margin-left: 40px;
 }
-/* line 217, ../scss/components/_agreement.scss */
+/* line 221, ../scss/components/_agreement.scss */
 .new_task_container .new_task {
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -4092,12 +4123,12 @@ div.faqcontent h2 {
   line-height: 20px;
 }
 
-/* line 235, ../scss/components/_agreement.scss */
+/* line 239, ../scss/components/_agreement.scss */
 .new_task_container_focus {
   text-align: left;
   margin-left: 40px;
 }
-/* line 238, ../scss/components/_agreement.scss */
+/* line 242, ../scss/components/_agreement.scss */
 .new_task_container_focus .new_task {
   width: 460px;
   resize: vertical;
@@ -4108,16 +4139,16 @@ div.faqcontent h2 {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 248, ../scss/components/_agreement.scss */
+/* line 252, ../scss/components/_agreement.scss */
 .new_task_container_focus .add_task_button {
   display: inline-block;
 }
-/* line 251, ../scss/components/_agreement.scss */
+/* line 255, ../scss/components/_agreement.scss */
 .new_task_container_focus .add_task_close {
   display: inline-block;
 }
 
-/* line 256, ../scss/components/_agreement.scss */
+/* line 260, ../scss/components/_agreement.scss */
 .add_task_button {
   display: inline-block;
   margin-right: 10px;
@@ -4126,21 +4157,21 @@ div.faqcontent h2 {
   display: none;
 }
 
-/* line 264, ../scss/components/_agreement.scss */
+/* line 268, ../scss/components/_agreement.scss */
 .add_task_close {
   display: none;
 }
-/* line 266, ../scss/components/_agreement.scss */
+/* line 270, ../scss/components/_agreement.scss */
 .add_task_close:visited {
   color: gray;
 }
-/* line 269, ../scss/components/_agreement.scss */
+/* line 273, ../scss/components/_agreement.scss */
 .add_task_close:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 275, ../scss/components/_agreement.scss */
+/* line 279, ../scss/components/_agreement.scss */
 .check_item {
   position: relative;
   clear: both;
@@ -4148,29 +4179,26 @@ div.faqcontent h2 {
   padding: 0 0 4px 36px;
 }
 
-/* line 282, ../scss/components/_agreement.scss */
+/* line 286, ../scss/components/_agreement.scss */
 .checkbox {
   background: white;
   border-radius: 3px;
-  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #bababa;
-  border-bottom-color: #999999;
-  border-top-color: #cccccc;
+  border: 2px solid gray;
   font-weight: bold;
   position: absolute;
-  left: 6px;
+  left: 10px;
   line-height: 16px;
   overflow: hidden;
   text-align: center;
   text-indent: 100%;
-  top: 0;
-  height: 16px;
-  width: 16px;
+  top: -1px;
+  height: 18px;
+  width: 18px;
   white-space: nowrap;
+  padding: 3px 0;
 }
 
-/* line 303, ../scss/components/_agreement.scss */
+/* line 308, ../scss/components/_agreement.scss */
 .check_item .checkbox:hover {
   background-color: #dedede;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -4182,52 +4210,50 @@ div.faqcontent h2 {
   line-height: 5px;
 }
 
-/* line 314, ../scss/components/_agreement.scss */
+/* line 319, ../scss/components/_agreement.scss */
 .checkbox_complete {
-  background-color: #f2f2f2;
-  border: 1px solid #bababa;
-  border-bottom-color: #cccccc;
-  border-top-color: #999999;
-  -webkit-box-shadow: 0 1px 0 white;
-  box-shadow: 0 1px 0 white;
+  background-color: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   text-indent: 0;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 5px;
+  color: #87cf54;
 }
 
-/* line 326, ../scss/components/_agreement.scss */
+/* line 330, ../scss/components/_agreement.scss */
 .task_complete {
   color: #949494;
   font-style: italic;
   text-decoration: line-through;
 }
 
-/* line 332, ../scss/components/_agreement.scss */
+/* line 336, ../scss/components/_agreement.scss */
 .void_agreement {
-  margin: 0 20px 20px 20px;
+  margin: 20px;
   padding: 10px;
   background-color: #eef0f2;
   text-align: center;
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+}
+/* line 341, ../scss/components/_agreement.scss */
+.void_agreement a {
+  text-transform: uppercase;
+  font-size: 11px;
 }
 
-/* line 345, ../scss/components/_agreement.scss */
+/* line 347, ../scss/components/_agreement.scss */
 .work_item_container {
   margin: 0;
 }
 
-/* line 349, ../scss/components/_agreement.scss */
+/* line 351, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 354, ../scss/components/_agreement.scss */
+/* line 356, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -4235,63 +4261,63 @@ div.faqcontent h2 {
   border-radius: 5px;
 }
 
-/* line 361, ../scss/components/_agreement.scss */
+/* line 363, ../scss/components/_agreement.scss */
 .home_container {
   min-height: 150px;
 }
 
-/* line 365, ../scss/components/_agreement.scss */
+/* line 367, ../scss/components/_agreement.scss */
 .fee_detail_container {
   padding-left: 10px;
 }
-/* line 367, ../scss/components/_agreement.scss */
+/* line 369, ../scss/components/_agreement.scss */
 .fee_detail_container ul {
   padding: 0;
 }
 
-/* line 372, ../scss/components/_agreement.scss */
+/* line 374, ../scss/components/_agreement.scss */
 .fee_line_item {
   font-size: 12px;
   list-style-type: none;
 }
 
-/* line 377, ../scss/components/_agreement.scss */
+/* line 379, ../scss/components/_agreement.scss */
 .fee_amount {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 383, ../scss/components/_agreement.scss */
+/* line 385, ../scss/components/_agreement.scss */
 .payment_methods_agreement_container {
   padding-left: 20px;
 }
 
-/* line 387, ../scss/components/_agreement.scss */
+/* line 389, ../scss/components/_agreement.scss */
 .proposed_services_container {
   max-height: 300px;
   overflow-y: scroll;
   border-radius: 5px;
 }
-/* line 391, ../scss/components/_agreement.scss */
+/* line 393, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
   font-size: 16px;
   padding: 0;
 }
 
-/* line 398, ../scss/components/_agreement.scss */
+/* line 400, ../scss/components/_agreement.scss */
 .agreement_header_helper {
   min-width: 250px;
 }
 
-/* line 401, ../scss/components/_agreement.scss */
+/* line 403, ../scss/components/_agreement.scss */
 .deliverable_info {
   font-size: 14px;
   text-align: right;
 }
 
-/* line 405, ../scss/components/_agreement.scss */
+/* line 407, ../scss/components/_agreement.scss */
 .tasks_meta {
   display: inline-block;
   font-style: italic;
@@ -4299,12 +4325,12 @@ div.faqcontent h2 {
   font-weight: 400;
 }
 
-/* line 411, ../scss/components/_agreement.scss */
+/* line 413, ../scss/components/_agreement.scss */
 .tasks_meta.current {
   color: #87cf54;
 }
 
-/* line 414, ../scss/components/_agreement.scss */
+/* line 416, ../scss/components/_agreement.scss */
 .show_details_button {
   display: inline-block;
   font-style: italic;
@@ -4313,13 +4339,19 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 422, ../scss/components/_agreement.scss */
+/* line 424, ../scss/components/_agreement.scss */
 .deliverable_title {
   color: #168dc7;
   font-family: museo;
   text-transform: uppercase;
   font-size: 18px;
   font-weight: 200;
+}
+
+/* line 432, ../scss/components/_agreement.scss */
+.deliverable_header:hover {
+  background: #f9fafb;
+  cursor: pointer;
 }
 
 /* line 1, ../scss/components/_agreement_profile.scss */
@@ -4917,6 +4949,15 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /* line 350, ../scss/components/_progress_bars.scss */
+#payment_progress.progress_bar {
+  height: 2px;
+  border-radius: 0px;
+  margin: 30px 22px;
+  width: auto;
+  background: #bababa;
+}
+
+/* line 359, ../scss/components/_progress_bars.scss */
 .agreement_progress_tick:last-child {
   display: none;
 }
@@ -6025,58 +6066,61 @@ progress::-webkit-progress-value, progress.yellow_progress {
 ================================================================================ */
 /* line 5, ../scss/components/_footer.scss */
 .footer {
-  background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
-  border-top: 1px solid #7d7d7d;
+  background: gray;
+  border-top: 1px solid #bababa;
   padding-bottom: 10px;
 }
 
 /* line 11, ../scss/components/_footer.scss */
 .footer_title {
   color: #dce1e6;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: museo_sans;
 }
 
-/* line 17, ../scss/components/_footer.scss */
+/* line 20, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 19, ../scss/components/_footer.scss */
+/* line 22, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 24, ../scss/components/_footer.scss */
+/* line 27, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 29, ../scss/components/_footer.scss */
+/* line 32, ../scss/components/_footer.scss */
 .footer_title > a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 34, ../scss/components/_footer.scss */
+/* line 37, ../scss/components/_footer.scss */
 .landing_footer {
   background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
   border-top: 1px solid #7d7d7d;
   padding-bottom: 10px;
 }
 
-/* line 40, ../scss/components/_footer.scss */
+/* line 43, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 44, ../scss/components/_footer.scss */
+/* line 47, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 49, ../scss/components/_footer.scss */
+/* line 52, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;

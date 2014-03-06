@@ -256,7 +256,7 @@ fieldset {
 .gutter {
   margin-left: 40px;
 }
-.right_align{
+.right_align {
   position:absolute;
   top:0;
   right:0; 
@@ -264,6 +264,20 @@ fieldset {
 .fa.fa-check-circle{
   color: $green_light;
   margin-left: -1.1em;
+}
+
+.fa-check{
+  color: $green_light;
+  margin-left: -1.1em;
+}
+
+.fa-check.task_check{
+  color: inherit;
+  margin-left: 0;
+  position: relative;
+  top: -2px;
+  left:-1px;
+  font-size:16px;
 }
 .checkmark_holder{
   position: relative;

@@ -9,8 +9,10 @@
   padding: 35px 50px 25px;
 }
 
-.intro h1 {
-  color: rgb(255,255,255);
+.header_title {
+  color: white;
+  margin:0;
+  padding:0
 }
 
 .intro p {
@@ -26,4 +28,10 @@
   margin-top: 150px;
   margin-bottom: 150px;
   text-align: center;
+}
+
+.home_header {
+  background-color: hsl(200, 80%, 43%);
+  border-bottom: 1px solid hsl(199, 100%, 35%);
+  padding: 30px;
 }

@@ -317,7 +317,23 @@ fieldset {
   margin-left: -1.1em;
 }
 
-/* line 268, ../scss/bases/_common.scss */
+/* line 269, ../scss/bases/_common.scss */
+.fa-check {
+  color: #87cf54;
+  margin-left: -1.1em;
+}
+
+/* line 274, ../scss/bases/_common.scss */
+.fa-check.task_check {
+  color: inherit;
+  margin-left: 0;
+  position: relative;
+  top: -2px;
+  left: -1px;
+  font-size: 16px;
+}
+
+/* line 282, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }
@@ -502,13 +518,11 @@ fieldset {
   background: whitesmoke url(https://d3kq8dzp7eezz0.cloudfront.net/img/lock.png) no-repeat 1% 50%;
 }
 
-/* line 23, ../scss/components/_forms.scss */
-.checkbox {
+/*.checkbox {
   border: none;
   margin: 0;
   padding: 5px 0;
-}
-
+}*/
 /* line 30, ../scss/components/_forms.scss */
 .upload {
   border: none;
@@ -691,17 +705,19 @@ fieldset {
 
 /* line 1, ../scss/components/_buttons.scss */
 .action_button_container {
-  margin: 10px 20px 10px 20px;
+  width: 200px;
+  float: right;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 5, ../scss/components/_buttons.scss */
+/* line 8, ../scss/components/_buttons.scss */
 .action_button_container li {
-  padding: 10px 0 0 0;
+  padding: 0;
   margin: 0;
 }
 
-/* line 11, ../scss/components/_buttons.scss */
+/* line 14, ../scss/components/_buttons.scss */
 .button, .button:visited {
   display: block;
   font-weight: 300;
@@ -722,32 +738,32 @@ fieldset {
   border-radius: 5px; */
 }
 
-/* line 33, ../scss/components/_buttons.scss */
+/* line 36, ../scss/components/_buttons.scss */
 .button:hover {
   text-decoration: none;
   cursor: pointer;
   color: white;
 }
 
-/* line 39, ../scss/components/_buttons.scss */
+/* line 42, ../scss/components/_buttons.scss */
 .action_button {
   background-color: #87cf54;
 }
-/* line 41, ../scss/components/_buttons.scss */
+/* line 44, ../scss/components/_buttons.scss */
 .action_button:hover {
   background-color: #5ca032;
 }
 
-/* line 46, ../scss/components/_buttons.scss */
+/* line 49, ../scss/components/_buttons.scss */
 .cancel {
   background-color: #be3557;
 }
-/* line 48, ../scss/components/_buttons.scss */
+/* line 51, ../scss/components/_buttons.scss */
 .cancel:hover {
   background-color: #972a45;
 }
 
-/* line 53, ../scss/components/_buttons.scss */
+/* line 56, ../scss/components/_buttons.scss */
 .submit-button {
   font-size: 1em;
   padding: 10px 20px;
@@ -768,14 +784,14 @@ fieldset {
   float: right;
 }
 
-/* line 74, ../scss/components/_buttons.scss */
+/* line 77, ../scss/components/_buttons.scss */
 .submit-button:hover,
 .submit-button:focus {
   outline: none;
   background-color: #0091d2;
 }
 
-/* line 79, ../scss/components/_buttons.scss */
+/* line 82, ../scss/components/_buttons.scss */
 .login_button {
   margin-top: 0;
   width: 200px;
@@ -783,12 +799,12 @@ fieldset {
   margin-left: -150px;
 }
 
-/* line 87, ../scss/components/_buttons.scss */
+/* line 90, ../scss/components/_buttons.scss */
 .submit-buttons {
   padding: 20px 0 0 0;
 }
 
-/* line 91, ../scss/components/_buttons.scss */
+/* line 94, ../scss/components/_buttons.scss */
 .submit-buttons a {
   display: block;
   float: left;
@@ -810,51 +826,51 @@ fieldset {
   background-position: center;
 }
 
-/* line 113, ../scss/components/_buttons.scss */
+/* line 116, ../scss/components/_buttons.scss */
 .submit-buttons a,
 .submit-buttons a:visited {
   background-color: #be3557;
 }
 
-/* line 117, ../scss/components/_buttons.scss */
+/* line 120, ../scss/components/_buttons.scss */
 .submit-buttons a:active {
   margin-top: 2px;
   margin-bottom: -2px;
 }
 
-/* line 122, ../scss/components/_buttons.scss */
+/* line 125, ../scss/components/_buttons.scss */
 .submit-buttons a:hover, .submit-buttons a:active {
   background-color: #972a45;
 }
 
-/* line 126, ../scss/components/_buttons.scss */
+/* line 129, ../scss/components/_buttons.scss */
 .button_container {
   width: 200px;
 }
 
-/* line 130, ../scss/components/_buttons.scss */
+/* line 133, ../scss/components/_buttons.scss */
 .send_button_container {
   width: 250px;
 }
 
-/* line 134, ../scss/components/_buttons.scss */
+/* line 137, ../scss/components/_buttons.scss */
 .request_payment_button_container {
   width: 350px;
 }
 
-/* line 138, ../scss/components/_buttons.scss */
+/* line 141, ../scss/components/_buttons.scss */
 .delete_method_button {
   width: 229px;
   margin-left: 20px;
   margin-top: 45px;
 }
 
-/* line 144, ../scss/components/_buttons.scss */
+/* line 147, ../scss/components/_buttons.scss */
 .orange_button {
   background: #ffa200;
 }
 
-/* line 148, ../scss/components/_buttons.scss */
+/* line 151, ../scss/components/_buttons.scss */
 .green_button {
   background: #87cf54;
 }
@@ -1205,58 +1221,61 @@ label {
 ================================================================================ */
 /* line 5, ../scss/components/_footer.scss */
 .footer {
-  background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
-  border-top: 1px solid #7d7d7d;
+  background: gray;
+  border-top: 1px solid #bababa;
   padding-bottom: 10px;
 }
 
 /* line 11, ../scss/components/_footer.scss */
 .footer_title {
   color: #dce1e6;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: museo_sans;
 }
 
-/* line 17, ../scss/components/_footer.scss */
+/* line 20, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 19, ../scss/components/_footer.scss */
+/* line 22, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 24, ../scss/components/_footer.scss */
+/* line 27, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 29, ../scss/components/_footer.scss */
+/* line 32, ../scss/components/_footer.scss */
 .footer_title > a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 34, ../scss/components/_footer.scss */
+/* line 37, ../scss/components/_footer.scss */
 .landing_footer {
   background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
   border-top: 1px solid #7d7d7d;
   padding-bottom: 10px;
 }
 
-/* line 40, ../scss/components/_footer.scss */
+/* line 43, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 44, ../scss/components/_footer.scss */
+/* line 47, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 49, ../scss/components/_footer.scss */
+/* line 52, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;

@@ -79,13 +79,13 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     user: this.user,
                     otherUser: this.otherUser
                 }));
-                var discussionView = new CommunicationLayout({
+                /*var discussionView = new CommunicationLayout({
                     messages: this.model.get("comments"),
                     user: this.user,
                     otherUser: this.otherUser,
                     tags: this.tags
                 });
-                this.layout.discussion.show(discussionView);
+                this.layout.discussion.show(discussionView);*/
             },
             editAgreement: function() {
                 this.originalModelData = this.model.toJSON();

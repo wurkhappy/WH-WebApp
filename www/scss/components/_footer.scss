@@ -3,15 +3,18 @@
 
 
 .footer {
-  background: rgb(140,150,160) url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
-  border-top: 1px solid rgb(125,125,125);
+  background: $grey;
+  border-top: 1px solid $grey_light;
   padding-bottom: 10px;
 }
 
 .footer_title {
   color: rgb(220,225,230);
-  text-shadow: 0 1px 0 rgba(0,0,0,.5);
   text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: museo_sans;
 }
 
 .footer_link {

@@ -3,12 +3,15 @@
   padding-bottom: 20px;
 }
 .ag_section{
-  padding: 20px;
-  padding-bottom: 0px;
+  margin-bottom: 30px;
 }
 .ag_subsection{
   padding: 0;
   margin-top: 10px;
+}
+
+.agreement_region {
+  padding: 20px;
 }
 
 .agreement_profile_container {
@@ -51,16 +54,17 @@
   padding: 10px 5;
   margin-top: 15px;
   list-style: none;
-  cursor: pointer;
   margin-top:5px;
   overflow: hidden;
   .task_icon {
     margin-left:30px;
   }
   &:hover {
-    background: hsl(210, 20%, 98%);
     .work_item_detail_link {
       color:hsl(198, 100%, 43%);
+    }
+    .checkbox_complete {
+      background: hsl(210, 20%, 98%);
     }
     /*.show_details_button {
       color: $orange;
@@ -282,22 +286,23 @@
 .checkbox {
   background: hsl(0, 100%, 100%);
   border-radius: 3px;
-  -webkit-box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.1);
-  box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.1);
-  border: 1px solid hsl(0, 0%, 73%);
-  border-bottom-color: hsl(0, 0%, 60%);
-  border-top-color: hsl(0, 0%, 80%);
+  //-webkit-box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.1);
+  //box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.1);
+  border: 2px solid $grey;
+  //border-bottom-color: hsl(0, 0%, 60%);
+  //border-top-color: hsl(0, 0%, 80%);
   font-weight: bold;
   position: absolute;
-  left: 6px;
+  left: 10px;
   line-height: 16px;
   overflow: hidden;
   text-align: center;
   text-indent: 100%;
-  top: 0;
-  height: 16px;
-  width: 16px;
+  top: -1px;
+  height: 18px;
+  width: 18px;
   white-space: nowrap;
+  padding: 3px 0;
 }
 
 .check_item .checkbox:hover {
@@ -312,15 +317,14 @@
 }
 
 .checkbox_complete {
-  background-color: hsl(0, 0%, 95%);
-  border: 1px solid hsl(0, 0%, 73%);
-  border-bottom-color: hsl(0, 0%, 80%);
-  border-top-color: hsl(0, 0%, 60%);
-  -webkit-box-shadow: 0 1px 0 hsl(0, 100%, 100%);
-  box-shadow: 0 1px 0 hsl(0, 100%, 100%);
+  background-color: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   text-indent: 0;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 5px;
+  color: $green;
 }
 
 .task_complete {
@@ -330,16 +334,14 @@
 }
 
 .void_agreement {
-  margin: 0 20px 20px 20px;
+  margin: 20px;
   padding: 10px;
   background-color: rgb(238,240,242);
   text-align: center;
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  a {
+    text-transform: uppercase;
+    font-size: 11px;
+  }
 }
 
 .work_item_container {
@@ -425,5 +427,10 @@
   text-transform: uppercase;
   font-size: 18px;
   font-weight:200;
+}
+
+.deliverable_header:hover {
+  background: hsl(210, 20%, 98%);
+  cursor: pointer;
 }
 
