@@ -261,26 +261,6 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	var agrmntData map[string]interface{}
 	json.Unmarshal(resp, &agrmntData)
 
-	resp, statusCode = sendServiceRequest("GET", config.CommentsService, "/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil, session.Values["id"].(string))
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	var commentsData []map[string]interface{}
-	json.Unmarshal(resp, &commentsData)
-
-	resp, statusCode = sendServiceRequest("GET", config.CommentsService, "/agreement/"+agrmntData["agreementID"].(string)+"/tags", nil, session.Values["id"].(string))
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	var tagsData []map[string]interface{}
-	json.Unmarshal(resp, &tagsData)
-
 	otherid, _ := agrmntData["freelancerID"]
 	otherID := otherid.(string)
 	if otherID == userID {
@@ -297,8 +277,6 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		"agreement":  agrmntData,
 		"otherUser":  otherUser,
 		"thisUser":   thisUser,
-		"comments":   commentsData,
-		"tags":       tagsData,
 		"production": Production,
 		"JSversion":  JSversion,
 		"CSSversion": CSSversion,
@@ -373,7 +351,7 @@ func UpdatePayment(w http.ResponseWriter, req *http.Request, session *sessions.S
 
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID, buf.Bytes())
+	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID, buf.Bytes(), session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
