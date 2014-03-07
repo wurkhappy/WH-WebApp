@@ -76,9 +76,10 @@ a,
 a:visited {
   text-decoration: none;
   color: #008bc7;
+  text-transform: uppercase;
 }
 
-/* line 67, ../scss/bases/_common.scss */
+/* line 68, ../scss/bases/_common.scss */
 a:hover,
 a:active {
   text-decoration: underline;
@@ -87,13 +88,15 @@ a:active {
   text-decoration: none;
 }
 
-/* line 74, ../scss/bases/_common.scss */
+/* line 75, ../scss/bases/_common.scss */
 p {
-  padding: 0 20px;
+  padding: 0;
   margin-bottom: 20px;
+  font-family: museo_sans;
+  font-size: 16px;
 }
 
-/* line 79, ../scss/bases/_common.scss */
+/* line 82, ../scss/bases/_common.scss */
 ul {
   margin: 0px;
   padding: 0px;
@@ -101,130 +104,178 @@ ul {
   list-style: none;
 }
 
-/* line 87, ../scss/bases/_common.scss */
+/* line 90, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 91, ../scss/bases/_common.scss */
-h1, h2, h3 {
-  color: #333333;
-  padding: 0 20px;
+/* line 94, ../scss/bases/_common.scss */
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
   font-family: museo;
 }
 
-/* line 97, ../scss/bases/_common.scss */
+/* line 100, ../scss/bases/_common.scss */
+h2, h3 {
+  color: #008bc7;
+}
+
+/* line 104, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 101, ../scss/bases/_common.scss */
+/* line 108, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
-  line-height: 40px;
-  font-weight: 100;
-  margin: 20px 0 10px 0;
+  line-height: 50px;
+  font-weight: 300;
 }
 
-/* line 108, ../scss/bases/_common.scss */
+/* line 114, ../scss/bases/_common.scss */
 h2 {
   font-size: 24px;
-  line-height: 30px;
-  margin: 20px 0 10px 0;
-  font-weight: 100;
+  line-height: 38px;
+  font-weight: 300;
 }
 
-/* line 115, ../scss/bases/_common.scss */
+/* line 120, ../scss/bases/_common.scss */
 h3 {
-  font-size: 16px;
-  line-height: 20px;
-  margin: 20px 0 10px 0;
+  font-size: 18px;
+  line-height: 29px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* line 127, ../scss/bases/_common.scss */
+h4 {
+  color: #4a9bc9;
   font-weight: 500;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-family: museo_sans;
 }
 
 /* Forms
 ================================================================================ */
-/* line 126, ../scss/bases/_common.scss */
+/* line 139, ../scss/bases/_common.scss */
 form {
-  padding: 0 20px 20px 20px;
+  padding: 0;
 }
 
-/* line 130, ../scss/bases/_common.scss */
-label, .faux-label {
+/* line 143, ../scss/bases/_common.scss */
+label {
   display: block;
-  padding: 20px 0 5px 0;
+  padding: 0;
   margin: 0;
+  text-transform: uppercase;
+  color: #4a9bc9;
 }
 
-/* line 136, ../scss/bases/_common.scss */
-label span {
-  display: block;
-  font-size: .75em;
-  color: #969696;
-}
-
-/* line 142, ../scss/bases/_common.scss */
+/* line 151, ../scss/bases/_common.scss */
 input {
   max-width: 350px;
 }
 
-/* line 146, ../scss/bases/_common.scss */
+/* line 155, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
   margin: 0;
+  margin-bottom: 10px;
   font-size: 100%;
   font: inherit;
   color: #636363;
   border-radius: 3px;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }
 
-/* line 156, ../scss/bases/_common.scss */
+/* line 168, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 163, ../scss/bases/_common.scss */
+/* line 175, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 168, ../scss/bases/_common.scss */
+/* line 180, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 173, ../scss/bases/_common.scss */
+/* line 185, ../scss/bases/_common.scss */
 fieldset {
   border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
   width: 100%;
 }
 
+/* line 191, ../scss/bases/_common.scss */
+td {
+  border-top: 1px solid whitesmoke;
+  padding: 15px 0 0 0;
+}
+
 /* COMMON UI classes
 ================================================================================ */
-/* line 182, ../scss/bases/_common.scss */
+/* line 199, ../scss/bases/_common.scss */
 .green {
   color: #87cf54;
 }
 
-/* line 186, ../scss/bases/_common.scss */
+/* line 203, ../scss/bases/_common.scss */
 .orange {
   color: #ffa200;
 }
 
-/* line 190, ../scss/bases/_common.scss */
+/* line 207, ../scss/bases/_common.scss */
+.white {
+  color: white;
+}
+
+/* line 211, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 195, ../scss/bases/_common.scss */
+/* line 216, ../scss/bases/_common.scss */
+.bold_text {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+/* line 222, ../scss/bases/_common.scss */
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* line 226, ../scss/bases/_common.scss */
+.sub_text {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 10px;
+  font-family: museo_sans;
+  font-style: normal;
+}
+
+/* line 234, ../scss/bases/_common.scss */
+.layout_container {
+  min-height: 150px;
+  padding: 30px;
+}
+
+/* line 239, ../scss/bases/_common.scss */
 .main_content_container {
   -moz-box-shadow: 0px 3px 5px 3px #CDCED3;
   -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
@@ -232,22 +283,22 @@ fieldset {
   background-color: white;
 }
 
-/* line 202, ../scss/bases/_common.scss */
+/* line 246, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 205, ../scss/bases/_common.scss */
+/* line 249, ../scss/bases/_common.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 208, ../scss/bases/_common.scss */
+/* line 252, ../scss/bases/_common.scss */
 .no_bullet {
   list-style: none;
 }
 
-/* line 212, ../scss/bases/_common.scss */
+/* line 256, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -256,75 +307,80 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 220, ../scss/bases/_common.scss */
+/* line 264, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
   color: gray;
   margin: 0 0 10px 0;
   text-align: left;
-  font-weight: 400;
+  font-weight: 500;
 }
 
-/* line 229, ../scss/bases/_common.scss */
+/* line 273, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 234, ../scss/bases/_common.scss */
+/* line 278, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #c7e0e4;
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 239, ../scss/bases/_common.scss */
+/* line 283, ../scss/bases/_common.scss */
 .divider_left {
   border-left: 1px solid #c7e0e4;
 }
 
-/* line 242, ../scss/bases/_common.scss */
+/* line 286, ../scss/bases/_common.scss */
 .divider_right {
   border-right: 1px solid #c7e0e4;
 }
 
-/* line 247, ../scss/bases/_common.scss */
+/* line 290, ../scss/bases/_common.scss */
+.center_text {
+  text-align: center;
+}
+
+/* line 295, ../scss/bases/_common.scss */
 .required {
-  color: #972b46;
+  color: #ffa200;
   display: inline;
 }
 
-/* line 252, ../scss/bases/_common.scss */
+/* line 300, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 256, ../scss/bases/_common.scss */
+/* line 304, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
 
-/* line 259, ../scss/bases/_common.scss */
+/* line 307, ../scss/bases/_common.scss */
 .right_align {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 264, ../scss/bases/_common.scss */
+/* line 312, ../scss/bases/_common.scss */
 .fa.fa-check-circle {
   color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 269, ../scss/bases/_common.scss */
+/* line 317, ../scss/bases/_common.scss */
 .fa-check {
   color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 274, ../scss/bases/_common.scss */
+/* line 322, ../scss/bases/_common.scss */
 .fa-check.task_check {
   color: inherit;
   margin-left: 0;
@@ -334,7 +390,7 @@ fieldset {
   font-size: 16px;
 }
 
-/* line 282, ../scss/bases/_common.scss */
+/* line 331, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }
@@ -3144,31 +3200,31 @@ button.toast-close-button {
   margin-bottom: -20px;
 }
 
-/* Header - Common
+/* Top Navigation - Common
 ================================================================================ */
-/* line 5, ../scss/components/_header.scss */
+/* line 3, ../scss/components/_navigation.scss */
 .navigation {
   min-height: 67px;
 }
 
-/* line 9, ../scss/components/_header.scss */
+/* line 7, ../scss/components/_navigation.scss */
 .navigation ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 15, ../scss/components/_header.scss */
+/* line 13, ../scss/components/_navigation.scss */
 .navigation li {
   float: left;
 }
 
-/* line 19, ../scss/components/_header.scss */
+/* line 17, ../scss/components/_navigation.scss */
 .admin_nav li {
   float: right;
 }
 
-/* line 23, ../scss/components/_header.scss */
+/* line 21, ../scss/components/_navigation.scss */
 .logo {
   font-family: museo;
   font-size: 24px;
@@ -3183,12 +3239,15 @@ button.toast-close-button {
   padding-left: 70px;
   text-decoration: none;
   width: 210px;
+  text-transform: capitalize;
 }
-/* line 37, ../scss/components/_header.scss */
+
+/* line 38, ../scss/components/_navigation.scss */
 .logo:visited {
   color: black;
 }
-/* line 40, ../scss/components/_header.scss */
+
+/* line 42, ../scss/components/_navigation.scss */
 .logo:hover, .logo:active {
   text-decoration: none;
   color: #646464;
@@ -3196,12 +3255,12 @@ button.toast-close-button {
 
 /* Header - Main App
 ================================================================================ */
-/* line 49, ../scss/components/_header.scss */
+/* line 50, ../scss/components/_navigation.scss */
 .main_top_padding {
   padding-top: 13px;
 }
 
-/* line 53, ../scss/components/_header.scss */
+/* line 54, ../scss/components/_navigation.scss */
 .navigation_links a {
   display: block;
   float: left;
@@ -3213,7 +3272,7 @@ button.toast-close-button {
 
 /* Header - Landing
 ================================================================================ */
-/* line 65, ../scss/components/_header.scss */
+/* line 65, ../scss/components/_navigation.scss */
 .landing_navigation_links {
   padding-left: 50px;
   line-height: 38px;
@@ -3221,12 +3280,12 @@ button.toast-close-button {
   padding-top: 23px;
 }
 
-/* line 72, ../scss/components/_header.scss */
+/* line 72, ../scss/components/_navigation.scss */
 .top_padding {
   padding-top: 20px;
 }
 
-/* line 76, ../scss/components/_header.scss */
+/* line 76, ../scss/components/_navigation.scss */
 .create_account {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -3234,43 +3293,29 @@ button.toast-close-button {
 
 /* MAIN Intro Header/ main action
 ================================================================================ */
-/* line 5, ../scss/components/_intro.scss */
-.intro {
+/* line 5, ../scss/components/_header.scss */
+.header {
   background-color: #168dc7;
   border-bottom: 1px solid #007ab1;
   padding: 35px 50px 25px;
 }
-
-/* line 12, ../scss/components/_intro.scss */
-.header_title {
+/* line 10, ../scss/components/_header.scss */
+.header h1 {
   color: white;
   margin: 0;
   padding: 0;
 }
 
-/* line 18, ../scss/components/_intro.scss */
-.intro p {
-  line-height: 40px;
-  margin-bottom: 10px;
-}
-
-/* line 23, ../scss/components/_intro.scss */
-.intro p span {
-  color: white;
-}
-
-/* line 27, ../scss/components/_intro.scss */
+/* line 17, ../scss/components/_header.scss */
 .empty_home {
   margin-top: 150px;
   margin-bottom: 150px;
   text-align: center;
 }
 
-/* line 33, ../scss/components/_intro.scss */
+/* line 23, ../scss/components/_header.scss */
 .home_header {
-  background-color: #168bc5;
-  border-bottom: 1px solid #007ab3;
-  padding: 30px;
+  padding: 35px 35px 20px 35px;
 }
 
 /* line 1, ../scss/components/_legal.scss */
@@ -3607,99 +3652,38 @@ div.faqcontent h2 {
 
 /* Agreement List Style ( used in homepage agreement list, profile, and agreement)
 ================================================================================ */
-/* line 4, ../scss/components/_agreement_list.scss */
+/* line 4, ../scss/components/_home.scss */
+.last_action {
+  display: block;
+  font-size: 14px;
+  color: gray;
+  margin: 0 0 10px 0;
+  text-align: left;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* line 14, ../scss/components/_home.scss */
+.home_agreement_status {
+  text-align: center;
+  margin: 0;
+}
+
+/* line 19, ../scss/components/_home.scss */
 .data-table {
   padding: 0 20px 10px 20px;
 }
 
-/* line 8, ../scss/components/_agreement_list.scss */
+/* line 23, ../scss/components/_home.scss */
 .data-table table {
   width: 100%;
   display: inline-table;
 }
 
-/* line 13, ../scss/components/_agreement_list.scss */
-.data-table table tr td {
-  border-top: 1px solid whitesmoke;
-  padding: 10px 20px 10px 0;
-  vertical-align: top;
-}
-
-/* line 19, ../scss/components/_agreement_list.scss */
-.data-table table tr td h3 {
-  margin: 10px 0 0 0;
+/* line 28, ../scss/components/_home.scss */
+td.progress {
+  width: 260px;
   padding: 0;
-}
-
-/* line 24, ../scss/components/_agreement_list.scss */
-.data-table table tr td h3.less {
-  margin-top: 0;
-}
-
-/* line 28, ../scss/components/_agreement_list.scss */
-.data-table table tr td p {
-  margin: 0;
-  padding: 0;
-  font-size: .875em;
-  color: #969696;
-}
-
-/* line 35, ../scss/components/_agreement_list.scss */
-.data-table table tr td p.remove {
-  background: url(https://d3kq8dzp7eezz0.cloudfront.net/img/icons/cross-16x16.png) no-repeat left;
-  padding-left: 20px;
-}
-
-/* line 40, ../scss/components/_agreement_list.scss */
-.data-table table tr td.action {
-  width: 150px;
-  padding: 10px 0;
-  text-align: right;
-}
-
-/* line 46, ../scss/components/_agreement_list.scss */
-.data-table table tr td.meta {
-  width: 80px;
-  padding: 10px 0;
-}
-
-/* line 51, ../scss/components/_agreement_list.scss */
-.data-table table tr td.meta span {
-  display: block;
-  background-color: #f9fafb;
-  padding: 4px;
-  margin: 0 20px 0 0px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-/* line 61, ../scss/components/_agreement_list.scss */
-.data-table table tr td.meta span img {
-  display: block;
-  width: 50px;
-}
-
-/* line 66, ../scss/components/_agreement_list.scss */
-.data-table table tr td.progress {
-  width: 200px;
-  padding: 10px 0;
-  text-align: center;
-}
-
-/* line 72, ../scss/components/_agreement_list.scss */
-.data-table table tr td.progress span {
-  display: block;
-  margin: 14px 0 13px 0;
-  background-color: #dce0e4;
-  background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/progress-bar-small.png);
-  background-repeat: no-repeat;
-}
-
-/* line 80, ../scss/components/_agreement_list.scss */
-.data-table table tr td.progress span img {
-  display: block;
-  width: 200px;
 }
 
 /* line 1, ../scss/components/_create_agreement.scss */
@@ -4262,62 +4246,57 @@ div.faqcontent h2 {
 }
 
 /* line 363, ../scss/components/_agreement.scss */
-.home_container {
-  min-height: 150px;
-}
-
-/* line 367, ../scss/components/_agreement.scss */
 .fee_detail_container {
   padding-left: 10px;
 }
-/* line 369, ../scss/components/_agreement.scss */
+/* line 365, ../scss/components/_agreement.scss */
 .fee_detail_container ul {
   padding: 0;
 }
 
-/* line 374, ../scss/components/_agreement.scss */
+/* line 370, ../scss/components/_agreement.scss */
 .fee_line_item {
   font-size: 12px;
   list-style-type: none;
 }
 
-/* line 379, ../scss/components/_agreement.scss */
+/* line 375, ../scss/components/_agreement.scss */
 .fee_amount {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 385, ../scss/components/_agreement.scss */
+/* line 381, ../scss/components/_agreement.scss */
 .payment_methods_agreement_container {
   padding-left: 20px;
 }
 
-/* line 389, ../scss/components/_agreement.scss */
+/* line 385, ../scss/components/_agreement.scss */
 .proposed_services_container {
   max-height: 300px;
   overflow-y: scroll;
   border-radius: 5px;
 }
-/* line 393, ../scss/components/_agreement.scss */
+/* line 389, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
   font-size: 16px;
   padding: 0;
 }
 
-/* line 400, ../scss/components/_agreement.scss */
+/* line 396, ../scss/components/_agreement.scss */
 .agreement_header_helper {
   min-width: 250px;
 }
 
-/* line 403, ../scss/components/_agreement.scss */
+/* line 399, ../scss/components/_agreement.scss */
 .deliverable_info {
   font-size: 14px;
   text-align: right;
 }
 
-/* line 407, ../scss/components/_agreement.scss */
+/* line 403, ../scss/components/_agreement.scss */
 .tasks_meta {
   display: inline-block;
   font-style: italic;
@@ -4325,12 +4304,12 @@ div.faqcontent h2 {
   font-weight: 400;
 }
 
-/* line 413, ../scss/components/_agreement.scss */
+/* line 409, ../scss/components/_agreement.scss */
 .tasks_meta.current {
   color: #87cf54;
 }
 
-/* line 416, ../scss/components/_agreement.scss */
+/* line 412, ../scss/components/_agreement.scss */
 .show_details_button {
   display: inline-block;
   font-style: italic;
@@ -4339,7 +4318,7 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 424, ../scss/components/_agreement.scss */
+/* line 420, ../scss/components/_agreement.scss */
 .deliverable_title {
   color: #168dc7;
   font-family: museo;
@@ -4348,7 +4327,7 @@ div.faqcontent h2 {
   font-weight: 200;
 }
 
-/* line 432, ../scss/components/_agreement.scss */
+/* line 428, ../scss/components/_agreement.scss */
 .deliverable_header:hover {
   background: #f9fafb;
   cursor: pointer;
@@ -4601,7 +4580,7 @@ progress[value] {
   /* Of all IE, only IE10 supports progress element that too partially. It only allows to change the background-color of the progress value using the 'color' attribute. */
   color: royalblue;
   position: relative;
-  margin: 15px 0;
+  margin: 5px 0;
   border-radius: 10px;
 }
 
@@ -6015,10 +5994,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 10, ../scss/components/_account.scss */
 .stored_payment_methods {
   float: right;
-  margin-right: 230px;
 }
 
-/* line 15, ../scss/components/_account.scss */
+/* line 14, ../scss/components/_account.scss */
 .credit_card_images {
   padding-left: 20px;
   position: absolute;
@@ -6027,9 +6005,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 200px;
 }
 
-/* line 23, ../scss/components/_account.scss */
+/* line 22, ../scss/components/_account.scss */
 .account_personal_form {
-  width: 50%;
+  width: 100%;
   padding-right: 0;
   display: inline-block;
   vertical-align: top;
@@ -6044,34 +6022,52 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 35, ../scss/components/_account.scss */
 .account_verification_form {
-  width: 47%;
+  width: 100%;
   display: inline-block;
   vertical-align: top;
   padding-left: 0;
+  border-left: 1px solid #c8e1e4;
+  margin-left: 20px;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+/* line 44, ../scss/components/_account.scss */
+.account_verification_form .helper_text {
+  margin: 0;
 }
 
-/* line 42, ../scss/components/_account.scss */
+/* line 49, ../scss/components/_account.scss */
 .account_verification_form h2 {
   margin: 0px;
   margin-top: 10px;
   padding: 0px;
 }
 
-/* line 48, ../scss/components/_account.scss */
+/* line 55, ../scss/components/_account.scss */
 .account_save {
-  padding: 20px;
+  border-top: 1px solid #c8e1e4;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+/* line 59, ../scss/components/_account.scss */
+.account_save a {
+  width: 250px;
 }
 
 /* FOOTER
 ================================================================================ */
-/* line 5, ../scss/components/_footer.scss */
+/* line 4, ../scss/components/_footer.scss */
 .footer {
   background: gray;
   border-top: 1px solid #bababa;
   padding-bottom: 10px;
+  padding: 15px;
+  overflow: hidden;
+  width: 960px;
+  margin: 0 auto;
 }
 
-/* line 11, ../scss/components/_footer.scss */
+/* line 14, ../scss/components/_footer.scss */
 .footer_title {
   color: #dce1e6;
   text-align: center;
@@ -6081,46 +6077,46 @@ progress::-webkit-progress-value, progress.yellow_progress {
   font-family: museo_sans;
 }
 
-/* line 20, ../scss/components/_footer.scss */
+/* line 23, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 22, ../scss/components/_footer.scss */
+/* line 25, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 27, ../scss/components/_footer.scss */
+/* line 30, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 32, ../scss/components/_footer.scss */
+/* line 35, ../scss/components/_footer.scss */
 .footer_title > a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 37, ../scss/components/_footer.scss */
+/* line 40, ../scss/components/_footer.scss */
 .landing_footer {
-  background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
+  background: gray;
   border-top: 1px solid #7d7d7d;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
-/* line 43, ../scss/components/_footer.scss */
+/* line 46, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 47, ../scss/components/_footer.scss */
+/* line 50, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 52, ../scss/components/_footer.scss */
+/* line 55, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;
@@ -6330,7 +6326,6 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 18, ../scss/components/_grid.scss */
 [class*='col-'] {
   float: left;
-  padding-right: 20px;
 }
 /* line 21, ../scss/components/_grid.scss */
 .grid [class*='col-']:last-of-type {
@@ -6368,15 +6363,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /* Opt-in outside padding */
-/* line 45, ../scss/components/_grid.scss */
-.grid-pad {
-  padding: 20px 0 20px 20px;
-}
-/* line 47, ../scss/components/_grid.scss */
-.grid-pad [class*='col-']:last-of-type {
-  padding-right: 20px;
-}
-
+/*.grid-pad {
+  padding: $pad 0 $pad $pad;
+  [class*='col-']:last-of-type {
+    padding-right: $pad;
+  }
+}*/
 /* line 8, ../scss/layouts/_layout.scss */
 .container {
   margin: 0 auto;
