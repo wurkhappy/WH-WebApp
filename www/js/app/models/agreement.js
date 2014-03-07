@@ -126,14 +126,11 @@ define(['backbone', 'backbone-relational', 'moment', 'models/payment', 'collecti
                 });
             },
             percentComplete: function() {
-                var deposit = this.get("workItems").findDeposit();
-                var depositAmount = (deposit) ? deposit.get("amountDue") : 0;
-                var totalAmountExDeposit = this.get("workItems").getTotalAmount() - depositAmount;
-                if (totalAmountExDeposit === 0) {
-                    return 0;
-                } else {
-                    return ((this.get("payments").getTotalDue() - depositAmount) / totalAmountExDeposit) * 100;
-                }
+                var totalComplete = 0;
+                this.get("workItems").each(function(model){
+                    if (model.isComplete()) totalComplete += 1;
+                });
+                return (totalComplete/this.get("workItems").length)*100;
 
             }
         });
