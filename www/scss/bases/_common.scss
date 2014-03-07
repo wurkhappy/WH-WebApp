@@ -61,6 +61,7 @@ a,
 a:visited {
   text-decoration: none;
   color: $blue;
+  text-transform: uppercase;
 }
 
 a:hover,
@@ -72,8 +73,10 @@ a:active {
 }
 
 p{
-  padding: 0 20px;
+  padding: 0;
   margin-bottom: 20px;
+  font-family: museo_sans;
+  font-size: 16px;
 }
 
 ul{
@@ -88,10 +91,14 @@ strong {
   font-weight: bold;
 }
 
-h1, h2, h3 {
-  color: $black;
-  padding: 0 20px;
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
   font-family: museo;
+}
+
+h2, h3 {
+  color: $blue;
 }
 
 h1 strong, h2 strong {
@@ -100,23 +107,29 @@ h1 strong, h2 strong {
 
 h1 {
   font-size: 32px;
-  line-height: 40px;
-  font-weight: 100;
-  margin: 20px 0 10px 0;
+  line-height: 50px;
+  font-weight: 300;
 }
 
 h2 {
   font-size: 24px;
-  line-height: 30px;
-  margin: 20px 0 10px 0;
-  font-weight: 100;
+  line-height: 38px;
+  font-weight: 300;
 }
 
 h3 {
-  font-size: 16px;
-  line-height: 20px;
-  margin: 20px 0 10px 0;
+  font-size: 18px;
+  line-height: 29px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h4 {
+  color: hsl(202, 54%, 54%);
   font-weight: 500;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-family: museo_sans;
 }
 
 /* Forms
@@ -124,19 +137,15 @@ h3 {
 
 
 form {
-  padding: 0 20px 20px 20px;
+  padding: 0;
 }
 
-label, .faux-label {
+label {
   display: block;
-  padding: 20px 0 5px 0;
+  padding: 0;
   margin: 0;
-}
-
-label span {
-  display: block;
-  font-size: .75em;
-  color: rgb(150,150,150);
+  text-transform: uppercase;
+  color: hsl(202, 54%, 54%);
 }
 
 input {
@@ -146,11 +155,14 @@ input {
 input, textarea {
   border: 1px solid rgb(150,150,150);
   padding: 3px;
-  margin: 0;
+  margin:0;
+  margin-bottom: 10px;
   font-size: 100%;
   font: inherit;
   color: $black_light;
   border-radius: 3px;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }
 
 input[disabled] {
@@ -176,6 +188,11 @@ fieldset {
   width: 100%;
 }
 
+td {
+  border-top: 1px solid hsl(0, 0%, 96%);
+  padding: 15px 0 0 0;
+}
+
 /* COMMON UI classes
 ================================================================================ */
 
@@ -187,9 +204,36 @@ fieldset {
   color: $orange;
 }
 
+.white {
+  color: white;
+}
+
 .white_background {
   background: white;
   position: relative;
+}
+
+.bold_text {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.sub_text{
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 10px;
+  font-family: museo_sans;
+  font-style: normal;
+}
+
+.layout_container {
+  min-height:150px;
+  padding: 30px;
 }
 
 .main_content_container {
@@ -223,7 +267,7 @@ fieldset {
   color: $grey;
   margin: 0 0 10px 0;
   text-align:left;
-  font-weight:400;
+  font-weight: 500;
 }
 
 .secure:before {
@@ -243,9 +287,13 @@ fieldset {
   border-right: 1px solid $divider;
 }
 
+.center_text {
+  text-align: center;
+}
+
 
 .required {
-  color: $red;
+  color: $orange;
   display: inline;
 }
 
@@ -279,6 +327,7 @@ fieldset {
   left:-1px;
   font-size:16px;
 }
+
 .checkmark_holder{
   position: relative;
 }

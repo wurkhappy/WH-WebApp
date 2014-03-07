@@ -9,7 +9,6 @@
 
 .stored_payment_methods {
   float: right;
-  margin-right: 230px;
 }
 
 .credit_card_images {
@@ -20,32 +19,45 @@
   width: 200px;
 }
 
-.account_personal_form{
-  width:50%;
+.account_personal_form {
+  width:100%;
   padding-right:0;
   display:inline-block;
   vertical-align: top;
+
 }
-.account_personal_form h2{
+.account_personal_form h2 {
   margin:0px;
   margin-top:10px;
   padding:0px;
 }
 
-.account_verification_form{
-  width:47%;
-  display:inline-block;
+.account_verification_form {
+  width: 100%;
+  display: inline-block;
   vertical-align: top;
-  padding-left:0;
+  padding-left: 0;
+  border-left: 1px solid hsl(188, 35%, 84%);
+  margin-left: 20px;
+  padding-left: 40px;
+  margin-bottom: 20px;
+  .helper_text {
+    margin: 0;
+  }
 }
 
-.account_verification_form h2{
+.account_verification_form h2 {
   margin:0px;
   margin-top:10px;
   padding:0px;
 }
 
 .account_save{
-  padding: 20px;
-}
+  border-top: 1px solid hsl(188, 35%, 84%);
+  padding-top: 20px;
+  margin-top: 20px;
+  a {
+    width: 250px;
+  }
 
+}

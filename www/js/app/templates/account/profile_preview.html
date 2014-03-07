@@ -1,14 +1,5 @@
-<h2>Profile Preview</h2>
-<div class="data-table">
-  <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td class="meta">
-        <span><img src="{{#if avatarData}}{{avatarData}}{{else}}{{avatarURL}}{{/if}}"></span>
-      </td>
-      <td>
-        <h3>{{firstName}} {{lastName}}</h3>
-        <p>{{email}} &mdash; {{phoneFormat phoneNumber}}</p>
-      </td>
-    </tr>
-  </table>
-</div>
+<h2>Your Profile</h2>
+  <div style="border-bottom: 1px solid hsl(188, 35%, 84%);margin-bottom:20px;">
+    <p style="margin:0;" class="bold_text">{{firstName}} {{lastName}}</p>
+    <p>{{email}} &mdash; {{phoneFormat phoneNumber}}</p>
+  </div>
