@@ -1,8 +1,10 @@
 <form parsley-validate parsley-bind class="create_milestone_container">
-  <label for="">Payment Name<span>Examples: 2nd payment, design approval, etc</span></label>
+  <label for="">Payment Name</label>
+  <span class="helper_text">Examples: 2nd payment, design approval, etc</span>
   <input data-required="true" data-trigger="change" type="text" name="title" placeholder="{{model.title}}" id="" size="50"
   value="{{model.title}}">
-  <label id="payment_amount" for="">Payment Amount<span>Please enter an amount between $10 and $15,000</span></label>
+  <label id="payment_amount" for="">Payment Amount</label>
+  <span class="helper_text">Please enter an amount between $10 and $15,000</span>
   <input data-required="true" data-trigger="change" class="paymentAmount currency_format" type="text" name="amountDue" id="" size="25"
   value="{{model.amountDue}}" required>
   <label for="">Expected Payment Date</label>

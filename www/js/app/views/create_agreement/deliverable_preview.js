@@ -13,6 +13,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'hbs!templates/cre
                 this.listenTo(this.model, "change", this.render);
                 this.render();
                 console.log(this.model.toJSON());
+                console.log(this.$el);
             },
             render: function() {
                 this.$el.html(this.template(this.model.toJSON()));

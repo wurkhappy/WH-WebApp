@@ -1,10 +1,13 @@
-<h3>Preview</h3>
+<h2>Service Preview</h2>
 <div class="deliverable_preview_item">
-<h3>{{title}}
-{{#if dateExpected}}<span class="helper_text">Due on {{dateFormat dateExpected}}</span>{{/if}}</h3>
+<h3>{{title}}</h3>
+{{#if dateExpected}}
+<span class="helper_text">Due on {{dateFormat dateExpected}}</span>
+{{/if}}
+<h4>Service Tasks</h4>
 <ul>
 	{{#each scopeItems}}
-	<li>{{title}}</li>
+	<li style="font-style: italic;font-weight: 500;font-size:14px;">{{title}}</li>
 	{{/each}}
 </ul>
 </div>
