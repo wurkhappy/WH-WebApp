@@ -111,6 +111,7 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                             var seg = $("<span>");
                             var fractionCompleted = (itemsCompleted / itemsTotal);
                             if (model.get("completed")) fractionCompleted = 1;
+                            if (itemsTotal === 0 && !model.get("completed")) fractionCompleted = 0;
 
                             seg.css({
                                 "width": fractionCompleted * modelSection + "%",

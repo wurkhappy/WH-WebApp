@@ -47,6 +47,7 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
                 return this.collection.parent.get("agreementID")
             },
             isComplete: function() {
+                if (this.get("scopeItems").length === 0 ) return this.get("completed");
                 return this.get("scopeItems").getCompleted().length === this.get("scopeItems").length;
             },
             isPaid: function() {
