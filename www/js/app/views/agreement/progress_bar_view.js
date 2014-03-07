@@ -109,8 +109,11 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                             var itemsTotal = model.get("scopeItems").length;
                             var items = model.get("scopeItems");
                             var seg = $("<span>");
+                            var fractionCompleted = (itemsCompleted / itemsTotal);
+                            if (model.get("completed")) fractionCompleted = 1;
+
                             seg.css({
-                                "width": (itemsCompleted / itemsTotal) * modelSection + "%",
+                                "width": fractionCompleted * modelSection + "%",
                                 "height": "100%",
                                 "display": "block",
                                 "background": "#9DD573",
@@ -119,7 +122,7 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                             wrapper.append(seg);
                             var segment = $("<span>");
                             segment.css({
-                                "width": (1 - (itemsCompleted / itemsTotal)) * modelSection + "%",
+                                "width": (1 - fractionCompleted) * modelSection + "%",
                                 "height": "100%",
                                 "display": "block",
                                 "background": "hsl(0, 0%, 73%)",
