@@ -46,7 +46,6 @@
   border-radius: 5px;
   border: 1px solid rgb(225,225,225);
   min-height: 50px;
-  width: 400px;
   margin-left: 20px;
 }
 .deliverable_preview_item > ul{
@@ -95,20 +94,14 @@
   display:inline;
 }
 
-.progress_section {
-  overflow:hidden;
-  min-height: 100px;
-}
-
 .message_editor_container {
   width: 620px;
 }
 
 .progress_area {
   position: relative;
-  float:right;
   width: 600px;
-  margin-top:40px;
+  margin: 0 auto;
 
 }
 #schedule_templates{

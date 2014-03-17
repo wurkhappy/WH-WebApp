@@ -41,7 +41,7 @@ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor',
                 CKEDITOR.basePath = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
                 CKEDITOR.replace('message_editor', {
                     toolbar: [{
-                        items: ['Bold', '-', 'Italic', '-', 'Underline', 'NumberedList', 'BulletedList', 'Link', 'Unlink']
+                        items: ['Bold', '-', 'Italic', '-', 'Underline', 'NumberedList', 'BulletedList']
                     }],
                     disableNativeSpellChecker: false,
                     language: 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/en.js',
