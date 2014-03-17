@@ -9,7 +9,7 @@ define(['backbone', 'backbone-relational'],
                 return this.collection.getWorkItemID();
             },
             isPaid: function() {
-                return this.get("isPaid");
+                return !!this.get("isPaid");
             }
         });
 
