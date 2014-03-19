@@ -149,6 +149,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 110px;
   &:hover {
     text-decoration: none;
+    h3 {
+      color: $orange;
+    }
   }
 }
 

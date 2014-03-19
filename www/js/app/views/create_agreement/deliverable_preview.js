@@ -8,6 +8,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'hbs!templates/cre
             template: tpl,
 
             initialize: function(options) {
+                console.log(options);
                 this.listenTo(this.model.get("scopeItems"), "add", this.render);
                 this.listenTo(this.model.get("scopeItems"), "remove", this.render);
                 this.listenTo(this.model, "change", this.render);

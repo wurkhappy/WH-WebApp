@@ -1,4 +1,5 @@
-<div class="payment_methods_container">
+<h2>Payment Terms</h2>
+<div class="payment_methods_container" style="float: right;">
   <label>Select Accepted Methods of Payment</label>
   <input type="checkbox" name="acceptsBankTransfer" value="true" class="payment_method"
   {{#if acceptsBankTransfer}}
@@ -13,9 +14,9 @@
   >
   <span class="helper_text require_deposit_text"><span class="payment_method_title">Credit Card</span> (costs receiver 2.9% + 55 cents)</span>
 </div>
-<div class="divider"></div>
+
 <form id="estimate_form" action="" method="get" accept-charset="utf-8">
-  <div class="deposit_container">
+  <div class="deposit_container" style="float:left;">
     <label>Agreement Deposit</label>
     <span class="helper_text">Enter an amount here to require payment upon acceptance of this agreement</span>
     <input 
@@ -25,13 +26,14 @@
     value="{{amountDue}}" 
     placeholder="$0.00">
   </div>
+  <div class="divider" style="clear: both;margin-bottom: 10px;"></div>
+  <h2 style="clear:both;">Payment Schedule</h2>
 
-  <fieldset id="addMoreButton" class="addMoreButton add_milestone_button">
-    <p class="add-more">
-    	<a href="#add_milestone">Add Another Payment</a>
-    </p>
-  </fieldset>
-  <div class="button_container">
-    <a id="save_continue" href="#save_and_continue" class="button action_button">Save and Continue</a>
+  <div id="bottomDiv" style="clear:both;"></div>
+  
+  <div class="divider" style="clear: both;margin-top: 20px;"></div>
+  <div style="margin-top:20px;">
+    <a id="addPayment" href="#add_payment" class="button action_button" style="width:250px;float:left;">Add Another Payment</a>
+    <a id="save_continue" href="#save_and_continue" class="button action_button" style="width:250px;float:left;margin-left:30px;">Save and Continue</a>
   </div>
 </form>

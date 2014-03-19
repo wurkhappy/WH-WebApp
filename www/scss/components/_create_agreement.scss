@@ -14,10 +14,6 @@
 	margin-left: 20px;
 }
 
-.create_milestone_container {
-  padding:0;
-  display: inline-block;
-}
 .include_items_container{
   display: inline-block;
   vertical-align: top;
@@ -47,6 +43,7 @@
   border: 1px solid rgb(225,225,225);
   min-height: 50px;
   margin-left: 20px;
+  padding: 10px;
 }
 .deliverable_preview_item > ul{
   list-style: none;

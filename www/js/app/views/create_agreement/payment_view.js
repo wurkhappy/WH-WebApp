@@ -37,7 +37,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
             },
 
             events: {
-                "click #addMoreButton": "addMilestone",
+                "click #addPayment": "addPayment",
                 "click #save_continue": "debounceSaveAndContinue",
                 "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
                 "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
@@ -79,10 +79,10 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                 if (itemView.model.get("title") === 'Deposit') {
                     return;
                 }
-                itemView.$el.insertBefore(collectionView.$('#addMoreButton'));
+                itemView.$el.insertBefore(collectionView.$('#bottomDiv'));
             },
 
-            addMilestone: function(event) {
+            addPayment: function(event) {
                 event.preventDefault();
                 this.collection.add({});
             },

@@ -214,12 +214,11 @@ select {
 
 /* line 185, ../scss/bases/_common.scss */
 fieldset {
-  border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
   width: 100%;
 }
 
-/* line 191, ../scss/bases/_common.scss */
+/* line 190, ../scss/bases/_common.scss */
 td {
   border-top: 1px solid whitesmoke;
   padding: 15px 0 0 0;
@@ -227,40 +226,40 @@ td {
 
 /* COMMON UI classes
 ================================================================================ */
-/* line 199, ../scss/bases/_common.scss */
+/* line 198, ../scss/bases/_common.scss */
 .green {
   color: #87cf54;
 }
 
-/* line 203, ../scss/bases/_common.scss */
+/* line 202, ../scss/bases/_common.scss */
 .orange {
   color: #ffa200;
 }
 
-/* line 207, ../scss/bases/_common.scss */
+/* line 206, ../scss/bases/_common.scss */
 .white {
   color: white;
 }
 
-/* line 211, ../scss/bases/_common.scss */
+/* line 210, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 216, ../scss/bases/_common.scss */
+/* line 215, ../scss/bases/_common.scss */
 .bold_text {
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 900;
 }
 
-/* line 222, ../scss/bases/_common.scss */
+/* line 221, ../scss/bases/_common.scss */
 .capitalize {
   text-transform: capitalize;
 }
 
-/* line 226, ../scss/bases/_common.scss */
+/* line 225, ../scss/bases/_common.scss */
 .sub_text {
   text-transform: uppercase;
   font-weight: 300;
@@ -269,13 +268,13 @@ td {
   font-style: normal;
 }
 
-/* line 234, ../scss/bases/_common.scss */
+/* line 233, ../scss/bases/_common.scss */
 .layout_container {
   min-height: 150px;
   padding: 30px;
 }
 
-/* line 239, ../scss/bases/_common.scss */
+/* line 238, ../scss/bases/_common.scss */
 .main_content_container {
   -moz-box-shadow: 0px 3px 5px 3px #CDCED3;
   -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
@@ -283,22 +282,22 @@ td {
   background-color: white;
 }
 
-/* line 246, ../scss/bases/_common.scss */
+/* line 245, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 249, ../scss/bases/_common.scss */
+/* line 248, ../scss/bases/_common.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 252, ../scss/bases/_common.scss */
+/* line 251, ../scss/bases/_common.scss */
 .no_bullet {
   list-style: none;
 }
 
-/* line 256, ../scss/bases/_common.scss */
+/* line 255, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -307,7 +306,7 @@ td {
   background-position: 0px 4px;
 }
 
-/* line 264, ../scss/bases/_common.scss */
+/* line 263, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -317,70 +316,70 @@ td {
   font-weight: 500;
 }
 
-/* line 273, ../scss/bases/_common.scss */
+/* line 272, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 278, ../scss/bases/_common.scss */
+/* line 277, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #c7e0e4;
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 283, ../scss/bases/_common.scss */
+/* line 282, ../scss/bases/_common.scss */
 .divider_left {
   border-left: 1px solid #c7e0e4;
 }
 
-/* line 286, ../scss/bases/_common.scss */
+/* line 285, ../scss/bases/_common.scss */
 .divider_right {
   border-right: 1px solid #c7e0e4;
 }
 
-/* line 290, ../scss/bases/_common.scss */
+/* line 289, ../scss/bases/_common.scss */
 .center_text {
   text-align: center;
 }
 
-/* line 295, ../scss/bases/_common.scss */
+/* line 294, ../scss/bases/_common.scss */
 .required {
   color: #ffa200;
   display: inline;
 }
 
-/* line 300, ../scss/bases/_common.scss */
+/* line 299, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 304, ../scss/bases/_common.scss */
+/* line 303, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
 
-/* line 307, ../scss/bases/_common.scss */
+/* line 306, ../scss/bases/_common.scss */
 .right_align {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 312, ../scss/bases/_common.scss */
+/* line 311, ../scss/bases/_common.scss */
 .fa.fa-check-circle {
   color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 317, ../scss/bases/_common.scss */
+/* line 316, ../scss/bases/_common.scss */
 .fa-check {
   color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 322, ../scss/bases/_common.scss */
+/* line 321, ../scss/bases/_common.scss */
 .fa-check.task_check {
   color: inherit;
   margin-left: 0;
@@ -390,7 +389,7 @@ td {
   font-size: 16px;
 }
 
-/* line 331, ../scss/bases/_common.scss */
+/* line 330, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }
@@ -3705,19 +3704,13 @@ td.progress {
 }
 
 /* line 17, ../scss/components/_create_agreement.scss */
-.create_milestone_container {
-  padding: 0;
-  display: inline-block;
-}
-
-/* line 21, ../scss/components/_create_agreement.scss */
 .include_items_container {
   display: inline-block;
   vertical-align: top;
   margin-left: 60px;
 }
 
-/* line 26, ../scss/components/_create_agreement.scss */
+/* line 22, ../scss/components/_create_agreement.scss */
 .include_items_container > ul {
   list-style: none;
   width: 390px;
@@ -3729,18 +3722,18 @@ td.progress {
   overflow-y: scroll;
 }
 
-/* line 36, ../scss/components/_create_agreement.scss */
+/* line 32, ../scss/components/_create_agreement.scss */
 .new_deliverable_container {
   display: inline-block;
 }
 
-/* line 39, ../scss/components/_create_agreement.scss */
+/* line 35, ../scss/components/_create_agreement.scss */
 .preview_container {
   display: inline-block;
   vertical-align: top;
 }
 
-/* line 43, ../scss/components/_create_agreement.scss */
+/* line 39, ../scss/components/_create_agreement.scss */
 .deliverable_preview_item {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3748,78 +3741,79 @@ td.progress {
   border: 1px solid #e1e1e1;
   min-height: 50px;
   margin-left: 20px;
+  padding: 10px;
 }
 
-/* line 51, ../scss/components/_create_agreement.scss */
+/* line 48, ../scss/components/_create_agreement.scss */
 .deliverable_preview_item > ul {
   list-style: none;
 }
 
-/* line 55, ../scss/components/_create_agreement.scss */
+/* line 52, ../scss/components/_create_agreement.scss */
 .edit_helper {
   position: absolute;
   top: -47px;
   left: 19px;
 }
 
-/* line 61, ../scss/components/_create_agreement.scss */
+/* line 58, ../scss/components/_create_agreement.scss */
 .send_email {
   text-align: left;
 }
 
-/* line 65, ../scss/components/_create_agreement.scss */
+/* line 62, ../scss/components/_create_agreement.scss */
 .send_header {
   text-align: left;
 }
 
-/* line 69, ../scss/components/_create_agreement.scss */
+/* line 66, ../scss/components/_create_agreement.scss */
 .recipient_input {
   width: 338px;
 }
 
-/* line 73, ../scss/components/_create_agreement.scss */
+/* line 70, ../scss/components/_create_agreement.scss */
 .message_panel {
   left: 30%;
 }
 
-/* line 77, ../scss/components/_create_agreement.scss */
+/* line 74, ../scss/components/_create_agreement.scss */
 .send_email_recipient {
   padding-top: 10px;
 }
 
-/* line 81, ../scss/components/_create_agreement.scss */
+/* line 78, ../scss/components/_create_agreement.scss */
 .personal_message_container {
   padding: 10px 0;
 }
 
-/* line 85, ../scss/components/_create_agreement.scss */
+/* line 82, ../scss/components/_create_agreement.scss */
 .review_container {
   padding: 20px;
 }
 
-/* line 89, ../scss/components/_create_agreement.scss */
+/* line 86, ../scss/components/_create_agreement.scss */
 .deposit_container {
   margin-bottom: 20px;
 }
 
-/* line 93, ../scss/components/_create_agreement.scss */
+/* line 90, ../scss/components/_create_agreement.scss */
 .require_deposit_text {
   display: inline;
 }
 
-/* line 97, ../scss/components/_create_agreement.scss */
+/* line 94, ../scss/components/_create_agreement.scss */
 .message_editor_container {
   width: 620px;
 }
 
-/* line 101, ../scss/components/_create_agreement.scss */
+/* line 98, ../scss/components/_create_agreement.scss */
 .progress_area {
   position: relative;
   width: 600px;
   margin: 0 auto;
 }
 
-/* line 107, ../scss/components/_create_agreement.scss */
+/* line 104, ../scss/components/_create_agreement.scss */
 #schedule_templates {
   vertical-align: top;
   padding-left: 10px;
@@ -4704,35 +4698,39 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .create_agreement_navigation_link:hover {
   text-decoration: none;
 }
+/* line 152, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link:hover h3 {
+  color: #ffa200;
+}
 
-/* line 155, ../scss/components/_progress_bars.scss */
+/* line 158, ../scss/components/_progress_bars.scss */
 .overview_link {
   left: 0px;
 }
 
-/* line 159, ../scss/components/_progress_bars.scss */
+/* line 162, ../scss/components/_progress_bars.scss */
 .payment_schedule_link {
   left: 150px;
 }
 
-/* line 163, ../scss/components/_progress_bars.scss */
+/* line 166, ../scss/components/_progress_bars.scss */
 .review_link {
   left: 300px;
 }
 
-/* line 167, ../scss/components/_progress_bars.scss */
+/* line 170, ../scss/components/_progress_bars.scss */
 .send_link {
   left: 450px;
 }
 
-/* line 171, ../scss/components/_progress_bars.scss */
+/* line 174, ../scss/components/_progress_bars.scss */
 .create_agreement_icon_container {
   position: absolute;
   z-index: 5;
   margin-top: 4px;
 }
 
-/* line 177, ../scss/components/_progress_bars.scss */
+/* line 180, ../scss/components/_progress_bars.scss */
 .progress_icon {
   width: 0;
   height: 0;
@@ -4742,7 +4740,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   display: inline-block;
   margin-left: 10px;
 }
-/* line 185, ../scss/components/_progress_bars.scss */
+/* line 188, ../scss/components/_progress_bars.scss */
 .progress_icon:after {
   content: '';
   position: absolute;
@@ -4753,7 +4751,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border: 10px solid transparent;
 }
 
-/* line 196, ../scss/components/_progress_bars.scss */
+/* line 199, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_icon {
   top: -2px;
   display: inline-block;
@@ -4761,12 +4759,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-bottom-color: gray;
   position: relative;
 }
-/* line 202, ../scss/components/_progress_bars.scss */
+/* line 205, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_icon:after {
   border-top-color: gray;
 }
 
-/* line 207, ../scss/components/_progress_bars.scss */
+/* line 210, ../scss/components/_progress_bars.scss */
 .create_agreement_progress {
   width: 460px;
   float: right;
@@ -4776,7 +4774,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding-bottom: 0;
 }
 
-/* line 216, ../scss/components/_progress_bars.scss */
+/* line 219, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation {
   text-align: center;
   margin: 0;
@@ -4792,27 +4790,27 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 5px;
 }
 
-/* line 231, ../scss/components/_progress_bars.scss */
+/* line 234, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link_hover {
   background: #a9b3bc;
 }
 
-/* line 235, ../scss/components/_progress_bars.scss */
+/* line 238, ../scss/components/_progress_bars.scss */
 .create_agreement_title {
   float: left;
 }
 
-/* line 239, ../scss/components/_progress_bars.scss */
+/* line 242, ../scss/components/_progress_bars.scss */
 .create_agreement_label_first {
   padding-top: 5px;
 }
 
-/* line 243, ../scss/components/_progress_bars.scss */
+/* line 246, ../scss/components/_progress_bars.scss */
 .green_icon {
   color: #87cf54;
 }
 
-/* line 247, ../scss/components/_progress_bars.scss */
+/* line 250, ../scss/components/_progress_bars.scss */
 .tooltip {
   background: #fff;
   background: white;
@@ -4832,14 +4830,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #646464;
 }
 
-/* line 265, ../scss/components/_progress_bars.scss */
+/* line 268, ../scss/components/_progress_bars.scss */
 .tooltip > ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 270, ../scss/components/_progress_bars.scss */
+/* line 273, ../scss/components/_progress_bars.scss */
 .tooltip:after {
   content: "";
   position: absolute;
@@ -4860,7 +4858,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   transform: rotate(45deg);
 }
 
-/* line 291, ../scss/components/_progress_bars.scss */
+/* line 294, ../scss/components/_progress_bars.scss */
 .small_progress_bar {
   background: #dce0e4;
   /* Dimensions should be similar to the parent progress element. */
@@ -4868,7 +4866,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 10px;
   height: 2px;
 }
-/* line 297, ../scss/components/_progress_bars.scss */
+/* line 300, ../scss/components/_progress_bars.scss */
 .small_progress_bar span {
   display: block;
   margin: 14px 0 13px 0;
@@ -4877,20 +4875,20 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 0;
 }
 
-/* line 306, ../scss/components/_progress_bars.scss */
+/* line 309, ../scss/components/_progress_bars.scss */
 .small_progress_bar_fallback {
   top: 0;
   height: 2px;
   position: absolute;
 }
 
-/* line 312, ../scss/components/_progress_bars.scss */
+/* line 315, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_bar_fallback {
   top: 0;
   position: absolute;
 }
 
-/* line 317, ../scss/components/_progress_bars.scss */
+/* line 320, ../scss/components/_progress_bars.scss */
 .progress_bar > .ui-progressbar-value {
   background: #87cf54;
   border: none;
@@ -4898,7 +4896,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 0px;
 }
 
-/* line 323, ../scss/components/_progress_bars.scss */
+/* line 326, ../scss/components/_progress_bars.scss */
 .progress_bar.ui-progressbar {
   height: 4px;
   border-radius: 0px;
@@ -4907,7 +4905,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-top: 80px;
 }
 
-/* line 331, ../scss/components/_progress_bars.scss */
+/* line 334, ../scss/components/_progress_bars.scss */
 #payment_progress.progress_bar {
   height: 2px;
   border-radius: 0px;
@@ -4916,7 +4914,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   background: #bababa;
 }
 
-/* line 340, ../scss/components/_progress_bars.scss */
+/* line 343, ../scss/components/_progress_bars.scss */
 .agreement_progress_tick:last-child {
   display: none;
 }

@@ -2,20 +2,20 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'flying-focus', 'models/agreement', 'views/create_agreement/proposal_view', 'views/create_agreement/main_container_view',
-        'views/create_agreement/estimate_view', 'views/create_agreement/recipient_view', 'models/user', 'views/create_agreement/layout'
+define(['backbone', 'flying-focus', 'models/agreement',
+        'models/user', 'views/create_agreement/layout'
     ],
 
-    function(Backbone, FlyingFocus, AgreementModel, ProposalView, MainContainerView, EstimateView, RecipientView, UserModel, Layout) {
+    function(Backbone, FlyingFocus, AgreementModel, UserModel, Layout) {
 
         'use strict';
 
         var CreateAgreementRouter = Backbone.Router.extend({
 
             routes: {
-                '': 'proposal',
-                'proposal': 'proposal',
-                'deliverables': 'deliverables',
+                '': 'overview',
+                'overview': 'overview',
+                'services': 'services',
                 'review': 'review',
                 'edit': 'edit',
                 'payment': 'payment'
@@ -27,19 +27,21 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/create_agreement/
                 this.model = new AgreementModel({
                     freelancerID: this.user.id
                 });
+
                 this.model.set({
                     acceptsCreditCard: true
                 });
+
                 this.model.set({
                     acceptsBankTransfer: true
                 });
+
                 if (window.agreement) {
                     this.model = new AgreementModel(window.agreement)
                 }
+
                 this.model.userID = this.user.id;
-                this.mainContainer = new MainContainerView({
-                    model: this.model
-                });
+
                 this.layout = new Layout({
                     model: this.model,
                     user: this.user,
@@ -47,11 +49,11 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/create_agreement/
                 });
                 FlyingFocus();
             },
-            proposal: function() {
-                this.layout.switchToProposal();
+            overview: function() {
+                this.layout.switchToOverview();
             },
-            deliverables: function() {
-                this.layout.switchToEstimate();
+            services: function() {
+                this.layout.switchToServices();
             },
             review: function() {
                 this.layout.switchToReview();

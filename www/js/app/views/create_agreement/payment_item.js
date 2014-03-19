@@ -39,7 +39,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
                 "blur input": "updateFields",
                 "blur .paymentAmount": "updateAmount",
                 "focus .kal": "triggerCalender",
-                "click .remove_icon > a": "removeModel",
+                "click #removePayment": "removeModel",
                 'focus .currency_format': 'triggerCurrencyFormat',
                 "change .item_check": "updateItemsIncluded"
             },

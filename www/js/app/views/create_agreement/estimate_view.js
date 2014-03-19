@@ -4,11 +4,11 @@
 
 define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley', 'autonumeric',
         'hbs!templates/create_agreement/estimate_tpl', 'views/create_agreement/work_item_view',
-        'views/create_agreement/payment_schedule'
+        'views/create_agreement/payment_schedule', 'views/create_agreement/service_preview_item_view'
     ],
 
     function(Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, estimateTemplate, WorkItemView,
-        PaymentSchedule) {
+        PaymentSchedule, ServicePreview) {
 
         'use strict';
 
@@ -31,11 +31,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                 if (this.collection.length === 0) {
                     this.collection.add({})
                 };
+                console.log(options);
             },
 
             events: {
-                "click #addMoreButton": "addMilestone",
-                "click #save_continue": "debounceSaveAndContinue",
+                "click #addService": "addService",
+                "click #saveContinue": "debounceSaveAndContinue",
                 "mouseenter .create_agreement_navigation_link": "mouseEnterNavigation",
                 "mouseleave .create_agreement_navigation_link": "mouseLeaveNavigation",
                 "click .create_agreement_navigation_link": "showPage",
@@ -69,16 +70,27 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
 
             onRender: function() {
                 $('body').scrollTop(0);
+
+                console.log(this.itemView);
+
+                var preview = new ServicePreview({
+                    model: this.model,
+                    collection: this.collection
+                });
+
+                console.log(preview);
+
+                this.$('#servicePreview').html();
             },
 
             appendHtml: function(collectionView, itemView, index) {
                 if (itemView.model.get("title") === 'Deposit') {
                     return;
                 }
-                itemView.$el.insertBefore(collectionView.$('#addMoreButton'));
+                itemView.$el.insertBefore(collectionView.$('#bottomDiv'));
             },
 
-            addMilestone: function(event) {
+            addService: function(event) {
                 event.preventDefault();
                 this.collection.add({});
             },
