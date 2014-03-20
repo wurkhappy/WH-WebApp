@@ -3734,18 +3734,17 @@ td.progress {
 }
 
 /* line 39, ../scss/components/_create_agreement.scss */
-.deliverable_preview_item {
+.service_preview_item {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #e1e1e1;
   min-height: 50px;
-  margin-left: 20px;
   padding: 10px;
+  margin-bottom: 10px;
 }
-
-/* line 48, ../scss/components/_create_agreement.scss */
-.deliverable_preview_item > ul {
+/* line 47, ../scss/components/_create_agreement.scss */
+.service_preview_item ul {
   list-style: none;
 }
 

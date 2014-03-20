@@ -1,4 +1,6 @@
-define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/create_agreement/payment_schedule', 'ckeditor', 'ckadapter', ],
+define(['jquery', 'backbone', 'handlebars', 'toastr', 
+        'hbs!templates/create_agreement/payment_schedule', 'ckeditor', 'ckadapter'
+        , ],
 
     function($, Backbone, Handlebars, toastr, tpl, CKEDITOR, ckadapter) {
 

@@ -31,6 +31,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.showPreview();
             },
 
+            // show regions
+
             showServices: function() {
                 this.services.show(new ServicesView({
                     model: this.model,

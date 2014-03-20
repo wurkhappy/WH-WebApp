@@ -1,0 +1,20 @@
+<div class="service_preview_item">
+	<h3>{{title}}</h3>
+	{{#if dateExpected}}
+		{{#unless isDeposit}}
+			<span class="helper_text">Due on {{dateFormat dateExpected}}</span>
+		{{/unless}}
+	{{/if}}
+	{{#if amountDue}}
+	<div class="bold_text">Total: <span style="float:right;">${{amountDue}}</span></div>
+	{{/if}}
+
+	{{#if paymentItems}}
+		<h4>Payment Items</h4>
+		<ul>
+			{{#each paymentItems}}
+			<li style="font-style: italic;font-weight: 500;font-size:14px;">{{title}}</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+</div>

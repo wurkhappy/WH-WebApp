@@ -1,5 +1,6 @@
 /* 
- * Scope of Work - Create Agreement View.
+ * Payment Item View - in Create Agreement
+ * Regular backbone view under payment_schedule_view.js
  */
 
 define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
@@ -18,13 +19,15 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
             template: itemTpl,
 
             initialize: function(options) {
+                
                 this.workItems = options.workItems;
                 this.router = options.router;
+
                 this.render();
+                
             },
 
             render: function() {
-
                 var deposit = this.model.isDeposit();
                 this.$el.html(this.template({
                     model: this.model.toJSON(),
@@ -33,8 +36,8 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
                 }));
                 this.$el.fadeIn('slow');
                 return this;
-
             },
+            
             events: {
                 "blur input": "updateFields",
                 "blur .paymentAmount": "updateAmount",
@@ -58,7 +61,6 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
                 }
 
                 this.model.set(event.target.name, event.target.value);
-                console.log(this.model);
 
             },
             triggerCalender: function(event) {
@@ -105,10 +107,10 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
             },
             updateItemsIncluded: function(event) {
                 var paymentItems = this.model.get("paymentItems");
-                console.log($(event.target).data("cid"));
+                //console.log($(event.target).data("cid"));
                 if (paymentItems.get($(event.target).data("cid"))) {
                     paymentItems.remove(paymentItems.get($(event.target).data("cid")));
-                    console.log(paymentItems);
+                    //console.log(paymentItems);
                     return;
                 }
                 var workItemID = $(event.target).data("itemid");
@@ -118,7 +120,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
                     workItemID: workItemID
                 });
                 $(event.target).data("cid", collection.at(collection.length - 1).cid);
-                console.log(paymentItems);
+                //console.log(paymentItems);
             }
 
         });

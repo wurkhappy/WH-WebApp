@@ -1,5 +1,7 @@
 /* 
- * Scope of Work - Create Agreement View.
+ * Service Preview Item View - in Create Agreement.
+ * A unit of work, previewed in the agreement.
+ * Item View, listens.
  */
 
 define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/service_preview_item_tpl'
