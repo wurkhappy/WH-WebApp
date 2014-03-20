@@ -1,6 +1,6 @@
-define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templates/agreement/empty_tasks_tpl'],
+define(['backbone', 'marionette', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templates/agreement/empty_tasks_tpl'],
 
-    function(Backbone, Handlebars, taskTpl, EmptyTemplate) {
+    function(Backbone, Marionette, Handlebars, taskTpl, EmptyTemplate) {
 
         'use strict';
 
