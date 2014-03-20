@@ -5,12 +5,12 @@
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley', 'autonumeric',
-        'hbs!templates/create_agreement/services_tpl', 'views/create_agreement/work_item_view',
-        'views/create_agreement/payment_schedule'
+        'hbs!templates/create_agreement/services_tpl', 'views/create_agreement/services/work_item_view'
     ],
 
-    function(Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, servicesTemplate, WorkItemView,
-        PaymentSchedule) {
+    function(Backbone, Handlebars, _, Marionette, toastr, parsley,
+             autoNumeric, servicesTemplate, WorkItemView
+            ) {
 
         'use strict';
 

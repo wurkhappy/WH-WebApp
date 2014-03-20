@@ -4,7 +4,7 @@
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley', 'autonumeric',
-        'hbs!templates/create_agreement/payment_schedule_tpl', 'views/create_agreement/payments/payments/payment_item_view',
+        'hbs!templates/create_agreement/payment_schedule_tpl', 'views/create_agreement/payments/payment_item_view',
     ],
 
     function(Backbone, Handlebars, _, Marionette, toastr, parsley, autoNumeric, paymentScheduleTemplate, PaymentItem) {

@@ -4,8 +4,8 @@
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-         'views/create_agreement/services_preview_view', 
-         'views/create_agreement/services_view', 
+         'views/create_agreement/services/services_preview_view', 
+         'views/create_agreement/services/services_view', 
          'hbs!templates/create_agreement/service_layout_tpl'
     ],
 

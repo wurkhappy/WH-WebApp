@@ -3,7 +3,7 @@
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette', 'hbs!templates/create_agreement/services_preview_tpl',
-        'views/create_agreement/service_preview_item_view'
+        'views/create_agreement/services/service_preview_item_view'
     ],
 
     function(Backbone, Handlebars, _, Marionette, servicesPreviewTemplate, ServicePreviewItemView) {

@@ -5,12 +5,12 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
         'views/create_agreement/header_cancel', 'views/create_agreement/header_review',
         'views/create_agreement/overview_view', 'views/create_agreement/progress_bar_view',
-        'views/create_agreement/review_view','views/create_agreement/payment_view', 
-        'views/create_agreement/service_layout', 'views/create_agreement/payment_layout'
+        'views/create_agreement/review_view', 
+        'views/create_agreement/services/service_layout', 'views/create_agreement/payments/payment_layout'
     ],
 
     function(Backbone, Handlebars, _, Marionette, HeaderCancel, HeaderReview, 
-             OverviewView, ProgressBar, ReviewView, PaymentView, ServiceLayout,
+             OverviewView, ProgressBar, ReviewView, ServiceLayout,
              PaymentLayout
             ) {
 
