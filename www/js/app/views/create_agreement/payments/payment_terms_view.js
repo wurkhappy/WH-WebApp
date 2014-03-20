@@ -3,8 +3,7 @@
  * Houses the agreement deposit as well as accepted payment methods
  */
 
-define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/payment_terms_tpl'
-    ],
+define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/payment_terms_tpl'],
 
     function(Backbone, Handlebars, _, paymentTermsTemplate) {
 
@@ -17,16 +16,18 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
             initialize: function(options) {
                 this.bankAccounts = options.user.get("bank_accounts");
                 this.creditCards = options.user.get("cards");
-                this.depositAmount = this.model.get("payments").findDeposit().get("amountDue");
+                this.deposit = this.model.get("payments").findDeposit();
                 this.acceptsCreditCard = options.acceptsCreditCard;
                 this.acceptsBankTransfer = options.acceptsBankTransfer;
             },
 
-            serializeData: function(){
+            serializeData: function() {
+                var depositAmount;
+                if (this.deposit) depositAmount = this.deposit.get("amountDue");
                 return {
-                  depositAmount: this.depositAmount,
-                  acceptsCreditCard: this.acceptsCreditCard,
-                  acceptsBankTransfer: this.acceptsBankTransfer
+                    depositAmount: this.depositAmount,
+                    acceptsCreditCard: this.acceptsCreditCard,
+                    acceptsBankTransfer: this.acceptsBankTransfer
                 }
             },
 
@@ -67,7 +68,7 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
                 if (adjAmount == 0) {
                     this.model.get("payments").remove(this.deposit);
                 } else {
-                	this.model.get("payments").unshift(this.deposit);
+                    this.model.get("payments").unshift(this.deposit);
                 }
             }
 
