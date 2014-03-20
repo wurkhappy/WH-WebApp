@@ -67,7 +67,7 @@ body {
   font-family: museo_sans;
   background: #dce0e4 url(/img/bg.png) fixed;
   color: #636363;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -75,24 +75,28 @@ body {
 a,
 a:visited {
   text-decoration: none;
-  color: #0099dd;
+  color: #008bc7;
+  text-transform: uppercase;
 }
 
-/* line 67, ../scss/bases/_common.scss */
+/* line 68, ../scss/bases/_common.scss */
 a:hover,
 a:active {
   text-decoration: underline;
-  color: #0089c6;
+  color: #ffa200;
   cursor: pointer;
+  text-decoration: none;
 }
 
-/* line 73, ../scss/bases/_common.scss */
+/* line 75, ../scss/bases/_common.scss */
 p {
-  padding: 0 20px;
+  padding: 0;
   margin-bottom: 20px;
+  font-family: museo_sans;
+  font-size: 16px;
 }
 
-/* line 78, ../scss/bases/_common.scss */
+/* line 82, ../scss/bases/_common.scss */
 ul {
   margin: 0px;
   padding: 0px;
@@ -100,120 +104,177 @@ ul {
   list-style: none;
 }
 
-/* line 86, ../scss/bases/_common.scss */
+/* line 90, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 90, ../scss/bases/_common.scss */
-h1, h2, h3 {
-  color: #333333;
-  padding: 0 20px;
+/* line 94, ../scss/bases/_common.scss */
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
   font-family: museo;
 }
 
-/* line 96, ../scss/bases/_common.scss */
+/* line 100, ../scss/bases/_common.scss */
+h2, h3 {
+  color: #008bc7;
+}
+
+/* line 104, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 100, ../scss/bases/_common.scss */
+/* line 108, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
-  line-height: 40px;
-  font-weight: 100;
-  margin: 20px 0 10px 0;
-}
-
-/* line 107, ../scss/bases/_common.scss */
-h2 {
-  font-size: 24px;
-  line-height: 30px;
-  margin: 20px 0 10px 0;
-  font-weight: 100;
+  line-height: 50px;
+  font-weight: 300;
 }
 
 /* line 114, ../scss/bases/_common.scss */
+h2 {
+  font-size: 24px;
+  line-height: 38px;
+  font-weight: 300;
+}
+
+/* line 120, ../scss/bases/_common.scss */
 h3 {
-  font-size: 16px;
-  line-height: 20px;
-  margin: 20px 0 10px 0;
+  font-size: 18px;
+  line-height: 29px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* line 127, ../scss/bases/_common.scss */
+h4 {
+  color: #4a9bc9;
   font-weight: 500;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-family: museo_sans;
 }
 
 /* Forms
 ================================================================================ */
-/* line 125, ../scss/bases/_common.scss */
+/* line 139, ../scss/bases/_common.scss */
 form {
-  padding: 0 20px 20px 20px;
+  padding: 0;
 }
 
-/* line 129, ../scss/bases/_common.scss */
-label, .faux-label {
+/* line 143, ../scss/bases/_common.scss */
+label {
   display: block;
-  padding: 20px 0 5px 0;
+  padding: 0;
   margin: 0;
+  text-transform: uppercase;
+  color: #4a9bc9;
 }
 
-/* line 135, ../scss/bases/_common.scss */
-label span {
-  display: block;
-  font-size: .75em;
-  color: #969696;
-}
-
-/* line 141, ../scss/bases/_common.scss */
+/* line 151, ../scss/bases/_common.scss */
 input {
   max-width: 350px;
 }
 
-/* line 145, ../scss/bases/_common.scss */
+/* line 155, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
   margin: 0;
+  margin-bottom: 10px;
   font-size: 100%;
   font: inherit;
   color: #636363;
   border-radius: 3px;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }
 
-/* line 155, ../scss/bases/_common.scss */
+/* line 168, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 162, ../scss/bases/_common.scss */
+/* line 175, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 167, ../scss/bases/_common.scss */
+/* line 180, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 172, ../scss/bases/_common.scss */
+/* line 185, ../scss/bases/_common.scss */
 fieldset {
-  border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
   width: 100%;
 }
 
+/* line 190, ../scss/bases/_common.scss */
+td {
+  border-top: 1px solid whitesmoke;
+  padding: 15px 0 0 0;
+}
+
 /* COMMON UI classes
 ================================================================================ */
-/* line 181, ../scss/bases/_common.scss */
+/* line 198, ../scss/bases/_common.scss */
+.green {
+  color: #87cf54;
+}
+
+/* line 202, ../scss/bases/_common.scss */
+.orange {
+  color: #ffa200;
+}
+
+/* line 206, ../scss/bases/_common.scss */
+.white {
+  color: white;
+}
+
+/* line 210, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 186, ../scss/bases/_common.scss */
+/* line 215, ../scss/bases/_common.scss */
+.bold_text {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+/* line 221, ../scss/bases/_common.scss */
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* line 225, ../scss/bases/_common.scss */
+.sub_text {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 10px;
+  font-family: museo_sans;
+  font-style: normal;
+}
+
+/* line 233, ../scss/bases/_common.scss */
+.layout_container {
+  min-height: 150px;
+  padding: 30px;
+}
+
+/* line 238, ../scss/bases/_common.scss */
 .main_content_container {
   -moz-box-shadow: 0px 3px 5px 3px #CDCED3;
   -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
@@ -221,22 +282,22 @@ fieldset {
   background-color: white;
 }
 
-/* line 193, ../scss/bases/_common.scss */
+/* line 245, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 196, ../scss/bases/_common.scss */
+/* line 248, ../scss/bases/_common.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 199, ../scss/bases/_common.scss */
+/* line 251, ../scss/bases/_common.scss */
 .no_bullet {
   list-style: none;
 }
 
-/* line 203, ../scss/bases/_common.scss */
+/* line 255, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -245,68 +306,90 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 211, ../scss/bases/_common.scss */
+/* line 263, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
-  font-size: 14px;
-  color: #969696;
+  font-size: 12px;
+  color: gray;
   margin: 0 0 10px 0;
   text-align: left;
+  font-weight: 500;
 }
 
-/* line 219, ../scss/bases/_common.scss */
+/* line 272, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 224, ../scss/bases/_common.scss */
+/* line 277, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #c7e0e4;
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 229, ../scss/bases/_common.scss */
+/* line 282, ../scss/bases/_common.scss */
 .divider_left {
   border-left: 1px solid #c7e0e4;
 }
 
-/* line 232, ../scss/bases/_common.scss */
+/* line 285, ../scss/bases/_common.scss */
 .divider_right {
   border-right: 1px solid #c7e0e4;
 }
 
-/* line 237, ../scss/bases/_common.scss */
+/* line 289, ../scss/bases/_common.scss */
+.center_text {
+  text-align: center;
+}
+
+/* line 294, ../scss/bases/_common.scss */
 .required {
-  color: #972b46;
+  color: #ffa200;
   display: inline;
 }
 
-/* line 242, ../scss/bases/_common.scss */
+/* line 299, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 246, ../scss/bases/_common.scss */
+/* line 303, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
 
-/* line 249, ../scss/bases/_common.scss */
+/* line 306, ../scss/bases/_common.scss */
 .right_align {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 254, ../scss/bases/_common.scss */
+/* line 311, ../scss/bases/_common.scss */
 .fa.fa-check-circle {
-  color: #9dd573;
+  color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 258, ../scss/bases/_common.scss */
+/* line 316, ../scss/bases/_common.scss */
+.fa-check {
+  color: #87cf54;
+  margin-left: -1.1em;
+}
+
+/* line 321, ../scss/bases/_common.scss */
+.fa-check.task_check {
+  color: inherit;
+  margin-left: 0;
+  position: relative;
+  top: -2px;
+  left: -1px;
+  font-size: 16px;
+}
+
+/* line 330, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }
@@ -1552,17 +1635,16 @@ body .ui-tooltip {
 
 /* line 802, ../scss/components/_jquery_ui.scss */
 .ui-widget-content {
-  border: 1px solid #a6c9e2;
   background: #fcfdfd url(jquery_ui_images/ui-bg_inset-hard_100_fcfdfd_1x100.png) 50% bottom repeat-x;
   color: #222222;
 }
 
-/* line 807, ../scss/components/_jquery_ui.scss */
+/* line 806, ../scss/components/_jquery_ui.scss */
 .ui-widget-content a {
   color: #222222;
 }
 
-/* line 810, ../scss/components/_jquery_ui.scss */
+/* line 809, ../scss/components/_jquery_ui.scss */
 .ui-widget-header {
   border: 1px solid #4297d7;
   background: #5c9ccc url(jquery_ui_images/ui-bg_gloss-wave_55_5c9ccc_500x100.png) 50% 50% repeat-x;
@@ -1570,14 +1652,14 @@ body .ui-tooltip {
   font-weight: bold;
 }
 
-/* line 816, ../scss/components/_jquery_ui.scss */
+/* line 815, ../scss/components/_jquery_ui.scss */
 .ui-widget-header a {
   color: #ffffff;
 }
 
 /* Interaction states
 ----------------------------------*/
-/* line 824, ../scss/components/_jquery_ui.scss */
+/* line 823, ../scss/components/_jquery_ui.scss */
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
@@ -1587,7 +1669,7 @@ body .ui-tooltip {
   color: #2e6e9e;
 }
 
-/* line 832, ../scss/components/_jquery_ui.scss */
+/* line 831, ../scss/components/_jquery_ui.scss */
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited {
@@ -1595,7 +1677,7 @@ body .ui-tooltip {
   text-decoration: none;
 }
 
-/* line 841, ../scss/components/_jquery_ui.scss */
+/* line 840, ../scss/components/_jquery_ui.scss */
 .ui-state-hover,
 .ui-widget-content .ui-state-hover,
 .ui-widget-header .ui-state-hover,
@@ -1608,7 +1690,7 @@ body .ui-tooltip {
   color: #1d5987;
 }
 
-/* line 850, ../scss/components/_jquery_ui.scss */
+/* line 849, ../scss/components/_jquery_ui.scss */
 .ui-state-hover a,
 .ui-state-hover a:hover,
 .ui-state-hover a:link,
@@ -1617,7 +1699,7 @@ body .ui-tooltip {
   text-decoration: none;
 }
 
-/* line 856, ../scss/components/_jquery_ui.scss */
+/* line 855, ../scss/components/_jquery_ui.scss */
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
@@ -1627,7 +1709,7 @@ body .ui-tooltip {
   color: #e17009;
 }
 
-/* line 864, ../scss/components/_jquery_ui.scss */
+/* line 863, ../scss/components/_jquery_ui.scss */
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited {
@@ -1637,7 +1719,7 @@ body .ui-tooltip {
 
 /* Interaction Cues
 ----------------------------------*/
-/* line 873, ../scss/components/_jquery_ui.scss */
+/* line 872, ../scss/components/_jquery_ui.scss */
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
@@ -1646,14 +1728,14 @@ body .ui-tooltip {
   color: #363636;
 }
 
-/* line 880, ../scss/components/_jquery_ui.scss */
+/* line 879, ../scss/components/_jquery_ui.scss */
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
 .ui-widget-header .ui-state-highlight a {
   color: #363636;
 }
 
-/* line 885, ../scss/components/_jquery_ui.scss */
+/* line 884, ../scss/components/_jquery_ui.scss */
 .ui-state-error,
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
@@ -1662,28 +1744,28 @@ body .ui-tooltip {
   color: #cd0a0a;
 }
 
-/* line 892, ../scss/components/_jquery_ui.scss */
+/* line 891, ../scss/components/_jquery_ui.scss */
 .ui-state-error a,
 .ui-widget-content .ui-state-error a,
 .ui-widget-header .ui-state-error a {
   color: #cd0a0a;
 }
 
-/* line 897, ../scss/components/_jquery_ui.scss */
+/* line 896, ../scss/components/_jquery_ui.scss */
 .ui-state-error-text,
 .ui-widget-content .ui-state-error-text,
 .ui-widget-header .ui-state-error-text {
   color: #cd0a0a;
 }
 
-/* line 902, ../scss/components/_jquery_ui.scss */
+/* line 901, ../scss/components/_jquery_ui.scss */
 .ui-priority-primary,
 .ui-widget-content .ui-priority-primary,
 .ui-widget-header .ui-priority-primary {
   font-weight: bold;
 }
 
-/* line 907, ../scss/components/_jquery_ui.scss */
+/* line 906, ../scss/components/_jquery_ui.scss */
 .ui-priority-secondary,
 .ui-widget-content .ui-priority-secondary,
 .ui-widget-header .ui-priority-secondary {
@@ -1692,7 +1774,7 @@ body .ui-tooltip {
   font-weight: normal;
 }
 
-/* line 914, ../scss/components/_jquery_ui.scss */
+/* line 913, ../scss/components/_jquery_ui.scss */
 .ui-state-disabled,
 .ui-widget-content .ui-state-disabled,
 .ui-widget-header .ui-state-disabled {
@@ -1701,7 +1783,7 @@ body .ui-tooltip {
   background-image: none;
 }
 
-/* line 919, ../scss/components/_jquery_ui.scss */
+/* line 918, ../scss/components/_jquery_ui.scss */
 .ui-state-disabled .ui-icon {
   filter: Alpha(Opacity=35);
   /* For IE8 - See #6059 */
@@ -1710,923 +1792,923 @@ body .ui-tooltip {
 /* Icons
 ----------------------------------*/
 /* states and jquery_ui_images */
-/* line 927, ../scss/components/_jquery_ui.scss */
+/* line 926, ../scss/components/_jquery_ui.scss */
 .ui-icon {
   width: 16px;
   height: 16px;
 }
 
-/* line 932, ../scss/components/_jquery_ui.scss */
+/* line 931, ../scss/components/_jquery_ui.scss */
 .ui-icon,
 .ui-widget-content .ui-icon {
   background-image: url(jquery_ui_images/ui-icons_469bdd_256x240.png);
 }
 
-/* line 935, ../scss/components/_jquery_ui.scss */
+/* line 934, ../scss/components/_jquery_ui.scss */
 .ui-widget-header .ui-icon {
   background-image: url(jquery_ui_images/ui-icons_d8e7f3_256x240.png);
 }
 
-/* line 938, ../scss/components/_jquery_ui.scss */
+/* line 937, ../scss/components/_jquery_ui.scss */
 .ui-state-default .ui-icon {
   background-image: url(jquery_ui_images/ui-icons_6da8d5_256x240.png);
 }
 
-/* line 942, ../scss/components/_jquery_ui.scss */
+/* line 941, ../scss/components/_jquery_ui.scss */
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon {
   background-image: url(jquery_ui_images/ui-icons_217bc0_256x240.png);
 }
 
-/* line 945, ../scss/components/_jquery_ui.scss */
+/* line 944, ../scss/components/_jquery_ui.scss */
 .ui-state-active .ui-icon {
   background-image: url(jquery_ui_images/ui-icons_f9bd01_256x240.png);
 }
 
-/* line 948, ../scss/components/_jquery_ui.scss */
+/* line 947, ../scss/components/_jquery_ui.scss */
 .ui-state-highlight .ui-icon {
   background-image: url(jquery_ui_images/ui-icons_2e83ff_256x240.png);
 }
 
-/* line 952, ../scss/components/_jquery_ui.scss */
+/* line 951, ../scss/components/_jquery_ui.scss */
 .ui-state-error .ui-icon,
 .ui-state-error-text .ui-icon {
   background-image: url(jquery_ui_images/ui-icons_cd0a0a_256x240.png);
 }
 
 /* positioning */
-/* line 957, ../scss/components/_jquery_ui.scss */
+/* line 956, ../scss/components/_jquery_ui.scss */
 .ui-icon-blank {
   background-position: 16px 16px;
 }
 
-/* line 958, ../scss/components/_jquery_ui.scss */
+/* line 957, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-1-n {
   background-position: 0 0;
 }
 
-/* line 959, ../scss/components/_jquery_ui.scss */
+/* line 958, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-1-ne {
   background-position: -16px 0;
 }
 
-/* line 960, ../scss/components/_jquery_ui.scss */
+/* line 959, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-1-e {
   background-position: -32px 0;
 }
 
-/* line 961, ../scss/components/_jquery_ui.scss */
+/* line 960, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-1-se {
   background-position: -48px 0;
 }
 
-/* line 962, ../scss/components/_jquery_ui.scss */
+/* line 961, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-1-s {
   background-position: -64px 0;
 }
 
-/* line 963, ../scss/components/_jquery_ui.scss */
+/* line 962, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-1-sw {
   background-position: -80px 0;
 }
 
-/* line 964, ../scss/components/_jquery_ui.scss */
+/* line 963, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-1-w {
   background-position: -96px 0;
 }
 
-/* line 965, ../scss/components/_jquery_ui.scss */
+/* line 964, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-1-nw {
   background-position: -112px 0;
 }
 
-/* line 966, ../scss/components/_jquery_ui.scss */
+/* line 965, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-2-n-s {
   background-position: -128px 0;
 }
 
-/* line 967, ../scss/components/_jquery_ui.scss */
+/* line 966, ../scss/components/_jquery_ui.scss */
 .ui-icon-carat-2-e-w {
   background-position: -144px 0;
 }
 
-/* line 968, ../scss/components/_jquery_ui.scss */
+/* line 967, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-1-n {
   background-position: 0 -16px;
 }
 
-/* line 969, ../scss/components/_jquery_ui.scss */
+/* line 968, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-1-ne {
   background-position: -16px -16px;
 }
 
-/* line 970, ../scss/components/_jquery_ui.scss */
+/* line 969, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-1-e {
   background-position: -32px -16px;
 }
 
-/* line 971, ../scss/components/_jquery_ui.scss */
+/* line 970, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-1-se {
   background-position: -48px -16px;
 }
 
-/* line 972, ../scss/components/_jquery_ui.scss */
+/* line 971, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-1-s {
   background-position: -64px -16px;
 }
 
-/* line 973, ../scss/components/_jquery_ui.scss */
+/* line 972, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-1-sw {
   background-position: -80px -16px;
 }
 
-/* line 974, ../scss/components/_jquery_ui.scss */
+/* line 973, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-1-w {
   background-position: -96px -16px;
 }
 
-/* line 975, ../scss/components/_jquery_ui.scss */
+/* line 974, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-1-nw {
   background-position: -112px -16px;
 }
 
-/* line 976, ../scss/components/_jquery_ui.scss */
+/* line 975, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-2-n-s {
   background-position: -128px -16px;
 }
 
-/* line 977, ../scss/components/_jquery_ui.scss */
+/* line 976, ../scss/components/_jquery_ui.scss */
 .ui-icon-triangle-2-e-w {
   background-position: -144px -16px;
 }
 
-/* line 978, ../scss/components/_jquery_ui.scss */
+/* line 977, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-1-n {
   background-position: 0 -32px;
 }
 
-/* line 979, ../scss/components/_jquery_ui.scss */
+/* line 978, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-1-ne {
   background-position: -16px -32px;
 }
 
-/* line 980, ../scss/components/_jquery_ui.scss */
+/* line 979, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-1-e {
   background-position: -32px -32px;
 }
 
-/* line 981, ../scss/components/_jquery_ui.scss */
+/* line 980, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-1-se {
   background-position: -48px -32px;
 }
 
-/* line 982, ../scss/components/_jquery_ui.scss */
+/* line 981, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-1-s {
   background-position: -64px -32px;
 }
 
-/* line 983, ../scss/components/_jquery_ui.scss */
+/* line 982, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-1-sw {
   background-position: -80px -32px;
 }
 
-/* line 984, ../scss/components/_jquery_ui.scss */
+/* line 983, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-1-w {
   background-position: -96px -32px;
 }
 
-/* line 985, ../scss/components/_jquery_ui.scss */
+/* line 984, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-1-nw {
   background-position: -112px -32px;
 }
 
-/* line 986, ../scss/components/_jquery_ui.scss */
+/* line 985, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-2-n-s {
   background-position: -128px -32px;
 }
 
-/* line 987, ../scss/components/_jquery_ui.scss */
+/* line 986, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-2-ne-sw {
   background-position: -144px -32px;
 }
 
-/* line 988, ../scss/components/_jquery_ui.scss */
+/* line 987, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-2-e-w {
   background-position: -160px -32px;
 }
 
-/* line 989, ../scss/components/_jquery_ui.scss */
+/* line 988, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-2-se-nw {
   background-position: -176px -32px;
 }
 
-/* line 990, ../scss/components/_jquery_ui.scss */
+/* line 989, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowstop-1-n {
   background-position: -192px -32px;
 }
 
-/* line 991, ../scss/components/_jquery_ui.scss */
+/* line 990, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowstop-1-e {
   background-position: -208px -32px;
 }
 
-/* line 992, ../scss/components/_jquery_ui.scss */
+/* line 991, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowstop-1-s {
   background-position: -224px -32px;
 }
 
-/* line 993, ../scss/components/_jquery_ui.scss */
+/* line 992, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowstop-1-w {
   background-position: -240px -32px;
 }
 
-/* line 994, ../scss/components/_jquery_ui.scss */
+/* line 993, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-1-n {
   background-position: 0 -48px;
 }
 
-/* line 995, ../scss/components/_jquery_ui.scss */
+/* line 994, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-1-ne {
   background-position: -16px -48px;
 }
 
-/* line 996, ../scss/components/_jquery_ui.scss */
+/* line 995, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-1-e {
   background-position: -32px -48px;
 }
 
-/* line 997, ../scss/components/_jquery_ui.scss */
+/* line 996, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-1-se {
   background-position: -48px -48px;
 }
 
-/* line 998, ../scss/components/_jquery_ui.scss */
+/* line 997, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-1-s {
   background-position: -64px -48px;
 }
 
-/* line 999, ../scss/components/_jquery_ui.scss */
+/* line 998, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-1-sw {
   background-position: -80px -48px;
 }
 
-/* line 1000, ../scss/components/_jquery_ui.scss */
+/* line 999, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-1-w {
   background-position: -96px -48px;
 }
 
-/* line 1001, ../scss/components/_jquery_ui.scss */
+/* line 1000, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-1-nw {
   background-position: -112px -48px;
 }
 
-/* line 1002, ../scss/components/_jquery_ui.scss */
+/* line 1001, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-2-n-s {
   background-position: -128px -48px;
 }
 
-/* line 1003, ../scss/components/_jquery_ui.scss */
+/* line 1002, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-2-ne-sw {
   background-position: -144px -48px;
 }
 
-/* line 1004, ../scss/components/_jquery_ui.scss */
+/* line 1003, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-2-e-w {
   background-position: -160px -48px;
 }
 
-/* line 1005, ../scss/components/_jquery_ui.scss */
+/* line 1004, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthick-2-se-nw {
   background-position: -176px -48px;
 }
 
-/* line 1006, ../scss/components/_jquery_ui.scss */
+/* line 1005, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthickstop-1-n {
   background-position: -192px -48px;
 }
 
-/* line 1007, ../scss/components/_jquery_ui.scss */
+/* line 1006, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthickstop-1-e {
   background-position: -208px -48px;
 }
 
-/* line 1008, ../scss/components/_jquery_ui.scss */
+/* line 1007, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthickstop-1-s {
   background-position: -224px -48px;
 }
 
-/* line 1009, ../scss/components/_jquery_ui.scss */
+/* line 1008, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowthickstop-1-w {
   background-position: -240px -48px;
 }
 
-/* line 1010, ../scss/components/_jquery_ui.scss */
+/* line 1009, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowreturnthick-1-w {
   background-position: 0 -64px;
 }
 
-/* line 1011, ../scss/components/_jquery_ui.scss */
+/* line 1010, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowreturnthick-1-n {
   background-position: -16px -64px;
 }
 
-/* line 1012, ../scss/components/_jquery_ui.scss */
+/* line 1011, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowreturnthick-1-e {
   background-position: -32px -64px;
 }
 
-/* line 1013, ../scss/components/_jquery_ui.scss */
+/* line 1012, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowreturnthick-1-s {
   background-position: -48px -64px;
 }
 
-/* line 1014, ../scss/components/_jquery_ui.scss */
+/* line 1013, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowreturn-1-w {
   background-position: -64px -64px;
 }
 
-/* line 1015, ../scss/components/_jquery_ui.scss */
+/* line 1014, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowreturn-1-n {
   background-position: -80px -64px;
 }
 
-/* line 1016, ../scss/components/_jquery_ui.scss */
+/* line 1015, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowreturn-1-e {
   background-position: -96px -64px;
 }
 
-/* line 1017, ../scss/components/_jquery_ui.scss */
+/* line 1016, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowreturn-1-s {
   background-position: -112px -64px;
 }
 
-/* line 1018, ../scss/components/_jquery_ui.scss */
+/* line 1017, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowrefresh-1-w {
   background-position: -128px -64px;
 }
 
-/* line 1019, ../scss/components/_jquery_ui.scss */
+/* line 1018, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowrefresh-1-n {
   background-position: -144px -64px;
 }
 
-/* line 1020, ../scss/components/_jquery_ui.scss */
+/* line 1019, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowrefresh-1-e {
   background-position: -160px -64px;
 }
 
-/* line 1021, ../scss/components/_jquery_ui.scss */
+/* line 1020, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrowrefresh-1-s {
   background-position: -176px -64px;
 }
 
-/* line 1022, ../scss/components/_jquery_ui.scss */
+/* line 1021, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-4 {
   background-position: 0 -80px;
 }
 
-/* line 1023, ../scss/components/_jquery_ui.scss */
+/* line 1022, ../scss/components/_jquery_ui.scss */
 .ui-icon-arrow-4-diag {
   background-position: -16px -80px;
 }
 
-/* line 1024, ../scss/components/_jquery_ui.scss */
+/* line 1023, ../scss/components/_jquery_ui.scss */
 .ui-icon-extlink {
   background-position: -32px -80px;
 }
 
-/* line 1025, ../scss/components/_jquery_ui.scss */
+/* line 1024, ../scss/components/_jquery_ui.scss */
 .ui-icon-newwin {
   background-position: -48px -80px;
 }
 
-/* line 1026, ../scss/components/_jquery_ui.scss */
+/* line 1025, ../scss/components/_jquery_ui.scss */
 .ui-icon-refresh {
   background-position: -64px -80px;
 }
 
-/* line 1027, ../scss/components/_jquery_ui.scss */
+/* line 1026, ../scss/components/_jquery_ui.scss */
 .ui-icon-shuffle {
   background-position: -80px -80px;
 }
 
-/* line 1028, ../scss/components/_jquery_ui.scss */
+/* line 1027, ../scss/components/_jquery_ui.scss */
 .ui-icon-transfer-e-w {
   background-position: -96px -80px;
 }
 
-/* line 1029, ../scss/components/_jquery_ui.scss */
+/* line 1028, ../scss/components/_jquery_ui.scss */
 .ui-icon-transferthick-e-w {
   background-position: -112px -80px;
 }
 
-/* line 1030, ../scss/components/_jquery_ui.scss */
+/* line 1029, ../scss/components/_jquery_ui.scss */
 .ui-icon-folder-collapsed {
   background-position: 0 -96px;
 }
 
-/* line 1031, ../scss/components/_jquery_ui.scss */
+/* line 1030, ../scss/components/_jquery_ui.scss */
 .ui-icon-folder-open {
   background-position: -16px -96px;
 }
 
-/* line 1032, ../scss/components/_jquery_ui.scss */
+/* line 1031, ../scss/components/_jquery_ui.scss */
 .ui-icon-document {
   background-position: -32px -96px;
 }
 
-/* line 1033, ../scss/components/_jquery_ui.scss */
+/* line 1032, ../scss/components/_jquery_ui.scss */
 .ui-icon-document-b {
   background-position: -48px -96px;
 }
 
-/* line 1034, ../scss/components/_jquery_ui.scss */
+/* line 1033, ../scss/components/_jquery_ui.scss */
 .ui-icon-note {
   background-position: -64px -96px;
 }
 
-/* line 1035, ../scss/components/_jquery_ui.scss */
+/* line 1034, ../scss/components/_jquery_ui.scss */
 .ui-icon-mail-closed {
   background-position: -80px -96px;
 }
 
-/* line 1036, ../scss/components/_jquery_ui.scss */
+/* line 1035, ../scss/components/_jquery_ui.scss */
 .ui-icon-mail-open {
   background-position: -96px -96px;
 }
 
-/* line 1037, ../scss/components/_jquery_ui.scss */
+/* line 1036, ../scss/components/_jquery_ui.scss */
 .ui-icon-suitcase {
   background-position: -112px -96px;
 }
 
-/* line 1038, ../scss/components/_jquery_ui.scss */
+/* line 1037, ../scss/components/_jquery_ui.scss */
 .ui-icon-comment {
   background-position: -128px -96px;
 }
 
-/* line 1039, ../scss/components/_jquery_ui.scss */
+/* line 1038, ../scss/components/_jquery_ui.scss */
 .ui-icon-person {
   background-position: -144px -96px;
 }
 
-/* line 1040, ../scss/components/_jquery_ui.scss */
+/* line 1039, ../scss/components/_jquery_ui.scss */
 .ui-icon-print {
   background-position: -160px -96px;
 }
 
-/* line 1041, ../scss/components/_jquery_ui.scss */
+/* line 1040, ../scss/components/_jquery_ui.scss */
 .ui-icon-trash {
   background-position: -176px -96px;
 }
 
-/* line 1042, ../scss/components/_jquery_ui.scss */
+/* line 1041, ../scss/components/_jquery_ui.scss */
 .ui-icon-locked {
   background-position: -192px -96px;
 }
 
-/* line 1043, ../scss/components/_jquery_ui.scss */
+/* line 1042, ../scss/components/_jquery_ui.scss */
 .ui-icon-unlocked {
   background-position: -208px -96px;
 }
 
-/* line 1044, ../scss/components/_jquery_ui.scss */
+/* line 1043, ../scss/components/_jquery_ui.scss */
 .ui-icon-bookmark {
   background-position: -224px -96px;
 }
 
-/* line 1045, ../scss/components/_jquery_ui.scss */
+/* line 1044, ../scss/components/_jquery_ui.scss */
 .ui-icon-tag {
   background-position: -240px -96px;
 }
 
-/* line 1046, ../scss/components/_jquery_ui.scss */
+/* line 1045, ../scss/components/_jquery_ui.scss */
 .ui-icon-home {
   background-position: 0 -112px;
 }
 
-/* line 1047, ../scss/components/_jquery_ui.scss */
+/* line 1046, ../scss/components/_jquery_ui.scss */
 .ui-icon-flag {
   background-position: -16px -112px;
 }
 
-/* line 1048, ../scss/components/_jquery_ui.scss */
+/* line 1047, ../scss/components/_jquery_ui.scss */
 .ui-icon-calendar {
   background-position: -32px -112px;
 }
 
-/* line 1049, ../scss/components/_jquery_ui.scss */
+/* line 1048, ../scss/components/_jquery_ui.scss */
 .ui-icon-cart {
   background-position: -48px -112px;
 }
 
-/* line 1050, ../scss/components/_jquery_ui.scss */
+/* line 1049, ../scss/components/_jquery_ui.scss */
 .ui-icon-pencil {
   background-position: -64px -112px;
 }
 
-/* line 1051, ../scss/components/_jquery_ui.scss */
+/* line 1050, ../scss/components/_jquery_ui.scss */
 .ui-icon-clock {
   background-position: -80px -112px;
 }
 
-/* line 1052, ../scss/components/_jquery_ui.scss */
+/* line 1051, ../scss/components/_jquery_ui.scss */
 .ui-icon-disk {
   background-position: -96px -112px;
 }
 
-/* line 1053, ../scss/components/_jquery_ui.scss */
+/* line 1052, ../scss/components/_jquery_ui.scss */
 .ui-icon-calculator {
   background-position: -112px -112px;
 }
 
-/* line 1054, ../scss/components/_jquery_ui.scss */
+/* line 1053, ../scss/components/_jquery_ui.scss */
 .ui-icon-zoomin {
   background-position: -128px -112px;
 }
 
-/* line 1055, ../scss/components/_jquery_ui.scss */
+/* line 1054, ../scss/components/_jquery_ui.scss */
 .ui-icon-zoomout {
   background-position: -144px -112px;
 }
 
-/* line 1056, ../scss/components/_jquery_ui.scss */
+/* line 1055, ../scss/components/_jquery_ui.scss */
 .ui-icon-search {
   background-position: -160px -112px;
 }
 
-/* line 1057, ../scss/components/_jquery_ui.scss */
+/* line 1056, ../scss/components/_jquery_ui.scss */
 .ui-icon-wrench {
   background-position: -176px -112px;
 }
 
-/* line 1058, ../scss/components/_jquery_ui.scss */
+/* line 1057, ../scss/components/_jquery_ui.scss */
 .ui-icon-gear {
   background-position: -192px -112px;
 }
 
-/* line 1059, ../scss/components/_jquery_ui.scss */
+/* line 1058, ../scss/components/_jquery_ui.scss */
 .ui-icon-heart {
   background-position: -208px -112px;
 }
 
-/* line 1060, ../scss/components/_jquery_ui.scss */
+/* line 1059, ../scss/components/_jquery_ui.scss */
 .ui-icon-star {
   background-position: -224px -112px;
 }
 
-/* line 1061, ../scss/components/_jquery_ui.scss */
+/* line 1060, ../scss/components/_jquery_ui.scss */
 .ui-icon-link {
   background-position: -240px -112px;
 }
 
-/* line 1062, ../scss/components/_jquery_ui.scss */
+/* line 1061, ../scss/components/_jquery_ui.scss */
 .ui-icon-cancel {
   background-position: 0 -128px;
 }
 
-/* line 1063, ../scss/components/_jquery_ui.scss */
+/* line 1062, ../scss/components/_jquery_ui.scss */
 .ui-icon-plus {
   background-position: -16px -128px;
 }
 
-/* line 1064, ../scss/components/_jquery_ui.scss */
+/* line 1063, ../scss/components/_jquery_ui.scss */
 .ui-icon-plusthick {
   background-position: -32px -128px;
 }
 
-/* line 1065, ../scss/components/_jquery_ui.scss */
+/* line 1064, ../scss/components/_jquery_ui.scss */
 .ui-icon-minus {
   background-position: -48px -128px;
 }
 
-/* line 1066, ../scss/components/_jquery_ui.scss */
+/* line 1065, ../scss/components/_jquery_ui.scss */
 .ui-icon-minusthick {
   background-position: -64px -128px;
 }
 
-/* line 1067, ../scss/components/_jquery_ui.scss */
+/* line 1066, ../scss/components/_jquery_ui.scss */
 .ui-icon-close {
   background-position: -80px -128px;
 }
 
-/* line 1068, ../scss/components/_jquery_ui.scss */
+/* line 1067, ../scss/components/_jquery_ui.scss */
 .ui-icon-closethick {
   background-position: -96px -128px;
 }
 
-/* line 1069, ../scss/components/_jquery_ui.scss */
+/* line 1068, ../scss/components/_jquery_ui.scss */
 .ui-icon-key {
   background-position: -112px -128px;
 }
 
-/* line 1070, ../scss/components/_jquery_ui.scss */
+/* line 1069, ../scss/components/_jquery_ui.scss */
 .ui-icon-lightbulb {
   background-position: -128px -128px;
 }
 
-/* line 1071, ../scss/components/_jquery_ui.scss */
+/* line 1070, ../scss/components/_jquery_ui.scss */
 .ui-icon-scissors {
   background-position: -144px -128px;
 }
 
-/* line 1072, ../scss/components/_jquery_ui.scss */
+/* line 1071, ../scss/components/_jquery_ui.scss */
 .ui-icon-clipboard {
   background-position: -160px -128px;
 }
 
-/* line 1073, ../scss/components/_jquery_ui.scss */
+/* line 1072, ../scss/components/_jquery_ui.scss */
 .ui-icon-copy {
   background-position: -176px -128px;
 }
 
-/* line 1074, ../scss/components/_jquery_ui.scss */
+/* line 1073, ../scss/components/_jquery_ui.scss */
 .ui-icon-contact {
   background-position: -192px -128px;
 }
 
-/* line 1075, ../scss/components/_jquery_ui.scss */
+/* line 1074, ../scss/components/_jquery_ui.scss */
 .ui-icon-image {
   background-position: -208px -128px;
 }
 
-/* line 1076, ../scss/components/_jquery_ui.scss */
+/* line 1075, ../scss/components/_jquery_ui.scss */
 .ui-icon-video {
   background-position: -224px -128px;
 }
 
-/* line 1077, ../scss/components/_jquery_ui.scss */
+/* line 1076, ../scss/components/_jquery_ui.scss */
 .ui-icon-script {
   background-position: -240px -128px;
 }
 
-/* line 1078, ../scss/components/_jquery_ui.scss */
+/* line 1077, ../scss/components/_jquery_ui.scss */
 .ui-icon-alert {
   background-position: 0 -144px;
 }
 
-/* line 1079, ../scss/components/_jquery_ui.scss */
+/* line 1078, ../scss/components/_jquery_ui.scss */
 .ui-icon-info {
   background-position: -16px -144px;
 }
 
-/* line 1080, ../scss/components/_jquery_ui.scss */
+/* line 1079, ../scss/components/_jquery_ui.scss */
 .ui-icon-notice {
   background-position: -32px -144px;
 }
 
-/* line 1081, ../scss/components/_jquery_ui.scss */
+/* line 1080, ../scss/components/_jquery_ui.scss */
 .ui-icon-help {
   background-position: -48px -144px;
 }
 
-/* line 1082, ../scss/components/_jquery_ui.scss */
+/* line 1081, ../scss/components/_jquery_ui.scss */
 .ui-icon-check {
   background-position: -64px -144px;
 }
 
-/* line 1083, ../scss/components/_jquery_ui.scss */
+/* line 1082, ../scss/components/_jquery_ui.scss */
 .ui-icon-bullet {
   background-position: -80px -144px;
 }
 
-/* line 1084, ../scss/components/_jquery_ui.scss */
+/* line 1083, ../scss/components/_jquery_ui.scss */
 .ui-icon-radio-on {
   background-position: -96px -144px;
 }
 
-/* line 1085, ../scss/components/_jquery_ui.scss */
+/* line 1084, ../scss/components/_jquery_ui.scss */
 .ui-icon-radio-off {
   background-position: -112px -144px;
 }
 
-/* line 1086, ../scss/components/_jquery_ui.scss */
+/* line 1085, ../scss/components/_jquery_ui.scss */
 .ui-icon-pin-w {
   background-position: -128px -144px;
 }
 
-/* line 1087, ../scss/components/_jquery_ui.scss */
+/* line 1086, ../scss/components/_jquery_ui.scss */
 .ui-icon-pin-s {
   background-position: -144px -144px;
 }
 
-/* line 1088, ../scss/components/_jquery_ui.scss */
+/* line 1087, ../scss/components/_jquery_ui.scss */
 .ui-icon-play {
   background-position: 0 -160px;
 }
 
-/* line 1089, ../scss/components/_jquery_ui.scss */
+/* line 1088, ../scss/components/_jquery_ui.scss */
 .ui-icon-pause {
   background-position: -16px -160px;
 }
 
-/* line 1090, ../scss/components/_jquery_ui.scss */
+/* line 1089, ../scss/components/_jquery_ui.scss */
 .ui-icon-seek-next {
   background-position: -32px -160px;
 }
 
-/* line 1091, ../scss/components/_jquery_ui.scss */
+/* line 1090, ../scss/components/_jquery_ui.scss */
 .ui-icon-seek-prev {
   background-position: -48px -160px;
 }
 
-/* line 1092, ../scss/components/_jquery_ui.scss */
+/* line 1091, ../scss/components/_jquery_ui.scss */
 .ui-icon-seek-end {
   background-position: -64px -160px;
 }
 
-/* line 1093, ../scss/components/_jquery_ui.scss */
+/* line 1092, ../scss/components/_jquery_ui.scss */
 .ui-icon-seek-start {
   background-position: -80px -160px;
 }
 
 /* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
-/* line 1095, ../scss/components/_jquery_ui.scss */
+/* line 1094, ../scss/components/_jquery_ui.scss */
 .ui-icon-seek-first {
   background-position: -80px -160px;
 }
 
-/* line 1096, ../scss/components/_jquery_ui.scss */
+/* line 1095, ../scss/components/_jquery_ui.scss */
 .ui-icon-stop {
   background-position: -96px -160px;
 }
 
-/* line 1097, ../scss/components/_jquery_ui.scss */
+/* line 1096, ../scss/components/_jquery_ui.scss */
 .ui-icon-eject {
   background-position: -112px -160px;
 }
 
-/* line 1098, ../scss/components/_jquery_ui.scss */
+/* line 1097, ../scss/components/_jquery_ui.scss */
 .ui-icon-volume-off {
   background-position: -128px -160px;
 }
 
-/* line 1099, ../scss/components/_jquery_ui.scss */
+/* line 1098, ../scss/components/_jquery_ui.scss */
 .ui-icon-volume-on {
   background-position: -144px -160px;
 }
 
-/* line 1100, ../scss/components/_jquery_ui.scss */
+/* line 1099, ../scss/components/_jquery_ui.scss */
 .ui-icon-power {
   background-position: 0 -176px;
 }
 
-/* line 1101, ../scss/components/_jquery_ui.scss */
+/* line 1100, ../scss/components/_jquery_ui.scss */
 .ui-icon-signal-diag {
   background-position: -16px -176px;
 }
 
-/* line 1102, ../scss/components/_jquery_ui.scss */
+/* line 1101, ../scss/components/_jquery_ui.scss */
 .ui-icon-signal {
   background-position: -32px -176px;
 }
 
-/* line 1103, ../scss/components/_jquery_ui.scss */
+/* line 1102, ../scss/components/_jquery_ui.scss */
 .ui-icon-battery-0 {
   background-position: -48px -176px;
 }
 
-/* line 1104, ../scss/components/_jquery_ui.scss */
+/* line 1103, ../scss/components/_jquery_ui.scss */
 .ui-icon-battery-1 {
   background-position: -64px -176px;
 }
 
-/* line 1105, ../scss/components/_jquery_ui.scss */
+/* line 1104, ../scss/components/_jquery_ui.scss */
 .ui-icon-battery-2 {
   background-position: -80px -176px;
 }
 
-/* line 1106, ../scss/components/_jquery_ui.scss */
+/* line 1105, ../scss/components/_jquery_ui.scss */
 .ui-icon-battery-3 {
   background-position: -96px -176px;
 }
 
-/* line 1107, ../scss/components/_jquery_ui.scss */
+/* line 1106, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-plus {
   background-position: 0 -192px;
 }
 
-/* line 1108, ../scss/components/_jquery_ui.scss */
+/* line 1107, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-minus {
   background-position: -16px -192px;
 }
 
-/* line 1109, ../scss/components/_jquery_ui.scss */
+/* line 1108, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-close {
   background-position: -32px -192px;
 }
 
-/* line 1110, ../scss/components/_jquery_ui.scss */
+/* line 1109, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-triangle-e {
   background-position: -48px -192px;
 }
 
-/* line 1111, ../scss/components/_jquery_ui.scss */
+/* line 1110, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-triangle-s {
   background-position: -64px -192px;
 }
 
-/* line 1112, ../scss/components/_jquery_ui.scss */
+/* line 1111, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-triangle-w {
   background-position: -80px -192px;
 }
 
-/* line 1113, ../scss/components/_jquery_ui.scss */
+/* line 1112, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-triangle-n {
   background-position: -96px -192px;
 }
 
-/* line 1114, ../scss/components/_jquery_ui.scss */
+/* line 1113, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-arrow-e {
   background-position: -112px -192px;
 }
 
-/* line 1115, ../scss/components/_jquery_ui.scss */
+/* line 1114, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-arrow-s {
   background-position: -128px -192px;
 }
 
-/* line 1116, ../scss/components/_jquery_ui.scss */
+/* line 1115, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-arrow-w {
   background-position: -144px -192px;
 }
 
-/* line 1117, ../scss/components/_jquery_ui.scss */
+/* line 1116, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-arrow-n {
   background-position: -160px -192px;
 }
 
-/* line 1118, ../scss/components/_jquery_ui.scss */
+/* line 1117, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-zoomin {
   background-position: -176px -192px;
 }
 
-/* line 1119, ../scss/components/_jquery_ui.scss */
+/* line 1118, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-zoomout {
   background-position: -192px -192px;
 }
 
-/* line 1120, ../scss/components/_jquery_ui.scss */
+/* line 1119, ../scss/components/_jquery_ui.scss */
 .ui-icon-circle-check {
   background-position: -208px -192px;
 }
 
-/* line 1121, ../scss/components/_jquery_ui.scss */
+/* line 1120, ../scss/components/_jquery_ui.scss */
 .ui-icon-circlesmall-plus {
   background-position: 0 -208px;
 }
 
-/* line 1122, ../scss/components/_jquery_ui.scss */
+/* line 1121, ../scss/components/_jquery_ui.scss */
 .ui-icon-circlesmall-minus {
   background-position: -16px -208px;
 }
 
-/* line 1123, ../scss/components/_jquery_ui.scss */
+/* line 1122, ../scss/components/_jquery_ui.scss */
 .ui-icon-circlesmall-close {
   background-position: -32px -208px;
 }
 
-/* line 1124, ../scss/components/_jquery_ui.scss */
+/* line 1123, ../scss/components/_jquery_ui.scss */
 .ui-icon-squaresmall-plus {
   background-position: -48px -208px;
 }
 
-/* line 1125, ../scss/components/_jquery_ui.scss */
+/* line 1124, ../scss/components/_jquery_ui.scss */
 .ui-icon-squaresmall-minus {
   background-position: -64px -208px;
 }
 
-/* line 1126, ../scss/components/_jquery_ui.scss */
+/* line 1125, ../scss/components/_jquery_ui.scss */
 .ui-icon-squaresmall-close {
   background-position: -80px -208px;
 }
 
-/* line 1127, ../scss/components/_jquery_ui.scss */
+/* line 1126, ../scss/components/_jquery_ui.scss */
 .ui-icon-grip-dotted-vertical {
   background-position: 0 -224px;
 }
 
-/* line 1128, ../scss/components/_jquery_ui.scss */
+/* line 1127, ../scss/components/_jquery_ui.scss */
 .ui-icon-grip-dotted-horizontal {
   background-position: -16px -224px;
 }
 
-/* line 1129, ../scss/components/_jquery_ui.scss */
+/* line 1128, ../scss/components/_jquery_ui.scss */
 .ui-icon-grip-solid-vertical {
   background-position: -32px -224px;
 }
 
-/* line 1130, ../scss/components/_jquery_ui.scss */
+/* line 1129, ../scss/components/_jquery_ui.scss */
 .ui-icon-grip-solid-horizontal {
   background-position: -48px -224px;
 }
 
-/* line 1131, ../scss/components/_jquery_ui.scss */
+/* line 1130, ../scss/components/_jquery_ui.scss */
 .ui-icon-gripsmall-diagonal-se {
   background-position: -64px -224px;
 }
 
-/* line 1132, ../scss/components/_jquery_ui.scss */
+/* line 1131, ../scss/components/_jquery_ui.scss */
 .ui-icon-grip-diagonal-se {
   background-position: -80px -224px;
 }
@@ -2634,7 +2716,7 @@ body .ui-tooltip {
 /* Misc visuals
 ----------------------------------*/
 /* Corner radius */
-/* line 1142, ../scss/components/_jquery_ui.scss */
+/* line 1141, ../scss/components/_jquery_ui.scss */
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-left,
@@ -2642,7 +2724,7 @@ body .ui-tooltip {
   border-top-left-radius: 5px;
 }
 
-/* line 1148, ../scss/components/_jquery_ui.scss */
+/* line 1147, ../scss/components/_jquery_ui.scss */
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-right,
@@ -2650,7 +2732,7 @@ body .ui-tooltip {
   border-top-right-radius: 5px;
 }
 
-/* line 1154, ../scss/components/_jquery_ui.scss */
+/* line 1153, ../scss/components/_jquery_ui.scss */
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-left,
@@ -2658,7 +2740,7 @@ body .ui-tooltip {
   border-bottom-left-radius: 5px;
 }
 
-/* line 1160, ../scss/components/_jquery_ui.scss */
+/* line 1159, ../scss/components/_jquery_ui.scss */
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-right,
@@ -2667,14 +2749,14 @@ body .ui-tooltip {
 }
 
 /* Overlays */
-/* line 1165, ../scss/components/_jquery_ui.scss */
+/* line 1164, ../scss/components/_jquery_ui.scss */
 .ui-widget-overlay {
   background: #aaaaaa url(jquery_ui_images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;
   opacity: .3;
   filter: Alpha(Opacity=30);
 }
 
-/* line 1170, ../scss/components/_jquery_ui.scss */
+/* line 1169, ../scss/components/_jquery_ui.scss */
 .ui-widget-shadow {
   margin: -8px 0 0 -8px;
   padding: 8px;
@@ -3062,13 +3144,11 @@ button.toast-close-button {
   background: whitesmoke url(https://d3kq8dzp7eezz0.cloudfront.net/img/lock.png) no-repeat 1% 50%;
 }
 
-/* line 23, ../scss/components/_forms.scss */
-.checkbox {
+/*.checkbox {
   border: none;
   margin: 0;
   padding: 5px 0;
-}
-
+}*/
 /* line 30, ../scss/components/_forms.scss */
 .upload {
   border: none;
@@ -3119,31 +3199,31 @@ button.toast-close-button {
   margin-bottom: -20px;
 }
 
-/* Header - Common
+/* Top Navigation - Common
 ================================================================================ */
-/* line 5, ../scss/components/_header.scss */
+/* line 3, ../scss/components/_navigation.scss */
 .navigation {
   min-height: 67px;
 }
 
-/* line 9, ../scss/components/_header.scss */
+/* line 7, ../scss/components/_navigation.scss */
 .navigation ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 15, ../scss/components/_header.scss */
+/* line 13, ../scss/components/_navigation.scss */
 .navigation li {
   float: left;
 }
 
-/* line 19, ../scss/components/_header.scss */
+/* line 17, ../scss/components/_navigation.scss */
 .admin_nav li {
   float: right;
 }
 
-/* line 23, ../scss/components/_header.scss */
+/* line 21, ../scss/components/_navigation.scss */
 .logo {
   font-family: museo;
   font-size: 24px;
@@ -3158,12 +3238,15 @@ button.toast-close-button {
   padding-left: 70px;
   text-decoration: none;
   width: 210px;
+  text-transform: capitalize;
 }
-/* line 37, ../scss/components/_header.scss */
+
+/* line 38, ../scss/components/_navigation.scss */
 .logo:visited {
   color: black;
 }
-/* line 40, ../scss/components/_header.scss */
+
+/* line 42, ../scss/components/_navigation.scss */
 .logo:hover, .logo:active {
   text-decoration: none;
   color: #646464;
@@ -3171,21 +3254,24 @@ button.toast-close-button {
 
 /* Header - Main App
 ================================================================================ */
-/* line 49, ../scss/components/_header.scss */
+/* line 50, ../scss/components/_navigation.scss */
 .main_top_padding {
   padding-top: 13px;
 }
 
-/* line 53, ../scss/components/_header.scss */
+/* line 54, ../scss/components/_navigation.scss */
 .navigation_links a {
   display: block;
   float: left;
   padding: 20px;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 /* Header - Landing
 ================================================================================ */
-/* line 62, ../scss/components/_header.scss */
+/* line 65, ../scss/components/_navigation.scss */
 .landing_navigation_links {
   padding-left: 50px;
   line-height: 38px;
@@ -3193,12 +3279,12 @@ button.toast-close-button {
   padding-top: 23px;
 }
 
-/* line 69, ../scss/components/_header.scss */
+/* line 72, ../scss/components/_navigation.scss */
 .top_padding {
   padding-top: 20px;
 }
 
-/* line 73, ../scss/components/_header.scss */
+/* line 76, ../scss/components/_navigation.scss */
 .create_account {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -3206,36 +3292,29 @@ button.toast-close-button {
 
 /* MAIN Intro Header/ main action
 ================================================================================ */
-/* line 5, ../scss/components/_intro.scss */
-.intro {
+/* line 5, ../scss/components/_header.scss */
+.header {
   background-color: #168dc7;
-  color: #bfe5f6;
   border-bottom: 1px solid #007ab1;
-  padding: 0 0 10px 0;
+  padding: 35px 50px 25px;
 }
-
-/* line 12, ../scss/components/_intro.scss */
-.intro h1 {
+/* line 10, ../scss/components/_header.scss */
+.header h1 {
   color: white;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
 }
 
-/* line 17, ../scss/components/_intro.scss */
-.intro p {
-  line-height: 40px;
-  margin-bottom: 10px;
-}
-
-/* line 22, ../scss/components/_intro.scss */
-.intro p span {
-  color: white;
-}
-
-/* line 26, ../scss/components/_intro.scss */
+/* line 17, ../scss/components/_header.scss */
 .empty_home {
   margin-top: 150px;
   margin-bottom: 150px;
   text-align: center;
+}
+
+/* line 23, ../scss/components/_header.scss */
+.home_header {
+  padding: 35px 35px 20px 35px;
 }
 
 /* line 1, ../scss/components/_legal.scss */
@@ -3366,63 +3445,65 @@ div.faqcontent h2 {
 
 /* line 1, ../scss/components/_buttons.scss */
 .action_button_container {
-  margin: 10px 20px 10px 20px;
+  width: 200px;
+  float: right;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 5, ../scss/components/_buttons.scss */
+/* line 8, ../scss/components/_buttons.scss */
 .action_button_container li {
-  padding: 10px 0 0 0;
+  padding: 0;
   margin: 0;
 }
 
-/* line 11, ../scss/components/_buttons.scss */
+/* line 14, ../scss/components/_buttons.scss */
 .button, .button:visited {
   display: block;
-  font-weight: bold;
+  font-weight: 300;
   text-align: center;
   padding: 0 10px;
   color: white;
   text-decoration: none;
-  line-height: 40px;
-  background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-button.png);
-  background-repeat: repeat-x;
+  line-height: 38px;
+  text-transform: uppercase;
+  /*background-repeat: repeat-x;
   background-position: center;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 0 3px rgba(0,0,0,.5);
+  box-shadow: 0 0 3px rgba(0,0,0,.5);
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px; */
 }
 
-/* line 32, ../scss/components/_buttons.scss */
+/* line 36, ../scss/components/_buttons.scss */
 .button:hover {
   text-decoration: none;
   cursor: pointer;
   color: white;
 }
 
-/* line 38, ../scss/components/_buttons.scss */
+/* line 42, ../scss/components/_buttons.scss */
 .action_button {
-  background-color: #9dd573;
+  background-color: #87cf54;
 }
-/* line 40, ../scss/components/_buttons.scss */
+/* line 44, ../scss/components/_buttons.scss */
 .action_button:hover {
   background-color: #5ca032;
 }
 
-/* line 45, ../scss/components/_buttons.scss */
+/* line 49, ../scss/components/_buttons.scss */
 .cancel {
   background-color: #be3557;
 }
-/* line 47, ../scss/components/_buttons.scss */
+/* line 51, ../scss/components/_buttons.scss */
 .cancel:hover {
   background-color: #972a45;
 }
 
-/* line 52, ../scss/components/_buttons.scss */
+/* line 56, ../scss/components/_buttons.scss */
 .submit-button {
   font-size: 1em;
   padding: 10px 20px;
@@ -3443,14 +3524,14 @@ div.faqcontent h2 {
   float: right;
 }
 
-/* line 73, ../scss/components/_buttons.scss */
+/* line 77, ../scss/components/_buttons.scss */
 .submit-button:hover,
 .submit-button:focus {
   outline: none;
   background-color: #0091d2;
 }
 
-/* line 78, ../scss/components/_buttons.scss */
+/* line 82, ../scss/components/_buttons.scss */
 .login_button {
   margin-top: 0;
   width: 200px;
@@ -3458,12 +3539,12 @@ div.faqcontent h2 {
   margin-left: -150px;
 }
 
-/* line 86, ../scss/components/_buttons.scss */
+/* line 90, ../scss/components/_buttons.scss */
 .submit-buttons {
   padding: 20px 0 0 0;
 }
 
-/* line 90, ../scss/components/_buttons.scss */
+/* line 94, ../scss/components/_buttons.scss */
 .submit-buttons a {
   display: block;
   float: left;
@@ -3485,43 +3566,53 @@ div.faqcontent h2 {
   background-position: center;
 }
 
-/* line 112, ../scss/components/_buttons.scss */
+/* line 116, ../scss/components/_buttons.scss */
 .submit-buttons a,
 .submit-buttons a:visited {
   background-color: #be3557;
 }
 
-/* line 116, ../scss/components/_buttons.scss */
+/* line 120, ../scss/components/_buttons.scss */
 .submit-buttons a:active {
   margin-top: 2px;
   margin-bottom: -2px;
 }
 
-/* line 121, ../scss/components/_buttons.scss */
+/* line 125, ../scss/components/_buttons.scss */
 .submit-buttons a:hover, .submit-buttons a:active {
   background-color: #972a45;
 }
 
-/* line 125, ../scss/components/_buttons.scss */
+/* line 129, ../scss/components/_buttons.scss */
 .button_container {
   width: 200px;
 }
 
-/* line 129, ../scss/components/_buttons.scss */
+/* line 133, ../scss/components/_buttons.scss */
 .send_button_container {
   width: 250px;
 }
 
-/* line 133, ../scss/components/_buttons.scss */
+/* line 137, ../scss/components/_buttons.scss */
 .request_payment_button_container {
   width: 350px;
 }
 
-/* line 137, ../scss/components/_buttons.scss */
+/* line 141, ../scss/components/_buttons.scss */
 .delete_method_button {
   width: 229px;
   margin-left: 20px;
   margin-top: 45px;
+}
+
+/* line 147, ../scss/components/_buttons.scss */
+.orange_button {
+  background: #ffa200;
+}
+
+/* line 151, ../scss/components/_buttons.scss */
+.green_button {
+  background: #87cf54;
 }
 
 /* Sub- Navigation 
@@ -3560,99 +3651,38 @@ div.faqcontent h2 {
 
 /* Agreement List Style ( used in homepage agreement list, profile, and agreement)
 ================================================================================ */
-/* line 4, ../scss/components/_agreement_list.scss */
+/* line 4, ../scss/components/_home.scss */
+.last_action {
+  display: block;
+  font-size: 14px;
+  color: gray;
+  margin: 0 0 10px 0;
+  text-align: left;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* line 14, ../scss/components/_home.scss */
+.home_agreement_status {
+  text-align: center;
+  margin: 0;
+}
+
+/* line 19, ../scss/components/_home.scss */
 .data-table {
   padding: 0 20px 10px 20px;
 }
 
-/* line 8, ../scss/components/_agreement_list.scss */
+/* line 23, ../scss/components/_home.scss */
 .data-table table {
   width: 100%;
   display: inline-table;
 }
 
-/* line 13, ../scss/components/_agreement_list.scss */
-.data-table table tr td {
-  border-top: 1px solid whitesmoke;
-  padding: 10px 20px 10px 0;
-  vertical-align: top;
-}
-
-/* line 19, ../scss/components/_agreement_list.scss */
-.data-table table tr td h3 {
-  margin: 10px 0 0 0;
+/* line 28, ../scss/components/_home.scss */
+td.progress {
+  width: 260px;
   padding: 0;
-}
-
-/* line 24, ../scss/components/_agreement_list.scss */
-.data-table table tr td h3.less {
-  margin-top: 0;
-}
-
-/* line 28, ../scss/components/_agreement_list.scss */
-.data-table table tr td p {
-  margin: 0;
-  padding: 0;
-  font-size: .875em;
-  color: #969696;
-}
-
-/* line 35, ../scss/components/_agreement_list.scss */
-.data-table table tr td p.remove {
-  background: url(https://d3kq8dzp7eezz0.cloudfront.net/img/icons/cross-16x16.png) no-repeat left;
-  padding-left: 20px;
-}
-
-/* line 40, ../scss/components/_agreement_list.scss */
-.data-table table tr td.action {
-  width: 150px;
-  padding: 10px 0;
-  text-align: right;
-}
-
-/* line 46, ../scss/components/_agreement_list.scss */
-.data-table table tr td.meta {
-  width: 80px;
-  padding: 10px 0;
-}
-
-/* line 51, ../scss/components/_agreement_list.scss */
-.data-table table tr td.meta span {
-  display: block;
-  background-color: #f9fafb;
-  padding: 4px;
-  margin: 0 20px 0 0px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-/* line 61, ../scss/components/_agreement_list.scss */
-.data-table table tr td.meta span img {
-  display: block;
-  width: 50px;
-}
-
-/* line 66, ../scss/components/_agreement_list.scss */
-.data-table table tr td.progress {
-  width: 200px;
-  padding: 10px 0;
-  text-align: center;
-}
-
-/* line 72, ../scss/components/_agreement_list.scss */
-.data-table table tr td.progress span {
-  display: block;
-  margin: 14px 0 13px 0;
-  background-color: #dce0e4;
-  background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/progress-bar-small.png);
-  background-repeat: no-repeat;
-}
-
-/* line 80, ../scss/components/_agreement_list.scss */
-.data-table table tr td.progress span img {
-  display: block;
-  width: 200px;
 }
 
 /* line 1, ../scss/components/_create_agreement.scss */
@@ -3674,19 +3704,13 @@ div.faqcontent h2 {
 }
 
 /* line 17, ../scss/components/_create_agreement.scss */
-.create_milestone_container {
-  padding: 0;
-  display: inline-block;
-}
-
-/* line 21, ../scss/components/_create_agreement.scss */
 .include_items_container {
   display: inline-block;
   vertical-align: top;
   margin-left: 60px;
 }
 
-/* line 26, ../scss/components/_create_agreement.scss */
+/* line 22, ../scss/components/_create_agreement.scss */
 .include_items_container > ul {
   list-style: none;
   width: 390px;
@@ -3698,105 +3722,97 @@ div.faqcontent h2 {
   overflow-y: scroll;
 }
 
-/* line 36, ../scss/components/_create_agreement.scss */
+/* line 32, ../scss/components/_create_agreement.scss */
 .new_deliverable_container {
   display: inline-block;
 }
 
-/* line 39, ../scss/components/_create_agreement.scss */
+/* line 35, ../scss/components/_create_agreement.scss */
 .preview_container {
   display: inline-block;
   vertical-align: top;
 }
 
-/* line 43, ../scss/components/_create_agreement.scss */
-.deliverable_preview_item {
+/* line 39, ../scss/components/_create_agreement.scss */
+.service_preview_item {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #e1e1e1;
   min-height: 50px;
-  width: 400px;
-  margin-left: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
-
-/* line 52, ../scss/components/_create_agreement.scss */
-.deliverable_preview_item > ul {
+/* line 47, ../scss/components/_create_agreement.scss */
+.service_preview_item ul {
   list-style: none;
 }
 
-/* line 56, ../scss/components/_create_agreement.scss */
+/* line 52, ../scss/components/_create_agreement.scss */
 .edit_helper {
   position: absolute;
   top: -47px;
   left: 19px;
 }
 
-/* line 62, ../scss/components/_create_agreement.scss */
+/* line 58, ../scss/components/_create_agreement.scss */
 .send_email {
   text-align: left;
 }
 
-/* line 66, ../scss/components/_create_agreement.scss */
+/* line 62, ../scss/components/_create_agreement.scss */
 .send_header {
   text-align: left;
 }
 
-/* line 70, ../scss/components/_create_agreement.scss */
+/* line 66, ../scss/components/_create_agreement.scss */
 .recipient_input {
   width: 338px;
 }
 
-/* line 74, ../scss/components/_create_agreement.scss */
+/* line 70, ../scss/components/_create_agreement.scss */
 .message_panel {
   left: 30%;
 }
 
-/* line 78, ../scss/components/_create_agreement.scss */
+/* line 74, ../scss/components/_create_agreement.scss */
 .send_email_recipient {
   padding-top: 10px;
 }
 
-/* line 82, ../scss/components/_create_agreement.scss */
+/* line 78, ../scss/components/_create_agreement.scss */
 .personal_message_container {
   padding: 10px 0;
 }
 
-/* line 86, ../scss/components/_create_agreement.scss */
+/* line 82, ../scss/components/_create_agreement.scss */
 .review_container {
   padding: 20px;
 }
 
-/* line 90, ../scss/components/_create_agreement.scss */
+/* line 86, ../scss/components/_create_agreement.scss */
 .deposit_container {
   margin-bottom: 20px;
 }
 
-/* line 94, ../scss/components/_create_agreement.scss */
+/* line 90, ../scss/components/_create_agreement.scss */
 .require_deposit_text {
   display: inline;
 }
 
-/* line 98, ../scss/components/_create_agreement.scss */
-.progress_section {
-  overflow: hidden;
-  min-height: 100px;
-}
-
-/* line 103, ../scss/components/_create_agreement.scss */
+/* line 94, ../scss/components/_create_agreement.scss */
 .message_editor_container {
   width: 620px;
 }
 
-/* line 107, ../scss/components/_create_agreement.scss */
+/* line 98, ../scss/components/_create_agreement.scss */
 .progress_area {
   position: relative;
-  float: right;
   width: 600px;
-  margin-top: 40px;
+  margin: 0 auto;
 }
 
-/* line 114, ../scss/components/_create_agreement.scss */
+/* line 104, ../scss/components/_create_agreement.scss */
 #schedule_templates {
   vertical-align: top;
   padding-left: 10px;
@@ -3809,67 +3825,88 @@ div.faqcontent h2 {
 
 /* line 5, ../scss/components/_agreement.scss */
 .ag_section {
-  padding: 20px;
-  padding-bottom: 0px;
+  margin-bottom: 30px;
 }
 
-/* line 9, ../scss/components/_agreement.scss */
+/* line 8, ../scss/components/_agreement.scss */
 .ag_subsection {
-  padding-left: 20px;
+  padding: 0;
   margin-top: 10px;
 }
 
-/* line 14, ../scss/components/_agreement.scss */
+/* line 13, ../scss/components/_agreement.scss */
+.agreement_region {
+  padding: 20px;
+}
+
+/* line 17, ../scss/components/_agreement.scss */
 .agreement_profile_container {
   padding: 15px 20px 15px 20px;
   float: left;
 }
 
-/* line 19, ../scss/components/_agreement.scss */
+/* line 22, ../scss/components/_agreement.scss */
 .agreement_title {
-  color: #168dc7;
+  color: #008bc7;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  font-size: 22px;
+}
+
+/* line 30, ../scss/components/_agreement.scss */
+.agreement_main {
+  color: #008bc7;
   font-weight: 300;
   margin: 0;
   padding: 0;
 }
 
-/* line 25, ../scss/components/_agreement.scss */
+/* line 38, ../scss/components/_agreement.scss */
 .agreement_subtitle {
-  color: #168dc7;
-  font-weight: 100;
+  color: #4a9bc9;
+  font-weight: 500;
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
+  font-size: 13px;
 }
 
-/* line 32, ../scss/components/_agreement.scss */
+/* line 47, ../scss/components/_agreement.scss */
 .payment_milestone_container {
   margin-left: 20px;
   padding: 0;
 }
 
-/* line 37, ../scss/components/_agreement.scss */
+/* line 52, ../scss/components/_agreement.scss */
 .payment_milestone {
-  border-top: 1px solid whitesmoke;
-  padding: 10px 0;
+  border-bottom: 2px dotted #c8e1e4;
+  padding: 10px 5;
+  margin-top: 15px;
   list-style: none;
-  cursor: pointer;
   margin-top: 5px;
   overflow: hidden;
 }
-/* line 44, ../scss/components/_agreement.scss */
+/* line 59, ../scss/components/_agreement.scss */
 .payment_milestone .task_icon {
   margin-left: 30px;
 }
-/* line 47, ../scss/components/_agreement.scss */
+/* line 62, ../scss/components/_agreement.scss */
 .payment_milestone:hover {
-  background: #f9fafb;
+  /*.show_details_button {
+    color: $orange;
+  }*/
 }
-/* line 49, ../scss/components/_agreement.scss */
+/* line 63, ../scss/components/_agreement.scss */
 .payment_milestone:hover .work_item_detail_link {
   color: #009adb;
 }
+/* line 66, ../scss/components/_agreement.scss */
+.payment_milestone:hover .checkbox_complete {
+  background: #f9fafb;
+}
 
-/* line 55, ../scss/components/_agreement.scss */
+/* line 75, ../scss/components/_agreement.scss */
 .payment_status {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3883,27 +3920,27 @@ div.faqcontent h2 {
   color: #646464;
 }
 
-/* line 69, ../scss/components/_agreement.scss */
+/* line 89, ../scss/components/_agreement.scss */
 .make_payment,
 .make_payment {
   background-color: #88cc55;
   color: white;
 }
 
-/* line 75, ../scss/components/_agreement.scss */
+/* line 95, ../scss/components/_agreement.scss */
 .make_payment:hover,
 .make_payment:active {
   background-color: #7ab74c;
   color: white;
 }
 
-/* line 80, ../scss/components/_agreement.scss */
+/* line 100, ../scss/components/_agreement.scss */
 .scope_items_container {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 85, ../scss/components/_agreement.scss */
+/* line 105, ../scss/components/_agreement.scss */
 .scope_item {
   text-align: left;
   line-height: 16px;
@@ -3914,14 +3951,14 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 95, ../scss/components/_agreement.scss */
+/* line 115, ../scss/components/_agreement.scss */
 .tasks_container {
   list-style-type: none;
   margin: 0;
   margin-bottom: 10px;
 }
 
-/* line 101, ../scss/components/_agreement.scss */
+/* line 121, ../scss/components/_agreement.scss */
 .task {
   text-align: left;
   line-height: 16px;
@@ -3932,14 +3969,14 @@ div.faqcontent h2 {
   font-weight: 300;
 }
 
-/* line 111, ../scss/components/_agreement.scss */
+/* line 131, ../scss/components/_agreement.scss */
 .work_item_title {
   padding: 0;
   margin: 0;
   text-align: left;
 }
 
-/* line 117, ../scss/components/_agreement.scss */
+/* line 137, ../scss/components/_agreement.scss */
 .work_item_header {
   padding: 0;
   margin-top: 10px;
@@ -3947,7 +3984,7 @@ div.faqcontent h2 {
   text-align: left;
 }
 
-/* line 124, ../scss/components/_agreement.scss */
+/* line 144, ../scss/components/_agreement.scss */
 .work_item_description_container {
   font-size: 16px;
   line-height: 20px;
@@ -3956,7 +3993,7 @@ div.faqcontent h2 {
   margin-top: 5px;
   text-align: left;
 }
-/* line 131, ../scss/components/_agreement.scss */
+/* line 151, ../scss/components/_agreement.scss */
 .work_item_description_container .work_item_description {
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -3974,12 +4011,12 @@ div.faqcontent h2 {
   line-height: 20px;
 }
 
-/* line 149, ../scss/components/_agreement.scss */
+/* line 169, ../scss/components/_agreement.scss */
 .work_item_description {
   color: #5c5c5c;
 }
 
-/* line 153, ../scss/components/_agreement.scss */
+/* line 173, ../scss/components/_agreement.scss */
 .work_item_description_container_focus {
   font-size: 16px;
   line-height: 20px;
@@ -3989,7 +4026,7 @@ div.faqcontent h2 {
   text-align: left;
   padding-bottom: 10px;
 }
-/* line 161, ../scss/components/_agreement.scss */
+/* line 181, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .work_item_description {
   width: 496px;
   resize: vertical;
@@ -4000,16 +4037,16 @@ div.faqcontent h2 {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 171, ../scss/components/_agreement.scss */
+/* line 191, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .save_description_button {
   display: inline-block;
 }
-/* line 174, ../scss/components/_agreement.scss */
+/* line 194, ../scss/components/_agreement.scss */
 .work_item_description_container_focus .save_description_close {
   display: inline-block;
 }
 
-/* line 179, ../scss/components/_agreement.scss */
+/* line 199, ../scss/components/_agreement.scss */
 .save_description_button {
   display: inline-block;
   margin-right: 10px;
@@ -4018,26 +4055,26 @@ div.faqcontent h2 {
   display: none;
 }
 
-/* line 187, ../scss/components/_agreement.scss */
+/* line 207, ../scss/components/_agreement.scss */
 .save_description_close {
   display: none;
 }
-/* line 189, ../scss/components/_agreement.scss */
+/* line 209, ../scss/components/_agreement.scss */
 .save_description_close:visited {
-  color: #969696;
+  color: gray;
 }
-/* line 192, ../scss/components/_agreement.scss */
+/* line 212, ../scss/components/_agreement.scss */
 .save_description_close:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 198, ../scss/components/_agreement.scss */
+/* line 218, ../scss/components/_agreement.scss */
 .new_task_container {
   text-align: left;
   margin-left: 40px;
 }
-/* line 201, ../scss/components/_agreement.scss */
+/* line 221, ../scss/components/_agreement.scss */
 .new_task_container .new_task {
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
@@ -4055,12 +4092,12 @@ div.faqcontent h2 {
   line-height: 20px;
 }
 
-/* line 219, ../scss/components/_agreement.scss */
+/* line 239, ../scss/components/_agreement.scss */
 .new_task_container_focus {
   text-align: left;
   margin-left: 40px;
 }
-/* line 222, ../scss/components/_agreement.scss */
+/* line 242, ../scss/components/_agreement.scss */
 .new_task_container_focus .new_task {
   width: 460px;
   resize: vertical;
@@ -4071,16 +4108,16 @@ div.faqcontent h2 {
   font-size: 16px;
   line-height: 20px;
 }
-/* line 232, ../scss/components/_agreement.scss */
+/* line 252, ../scss/components/_agreement.scss */
 .new_task_container_focus .add_task_button {
   display: inline-block;
 }
-/* line 235, ../scss/components/_agreement.scss */
+/* line 255, ../scss/components/_agreement.scss */
 .new_task_container_focus .add_task_close {
   display: inline-block;
 }
 
-/* line 240, ../scss/components/_agreement.scss */
+/* line 260, ../scss/components/_agreement.scss */
 .add_task_button {
   display: inline-block;
   margin-right: 10px;
@@ -4089,21 +4126,21 @@ div.faqcontent h2 {
   display: none;
 }
 
-/* line 248, ../scss/components/_agreement.scss */
+/* line 268, ../scss/components/_agreement.scss */
 .add_task_close {
   display: none;
 }
-/* line 250, ../scss/components/_agreement.scss */
+/* line 270, ../scss/components/_agreement.scss */
 .add_task_close:visited {
-  color: #969696;
+  color: gray;
 }
-/* line 253, ../scss/components/_agreement.scss */
+/* line 273, ../scss/components/_agreement.scss */
 .add_task_close:hover {
   color: #972b46;
   text-decoration: none;
 }
 
-/* line 259, ../scss/components/_agreement.scss */
+/* line 279, ../scss/components/_agreement.scss */
 .check_item {
   position: relative;
   clear: both;
@@ -4111,29 +4148,26 @@ div.faqcontent h2 {
   padding: 0 0 4px 36px;
 }
 
-/* line 266, ../scss/components/_agreement.scss */
+/* line 286, ../scss/components/_agreement.scss */
 .checkbox {
   background: white;
   border-radius: 3px;
-  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #bababa;
-  border-bottom-color: #999999;
-  border-top-color: #cccccc;
+  border: 2px solid gray;
   font-weight: bold;
   position: absolute;
-  left: 6px;
+  left: 10px;
   line-height: 16px;
   overflow: hidden;
   text-align: center;
   text-indent: 100%;
-  top: 0;
-  height: 16px;
-  width: 16px;
+  top: -1px;
+  height: 18px;
+  width: 18px;
   white-space: nowrap;
+  padding: 3px 0;
 }
 
-/* line 287, ../scss/components/_agreement.scss */
+/* line 308, ../scss/components/_agreement.scss */
 .check_item .checkbox:hover {
   background-color: #dedede;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -4145,52 +4179,50 @@ div.faqcontent h2 {
   line-height: 5px;
 }
 
-/* line 298, ../scss/components/_agreement.scss */
+/* line 319, ../scss/components/_agreement.scss */
 .checkbox_complete {
-  background-color: #f2f2f2;
-  border: 1px solid #bababa;
-  border-bottom-color: #cccccc;
-  border-top-color: #999999;
-  -webkit-box-shadow: 0 1px 0 white;
-  box-shadow: 0 1px 0 white;
+  background-color: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   text-indent: 0;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 5px;
+  color: #87cf54;
 }
 
-/* line 310, ../scss/components/_agreement.scss */
+/* line 330, ../scss/components/_agreement.scss */
 .task_complete {
   color: #949494;
   font-style: italic;
   text-decoration: line-through;
 }
 
-/* line 316, ../scss/components/_agreement.scss */
+/* line 336, ../scss/components/_agreement.scss */
 .void_agreement {
-  margin: 0 20px 20px 20px;
+  margin: 20px;
   padding: 10px;
   background-color: #eef0f2;
   text-align: center;
-  -webkit-border-bottom-right-radius: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+}
+/* line 341, ../scss/components/_agreement.scss */
+.void_agreement a {
+  text-transform: uppercase;
+  font-size: 11px;
 }
 
-/* line 329, ../scss/components/_agreement.scss */
+/* line 347, ../scss/components/_agreement.scss */
 .work_item_container {
   margin: 0;
 }
 
-/* line 333, ../scss/components/_agreement.scss */
+/* line 351, ../scss/components/_agreement.scss */
 .edit_work_item {
   margin-top: 20px;
   width: 394px;
 }
 
-/* line 338, ../scss/components/_agreement.scss */
+/* line 356, ../scss/components/_agreement.scss */
 .waiting {
   color: white;
   border: 1px solid;
@@ -4198,82 +4230,92 @@ div.faqcontent h2 {
   border-radius: 5px;
 }
 
-/* line 345, ../scss/components/_agreement.scss */
-.home_container {
-  min-height: 150px;
-}
-
-/* line 349, ../scss/components/_agreement.scss */
+/* line 363, ../scss/components/_agreement.scss */
 .fee_detail_container {
   padding-left: 10px;
 }
-/* line 351, ../scss/components/_agreement.scss */
+/* line 365, ../scss/components/_agreement.scss */
 .fee_detail_container ul {
   padding: 0;
 }
 
-/* line 356, ../scss/components/_agreement.scss */
+/* line 370, ../scss/components/_agreement.scss */
 .fee_line_item {
   font-size: 12px;
   list-style-type: none;
 }
 
-/* line 361, ../scss/components/_agreement.scss */
+/* line 375, ../scss/components/_agreement.scss */
 .fee_amount {
   color: black;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* line 367, ../scss/components/_agreement.scss */
+/* line 381, ../scss/components/_agreement.scss */
 .payment_methods_agreement_container {
   padding-left: 20px;
 }
 
-/* line 371, ../scss/components/_agreement.scss */
+/* line 385, ../scss/components/_agreement.scss */
 .proposed_services_container {
   max-height: 300px;
-  border: 1px solid #f9fafb;
   overflow-y: scroll;
   border-radius: 5px;
-  background: white;
 }
-
-/* line 379, ../scss/components/_agreement.scss */
+/* line 389, ../scss/components/_agreement.scss */
 .proposed_services_container p {
   margin: 0;
+  font-size: 16px;
+  padding: 0;
 }
 
-/* line 383, ../scss/components/_agreement.scss */
+/* line 396, ../scss/components/_agreement.scss */
 .agreement_header_helper {
   min-width: 250px;
 }
 
-/* line 386, ../scss/components/_agreement.scss */
+/* line 399, ../scss/components/_agreement.scss */
 .deliverable_info {
   font-size: 14px;
   text-align: right;
-  color: #969696;
 }
 
-/* line 391, ../scss/components/_agreement.scss */
+/* line 403, ../scss/components/_agreement.scss */
 .tasks_meta {
   display: inline-block;
+  font-style: italic;
+  font-size: 13px;
+  font-weight: 400;
 }
 
-/* line 394, ../scss/components/_agreement.scss */
+/* line 409, ../scss/components/_agreement.scss */
 .tasks_meta.current {
-  color: #9dd573;
+  color: #87cf54;
 }
 
-/* line 397, ../scss/components/_agreement.scss */
+/* line 412, ../scss/components/_agreement.scss */
 .show_details_button {
   display: inline-block;
+  font-style: italic;
+  font-size: 13px;
+  color: gray;
+  font-weight: 300;
 }
 
-/* line 400, ../scss/components/_agreement.scss */
+/* line 420, ../scss/components/_agreement.scss */
 .deliverable_title {
   color: #168dc7;
+  font-family: museo;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+/* line 428, ../scss/components/_agreement.scss */
+.deliverable_header:hover {
+  background: #f9fafb;
+  cursor: pointer;
 }
 
 /* line 1, ../scss/components/_agreement_profile.scss */
@@ -4498,19 +4540,15 @@ div.faqcontent h2 {
 .create_agreement_progress {
   margin: 20px;
   padding: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #f9fafb;
   position: relative;
 }
 
-/* line 17, ../scss/components/_progress_bars.scss */
+/* line 13, ../scss/components/_progress_bars.scss */
 .agreement_progress progress[value] {
   width: 800px;
 }
 
-/* line 21, ../scss/components/_progress_bars.scss */
+/* line 17, ../scss/components/_progress_bars.scss */
 progress[value] {
   /* Get rid of the default appearance */
   appearance: none;
@@ -4519,206 +4557,213 @@ progress[value] {
   width: 100%;
   height: 2px;
   /* Although firefox doesn't provide any additional pseudo class to style the progress element container, any style applied here works on the container. */
-  background-color: #dce0e4;
+  background-color: #bababa;
   /* Of all IE, only IE10 supports progress element that too partially. It only allows to change the background-color of the progress value using the 'color' attribute. */
   color: royalblue;
   position: relative;
-  margin: 15px 0;
-  border-radius: 10px;
+  margin: 5px 0;
 }
 
-/* line 37, ../scss/components/_progress_bars.scss */
+/* line 32, ../scss/components/_progress_bars.scss */
 progress[value]::-webkit-progress-bar {
-  background-color: #dce0e4;
-  border-radius: 10px;
+  background-color: #bababa;
 }
 
-/* line 42, ../scss/components/_progress_bars.scss */
+/* line 36, ../scss/components/_progress_bars.scss */
 progress[value]::-webkit-progress-value {
   position: relative;
-  border-radius: 10px;
 }
 
 /* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
-/* line 50, ../scss/components/_progress_bars.scss */
+/* line 43, ../scss/components/_progress_bars.scss */
 progress[value]::-moz-progress-bar {
-  background: #86ce50;
-  border-radius: 10px;
+  background: #87cf54;
 }
 
-/* line 55, ../scss/components/_progress_bars.scss */
+/* line 47, ../scss/components/_progress_bars.scss */
 progress::-webkit-progress-value, progress.yellow_progress {
-  background: #86ce50;
-  border-radius: 10px;
+  background: #87cf54;
 }
 
 /* Fallback technique styles */
-/* line 62, ../scss/components/_progress_bars.scss */
+/* line 53, ../scss/components/_progress_bars.scss */
 .progress-bar {
-  background-color: #86ce50;
-  border-radius: 10px;
+  background-color: #87cf54;
   /* Dimensions should be similar to the parent progress element. */
   width: 100%;
   height: 2px;
 }
 
-/* line 71, ../scss/components/_progress_bars.scss */
+/* line 61, ../scss/components/_progress_bars.scss */
 .progress-bar span {
-  background-color: #dce0e4;
+  background-color: #bababa;
   display: block;
   text-indent: -9999px;
 }
 
-/* line 79, ../scss/components/_progress_bars.scss */
+/* line 69, ../scss/components/_progress_bars.scss */
 .agreement_progress[value] {
-  height: 10px;
+  height: 4px;
   width: 100%;
-  border-radius: 10px;
   margin-top: 15px;
 }
 
-/* line 86, ../scss/components/_progress_bars.scss */
+/* line 75, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-bar {
-  height: 10px;
-  border-radius: 10px;
+  height: 4px;
 }
 
-/* line 92, ../scss/components/_progress_bars.scss */
+/* line 79, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-moz-progress-bar {
-  height: 10px;
-  border-radius: 10px;
-  background: #86ce50;
+  height: 4px;
+  background: #87cf54;
 }
 
-/* line 98, ../scss/components/_progress_bars.scss */
+/* line 84, ../scss/components/_progress_bars.scss */
 .agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
   background: -webkit-linear-gradient(left, #cec150);
-  border-radius: 10px;
 }
 
-/* line 105, ../scss/components/_progress_bars.scss */
+/* line 89, ../scss/components/_progress_bars.scss */
 .agreement_progress[value]::-webkit-progress-value {
   position: relative;
-  border-radius: 10px;
 }
 
-/* line 117, ../scss/components/_progress_bars.scss */
+/* line 95, ../scss/components/_progress_bars.scss */
 .agreement_progress_bar {
-  background-color: #86ce50;
+  background-color: #87cf54;
   /* Dimensions should be similar to the parent progress element. */
   width: 100%;
-  height: 10px;
-  border-radius: 10px;
+  height: 4px;
   position: absolute;
 }
 
-/* line 130, ../scss/components/_progress_bars.scss */
+/* line 107, ../scss/components/_progress_bars.scss */
 .progress_icon.green_progress {
-  border-bottom-color: #86ce50;
+  border-bottom-color: #87cf54;
 }
 
-/* line 134, ../scss/components/_progress_bars.scss */
+/* line 111, ../scss/components/_progress_bars.scss */
 .progress_icon.green_progress:after {
-  border-top-color: #86ce50;
+  border-top-color: #87cf54;
 }
 
-/* line 138, ../scss/components/_progress_bars.scss */
+/* line 115, ../scss/components/_progress_bars.scss */
 .yellow_progress {
   background: #cec150;
 }
 
-/* line 142, ../scss/components/_progress_bars.scss */
+/* line 119, ../scss/components/_progress_bars.scss */
+.green_progress_tick {
+  background: #87cf54;
+}
+
+/* line 123, ../scss/components/_progress_bars.scss */
+.grey_progress_tick {
+  background: #bababa;
+}
+
+/* line 127, ../scss/components/_progress_bars.scss */
 .red_progress {
   background: #ce5058;
 }
 
-/* line 146, ../scss/components/_progress_bars.scss */
+/* line 131, ../scss/components/_progress_bars.scss */
 .progress_icon.grey_progress {
-  border-bottom-color: #969696;
+  border-bottom-color: gray;
 }
 
-/* line 149, ../scss/components/_progress_bars.scss */
+/* line 134, ../scss/components/_progress_bars.scss */
 .progress_icon.grey_progress:after {
-  border-top-color: #969696;
+  border-top-color: gray;
 }
 
-/* line 153, ../scss/components/_progress_bars.scss */
+/* line 138, ../scss/components/_progress_bars.scss */
 .icon_container {
-  position: absolute;
+  position: relative;
   top: 10.5px;
   z-index: 1;
+  left: 40px;
 }
 
-/* line 159, ../scss/components/_progress_bars.scss */
+/* line 145, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link {
   position: absolute;
   left: 0px;
   text-align: center;
   width: 110px;
 }
-/* line 164, ../scss/components/_progress_bars.scss */
+/* line 150, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link:hover {
   text-decoration: none;
 }
+/* line 152, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link:hover h3 {
+  color: #ffa200;
+}
 
-/* line 169, ../scss/components/_progress_bars.scss */
+/* line 158, ../scss/components/_progress_bars.scss */
 .overview_link {
   left: 0px;
 }
 
-/* line 173, ../scss/components/_progress_bars.scss */
+/* line 162, ../scss/components/_progress_bars.scss */
 .payment_schedule_link {
   left: 150px;
 }
 
-/* line 177, ../scss/components/_progress_bars.scss */
+/* line 166, ../scss/components/_progress_bars.scss */
 .review_link {
   left: 300px;
 }
 
-/* line 181, ../scss/components/_progress_bars.scss */
+/* line 170, ../scss/components/_progress_bars.scss */
 .send_link {
   left: 450px;
 }
 
-/* line 185, ../scss/components/_progress_bars.scss */
+/* line 174, ../scss/components/_progress_bars.scss */
 .create_agreement_icon_container {
   position: absolute;
-  top: -23.5px;
-  left: 0px;
   z-index: 5;
+  margin-top: 4px;
 }
 
-/* line 192, ../scss/components/_progress_bars.scss */
+/* line 180, ../scss/components/_progress_bars.scss */
 .progress_icon {
   width: 0;
   height: 0;
-  border: 15px solid transparent;
+  border: 10px solid transparent;
   position: absolute;
-  top: -15px;
-  margin-top: -90px;
+  top: -93px;
   display: inline-block;
+  margin-left: 10px;
 }
-
-/* line 201, ../scss/components/_progress_bars.scss */
+/* line 188, ../scss/components/_progress_bars.scss */
 .progress_icon:after {
   content: '';
   position: absolute;
-  left: -15px;
-  top: 15px;
+  left: -10px;
+  top: 10px;
   width: 0;
   height: 0;
-  border: 15px solid transparent;
+  border: 10px solid transparent;
 }
 
-/* line 211, ../scss/components/_progress_bars.scss */
+/* line 199, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_icon {
-  color: #d4d9de;
+  top: -2px;
+  display: inline-block;
+  margin-left: 0;
+  border-bottom-color: gray;
   position: relative;
-  font-size: 36px;
+}
+/* line 205, ../scss/components/_progress_bars.scss */
+.create_agreement_progress_icon:after {
+  border-top-color: gray;
 }
 
-/* line 217, ../scss/components/_progress_bars.scss */
+/* line 210, ../scss/components/_progress_bars.scss */
 .create_agreement_progress {
   width: 460px;
   float: right;
@@ -4728,7 +4773,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding-bottom: 0;
 }
 
-/* line 226, ../scss/components/_progress_bars.scss */
+/* line 219, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation {
   text-align: center;
   margin: 0;
@@ -4744,32 +4789,32 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-bottom: 5px;
 }
 
-/* line 241, ../scss/components/_progress_bars.scss */
+/* line 234, ../scss/components/_progress_bars.scss */
 .create_agreement_navigation_link_hover {
   background: #a9b3bc;
 }
 
-/* line 245, ../scss/components/_progress_bars.scss */
+/* line 238, ../scss/components/_progress_bars.scss */
 .create_agreement_title {
   float: left;
 }
 
-/* line 249, ../scss/components/_progress_bars.scss */
+/* line 242, ../scss/components/_progress_bars.scss */
 .create_agreement_label_first {
   padding-top: 5px;
 }
 
-/* line 253, ../scss/components/_progress_bars.scss */
+/* line 246, ../scss/components/_progress_bars.scss */
 .green_icon {
-  color: #86ce50;
+  color: #87cf54;
 }
 
-/* line 257, ../scss/components/_progress_bars.scss */
+/* line 250, ../scss/components/_progress_bars.scss */
 .tooltip {
   background: #fff;
   background: white;
   border-radius: 5px;
-  border-color: #969696;
+  border-color: gray;
   border-width: 1px;
   border-style: solid;
   padding: 15px 15px;
@@ -4784,14 +4829,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: #646464;
 }
 
-/* line 275, ../scss/components/_progress_bars.scss */
+/* line 268, ../scss/components/_progress_bars.scss */
 .tooltip > ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 280, ../scss/components/_progress_bars.scss */
+/* line 273, ../scss/components/_progress_bars.scss */
 .tooltip:after {
   content: "";
   position: absolute;
@@ -4812,7 +4857,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   transform: rotate(45deg);
 }
 
-/* line 301, ../scss/components/_progress_bars.scss */
+/* line 294, ../scss/components/_progress_bars.scss */
 .small_progress_bar {
   background: #dce0e4;
   /* Dimensions should be similar to the parent progress element. */
@@ -4820,40 +4865,57 @@ progress::-webkit-progress-value, progress.yellow_progress {
   border-radius: 10px;
   height: 2px;
 }
-/* line 307, ../scss/components/_progress_bars.scss */
+/* line 300, ../scss/components/_progress_bars.scss */
 .small_progress_bar span {
   display: block;
   margin: 14px 0 13px 0;
-  background-color: #86ce50;
+  background-color: #87cf54;
   height: 2px;
   width: 0;
 }
 
-/* line 316, ../scss/components/_progress_bars.scss */
+/* line 309, ../scss/components/_progress_bars.scss */
 .small_progress_bar_fallback {
   top: 0;
   height: 2px;
   position: absolute;
 }
 
-/* line 322, ../scss/components/_progress_bars.scss */
+/* line 315, ../scss/components/_progress_bars.scss */
 .create_agreement_progress_bar_fallback {
   top: 0;
   position: absolute;
 }
 
-/* line 327, ../scss/components/_progress_bars.scss */
+/* line 320, ../scss/components/_progress_bars.scss */
 .progress_bar > .ui-progressbar-value {
-  background: #9dd573;
+  background: #87cf54;
   border: none;
   margin: 0;
   border-radius: 0px;
 }
 
-/* line 333, ../scss/components/_progress_bars.scss */
+/* line 326, ../scss/components/_progress_bars.scss */
 .progress_bar.ui-progressbar {
-  height: 10px;
+  height: 4px;
   border-radius: 0px;
+  width: 800px;
+  margin: 60px;
+  margin-top: 80px;
+}
+
+/* line 334, ../scss/components/_progress_bars.scss */
+#payment_progress.progress_bar {
+  height: 2px;
+  border-radius: 0px;
+  margin: 30px 22px;
+  width: auto;
+  background: #bababa;
+}
+
+/* line 343, ../scss/components/_progress_bars.scss */
+.agreement_progress_tick:last-child {
+  display: none;
 }
 
 /** Base container **/
@@ -5281,10 +5343,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 21, ../scss/components/_create_estimate.scss */
 .payment_methods_container {
   margin-bottom: 10px;
-  padding: 0 20px;
 }
 
-/* line 26, ../scss/components/_create_estimate.scss */
+/* line 25, ../scss/components/_create_estimate.scss */
 .payment_method_title {
   color: black;
 }
@@ -5909,10 +5970,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 10, ../scss/components/_account.scss */
 .stored_payment_methods {
   float: right;
-  margin-right: 230px;
 }
 
-/* line 15, ../scss/components/_account.scss */
+/* line 14, ../scss/components/_account.scss */
 .credit_card_images {
   padding-left: 20px;
   position: absolute;
@@ -5921,9 +5981,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 200px;
 }
 
-/* line 23, ../scss/components/_account.scss */
+/* line 22, ../scss/components/_account.scss */
 .account_personal_form {
-  width: 50%;
+  width: 100%;
   padding-right: 0;
   display: inline-block;
   vertical-align: top;
@@ -5938,80 +5998,101 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 35, ../scss/components/_account.scss */
 .account_verification_form {
-  width: 47%;
+  width: 100%;
   display: inline-block;
   vertical-align: top;
   padding-left: 0;
+  border-left: 1px solid #c8e1e4;
+  margin-left: 20px;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+/* line 44, ../scss/components/_account.scss */
+.account_verification_form .helper_text {
+  margin: 0;
 }
 
-/* line 42, ../scss/components/_account.scss */
+/* line 49, ../scss/components/_account.scss */
 .account_verification_form h2 {
   margin: 0px;
   margin-top: 10px;
   padding: 0px;
 }
 
-/* line 48, ../scss/components/_account.scss */
+/* line 55, ../scss/components/_account.scss */
 .account_save {
-  padding: 20px;
+  border-top: 1px solid #c8e1e4;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+/* line 59, ../scss/components/_account.scss */
+.account_save a {
+  width: 250px;
 }
 
 /* FOOTER
 ================================================================================ */
-/* line 5, ../scss/components/_footer.scss */
+/* line 4, ../scss/components/_footer.scss */
 .footer {
-  background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
-  border-top: 1px solid #7d7d7d;
+  background: gray;
+  border-top: 1px solid #bababa;
   padding-bottom: 10px;
+  padding: 15px;
+  overflow: hidden;
+  width: 960px;
+  margin: 0 auto;
 }
 
-/* line 11, ../scss/components/_footer.scss */
+/* line 14, ../scss/components/_footer.scss */
 .footer_title {
   color: #dce1e6;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: museo_sans;
 }
 
-/* line 17, ../scss/components/_footer.scss */
+/* line 23, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 19, ../scss/components/_footer.scss */
+/* line 25, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 24, ../scss/components/_footer.scss */
+/* line 30, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 29, ../scss/components/_footer.scss */
+/* line 35, ../scss/components/_footer.scss */
 .footer_title > a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 34, ../scss/components/_footer.scss */
+/* line 40, ../scss/components/_footer.scss */
 .landing_footer {
-  background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
+  background: gray;
   border-top: 1px solid #7d7d7d;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
-/* line 40, ../scss/components/_footer.scss */
+/* line 46, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 44, ../scss/components/_footer.scss */
+/* line 50, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 49, ../scss/components/_footer.scss */
+/* line 55, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;
@@ -6065,7 +6146,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 27, ../scss/components/_pricing.scss */
 .receive_text {
   font-size: 16px;
-  color: #969696;
+  color: gray;
   font-weight: normal;
   color: #636363;
 }
@@ -6073,7 +6154,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 34, ../scss/components/_pricing.scss */
 .pay_text {
   font-size: 16px;
-  color: #969696;
+  color: gray;
   font-weight: normal;
   color: #636363;
 }
@@ -6221,7 +6302,6 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 18, ../scss/components/_grid.scss */
 [class*='col-'] {
   float: left;
-  padding-right: 20px;
 }
 /* line 21, ../scss/components/_grid.scss */
 .grid [class*='col-']:last-of-type {
@@ -6259,15 +6339,12 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 /* Opt-in outside padding */
-/* line 45, ../scss/components/_grid.scss */
-.grid-pad {
-  padding: 20px 0 20px 20px;
-}
-/* line 47, ../scss/components/_grid.scss */
-.grid-pad [class*='col-']:last-of-type {
-  padding-right: 20px;
-}
-
+/*.grid-pad {
+  padding: $pad 0 $pad $pad;
+  [class*='col-']:last-of-type {
+    padding-right: $pad;
+  }
+}*/
 /* line 8, ../scss/layouts/_layout.scss */
 .container {
   margin: 0 auto;

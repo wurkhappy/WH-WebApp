@@ -1,6 +1,10 @@
-<div class="new_deliverable_container">
-  <fieldset class="create_milestone_container">
-    <label for="">Service Name<span>Examples: Design, wireframes, logo, testing</span></label>
+<div>
+  <fieldset class="layout_container">
+    <!-- <p class="removeButton remove_icon"> -->
+      <a id="removeService" href="#remove_milestone" style="float:right;">Remove Service</a>
+    <!-- </p> -->
+    <label for="">Service Name</label>
+    <span class="helper_text">Examples: Design, wireframes, logo, testing</span>
     <input type="text" name="title" placeholder="{{model.title}}" id="" size="50"
     {{#if model.title}}
     value="{{model.title}}"
@@ -12,10 +16,13 @@
     value="{{dateSlashFormat model.dateExpected}}"
     {{/if}}>
     <div class="tasks_section"></div>
-  	<p class="removeButton remove_icon">
+  	<!-- <p class="removeButton remove_icon">
   		<a <a href="#add_milestone">Remove</a>
-  	</p>
+  	</p> -->
   </fieldset>
 </div>
-<div class="preview_container">
-</div>
+
+<!-- <div class="layout_container col-1-3">
+  <h2>Services Preview</h2>
+  <div id="servicePreview"></div>
+</div> -->

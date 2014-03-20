@@ -16,10 +16,30 @@
       initialize:function(options){
         this.title = options.title;
         this.value = (options.value/3)*100;
+
+        // assign values for the progress bar icons.
+        if (options.value === 1 ){
+          this.icon_color1 = 'green_progress';
+        } else if (options.value === 2 ) {
+          this.icon_color1 = 'green_progress';
+          this.icon_color2 = 'green_progress';
+
+        } else if (options.value === 3 ) {
+          this.icon_color1 = 'green_progress';
+          this.icon_color2 = 'green_progress';
+          this.icon_color3 = 'green_progress';
+        }
+        
       },
 
       render: function () {
-        this.$el.html(this.template({title: this.title, value: this.value}));
+        this.$el.html(this.template({
+          title: this.title, 
+          value: this.value,
+          icon_color1: this.icon_color1,
+          icon_color2: this.icon_color2,
+          icon_color3: this.icon_color3
+        }));
         return this;
       },
 

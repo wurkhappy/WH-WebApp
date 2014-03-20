@@ -66,7 +66,7 @@ body {
   font-family: museo_sans;
   background: #dce0e4 url(/img/bg.png) fixed;
   color: #636363;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -74,24 +74,28 @@ body {
 a,
 a:visited {
   text-decoration: none;
-  color: #0099dd;
+  color: #008bc7;
+  text-transform: uppercase;
 }
 
-/* line 67, ../scss/bases/_common.scss */
+/* line 68, ../scss/bases/_common.scss */
 a:hover,
 a:active {
   text-decoration: underline;
-  color: #0089c6;
+  color: #ffa200;
   cursor: pointer;
+  text-decoration: none;
 }
 
-/* line 73, ../scss/bases/_common.scss */
+/* line 75, ../scss/bases/_common.scss */
 p {
-  padding: 0 20px;
+  padding: 0;
   margin-bottom: 20px;
+  font-family: museo_sans;
+  font-size: 16px;
 }
 
-/* line 78, ../scss/bases/_common.scss */
+/* line 82, ../scss/bases/_common.scss */
 ul {
   margin: 0px;
   padding: 0px;
@@ -99,120 +103,177 @@ ul {
   list-style: none;
 }
 
-/* line 86, ../scss/bases/_common.scss */
+/* line 90, ../scss/bases/_common.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 90, ../scss/bases/_common.scss */
-h1, h2, h3 {
-  color: #333333;
-  padding: 0 20px;
+/* line 94, ../scss/bases/_common.scss */
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
   font-family: museo;
 }
 
-/* line 96, ../scss/bases/_common.scss */
+/* line 100, ../scss/bases/_common.scss */
+h2, h3 {
+  color: #008bc7;
+}
+
+/* line 104, ../scss/bases/_common.scss */
 h1 strong, h2 strong {
   font-weight: 500;
 }
 
-/* line 100, ../scss/bases/_common.scss */
+/* line 108, ../scss/bases/_common.scss */
 h1 {
   font-size: 32px;
-  line-height: 40px;
-  font-weight: 100;
-  margin: 20px 0 10px 0;
-}
-
-/* line 107, ../scss/bases/_common.scss */
-h2 {
-  font-size: 24px;
-  line-height: 30px;
-  margin: 20px 0 10px 0;
-  font-weight: 100;
+  line-height: 50px;
+  font-weight: 300;
 }
 
 /* line 114, ../scss/bases/_common.scss */
+h2 {
+  font-size: 24px;
+  line-height: 38px;
+  font-weight: 300;
+}
+
+/* line 120, ../scss/bases/_common.scss */
 h3 {
-  font-size: 16px;
-  line-height: 20px;
-  margin: 20px 0 10px 0;
+  font-size: 18px;
+  line-height: 29px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* line 127, ../scss/bases/_common.scss */
+h4 {
+  color: #4a9bc9;
   font-weight: 500;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-family: museo_sans;
 }
 
 /* Forms
 ================================================================================ */
-/* line 125, ../scss/bases/_common.scss */
+/* line 139, ../scss/bases/_common.scss */
 form {
-  padding: 0 20px 20px 20px;
+  padding: 0;
 }
 
-/* line 129, ../scss/bases/_common.scss */
-label, .faux-label {
+/* line 143, ../scss/bases/_common.scss */
+label {
   display: block;
-  padding: 20px 0 5px 0;
+  padding: 0;
   margin: 0;
+  text-transform: uppercase;
+  color: #4a9bc9;
 }
 
-/* line 135, ../scss/bases/_common.scss */
-label span {
-  display: block;
-  font-size: .75em;
-  color: #969696;
-}
-
-/* line 141, ../scss/bases/_common.scss */
+/* line 151, ../scss/bases/_common.scss */
 input {
   max-width: 350px;
 }
 
-/* line 145, ../scss/bases/_common.scss */
+/* line 155, ../scss/bases/_common.scss */
 input, textarea {
   border: 1px solid #969696;
   padding: 3px;
   margin: 0;
+  margin-bottom: 10px;
   font-size: 100%;
   font: inherit;
   color: #636363;
   border-radius: 3px;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }
 
-/* line 155, ../scss/bases/_common.scss */
+/* line 168, ../scss/bases/_common.scss */
 input[disabled] {
   color: #646464;
   border: 1px solid #c8c8c8;
   background-color: whitesmoke;
 }
 
-/* line 162, ../scss/bases/_common.scss */
+/* line 175, ../scss/bases/_common.scss */
 input[type=checkbox],
 input[type=radio] {
   display: inline-block;
   margin-right: 5px;
 }
 
-/* line 167, ../scss/bases/_common.scss */
+/* line 180, ../scss/bases/_common.scss */
 select {
   margin: 0 10px 0 0;
   width: 140px;
 }
 
-/* line 172, ../scss/bases/_common.scss */
+/* line 185, ../scss/bases/_common.scss */
 fieldset {
-  border-top: 1px solid whitesmoke;
   padding: 0 0 20px 0;
   width: 100%;
 }
 
+/* line 190, ../scss/bases/_common.scss */
+td {
+  border-top: 1px solid whitesmoke;
+  padding: 15px 0 0 0;
+}
+
 /* COMMON UI classes
 ================================================================================ */
-/* line 181, ../scss/bases/_common.scss */
+/* line 198, ../scss/bases/_common.scss */
+.green {
+  color: #87cf54;
+}
+
+/* line 202, ../scss/bases/_common.scss */
+.orange {
+  color: #ffa200;
+}
+
+/* line 206, ../scss/bases/_common.scss */
+.white {
+  color: white;
+}
+
+/* line 210, ../scss/bases/_common.scss */
 .white_background {
   background: white;
   position: relative;
 }
 
-/* line 186, ../scss/bases/_common.scss */
+/* line 215, ../scss/bases/_common.scss */
+.bold_text {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+/* line 221, ../scss/bases/_common.scss */
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* line 225, ../scss/bases/_common.scss */
+.sub_text {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 10px;
+  font-family: museo_sans;
+  font-style: normal;
+}
+
+/* line 233, ../scss/bases/_common.scss */
+.layout_container {
+  min-height: 150px;
+  padding: 30px;
+}
+
+/* line 238, ../scss/bases/_common.scss */
 .main_content_container {
   -moz-box-shadow: 0px 3px 5px 3px #CDCED3;
   -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
@@ -220,22 +281,22 @@ fieldset {
   background-color: white;
 }
 
-/* line 193, ../scss/bases/_common.scss */
+/* line 245, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 196, ../scss/bases/_common.scss */
+/* line 248, ../scss/bases/_common.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 199, ../scss/bases/_common.scss */
+/* line 251, ../scss/bases/_common.scss */
 .no_bullet {
   list-style: none;
 }
 
-/* line 203, ../scss/bases/_common.scss */
+/* line 255, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -244,68 +305,90 @@ fieldset {
   background-position: 0px 4px;
 }
 
-/* line 211, ../scss/bases/_common.scss */
+/* line 263, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
-  font-size: 14px;
-  color: #969696;
+  font-size: 12px;
+  color: gray;
   margin: 0 0 10px 0;
   text-align: left;
+  font-weight: 500;
 }
 
-/* line 219, ../scss/bases/_common.scss */
+/* line 272, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 224, ../scss/bases/_common.scss */
+/* line 277, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #c7e0e4;
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 229, ../scss/bases/_common.scss */
+/* line 282, ../scss/bases/_common.scss */
 .divider_left {
   border-left: 1px solid #c7e0e4;
 }
 
-/* line 232, ../scss/bases/_common.scss */
+/* line 285, ../scss/bases/_common.scss */
 .divider_right {
   border-right: 1px solid #c7e0e4;
 }
 
-/* line 237, ../scss/bases/_common.scss */
+/* line 289, ../scss/bases/_common.scss */
+.center_text {
+  text-align: center;
+}
+
+/* line 294, ../scss/bases/_common.scss */
 .required {
-  color: #972b46;
+  color: #ffa200;
   display: inline;
 }
 
-/* line 242, ../scss/bases/_common.scss */
+/* line 299, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 246, ../scss/bases/_common.scss */
+/* line 303, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
 
-/* line 249, ../scss/bases/_common.scss */
+/* line 306, ../scss/bases/_common.scss */
 .right_align {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 254, ../scss/bases/_common.scss */
+/* line 311, ../scss/bases/_common.scss */
 .fa.fa-check-circle {
-  color: #9dd573;
+  color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 258, ../scss/bases/_common.scss */
+/* line 316, ../scss/bases/_common.scss */
+.fa-check {
+  color: #87cf54;
+  margin-left: -1.1em;
+}
+
+/* line 321, ../scss/bases/_common.scss */
+.fa-check.task_check {
+  color: inherit;
+  margin-left: 0;
+  position: relative;
+  top: -2px;
+  left: -1px;
+  font-size: 16px;
+}
+
+/* line 330, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }
@@ -490,13 +573,11 @@ fieldset {
   background: whitesmoke url(https://d3kq8dzp7eezz0.cloudfront.net/img/lock.png) no-repeat 1% 50%;
 }
 
-/* line 23, ../scss/components/_forms.scss */
-.checkbox {
+/*.checkbox {
   border: none;
   margin: 0;
   padding: 5px 0;
-}
-
+}*/
 /* line 30, ../scss/components/_forms.scss */
 .upload {
   border: none;
@@ -589,31 +670,31 @@ fieldset {
     outline-offset: -3px;
   }
 }
-/* Header - Common
+/* Top Navigation - Common
 ================================================================================ */
-/* line 5, ../scss/components/_header.scss */
+/* line 3, ../scss/components/_navigation.scss */
 .navigation {
   min-height: 67px;
 }
 
-/* line 9, ../scss/components/_header.scss */
+/* line 7, ../scss/components/_navigation.scss */
 .navigation ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 15, ../scss/components/_header.scss */
+/* line 13, ../scss/components/_navigation.scss */
 .navigation li {
   float: left;
 }
 
-/* line 19, ../scss/components/_header.scss */
+/* line 17, ../scss/components/_navigation.scss */
 .admin_nav li {
   float: right;
 }
 
-/* line 23, ../scss/components/_header.scss */
+/* line 21, ../scss/components/_navigation.scss */
 .logo {
   font-family: museo;
   font-size: 24px;
@@ -628,12 +709,15 @@ fieldset {
   padding-left: 70px;
   text-decoration: none;
   width: 210px;
+  text-transform: capitalize;
 }
-/* line 37, ../scss/components/_header.scss */
+
+/* line 38, ../scss/components/_navigation.scss */
 .logo:visited {
   color: black;
 }
-/* line 40, ../scss/components/_header.scss */
+
+/* line 42, ../scss/components/_navigation.scss */
 .logo:hover, .logo:active {
   text-decoration: none;
   color: #646464;
@@ -641,21 +725,24 @@ fieldset {
 
 /* Header - Main App
 ================================================================================ */
-/* line 49, ../scss/components/_header.scss */
+/* line 50, ../scss/components/_navigation.scss */
 .main_top_padding {
   padding-top: 13px;
 }
 
-/* line 53, ../scss/components/_header.scss */
+/* line 54, ../scss/components/_navigation.scss */
 .navigation_links a {
   display: block;
   float: left;
   padding: 20px;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 /* Header - Landing
 ================================================================================ */
-/* line 62, ../scss/components/_header.scss */
+/* line 65, ../scss/components/_navigation.scss */
 .landing_navigation_links {
   padding-left: 50px;
   line-height: 38px;
@@ -663,12 +750,12 @@ fieldset {
   padding-top: 23px;
 }
 
-/* line 69, ../scss/components/_header.scss */
+/* line 72, ../scss/components/_navigation.scss */
 .top_padding {
   padding-top: 20px;
 }
 
-/* line 73, ../scss/components/_header.scss */
+/* line 76, ../scss/components/_navigation.scss */
 .create_account {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -676,63 +763,65 @@ fieldset {
 
 /* line 1, ../scss/components/_buttons.scss */
 .action_button_container {
-  margin: 10px 20px 10px 20px;
+  width: 200px;
+  float: right;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 5, ../scss/components/_buttons.scss */
+/* line 8, ../scss/components/_buttons.scss */
 .action_button_container li {
-  padding: 10px 0 0 0;
+  padding: 0;
   margin: 0;
 }
 
-/* line 11, ../scss/components/_buttons.scss */
+/* line 14, ../scss/components/_buttons.scss */
 .button, .button:visited {
   display: block;
-  font-weight: bold;
+  font-weight: 300;
   text-align: center;
   padding: 0 10px;
   color: white;
   text-decoration: none;
-  line-height: 40px;
-  background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-button.png);
-  background-repeat: repeat-x;
+  line-height: 38px;
+  text-transform: uppercase;
+  /*background-repeat: repeat-x;
   background-position: center;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 0 3px rgba(0,0,0,.5);
+  box-shadow: 0 0 3px rgba(0,0,0,.5);
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px; */
 }
 
-/* line 32, ../scss/components/_buttons.scss */
+/* line 36, ../scss/components/_buttons.scss */
 .button:hover {
   text-decoration: none;
   cursor: pointer;
   color: white;
 }
 
-/* line 38, ../scss/components/_buttons.scss */
+/* line 42, ../scss/components/_buttons.scss */
 .action_button {
-  background-color: #9dd573;
+  background-color: #87cf54;
 }
-/* line 40, ../scss/components/_buttons.scss */
+/* line 44, ../scss/components/_buttons.scss */
 .action_button:hover {
   background-color: #5ca032;
 }
 
-/* line 45, ../scss/components/_buttons.scss */
+/* line 49, ../scss/components/_buttons.scss */
 .cancel {
   background-color: #be3557;
 }
-/* line 47, ../scss/components/_buttons.scss */
+/* line 51, ../scss/components/_buttons.scss */
 .cancel:hover {
   background-color: #972a45;
 }
 
-/* line 52, ../scss/components/_buttons.scss */
+/* line 56, ../scss/components/_buttons.scss */
 .submit-button {
   font-size: 1em;
   padding: 10px 20px;
@@ -753,14 +842,14 @@ fieldset {
   float: right;
 }
 
-/* line 73, ../scss/components/_buttons.scss */
+/* line 77, ../scss/components/_buttons.scss */
 .submit-button:hover,
 .submit-button:focus {
   outline: none;
   background-color: #0091d2;
 }
 
-/* line 78, ../scss/components/_buttons.scss */
+/* line 82, ../scss/components/_buttons.scss */
 .login_button {
   margin-top: 0;
   width: 200px;
@@ -768,12 +857,12 @@ fieldset {
   margin-left: -150px;
 }
 
-/* line 86, ../scss/components/_buttons.scss */
+/* line 90, ../scss/components/_buttons.scss */
 .submit-buttons {
   padding: 20px 0 0 0;
 }
 
-/* line 90, ../scss/components/_buttons.scss */
+/* line 94, ../scss/components/_buttons.scss */
 .submit-buttons a {
   display: block;
   float: left;
@@ -795,63 +884,71 @@ fieldset {
   background-position: center;
 }
 
-/* line 112, ../scss/components/_buttons.scss */
+/* line 116, ../scss/components/_buttons.scss */
 .submit-buttons a,
 .submit-buttons a:visited {
   background-color: #be3557;
 }
 
-/* line 116, ../scss/components/_buttons.scss */
+/* line 120, ../scss/components/_buttons.scss */
 .submit-buttons a:active {
   margin-top: 2px;
   margin-bottom: -2px;
 }
 
-/* line 121, ../scss/components/_buttons.scss */
+/* line 125, ../scss/components/_buttons.scss */
 .submit-buttons a:hover, .submit-buttons a:active {
   background-color: #972a45;
 }
 
-/* line 125, ../scss/components/_buttons.scss */
+/* line 129, ../scss/components/_buttons.scss */
 .button_container {
   width: 200px;
 }
 
-/* line 129, ../scss/components/_buttons.scss */
+/* line 133, ../scss/components/_buttons.scss */
 .send_button_container {
   width: 250px;
 }
 
-/* line 133, ../scss/components/_buttons.scss */
+/* line 137, ../scss/components/_buttons.scss */
 .request_payment_button_container {
   width: 350px;
 }
 
-/* line 137, ../scss/components/_buttons.scss */
+/* line 141, ../scss/components/_buttons.scss */
 .delete_method_button {
   width: 229px;
   margin-left: 20px;
   margin-top: 45px;
 }
 
+/* line 147, ../scss/components/_buttons.scss */
+.orange_button {
+  background: #ffa200;
+}
+
+/* line 151, ../scss/components/_buttons.scss */
+.green_button {
+  background: #87cf54;
+}
+
 /* LANDING INTRO
 ================================================================================ */
 /* line 5, ../scss/components/_benefits.scss */
 .intro_container {
-  background: #007ab1 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-intro.png) repeat-x top;
-  color: #bfe5f6;
+  background: #008bc7;
   border-bottom: 1px solid #007ab1;
   padding: 20px 0 20px 0;
   color: #cde6f0;
 }
 
-/* line 13, ../scss/components/_benefits.scss */
+/* line 12, ../scss/components/_benefits.scss */
 .benefit {
   border: 5px solid white;
   border-radius: 200px;
   width: 250px;
   height: 250px;
-  box-shadow: 2px 2px 20px #555;
   display: block;
   margin: 20px 0 0 0;
   overflow: hidden;
@@ -859,21 +956,19 @@ fieldset {
   margin-right: auto;
 }
 
-/* line 28, ../scss/components/_benefits.scss */
-.headline,
-.subline,
+/* line 24, ../scss/components/_benefits.scss */
+.headline {
+  font-weight: 100;
+}
+
+/* line 29, ../scss/components/_benefits.scss */
+.headline, .subline,
 .benefit_title {
   text-align: center;
   color: white;
 }
 
-/* line 33, ../scss/components/_benefits.scss */
-.headline {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-  margin-bottom: 0;
-}
-
-/* line 38, ../scss/components/_benefits.scss */
+/* line 34, ../scss/components/_benefits.scss */
 .subline {
   font-family: museo_sans;
   font-weight: 100;
@@ -881,57 +976,57 @@ fieldset {
   font-size: 20px;
 }
 
-/* line 45, ../scss/components/_benefits.scss */
+/* line 41, ../scss/components/_benefits.scss */
 .benefit_container {
   width: 33%;
   float: left;
 }
 
-/* line 50, ../scss/components/_benefits.scss */
+/* line 46, ../scss/components/_benefits.scss */
 .benefit_description {
   text-align: center;
   font-weight: 300;
 }
 
-/* line 55, ../scss/components/_benefits.scss */
+/* line 51, ../scss/components/_benefits.scss */
 .benefit_title {
   font-size: 22px;
-  font-weight: 300;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  font-weight: 100;
   margin: 20px 0 8px 0;
+  font-family: museo_sans;
 }
 
-/* line 62, ../scss/components/_benefits.scss */
+/* line 58, ../scss/components/_benefits.scss */
 .benefits_container {
   width: 100%;
   overflow: hidden;
 }
 
-/* line 67, ../scss/components/_benefits.scss */
+/* line 63, ../scss/components/_benefits.scss */
 .signup_button_container {
   width: 300px;
   margin: 0 auto;
   list-style-type: none;
   margin-top: 50px;
 }
-/* line 71, ../scss/components/_benefits.scss */
+/* line 67, ../scss/components/_benefits.scss */
 .signup_button_container li {
   display: inline;
 }
 
-/* line 77, ../scss/components/_benefits.scss */
+/* line 73, ../scss/components/_benefits.scss */
 .landing_container {
   padding-top: 90px;
   height: 540px;
 }
 
-/* line 82, ../scss/components/_benefits.scss */
+/* line 78, ../scss/components/_benefits.scss */
 .explore_button_container {
   margin-left: 20px;
   width: 120px;
 }
 
-/* line 87, ../scss/components/_benefits.scss */
+/* line 83, ../scss/components/_benefits.scss */
 .landing_logo_container {
   padding-top: 20px;
   float: left;
@@ -939,13 +1034,13 @@ fieldset {
   margin-left: 40px;
 }
 
-/* line 94, ../scss/components/_benefits.scss */
+/* line 90, ../scss/components/_benefits.scss */
 .landing_admin_container {
   width: 50%;
   float: left;
 }
 
-/* line 99, ../scss/components/_benefits.scss */
+/* line 95, ../scss/components/_benefits.scss */
 .logo_white {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   color: white;
@@ -956,7 +1051,7 @@ fieldset {
   margin: 0 auto;
 }
 
-/* line 109, ../scss/components/_benefits.scss */
+/* line 105, ../scss/components/_benefits.scss */
 .headline_container {
   margin-bottom: 40px;
 }
@@ -1178,60 +1273,67 @@ label {
 
 /* FOOTER
 ================================================================================ */
-/* line 5, ../scss/components/_footer.scss */
+/* line 4, ../scss/components/_footer.scss */
 .footer {
-  background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
-  border-top: 1px solid #7d7d7d;
+  background: gray;
+  border-top: 1px solid #bababa;
   padding-bottom: 10px;
+  padding: 15px;
+  overflow: hidden;
+  width: 960px;
+  margin: 0 auto;
 }
 
-/* line 11, ../scss/components/_footer.scss */
+/* line 14, ../scss/components/_footer.scss */
 .footer_title {
   color: #dce1e6;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: museo_sans;
 }
 
-/* line 17, ../scss/components/_footer.scss */
+/* line 23, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 19, ../scss/components/_footer.scss */
+/* line 25, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 24, ../scss/components/_footer.scss */
+/* line 30, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 29, ../scss/components/_footer.scss */
+/* line 35, ../scss/components/_footer.scss */
 .footer_title > a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 34, ../scss/components/_footer.scss */
+/* line 40, ../scss/components/_footer.scss */
 .landing_footer {
-  background: #8c96a0 url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-footer.png) repeat-x bottom;
+  background: gray;
   border-top: 1px solid #7d7d7d;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
-/* line 40, ../scss/components/_footer.scss */
+/* line 46, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 44, ../scss/components/_footer.scss */
+/* line 50, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 49, ../scss/components/_footer.scss */
+/* line 55, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;

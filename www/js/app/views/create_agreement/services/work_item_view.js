@@ -1,55 +1,53 @@
 /* 
- * Scope of Work - Create Agreement View.
+ * Work Item View - Create Agreement View.
+ * One unit of work (the same as a service). This is the item view.
+ *
  */
 
-define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
-        'hbs!templates/create_agreement/payment_item'
+define(['backbone', 'handlebars', 'underscore', 'kalendae',
+        'hbs!templates/create_agreement/work_item_tpl', 'views/create_agreement/tasks_view'
     ],
 
-    function(Backbone, Handlebars, _, Kalendae, autoNumeric, itemTpl) {
+    function(Backbone, Handlebars, _, Kalendae, WorkItemTpl, TasksView) {
 
         'use strict';
 
         var WorkItemView = Backbone.View.extend({
 
             tagName: 'div',
-            className: 'paymentItemCreate',
 
-            template: itemTpl,
+            template: WorkItemTpl,
 
             initialize: function(options) {
-                this.workItems = options.workItems;
                 this.router = options.router;
                 this.render();
             },
 
             render: function() {
 
-                var deposit = this.model.isDeposit();
-                this.$el.html(this.template({
+                var tasksView = new TasksView({
+                    model: this.model,
+                    collection: this.model.get('scopeItems'),
+                });
+                tasksView.render();
+
+                var html = $(this.template({
                     model: this.model.toJSON(),
-                    deposit: deposit,
-                    workItems: this.workItems.toJSON(),
                 }));
+                html.find('.tasks_section').html(tasksView.el);
+                this.$el.html(html);
+
                 this.$el.fadeIn('slow');
+
                 return this;
 
             },
             events: {
                 "blur input": "updateFields",
-                "blur .paymentAmount": "updateAmount",
                 "focus .kal": "triggerCalender",
-                "click .remove_icon > a": "removeModel",
-                'focus .currency_format': 'triggerCurrencyFormat',
-                "change .item_check": "updateItemsIncluded"
+                "click #removeService": "removeModel"
             },
-            updateAmount: function(event) {
-
-                var amount = event.target.value;
-                var adjAmount = (amount.substring(0, 2) === '$ ') ? amount.substring(2) : amount;
-
-                this.model.set(event.target.name, parseInt(adjAmount.replace(/,/g, ''), 10));
-            },
+            
             updateFields: function(event) {
                 if (!event.target.name) return;
                 if (event.target.name === 'dateExpected') {
@@ -58,9 +56,9 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
                 }
 
                 this.model.set(event.target.name, event.target.value);
-                console.log(this.model);
 
             },
+
             triggerCalender: function(event) {
 
                 var oneWeekFromToday = moment().add('days', 7).calendar();
@@ -93,32 +91,6 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
                 _.delay(function() {
                     that.model.collection.remove(that.model);
                 }, 1000);
-            },
-
-            triggerCurrencyFormat: function() {
-                this.$('.currency_format').autoNumeric('init', {
-                    aSign: '$ ',
-                    pSign: 'p',
-                    vMin: '0',
-                    vMax: '100000'
-                });
-            },
-            updateItemsIncluded: function(event) {
-                var paymentItems = this.model.get("paymentItems");
-                console.log($(event.target).data("cid"));
-                if (paymentItems.get($(event.target).data("cid"))) {
-                    paymentItems.remove(paymentItems.get($(event.target).data("cid")));
-                    console.log(paymentItems);
-                    return;
-                }
-                var workItemID = $(event.target).data("itemid");
-                var taskID = $(event.target).data("taskid");
-                var collection = paymentItems.add({
-                    taskID: taskID,
-                    workItemID: workItemID
-                });
-                $(event.target).data("cid", collection.at(collection.length - 1).cid);
-                console.log(paymentItems);
             }
 
         });

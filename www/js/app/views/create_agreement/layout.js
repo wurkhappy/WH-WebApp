@@ -1,15 +1,18 @@
 /*
- * Scope of Work - Create Agreement View.
+ * Layout View - Main view container for Create Agreement
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',
         'views/create_agreement/header_cancel', 'views/create_agreement/header_review',
-        'views/create_agreement/proposal_view', 'views/create_agreement/progress_bar_view',
-        'views/create_agreement/estimate_view', 'views/create_agreement/review_view', 'views/create_agreement/edit_view', 'views/create_agreement/payment_view'
+        'views/create_agreement/overview_view', 'views/create_agreement/progress_bar_view',
+        'views/create_agreement/review_view', 
+        'views/create_agreement/services/service_layout', 'views/create_agreement/payments/payment_layout'
     ],
 
-    function(Backbone, Handlebars, _, Marionette, HeaderCancel, HeaderReview, ProposalView, ProgressBar,
-        EstimateView, ReviewView, EditView, PaymentView) {
+    function(Backbone, Handlebars, _, Marionette, HeaderCancel, HeaderReview, 
+             OverviewView, ProgressBar, ReviewView, ServiceLayout,
+             PaymentLayout
+            ) {
 
         'use strict';
 
@@ -26,7 +29,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.user = options.user;
                 this.otherUser = options.otherUser;
             },
-            switchToProposal: function() {
+            switchToOverview: function() {
                 this.header.show(new HeaderCancel({
                     model: this.model
                 }));
@@ -34,12 +37,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     title: "Agreement Overview",
                     value: 0
                 }));
-                this.main.show(new ProposalView({
+                this.main.show(new OverviewView({
                     model: this.model,
                     userID: this.user.id
                 }));
             },
-            switchToEstimate: function() {
+            switchToServices: function() {
                 this.header.show(new HeaderCancel({
                     model: this.model
                 }));
@@ -47,13 +50,15 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     title: "Agreement Services",
                     value: 1
                 }));
-                this.main.show(new EstimateView({
+
+                this.main.show(new ServiceLayout({
                     model: this.model,
                     user: this.user,
                     collection: this.model.get("workItems"),
                     acceptsCreditCard: this.model.get("acceptsCreditCard"),
                     acceptsBankTransfer: this.model.get("acceptsBankTransfer")
                 }));
+                
             },
             switchToReview: function() {
                 this.header.show(new HeaderCancel({
@@ -69,7 +74,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     otherUser: this.otherUser
                 }));
             },
-            switchToEdit: function() {
+            /*switchToEdit: function() {
                 this.header.show(new HeaderCancel({
                     model: this.model
                 }));
@@ -80,7 +85,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.main.show(new EditView({
                     model: this.model
                 }));
-            },
+            },*/
             switchToPayment: function() {
                 this.header.show(new HeaderCancel({
                     model: this.model
@@ -89,7 +94,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     title: "Agreement Payments",
                     value: 2
                 }));
-                this.main.show(new PaymentView({
+                this.main.show(new PaymentLayout({
                     model: this.model,
                     collection: this.model.get("payments"),
                     user: this.user,

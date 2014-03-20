@@ -12,7 +12,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             itemView: TaskItem,
             itemViewContainer: ".tasks_container",
             events: {
-                "click .payment_milestone": "showWorkItem"
+                "click .deliverable_header": "showWorkItem"
             },
             initialize: function(options) {
                 this.collection = this.model.get("scopeItems");
@@ -30,6 +30,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 var data = this.model.toJSON();
                 data.numberOfTasks = this.collection.length;
                 data.tasksCompleted = this.collection.getCompleted().length;
+
+                if (this.model.isComplete()) {
+                    data.color = 'green';
+                } else {
+                    data.color = 'orange';
+                }
+
                 data = this.mixinTemplateHelpers(data);
 
                 var template = this.getTemplate();
@@ -40,22 +47,44 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 if (this.model.isPaid()) {
                     _.defer(_.bind(this.showWorkItem, this));
                 }
+
+                // delay hiding of slightly so that height of the item can be stored.
+                // but only trigger if the height hasn't been set, i.e. page hasn't refreshed.
+                // otherwise close will be triggered when task is checked.
+                if (!this.height) {
+                    var that = this;
+                    _.delay( function() {
+                        that.hideWorkItemsOnLoad();
+                    }, 100);
+                }
+                
             },
 
             showWorkItem: function(event) {
                 this.showingItem = !this.showingItem;
+
                 if (this.showingItem) {
                     if (!this.height) this.height = this.$('.payment_milestone').height();
                     this.$('.payment_milestone').animate({
                         'height': '63px'
                     });
-                    this.$('.show_details_button').text('Show Details');
+                    this.$('.show_details_button').text(' Show Details');
                 } else {
+
                     this.$('.payment_milestone').animate({
                         'height': this.height + 'px'
                     });
-                    this.$('.show_details_button').text('Hide Details');
+                    this.$('.show_details_button').text(' Hide Details');
                 }
+            },
+
+            hideWorkItemsOnLoad: function() {
+                this.height = this.$('.payment_milestone').height();
+                this.$('.payment_milestone').animate({
+                    'height': '63px'
+                }, 100);
+                this.$('.show_details_button').text('Show Details');
+                this.showingItem = true;
             },
 
             checkStatus: function() {
@@ -82,10 +111,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             taskStatusChange: _.debounce(function() {
                 this.model.save();
             }, 1000)
-
         });
-
         return WorkItemView;
-
     }
 );

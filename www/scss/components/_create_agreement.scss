@@ -14,10 +14,6 @@
 	margin-left: 20px;
 }
 
-.create_milestone_container {
-  padding:0;
-  display: inline-block;
-}
 .include_items_container{
   display: inline-block;
   vertical-align: top;
@@ -40,17 +36,17 @@
   display: inline-block;
   vertical-align: top;
 }
-.deliverable_preview_item{
+.service_preview_item{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid rgb(225,225,225);
   min-height: 50px;
-  width: 400px;
-  margin-left: 20px;
-}
-.deliverable_preview_item > ul{
-  list-style: none;
+  padding: 10px;
+  margin-bottom:10px;
+  ul {
+    list-style: none;
+  }
 }
 
 .edit_helper {
@@ -95,20 +91,14 @@
   display:inline;
 }
 
-.progress_section {
-  overflow:hidden;
-  min-height: 100px;
-}
-
 .message_editor_container {
   width: 620px;
 }
 
 .progress_area {
   position: relative;
-  float:right;
   width: 600px;
-  margin-top:40px;
+  margin: 0 auto;
 
 }
 #schedule_templates{

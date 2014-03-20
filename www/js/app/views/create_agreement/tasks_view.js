@@ -1,5 +1,6 @@
 /*
- * Scope of Work - Create Agreement View.
+ * Tasks View - in Create Agreement.
+ * Composite view for tasks that belong to a work item.
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',
@@ -69,6 +70,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     $input = $('input'),
                     $error = $(event.target).next('.add_work_item_error');
 
+                    console.log($text.val());
+
                 if ($text.val() === '') {
                     $error.fadeIn('slow');
                     $input.keypress(function() {
@@ -78,7 +81,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
                 } else {
                     this.collection.add({
-                        text: $text.val()
+                        title: $text.val()
                     });
                     $text.val(null);
                     $text.focus();

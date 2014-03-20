@@ -32,7 +32,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.tags = options.tags;
                 this.agreementTotal = this.collection.getTotalAmount();
             }
-
         });
 
         return WorkItemsReadView;

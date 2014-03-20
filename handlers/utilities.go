@@ -22,7 +22,7 @@ func getUserInfo(id string) map[string]interface{} {
 	if id == "" {
 		return make(map[string]interface{})
 	}
-	resp, statusCode := sendServiceRequest("GET", config.UserService, "/user/search?userid="+id, nil)
+	resp, statusCode := sendServiceRequest("GET", config.UserService, "/user/search?userid="+id, nil, id)
 	if statusCode >= 400 {
 		return nil
 	}
@@ -53,7 +53,7 @@ type ServiceResp struct {
 	Body       []byte  `json:"body"`
 }
 
-func sendServiceRequest(method, service, path string, body []byte) (response []byte, statusCode int) {
+func sendServiceRequest(method, service, path string, body []byte, userID string) (response []byte, statusCode int) {
 	client := mdp.NewClient(config.MDPBroker, false)
 	defer client.Close()
 	m := map[string]interface{}{
@@ -62,7 +62,7 @@ func sendServiceRequest(method, service, path string, body []byte) (response []b
 		"Body":   body,
 	}
 	req, _ := json.Marshal(m)
-	request := [][]byte{req}
+	request := [][]byte{req, []byte(userID)}
 	reply := client.Send([]byte(service), request)
 	if len(reply) == 0 {
 		return nil, 404
@@ -72,7 +72,7 @@ func sendServiceRequest(method, service, path string, body []byte) (response []b
 	return resp.Body, int(resp.StatusCode)
 }
 
-func sendServiceRequestWithTimeout(method, service, path string, body []byte, timeout int64) (response []byte, statusCode int) {
+func sendServiceRequestWithTimeout(method, service, path string, body []byte, timeout int64, userID string) (response []byte, statusCode int) {
 	client := mdp.NewClient(config.MDPBroker, false)
 	client.Timeout = time.Duration(timeout * int64(time.Millisecond))
 	client.Retries = 1
@@ -83,7 +83,7 @@ func sendServiceRequestWithTimeout(method, service, path string, body []byte, ti
 		"Body":   body,
 	}
 	req, _ := json.Marshal(m)
-	request := [][]byte{req}
+	request := [][]byte{req, []byte(userID)}
 	reply := client.Send([]byte(service), request)
 	if len(reply) == 0 {
 		return nil, 404

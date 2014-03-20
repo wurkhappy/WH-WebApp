@@ -6,7 +6,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
     'use strict';
 
     var Layout = Backbone.Marionette.Layout.extend({
-      className:'clear white_background',
+      className:'clear white_background layout_container',
 
       attributes:{'id':'content'},
       template: layoutTpl,

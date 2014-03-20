@@ -1,20 +1,24 @@
+
+<h2 style="margin-top:20px;margin-top:20px;">Agreement Overview</h2>
+
 <form action="" method="get" accept-charset="utf-8" parsley-validate class="proposal_form">
   <fieldset>
-    <label class="create_agreement_label_first" for="role">Role</label>
+    <label style="margin-top:20px;" class="create_agreement_label_first" for="role">Role</label>
     <span class="helper_text">In this agreement you are the...</span>
       <input type="radio" name="role" value="freelancerID" checked>Freelancer
       <input class="role_type" type="radio" name="role" value="clientID">Client
     <div class="form-group">
-      <label for="title">Title</label>
+      <label style="margin-top:20px;" for="title">Title</label>
       <input data-required="true" data-trigger="change" type="text" name="title" placeholder="Title of project" id="" size="50" value="{{title}}">
       <span class="error_message hide"></span>
     </div>
-    <label for="proposedServices">Summary</label>
+    <label style="margin-top:20px;" for="proposedServices">Summary</label>
     <div class="message_editor_container">
       <textarea id="message_editor" name="proposedServices" rows="3" cols="100" placeholder="What kind of work will you be doing?" value="{{{proposedServices}}}">{{{proposedServices}}}</textarea>
   </div>
   </fieldset>
-  <div class="button_container">
-    <a id="save_continue" href="#payment" class="button single cancel">Save and Continue</a>
+  <div class="divider"></div>
+  <div style="margin-top:20px;" class="button_container">
+    <a id="save_continue" href="#services" class="button action_button">Save and Continue</a>
   </div>
 </form>

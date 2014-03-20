@@ -10,7 +10,7 @@
 
     var PasswordView = Backbone.View.extend({
 
-      className:'clear white_background',
+      className:'clear white_background layout_container',
 
       attributes:{'id':'content'},
 

@@ -33,24 +33,53 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
             },
 
             render: function() {
-                var progressBarWidth = 920;
+                var progressBarWidth = 800;
                 var bulletWidth = 42;
+                var barLeftMargin = 40;
                 var deliverablesCount = this.deliverables.length;
+                var deliverablesWidth = progressBarWidth / deliverablesCount;
                 var deliverables = [];
+                var tasks = [];
+                var that = this;
                 this.deliverables.each(function(model) {
+
+                    // sort tasks whenever one is checked off so ticks remain consistent 
+                    // with agreement progress percentage
+                    model.get("scopeItems").comparator = function (item) {
+                        if (item.get('completed')) {
+                            return true;
+                        }
+                    };
+                    model.get("scopeItems").sort();
+
                     var m = model.toJSON();
                     var index = model.collection.indexOf(model);
                     if (model.isComplete()) {
                         m.color = "green";
                     } else {
-                        m.color = "grey"
+                        m.color = "grey";
                     }
-                    m.margin_left = (progressBarWidth / deliverablesCount) * (index + 1);
+
+                    for (var x in m.scopeItems) {
+                        // set how far each task is from the tick container
+                        m.scopeItems[x].task_margin_left = (deliverablesWidth/m.scopeItems.length)*(parseInt(x) + 1) + bulletWidth/2 - 2 + barLeftMargin;
+                        if (m.scopeItems[x].completed === true) {
+                            m.scopeItems[x].color = "green";
+                        } else {
+                            m.scopeItems[x].color = "grey";
+                        }
+                    }
+
+                    m.segment_width = deliverablesWidth;
+                    m.placement_left = (deliverablesWidth) * (index);
+                    m.margin_left = (deliverablesWidth) * (index + 1);
+                    m.title_left = m.margin_left - (deliverablesWidth*.75);
                     deliverables.push(m);
-                })
+                });
 
                 this.$el.html(this.template({
                     deliverables: deliverables,
+                    tasks: tasks
                 }));
                 _.defer(_.bind(this.onRender, this));
                 return this;
@@ -65,20 +94,27 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                         var progressvalue = progress.children(".ui-progressbar-value");
                         progressvalue.css("overflow", "hidden");
                         var wrapper = $("<div>");
+                        var wrapperWidth = "800";
                         wrapper.css({
-                            "width": "920px",
+                            "width": wrapperWidth + "px",
                             "height": "100%",
                             "display": "block"
                         });
                         progressvalue.append(wrapper);
                         var deliverablesCount = that.deliverables.length;
-                        that.deliverables.each(function(model) {
+                        that.deliverables.each(function(model,index) {
+                            var bulletWidth = 42;
                             var modelSection = (1 / deliverablesCount) * 100;
                             var itemsCompleted = model.get("scopeItems").getCompleted().length;
                             var itemsTotal = model.get("scopeItems").length;
+                            var items = model.get("scopeItems");
                             var seg = $("<span>");
+                            var fractionCompleted = (itemsCompleted / itemsTotal);
+                            if (model.get("completed")) fractionCompleted = 1;
+                            if (itemsTotal === 0 && !model.get("completed")) fractionCompleted = 0;
+
                             seg.css({
-                                "width": (itemsCompleted / itemsTotal) * modelSection + "%",
+                                "width": fractionCompleted * modelSection + "%",
                                 "height": "100%",
                                 "display": "block",
                                 "background": "#9DD573",
@@ -87,11 +123,11 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                             wrapper.append(seg);
                             var segment = $("<span>");
                             segment.css({
-                                "width": (1 - (itemsCompleted / itemsTotal)) * modelSection + "%",
+                                "width": (1 - fractionCompleted) * modelSection + "%",
                                 "height": "100%",
                                 "display": "block",
-                                "background": "hsl(210, 13%, 85%)",
-                                "float": "left"
+                                "background": "hsl(0, 0%, 73%)",
+                                "float": "left",
                             });
                             wrapper.append(segment);
                         });

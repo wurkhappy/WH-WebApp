@@ -1,21 +1,21 @@
 /*
- * Scope of Work - Create Agreement View.
+ * Overview - Summary, Title, and Role in agreement
  */
 
-define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor', 'ckadapter', 'hbs!templates/create_agreement/proposal_tpl'],
+define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor', 'ckadapter', 'hbs!templates/create_agreement/overview_tpl'],
 
-    function(Backbone, Handlebars, _, moment, parsley, CKEDITOR, ckadapter, scopeTemplate) {
+    function(Backbone, Handlebars, _, moment, parsley, CKEDITOR, ckadapter, overviewTemplate) {
 
         'use strict';
 
-        var ProposalView = Backbone.View.extend({
+        var OverviewView = Backbone.View.extend({
 
             className: 'clear white_background',
             attributes: {
                 'id': 'content'
             },
 
-            template: scopeTemplate,
+            template: overviewTemplate,
 
             initialize: function(options) {
                 this.userID = options.userID;
@@ -41,7 +41,7 @@ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor',
                 CKEDITOR.basePath = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
                 CKEDITOR.replace('message_editor', {
                     toolbar: [{
-                        items: ['Bold', '-', 'Italic', '-', 'Underline', 'NumberedList', 'BulletedList', 'Link', 'Unlink']
+                        items: ['Bold', '-', 'Italic', '-', 'Underline', 'NumberedList', 'BulletedList']
                     }],
                     disableNativeSpellChecker: false,
                     language: 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/en.js',
@@ -88,14 +88,14 @@ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor',
                     this.model.set("draft", true);
                     this.model.save({}, {
                         success: _.bind(function(model, response) {
-                            window.location.hash = 'deliverables';
+                            window.location.hash = 'services';
                         }, this)
                     });
                 }
             }, 500, true)
         });
 
-        return ProposalView;
+        return OverviewView;
 
     }
 );
