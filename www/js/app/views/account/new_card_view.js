@@ -42,11 +42,10 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
             saveCard: _.debounce(function(event) {
                 var that = this;
                 balanced.card.create(this.card, function(response) {
-                    if (response.status === 201) {
-                        if (response.data.id) {
-                            delete response.data.id
-                        }
-                        var model = new that.user.attributes["cards"].model(response.data);
+                    if (response.status_code === 201) {
+                        var model = new that.user.attributes["cards"].model(response.cards[0]);
+                    model.set("balanced_id", model.id);
+                    model.unset("id");
                         that.user.get("cards").add(model);
                         model.save({}, {
                             success: function() {
