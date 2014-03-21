@@ -60,6 +60,23 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 }));
                 
             },
+
+            switchToPayment: function() {
+                this.header.show(new HeaderCancel({
+                    model: this.model
+                }));
+                this.progress.show(new ProgressBar({
+                    title: "Agreement Payments",
+                    value: 2
+                }));
+                this.main.show(new PaymentLayout({
+                    model: this.model,
+                    collection: this.model.get("payments"),
+                    user: this.user,
+                    otherUser: this.otherUser
+                }));
+            },
+
             switchToReview: function() {
                 this.header.show(new HeaderCancel({
                     model: this.model
@@ -86,21 +103,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     model: this.model
                 }));
             },*/
-            switchToPayment: function() {
-                this.header.show(new HeaderCancel({
-                    model: this.model
-                }));
-                this.progress.show(new ProgressBar({
-                    title: "Agreement Payments",
-                    value: 2
-                }));
-                this.main.show(new PaymentLayout({
-                    model: this.model,
-                    collection: this.model.get("payments"),
-                    user: this.user,
-                    otherUser: this.otherUser
-                }));
-            }
+            
         });
 
         return Layout;

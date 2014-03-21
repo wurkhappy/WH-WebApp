@@ -17,9 +17,12 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
             initialize: function(options) {
                 this.bankAccounts = options.user.get("bank_accounts");
                 this.creditCards = options.user.get("cards");
-                this.depositAmount = this.model.get("payments").findDeposit().get("amountDue");
                 this.acceptsCreditCard = options.acceptsCreditCard;
                 this.acceptsBankTransfer = options.acceptsBankTransfer;
+                if (this.model.get("payments").findDeposit()){
+                    this.depositAmount = this.model.get("payments").findDeposit().get("amountDue");
+                }
+
             },
 
             serializeData: function(){

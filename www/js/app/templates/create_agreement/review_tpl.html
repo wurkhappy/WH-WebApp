@@ -6,49 +6,52 @@
 		{{/unless}}
 		{{model.title}}
 	</h2>
-	<span class="helper_text edit_helper">Feel like something's missing? Click a section to the right to go back.</span>
-	<h2 class="agreement_title">Summary</h2>
-	<div class="proposed_services_container">{{{model.proposedServices}}}</div>
-	<h2 class="agreement_title">Deliverables</h2>
-	<ul class="no_bullet">
-		{{#each model.workItems}}
-		<li>
-			{{title}} {{#if date}}on {{dateFormat date}}{{/if}}
-			<ul class="no_bullet">
-				{{#each scopeItems}}
-				<li>{{text}}</li>
-				{{/each}}
-			</ul>
-		</li>
-		{{/each}}
-	</ul>
-	<h2 class="agreement_title">Accepted Methods of Payment</h2>
-	<div class="payment_method_review_container">
-		<div style="display:inline-block; width:1em; height:1em;"></div>
-		{{#if model.acceptsCreditCard}}
-		<i class="fa fa-check-circle">  <span>Credit Card</span></i><div style="display:inline-block; width:1em; height:1em;"></div>
-		{{/if}}
-		{{#if model.acceptsBankTransfer}}
-		<i class="fa fa-check-circle bank_account_method_review">  <span>Bank Account</span></i>
-		{{/if}}
-		{{#if noPaymentMethods}}
-		<p> No payment methods selected.</p>
-		{{/if}}
-	</div>
-	<h2 class="agreement_title">Payment Schedule</h2>
-	<ul class="no_bullet ca_payment_list">
-		{{#each model.payments}}
+	<div class="layout_container" style="padding:30px;">
 		
-		<li>
-			{{title}}
-			{{#if this.isDeposit}}{{else}}{{#if dateExpected}}on {{dateFormat dateExpected}}{{/if}}{{/if}}
-			<strong class="ca_payment_amount">${{ReplaceNumberWithCommas amountDue}}</strong>
-		</li>
-		{{/each}}
-	</ul>
-	<div>
-		<h2 class="agreement_title review_agreement_total">Agreement Total:
-			<strong class="ca_payment_amount"> ${{ReplaceNumberWithCommas agreementTotal}} </strong></h2>
+		<h3>Summary</h3>
+		<div class="proposed_services_container">{{{model.proposedServices}}}</div>
+		<h3 style="margin-top:10px;">Services</h3>
+		<ul class="no_bullet">
+			{{#each model.workItems}}
+			<li>
+				{{title}} {{#if object.date}}on {{dateFormat date}}{{/if}}
+				<ul class="no_bullet">
+					{{#each scopeItems}}
+					<li>{{text}}</li>
+					{{/each}}
+				</ul>
+			</li>
+			{{/each}}
+		</ul>
+		<h3 style="margin-top:10px;">Accepted Methods of Payment</h3>
+		<div class="payment_method_review_container">
+			<div style="display:inline-block; width:1em; height:1em;"></div>
+			{{#if model.acceptsCreditCard}}
+			<i class="fa fa-check-circle">  <span>Credit Card</span></i><div style="display:inline-block; width:1em; height:1em;"></div>
+			{{/if}}
+			{{#if model.acceptsBankTransfer}}
+			<i class="fa fa-check-circle bank_account_method_review">  <span>Bank Account</span></i>
+			{{/if}}
+			{{#if noPaymentMethods}}
+			<p> No payment methods selected.</p>
+			{{/if}}
+		</div>
+		<h3 style="margin-top:10px;">Payment Schedule</h3>
+		<ul class="no_bullet ca_payment_list">
+			{{#each model.payments}}
+			
+			<li>
+				{{title}}
+				{{#if this.isDeposit}}{{else}}{{#if dateExpected}}on {{dateFormat dateExpected}}{{/if}}{{/if}}
+				<strong class="ca_payment_amount">${{ReplaceNumberWithCommas amountDue}}</strong>
+			</li>
+			{{/each}}
+		</ul>
+		<div class="divider" style="margin-top:10px;margin-bottom:10px;"></div>
+		<div>
+			<h3>Agreement Total:
+				<strong class="ca_payment_amount"> ${{ReplaceNumberWithCommas agreementTotal}} </strong></h3>
+			</div>
 		</div>
 	</div>
-	<div id="send_section"></div>
+<div id="send_section"></div>

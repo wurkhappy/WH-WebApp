@@ -28,7 +28,7 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl',
                 if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
                     var noPaymentMethods = true;
                 }
-                console.log(this.model.get("payments"));
+                console.log(this.model.toJSON());
 
                 this.$el.html(this.template({
                     model: this.model.toJSON(),
