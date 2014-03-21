@@ -42,9 +42,6 @@
 	padding-top:10px;
 	position: relative;
 }
-.review_agreement_total > strong{
-	padding-top: inherit;
-}
 
 .review_continue {
 	padding-top:20px;
@@ -78,11 +75,14 @@
 }
 
 .ca_payment_list{
-  padding-right: 0px;
+	padding-right: 0px;
 }
 .ca_payment_list > li{
-  position: relative;
+	position: relative;
 }
-.ca_payment_amount{
-  float:right;
+.ca_payment_amount {
+	float:right;
+	font-weight:500;
+	color: hsl(0, 0%, 39%);
+	font-size: 16px;
 }

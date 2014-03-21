@@ -16,9 +16,9 @@ define(['backbone', 'flying-focus', 'models/agreement',
                 '': 'overview',
                 'overview': 'overview',
                 'services': 'services',
+                'payment': 'payment',
                 'review': 'review',
-                'edit': 'edit',
-                'payment': 'payment'
+                'send': 'send'
             },
 
             initialize: function() {
@@ -55,16 +55,15 @@ define(['backbone', 'flying-focus', 'models/agreement',
             services: function() {
                 this.layout.switchToServices();
             },
+            payment: function() {
+                this.layout.switchToPayment();
+            },
             review: function() {
                 this.layout.switchToReview();
             },
-            edit: function() {
-                this.layout.switchToEdit();
-            },
-            payment: function() {
-                this.layout.switchToPayment();
+            send: function() {
+                this.layout.switchToSend();
             }
-
         });
 
         return CreateAgreementRouter;

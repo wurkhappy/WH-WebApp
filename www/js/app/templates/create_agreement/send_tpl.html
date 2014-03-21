@@ -5,17 +5,18 @@
   <fieldset>
     <label for="">Email Address</label>
     <input data-required="true" data-trigger="change" parsley-type="email" name="clientEmail" placeholder="Please enter recipient's email" id="" size="50" value="{{otherUserEmail}}">
-    <label for="">Personal Message in Notification Email</label>
+    <label for="">Email Message</label>
     <textarea name="message" rows="5" cols="100">{{message}}</textarea>
   </fieldset>
 
+<div class="divider"></div>
   
   {{#if deposit}}
-    <div class="request_payment_button_container">
-    	<a id="requestDeposit" href="" class="button single cancel">Send Agreement and Request Deposit</a>
+    <div class="request_payment_button_container" style="margin-top:20px;">
+    	<a id="requestDeposit" href="" class="button action_button">Send Agreement and Request Deposit</a>
 	{{else}}
-    <div class="send_button_container">
-		  <a id="sendAgreement" href="" class="button single cancel">Send Agreement</a>
+    <div class="send_button_container" style="margin-top:20px;">
+		  <a id="sendAgreement" href="" class="button action_button">Send Agreement</a>
 	{{/if}}
   </div>
 

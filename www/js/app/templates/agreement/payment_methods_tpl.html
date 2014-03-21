@@ -1,8 +1,9 @@
-<h4>Accepted Methods</h4>
-<div class="payment_methods_agreement_container">
+
+<div>
 	{{#if model.acceptsCreditCard}}
-	<i class="fa fa-check"> </i> <span>Credit Card</span><br>{{/if}}
+	<i class="fa fa-credit-card" style="margin-right:20px;">  <span>Credit Card</span></i>
+	{{/if}}
 	{{#if model.acceptsBankTransfer}}
-	<i class="fa fa-check">  </i> <span>Bank Account</span>
+	<i class="fa fa-money">  <span>Bank Account</span></i>
 	{{/if}}
 </div>

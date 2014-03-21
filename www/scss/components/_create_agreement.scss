@@ -79,10 +79,6 @@
   padding: 10px 0;
 }
 
-.review_container {
-  padding: 20px;
-}
-
 .deposit_container {
   margin-bottom:20px;
 }
@@ -97,8 +93,9 @@
 
 .progress_area {
   position: relative;
-  width: 600px;
+  width: 687px;
   margin: 0 auto;
+  overflow:hidden;
 
 }
 #schedule_templates{

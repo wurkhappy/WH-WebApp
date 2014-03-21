@@ -5,12 +5,12 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
         'views/create_agreement/header_cancel', 'views/create_agreement/header_review',
         'views/create_agreement/overview_view', 'views/create_agreement/progress_bar_view',
-        'views/create_agreement/review_view', 
-        'views/create_agreement/services/service_layout', 'views/create_agreement/payments/payment_layout'
+        'views/create_agreement/review_view', 'views/create_agreement/send_view', 'views/create_agreement/services/service_layout', 
+        'views/create_agreement/payments/payment_layout'
     ],
 
     function(Backbone, Handlebars, _, Marionette, HeaderCancel, HeaderReview, 
-             OverviewView, ProgressBar, ReviewView, ServiceLayout,
+             OverviewView, ProgressBar, ReviewView, SendView, ServiceLayout,
              PaymentLayout
             ) {
 
@@ -91,6 +91,21 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     otherUser: this.otherUser
                 }));
             },
+
+            switchToSend: function() {
+                this.header.show(new HeaderCancel({
+                    model: this.model
+                }));
+                this.progress.show(new ProgressBar({
+                    title: "Agreement Send",
+                    value: 4
+                }));
+                this.main.show(new SendView({
+                    model: this.model,
+                    user: this.user,
+                    otherUser: this.otherUser
+                }));
+            }
             /*switchToEdit: function() {
                 this.header.show(new HeaderCancel({
                     model: this.model

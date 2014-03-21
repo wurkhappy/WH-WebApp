@@ -163,12 +163,16 @@ progress::-webkit-progress-value, progress.yellow_progress {
   left:150px;
 }
 
-.review_link {
+.payment_link {
   left:300px;
 }
 
-.send_link {
+.review_link {
   left: 450px;
+}
+
+.send_link {
+  left: 600px;
 }
 
 .create_agreement_icon_container {
@@ -208,12 +212,10 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .create_agreement_progress {
-  width: 460px;
+  width: 617px;
   float: right;
-  margin-right: 90px;
-  margin-top: 0;
-  margin-bottom: 0;
   padding-bottom: 0;
+  margin-top:0;
 }
 
 .create_agreement_navigation {
