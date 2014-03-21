@@ -19,12 +19,12 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
             template: itemTpl,
 
             initialize: function(options) {
-                
+
                 this.workItems = options.workItems;
                 this.router = options.router;
 
                 this.render();
-                
+
             },
 
             render: function() {
@@ -37,7 +37,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
                 this.$el.fadeIn('slow');
                 return this;
             },
-            
+
             events: {
                 "blur input": "updateFields",
                 "blur .paymentAmount": "updateAmount",

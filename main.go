@@ -54,7 +54,6 @@ func main() {
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("www/js"))))
 	http.HandleFunc("/css/fonts/", serveFonts)
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("www/css"))))
-	// err := http.ListenAndServe(":4000", nil)
 	var err error
 	err = http.ListenAndServe(":4000", nil)
 	if err != nil {
@@ -139,6 +138,7 @@ func (h agreementHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, "Not authorized", http.StatusForbidden)
 			return
 		}
+		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/#login", http.StatusFound)
@@ -158,6 +158,7 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, "Not authorized", http.StatusForbidden)
 			return
 		}
+		session.Save(req, w)
 		h(w, req, session)
 	} else {
 		http.Redirect(w, req, "/#login", http.StatusFound)
