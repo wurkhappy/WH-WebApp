@@ -1,11 +1,11 @@
-/* line 36, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
+/* line 36, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 4, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
+/* line 4, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
 img, video {
   max-width: 100%;
   height: auto;
@@ -232,7 +232,7 @@ td {
 
 /* line 202, ../scss/bases/_common.scss */
 .orange {
-  color: #ffa200;
+  color: #ffa200 !important;
 }
 
 /* line 206, ../scss/bases/_common.scss */
@@ -251,14 +251,22 @@ td {
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 900;
+  color: #636363;
 }
 
-/* line 221, ../scss/bases/_common.scss */
+/* line 222, ../scss/bases/_common.scss */
+.italic_text {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* line 228, ../scss/bases/_common.scss */
 .capitalize {
   text-transform: capitalize;
 }
 
-/* line 225, ../scss/bases/_common.scss */
+/* line 232, ../scss/bases/_common.scss */
 .sub_text {
   text-transform: uppercase;
   font-weight: 300;
@@ -267,13 +275,13 @@ td {
   font-style: normal;
 }
 
-/* line 233, ../scss/bases/_common.scss */
+/* line 240, ../scss/bases/_common.scss */
 .layout_container {
   min-height: 150px;
   padding: 30px;
 }
 
-/* line 238, ../scss/bases/_common.scss */
+/* line 245, ../scss/bases/_common.scss */
 .main_content_container {
   -moz-box-shadow: 0px 3px 5px 3px #CDCED3;
   -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
@@ -281,22 +289,22 @@ td {
   background-color: white;
 }
 
-/* line 245, ../scss/bases/_common.scss */
+/* line 252, ../scss/bases/_common.scss */
 .hide {
   display: none;
 }
 
-/* line 248, ../scss/bases/_common.scss */
+/* line 255, ../scss/bases/_common.scss */
 .inline_block {
   display: inline-block;
 }
 
-/* line 251, ../scss/bases/_common.scss */
+/* line 258, ../scss/bases/_common.scss */
 .no_bullet {
   list-style: none;
 }
 
-/* line 255, ../scss/bases/_common.scss */
+/* line 262, ../scss/bases/_common.scss */
 .checkmark {
   background-image: url("/img/checkmark.png");
   background-repeat: no-repeat;
@@ -305,7 +313,7 @@ td {
   background-position: 0px 4px;
 }
 
-/* line 263, ../scss/bases/_common.scss */
+/* line 270, ../scss/bases/_common.scss */
 .helper_text {
   display: block;
   font-size: 12px;
@@ -315,70 +323,70 @@ td {
   font-weight: 500;
 }
 
-/* line 272, ../scss/bases/_common.scss */
+/* line 279, ../scss/bases/_common.scss */
 .secure:before {
   content: url(/img/lock-16x16.png);
   padding: 5px;
 }
 
-/* line 277, ../scss/bases/_common.scss */
+/* line 284, ../scss/bases/_common.scss */
 .divider {
   border-bottom: 1px solid #c7e0e4;
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 282, ../scss/bases/_common.scss */
+/* line 289, ../scss/bases/_common.scss */
 .divider_left {
   border-left: 1px solid #c7e0e4;
 }
 
-/* line 285, ../scss/bases/_common.scss */
+/* line 292, ../scss/bases/_common.scss */
 .divider_right {
   border-right: 1px solid #c7e0e4;
 }
 
-/* line 289, ../scss/bases/_common.scss */
+/* line 296, ../scss/bases/_common.scss */
 .center_text {
   text-align: center;
 }
 
-/* line 294, ../scss/bases/_common.scss */
+/* line 301, ../scss/bases/_common.scss */
 .required {
   color: #ffa200;
   display: inline;
 }
 
-/* line 299, ../scss/bases/_common.scss */
+/* line 306, ../scss/bases/_common.scss */
 .hide_overflow {
   overflow: hidden;
 }
 
-/* line 303, ../scss/bases/_common.scss */
+/* line 310, ../scss/bases/_common.scss */
 .gutter {
   margin-left: 40px;
 }
 
-/* line 306, ../scss/bases/_common.scss */
+/* line 313, ../scss/bases/_common.scss */
 .right_align {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 311, ../scss/bases/_common.scss */
+/* line 318, ../scss/bases/_common.scss */
 .fa.fa-check-circle {
   color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 316, ../scss/bases/_common.scss */
+/* line 323, ../scss/bases/_common.scss */
 .fa-check {
   color: #87cf54;
   margin-left: -1.1em;
 }
 
-/* line 321, ../scss/bases/_common.scss */
+/* line 328, ../scss/bases/_common.scss */
 .fa-check.task_check {
   color: inherit;
   margin-left: 0;
@@ -388,7 +396,7 @@ td {
   font-size: 16px;
 }
 
-/* line 330, ../scss/bases/_common.scss */
+/* line 337, ../scss/bases/_common.scss */
 .checkmark_holder {
   position: relative;
 }

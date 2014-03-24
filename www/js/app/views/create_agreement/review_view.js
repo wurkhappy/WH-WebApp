@@ -15,9 +15,9 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl',
 
         var ReviewView = Backbone.View.extend({
             template: tpl,
-            className: 'clear white_background review_container',
+            className: 'clear white_background',
             events: {
-                "click #submitAgreement": "continue"
+                "click #continue": "continue"
             },
             initialize: function(options) {
                 this.user = options.user;
@@ -28,19 +28,19 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl',
                 if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
                     var noPaymentMethods = true;
                 }
-                console.log(this.model.get("payments"));
+                console.log(this.model.toJSON());
 
                 this.$el.html(this.template({
                     model: this.model.toJSON(),
                     noPaymentMethods: noPaymentMethods,
                     agreementTotal: this.model.get("payments").getTotalDue(),
                 }));
-                var sendView = new SendView({
+                /*var sendView = new SendView({
                     model: this.model,
                     user: this.user,
                     otherUser: this.otherUser
                 });
-                this.$('#send_section').html(sendView.el);
+                this.$('#send_section').html(sendView.el);*/
 
                 $('body').scrollTop(0);
                 return this;
@@ -50,7 +50,6 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl',
                 event.stopPropagation();
 
                 window.location.hash = '#send';
-
             }
 
         });

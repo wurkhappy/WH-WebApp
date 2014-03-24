@@ -1,17 +1,19 @@
 <div class="payment_methods_container" style="float: right;">
-  <label>Select Accepted Methods of Payment</label>
-  <input type="checkbox" name="acceptsBankTransfer" value="true" class="payment_method"
-  {{#if acceptsBankTransfer}}
-   checked
-   {{/if}}
-   >
-  <span class="helper_text require_deposit_text"><span class="payment_method_title">Bank Account</span> - costs receiver 1% (up to $5 cap) + 55 cents</span><br>
-  <input type="checkbox" name="acceptsCreditCard" value="true" class="payment_method" 
-  {{#if acceptsCreditCard}}
-  checked
-  {{/if}}
-  >
-  <span class="helper_text require_deposit_text"><span class="payment_method_title">Credit Card</span> - costs receiver 2.9% + 55 cents</span>
+  <label>Accepted Methods of Payment</label>
+    <div style="padding-left:20px;">
+      <input type="checkbox" name="acceptsBankTransfer" value="true" class="payment_method"
+        {{#if acceptsBankTransfer}}
+         checked
+         {{/if}}
+         >
+        <i class="fa fa-money">  <span>Bank Account</span></i><br>
+        <input type="checkbox" name="acceptsCreditCard" value="true" class="payment_method" 
+        {{#if acceptsCreditCard}}
+        checked
+        {{/if}}
+        >
+        <i class="fa fa-credit-card">  <span>Credit Card</span></i>
+    </div>
 </div>
 
 <div class="deposit_container" style="float:left;">
