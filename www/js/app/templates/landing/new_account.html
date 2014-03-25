@@ -1,7 +1,7 @@
 
       <form action="/account/create" method="POST" accept-charset="utf-8" id="login_form" class="js-form login_form create_account_form">
-        <h1 class="login_screen_title">Create Free Account</h1>
-          <span class="helper_text login_helper">Please create an account to start exploring Wurk Happy.</span>
+        <h1 style="color: hsl(198, 100%, 39%);">Create Free Account</h1>
+          <span class="helper_text">Please create an account to start exploring Wurk Happy.</span>
         <fieldset>
           <div class="server_error" id="server_error"></div>
           <label class="clear" id="firstName-label" for="firstName">First Name: </label>
@@ -27,7 +27,7 @@
           {{#unless showHaveAccount}}
           style="float:left;"
           {{/unless}}
-           value="Create Free Account" class="submit-button create_account_button">
+           value="Create Free Account" class="button action_button" style="padding:0;width:225px;float:right;border:none;border-radius:0;">
         </div>
         <div style="clear:both;"></div>
       </form>

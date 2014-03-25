@@ -1024,8 +1024,8 @@ td {
 
 /* line 73, ../scss/components/_benefits.scss */
 .landing_container {
-  padding-top: 90px;
-  height: 540px;
+  padding-top: 140px;
+  height: 680px;
 }
 
 /* line 78, ../scss/components/_benefits.scss */
@@ -1128,27 +1128,18 @@ td {
   margin: 0 0 15px 0;
 }
 
-/* line 28, ../scss/components/_get_started.scss */
-fieldset {
-  margin: 0;
-  padding: 10px 0 0 0;
-}
-
-/* line 33, ../scss/components/_get_started.scss */
+/* line 27, ../scss/components/_get_started.scss */
 label {
-  display: block;
   padding: 10px 0 5px 0;
-  color: black;
-  font-weight: bold;
 }
 
-/* line 40, ../scss/components/_get_started.scss */
+/* line 31, ../scss/components/_get_started.scss */
 .input-box {
   margin: 0;
   padding: 0;
 }
 
-/* line 45, ../scss/components/_get_started.scss */
+/* line 36, ../scss/components/_get_started.scss */
 .text-field {
   margin: 0;
   padding: 5px;
@@ -1161,13 +1152,13 @@ label {
   -moz-box-sizing: border-box;
 }
 
-/* line 57, ../scss/components/_get_started.scss */
+/* line 48, ../scss/components/_get_started.scss */
 .text-field:focus {
   outline: none;
   border: 1px solid #646464;
 }
 
-/* line 62, ../scss/components/_get_started.scss */
+/* line 53, ../scss/components/_get_started.scss */
 .validation {
   display: inline-block;
   width: 70%;
@@ -1177,7 +1168,7 @@ label {
   font-weight: normal;
 }
 
-/* line 71, ../scss/components/_get_started.scss */
+/* line 62, ../scss/components/_get_started.scss */
 .border {
   border: 1px solid red !important;
 }
@@ -1186,63 +1177,41 @@ label {
 .form_holder {
   border: 1px solid #ddd;
   background-color: #fdfdfd;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 10px;
   margin: 0;
   margin-left: -160px;
-  padding: 20px 10px;
   position: relative;
   text-align: left;
 }
 
-/* line 14, ../scss/components/_login.scss */
+/* line 10, ../scss/components/_login.scss */
 .form_holder_layout {
   float: left;
   width: 360px;
 }
 
-/* line 19, ../scss/components/_login.scss */
+/* line 15, ../scss/components/_login.scss */
 .login_form_container {
   padding-left: 50%;
 }
 
-/* line 23, ../scss/components/_login.scss */
+/* line 19, ../scss/components/_login.scss */
 .forgot_password {
   display: inline-block;
   margin-top: 10px;
   margin-bottom: 0;
 }
 
-/* line 29, ../scss/components/_login.scss */
-.login_screen_title {
-  margin: 0;
-  padding: 0;
-}
-
-/* line 34, ../scss/components/_login.scss */
+/* line 25, ../scss/components/_login.scss */
 .forgot_password_button {
   margin-top: 5px;
 }
 
-/* line 38, ../scss/components/_login.scss */
-.forgot_password_form {
-  height: 260px;
-  width: 350px;
-}
-
-/* line 43, ../scss/components/_login.scss */
-.login_helper {
-  line-height: 16px;
-  margin-bottom: 0px;
-}
-
-/* line 48, ../scss/components/_login.scss */
+/* line 29, ../scss/components/_login.scss */
 .other_login {
   margin-bottom: 20px;
 }
 
-/* line 52, ../scss/components/_login.scss */
+/* line 33, ../scss/components/_login.scss */
 .email_screen_title {
   text-align: center;
   margin: 0;
@@ -1250,31 +1219,31 @@ label {
   padding: 0;
 }
 
-/* line 59, ../scss/components/_login.scss */
+/* line 40, ../scss/components/_login.scss */
 .email_button {
   margin: 0 auto;
   margin-top: 20px;
   float: none;
 }
 
-/* line 65, ../scss/components/_login.scss */
+/* line 46, ../scss/components/_login.scss */
 #mce-EMAIL {
   border-radius: 3px;
   width: 200px;
   margin: 0 auto;
 }
 
-/* line 71, ../scss/components/_login.scss */
+/* line 52, ../scss/components/_login.scss */
 #mc_embed_signup {
   text-align: center;
 }
 
-/* line 75, ../scss/components/_login.scss */
+/* line 56, ../scss/components/_login.scss */
 .email_helper {
   text-align: center;
 }
 
-/* line 79, ../scss/components/_login.scss */
+/* line 60, ../scss/components/_login.scss */
 .email_confirm {
   text-align: center;
 }
