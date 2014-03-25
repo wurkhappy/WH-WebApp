@@ -1,4 +1,4 @@
-<header class="bottom_divider pay_header_container">
+<header class="pay_header_container">
   
 {{#unless hasCreditCards}}
   {{#unless hasBankAccounts}}
@@ -6,17 +6,17 @@
     <span class="helper_text pay_header_helper">Add a payment method below or manage stored payment methods in the <a href="/account">account</a> section.</span>
   {{/unless}}
 {{else}}
-  <h2 class="pay_header">Please Select a Payment Option</h2>
+  <h1 style="background: hsl(198, 100%, 39%);color: hsl(0, 100%, 100%);text-align:center;margin-bottom:10px;">Make Payment</h1>
       <span class="helper_text pay_header_helper">Manage stored payment methods in the <a href="/account">account</a> section.</span>
   
 {{/unless}}
   {{#if hasCreditCards}}
     {{#if acceptsCreditCard}}
-      <input type="radio" name="payment_type" value="credit_card" class="select_radio">Pay with stored credit card<br>
+      <input style="margin-left: 1px;"  type="radio" name="payment_type" value="credit_card" class="select_radio">Pay with stored credit card<br>
       <ul id="credit_card" class="payment_select_container hide">
         <li>
           {{#each creditCards}}
-          <input type="radio" class="select_radio_button select_credit_card" name="select_debit_source" value="{{id}}" data-url="{{id}}">
+          <input  type="radio" class="select_radio_button select_credit_card" name="select_debit_source" value="{{id}}" data-url="{{id}}">
           <p class="payment_select_info">**** **** **** {{last_four}}</p>
           <p class="account_select_info"><span>Expiration:</span> {{expiration_month}}/{{expiration_year}}</p>
           {{/each}}
@@ -26,7 +26,7 @@
   {{/if}}
   {{#if hasBankAccounts}}
     {{#if acceptsBankTransfer}}
-      <input type="radio" name="payment_type" value="bank_account" class="select_radio">Pay with stored bank account<br>
+      <input style="margin-left: 1px;" type="radio" name="payment_type" value="bank_account" class="select_radio">Pay with stored bank account<br>
       <ul id="bank_account" class="payment_select_container hide">
         <li>
           {{#each bankAccounts}}
@@ -47,15 +47,16 @@
     </p>
   {{/unless}}
 </header>
-    <article>
-  <div class="line"></div>
-  <h2 class="pay_header pay_milestone">Pay {{model.title}}</h2>
+<article>
+  <div class="divider"></div>
+  <h4>Pay {{model.title}}</h4>
   <div>
     <ul class="line_item_container">
       <li class="line_item"><span class="line_item_title line_item_title_small">Milestone Amount:</span> ${{milestonePayment}}</li>
       <li class="line_item line_item_total"><span class="line_item_title">Payment Total:</span> ${{amountTotal}}</li>
     </ul>
   </div>
-  <a href="make_payment" id="accept-button" class="button action_button pay_button">Pay</a>
+  <a href="make_payment" id="accept-button" class="button action_button" style="margin-top: 20px;float: right;width: 250px;">Pay</a>
 </article>
+
 <div id="addView" style="background-color:white; margin-left: -20px;margin-top:50px; height: 600px; width:100%; position:absolute;"><a id="back-button" style="margin-left:20px;">Back</a></div>

@@ -22,12 +22,9 @@
 .panel {
 	width: 550px;
 	margin: 20px auto;
-/*	position: relative;
-*/	background: hsl(0, 0%, 87%);
-	border-radius: 5px;
-	padding: 20px;
-/*	height: auto;
-*/	background: hsl(0, 0%, 98%);
+	background: hsl(0, 0%, 87%);
+	padding: 35px;
+	background: hsl(0, 0%, 98%);
 	background-image: -webkit-linear-gradient(hsl(0, 100%, 100%), hsl(0, 0%, 98%));
 	background-image: -moz-linear-gradient(white, #fafafa);
 	background-image: -ms-linear-gradient(white, #fafafa);
@@ -39,30 +36,6 @@
 	box-shadow: 0 0 1px 1px hsla(0, 0%, 0%, 0.2), 0 10px 27px hsla(0, 0%, 0%, 0.7);
 	overflow:hidden;
 }
-
-/*.milestone_panel {
-        width: 550px;
-        position: absolute;
-        top: 75px;
-        margin-left: -275px;
-        margin-top:0;
-        bottom: 100px;
-        overflow-y: scroll;
-}*/
-
-/*.cover {
-	position: fixed;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	background: hsl(0, 0%, 0%);
-	background: hsla(0, 0%, 0%, 0.6);
-	background: -webkit-radial-gradient(50% 50%, ellipse closest-corner, hsla(0, 0%, 0%, 0.45) 1%, hsla(0, 0%, 0%, 0.8) 100%);
-	background: -moz-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
-	background: -ms-radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
-	background: radial-gradient(50% 50%, ellipse closest-corner, rgba(0,0,0,0.45) 1%, rgba(0,0,0,0.8) 100%);
-}*/
 
 .overlay {
 	top: 0;
@@ -162,10 +135,13 @@
 }
 
 .close {
-	position:absolute;
-	right:10px;
-	top: 10px;
-	padding:5px;
-	border: 1px solid hsl(0, 0, 87%);
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	padding: 5px;
 	cursor: pointer;
+	font-family: Museo;
+	text-transform: uppercase;
+	font-size: 20px;
+	color: $orange;
 }

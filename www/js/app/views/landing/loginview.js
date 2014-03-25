@@ -35,6 +35,7 @@ define(['backbone', 'handlebars', 'parsley', 'hbs!templates/landing/login', 'mod
         },
         updateModel: function(event){
           this.model.set(event.target.name, event.target.value);
+          console.log(this.model);
         },
 
         submitOnEnter: function (event) {
@@ -52,6 +53,10 @@ define(['backbone', 'handlebars', 'parsley', 'hbs!templates/landing/login', 'mod
         },
 
         submitModel: _.debounce(function(event){
+          if (this.model.get('email') === '' ) {
+            alert('Please enter an email');
+          }
+
           this.model.save({}, {
             success:function(model, response){
               if (response["redirectURL"]) window.location = response["redirectURL"];
