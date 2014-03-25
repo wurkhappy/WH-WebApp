@@ -18,7 +18,8 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
                 this.creditCards = options.user.get("cards");
                 this.acceptsCreditCard = options.acceptsCreditCard;
                 this.acceptsBankTransfer = options.acceptsBankTransfer;
-                if (this.model.get("payments").findDeposit()){
+                this.deposit = this.model.get("payments").findDeposit();
+                if (this.deposit) {
                     this.depositAmount = this.model.get("payments").findDeposit().get("amountDue");
                 }
 
@@ -58,21 +59,28 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
 
                 if (this.deposit) {
                     this.deposit.set("amountDue", formattedAmount);
+                    this.deposit.get("paymentItems").at(0).set("amountDue", formattedAmount);
                 } else {
                     var Model = this.model.get("payments").model;
                     this.deposit = new Model({
                         title: "Deposit",
                         amountDue: formattedAmount,
-                        isDeposit: true
+                        isDeposit: true,
+                        paymentItems: [{
+                            amountDue: formattedAmount,
+                            title: "Deposit",
+                        }]
                     });
                     this.model.get("payments").unshift(this.deposit);
                 }
+                console.log(this.model.get("payments").indexOf(this.deposit));
 
                 if (adjAmount == 0) {
                     this.model.get("payments").remove(this.deposit);
                 } else {
                     this.model.get("payments").unshift(this.deposit);
                 }
+                console.log(this.model.get("payments").indexOf(this.deposit));
             }
 
         });
