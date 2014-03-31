@@ -35,7 +35,6 @@ define(['backbone', 'handlebars', 'parsley', 'hbs!templates/landing/login', 'mod
         },
         updateModel: function(event){
           this.model.set(event.target.name, event.target.value);
-          console.log(this.model);
         },
 
         submitOnEnter: function (event) {

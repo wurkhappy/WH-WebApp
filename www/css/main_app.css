@@ -65,7 +65,7 @@ table {
 body {
   text-align: left;
   font-family: museo_sans;
-  background: #dce0e4 url(/img/bg.png) fixed;
+  background: #dcdfe4;
   color: #636363;
   font-size: 16px;
   font-weight: 300;
@@ -75,7 +75,7 @@ body {
 a,
 a:visited {
   text-decoration: none;
-  color: #008bc7;
+  color: #007db3;
   text-transform: uppercase;
 }
 
@@ -118,7 +118,7 @@ h1, h2, h3, h4 {
 
 /* line 100, ../scss/bases/_common.scss */
 h2, h3 {
-  color: #008bc7;
+  color: #007db3;
 }
 
 /* line 104, ../scss/bases/_common.scss */
@@ -3851,7 +3851,7 @@ td.progress {
 
 /* line 22, ../scss/components/_agreement.scss */
 .agreement_title {
-  color: #008bc7;
+  color: #007db3;
   margin: 0;
   padding: 0;
   font-weight: 100;
@@ -3860,7 +3860,7 @@ td.progress {
 
 /* line 30, ../scss/components/_agreement.scss */
 .agreement_main {
-  color: #008bc7;
+  color: #007db3;
   font-weight: 300;
   margin: 0;
   padding: 0;
@@ -5335,7 +5335,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   font-size: 35px;
   text-align: center;
   color: white;
-  background: #008bc7;
+  background: #007db3;
   padding: 20px;
   text-align: center;
 }
@@ -6013,54 +6013,57 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 14, ../scss/components/_footer.scss */
 .footer_title {
-  color: #dce1e6;
   text-align: center;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
-  font-family: museo_sans;
+  font-family: museo;
+  padding: 30px;
+}
+/* line 21, ../scss/components/_footer.scss */
+.footer_title a {
+  text-decoration: none;
+  color: #dcdfe4;
+  padding: 15px 50% 15px 35%;
+  border-right: 1px solid #4d4d4d;
+  letter-spacing: 1px;
 }
 
-/* line 23, ../scss/components/_footer.scss */
+/* line 30, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 25, ../scss/components/_footer.scss */
+/* line 32, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 30, ../scss/components/_footer.scss */
+/* line 37, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 35, ../scss/components/_footer.scss */
-.footer_title > a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* line 40, ../scss/components/_footer.scss */
+/* line 42, ../scss/components/_footer.scss */
 .landing_footer {
-  background: gray;
-  border-top: 1px solid #7d7d7d;
-  padding: 10px;
+  position: absolute;
+  bottom: -89px;
+  background: #404040;
+  width: 100%;
 }
 
-/* line 46, ../scss/components/_footer.scss */
+/* line 48, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 50, ../scss/components/_footer.scss */
+/* line 52, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 55, ../scss/components/_footer.scss */
+/* line 57, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;
