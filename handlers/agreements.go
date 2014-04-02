@@ -344,7 +344,7 @@ func CreatePayment(w http.ResponseWriter, req *http.Request, session *sessions.S
 	fmt.Println(reqData)
 
 	reqData["userID"] = session.Values["id"].(string)
-	status.IPAddress = req.Header.Get("X-Real-Ip")
+	reqData["ipAddress"] = req.Header.Get("X-Real-Ip")
 	data, _ := json.Marshal(reqData)
 
 	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/payment/", data)

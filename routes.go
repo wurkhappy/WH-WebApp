@@ -57,7 +57,6 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.DeleteAgreement)).Methods("DELETE")
 	r.Handle("/agreement/v/{versionID}/archive", versionHandler(handlers.ArchiveAgreement)).Methods("POST")
 }
-
 func home(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"appName":    "mainlanding",
@@ -72,6 +71,20 @@ func home(w http.ResponseWriter, req *http.Request) {
 	index.Execute(w, m)
 }
 
+func pricing(w http.ResponseWriter, req *http.Request) {
+	m := map[string]interface{}{
+		"appName":    "mainlanding",
+		"production": handlers.Production,
+		"JSversion":  handlers.JSversion,
+		"CSSversion": handlers.CSSversion,
+	}
+	var index = template.Must(template.ParseFiles(
+		"templates/_baseLanding.html",
+		"templates/pricing.html",
+	))
+	index.Execute(w, m)
+}
+
 func about(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"production": handlers.Production,
@@ -79,13 +92,13 @@ func about(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
-		"templates/_base_footer_landing.html",
+		"templates/_baseLanding.html",
 		"templates/about.html",
 	))
 	index.Execute(w, m)
 }
 
-func pricing(w http.ResponseWriter, req *http.Request) {
+/*func pricing(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"production": handlers.Production,
 		"JSversion":  handlers.JSversion,
@@ -96,7 +109,7 @@ func pricing(w http.ResponseWriter, req *http.Request) {
 		"templates/pricing.html",
 	))
 	index.Execute(w, m)
-}
+}*/
 
 func legal(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
@@ -106,7 +119,7 @@ func legal(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
-		"templates/_base_footer_landing.html",
+		"templates/_baseLanding.html",
 		"templates/legal.html",
 	))
 	index.Execute(w, m)
