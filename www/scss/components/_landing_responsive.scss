@@ -234,6 +234,7 @@
 
 
 // Dealing with the situation where the screen is wide and short (but still allowing fixed functionality)
+
 @media all and (min-width: 761px) and (max-width:1000px) and (max-height: 1090px) {
   .navigation {
     padding: 15px;
@@ -315,6 +316,220 @@
 
 }
 
+
+// Dealing screen is really wide and height is really short
+
+@media all and (min-width: 761px) and (max-height: 950px) {
+  .landing_container {
+    padding-top: 15px;
+    height: 300px;
+  }
+
+  .footer_title {
+    padding:0 30px;
+    a {
+      padding:0px 50% 0 35%;
+    }
+  }
+
+  .landing_footer {
+    bottom: -29px;
+  }
+
+  .copyright {
+    bottom: -126px;
+    padding:0;
+  }
+
+  .fr_scene_01 {
+    width: 300px;
+    top: 0px;
+    right: 132px;
+  }
+
+  .fr_01_agreement {
+    width: 73px;
+    top: 107px;
+    right: 226px;
+    z-index: 2;
+  }
+
+  .fr_2_track {
+    width: 138px;
+    position: absolute;
+    top: 120px;
+    right: 189px;
+    z-index: 2;
+  }
+
+  .fr_3_invoice {
+    width: 137px;
+    position: absolute;
+    top: 126px;
+    right: 195px;
+    z-index: 2;
+  }
+
+  .cl_1_agreement {
+    width: 200px;
+    top: 85px;
+    left: 205px;
+  }
+
+  .cl_2_track {
+    width: 86px;
+    position: absolute;
+    top: 94px;
+    left: 200px;
+  }
+
+  .cl_3_invoice {
+    width: 160px;
+    position: absolute;
+    top: 181px;
+    left: 190px;
+  }
+
+  .feature1 {
+    font-size: 30px;
+    font-family: museo;
+    color: hsl(0, 100%, 100%);
+    line-height: 64px;
+    width: 900px;
+    margin-left: -304px;
+    margin-bottom: -50px;
+  }
+
+  .feature2 {
+    font-size: 30px;
+    font-family: museo;
+    color: hsl(0, 100%, 100%);
+    line-height: 64px;
+    width: 900px;
+    position: absolute;
+    bottom: 30px;
+    opacity: 1;
+    margin-left: -180px;
+    margin-bottom: -58px;
+  }
+
+  .feature3 {
+    font-size: 30px;
+    font-family: museo;
+    color: hsl(0, 100%, 100%);
+    line-height: 64px;
+    width: 900px;
+    position: absolute;
+    bottom: 30px;
+    opacity: 1;
+    margin-left: -237px;
+    margin-bottom: -85px;
+  }
+
+  .learn_more  {
+    margin-bottom:-40px;
+    h2 {
+      font-size: 20px;
+      line-height: 15px;
+    }
+  }
+
+  .invoice_connect {
+    width: 280px;
+    position: absolute;
+    top: 248px;
+    right: -158px;
+    z-index: 1;
+  }
+
+  .headline_container ul {
+    margin-top:15px !important;
+  }
+
+  .headline_container h1 {
+    font-size:39px !important;
+  }
+
+}
+
+@media all and (min-width: 761px) and (min-height: 630px) and (max-height: 950px) {
+  .landing_container {
+    height: 500px;
+    padding-top: 25px;
+  }
+
+  .feature1, .feature2, .feature3 {
+    font-size:40px;
+    margin-bottom:0;
+  }
+
+  .learn_more {
+    bottom: 70px !important;
+  }
+
+    .fr_scene_01 {
+    width: 300px;
+    top: 70px;
+    right: 132px;
+  }
+
+  .fr_01_agreement {
+    width: 73px;
+    top: 177px;
+    right: 226px;
+    z-index: 2;
+  }
+
+  .fr_2_track {
+    width: 138px;
+    position: absolute;
+    top: 190px;
+    right: 189px;
+    z-index: 2;
+  }
+
+  .fr_3_invoice {
+    width: 137px;
+    position: absolute;
+    top: 196px;
+    right: 195px;
+    z-index: 2;
+  }
+
+  .cl_1_agreement {
+    width: 200px;
+    top: 155px;
+    left: 205px;
+  }
+
+  .cl_2_track {
+    width: 86px;
+    position: absolute;
+    top: 164px;
+    left: 200px;
+  }
+
+  .cl_3_invoice {
+    width: 160px;
+    position: absolute;
+    top: 251px;
+    left: 190px;
+  }
+
+}
+
+@media all and (min-width: 761px) and (max-height: 629px) {
+
+  .headline_container h2 {
+    display:none;
+  }
+
+  .learn_more {
+    bottom: 41px !important;
+  }
+
+}
+
 // Pricing Page
 @media all and (max-width: 900px) {
 
@@ -371,11 +586,4 @@
     }
   }
 
-}
-
-@media all and (min-width: 1091px) {
-  .landing_container {
-    padding-top: 66px;
-    height: 840px;
-  }
 }

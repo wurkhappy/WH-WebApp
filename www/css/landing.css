@@ -1920,110 +1920,346 @@ label {
   }
 }
 @media all and (min-width: 761px) and (max-width: 1000px) and (max-height: 1090px) {
-  /* line 238, ../scss/components/_landing_responsive.scss */
+  /* line 239, ../scss/components/_landing_responsive.scss */
   .navigation {
     padding: 15px;
   }
 
-  /* line 242, ../scss/components/_landing_responsive.scss */
+  /* line 243, ../scss/components/_landing_responsive.scss */
   .landing_container {
     padding-top: 40px;
     height: 620px;
   }
 
-  /* line 247, ../scss/components/_landing_responsive.scss */
+  /* line 248, ../scss/components/_landing_responsive.scss */
   .footer_title {
     padding: 0 30px;
   }
-  /* line 249, ../scss/components/_landing_responsive.scss */
+  /* line 250, ../scss/components/_landing_responsive.scss */
   .footer_title a {
     padding: 0px 50% 0 35%;
   }
 
-  /* line 253, ../scss/components/_landing_responsive.scss */
+  /* line 254, ../scss/components/_landing_responsive.scss */
   .landing_footer {
     bottom: -29px;
   }
 
-  /* line 257, ../scss/components/_landing_responsive.scss */
+  /* line 258, ../scss/components/_landing_responsive.scss */
   .copyright {
     bottom: -78px;
     padding: 0;
   }
 
-  /* line 262, ../scss/components/_landing_responsive.scss */
+  /* line 263, ../scss/components/_landing_responsive.scss */
   .feature1, .feature2, .feature3 {
     margin-bottom: 0;
   }
 
-  /* line 266, ../scss/components/_landing_responsive.scss */
+  /* line 267, ../scss/components/_landing_responsive.scss */
   .learn_more {
     margin-bottom: -20px;
   }
 
-  /* line 270, ../scss/components/_landing_responsive.scss */
+  /* line 271, ../scss/components/_landing_responsive.scss */
   .fr_scene_01 {
     top: 170px;
   }
 
-  /* line 274, ../scss/components/_landing_responsive.scss */
+  /* line 275, ../scss/components/_landing_responsive.scss */
   .fr_01_agreement {
     top: 274px;
   }
 
-  /* line 278, ../scss/components/_landing_responsive.scss */
+  /* line 279, ../scss/components/_landing_responsive.scss */
   .cl_1_agreement {
     top: 282px;
   }
 
-  /* line 282, ../scss/components/_landing_responsive.scss */
+  /* line 283, ../scss/components/_landing_responsive.scss */
   .fr_2_track {
     top: 286px;
   }
 
-  /* line 286, ../scss/components/_landing_responsive.scss */
+  /* line 287, ../scss/components/_landing_responsive.scss */
   .cl_2_track {
     top: 290px;
   }
 
-  /* line 290, ../scss/components/_landing_responsive.scss */
+  /* line 291, ../scss/components/_landing_responsive.scss */
   .fr_3_invoice {
     top: 289px;
   }
 
-  /* line 294, ../scss/components/_landing_responsive.scss */
+  /* line 295, ../scss/components/_landing_responsive.scss */
   .cl_3_invoice {
     top: 336px;
   }
 
-  /* line 298, ../scss/components/_landing_responsive.scss */
+  /* line 299, ../scss/components/_landing_responsive.scss */
   .invoice_connect {
     top: 376px;
   }
 }
 @media all and (min-width: 1001px) and (max-width: 1200px) and (max-height: 1090px) {
-  /* line 304, ../scss/components/_landing_responsive.scss */
+  /* line 305, ../scss/components/_landing_responsive.scss */
   .fr_01_agreement {
     top: 374px;
   }
 
-  /* line 308, ../scss/components/_landing_responsive.scss */
+  /* line 309, ../scss/components/_landing_responsive.scss */
   .fr_2_track {
     top: 389px;
   }
 
-  /* line 312, ../scss/components/_landing_responsive.scss */
+  /* line 313, ../scss/components/_landing_responsive.scss */
   .fr_3_invoice {
     top: 394px;
   }
 }
+@media all and (min-width: 761px) and (max-height: 950px) {
+  /* line 323, ../scss/components/_landing_responsive.scss */
+  .landing_container {
+    padding-top: 15px;
+    height: 300px;
+  }
+
+  /* line 328, ../scss/components/_landing_responsive.scss */
+  .footer_title {
+    padding: 0 30px;
+  }
+  /* line 330, ../scss/components/_landing_responsive.scss */
+  .footer_title a {
+    padding: 0px 50% 0 35%;
+  }
+
+  /* line 335, ../scss/components/_landing_responsive.scss */
+  .landing_footer {
+    bottom: -29px;
+  }
+
+  /* line 339, ../scss/components/_landing_responsive.scss */
+  .copyright {
+    bottom: -126px;
+    padding: 0;
+  }
+
+  /* line 344, ../scss/components/_landing_responsive.scss */
+  .fr_scene_01 {
+    width: 300px;
+    top: 0px;
+    right: 132px;
+  }
+
+  /* line 350, ../scss/components/_landing_responsive.scss */
+  .fr_01_agreement {
+    width: 73px;
+    top: 107px;
+    right: 226px;
+    z-index: 2;
+  }
+
+  /* line 357, ../scss/components/_landing_responsive.scss */
+  .fr_2_track {
+    width: 138px;
+    position: absolute;
+    top: 120px;
+    right: 189px;
+    z-index: 2;
+  }
+
+  /* line 365, ../scss/components/_landing_responsive.scss */
+  .fr_3_invoice {
+    width: 137px;
+    position: absolute;
+    top: 126px;
+    right: 195px;
+    z-index: 2;
+  }
+
+  /* line 373, ../scss/components/_landing_responsive.scss */
+  .cl_1_agreement {
+    width: 200px;
+    top: 85px;
+    left: 205px;
+  }
+
+  /* line 379, ../scss/components/_landing_responsive.scss */
+  .cl_2_track {
+    width: 86px;
+    position: absolute;
+    top: 94px;
+    left: 200px;
+  }
+
+  /* line 386, ../scss/components/_landing_responsive.scss */
+  .cl_3_invoice {
+    width: 160px;
+    position: absolute;
+    top: 181px;
+    left: 190px;
+  }
+
+  /* line 393, ../scss/components/_landing_responsive.scss */
+  .feature1 {
+    font-size: 30px;
+    font-family: museo;
+    color: white;
+    line-height: 64px;
+    width: 900px;
+    margin-left: -304px;
+    margin-bottom: -50px;
+  }
+
+  /* line 403, ../scss/components/_landing_responsive.scss */
+  .feature2 {
+    font-size: 30px;
+    font-family: museo;
+    color: white;
+    line-height: 64px;
+    width: 900px;
+    position: absolute;
+    bottom: 30px;
+    opacity: 1;
+    margin-left: -180px;
+    margin-bottom: -58px;
+  }
+
+  /* line 416, ../scss/components/_landing_responsive.scss */
+  .feature3 {
+    font-size: 30px;
+    font-family: museo;
+    color: white;
+    line-height: 64px;
+    width: 900px;
+    position: absolute;
+    bottom: 30px;
+    opacity: 1;
+    margin-left: -237px;
+    margin-bottom: -85px;
+  }
+
+  /* line 429, ../scss/components/_landing_responsive.scss */
+  .learn_more {
+    margin-bottom: -40px;
+  }
+  /* line 431, ../scss/components/_landing_responsive.scss */
+  .learn_more h2 {
+    font-size: 20px;
+    line-height: 15px;
+  }
+
+  /* line 437, ../scss/components/_landing_responsive.scss */
+  .invoice_connect {
+    width: 280px;
+    position: absolute;
+    top: 248px;
+    right: -158px;
+    z-index: 1;
+  }
+
+  /* line 445, ../scss/components/_landing_responsive.scss */
+  .headline_container ul {
+    margin-top: 15px !important;
+  }
+
+  /* line 449, ../scss/components/_landing_responsive.scss */
+  .headline_container h1 {
+    font-size: 39px !important;
+  }
+}
+@media all and (min-width: 761px) and (min-height: 630px) and (max-height: 950px) {
+  /* line 456, ../scss/components/_landing_responsive.scss */
+  .landing_container {
+    height: 500px;
+    padding-top: 25px;
+  }
+
+  /* line 461, ../scss/components/_landing_responsive.scss */
+  .feature1, .feature2, .feature3 {
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+
+  /* line 466, ../scss/components/_landing_responsive.scss */
+  .learn_more {
+    bottom: 70px !important;
+  }
+
+  /* line 470, ../scss/components/_landing_responsive.scss */
+  .fr_scene_01 {
+    width: 300px;
+    top: 70px;
+    right: 132px;
+  }
+
+  /* line 476, ../scss/components/_landing_responsive.scss */
+  .fr_01_agreement {
+    width: 73px;
+    top: 177px;
+    right: 226px;
+    z-index: 2;
+  }
+
+  /* line 483, ../scss/components/_landing_responsive.scss */
+  .fr_2_track {
+    width: 138px;
+    position: absolute;
+    top: 190px;
+    right: 189px;
+    z-index: 2;
+  }
+
+  /* line 491, ../scss/components/_landing_responsive.scss */
+  .fr_3_invoice {
+    width: 137px;
+    position: absolute;
+    top: 196px;
+    right: 195px;
+    z-index: 2;
+  }
+
+  /* line 499, ../scss/components/_landing_responsive.scss */
+  .cl_1_agreement {
+    width: 200px;
+    top: 155px;
+    left: 205px;
+  }
+
+  /* line 505, ../scss/components/_landing_responsive.scss */
+  .cl_2_track {
+    width: 86px;
+    position: absolute;
+    top: 164px;
+    left: 200px;
+  }
+
+  /* line 512, ../scss/components/_landing_responsive.scss */
+  .cl_3_invoice {
+    width: 160px;
+    position: absolute;
+    top: 251px;
+    left: 190px;
+  }
+}
+@media all and (min-width: 761px) and (max-height: 629px) {
+  /* line 523, ../scss/components/_landing_responsive.scss */
+  .headline_container h2 {
+    display: none;
+  }
+
+  /* line 527, ../scss/components/_landing_responsive.scss */
+  .learn_more {
+    bottom: 41px !important;
+  }
+}
 @media all and (max-width: 900px) {
-  /* line 321, ../scss/components/_landing_responsive.scss */
+  /* line 536, ../scss/components/_landing_responsive.scss */
   .pricing_landing_container {
     height: 900px;
   }
 
-  /* line 325, ../scss/components/_landing_responsive.scss */
+  /* line 540, ../scss/components/_landing_responsive.scss */
   .pricing_box {
     margin: 0 auto;
     float: none;
@@ -2031,63 +2267,56 @@ label {
     padding: 0;
   }
 
-  /* line 332, ../scss/components/_landing_responsive.scss */
+  /* line 547, ../scss/components/_landing_responsive.scss */
   .pricing_benefits_box {
     margin: 0 auto;
     float: none;
     width: 550px;
   }
 
-  /* line 338, ../scss/components/_landing_responsive.scss */
+  /* line 553, ../scss/components/_landing_responsive.scss */
   .pricing_landing_container {
     height: 835px;
   }
 
-  /* line 342, ../scss/components/_landing_responsive.scss */
+  /* line 557, ../scss/components/_landing_responsive.scss */
   .pricing_start {
     margin-top: 40px;
     padding: 0;
   }
 
-  /* line 347, ../scss/components/_landing_responsive.scss */
+  /* line 562, ../scss/components/_landing_responsive.scss */
   .pricing_copyright {
     bottom: -100px;
   }
 
-  /* line 351, ../scss/components/_landing_responsive.scss */
+  /* line 566, ../scss/components/_landing_responsive.scss */
   .processing_description {
     width: 100%;
     margin-bottom: 40px;
   }
-  /* line 354, ../scss/components/_landing_responsive.scss */
+  /* line 569, ../scss/components/_landing_responsive.scss */
   .processing_description p {
     margin: 0 auto;
   }
-  /* line 357, ../scss/components/_landing_responsive.scss */
+  /* line 572, ../scss/components/_landing_responsive.scss */
   .processing_description h2 {
     text-align: center;
   }
 
-  /* line 362, ../scss/components/_landing_responsive.scss */
+  /* line 577, ../scss/components/_landing_responsive.scss */
   .processing_costs {
     margin: 0 auto;
     width: 310px;
     float: none;
   }
-  /* line 366, ../scss/components/_landing_responsive.scss */
+  /* line 581, ../scss/components/_landing_responsive.scss */
   .processing_costs .helper_text {
     text-align: center;
   }
-  /* line 369, ../scss/components/_landing_responsive.scss */
+  /* line 584, ../scss/components/_landing_responsive.scss */
   .processing_costs p {
     text-align: center;
-  }
-}
-@media all and (min-width: 1091px) {
-  /* line 377, ../scss/components/_landing_responsive.scss */
-  .landing_container {
-    padding-top: 66px;
-    height: 840px;
   }
 }
 /* line 8, ../scss/layouts/_layout.scss */
