@@ -60,6 +60,12 @@
   .copyright {
     bottom: -480px;
   }
+
+  .admin_nav {
+    margin:0 auto;
+    width: 192px;
+    float:none;
+  }
 }
 
 @media all and (min-width: 516px) and (max-width: 559px) {
@@ -226,7 +232,9 @@
   }
 }
 
-@media all and (min-width: 761px) and (max-height: 1090px) {
+
+// Dealing with the situation where the screen is wide and short (but still allowing fixed functionality)
+@media all and (min-width: 761px) and (max-width:1000px) and (max-height: 1090px) {
   .navigation {
     padding: 15px;
   }
@@ -264,7 +272,7 @@
   }
 
   .fr_01_agreement {
-    top: 310px;
+    top: 274px;
   }
 
   .cl_1_agreement {
@@ -272,7 +280,7 @@
   }
 
   .fr_2_track {
-    top: 324px;
+    top: 286px;
   }
 
   .cl_2_track {
@@ -280,7 +288,7 @@
   }
 
   .fr_3_invoice {
-    top: 324px;
+    top: 289px;
   }
 
   .cl_3_invoice {
@@ -292,11 +300,26 @@
   }
 }
 
+@media all and (min-width: 1001px) and (max-width: 1200px) and (max-height: 1090px) {
+  .fr_01_agreement {
+    top: 374px;
+  }
+
+  .fr_2_track {
+    top: 389px;
+  }
+
+  .fr_3_invoice {
+    top: 394px;
+  }
+
+}
+
 // Pricing Page
 @media all and (max-width: 900px) {
-  .landing_admin_container {
-    width: 100%;
-    float:none;
+
+  .pricing_landing_container {
+    height: 900px;
   }
 
   .pricing_box {
@@ -325,4 +348,34 @@
     bottom: -100px;
   }
 
+  .processing_description {
+    width:100%;
+    margin-bottom:40px;
+    p {
+      margin:0 auto;
+    }
+    h2 {
+      text-align:center;
+    }
+  }
+
+  .processing_costs {
+    margin:0 auto;
+    width: 310px;
+    float:none;
+    .helper_text {
+      text-align:center;
+    }
+    p {
+      text-align:center;
+    }
+  }
+
+}
+
+@media all and (min-width: 1091px) {
+  .landing_container {
+    padding-top: 66px;
+    height: 840px;
+  }
 }

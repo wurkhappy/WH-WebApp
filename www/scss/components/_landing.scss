@@ -81,6 +81,9 @@
   font-size: 21px;
   line-height: 24px;
   text-transform: capitalize;
+  &:hover {
+    border: 3px solid $orange;
+  }
 }
 
 .landing_container {
@@ -252,18 +255,52 @@
   margin-bottom: 30px;
 }
 
-.pricing_box {
-  float:left;
-  padding:30px;
-  width:50%;
-  margin-bottom:60px;
+.navigation{
+  padding: 15px;
 }
 
-.pricing_benefits_box {
-  float: left;
-  padding: 80px;
-  width: 50%;
-  font-size: 33px;
-  line-height: 46px;
-  font-family: museo;
+/* Legal Page */
+
+.faqcontent {
+  padding: 23px 40px;
+  width: 630px;
+  float: right;
+  p {
+    color:black;
+  }
+  ul li {
+    color:black;
+  }
+}
+
+.legal_tab {
+  margin: 0 auto;
+  width: 235px;
+}
+
+.legal_menu {
+  float:left;
+}
+
+.legal_menu:first-child {
+  margin-right:20px;
+}
+
+.faqnav {
+  background: hsl(0, 0%, 96%);
+  padding: 20px;
+  width: 283px;
+}
+
+.title {
+  font-size:24px;
+  font-family:museo;
+  font-weight:300;
+  line-height:30px;
+  color:$orange;
+}
+
+.column-one-fourth{
+  clear: left;
+  margin-top: 30px;
 }

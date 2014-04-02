@@ -66,29 +66,25 @@
 
 {{define "body"}}
 
-    <div style="padding:30px;" class="clear navigation navigation_header_padding">
-		<div class="landing_logo_container" style="padding: 5px 0;">
+    <div class="clear navigation">
+		<div class="landing_logo_container">
     		<a class="logo" href="/">Wurk Happy</a>
 		</div>
 		<div class="landing_admin_container">
 			<ul class="admin_nav">
     			<li id="log_in">
-    				<a style="padding: 8px 60px;border: 3px solid hsl(198, 100%, 35%);color: hsl(198, 100%, 35%);font-weight: 700;font-size: 21px;line-height: 24px;text-transform: capitalize;" class="landing_navigation_links" id="login" href="#login">Log In</a>
+    				<a class="landing_navigation_links login_button" id="login" href="#login">Log In</a>
     			</li>
 				<li id="log_out" class="hide">
 					<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
 				</li>
-				<!-- <li id="create_account" class="create_account">
-					<a id="signup" class="button action_button" href="#new-account">Signup Free</a>
-				</li> -->
 			</ul>
 		</div>
 	</div>
 
 <div class="fade2">
-	<div id="intro" class="clear intro_container landing_container pricing_landing_container fade" style="position:relative;">
-		<div style="position:absolute; width:100%;height:100%">
-			<div id="benefits_container" class="hide benefits_container" style="z-index:10;">
+	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;height:1000px;">
+			<div id="benefits_container" class="hide benefits_container">
 			    <div class="clear headline_container">
 			  		<!-- <h1 class="logo_white">Wurk Happy</h1> -->
 			    	<h1 style="font-size:46px;font-weight:500;" class="headline">
@@ -96,23 +92,52 @@
 			    	<h2 class="headline" style="font-family: museo_sans;margin-top:10px;">Make working easier for you and your client.</h2>
 			  	</div>
 
-			  	<div class="pricing_benefits_box">
-			  		<ul style="list-style-type:disc;">
-			  			<li>Save time billing</li>
-			  			<li>Reduce Communication</li>
-			  			<li>Get Paid Faster</li>
-			  		</ul>
-			  	</div>
-			  	<div class="pricing_box">
-			  		<div style="padding:40px 60px 30px 60px ;border:3px solid white;width:475px;">
-			  			<h1 style="color:white;text-align:center;font-size:60px;line-height:70px;margin-bottom:15px;">1% up to $10</h1>
-				  		<h3 style="color:white;text-align:center;font-family:museo_sans;">Per Transaction</h3>
-				  		<p style="color:white;text-align:center;" class="helper_text">+ payment processing fees</p>
-				  		<h4 style="color:white;text-align:center;font-family:museo_sans;margin-top:30px;">Only pay when you get paid</h4>
-			  		</div>
-			  	</div>
+			  	<div style="margin:0 auto;overflow:hidden;width:508px;">
+			  		<div class="pricing_benefits_box" style="display:none;">
+  				  		<ul>
+  				  			<li>Save time billing</li>
+  				  			<li>Reduce Communication</li>
+  				  			<li>Get Paid Faster</li>
+  				  		</ul>
+  				  	</div>
+  				  	<div class="pricing_box">
+  				  		<div style="padding:40px 60px 30px 60px ;border:3px solid white;width:475px;">
+  				  			<h1 style="color:white;text-align:center;font-size:60px;line-height:70px;margin-bottom:15px;">1% up to $10</h1>
+  					  		<h3 style="color:white;text-align:center;font-family:museo_sans;">Per Transaction</h3>
+  					  		<p style="color:white;text-align:center;" class="helper_text">+ payment processing fees</p>
+  					  		<h4 style="color: hsl(0, 100%, 100%);text-align: center;font-family: museo;margin-top: 30px;font-size: 18px;letter-spacing: 3px;font-weight: 200;">Only pay when you get paid</h4>
+  				  		</div>
+  				  	</div>
+  				  </div>
 
-			  	<ul class="pricing_start" style="clear:both;">
+
+			  	<div class="price_level_container" style="overflow:hidden;display:none;">
+			      <div class="price_level">
+			        <h2><span class="receive_text">Earn</span> $100</h2>
+			        <h2><span class="pay_text">Pay</span> $1 + processing</h2>
+			      </div>
+			      <div class="price_level">
+			        <h2><span class="receive_text">Earn</span> $500</h2>
+			        <h2><span class="pay_text">Pay</span> $5 + processing</h2>
+			      </div>
+			      <div class="price_level">
+			        <h2><span class="receive_text">Earn</span> $5000</h2>
+			        <h2><span class="pay_text">Pay</span> $10 + <span style="text-transform:lowercase;font-size:14px;">payment fees</span></h2>
+			      </div>
+			    </div>
+			    <div class="clear"></div>
+			  	<div class="processing_container" style="overflow:hidden;position:relative;top:40px;">
+			      <div class="processing_description">
+			        <h2 style="color:white;">Payment Processing Fees</h2>
+			        <p>Wurk Happy offers payment processing at what it costs us.</p>
+			      </div>
+			      <div class="processing_costs">
+			        <p style="font-weight:100;"><span class="payment_cost">2.9% + 55 cents</span> for <span class="payment_method">credit cards</span><br><span class="helper_text" style="color:white;"> Funds clear the next business day.</span></p>
+			        <p style="font-weight:100;"><span class="payment_cost">1% + 55 cents, $5 cap</span> for <span class="payment_method">ach debits</span><br><span class="helper_text" style="color:white;"> Funds clear in 2-4 business days.</span></p>
+			      </div>
+			    </div>
+
+			  	<ul class="pricing_start" style="margin-top:100px;">
 					<!-- <li id="create_account" class="create_account explore_button_container">
 						<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
 					</li> -->
@@ -134,10 +159,7 @@
 							<p class="benefit_description">Securely accept payment online.<br> Your clients will love paying you.</p>
 				  	</div>
 			    </div> -->
-			    <div>
-			    <div>
-			</div>
-		</div>
+	</div>
 	</div>
 </div> <!-- class fade2 -->
 <script>
@@ -190,7 +212,7 @@
 </script>
 
 <!-- landing footer-->
-	 <div id="footer" class="landing_footer" style="">
+	 <div id="footer" class="landing_footer" style="position:static;float:left;" style="">
     	<div>
     		<div class="landing_footer_column">
 		        <h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
@@ -207,7 +229,7 @@
 	        </div>
 	    </div>
     </div>
-<div class="copyright pricing_copyright clear" style="position: absolute;bottom: -170px;">
+<div class="copyright pricing_copyright clear" style="position: static;float:left;">
 	<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
 </div>
  </div>  

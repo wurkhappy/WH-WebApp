@@ -3214,13 +3214,11 @@ button.toast-close-button {
   min-height: 67px;
 }
 
-/* line 7, ../scss/components/_navigation.scss */
-.navigation ul {
+/*.navigation ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
+}*/
 /* line 13, ../scss/components/_navigation.scss */
 .navigation li {
   float: left;
@@ -6099,59 +6097,101 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 11, ../scss/components/_pricing.scss */
 .price_level {
-  background: #dbe0e6;
-  border: 1px solid #c3cbd5;
-  border-radius: 3px;
+  border: 3px solid white;
   width: 300px;
   float: left;
   margin: 5px;
-  text-align: center;
+  text-align: left;
+  padding: 20px;
 }
-/* line 13, ../scss/components/_pricing.scss */
+/* line 12, ../scss/components/_pricing.scss */
 .price_level h2 {
   font-weight: 400;
+  color: white;
   margin-top: 10px;
   font-family: museo_sans;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 0;
 }
 
-/* line 27, ../scss/components/_pricing.scss */
+/* line 29, ../scss/components/_pricing.scss */
 .receive_text {
   font-size: 16px;
-  color: gray;
+  color: #87cf54;
   font-weight: normal;
-  color: #636363;
 }
 
-/* line 34, ../scss/components/_pricing.scss */
+/* line 35, ../scss/components/_pricing.scss */
 .pay_text {
   font-size: 16px;
-  color: gray;
+  color: #ffa200;
   font-weight: normal;
-  color: #636363;
 }
 
-/* line 42, ../scss/components/_pricing.scss */
+/* line 41, ../scss/components/_pricing.scss */
+.processing_container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+/* line 44, ../scss/components/_pricing.scss */
 .processing_container p {
   margin-bottom: 10px;
   max-width: 430px;
 }
 
-/* line 48, ../scss/components/_pricing.scss */
-.processing_description, .processing_costs {
+/* line 50, ../scss/components/_pricing.scss */
+.processing_description {
   float: left;
-  width: 480px;
 }
 
-/* line 53, ../scss/components/_pricing.scss */
+/* line 54, ../scss/components/_pricing.scss */
 .processing_costs {
-  margin-top: 60px;
+  float: right;
 }
 
-/* line 57, ../scss/components/_pricing.scss */
+/* line 62, ../scss/components/_pricing.scss */
+.payment_method {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+/* line 69, ../scss/components/_pricing.scss */
+.payment_cost {
+  font-weight: 700;
+  color: #ffa200;
+  font-size: 20px;
+}
+
+/* line 75, ../scss/components/_pricing.scss */
 .signup_button_container {
   float: left;
   margin: 20px;
   clear: both;
+}
+
+/* line 81, ../scss/components/_pricing.scss */
+.processing_description p {
+  color: white;
+}
+
+/* line 85, ../scss/components/_pricing.scss */
+.pricing_box {
+  float: right;
+  padding: 30px;
+}
+
+/* line 90, ../scss/components/_pricing.scss */
+.pricing_benefits_box {
+  float: left;
+  font-size: 33px;
+  line-height: 65px;
+  font-family: museo;
+  padding-top: 70px;
+  text-transform: uppercase;
+  font-weight: 100;
 }
 
 /* line 1, ../scss/components/_login.scss */

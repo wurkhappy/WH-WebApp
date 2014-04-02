@@ -121,7 +121,7 @@ func legal(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
-		"templates/_base_footer_landing.html",
+		"templates/_baseLanding.html",
 		"templates/legal.html",
 	))
 	index.Execute(w, m)
