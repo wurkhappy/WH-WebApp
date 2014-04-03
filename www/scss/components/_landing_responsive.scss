@@ -540,7 +540,7 @@
   .pricing_box {
     margin:0 auto;
     float:none;
-    width:490px;
+    width:412px;
     padding:0;
   }
 
@@ -585,5 +585,26 @@
       text-align:center;
     }
   }
-
 }
+
+@media all and (min-width: 901px) and (max-width: 1290px)  {
+
+  .pricing_box {
+    width: 901px;
+  }
+
+  .pricing_box_inside {
+    width:270px;
+    h2 {
+      text-align:left;
+      font-size: 44px;
+    }
+    
+  }
+}
+
+//@media all and (min-width: 1151px) and (max-width: 1289px)  {
+  //.pricing_box_inside {
+    //width:400px;
+//  }
+//}

@@ -6097,7 +6097,6 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 11, ../scss/components/_pricing.scss */
 .price_level {
-  border: 3px solid white;
   width: 300px;
   float: left;
   margin: 5px;
@@ -6150,7 +6149,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   float: right;
 }
 
-/* line 62, ../scss/components/_pricing.scss */
+/* line 58, ../scss/components/_pricing.scss */
 .payment_method {
   text-transform: uppercase;
   font-size: 12px;
@@ -6158,32 +6157,79 @@ progress::-webkit-progress-value, progress.yellow_progress {
   letter-spacing: .5px;
 }
 
-/* line 69, ../scss/components/_pricing.scss */
+/* line 65, ../scss/components/_pricing.scss */
 .payment_cost {
   font-weight: 700;
   color: #ffa200;
   font-size: 20px;
 }
 
-/* line 75, ../scss/components/_pricing.scss */
+/* line 71, ../scss/components/_pricing.scss */
 .signup_button_container {
   float: left;
   margin: 20px;
   clear: both;
 }
 
-/* line 81, ../scss/components/_pricing.scss */
+/* line 77, ../scss/components/_pricing.scss */
+.pricing_start {
+  margin-top: 75px;
+  padding: 0;
+}
+
+/* line 82, ../scss/components/_pricing.scss */
 .processing_description p {
   color: white;
 }
 
-/* line 85, ../scss/components/_pricing.scss */
+/* line 86, ../scss/components/_pricing.scss */
 .pricing_box {
-  float: right;
+  overflow: hidden;
+  width: 1290px;
   padding: 30px;
+  margin: 0 auto;
 }
 
-/* line 90, ../scss/components/_pricing.scss */
+/* line 93, ../scss/components/_pricing.scss */
+.pricing_box_inside {
+  padding: 30px;
+  border: 3px solid white;
+  width: 400px;
+  float: left;
+  margin: 5px;
+}
+/* line 99, ../scss/components/_pricing.scss */
+.pricing_box_inside h1 {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  line-height: 70px;
+  margin-bottom: 15px;
+}
+/* line 106, ../scss/components/_pricing.scss */
+.pricing_box_inside h2 {
+  font-size: 60px;
+  line-height: 70px;
+  text-align: center;
+}
+/* line 111, ../scss/components/_pricing.scss */
+.pricing_box_inside h3 {
+  color: white;
+  text-align: center;
+  font-family: museo_sans;
+}
+/* line 116, ../scss/components/_pricing.scss */
+.pricing_box_inside h4 {
+  color: white;
+  text-align: center;
+  font-family: museo;
+  margin-top: 30px;
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-weight: 200;
+}
+
+/* line 127, ../scss/components/_pricing.scss */
 .pricing_benefits_box {
   float: left;
   font-size: 33px;

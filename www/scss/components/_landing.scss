@@ -8,6 +8,12 @@
   color: white;
 }
 
+.about_container {
+  max-width: 900px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
 .landing_fixed_container {
   position:fixed;
   width:100%
