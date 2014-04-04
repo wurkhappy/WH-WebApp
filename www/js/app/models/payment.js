@@ -12,60 +12,61 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
                 collectionType: PaymentItemCollection,
             }, {
                 type: Backbone.HasOne,
-                key: 'currentStatus',
+                key: 'lastAction',
                 relatedModel: StatusModel,
                 collectionType: StatusCollection,
             }],
             urlRoot: function() {
-                return "/agreement/v/" + this.getAgreementVersionID() + "/payment";
+                return "/payments";
             },
             set: function(key, value, options) {
-                Backbone.RelationalModel.prototype.set.apply(this, arguments);
-
                 //amount has to be a float or integer. Backend won't accept number as string.
                 if (typeof key === 'object') {
                     if (_.has(key, "amountDue")) {
-                        this.attributes.amountDue = parseFloat(key["amountDue"]);
+                        key["amountDue"] = parseFloat(key["amountDue"]);
                     }
                     if (_.has(key, "dateExpected")) {
-                        this.attributes.dateExpected = moment(key["dateExpected"]);
+                        key["dateExpected"] = moment(key["dateExpected"]);
                     }
                 } else if (key === 'amountDue') {
-                    this.attributes.amountDue = parseFloat(value);
+                    value = parseFloat(value);
                 } else if (key === 'dateExpected') {
-                    this.attributes.dateExpected = (typeof value === "string") ? moment(value) : value;
+                    value = (typeof value === "string") ? moment(value) : value;
                 }
+
+                Backbone.RelationalModel.prototype.set.apply(this, [key, value, options]);
                 return this;
             },
             submit: function(data, successCallback) {
                 this.updateStatus(_.extend(data, {
-                    "action": "submitted"
+                    "name": "submitted"
                 }), successCallback);
 
             },
             accept: function(debitSource, paymentType) {
                 this.updateStatus({
-                    "action": "accepted",
+                    "name": "accepted",
                     "debitSourceID": debitSource,
                     "paymentType": paymentType
                 });
             },
             reject: function(message) {
                 this.updateStatus({
-                    "action": "rejected",
+                    "name": "rejected",
                     "message": message
                 });
             },
             updateStatus: function(reqData, successCallback) {
+                return;
                 $.ajax({
-                    type: "PUT",
-                    url: "/agreement/v/" + this.getAgreementVersionID() + "/payment/" + this.id + "/status",
+                    type: "POST",
+                    url: "/payments/" + this.id + "/action",
                     contentType: "application/json",
                     dataType: "json",
                     data: JSON.stringify(reqData),
                     success: _.bind(function(response) {
-                        this.set("currentStatus", response);
-                        Backbone.trigger("updateCurrentStatus", this.get("currentStatus"))
+                        this.set("lastAction", response);
+                        Backbone.trigger("updateCurrentStatus", this.get("lastAction"))
                         if (_.isFunction(successCallback)) successCallback();
                     }, this)
                 });

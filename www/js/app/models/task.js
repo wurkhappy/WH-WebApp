@@ -7,7 +7,7 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
         var WorkItem = Backbone.RelationalModel.extend({
             relations: [{
                 type: Backbone.HasMany,
-                key: 'scopeItems',
+                key: 'subTasks',
                 relatedModel: ScopeItemModel,
                 collectionType: ScopeItemCollection,
                 reverseRelation: {
@@ -47,7 +47,7 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
                 return this.collection.parent.get("agreementID")
             },
             isComplete: function() {
-                if (this.get("scopeItems").length === 0 ) return this.get("completed");
+                if (this.get("scopeItems").length === 0) return this.get("completed");
                 return this.get("scopeItems").getCompleted().length === this.get("scopeItems").length;
             },
             isPaid: function() {

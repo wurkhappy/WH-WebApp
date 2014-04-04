@@ -19,10 +19,11 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                 this.message = "Please take a moment to look over the details of the services provided and the payment schedule. Let me know if you'd like to suggest any changes. When you're ready, just accept the agreement and we'll get started.";
                 this.user = options.user;
                 this.otherUser = options.otherUser;
+                this.payments = options.payments;
                 this.render();
             },
             render: function() {
-                this.deposit = this.model.get("payments").findDeposit();
+                this.deposit = this.payments.findDeposit();
                 this.hasDeposit;
 
                 if (this.deposit && this.user.id === this.model.get("freelancerID")) {
@@ -112,8 +113,8 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                     success: function(model, response) {
                         var view = new DepositRequestModal({
                             model: that.deposit,
-                            collection: that.model.get("payments"),
-                            payments: that.model.get("payments"),
+                            collection: that.payments,
+                            payments: that.payments,
                             cards: that.user.get("cards"),
                             bankAccounts: that.user.get("bank_accounts"),
                             acceptsBankTransfer: that.model.get("acceptsBankTransfer"),
@@ -127,7 +128,6 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                         if (window.production) {
                             analytics.track('Agreement Sent');
                         }
-
                     }
                 });
             },
@@ -146,7 +146,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                     });
                     this.modal.show();
                     this.listenTo(view, "userVerified", this.userVerified);
-                    return false
+                    return false;
                 }
                 return true;
             },

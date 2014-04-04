@@ -24,10 +24,9 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
             },
 
             render: function() {
-
                 var tasksView = new TasksView({
                     model: this.model,
-                    collection: this.model.get('scopeItems'),
+                    collection: this.model.get('subTasks'),
                 });
                 tasksView.render();
 
@@ -47,7 +46,7 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae',
                 "focus .kal": "triggerCalender",
                 "click #removeService": "removeModel"
             },
-            
+
             updateFields: function(event) {
                 if (!event.target.name) return;
                 if (event.target.name === 'dateExpected') {

@@ -9,8 +9,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
     ],
 
     function(Backbone, Handlebars, _, Marionette, toastr, parsley,
-             autoNumeric, servicesTemplate, WorkItemView
-            ) {
+        autoNumeric, servicesTemplate, WorkItemView
+    ) {
 
         'use strict';
 
@@ -21,6 +21,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
             itemView: WorkItemView,
 
             initialize: function(options) {
+                this.model = options.agreement;
+                this.collection = options.tasks;
+
                 this.router = options.router;
                 this.deposit = this.collection.findDeposit();
                 this.bankAccounts = options.user.get("bank_accounts");

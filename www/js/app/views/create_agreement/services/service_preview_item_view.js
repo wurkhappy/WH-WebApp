@@ -4,8 +4,7 @@
  * Item View, listens.
  */
 
-define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/service_preview_item_tpl'
-    ],
+define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/service_preview_item_tpl'],
 
     function(Backbone, Handlebars, _, servicePreviewItemTemplate) {
 
@@ -16,8 +15,8 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
             template: servicePreviewItemTemplate,
 
             initialize: function(options) {
-                this.listenTo(this.model.get("scopeItems"), "add", this.render);
-                this.listenTo(this.model.get("scopeItems"), "remove", this.render);
+                this.listenTo(this.model.get("subTasks"), "add", this.render);
+                this.listenTo(this.model.get("subTasks"), "remove", this.render);
                 this.listenTo(this.model, "change", this.render);
             }
 

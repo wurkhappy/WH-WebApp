@@ -5,14 +5,14 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
         'views/create_agreement/header_cancel', 'views/create_agreement/header_review',
         'views/create_agreement/overview_view', 'views/create_agreement/progress_bar_view',
-        'views/create_agreement/review_view', 'views/create_agreement/send_view', 'views/create_agreement/services/service_layout', 
+        'views/create_agreement/review_view', 'views/create_agreement/send_view', 'views/create_agreement/services/service_layout',
         'views/create_agreement/payments/payment_layout'
     ],
 
-    function(Backbone, Handlebars, _, Marionette, HeaderCancel, HeaderReview, 
-             OverviewView, ProgressBar, ReviewView, SendView, ServiceLayout,
-             PaymentLayout
-            ) {
+    function(Backbone, Handlebars, _, Marionette, HeaderCancel, HeaderReview,
+        OverviewView, ProgressBar, ReviewView, SendView, ServiceLayout,
+        PaymentLayout
+    ) {
 
         'use strict';
 
@@ -27,24 +27,27 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
             initialize: function(options) {
                 this.user = options.user;
+                this.agreement = options.agreement;
+                this.payments = options.payments;
+                this.tasks = options.tasks;
                 this.otherUser = options.otherUser;
             },
             switchToOverview: function() {
                 this.header.show(new HeaderCancel({
-                    model: this.model
+                    model: this.agreement
                 }));
                 this.progress.show(new ProgressBar({
                     title: "Agreement Overview",
                     value: 0
                 }));
                 this.main.show(new OverviewView({
-                    model: this.model,
+                    model: this.agreement,
                     userID: this.user.id
                 }));
             },
             switchToServices: function() {
                 this.header.show(new HeaderCancel({
-                    model: this.model
+                    model: this.agreement
                 }));
                 this.progress.show(new ProgressBar({
                     title: "Agreement Services",
@@ -52,26 +55,25 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 }));
 
                 this.main.show(new ServiceLayout({
-                    model: this.model,
+                    agreement: this.agreement,
                     user: this.user,
-                    collection: this.model.get("workItems"),
-                    acceptsCreditCard: this.model.get("acceptsCreditCard"),
-                    acceptsBankTransfer: this.model.get("acceptsBankTransfer")
+                    tasks: this.tasks,
+                    acceptsCreditCard: this.agreement.get("acceptsCreditCard"),
+                    acceptsBankTransfer: this.agreement.get("acceptsBankTransfer")
                 }));
-                
-            },
 
+            },
             switchToPayment: function() {
                 this.header.show(new HeaderCancel({
-                    model: this.model
+                    model: this.agreement
                 }));
                 this.progress.show(new ProgressBar({
                     title: "Agreement Payments",
                     value: 2
                 }));
                 this.main.show(new PaymentLayout({
-                    model: this.model,
-                    collection: this.model.get("payments"),
+                    agreement: this.agreement,
+                    payments: this.payments,
                     user: this.user,
                     otherUser: this.otherUser
                 }));
@@ -79,14 +81,16 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
             switchToReview: function() {
                 this.header.show(new HeaderCancel({
-                    model: this.model
+                    model: this.agreement
                 }));
                 this.progress.show(new ProgressBar({
                     title: "Agreement Review",
                     value: 3
                 }));
                 this.main.show(new ReviewView({
-                    model: this.model,
+                    model: this.agreement,
+                    payments: this.payments,
+                    tasks: this.tasks,
                     user: this.user,
                     otherUser: this.otherUser
                 }));
@@ -94,31 +98,20 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
             switchToSend: function() {
                 this.header.show(new HeaderCancel({
-                    model: this.model
+                    model: this.agreement
                 }));
                 this.progress.show(new ProgressBar({
                     title: "Agreement Send",
                     value: 4
                 }));
                 this.main.show(new SendView({
-                    model: this.model,
+                    model: this.agreement,
+                    payments: this.payments,
                     user: this.user,
                     otherUser: this.otherUser
                 }));
             }
-            /*switchToEdit: function() {
-                this.header.show(new HeaderCancel({
-                    model: this.model
-                }));
-                this.progress.show(new ProgressBar({
-                    title: "Send Agreement",
-                    value: 3
-                }));
-                this.main.show(new EditView({
-                    model: this.model
-                }));
-            },*/
-            
+
         });
 
         return Layout;

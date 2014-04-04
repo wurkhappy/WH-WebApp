@@ -3,10 +3,10 @@
  */
 
 define(['backbone', 'flying-focus', 'models/agreement',
-        'models/user', 'views/create_agreement/layout'
+        'models/user', 'collections/payments', 'collections/tasks', 'views/create_agreement/layout'
     ],
 
-    function(Backbone, FlyingFocus, AgreementModel, UserModel, Layout) {
+    function(Backbone, FlyingFocus, AgreementModel, UserModel, PaymentCollection, TaskCollection, Layout) {
 
         'use strict';
 
@@ -24,27 +24,32 @@ define(['backbone', 'flying-focus', 'models/agreement',
             initialize: function() {
                 this.user = new UserModel(window.user);
                 this.otherUser = new UserModel(window.otherUser);
-                this.model = new AgreementModel({
+                this.agreement = new AgreementModel({
                     freelancerID: this.user.id
                 });
+                this.payments = new PaymentCollection(window.payments);
+                this.tasks = new TaskCollection(window.tasks);
 
-                this.model.set({
-                    acceptsCreditCard: true
-                });
-
-                this.model.set({
+                this.agreement.set({
+                    acceptsCreditCard: true,
                     acceptsBankTransfer: true
                 });
 
                 if (window.agreement) {
-                    this.model = new AgreementModel(window.agreement)
+                    this.agreement = new AgreementModel(window.agreement)
+                    this.tasks.versionID = this.agreement.id;
                 }
 
-                this.model.userID = this.user.id;
+                this.listenTo(this.agreement, "change:versionID", function() {
+                    this.tasks.versionID = this.agreement.id;
+                    this.payments.versionID = this.agreement.id;
+                });
 
                 this.layout = new Layout({
-                    model: this.model,
+                    agreement: this.agreement,
                     user: this.user,
+                    tasks: this.tasks,
+                    payments: this.payments,
                     otherUser: this.otherUser
                 });
                 FlyingFocus();

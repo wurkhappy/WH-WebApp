@@ -75,6 +75,19 @@ define(['backbone', 'models/payment'],
             },
             getAgreementVersionID: function() {
                 return this.parent.id;
+            },
+            save: function(data, options) {
+                $.ajax({
+                    type: "POST",
+                    url: "/agreements/v/" + this.versionID + "/payments",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(this.toJSON()),
+                    success: _.bind(function(response) {
+                        this.set(response);
+                        if (_.isFunction(options.success)) options.success();
+                    }, this)
+                });
             }
 
         });

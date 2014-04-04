@@ -23,7 +23,7 @@
 		<div class="proposed_services_container">{{{model.proposedServices}}}</div>
 		<h3 style="margin-top:10px;margin-bottom:10px;">Services</h3>
 		<ul class="no_bullet">
-			{{#each model.workItems}}
+			{{#each tasks}}
 			<li>
 				<h4>{{title}}<span class="helper_text orange" style="display:inline;float:right;">
 						{{#if dateExpected}} Due {{dateFormat dateExpected}}{{/if}}
@@ -39,7 +39,7 @@
 		</ul>
 		<h3 style="margin-top:10px;margin-bottom:10px;">Payment Schedule</h3>
 		<ul class="no_bullet ca_payment_list">
-			{{#each model.payments}}
+			{{#each payments}}
 			
 			<li>
 				<h4>{{title}}

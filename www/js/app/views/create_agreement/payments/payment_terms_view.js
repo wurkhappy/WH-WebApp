@@ -14,17 +14,16 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
             template: paymentTermsTemplate,
 
             initialize: function(options) {
+                this.payments = options.payments;
                 this.bankAccounts = options.user.get("bank_accounts");
                 this.creditCards = options.user.get("cards");
                 this.acceptsCreditCard = options.acceptsCreditCard;
                 this.acceptsBankTransfer = options.acceptsBankTransfer;
-                this.deposit = this.model.get("payments").findDeposit();
+                this.deposit = this.payments.findDeposit();
                 if (this.deposit) {
-                    this.depositAmount = this.model.get("payments").findDeposit().get("amountDue");
+                    this.depositAmount = this.payments.findDeposit().get("amountDue");
                 }
-
             },
-
             serializeData: function() {
                 var depositAmount;
                 if (this.deposit) depositAmount = this.deposit.get("amountDue");
@@ -34,12 +33,10 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
                     acceptsBankTransfer: this.acceptsBankTransfer
                 }
             },
-
             events: {
                 "blur #deposit": "updateDeposit",
                 'focus .currency_format': 'triggerCurrencyFormat'
             },
-
             triggerCurrencyFormat: function() {
                 $('.currency_format').autoNumeric('init', {
                     aSign: '$ ',
@@ -61,7 +58,7 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
                     this.deposit.set("amountDue", formattedAmount);
                     this.deposit.get("paymentItems").at(0).set("amountDue", formattedAmount);
                 } else {
-                    var Model = this.model.get("payments").model;
+                    var Model = this.payments.model;
                     this.deposit = new Model({
                         title: "Deposit",
                         amountDue: formattedAmount,
@@ -71,16 +68,14 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
                             title: "Deposit",
                         }]
                     });
-                    this.model.get("payments").unshift(this.deposit);
+                    this.payments.unshift(this.deposit);
                 }
-                console.log(this.model.get("payments").indexOf(this.deposit));
 
                 if (adjAmount == 0) {
-                    this.model.get("payments").remove(this.deposit);
+                    this.payments.remove(this.deposit);
                 } else {
-                    this.model.get("payments").unshift(this.deposit);
+                    this.payments.unshift(this.deposit);
                 }
-                console.log(this.model.get("payments").indexOf(this.deposit));
             }
 
         });

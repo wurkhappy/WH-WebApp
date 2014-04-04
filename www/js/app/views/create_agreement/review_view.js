@@ -22,25 +22,22 @@ define(['backbone', 'handlebars', 'hbs!templates/create_agreement/review_tpl',
             initialize: function(options) {
                 this.user = options.user;
                 this.otherUser = options.otherUser;
+                this.payments = options.payments;
+                this.tasks = options.tasks;
                 this.render();
             },
             render: function() {
                 if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
                     var noPaymentMethods = true;
                 }
-                console.log(this.model.toJSON());
 
                 this.$el.html(this.template({
                     model: this.model.toJSON(),
+                    payments: this.payments.toJSON(),
+                    tasks: this.tasks.toJSON(),
                     noPaymentMethods: noPaymentMethods,
-                    agreementTotal: this.model.get("payments").getTotalDue(),
+                    agreementTotal: this.payments.getTotalDue(),
                 }));
-                /*var sendView = new SendView({
-                    model: this.model,
-                    user: this.user,
-                    otherUser: this.otherUser
-                });
-                this.$('#send_section').html(sendView.el);*/
 
                 $('body').scrollTop(0);
                 return this;

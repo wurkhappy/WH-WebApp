@@ -301,16 +301,8 @@ func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *se
 	id := vars["versionID"]
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	reqBytes := buf.Bytes()
-	var status *Status
-	json.Unmarshal(reqBytes, &status)
 
-	status.AgreementID = id
-	status.UserID = session.Values["id"].(string)
-	status.IPAddress = req.RemoteAddr
-	data, _ := json.Marshal(status)
-
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/status", data, session.Values["id"].(string))
+	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v/"+id+"/action", buf.Bytes(), session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -335,50 +327,6 @@ func CreatePayment(w http.ResponseWriter, req *http.Request, session *sessions.S
 	data, _ := json.Marshal(reqData)
 
 	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/payment/", data, session.Values["id"].(string))
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	w.Write(resp)
-}
-
-func UpdatePayment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	vars := mux.Vars(req)
-	id := vars["versionID"]
-	paymentID := vars["paymentID"]
-
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID, buf.Bytes(), session.Values["id"].(string))
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	w.Write(resp)
-}
-
-func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	vars := mux.Vars(req)
-	id := vars["versionID"]
-	paymentID := vars["paymentID"]
-
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-	reqBytes := buf.Bytes()
-	var status *Status
-	json.Unmarshal(reqBytes, &status)
-
-	status.AgreementID = id
-	status.PaymentID = paymentID
-	status.UserID = session.Values["id"].(string)
-	status.IPAddress = req.RemoteAddr
-	data, _ := json.Marshal(status)
-
-	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID+"/status", data, session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)

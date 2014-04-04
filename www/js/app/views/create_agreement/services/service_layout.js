@@ -1,12 +1,12 @@
 /*
  * Service Layout - Manage regions in the services section of create agreement
- * 
+ *
  */
 
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-         'views/create_agreement/services/services_preview_view', 
-         'views/create_agreement/services/services_view', 
-         'hbs!templates/create_agreement/service_layout_tpl'
+        'views/create_agreement/services/services_preview_view',
+        'views/create_agreement/services/services_view',
+        'hbs!templates/create_agreement/service_layout_tpl'
     ],
 
     function(Backbone, Handlebars, _, Marionette, ServicesPreviewView, ServicesView, service_layout_tpl) {
@@ -24,6 +24,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             initialize: function(options) {
                 this.user = options.user;
                 this.otherUser = options.otherUser;
+                this.tasks = options.tasks;
+                this.agreement = options.agreement;
             },
 
             onRender: function() {
@@ -32,56 +34,50 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             },
 
             // show regions
-
             showServices: function() {
                 this.services.show(new ServicesView({
-                    model: this.model,
+                    agreement: this.agreement,
                     user: this.user,
-                    collection: this.model.get("workItems"),
-                    acceptsCreditCard: this.model.get("acceptsCreditCard"),
-                    acceptsBankTransfer: this.model.get("acceptsBankTransfer")
+                    tasks: this.tasks,
+                    acceptsCreditCard: this.agreement.get("acceptsCreditCard"),
+                    acceptsBankTransfer: this.agreement.get("acceptsBankTransfer")
                 }));
             },
-
             showPreview: function() {
                 this.servicesPreview.show(new ServicesPreviewView({
-                    collection: this.model.get("workItems")
+                    collection: this.tasks
                 }));
             },
 
 
             // layout specific events and functionality below
-
-             events: {
+            events: {
                 "click #addService": "addService",
                 "click #saveContinue": "debounceSaveAndContinue",
             },
-
             addService: function(event) {
                 event.preventDefault();
-                this.collection.add({});
+                this.tasks.add({});
             },
-
             debounceSaveAndContinue: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-                _.clone(this.collection).each(_.bind(function(model) {
+                _.clone(this.tasks).each(_.bind(function(model) {
                     if (!model.get("title")) {
-                        this.collection.remove(model);
+                        this.tasks.remove(model);
                     };
                 }, this));
                 this.saveAndContinue();
             },
-
             saveAndContinue: _.debounce(function(event) {
 
-                this.model.save({}, {
+                this.tasks.save({}, {
                     success: _.bind(function(model, response) {
                         window.location.hash = 'payment';
                     }, this)
                 });
             }, 500, true),
-            
+
         });
 
         return Layout;

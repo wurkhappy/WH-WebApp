@@ -19,12 +19,8 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
             template: itemTpl,
 
             initialize: function(options) {
-
-                this.workItems = options.workItems;
                 this.router = options.router;
-
                 this.render();
-
             },
 
             render: function() {
@@ -32,7 +28,6 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
                 this.$el.html(this.template({
                     model: this.model.toJSON(),
                     deposit: deposit,
-                    workItems: this.workItems.toJSON(),
                 }));
                 this.$el.fadeIn('slow');
                 return this;

@@ -16,11 +16,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
             template: paymentScheduleTemplate,
 
             itemView: PaymentItem,
-            itemViewOptions: function() {
-                return {
-                    workItems: this.model.get("workItems")
-                };
-            },
 
             initialize: function(options) {
                 this.router = options.router;
@@ -31,12 +26,10 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                     this.collection.add({})
                 }
             },
-
             events: {
                 "click .payment_method": "updatePaymentMethods",
                 'focus .currency_format': 'triggerCurrencyFormat',
             },
-
             renderModel: function() {
                 var data = {};
                 if (this.deposit) data = this.deposit.toJSON();
@@ -52,19 +45,16 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                 var template = this.getTemplate();
                 return Marionette.Renderer.render(template, data);
             },
-
             onRender: function() {
                 $('body').scrollTop(0);
             },
-
             appendHtml: function(collectionView, itemView, index) {
                 if (itemView.model.get("title") === 'Deposit') {
                     return;
                 }
                 itemView.$el.insertBefore(collectionView.$('#bottomDiv'));
             },
-
-                        updatePaymentMethods: function(event) {
+            updatePaymentMethods: function(event) {
                 if (!event.target.name) return;
                 if (event.target.checked) {
                     this.model.set(event.target.name, true);
@@ -72,7 +62,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                     this.model.set(event.target.name, false);
                 }
             },
-
             triggerCurrencyFormat: function() {
                 $('.currency_format').autoNumeric('init', {
                     aSign: '$ ',

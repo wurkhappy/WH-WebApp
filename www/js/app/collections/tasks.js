@@ -2,7 +2,7 @@
  * Collection.
  */
 
-define(['backbone', 'underscore', 'models/work_item', 'collections/scope_items'],
+define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
 
     function(Backbone, _, Model, TasksCollection) {
 
@@ -93,6 +93,19 @@ define(['backbone', 'underscore', 'models/work_item', 'collections/scope_items']
                 });
                 return new Collection(models);
             },
+            save: function(data, options) {
+                $.ajax({
+                    type: "POST",
+                    url: "/agreements/v/" + this.versionID + "/tasks",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(this.toJSON()),
+                    success: _.bind(function(response) {
+                        this.set(response);
+                        if (_.isFunction(options.success)) options.success();
+                    }, this)
+                });
+            }
         });
 
         return Collection;

@@ -3,57 +3,17 @@
  */
 
 
-define(['backbone', 'backbone-relational', 'moment', 'models/payment', 'collections/payments',
-        'models/status', 'collections/status', 'models/comment', 'collections/comments', 'models/work_item', 'collections/work_items',
-    ],
+define(['backbone', 'backbone-relational', 'moment', 'models/status', ],
 
-    function(Backbone, Relational, moment, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
-        CommentModel, CommentCollection, WorkItemModel, WorkItemCollection) {
+    function(Backbone, Relational, moment, StatusModel) {
 
         'use strict';
 
         var Agreement = Backbone.RelationalModel.extend({
             relations: [{
-                type: Backbone.HasMany,
-                key: 'payments',
-                relatedModel: PaymentModel,
-                collectionType: PaymentCollection,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
-                }
-            }, {
-                type: Backbone.HasMany,
-                key: 'workItems',
-                relatedModel: WorkItemModel,
-                collectionType: WorkItemCollection,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
-                }
-            }, {
-                type: Backbone.HasMany,
-                key: 'statusHistory',
-                relatedModel: StatusModel,
-                collectionType: StatusCollection,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
-                }
-            }, {
                 type: Backbone.HasOne,
-                key: 'currentStatus',
+                key: 'lastAction',
                 relatedModel: StatusModel,
-            }, {
-                type: Backbone.HasMany,
-                key: 'comments',
-                relatedModel: CommentModel,
-                collectionType: CommentCollection,
-                includeInJSON: false,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
-                }
             }],
 
             idAttribute: "versionID",
@@ -62,20 +22,14 @@ define(['backbone', 'backbone-relational', 'moment', 'models/payment', 'collecti
                 this.listenTo(Backbone, "updateCurrentStatus", this.setCurrentStatus);
             },
             set: function(key, value, options) {
-                Backbone.RelationalModel.prototype.set.apply(this, arguments);
-
                 if (typeof key === 'object') {
                     if (_.has(key, "dateCreated")) {
-                        this.attributes.dateCreated = moment(key["dateCreated"]);
-                    }
-                    if (_.has(key, "totalAmount")) {
-                        this.attributes.totalAmount = parseFloat(key["totalAmount"]);
+                        key["dateCreated"] = moment(key["dateCreated"]);
                     }
                 } else if (key === 'dateCreated') {
-                    this.attributes.dateCreated = moment(value);
-                } else if (key === 'totalAmount') {
-                    this.attributes.totalAmount = parseFloat(value);
+                    value = moment(value);
                 }
+                Backbone.RelationalModel.prototype.set.apply(this, [key, value, options]);
                 return this;
             },
             setCurrentStatus: function(model) {
@@ -100,7 +54,7 @@ define(['backbone', 'backbone-relational', 'moment', 'models/payment', 'collecti
                     contentType: "application/json",
                     dataType: "json",
                     data: JSON.stringify({
-                        "action": action,
+                        "name": action,
                         "message": message
                     }),
                     success: _.bind(function(response) {
@@ -127,10 +81,10 @@ define(['backbone', 'backbone-relational', 'moment', 'models/payment', 'collecti
             },
             percentComplete: function() {
                 var totalComplete = 0;
-                this.get("workItems").each(function(model){
+                this.get("workItems").each(function(model) {
                     if (model.isComplete()) totalComplete += 1;
                 });
-                return (totalComplete/this.get("workItems").length)*100;
+                return (totalComplete / this.get("workItems").length) * 100;
 
             }
         });
