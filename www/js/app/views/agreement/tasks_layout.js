@@ -16,10 +16,6 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/tasks_layout', 'under
                 tasksBox: "#tasks_container",
                 newMessage: "#new_comment_text",
             },
-            events: {
-                "click #add_workitem_comment": "showNewMessage",
-                "click #hide_workitem_comment": "hideNewMessage"
-            },
             initialize: function(options) {
                 this.user = options.user;
                 this.otherUser = options.otherUser;
@@ -51,47 +47,6 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/tasks_layout', 'under
                     user: this.user,
                     otherUser: this.otherUser
                 }));
-                this.listenTo(this.newMessage.currentView, "commentAdded", this.commentAdded);
-                this.listenTo(this.newMessage.currentView, "commentSaved", this.commentSaved);
-            },
-            renderMessages: function() {
-                this.messagesBox.show(new MessagesBoxView({
-                    collection: this.filteredMessages,
-                    user: this.user,
-                    otherUser: this.otherUser
-                }));
-            },
-            showNewMessage: function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                this.$('#new_comment_text').show();
-                this.$('.add-more').replaceWith('<p style="margin-left:20px;" class="remove_icon"><a id="hide_workitem_comment" href="">Hide New Message</a></p>');
-            },
-            hideNewMessage: function() {
-                event.preventDefault();
-                event.stopPropagation();
-                this.$('#new_comment_text').hide();
-                this.$('.remove_icon').replaceWith('<p style="margin-left:20px;" class="add-more"><a id="add_workitem_comment" href="">Add A Message</a></p>')
-            },
-            filterMessages: function() {
-                var title = this.model.get("title"),
-                    filtered;
-                if (title) {
-                    filtered = this.messages;
-                    filtered = filtered.filterByTagTitle(title);
-                    filtered.comparator = function(item) {
-                        return -item.get("dateCreated").valueOf();
-                    };
-                    filtered.sort();
-                }
-                return filtered;
-            },
-            commentAdded: function(comment) {
-                this.messages.add(comment);
-            },
-            commentSaved: function() {
-                this.filteredMessages = this.filterMessages();
-                this.renderMessages();
             }
 
         });

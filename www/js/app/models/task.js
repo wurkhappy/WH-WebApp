@@ -1,6 +1,8 @@
-define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/scope_items', 'models/status', 'collections/status'],
+define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/scope_items', 'models/status',
+        'collections/status', 'moment'
+    ],
 
-    function(Backbone, Relational, ScopeItemModel, ScopeItemCollection, StatusModel, StatusCollection) {
+    function(Backbone, Relational, ScopeItemModel, ScopeItemCollection, StatusModel, StatusCollection, moment) {
 
         'use strict';
 
@@ -16,45 +18,39 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
                 }
             }, {
                 type: Backbone.HasOne,
-                key: 'currentStatus',
+                key: 'lastAction',
                 relatedModel: StatusModel,
                 collectionType: StatusCollection,
             }],
             urlRoot: function() {
-                return "/agreement/v/" + this.getAgreementVersionID() + "/work_item";
+                return "/tasks";
             },
             set: function(key, value, options) {
-                Backbone.RelationalModel.prototype.set.apply(this, arguments);
-                //amount has to be a float or integer. Backend won't accept number as string.
                 if (typeof key === 'object') {
                     if (_.has(key, "amountDue")) {
-                        this.attributes.amountDue = parseFloat(key["amountDue"]);
+                        key["amountDue"] = parseFloat(key["amountDue"]);
                     }
                     if (_.has(key, "dateExpected")) {
-                        this.attributes.dateExpected = moment(key["dateExpected"]);
+                        key["dateExpected"] = moment(key["dateExpected"]);
                     }
                 } else if (key === 'amountDue') {
-                    this.attributes.amountDue = parseFloat(value);
+                    value = parseFloat(value);
                 } else if (key === 'dateExpected') {
-                    this.attributes.dateExpected = (typeof value === "string") ? moment(value) : value;
+                    value = (typeof value === "string") ? moment(value) : value;
                 }
+
+                Backbone.RelationalModel.prototype.set.apply(this, [key, value, options]);
                 return this;
             },
-            getAgreementVersionID: function() {
-                return this.collection.parent.id;
-            },
-            getAgreementID: function() {
-                return this.collection.parent.get("agreementID")
-            },
             isComplete: function() {
-                if (this.get("scopeItems").length === 0) return this.get("completed");
-                return this.get("scopeItems").getCompleted().length === this.get("scopeItems").length;
+                if (this.get("subTasks").length === 0) return this.get("completed");
+                return this.get("subTasks").getCompleted().length === this.get("subTasks").length;
             },
             isPaid: function() {
                 return this.get("isPaid");
             },
             isPartiallyPaid: function() {
-                return this.get("scopeItems").getPaid().length > 0;
+                return this.get("subTasks").getPaid().length > 0;
             }
         });
 

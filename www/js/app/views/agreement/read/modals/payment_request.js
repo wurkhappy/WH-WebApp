@@ -35,6 +35,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
             },
             initialize: function(options) {
 
+                this.tasks = options.tasks;
                 this.bankAccounts = options.bankAccounts;
                 this.bankAccounts.fetch();
                 this.paymentMethodsView = new PaymentMethods({
@@ -50,7 +51,8 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
 
                     this.invoiceView = new InvoiceView({
                         model: options.agreement,
-                        payment: this.model
+                        payment: this.model,
+                        tasks: this.tasks,
                     });
                 }
                 this.listenTo(this.model.get("paymentItems"), "change:amountDue", this.updateMilestone);
@@ -147,6 +149,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 var creditSource = this.$(".select_bank_account:checked").attr("value") || '';
                 this.model.save({}, {
                     success: _.bind(function() {
+                        console.log("payment save success");
                         this.model.submit({
                             creditSourceID: creditSource
                         }, _.bind(function(response) {

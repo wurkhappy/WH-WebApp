@@ -22,14 +22,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     user: this.user,
                     otherUser: this.otherUser,
                     messages: this.messages,
-                    tags: this.tags
                 };
             },
             initialize: function(options) {
                 this.user = options.user;
                 this.otherUser = options.otherUser;
                 this.messages = options.messages;
-                this.tags = options.tags;
                 this.agreementTotal = this.collection.getTotalAmount();
             }
         });

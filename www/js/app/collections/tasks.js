@@ -19,7 +19,7 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
             },
             findSubmitted: function() {
                 var models = this.filter(function(model) {
-                    return model.get("currentStatus") && model.get("currentStatus").get("action") === 'submitted';
+                    return model.get("lastAction") && model.get("lastAction").get("name") === 'submitted';
                 });
                 return models[0];
             },
@@ -45,8 +45,8 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
             getAccepted: function() {
                 var models = this.filter(function(model) {
 
-                    if (model.get("currentStatus") !== null) {
-                        return model.get("currentStatus").get("action") === 'accepted';
+                    if (model.get("lastAction") !== null) {
+                        return model.get("lastAction").get("name") === 'accepted';
                     } else {
                         return false;
                     }
@@ -55,7 +55,7 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
             },
             getNumberOfSubmitted: function() {
                 var models = this.filter(function(model) {
-                    return model.get("currentStatus") && model.get("currentStatus").get("action") === 'submitted';
+                    return model.get("lastAction") && model.get("lastAction").get("name") === 'submitted';
                 });
                 return models.length;
             },
@@ -71,7 +71,7 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
             getTasks: function() {
                 var collection = new TasksCollection();
                 this.each(function(model) {
-                    collection.add(model.get("scopeItems").models);
+                    collection.add(model.get("subTasks").models);
                 });
                 return collection;
             },
@@ -83,7 +83,7 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
             },
             getCompleted: function() {
                 var models = this.filter(function(model) {
-                    return model.get("completed");
+                    return model.get("lastAction") && model.get("lastAction").get("name") === "completed";
                 });
                 return new Collection(models);
             },

@@ -46,10 +46,6 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                 this.sendAgreement();
             },
             sendAgreement: _.debounce(function(event) {
-
-                if (!this.isUserVerified()) {
-                    return;
-                }
                 //return if there isn't a valid email
                 var isValid = this.$('#create_agreement_send_email').parsley('validate');
                 if (!isValid) {
@@ -90,9 +86,6 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
             requestDeposit: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-                if (!this.isUserVerified()) {
-                    return;
-                }
 
                 //return if there isn't a valid email
                 var isValid = $('#create_agreement_send_email').parsley('validate');
@@ -135,20 +128,6 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                 this.model.submit(this.message, function() {
                     window.location = "/home";
                 });
-            },
-            isUserVerified: function() {
-                if (!this.user.get("isProcessorVerified")) {
-                    var view = new VerifyUserView({
-                        model: this.user
-                    });
-                    this.modal = new Modal({
-                        view: view
-                    });
-                    this.modal.show();
-                    this.listenTo(view, "userVerified", this.userVerified);
-                    return false;
-                }
-                return true;
             },
             userVerified: function() {
                 this.modal.hide();

@@ -1,8 +1,3 @@
-/*
- * Agreements Model.
- */
-
-
 define(['backbone', 'backbone-relational', 'moment', 'models/status', ],
 
     function(Backbone, Relational, moment, StatusModel) {
@@ -13,6 +8,10 @@ define(['backbone', 'backbone-relational', 'moment', 'models/status', ],
             relations: [{
                 type: Backbone.HasOne,
                 key: 'lastAction',
+                relatedModel: StatusModel,
+            }, {
+                type: Backbone.HasOne,
+                key: 'lastSubAction',
                 relatedModel: StatusModel,
             }],
 
@@ -33,7 +32,7 @@ define(['backbone', 'backbone-relational', 'moment', 'models/status', ],
                 return this;
             },
             setCurrentStatus: function(model) {
-                this.set("currentStatus", model);
+                this.set("lastAction", model);
             },
             urlRoot: function() {
                 return "/agreement/v";
@@ -58,26 +57,13 @@ define(['backbone', 'backbone-relational', 'moment', 'models/status', ],
                         "message": message
                     }),
                     success: _.bind(function(response) {
-                        this.set("currentStatus", response);
+                        this.set("lastAction", response);
                         if (_.isFunction(successCallback)) successCallback();
                     }, this)
                 });
             },
             archive: function(userID, successCallback) {
-                $.ajax({
-                    type: "POST",
-                    url: "/agreement/v/" + this.id + "/archive",
-                    contentType: "application/json",
-                    dataType: "json",
-                    data: JSON.stringify({
-                        userID: userID
-                    }),
-                    success: _.bind(function(response) {
-                        this.set(response);
-                        this.get("currentStatus").trigger("change");
-                        if (_.isFunction(successCallback)) successCallback();
-                    }, this)
-                });
+                this.updateStatus("completed", "", successCallback);
             },
             percentComplete: function() {
                 var totalComplete = 0;

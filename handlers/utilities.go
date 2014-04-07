@@ -22,7 +22,7 @@ func getUserInfo(id string) map[string]interface{} {
 	if id == "" {
 		return make(map[string]interface{})
 	}
-	resp, statusCode := sendServiceRequest("GET", config.UserService, "/user/search?userid="+id, nil, id)
+	resp, statusCode := sendServiceRequest("GET", config.UserService, "/users?userid="+id, nil, id)
 	if statusCode >= 400 {
 		return nil
 	}
@@ -60,6 +60,7 @@ func sendServiceRequest(method, service, path string, body []byte, userID string
 		"Method": method,
 		"Path":   path,
 		"Body":   body,
+		"UserID": userID,
 	}
 	req, _ := json.Marshal(m)
 	request := [][]byte{req, []byte(userID)}

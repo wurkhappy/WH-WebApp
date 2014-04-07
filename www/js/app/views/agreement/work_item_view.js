@@ -15,7 +15,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 "click .deliverable_header": "showWorkItem"
             },
             initialize: function(options) {
-                this.collection = this.model.get("scopeItems");
+                this.collection = this.model.get("subTasks");
                 this.userIsClient = options.userIsClient;
                 this.listenTo(this.model, 'change', this.checkStatus);
                 this.listenTo(this.collection, 'change', this.render);
@@ -23,7 +23,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.otherUser = options.otherUser;
                 this.messages = options.messages;
                 this.tags = options.tags;
-                this.listenTo(this.collection, "change:completed", this.taskStatusChange);
+                this.listenTo(this.collection, "completed", this.taskStatusChange);
             },
 
             renderModel: function() {
@@ -53,13 +53,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 // otherwise close will be triggered when task is checked.
                 if (!this.height) {
                     var that = this;
-                    _.delay( function() {
+                    _.delay(function() {
                         that.hideWorkItemsOnLoad();
                     }, 100);
                 }
-                
-            },
 
+            },
             showWorkItem: function(event) {
                 this.showingItem = !this.showingItem;
 
@@ -77,7 +76,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                     this.$('.show_details_button').text(' Hide Details');
                 }
             },
-
             hideWorkItemsOnLoad: function() {
                 this.height = this.$('.payment_milestone').height();
                 this.$('.payment_milestone').animate({
@@ -86,13 +84,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.$('.show_details_button').text('Show Details');
                 this.showingItem = true;
             },
-
             checkStatus: function() {
-                var status = this.model.get("currentStatus");
+                var status = this.model.get("lastAction");
                 if (!status) {
                     return;
                 }
-                switch (status.get("action")) {
+                switch (status.get("name")) {
                     case status.StatusSubmitted:
                         this.submittedState();
                         break;

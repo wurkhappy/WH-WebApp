@@ -13,21 +13,21 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
             payTemplate: payTemplate,
 
             initialize: function(options) {
-                BaseState.prototype.initialize.apply(this);
-                this.button1Title = (!this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response";
+            BaseState.prototype.initialize.apply(this, [options]);
+            this.button1Title = (!this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response";
                 this.button2Title = (!this.userIsStateCreator) ? "Reject " + this.statusType : null;
                 this.user = options.user;
                 this.otherUser = options.otherUser;
             },
             button1: function(event) {
-                var depositPayments = this.model.get("payments").where({
+                var depositPayments = this.payments.where({
                     isDeposit: true
                 });
                 // if (!this.userIsClient || this.userIsStateCreator) return;
                 var deposit = (this.userIsClient) ? depositPayments[depositPayments.length - 1] : null;
                 if (this.statusType === 'payment') {
                     var view = new AcceptModal({
-                        model: this.model.get("payments").findSubmittedPayment(),
+                        model: this.payments.findSubmittedPayment(),
                         user: this.user,
                         otherUser: this.otherUser,
                         acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
@@ -38,10 +38,10 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
                     });
                     this.acceptModal.show();
 
-                } else if (deposit && deposit.get("currentStatus").get("action") === "submitted" && this.userIsClient) {
+                } else if (deposit && deposit.get("lastAction").get("name") === "submitted" && this.userIsClient) {
 
                     var view = new AcceptModal({
-                        model: this.model.get("payments").findSubmittedPayment(),
+                        model: this.payments.findSubmittedPayment(),
                         user: this.user,
                         otherUser: this.otherUser,
                         acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
@@ -57,7 +57,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
                 }
             },
             button2: function(event) {
-                var model = (this.statusType === 'payment') ? this.model.get("payments").findSubmittedPayment() : this.model;
+                var model = (this.statusType === 'payment') ? this.payments.findSubmittedPayment() : this.model;
                 var view = new RejectModal({
                     model: model,
                     otherUser: this.otherUser

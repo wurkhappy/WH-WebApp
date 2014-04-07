@@ -57,7 +57,6 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
                 });
             },
             updateStatus: function(reqData, successCallback) {
-                return;
                 $.ajax({
                     type: "POST",
                     url: "/payments/" + this.id + "/action",
@@ -65,7 +64,9 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
                     dataType: "json",
                     data: JSON.stringify(reqData),
                     success: _.bind(function(response) {
-                        this.set("lastAction", response);
+                        this.set("lastAction", _.extend(response, {
+                            type: "payment"
+                        }));
                         Backbone.trigger("updateCurrentStatus", this.get("lastAction"))
                         if (_.isFunction(successCallback)) successCallback();
                     }, this)

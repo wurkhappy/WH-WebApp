@@ -42,21 +42,21 @@ define(['backbone', 'models/payment'],
             },
             findSubmittedPayment: function() {
                 var paymentArray = this.filter(function(model) {
-                    return model.get("currentStatus") && model.get("currentStatus").get("action") === 'submitted';
+                    return model.get("lastAction") && model.get("lastAction").get("name") === 'submitted';
                 });
                 return paymentArray[0];
             },
             findAllOutstanding: function() {
                 var paymentArray = this.filter(function(model) {
-                    return !model.get("currentStatus") || model.get("currentStatus").get("action") === 'rejected';
+                    return !model.get("lastAction") || model.get("lastAction").get("name") === 'rejected';
                 });
                 return new Collection(paymentArray);
             },
             getAcceptedPayments: function() {
                 var paymentArray = this.filter(function(model) {
 
-                    if (model.get("currentStatus") !== null) {
-                        return model.get("currentStatus").get("action") === 'accepted';
+                    if (model.get("lastAction") !== null) {
+                        return model.get("lastAction").get("name") === 'accepted';
                     } else {
                         return 0;
                     }
@@ -88,6 +88,17 @@ define(['backbone', 'models/payment'],
                         if (_.isFunction(options.success)) options.success();
                     }, this)
                 });
+            },
+            getLastAction: function() {
+                var collection = new Collection(this.models);
+                collection.comparator = function(model) {
+                    return (model.get("lastAction")) ? -model.get("lastAction").get("date").valueOf() : 0;
+                }
+                collection.sort();
+                if (collection.models[0].isDeposit() && collection.models[0].get("lastAction").get("name") === "submitted") {
+                    return null;
+                }
+                return collection.models[0].get("lastAction")
             }
 
         });

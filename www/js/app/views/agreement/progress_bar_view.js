@@ -18,18 +18,13 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
             },
 
             initialize: function(options) {
-
+                this.deliverables = options.tasks
                 //we want all accepted payments as well as the most recent payment
-                this.deliverables = options.model.get("workItems");
-                this.listenTo(this.deliverables, "change:currentStatus", this.render);
+                this.listenTo(this.deliverables, "change:lastAction", this.render);
                 this.listenTo(this.deliverables, "add", this.updateCollections);
                 this.deliverables.each(_.bind(function(model) {
-                    this.listenTo(model.get("scopeItems"), "change:completed", this.render);
+                    this.listenTo(model.get("subTasks"), "change:lastAction", this.render);
                 }, this));
-            },
-            events: {
-                // "mouseover .progress_icon": "hoverPayment",
-                // "mouseleave .progress_icon": "unhoverPayment",
             },
 
             render: function() {
@@ -45,12 +40,12 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
 
                     // sort tasks whenever one is checked off so ticks remain consistent 
                     // with agreement progress percentage
-                    model.get("scopeItems").comparator = function (item) {
+                    model.get("subTasks").comparator = function(item) {
                         if (item.get('completed')) {
                             return true;
                         }
                     };
-                    model.get("scopeItems").sort();
+                    model.get("subTasks").sort();
 
                     var m = model.toJSON();
                     var index = model.collection.indexOf(model);
@@ -60,20 +55,20 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                         m.color = "grey";
                     }
 
-                    for (var x in m.scopeItems) {
+                    for (var x in m.subTasks) {
                         // set how far each task is from the tick container
-                        m.scopeItems[x].task_margin_left = (deliverablesWidth/m.scopeItems.length)*(parseInt(x) + 1) + bulletWidth/2 - 2 + barLeftMargin;
-                        if (m.scopeItems[x].completed === true) {
-                            m.scopeItems[x].color = "green";
+                        m.subTasks[x].task_margin_left = (deliverablesWidth / m.subTasks.length) * (parseInt(x) + 1) + bulletWidth / 2 - 2 + barLeftMargin;
+                        if (m.subTasks[x].lastAction && m.subTasks[x].lastAction.name === "completed") {
+                            m.subTasks[x].color = "green";
                         } else {
-                            m.scopeItems[x].color = "grey";
+                            m.subTasks[x].color = "grey";
                         }
                     }
 
                     m.segment_width = deliverablesWidth;
                     m.placement_left = (deliverablesWidth) * (index);
                     m.margin_left = (deliverablesWidth) * (index + 1);
-                    m.title_left = m.margin_left - (deliverablesWidth*.75);
+                    m.title_left = m.margin_left - (deliverablesWidth * .75);
                     deliverables.push(m);
                 });
 
@@ -102,12 +97,11 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                         });
                         progressvalue.append(wrapper);
                         var deliverablesCount = that.deliverables.length;
-                        that.deliverables.each(function(model,index) {
+                        that.deliverables.each(function(model, index) {
                             var bulletWidth = 42;
                             var modelSection = (1 / deliverablesCount) * 100;
-                            var itemsCompleted = model.get("scopeItems").getCompleted().length;
-                            var itemsTotal = model.get("scopeItems").length;
-                            var items = model.get("scopeItems");
+                            var itemsCompleted = model.get("subTasks").getCompleted().length;
+                            var itemsTotal = model.get("subTasks").length;
                             var seg = $("<span>");
                             var fractionCompleted = (itemsCompleted / itemsTotal);
                             if (model.get("completed")) fractionCompleted = 1;
@@ -144,7 +138,7 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                     var list = '';
                     var history = this.model.get("statusHistory").filterByPaymentID(id);
                     history.each(function(model) {
-                        var action = model.get("action");
+                        var action = model.get("name");
                         list += '<li>' + action.charAt(0).toUpperCase() + action.slice(1) + " on " + model.get("date").format('MMM DD, YYYY') + '</li>';
                     })
                     if (history.length === 0) {

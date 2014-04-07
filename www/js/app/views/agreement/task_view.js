@@ -21,7 +21,10 @@ define(['backbone', 'marionette', 'handlebars', 'hbs!templates/agreement/task_tp
             },
 
             render: function() {
-                this.$el.html(this.template(this.model.toJSON()));
+                var completed = (this.model.get("lastAction")) ? this.model.get("lastAction").get("name") === "completed" : false;
+                this.$el.html(this.template(_.extend(this.model.toJSON(), {
+                    completed: completed
+                })));
 
                 return this;
 
@@ -30,13 +33,18 @@ define(['backbone', 'marionette', 'handlebars', 'hbs!templates/agreement/task_tp
                 event.stopPropagation();
                 if (this.model.get("isPaid")) {
                     return;
-                };
+                }
                 var $checkbox = $(event.target),
                     $text = $(event.target).siblings('.task');
 
                 $checkbox.toggleClass("checkbox_complete");
                 $text.toggleClass("task_complete");
-                this.model.set("completed", !this.model.get("completed"));
+                if (this.model.get("lastAction") && this.model.get("lastAction").get("name") === "completed") {
+                    this.model.set("lastAction", null);
+                } else {
+                    this.model.setAsCompleteForUser(window.thisUser.id);
+                }
+                this.model.collection.trigger("completed")
             }
 
         });
