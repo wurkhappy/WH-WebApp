@@ -6,43 +6,43 @@ var agreement = {{.agreement}};
 </script>
 <div id="mainContainer"> <!-- div for main container -->
 	<div id="header-section">
-		<div class="clear intro">
-			<div class="column-three-fourth">
+		<div class="clear header">
+			<div class="col-1-2">
 				<h1>Create Agreement</h1>
 			</div>
-			<div class="column-one-fourth">
-				<ul class="action_button_container">
-					<li><a href="#" id="cancelAgreement" class="button cancel">Delete Agreement</a></li>
+			<div class="col-1-2">
+				<ul class="action_button_container" style="margin-top:5px;">
+					<li><a href="#" id="cancelAgreement" class="button button orange_button">Delete Agreement</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
 	<div id="contentWrapper"> <!-- div for content -->
-		<div id="content" class="clear white_background">
+		<div id="content" class="clear white_background layout_container">
 			<div id="progress-section" class="progress_section">
 				<h2 class="create_agreement_title"></h2>
 				<div class="progress_area">
 				  <div class="create_agreement_icon_container">
-				    <a class="create_agreement_navigation_link overview_link" href="#proposal">
-				      <h2 class="create_agreement_navigation">Overview</h2>
-				      <i class="fa fa-circle create_agreement_progress_icon"></i>
-				    </a>
-				    <a class="create_agreement_navigation_link payment_schedule_link" href="#estimate">
-				      <h2 class="create_agreement_navigation">Payment</h2>
-				      <i class="fa fa-circle create_agreement_progress_icon"></i>
-				    </a>
-				    <a class="create_agreement_navigation_link review_link" href="#review">
-				      <h2 class="create_agreement_navigation">Review</h2>
-				      <i class="fa fa-circle create_agreement_progress_icon"></i>
-				    </a>
-				    <a class="create_agreement_navigation_link send_link" href="#send">
-				      <h2 class="create_agreement_navigation">Send</h2>
-				      <i class="fa fa-circle create_agreement_progress_icon"></i>
-				    </a>
-				  </div>
+				      <a class="create_agreement_navigation_link overview_link" href="#proposal">
+				        <h3>Overview</h3>
+				        <span class="progress_icon create_agreement_progress_icon green_progress"></span>
+				      </a>
+				      <a class="create_agreement_navigation_link payment_schedule_link" href="#deliverables">
+				        <h3>Services</h3>
+				        <span class="progress_icon create_agreement_progress_icon"></span>
+				      </a>
+				      <a class="create_agreement_navigation_link review_link" href="#payment">
+				        <h3>Payment</h3>
+				        <span class="progress_icon create_agreement_progress_icon"></span>
+				      </a>
+				      <a class="create_agreement_navigation_link send_link" href="#review">
+				        <h3>Send</h3>
+				        <span class="progress_icon create_agreement_progress_icon"></span>
+				      </a>
+				    </div>
 				  <div class="create_agreement_progress">
-				  <progress class="agreement_progress" max="100" value="">
+				  <progress class="agreement_progress" max="100" value="" style="margin-top:40px;">
 				    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
 				     <!-- <p style="width:50%" data-value="50"></p> -->
 				    <div class="agreement_progress_bar">
@@ -52,21 +52,31 @@ var agreement = {{.agreement}};
 				  </div>
 				</div>
 			</div>
+			<div style="clear:both;margin-top:20px;"></div>
 
 			<div id="main-section">
-				<form action="#" method="get" accept-charset="utf-8">
-					<fieldset>
-						<label class="create_agreement_label_first" for="role">Role</label>
-						<input type="radio" name="role" value="freelancerID" checked>Freelancer
-						<input class="role_type" type="radio" name="role" value="clientID">Client
-						<label for="title">Title</label>
-						<input type="text" name="title" placeholder="Title of project" id="" size="50">
-						<label for="proposedServices">Summary</label>
-						<textarea name="proposedServices" rows="3" cols="100" placeholder="What kind of work will you be doing?"></textarea>
-						<fieldset class="submit-buttons">
-							<a class="single">Save and Continue</a>
-						</fieldset>
-					</fieldset>
+				<h2 style="margin-top:20px;margin-top:110px;">Agreement Overview</h2>
+
+				<form action="" method="get" accept-charset="utf-8" parsley-validate class="proposal_form">
+				  <fieldset>
+				    <label style="margin-top:20px;" class="create_agreement_label_first" for="role">Role</label>
+				    <span class="helper_text">In this agreement you are the...</span>
+				      <input type="radio" name="role" value="freelancerID" checked>Freelancer
+				      <input class="role_type" type="radio" name="role" value="clientID">Client
+				    <div class="form-group">
+				      <label style="margin-top:20px;" for="title">Title</label>
+				      <input data-required="true" data-trigger="change" type="text" name="title" placeholder="Title of project" id="" size="50" value="">
+				      <span class="error_message hide"></span>
+				    </div>
+				    <label style="margin-top:20px;" for="proposedServices">Summary</label>
+				    <div class="message_editor_container">
+				      <textarea id="message_editor" name="proposedServices" rows="3" cols="100" placeholder="What kind of work will you be doing?" value=""></textarea>
+				  </div>
+				  </fieldset>
+				  <div class="divider" style="clear:both;"></div>
+				  <div style="margin-top:20px;" class="button_container" style="clear:both;">
+				    <a id="save_continue" href="#services" class="button action_button">Save and Continue</a>
+				  </div>
 				</form>
 			</div>
 		</div>

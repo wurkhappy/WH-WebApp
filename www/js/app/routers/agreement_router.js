@@ -1,17 +1,15 @@
-/*
- * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
- */
-
 define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_manager',
         'views/agreement/work_items_read_view', 'views/agreement/user_view',
         'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
         'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
-        'collections/tags', 'views/ui-modules/modal', 'views/landing/new_account'
+        'views/ui-modules/modal', 'views/landing/new_account', 'views/agreement/payment_schedule', 'views/agreement/edit/payments_edit',
+        'collections/payments', 'collections/tasks'
     ],
 
     function(Backbone, FlyingFocus, AgreementModel, LayoutView, WorkItemsReadView, UserView,
-        UserEditView, HeaderEditView, PaymentEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
-        UserModel, ProgressBarView, TagCollection, Modal, NewAccountView) {
+        UserEditView, HeaderEditView, DeliverablesEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
+        UserModel, ProgressBarView, Modal, NewAccountView, PaymentSchedule, PaymentsEditSchedule, PaymentCollection,
+        TaskCollection) {
 
         'use strict';
 
@@ -24,8 +22,6 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
             },
 
             initialize: function() {
-                window.agreement.comments = window.comments;
-
                 this.model = new AgreementModel(window.agreement, {
                     userID: window.thisUser.id,
                     otherUserID: window.otherUser.id
@@ -33,10 +29,9 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 this.user = new UserModel(window.thisUser);
                 this.model.userID = this.user.id;
                 this.otherUser = new UserModel(window.otherUser);
-                this.user.set("cards", window.cards);
-                this.user.set("bank_accounts", window.bank_account);
-                this.tags = new TagCollection(window.tags);
-                this.tags.addMileStoneTags(this.model.get("workItems").models);
+                this.payments = new PaymentCollection(window.payments)
+                this.tasks = new TaskCollection(window.tasks)
+
                 this.layout = new LayoutView({
                     model: this.model,
                     user: this.user
@@ -46,45 +41,53 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     this.newAccount();
                 }
             },
-
             readAgreement: function() {
+                if (this.originalModelData) {
+                    this.model.clear({
+                        silent: true
+                    });
+                    this.model.set(this.originalModelData);
+                    this.originalModelData = null;
+                }
                 this.layout.agreementProgressBar.show(new ProgressBarView({
-                    model: this.model
+                    model: this.model,
+                    tasks: this.tasks,
                 }));
                 this.layout.paymentMethods.show(new PaymentMethodsView({
                     model: this.model
                 }));
-                this.layout.paymentSchedule.show(new WorkItemsReadView({
-                    collection: this.model.get("workItems"),
+                this.layout.deliverables.show(new WorkItemsReadView({
+                    collection: this.tasks,
                     user: this.user,
                     otherUser: this.otherUser,
-                    messages: this.model.get("comments"),
                     tags: this.tags
                 }));
-                this.layout.profile.show(new UserView());
-                this.layout.header.show(new HeaderView({
-                    model: this.model,
+                this.layout.paymentSchedule.show(new PaymentSchedule({
+                    collection: this.payments,
                     user: this.user,
                     otherUser: this.otherUser
                 }));
-                var discussionView = new CommunicationLayout({
-                    messages: this.model.get("comments"),
+                this.layout.header.show(new HeaderView({
+                    model: this.model,
                     user: this.user,
                     otherUser: this.otherUser,
-                    tags: this.tags
-                });
-                this.layout.discussion.show(discussionView);
+                    payments: this.payments,
+                    tasks: this.tasks
+                }));
             },
             editAgreement: function() {
+                this.originalModelData = this.model.toJSON();
                 this.layout.header.show(new HeaderEditView({
                     model: this.model,
                     user: this.user
                 }));
-                this.layout.paymentSchedule.show(new PaymentEditView({
+                this.layout.deliverables.show(new DeliverablesEditView({
                     model: this.model
                 }));
-                this.layout.profile.show(new UserEditView({
-                    model: this.model
+                this.layout.paymentSchedule.show(new PaymentsEditSchedule({
+                    collection: this.payments,
+                    user: this.user,
+                    otherUser: this.otherUser
                 }));
             },
             newAccount: function() {

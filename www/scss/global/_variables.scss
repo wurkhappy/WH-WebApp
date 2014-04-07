@@ -3,15 +3,22 @@
 //
 // All of your variables should go in this file.
 ////////////////////////
-
+ 
+// base colors
+$orange: hsl(38, 100%, 50%); //Joey's colors
+$blue: hsl(198, 100%, 35%); //Joey's colors - was 39% but updated with landing page
+$green: hsl(95, 56%, 57%); //Joey's colors
+//$grey: hsl(0, 0%, 73%);
 
 //Button/Graphic
 $red: hsl(345, 56%, 38%);
 $green_dark: hsl(94, 43%, 51%);
-$green_light: hsl(94, 56%, 56%);
+$green_light: hsl(95, 56%, 57%); //Joey's colors
+//$green_light: hsl(94, 56%, 56%);
+
 
 // Background
-$blue_background: hsl(199, 100%, 35%);
+$blue_background: hsl(198, 100%, 39%);
 $light_blue_background: hsl(199, 100%, 94%);
 $white_transparent_background: hsla(0, 0%, 0%, 0);
 $grey_background: hsl(0, 0%, 49%); // Footer
@@ -25,11 +32,17 @@ $blue_text_dark: hsl(198, 100%, 39%); // hover link
 $black: hsl(0, 0%, 20%); // header text
 $black_light: hsl(0, 0%, 39%); // body text
 $white: hsl(0, 100%, 100%); // header text on normal/dark backgrounds
-$grey:  hsl(0, 0%, 59%); // help text
-$grey_light: hsl(0, 0%, 39%); // active (hover) text that was black
+$grey:  hsl(0, 0%, 50%); // help text
+$grey_light: hsl(0, 0%, 73%); // active (hover) text that was black
 $grey_blue: hsl(210, 17%, 88%); // header in footer
 
 //Progress Bar
 $green_progress: hsl(94, 56%, 56%);
 $yellow_progress: hsl(54, 56%, 56%);
 $red_progress: hsl(356, 56%, 56%);
+
+$blue_light: #168DC7;
+$blue_dark: #117BAE;
+$green_medium:#89CD5B;
+$green_dark:#5CA032;
+$divider: #C7E0E4;

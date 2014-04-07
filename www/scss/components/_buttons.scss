@@ -1,23 +1,27 @@
 .action_button_container {
-  margin: 10px 20px 10px 20px;
+  //margin: 10px 20px 10px 20px;
+  width: 200px;
+  float: right;
+  margin:0;
   padding: 0;
   list-style: none;
   li {
-    padding: 10px 0 0 0;
+    padding: 0;
     margin: 0;
   }    
 }
 
 .button, .button:visited {
   display: block;
-  font-weight: bold;
+  font-weight: 300;
   text-align: center;
   padding: 0 10px;
   color: $white;
   text-decoration: none;
-  line-height: 40px;
-  background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-button.png);
-  background-repeat: repeat-x;
+  line-height: 38px;
+  text-transform:uppercase;
+  //background-image: url(https://d3kq8dzp7eezz0.cloudfront.net/img/shade-button.png);
+  /*background-repeat: repeat-x;
   background-position: center;
   -webkit-box-shadow: 0 0 3px rgba(0,0,0,.5);
   -moz-box-shadow: 0 0 3px rgba(0,0,0,.5);
@@ -25,7 +29,7 @@
   text-shadow: 0 -1px 0 rgba(0,0,0,.5);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px; */
 
 }
 
@@ -36,7 +40,7 @@
 }
 
 .action_button {
-  background-color: $green_light;
+  background-color: $green;
   &:hover {
         background-color: $green_dark;
       }
@@ -138,4 +142,12 @@
   width: 229px;
   margin-left: 20px;
   margin-top: 45px;
+}
+
+.orange_button {
+  background: $orange;
+}
+
+.green_button {
+  background: $green;
 }

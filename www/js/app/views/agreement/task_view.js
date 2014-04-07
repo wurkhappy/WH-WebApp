@@ -1,44 +1,55 @@
+define(['backbone', 'marionette', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templates/agreement/empty_tasks_tpl'],
 
-define(['backbone', 'handlebars', 'hbs!templates/agreement/task_tpl', 'hbs!templates/agreement/empty_tasks_tpl'],
+    function(Backbone, Marionette, Handlebars, taskTpl, EmptyTemplate) {
 
-  function (Backbone, Handlebars, taskTpl, EmptyTemplate) {
+        'use strict';
 
-    'use strict';
+        var NoItemsView = Backbone.Marionette.ItemView.extend({
+            template: EmptyTemplate,
+        });
 
-    var NoItemsView = Backbone.Marionette.ItemView.extend({
-      template: EmptyTemplate,
-    });
+        var TaskView = Backbone.View.extend({
 
-    var TaskView = Backbone.View.extend({
+            template: taskTpl,
+            emptyView: NoItemsView,
+            className: "check_item",
+            events: {
+                "click .checkbox": "toggleCheckbox"
+            },
+            initialize: function() {
+                this.render();
+            },
 
-      template: taskTpl,
-      emptyView: NoItemsView,
-      className: "check_item",
-      events:{
-        "click .checkbox": "toggleCheckbox"
-      },
-      initialize: function() {
-        this.render();
-      },
+            render: function() {
+                var completed = (this.model.get("lastAction")) ? this.model.get("lastAction").get("name") === "completed" : false;
+                this.$el.html(this.template(_.extend(this.model.toJSON(), {
+                    completed: completed
+                })));
 
-      render: function () {
-        this.$el.html(this.template(this.model.toJSON()));
+                return this;
 
-        return this;
+            },
+            toggleCheckbox: function(event) {
+                event.stopPropagation();
+                if (this.model.get("isPaid")) {
+                    return;
+                }
+                var $checkbox = $(event.target),
+                    $text = $(event.target).siblings('.task');
 
-      },
-      toggleCheckbox: function(event) {
-        var $checkbox = $(event.target),
-        $text = $(event.target).siblings('.task');
+                $checkbox.toggleClass("checkbox_complete");
+                $text.toggleClass("task_complete");
+                if (this.model.get("lastAction") && this.model.get("lastAction").get("name") === "completed") {
+                    this.model.set("lastAction", null);
+                } else {
+                    this.model.setAsCompleteForUser(window.thisUser.id);
+                }
+                this.model.collection.trigger("completed")
+            }
 
-        $checkbox.toggleClass("checkbox_complete");
-        $text.toggleClass("task_complete");
-        this.model.set("completed", !this.model.get("completed"));
-      }
+        });
 
-    });
+        return TaskView;
 
-    return TaskView;
-
-  }
-  );
+    }
+);

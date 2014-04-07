@@ -1,0 +1,31 @@
+/* Agreement List Style ( used in homepage agreement list, profile, and agreement)
+================================================================================ */
+
+.last_action {
+  display: block;
+  font-size: 14px;
+  color: $grey;
+  margin: 0 0 10px 0;
+  text-align:left;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.home_agreement_status {
+  text-align:center;
+  margin: 0;
+}
+
+.data-table {
+  padding: 0 20px 10px 20px;
+}
+
+.data-table table {
+  width: 100%;
+  display: inline-table;
+}
+
+td.progress {
+  width: 260px;
+  padding:0;
+}

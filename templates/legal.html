@@ -1,14 +1,178 @@
-{{define "content"}}
-<div id="intro" class="clear intro">
-  <div class="column-three-fouth">
-    <h1>Legal</h1>
-  </div>
-  <div class="column-one-fouth">
-  </div>
-</div>
+{{define "header"}}
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
 
 
-<div class="container fade">
-  <div id="content" class="clear white_background home_container"></div>
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+{{if .production}}
+  <link rel="Shortcut Icon" type="images/ico" href="https://d3kq8dzp7eezz0.cloudfront.net/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/landing.css" media="all" />
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/analytics.min.js"></script>
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/jquery.js"></script>
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/app/plugins/better_browser/public/javascripts/abetterbrowser.js"></script>
+{{else}}
+  <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="/css/landing.css" media="all" />
+
+  <!-- Font Awesome -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+
+  <script src="/js/lib/jquery/jquery.js"></script>
+  <script type="text/javascript"> 
+      var $buoop = {}; 
+      $buoop.ol = window.onload; 
+      window.onload=function(){ 
+       try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+       var e = document.createElement("script"); 
+       e.setAttribute("type", "text/javascript"); 
+       e.setAttribute("src", "//browser-update.org/update.js"); 
+       document.body.appendChild(e); 
+      } 
+    </script> 
+{{end}}
+  <noscript>
+    <style>
+      .dim {opacity: .5;}
+      #logindiv {display:none}
+    </style>
+    <div class="noscriptmsg">
+      <p>Wurk Happy requires javascript to function properly. <a href="http://www.enable-javascript.com/" target="_blank">Please enable javascript</a> in your web browser.</p>
+    </div>
+  </noscript>
+
+
+
+
+
+  <script type="text/javascript">
+	  if (production){
+	  	analytics.initialize({
+	      'Google Analytics' : 'UA-24101674-3',
+	      'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
+	      'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+	      'CrazyEgg'		 : '00197985'
+	    });
+	    analytics.track('Hit Legal Page');
+	  }
+  </script>
+
+
+
+{{end}}
+
+{{define "body"}}
+
+    <div class="clear navigation">
+		<div class="landing_logo_container">
+    		<a class="logo" href="/">Wurk Happy</a>
+		</div>
+		<div class="landing_admin_container">
+			<ul class="admin_nav">
+    			<li id="log_in">
+    				<a class="landing_navigation_links login_button" id="login" href="#login">Log In</a>
+    			</li>
+				<li id="log_out" class="hide">
+					<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+<div class="fade2">
+	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;height:auto;min-width:960px;">
+		<div id="benefits_container" class="hide benefits_container">
+		    <div class="clear headline_container">
+		  		<!-- <h1 class="logo_white">Wurk Happy</h1> -->
+		    	<h1 style="font-size:46px;font-weight:500;" class="headline">
+		    		Legal</h1>
+		  	</div>
+		</div>
+		<div class="container fade">
+	  		<div id="content" class="clear white_background layout_container"></div>
+		</div>
+
+	</div>
+
+
+
+	
+
+
+
+
+
+</div> <!-- class fade2 -->
+<script>
+	// non-jquery fade function takes ('in' or 'out' as type), duration in miliseconds, element, and flag to designate if I.E. 8 is supported
+	//fading in the benefits section on window load adds a nice effect and makes everything appear at the same time.
+	function fade(type, ms, el, IE) {
+	    var isIn = type === 'in',
+	        opacity = isIn ? 0 : 1,
+	        interval = 50,
+	        gap = interval / ms;
+	        
+	    if(isIn) {
+	         el.style.display = 'block';
+	         el.style.opacity = opacity;
+	         if(IE) {
+	            el.style.filter = 'alpha(opacity=' + opacity + ')';
+	            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity + ')';
+	        }
+	    }
+	    
+	    function func() {
+	        opacity = isIn ? opacity + gap : opacity - gap; 
+	        el.style.opacity = opacity;
+	        if(IE) {
+	            el.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
+	            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity * 100 + ')';
+	        }
+	        
+	        if(opacity <= 0 || opacity >= 1) window.clearInterval(fading);
+	        if(opacity <= 0) el.style.display = 'none';
+	    }
+	    
+	    var fading = window.setInterval(func, interval);
+	}
+
+	window.onload = function() {
+		var benefits_container = document.getElementById('benefits_container');
+		var communication = document.getElementById('communication');
+		var billing = document.getElementById('billing');
+		var payment = document.getElementById('payment');
+		fade('in', 500, benefits_container, true);
+		fade('in', 1000, communication, true);
+		fade('in', 1000, billing, true);
+		fade('in', 1000, payment, true);
+	}
+</script>
+
+<!-- landing footer-->
+	 <div id="footer" class="landing_footer" style="position:static;float:left;" style="">
+    	<div>
+    		<div class="landing_footer_column">
+		        <h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
+		    </div>
+		    <div class="landing_footer_column">
+		      <h3 class="footer_title"><a id="about" href="/about">About</a></h3>
+		    </div>
+	        <div class="landing_footer_column">
+	        	<h3 class="footer_title"><a id="blog" href="http://wurkhappy.tumblr.com/">Blog</a></h3>
+	        </div>
+
+	        <div class="landing_footer_column">
+	        	<h3 class="footer_title"><a style="border-right:none;" id="legal" href="/legal">Legal</a></h3>
+	        </div>
+	    </div>
+    </div>
+<div class="copyright pricing_copyright clear" style="position: static;float:left;">
+	<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
 </div>
+ </div>  
+</div>
+
 {{end}}

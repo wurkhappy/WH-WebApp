@@ -1,139 +1,82 @@
-/*
-* Agreements Model.
-*/
+define(['backbone', 'backbone-relational', 'moment', 'models/status', ],
 
-
-define(['backbone','backbone-relational', 'moment', 'models/payment', 'collections/payments',
-    'models/status', 'collections/status',  'models/comment', 'collections/comments', 'models/work_item', 'collections/work_items',],
-
-    function(Backbone, Relational, moment, PaymentModel, PaymentCollection, StatusModel, StatusCollection,
-        CommentModel, CommentCollection, WorkItemModel, WorkItemCollection) {
+    function(Backbone, Relational, moment, StatusModel) {
 
         'use strict';
 
         var Agreement = Backbone.RelationalModel.extend({
             relations: [{
-                type: Backbone.HasMany,
-                key: 'payments',
-                relatedModel: PaymentModel,
-                collectionType: PaymentCollection,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
-                }
-            },
-            {
-                type: Backbone.HasMany,
-                key: 'workItems',
-                relatedModel: WorkItemModel,
-                collectionType: WorkItemCollection,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
-                }
-            },
-            {
-                type: Backbone.HasMany,
-                key: 'statusHistory',
-                relatedModel: StatusModel,
-                collectionType: StatusCollection,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
-                }
-            },
-            {
                 type: Backbone.HasOne,
-                key: 'currentStatus',
+                key: 'lastAction',
                 relatedModel: StatusModel,
-            },
-            {
-                type: Backbone.HasMany,
-                key: 'comments',
-                relatedModel: CommentModel,
-                collectionType: CommentCollection,
-                includeInJSON: false,
-                reverseRelation: {
-                    key: 'parent',
-                    includeInJSON: false
-                }
-            }
-            ],
+            }, {
+                type: Backbone.HasOne,
+                key: 'lastSubAction',
+                relatedModel: StatusModel,
+            }],
 
             idAttribute: "versionID",
             userID: "",
-            initialize: function(){
+            initialize: function() {
                 this.listenTo(Backbone, "updateCurrentStatus", this.setCurrentStatus);
             },
-            set: function( key, value, options ) {
-                Backbone.RelationalModel.prototype.set.apply( this, arguments );
-
+            set: function(key, value, options) {
                 if (typeof key === 'object') {
                     if (_.has(key, "dateCreated")) {
-                        this.attributes.dateCreated = moment(key["dateCreated"]);
+                        key["dateCreated"] = moment(key["dateCreated"]);
                     }
-                } else if (key === 'dateCreated'){
-                    this.attributes.dateCreated = moment(value);
+                } else if (key === 'dateCreated') {
+                    value = moment(value);
                 }
+                Backbone.RelationalModel.prototype.set.apply(this, [key, value, options]);
                 return this;
             },
-            setCurrentStatus: function(model){
-                this.set("currentStatus", model);
+            setCurrentStatus: function(model) {
+                this.set("lastAction", model);
             },
-            urlRoot:function(){
+            urlRoot: function() {
                 return "/agreement/v";
             },
-            submit: function(message, successCallback){
+            submit: function(message, successCallback) {
                 this.updateStatus("submitted", message, successCallback);
             },
-            accept: function(message, successCallback){
+            accept: function(message, successCallback) {
                 this.updateStatus("accepted", message, successCallback);
             },
-            reject: function(message, successCallback){
+            reject: function(message, successCallback) {
                 this.updateStatus("rejected", message, successCallback);
             },
-            updateStatus:function(action, message, successCallback){
+            updateStatus: function(action, message, successCallback) {
                 $.ajax({
                     type: "POST",
-                    url: "/agreement/v/"+this.id+"/status",
+                    url: "/agreement/v/" + this.id + "/status",
                     contentType: "application/json",
                     dataType: "json",
-                    data:JSON.stringify({"action":action, "message":message}),
-                    success: _.bind(function(response){
-                        this.set("currentStatus", response);
+                    data: JSON.stringify({
+                        "name": action,
+                        "message": message
+                    }),
+                    success: _.bind(function(response) {
+                        this.set("lastAction", response);
                         if (_.isFunction(successCallback)) successCallback();
                     }, this)
                 });
             },
-            archive: function(userID, successCallback){
-                $.ajax({
-                    type: "POST",
-                    url: "/agreement/v/"+this.id+"/archive",
-                    contentType: "application/json",
-                    dataType: "json",
-                    data:JSON.stringify({userID: userID}),
-                    success: _.bind(function(response){
-                        this.set(response);
-                        this.get("currentStatus").trigger("change");
-                        if (_.isFunction(successCallback)) successCallback();
-                    }, this)
-                });
+            archive: function(userID, successCallback) {
+                this.updateStatus("completed", "", successCallback);
             },
-            percentComplete: function(){
-                var deposit = this.get("workItems").findDeposit();
-                var depositAmount = (deposit) ? deposit.get("amountDue") : 0;
-                var totalAmountExDeposit = this.get("workItems").getTotalAmount() - depositAmount;
-                if (totalAmountExDeposit === 0) {
-                    return 0;
-                } else {
-                    return ((this.get("payments").getTotalAmount()- depositAmount)/totalAmountExDeposit) * 100;
-                }
+            percentComplete: function() {
+                var totalComplete = 0;
+                this.get("workItems").each(function(model) {
+                    if (model.isComplete()) totalComplete += 1;
+                });
+                return (totalComplete / this.get("workItems").length) * 100;
 
             }
         });
 
-return Agreement;
+        return Agreement;
 
-}
+    }
 
 );

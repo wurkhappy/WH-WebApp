@@ -13,21 +13,37 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
             template: userTemplate,
 
             initialize: function(options) {
-                this.listenTo(this.model, 'change:currentStatus', this.changeState);
+                this.listenTo(this.model, 'change:lastAction', this.changeState);
                 this.user = options.user;
-                this.otherUser = options.otherUser
+                this.otherUser = options.otherUser;
+                this.payments = options.payments;
+                this.tasks = options.tasks;
                 this.changeState();
             },
 
             render: function() {
                 var waiting;
                 var isArchived = this.model.get("archived");
-                var currentStatus = this.model.get("currentStatus");
+                var lastAction = this.model.get("lastAction");
                 var finalStatus = this.model.get("final");
                 var button1Title;
                 var button2Title;
                 var newAgreement;
                 var archived;
+                var user = this.user.toJSON();
+                var otherUser = this.otherUser.toJSON();
+                var client;
+                var freelancer;
+
+                // Determine if this user is the client or the freelancer
+
+                if (this.model.get("clientID") === this.user.get("id")) {
+                    client = user;
+                    freelancer = otherUser;
+                } else {
+                    client = otherUser;
+                    freelancer = user;
+                }
 
                 // Show the right buttons depending on the state.
 
@@ -44,7 +60,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                         archived = false;
                         newAgreement = true;
                     }
-                } else if (currentStatus !== null && this.state.button1Title === currentStatus.StatusWaiting) {
+                } else if (lastAction !== null && this.state.button1Title === lastAction.StatusWaiting) {
                     waiting = true;
                     button1Title = false;
                     button2Title = false;
@@ -64,7 +80,9 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                     button2Title: button2Title,
                     waiting: waiting,
                     archived: archived,
-                    newAgreement: newAgreement
+                    newAgreement: newAgreement,
+                    client: client,
+                    freelancer: freelancer
                 }));
 
                 $('body').scrollTop(0);
@@ -99,39 +117,57 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                     this.render();
                     return;
                 }
-                var status = this.model.get("currentStatus");
-                switch (status.get("action")) {
+                var status = this.model.get("lastAction");
+                var paymentStatus = this.payments.getLastAction();
+
+                if (paymentStatus && status.get("date").valueOf() < paymentStatus.get("date").valueOf()) {
+                    status = paymentStatus;
+                    status.set("type", "payment");
+                }
+                switch (status.get("name")) {
                     case status.StatusCreated:
                         this.state = new CreatedState({
-                            model: this.model
+                            model: this.model,
+                            payments: this.payments,
+                            status: status
                         });
                         break;
                     case status.StatusSubmitted:
+                        console.log(this.payments);
                         this.state = new SubmittedState({
                             model: this.model,
                             user: this.user,
-                            otherUser: this.otherUser
+                            otherUser: this.otherUser,
+                            payments: this.payments,
+                            status: status
                         });
                         break;
                     case status.StatusAccepted:
-                        if (this.model.get("workItems").findAllOutstanding().length === 0) {
+                        if (this.payments.getTotalDue() === this.payments.getTotalPaid()) {
                             this.state = new FinishedState({
                                 model: this.model,
                                 user: this.user,
-                                otherUser: this.otherUser
+                                otherUser: this.otherUser,
+                                payments: this.payments,
+                                status: status
                             });
                             break;
                         }
                         this.state = new AcceptedState({
                             model: this.model,
-                            user: this.user
+                            user: this.user,
+                            payments: this.payments,
+                            tasks: this.tasks,
+                            status: status
                         });
                         break;
                     case status.StatusRejected:
                         this.state = new RejectedState({
                             model: this.model,
                             user: this.user,
-                            otherUser: this.otherUser
+                            otherUser: this.otherUser,
+                            payments: this.payments,
+                            status: status
                         });
                         break;
                     default:

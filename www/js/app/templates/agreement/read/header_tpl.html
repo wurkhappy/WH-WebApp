@@ -1,9 +1,10 @@
-<div id="intro" class="clear intro">
-	<div class="column-three-fourth">
+<div id="intro" class="grid header" style="margin:0;">
+	<div class="col-1-2">
 		<h1>{{model.title}}</h1>
+		<h2 style="margin:0;padding:0;line-height:28px;color:white;font-family:museo_sans;font-size:16px;font-weight:300"><span class="sub_text">for client</span> {{client.firstName}} {{client.lastName}}</h2>
 	</div>
-	<div class="column-one-fourth">
-		<ul class="action_button_container">
+	<div class="col-1-2">
+		<ul class="action_button_container" style="float:right;margin:0;">
 			{{#if newAgreement}}
 				<h3 class="waiting">New agreement submitted.</h3>
 			{{/if}}
@@ -11,17 +12,18 @@
 				<h3 class="waiting">This agreement is archived.</h3>
 			{{/if}}
 			{{#if waiting}}
-				<h3 class="waiting">Waiting for the other party.</h3>
+				<!-- <h3 class="waiting">Waiting for the other party.</h3> -->
 			{{/if}}
 			{{#if button1Title}}
-				<li>
+				<li style="padding:0;">
 					<a href="{{button1Title}}" id="action-button1" class="button action_button">{{button1Title}}
 					</a>
 				</li>
 			{{/if}}
 			{{#if button2Title}}
-			<li><a href="{{button2Title}}" id="action-button2" class="button action_button">{{button2Title}}</a></li>
+			<li><a href="{{button2Title}}" id="action-button2" class="button orange_button">{{button2Title}}</a></li>
 			{{/if}}
 		</ul>
+		<h2 style="margin-right:30px;text-align:right;width:222px;padding:0;float:right;margin:0;line-height:20px;color:white;font-family:museo_sans;font-size:16px;font-weight:300;margin-right:30px;">{{freelancer.firstName}} {{freelancer.lastName}}<br><span class="sub_text">last completed</span><br><span style="text-transform:uppercase;font-style:italic;font-weight:100;font-size:18px;"> task 1</span></h2>
 	</div>
 </div>

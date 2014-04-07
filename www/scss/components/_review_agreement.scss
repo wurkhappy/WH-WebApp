@@ -4,22 +4,16 @@
 	font-size: 35px;
 	text-align: center;
 	color: hsl(0, 100%, 100%);
-	background: hsl(199, 100%, 41%);
-	padding: 12px;
-	border-radius: 5px;
+	background: $blue;
+	padding: 20px;
 	text-align: center;
-	box-shadow: 1px 1px 2px 0px hsl(0, 0%, 60%);
-	margin-top: 10px;
 }
 
 .review_agreement_container {
-	padding: 15px 20px;
-	border: 1px solid hsl(0, 0%, 87%);
-	box-shadow: 0 0 1px 0 hsl(0, 0%, 87%);
+	border: 1px solid $divider;
 	width: 660px;
 	margin: 0 auto;
 	overflow: hidden;
-
 	.agreement_title {
 		font-family: museo_sans;
 		font-weight: 300;
@@ -46,6 +40,7 @@
 .review_agreement_total {
 	border-top: 2px solid hsl(199, 100%, 41%);
 	padding-top:10px;
+	position: relative;
 }
 
 .review_continue {
@@ -77,4 +72,17 @@
 
 .bank_account_method_review {
 	margin-left:15px;
+}
+
+.ca_payment_list{
+	padding-right: 0px;
+}
+.ca_payment_list > li{
+	position: relative;
+}
+.ca_payment_amount {
+	float:right;
+	font-weight:500;
+	color: hsl(0, 0%, 39%);
+	font-size: 16px;
 }

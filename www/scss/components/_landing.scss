@@ -1,0 +1,312 @@
+/* LANDING INTRO
+================================================================================ */
+
+
+.intro_container {
+  background: $blue_background;
+  padding: 20px 0 20px 0;
+  color: white;
+}
+
+.about_container {
+  max-width: 900px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.landing_fixed_container {
+  position:fixed;
+  width:100%
+}
+
+.benefit {
+  border: 5px solid white;
+  border-radius: 200px;
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: 20px 0 0 0;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headline {
+  font-weight: 100;
+}
+
+.headline, .subline,
+.benefit_title {
+  text-align: center;
+  color: rgb(255,255,255);
+}
+
+.subline {
+  font-family: museo_sans;
+  font-weight: 100;
+  margin: 0 0 18px 0;
+  font-size: 20px;
+}
+
+.benefit_container {
+  width: 33%;
+  float:left;
+}
+
+.benefit_description {
+  text-align: center;
+  font-weight: 300;
+}
+
+.benefit_title {
+  font-size: 22px;
+  font-weight: 100;
+  margin: 20px 0 8px 0;
+  font-family: museo_sans;
+}
+
+.benefits_container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.signup_button_container {
+  width: 300px;
+  margin:0 auto;
+  list-style-type: none;
+  li {
+    display: inline;
+  }
+  margin-top: 50px;
+}
+
+.login_button {
+  padding: 8px 60px;
+  border: 3px solid $blue;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 24px;
+  text-transform: capitalize;
+  &:hover {
+    border: 3px solid $orange;
+  }
+}
+
+.landing_container {
+  padding-top: 66px;
+  height: 840px;
+}
+
+.explore_button_container {
+  margin-left: 20px;
+  width: 120px;
+}
+
+.landing_logo_container {
+  float:left;
+  width: 42%;
+  margin-left:40px;
+  padding: 5px 0;
+}
+
+.landing_admin_container {
+  width: 50%;
+  float: left;
+}
+
+.logo_white {
+  text-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
+  color: hsl(0, 100%, 100%);
+  background: hsla(0, 0%, 0%, 0) url(https://d3kq8dzp7eezz0.cloudfront.net/img/logo-large.png) no-repeat left;
+  padding-left: 90px;
+  padding-top:10px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.headline_container {
+  margin-bottom: 40px;
+}
+
+.left_background {
+  position:absolute;
+  width:50%;
+  height:100%;
+  top:0;
+  left:0;
+  background: hsl(198, 100%, 40%);
+}
+
+.right_background {
+  position:absolute;
+  width:50%;
+  height:100%;
+  top:0;
+  right:0;
+  background: hsl(199, 78%, 46%);
+}
+
+/* Landing Images */
+
+.fr_scene_01 {
+  width: 550px;
+  position: absolute;
+  top: 209px;
+  right: 50px;
+}
+
+.fr_01_agreement {
+  width: 147px;
+  position: absolute;
+  top: 391px;
+  right: 211px;
+  z-index: 2;
+}
+
+.fr_2_track {
+  width: 236px;
+  position: absolute;
+  top: 427px;
+  right: 163px;
+  z-index: 2;
+}
+
+.fr_3_invoice {
+  width: 236px;
+  position: absolute;
+  top: 431px;
+  right: 169px;
+  z-index: 2;
+}
+
+
+.invoice_connect {
+  width: 398px;
+  position: absolute;
+  top: 449px;
+  right: -225px;
+  z-index: 1;
+}
+
+.cl_1_agreement {
+  width: 250px;
+  position: absolute;
+  top: 373px;
+  left: 242px;
+}
+
+.cl_2_track {
+  width: 110px;
+  position: absolute;
+  top: 373px;
+  left: 242px;
+}
+
+.cl_3_invoice {
+  width: 250px;
+  position: absolute;
+  top: 394px;
+  left: 242px;
+}
+
+.feature1 {
+  font-size: 40px;
+  font-family: museo;
+  color: hsl(0, 100%, 100%);
+  line-height: 64px;
+  width: 900px;
+  position: absolute;
+  bottom: 30px;
+  opacity: 1;
+  margin-left: -372px;
+  margin-bottom: 63px;
+}
+
+.feature2 {
+  font-size: 40px;
+  font-family: museo;
+  color: hsl(0, 100%, 100%);
+  line-height: 64px;
+  width: 900px;
+  position: absolute;
+  bottom: 30px;
+  opacity: 1;
+  margin-left: -241px;
+  margin-bottom: 63px;
+}
+
+.feature3 {
+  font-size: 40px;
+  font-family: museo;
+  color: hsl(0, 100%, 100%);
+  line-height: 64px;
+  width: 900px;
+  position: absolute;
+  bottom: 30px;
+  opacity: 1;
+  margin-left: -319px;
+  margin-bottom: 63px;
+}
+
+.learn_more {
+  font-size: 40px;
+  font-family: museo;
+  color: hsl(0, 100%, 100%);
+  line-height: 64px;
+  width: 900px;
+  position: absolute;
+  bottom: 30px;
+  opacity: 1;
+  margin-left: -450px;opacity: 1;
+  margin-bottom: 30px;
+}
+
+.navigation{
+  padding: 15px;
+}
+
+/* Legal Page */
+
+.faqcontent {
+  padding: 23px 40px;
+  width: 630px;
+  float: right;
+  p {
+    color:black;
+  }
+  ul li {
+    color:black;
+  }
+}
+
+.legal_tab {
+  margin: 0 auto;
+  width: 235px;
+}
+
+.legal_menu {
+  float:left;
+}
+
+.legal_menu:first-child {
+  margin-right:20px;
+}
+
+.faqnav {
+  background: hsl(0, 0%, 96%);
+  padding: 20px;
+  width: 283px;
+}
+
+.title {
+  font-size:24px;
+  font-family:museo;
+  font-weight:300;
+  line-height:30px;
+  color:$orange;
+}
+
+.column-one-fourth{
+  clear: left;
+  margin-top: 30px;
+}

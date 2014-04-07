@@ -12,9 +12,9 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
+table, caption{
   margin: 0;
   padding: 0;
   border: 0;
@@ -40,7 +40,6 @@ q:before, q:after {
 }
 
 table {
-  border-collapse: collapse;
   border-spacing: 0;
 }
 
@@ -52,42 +51,54 @@ table {
 body {
   text-align: left;
   font-family: museo_sans;
-  background: hsl(210, 13%, 88%) url(/img/bg.png) fixed;
+  background: hsl(218, 13%, 88%);
   color: $black_light;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 
 a,
 a:visited {
   text-decoration: none;
-  color: rgb(0,153,221);
+  color: $blue;
+  text-transform: uppercase;
 }
 
 a:hover,
 a:active {
   text-decoration: underline;
-  color: rgb(0,137,198);
+  color: $orange;
   cursor: pointer;
+  text-decoration:none;
 }
 
-p, ul, ol, dl {
-  padding: 0 20px;
+p{
+  padding: 0;
   margin-bottom: 20px;
+  font-family: museo_sans;
+  font-size: 16px;
 }
 
-ul, ol {
-  margin-left: 30px;
+ul{
+  margin: 0px;
+  padding: 0px;
+  padding-left: 20px;
+  list-style: none;
 }
+
 
 strong {
   font-weight: bold;
 }
 
-h1, h2, h3 {
-  color: $black;
-  padding: 0 20px;
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
   font-family: museo;
+}
+
+h2, h3 {
+  color: $blue;
 }
 
 h1 strong, h2 strong {
@@ -96,23 +107,29 @@ h1 strong, h2 strong {
 
 h1 {
   font-size: 32px;
-  line-height: 40px;
-  font-weight: 100;
-  margin: 20px 0 10px 0;
+  line-height: 50px;
+  font-weight: 300;
 }
 
 h2 {
   font-size: 24px;
-  line-height: 30px;
-  margin: 20px 0 10px 0;
-  font-weight: 100;
+  line-height: 38px;
+  font-weight: 300;
 }
 
 h3 {
-  font-size: 16px;
-  line-height: 20px;
-  margin: 20px 0 10px 0;
+  font-size: 18px;
+  line-height: 29px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h4 {
+  color: hsl(202, 54%, 54%);
   font-weight: 500;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-family: museo_sans;
 }
 
 /* Forms
@@ -120,19 +137,15 @@ h3 {
 
 
 form {
-  padding: 0 20px 20px 20px;
+  padding: 0;
 }
 
-label, .faux-label {
+label {
   display: block;
-  padding: 20px 0 5px 0;
+  padding: 0;
   margin: 0;
-}
-
-label span {
-  display: block;
-  font-size: .75em;
-  color: rgb(150,150,150);
+  text-transform: uppercase;
+  color: hsl(202, 54%, 54%);
 }
 
 input {
@@ -142,11 +155,14 @@ input {
 input, textarea {
   border: 1px solid rgb(150,150,150);
   padding: 3px;
-  margin: 0;
+  margin:0;
+  margin-bottom: 10px;
   font-size: 100%;
   font: inherit;
   color: $black_light;
   border-radius: 3px;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }
 
 input[disabled] {
@@ -167,17 +183,28 @@ select {
 }
 
 fieldset {
-  border-top: 1px solid rgb(245,245,245);
   padding: 0 0 20px 0;
   width: 100%;
 }
 
+td {
+  border-top: 1px solid hsl(0, 0%, 96%);
+  padding: 15px 0 0 0;
+}
+
 /* COMMON UI classes
 ================================================================================ */
-.content {
-  background-color: rgb(255,255,255);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+
+.green {
+  color: $green;
+}
+
+.orange {
+  color: $orange !important;
+}
+
+.white {
+  color: white;
 }
 
 .white_background {
@@ -185,12 +212,41 @@ fieldset {
   position: relative;
 }
 
+.bold_text {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: hsl(0, 0%, 39%);
+}
+
+.italic_text {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.sub_text{
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 10px;
+  font-family: museo_sans;
+  font-style: normal;
+}
+
+.layout_container {
+  min-height:150px;
+  padding: 30px;
+}
+
 .main_content_container {
-  float:left;
-  border-radius: 15px;
-  -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
-  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2), 0 10px 27px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow:    0px 3px 5px 3px #CDCED3;
+  -webkit-box-shadow: 0px 3px 5px 3px #CDCED3;
+  box-shadow:         0px 3px 5px 3px #CDCED3;
+  background-color: white;
 }
 
 .hide {
@@ -198,6 +254,9 @@ fieldset {
 }
 .inline_block{
   display: inline-block;
+}
+.no_bullet{
+  list-style: none;
 }
 
 .checkmark {
@@ -210,10 +269,11 @@ fieldset {
 
 .helper_text {
   display: block;
-  font-size: 14px;
-  color: hsl(0, 0%, 59%);
+  font-size: 12px;
+  color: $grey;
   margin: 0 0 10px 0;
   text-align:left;
+  font-weight: 500;
 }
 
 .secure:before {
@@ -222,14 +282,24 @@ fieldset {
 }
 
 .divider {
-  border-bottom: 1px solid hsl(213, 18%, 88%);
-  clear: both;
+  border-bottom: 1px solid $divider;
   margin: 0 auto;
   width: 100%;
 }
+.divider_left{
+  border-left: 1px solid $divider;
+}
+.divider_right{
+  border-right: 1px solid $divider;
+}
+
+.center_text {
+  text-align: center;
+}
+
 
 .required {
-  color: $red;
+  color: $orange;
   display: inline;
 }
 
@@ -239,4 +309,31 @@ fieldset {
 
 .gutter {
   margin-left: 40px;
+}
+.right_align {
+  position:absolute;
+  top:0;
+  right:0; 
+}
+.fa.fa-check-circle{
+  color: $green_light;
+  margin-left: -1.1em;
+}
+
+.fa-check{
+  color: $green_light;
+  margin-left: -1.1em;
+}
+
+.fa-check.task_check{
+  color: inherit;
+  margin-left: 0;
+  position: relative;
+  top: -2px;
+  left:-1px;
+  font-size:16px;
+}
+
+.checkmark_holder{
+  position: relative;
 }

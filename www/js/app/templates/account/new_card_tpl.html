@@ -1,9 +1,11 @@
 <h2>Credit Card Details</h2>
 <img class="account_secure" src="/img/balanced_secured.png">
+<div style="margin-top:20px; border-top:1px solid hsl(188, 35%, 84%);padding-top:15px;">
+<h2 style="margin-bottom:10px;">Add a New Card</h2>
 <form action="" method="get" accept-charset="utf-8"class="very_secure">
-  <fieldset>
+  <fieldset style="border-top:none;">
     <label for="">Credit Card Number</label>
-    <input type="text" name="card_number" value="" id="" size="50">
+    <input type="text" name="number" value="" id="" size="50">
     <label for="">Expires On</label>
     <select name="expiration_month" id="">
       <option value="1">1</option>
@@ -31,12 +33,13 @@
       <option value="2021">2022</option>
       <option value="2021">2023</option>
     </select>
-    <label for="">Billing Address Zip/Postal Code</label>
-    <input type="text" name="postal_code" value="" id="" size="25">
+    <label style="margin-top:8px;" for="">Billing Zip Code</label>
+    <input type="text" name="postal_code" value="" id="postal_code" size="25">
     <label for="">Security Code</label>
-    <input type="text" name="security_code" value="" id="" size="25">
+    <input type="text" name="cvv" value="" id="" size="25">
   </fieldset>
-  <fieldset class="submit-buttons">
-    <a href="save_card" id="save-button" class="single">Save Credit Card Details</a>
+  <fieldset class="account_save">
+    <a href="save_card" id="save-button" class="button orange_button">Save Credit Card Details</a>
   </fieldset>
 </form>
+<div>

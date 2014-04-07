@@ -1,29 +1,37 @@
-<h2 class="create_agreement_title">{{title}}</h2>
-<div class="progress_area">
-  <div class="create_agreement_icon_container">
-    <a class="create_agreement_navigation_link overview_link" href="#proposal">
-      <h2 class="create_agreement_navigation">Overview</h2>
-      <i class="fa fa-circle {{icon_color 0 value}} create_agreement_progress_icon"></i>
-    </a>
-    <a class="create_agreement_navigation_link payment_schedule_link" href="#estimate">
-      <h2 class="create_agreement_navigation">Payment</h2>
-      <i class="fa fa-circle {{icon_color 1 value}} create_agreement_progress_icon"></i>
-    </a>
-    <a class="create_agreement_navigation_link review_link" href="#review">
-      <h2 class="create_agreement_navigation">Review</h2>
-      <i class="fa fa-circle {{icon_color 2 value}} create_agreement_progress_icon"></i>
-    </a>
-    <a class="create_agreement_navigation_link send_link" href="#send">
-      <h2 class="create_agreement_navigation">Send</h2>
-      <i class="fa fa-circle {{icon_color 3 value}} create_agreement_progress_icon"></i>
-    </a>
-  </div>
-  <div class="create_agreement_progress">
-  <progress class="agreement_progress" max="100" value="{{value}}">
-    <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
-    <div class="agreement_progress_bar create_agreement_progress_bar_fallback" style="width:{{value}}%;">
-      <span style="width:{{percentComplete}}%" ></span>
+<div class="divider" style="overflow:hidden;height: 115px;">
+
+  <!-- <h2 class="create_agreement_title">{{title}}</h2> -->
+  
+  <div class="progress_area">
+    <div class="create_agreement_icon_container">
+      <a class="create_agreement_navigation_link overview_link" href="#overview">
+        <h3>Overview</h3>
+        <span class="progress_icon create_agreement_progress_icon green_progress"></span>
+      </a>
+      <a class="create_agreement_navigation_link payment_schedule_link" href="#services">
+        <h3>Services</h3>
+        <span class="progress_icon create_agreement_progress_icon {{icon_color1}} "></span>
+      </a>
+      <a class="create_agreement_navigation_link payment_link" href="#payment">
+        <h3>Payment</h3>
+        <span class="progress_icon create_agreement_progress_icon {{icon_color2}} "></span>
+      </a>
+      <a class="create_agreement_navigation_link review_link" href="#review">
+        <h3>Review</h3>
+        <span class="progress_icon create_agreement_progress_icon {{icon_color3}} "></span>
+      </a>
+       <a class="create_agreement_navigation_link send_link" href="#send">
+        <h3>Send</h3>
+        <span class="progress_icon create_agreement_progress_icon {{icon_color4}} "></span>
+      </a>
     </div>
-  </progress>
+    <div class="create_agreement_progress">
+    <progress class="agreement_progress" max="100" value="{{value}}" style="margin-top:40px;">
+      <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
+      <div class="agreement_progress_bar create_agreement_progress_bar_fallback" style="width:{{value}}%;">
+        <span style="width:{{percentComplete}}%" ></span>
+      </div>
+    </progress>
+    </div>
   </div>
 </div>

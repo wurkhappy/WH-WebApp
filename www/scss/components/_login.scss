@@ -1,12 +1,8 @@
 .form_holder {
   border: 1px solid #ddd;
   background-color: rgb(253,253,253);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 10px;
   margin: 0;
-  margin-left: -160px;
-  padding: 20px 10px;
+  margin-left: -190px;
   position: relative;
   text-align: left;
 }
@@ -26,23 +22,8 @@
   margin-bottom: 0;
 }
 
-.login_screen_title {
-  margin: 0;
-  padding: 0;
-}
-
 .forgot_password_button {
   margin-top: 5px;
-}
-
-.forgot_password_form {
-  height: 260px;
-  width: 350px;
-}
-
-.login_helper {
-  line-height: 16px;
-  margin-bottom: 0px;
 }
 
 .other_login {

@@ -6,7 +6,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
         var RejectedState = BaseState.extend({
             initialize: function(options) {
-                BaseState.prototype.initialize.apply(this);
+                BaseState.prototype.initialize.apply(this, [options]);
                 var submitTitle = (this.statusType === 'payment') ? "Request" : "Submit";
                 this.button1Title = (this.userIsClient) ? null : submitTitle + " " + this.statusType;
                 this.button2Title = (this.userIsClient) ? null : "Edit Agreement";

@@ -9,12 +9,14 @@ import (
 	"github.com/wurkhappy/WH-Config"
 	"html/template"
 	"net/http"
+	"sync"
 	"time"
 )
 
 var homeTpl *template.Template
 var emptyHomeTpl *template.Template
 var archivesTpl *template.Template
+var emptyArchivesTpl *template.Template
 
 func init() {
 	format := func(date string) string {
@@ -35,6 +37,10 @@ func init() {
 	archivesTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
 		"templates/_baseApp.html",
 		"templates/archives.html",
+	)
+	emptyArchivesTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+		"templates/_baseApp.html",
+		"templates/empty_archives.html",
 	)
 }
 
@@ -87,12 +93,16 @@ func GetArchives(w http.ResponseWriter, req *http.Request, session *sessions.Ses
 		"JSversion":      JSversion,
 		"CSSversion":     CSSversion,
 	}
+	if len(agreementsData) == 0 {
+		emptyArchivesTpl.Execute(w, m)
+		return
+	}
 
 	archivesTpl.Execute(w, m)
 }
 
 func getCurrentAgreements(userID string) []map[string]interface{} {
-	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/user/"+userID+"/agreements", nil)
+	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/user/"+userID+"/agreements", nil, userID)
 	if statusCode >= 400 {
 		return nil
 	}
@@ -103,7 +113,7 @@ func getCurrentAgreements(userID string) []map[string]interface{} {
 }
 
 func getArchivedAgreements(userID string) []map[string]interface{} {
-	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/user/"+userID+"/archives", nil)
+	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/user/"+userID+"/archives", nil, userID)
 	if statusCode >= 400 {
 		return nil
 	}
@@ -116,7 +126,7 @@ func getArchivedAgreements(userID string) []map[string]interface{} {
 func getOtherUsers(agreements []map[string]interface{}, userID string) []map[string]interface{} {
 	requestString := buildOtherUsersRequest(agreements, userID)
 
-	resp, statusCode := sendServiceRequest("GET", config.UserService, "/user/search?"+requestString, nil)
+	resp, statusCode := sendServiceRequest("GET", config.UserService, "/users?"+requestString, nil, userID)
 	if statusCode >= 400 {
 		return nil
 	}
@@ -146,7 +156,7 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v", buf.Bytes())
+	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v", buf.Bytes(), session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -162,7 +172,35 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreements/v/"+vars["versionID"], buf.Bytes())
+
+	var agreement []byte = buf.Bytes()
+
+	var data map[string]interface{}
+	json.Unmarshal(agreement, &data)
+
+	if email, ok := data["clientEmail"]; ok {
+		resp, statusCode := sendServiceRequest("GET", config.UserService, "/users?create=true&email="+email.(string), nil, session.Values["id"].(string))
+		if statusCode >= 400 {
+			var rError *responseError
+			json.Unmarshal(resp, &rError)
+			http.Error(w, rError.Description, statusCode)
+			return
+		}
+		fmt.Println(string(resp))
+
+		var users []map[string]interface{}
+		json.Unmarshal(resp, &users)
+
+		if data["freelancerID"].(string) != "" {
+			data["clientID"] = users[0]["id"].(string)
+		} else {
+			data["freelancerID"] = users[0]["id"].(string)
+		}
+
+		agreement, _ = json.Marshal(data)
+	}
+
+	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreements/v/"+vars["versionID"], agreement, session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -177,7 +215,7 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 	var agrmntData map[string]interface{}
 	var otherUser map[string]interface{}
 	if id := req.URL.Query().Get("versionID"); id != "" {
-		resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/agreements/v/"+id, nil)
+		resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/agreements/v/"+id, nil, session.Values["id"].(string))
 		if statusCode >= 400 {
 			var rError *responseError
 			json.Unmarshal(resp, &rError)
@@ -197,7 +235,7 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		}
 	}
 
-	userResp, userStatusCode := sendServiceRequest("GET", config.UserService, "/user/"+session.Values["id"].(string)+"/details", nil)
+	userResp, userStatusCode := sendServiceRequest("GET", config.UserService, "/user/"+session.Values["id"].(string)+"/details", nil, session.Values["id"].(string))
 	if userStatusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(userResp, &rError)
@@ -227,7 +265,7 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 func DeleteAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
 
-	resp, statusCode := sendServiceRequest("DELETE", config.AgreementsService, "/agreements/v/"+vars["versionID"], nil)
+	resp, statusCode := sendServiceRequest("DELETE", config.AgreementsService, "/agreements/v/"+vars["versionID"], nil, session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -242,35 +280,46 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 
 	vars := mux.Vars(req)
 	id := vars["versionID"]
-	resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/agreements/v/"+id, nil)
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
 	var agrmntData map[string]interface{}
-	json.Unmarshal(resp, &agrmntData)
+	var paymentsData []map[string]interface{}
+	var tasksData []map[string]interface{}
 
-	resp, statusCode = sendServiceRequest("GET", config.CommentsService, "/agreement/"+agrmntData["agreementID"].(string)+"/comments", nil)
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	var commentsData []map[string]interface{}
-	json.Unmarshal(resp, &commentsData)
-
-	resp, statusCode = sendServiceRequest("GET", config.CommentsService, "/agreement/"+agrmntData["agreementID"].(string)+"/tags", nil)
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	var tagsData []map[string]interface{}
-	json.Unmarshal(resp, &tagsData)
+	var wg sync.WaitGroup
+	wg.Add(3)
+	go func() {
+		resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/agreements/v/"+id, nil, session.Values["id"].(string))
+		if statusCode >= 400 {
+			var rError *responseError
+			json.Unmarshal(resp, &rError)
+			http.Error(w, rError.Description, statusCode)
+			return
+		}
+		json.Unmarshal(resp, &agrmntData)
+		wg.Done()
+	}()
+	go func() {
+		resp, statusCode := sendServiceRequest("GET", config.PaymentsService, "/agreements/v/"+id+"/payments", nil, session.Values["id"].(string))
+		if statusCode >= 400 {
+			var rError *responseError
+			json.Unmarshal(resp, &rError)
+			http.Error(w, rError.Description, statusCode)
+			return
+		}
+		json.Unmarshal(resp, &paymentsData)
+		wg.Done()
+	}()
+	go func() {
+		resp, statusCode := sendServiceRequest("GET", config.TasksService, "/agreements/v/"+id+"/tasks", nil, session.Values["id"].(string))
+		if statusCode >= 400 {
+			var rError *responseError
+			json.Unmarshal(resp, &rError)
+			http.Error(w, rError.Description, statusCode)
+			return
+		}
+		json.Unmarshal(resp, &tasksData)
+		wg.Done()
+	}()
+	wg.Wait()
 
 	otherid, _ := agrmntData["freelancerID"]
 	otherID := otherid.(string)
@@ -286,10 +335,10 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 	m := map[string]interface{}{
 		"appName":    "mainagreement",
 		"agreement":  agrmntData,
+		"payments":   paymentsData,
+		"tasks":      tasksData,
 		"otherUser":  otherUser,
 		"thisUser":   thisUser,
-		"comments":   commentsData,
-		"tags":       tagsData,
 		"production": Production,
 		"JSversion":  JSversion,
 		"CSSversion": CSSversion,
@@ -314,83 +363,8 @@ func CreateAgreementStatus(w http.ResponseWriter, req *http.Request, session *se
 	id := vars["versionID"]
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	reqBytes := buf.Bytes()
-	var status *Status
-	json.Unmarshal(reqBytes, &status)
 
-	status.AgreementID = id
-	status.UserID = session.Values["id"].(string)
-	status.IPAddress = req.Header.Get("X-Real-Ip")
-	data, _ := json.Marshal(status)
-
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/status", data)
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	w.Write(resp)
-}
-func CreatePayment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	vars := mux.Vars(req)
-	id := vars["versionID"]
-
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-	reqBytes := buf.Bytes()
-	var reqData map[string]interface{}
-	json.Unmarshal(reqBytes, &reqData)
-	fmt.Println(reqData)
-
-	reqData["userID"] = session.Values["id"].(string)
-	reqData["ipAddress"] = req.Header.Get("X-Real-Ip")
-	data, _ := json.Marshal(reqData)
-
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreement/v/"+id+"/payment/", data)
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	w.Write(resp)
-}
-
-func UpdatePaymentStatus(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	vars := mux.Vars(req)
-	id := vars["versionID"]
-	paymentID := vars["paymentID"]
-
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-	reqBytes := buf.Bytes()
-	var status *Status
-	json.Unmarshal(reqBytes, &status)
-
-	status.AgreementID = id
-	status.PaymentID = paymentID
-	status.UserID = session.Values["id"].(string)
-	status.IPAddress = req.Header.Get("X-Real-Ip")
-	data, _ := json.Marshal(status)
-
-	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+id+"/payment/"+paymentID+"/status", data)
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-	w.Write(resp)
-}
-
-func CreateComment(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	vars := mux.Vars(req)
-	id := vars["agreementID"]
-
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.CommentsService, "/agreement/"+id+"/comments", buf.Bytes())
+	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v/"+id+"/action", buf.Bytes(), session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -405,7 +379,7 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v/"+vars["versionID"]+"/archive", buf.Bytes())
+	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v/"+vars["versionID"]+"/archive", buf.Bytes(), session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -429,34 +403,3 @@ func ShowSample(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	index.Execute(w, m)
 }
 
-func UpdateTasks(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	vars := mux.Vars(req)
-
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+vars["versionID"]+"/work_item/"+vars["workItemID"]+"/tasks", buf.Bytes())
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-
-	w.Write(resp)
-}
-
-func UpdateWorkItem(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	vars := mux.Vars(req)
-
-	buf := new(bytes.Buffer)
-	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("PUT", config.AgreementsService, "/agreement/v/"+vars["versionID"]+"/work_item/"+vars["workItemID"]+"", buf.Bytes())
-	if statusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(resp, &rError)
-		http.Error(w, rError.Description, statusCode)
-		return
-	}
-
-	w.Write(resp)
-}

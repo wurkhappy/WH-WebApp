@@ -31,7 +31,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                 this.render();
             },
             render: function() {
-                var milestonePayment = this.model.getTotalAmount();
+                var milestonePayment = this.model.get("amountDue");
                 var amountTotal = milestonePayment;
                 var creditCards = this.creditCards;
                 var bankAccounts = this.bankAccounts;
@@ -53,6 +53,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                 }
 
                 this.$el.html(this.payTemplate({
+                    model: this.model.toJSON(),
                     milestonePayment: milestonePayment,
                     amountTotal: amountTotal,
                     creditCards: creditCards.toJSON(),
@@ -121,7 +122,9 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                     var triggerNotification = _.debounce(fadeInNotification, 300);
                     this.trigger('hide');
                     triggerNotification();
-                    analytics.track('Payment Made');
+                    if (window.production) {
+                        analytics.track('Payment Made');
+                    }
                 }
 
             },

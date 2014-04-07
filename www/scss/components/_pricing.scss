@@ -9,53 +9,127 @@
 }
 
 .price_level {
-	//border: 1px solid black;
 	h2 {
 		font-weight: 400;
+		color:white;
 		margin-top:10px;
 		font-family: museo_sans;
+		text-transform: uppercase;
+		font-size: 20px;
+		margin:0;
 	}
-	background: $grey_blue;
-	border: 1px solid hsl(213, 18%, 80%);
-	border-radius: 3px;
+	//border: 3px solid white;
 	width: 300px;
 	float:left;
 	margin: 5px;
-	text-align:center;
+	text-align:left;
+	padding:20px;
 }
 
 .receive_text {
 	font-size: 16px;
-	color:$grey;
+	color:$green;
 	font-weight: normal;
-	color: hsl(0, 0%, 39%);
 }
 
 .pay_text {
 	font-size: 16px;
-	color: $grey;
+	color: $orange;
 	font-weight: normal;
-	color: hsl(0, 0%, 39%);
 }
 
 .processing_container {
+	max-width:850px;
+	margin:0 auto;
 	p {
 		margin-bottom: 10px;
 		max-width: 430px;
 	}
 }
 
-.processing_description, .processing_costs {
+.processing_description {
 	float:left;
-	width: 480px;
 }
 
 .processing_costs {
-	margin-top: 60px;
+	float:right;
+}
+
+.payment_method {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .5px;
+}
+
+.payment_cost {
+	font-weight:700;
+	color:$orange;
+	font-size: 20px;
 }
 
 .signup_button_container {
 	float: left;
 	margin: 20px;
 	clear: both;
+}
+
+.pricing_start {
+	margin-top:75px;
+	padding:0;
+}
+
+.processing_description p  {
+	color:white;
+}
+
+.pricing_box {
+	overflow: hidden;
+	width: 1290px;
+	padding: 30px;
+	margin:0 auto;
+}
+
+.pricing_box_inside {
+	padding:30px ;
+	border:3px solid white;
+	width: 400px;
+	float:left;
+	margin: 5px;
+	h1 {
+		color:white;
+		text-align:center;
+		font-size:45px;
+		line-height:70px;
+		margin-bottom:15px;
+	}
+	h2 {
+		font-size: 60px;
+		line-height: 70px;
+		text-align:center;
+	}
+	h3 {
+		color:white;
+		text-align:center;
+		font-family:museo_sans;
+	}
+	h4 {
+		color: hsl(0, 100%, 100%);
+		text-align: center;
+		font-family: museo;
+		margin-top: 30px;
+		font-size: 18px;
+		letter-spacing: 3px;
+		font-weight: 200;
+	}
+}
+
+.pricing_benefits_box {
+  	float: left;
+	font-size: 33px;
+	line-height: 65px;
+	font-family: museo;
+	padding-top: 70px;
+	text-transform: uppercase;
+	font-weight: 100;
 }

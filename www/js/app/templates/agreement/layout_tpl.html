@@ -1,31 +1,57 @@
   <div id="header-section"></div>
-  <div id="agreement-profile" class="data-table agreement_profile_container"></div>
-  <div class="divider"></div>
+  <!--   <div id="agreement-profile" class="data-table agreement_profile_container"></div> -->
+  
   <div id="agreement-progress-bar"></div>
+  <div class="divider"></div>
   <div id="payment-methods"></div>
-  <div id="payment-schedule" class="clear"></div>
-  <div class="divider"></div>
 
-  <div id="proposed-services" class="column-full">
-  	<h2 class="agreement_title">Agreement Overview</h2>
-  	<div class="proposed_services_container">{{{proposedServices}}}</div>
-  </div>
-
-  <div class="divider"></div>
-
-  
-  <div id="discussion" class="clear messages_container"></div>
-      
-      <div class="payment"></div>
+  <div class="grid" style="padding-top:20px;">
+    <div class="col-2-3 ">
+      <div id="deliverables_section" class="agreement_region"></div>
     </div>
-
-  </div>
-  
-  <div class="clear agreement_history">
-   <div id="agreement-history"></div>
+    <div class="col-1-3">
+      <div id="proposed-services" class="divider_left agreement_region">
+        <div class="ag_section">
+          <h2 class="agreement_title">Agreement Overview</h2>
+          <div id="accepted_methods_container" class="ag_section"></div>
+          <div class="proposed_services_container">{{{proposedServices}}}</div>
+       </div>
+       <div>
+         <!-- <h2 class="agreement_title">Payment</h2> -->
+         <div id="payment_schedule_container" class="ag_section"></div>
+       </div>
+     </div>
+   </div>
  </div>
- <div class="clear">
+
+
+ <!-- <div class="divider" style="margin-top:20px;"></div> -->
+
+  <!-- <div id="discussion" class="messages_container"></div> -->
+
+ <div class="payment"></div>
+</div>
+
+</div>
+
+<div style="overflow:hidden;">
   <p class="void_agreement">
     If, for whatever reason, you feel this agreement is no longer valid, you can <a href="void.html" id="voidAgreement">void the agreement</a>.
   </p>
 </div>
+
+<!-- {{#if newAgreement}}
+            <h3 class="waiting">New agreement submitted.</h3>
+          {{/if}}
+          {{#if archived}}
+            <h3 class="waiting">This agreement is archived.</h3>
+          {{/if}}
+          {{#if button1Title}}
+            <li style="padding:0;">
+              <a href="{{button1Title}}" id="action-button1" class="button action_button">{{button1Title}}
+              </a>
+            </li>
+          {{/if}}
+          {{#if button2Title}}
+          <li><a href="{{button2Title}}" id="action-button2" class="button orange_button">{{button2Title}}</a></li>
+          {{/if}} -->

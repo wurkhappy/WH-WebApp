@@ -1,32 +1,13 @@
-.progress-large {
+.progress-large{
   margin: 20px;
-  padding: 0px 60px 0px 60px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: rgb(249,250,251);
-  position: relative;
+  margin-top:60px;
+  margin-bottom:60px;
 }
 
 .create_agreement_progress {
   margin: 20px;
   padding: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: rgb(249,250,251);
   position: relative;
-}
-
-.progress-large span {
-  display: block;
-  background-color: rgb(220,224,228);
-  background-repeat: no-repeat;
-}
-
-.progress-large span img {
-  display: block;
-  width: 800px;
 }
 
 .agreement_progress progress[value]{
@@ -41,42 +22,36 @@ progress[value] {
   width: 100%; 
   height: 2px;
   /* Although firefox doesn't provide any additional pseudo class to style the progress element container, any style applied here works on the container. */
-  background-color: rgb(220,224,228);
+  background-color: $grey_light;
   /* Of all IE, only IE10 supports progress element that too partially. It only allows to change the background-color of the progress value using the 'color' attribute. */
   color: royalblue;
   position: relative;
-  margin: 15px 0;
-  border-radius:10px;
+  margin: 5px 0;
 }
 
 progress[value]::-webkit-progress-bar {
-  background-color: rgb(220,224,228);
-  border-radius:10px;
+  background-color: $grey_light;
 }
 
 progress[value]::-webkit-progress-value {
   position: relative;
-  border-radius:10px;
 }
 
 
 /* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
 
 progress[value]::-moz-progress-bar {
-  background: $green_progress;
-  border-radius:10px;
+  background: $green;
 }
 
 progress::-webkit-progress-value, progress.yellow_progress {
-  background: $green_progress;
-  border-radius:10px;
+  background: $green;
 }
 
 
 /* Fallback technique styles */
 .progress-bar {
-  background-color: $green_progress;
-  border-radius:10px;
+  background-color: $green;
 
   /* Dimensions should be similar to the parent progress element. */
   width: 100%; 
@@ -84,7 +59,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .progress-bar span {
-  background-color: rgb(220,224,228);
+  background-color: $grey_light;
   display: block;
   text-indent: -9999px;
 }
@@ -92,85 +67,91 @@ progress::-webkit-progress-value, progress.yellow_progress {
 // Larger progress bars on agreement
 
 .agreement_progress[value] {
-  height: 10px;
+  height: 4px;
   width: 100%;
-  border-radius:10px;
   margin-top: 15px;
 }
 
 .agreement_progress[value]::-webkit-progress-bar {
-  height: 10px;
-  border-radius:10px;
-  //background-size: 900px 10px;
+  height: 4px;
 }
 
 .agreement_progress[value]::-moz-progress-bar {
-  height: 10px;
-  border-radius:10px;
-  background: $green_progress;
+  height: 4px;
+  background: $green;
 }
 
 .agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
   background: 
-    -webkit-linear-gradient( left, $yellow_progress);
-  border-radius:10px;
-  //background-size: 900px 10px; 
+  -webkit-linear-gradient( left, $yellow_progress);
 }
 
 .agreement_progress[value]::-webkit-progress-value {
   position: relative;
-  border-radius:10px;
 }
-
-
-// Larger progress bar values
-
-
 
 // Fallback for larger progress bar
 
 .agreement_progress_bar {
-  background-color: $green_progress;
+  background-color: $green;
 
   /* Dimensions should be similar to the parent progress element. */
   width: 100%; 
-  height: 10px;
-  border-radius:10px;
+  height: 4px;
   position: absolute;
 }
 
 
 // progress bar colors
 
-.green_progress {
-  background: $green_progress;
+.progress_icon.green_progress {
+  border-bottom-color: $green;
+}
+
+.progress_icon.green_progress:after{
+  border-top-color: $green;
 }
 
 .yellow_progress {
   background: $yellow_progress;
 }
 
+.green_progress_tick {
+  background: $green;
+}
+
+.grey_progress_tick {
+  background: $grey_light;
+}
+
 .red_progress {
   background: $red_progress;
 }
 
-.grey_progress {
-  background: hsl(210, 13%, 85%);
+.progress_icon.grey_progress {
+  border-bottom-color:$grey;
+}
+.progress_icon.grey_progress:after{
+  border-top-color: $grey;
 }
 
 .icon_container {
-  position: absolute;
+  position: relative;
   top: 10.5px;
   z-index:1;
+  left: 40px;
 }
 
 .create_agreement_navigation_link {
   position: absolute;
   left:0px;
   text-align: center;
-  width: 100px;
+  width: 110px;
   &:hover {
     text-decoration: none;
+    h3 {
+      color: $orange;
+    }
   }
 }
 
@@ -182,43 +163,59 @@ progress::-webkit-progress-value, progress.yellow_progress {
   left:150px;
 }
 
-.review_link {
+.payment_link {
   left:300px;
 }
 
-.send_link {
+.review_link {
   left: 450px;
+}
+
+.send_link {
+  left: 600px;
 }
 
 .create_agreement_icon_container {
   position: absolute;
-  top: -23.5px;
-  left:0px;
   z-index:5;
+  margin-top: 4px;
 }
 
-
 .progress_icon {
-  font-size: 26px;
-  width:30px;
-  height:30px;
-  border-radius: 50%;
-  margin-top: -4px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  position: absolute;
+  top: -93px;
+  display: inline-block;
+  margin-left:10px;
+  &:after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+  }
 }
 
 .create_agreement_progress_icon {
-  color: hsl(210, 13%, 85%);
+  top: -2px;
+  display: inline-block;
+  margin-left: 0;
+  border-bottom-color: $grey;
   position:relative;
-  font-size: 36px;
+  &:after {
+    border-top-color: $grey;
+  }
 }
 
 .create_agreement_progress {
-  width: 450px;
+  width: 617px;
   float: right;
-  margin-right: 100px;
-  margin-top: 0;
-  margin-bottom: 0;
   padding-bottom: 0;
+  margin-top:0;
 }
 
 .create_agreement_navigation {
@@ -249,7 +246,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 }
 
 .green_icon {
-  color: $green_progress;
+  color: $green;
 }
 
 .tooltip{
@@ -271,9 +268,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
   color: rgb(100,100,100);
 }
 .tooltip > ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 .tooltip:after{
   content: "";
@@ -292,7 +289,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
-  tranform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 
@@ -305,7 +302,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
   span {
     display: block;
     margin: 14px 0 13px 0;
-    background-color: $green_progress;
+    background-color: $green;
     height:2px;
     width:0;
   }
@@ -320,5 +317,32 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .create_agreement_progress_bar_fallback {
   top: 0;
   position: absolute;
+}
+
+.progress_bar > .ui-progressbar-value {
+  background: $green;
+  border:none;
+  margin: 0;
+  border-radius: 0px;
+}
+.progress_bar.ui-progressbar{
+  height: 4px;
+  border-radius: 0px;
+  width: 800px;
+  margin: 60px;
+  margin-top:80px;
+}
+
+#payment_progress.progress_bar{
+  height: 2px;
+  border-radius: 0px;
+  margin: 30px 22px;
+  width:auto;
+  background: $grey_light;
+}
+
+
+.agreement_progress_tick:last-child {
+  display:none;
 }
 

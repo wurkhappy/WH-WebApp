@@ -19,6 +19,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
 	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
 	r.Handle("/user", loginHandler(handlers.CreateUser)).Methods("POST")
+	r.Handle("/users", loginHandler(handlers.SearchUsers)).Methods("GET")
 
 	r.Handle("/user/new-password", baseHandler(handlers.GetNewPasswordPage)).Methods("GET")
 	r.Handle("/user/{id}", userHandler(handlers.UpdateUser)).Methods("PUT")
@@ -42,12 +43,13 @@ func initRoutes(r *mux.Router) {
 
 	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
 
-	r.Handle("/agreement/v/{versionID}/payment/{paymentID}/status", versionHandler(handlers.UpdatePaymentStatus)).Methods("PUT")
-	r.Handle("/agreement/v/{versionID}/payment/", versionHandler(handlers.CreatePayment)).Methods("POST")
+	r.Handle("/payments/{paymentID}/action", baseHandler(handlers.CreatePaymentAction)).Methods("POST")
+	r.Handle("/payments/{paymentID}", baseHandler(handlers.UpdatePayment)).Methods("PUT")
+	r.Handle("/tasks/{taskID}", baseHandler(handlers.UpdateTask)).Methods("PUT")
+
+	r.Handle("/agreements/v/{versionID}/tasks", versionHandler(handlers.CreateTasks)).Methods("POST")
+	r.Handle("/agreements/v/{versionID}/payments", versionHandler(handlers.CreatePayments)).Methods("POST")
 	r.Handle("/agreement/v/{versionID}/status", versionHandler(handlers.CreateAgreementStatus)).Methods("POST")
-	r.Handle("/agreement/v/{versionID}/work_item/{workItemID}/tasks", versionHandler(handlers.UpdateTasks)).Methods("PUT")
-	r.Handle("/agreement/v/{versionID}/work_item/{workItemID}", versionHandler(handlers.UpdateWorkItem)).Methods("PUT")
-	r.Handle("/agreement/{agreementID}/comments", agreementHandler(handlers.CreateComment)).Methods("POST")
 
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	r.Handle("/agreement/v", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")

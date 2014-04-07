@@ -14,7 +14,8 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
             events: {
                 "blur input": "updateFields",
                 "click #save-button": "debounceSaveCard",
-                "change select": "updateFields"
+                "change select": "updateFields",
+                "blur #postal_code": "updatePostalCode"
             },
 
             initialize: function(options) {
@@ -33,7 +34,11 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
             updateFields: function(event) {
                 this.card[event.target.name] = event.target.value;
             },
-
+            updatePostalCode: function(event) {
+                this.card.address = {
+                    "postal_code": event.target.value
+                }
+            },
             debounceSaveCard: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -42,15 +47,17 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
             saveCard: _.debounce(function(event) {
                 var that = this;
                 balanced.card.create(this.card, function(response) {
-                    if (response.status === 201) {
-                        if (response.data.id) {
-                            delete response.data.id
-                        }
-                        var model = new that.user.attributes["cards"].model(response.data);
+                    if (response.status_code === 201) {
+                        var model = new that.user.attributes["cards"].model(response.cards[0]);
+                        model.set("balanced_id", model.id);
+                        model.unset("id");
                         that.user.get("cards").add(model);
                         model.save({}, {
                             success: function() {
                                 that.trigger('cardSaved');
+                                model.set("expiration_month", that.card["expiration_month"]);
+                                model.set("expiration_year", that.card["expiration_year"]);
+                                model.set("last_four", that.card["number"].substr(that.card["number"].length - 4));
                             }
                         });
                         $('input').val('');

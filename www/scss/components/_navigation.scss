@@ -1,0 +1,79 @@
+/* Top Navigation - Common
+================================================================================ */
+.navigation {
+  min-height: 67px;
+}
+
+/*.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}*/
+
+.navigation li {
+  float: left;
+}
+
+.admin_nav li {
+  float: right;
+}
+
+.logo {
+  font-family: museo;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 38px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  background: transparent url(https://d3kq8dzp7eezz0.cloudfront.net/img/logo.png) no-repeat left;
+  color: black;
+  display: block;
+  padding-left: 70px;
+  text-decoration: none;
+  width: 210px;
+  text-transform: capitalize;
+}
+
+.logo:visited {
+  color: black;
+}
+
+.logo:hover, .logo:active {
+  text-decoration: none;
+  color: #646464;
+}
+
+/* Header - Main App
+================================================================================ */
+
+.main_top_padding {
+  padding-top: 13px;
+}
+
+.navigation_links a {
+  display: block;
+  float: left;
+  padding: 20px;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/* Header - Landing
+================================================================================ */
+.landing_navigation_links {
+  padding-left: 50px;
+  line-height: 38px;
+  float: left;
+  padding-top: 23px;
+}
+
+.top_padding {
+  padding-top: 20px;
+}
+
+.create_account {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

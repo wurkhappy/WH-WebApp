@@ -1,26 +1,25 @@
-
 define(['backbone', 'handlebars', 'hbs!templates/agreement/payment_methods_tpl'],
 
-  function (Backbone, Handlebars, paymentMethodsTpl) {
+    function(Backbone, Handlebars, paymentMethodsTpl) {
 
-    'use strict';
+        'use strict';
 
-    var PaymentMethodsView = Backbone.View.extend({
+        var PaymentMethodsView = Backbone.View.extend({
 
-      template: paymentMethodsTpl,
+            template: paymentMethodsTpl,
+        className: "ag_subsection",
+            render: function() {
+                this.$el.html(this.template({
+                    model: this.model.toJSON()
+                }));
 
-      render: function () {
-        this.$el.html(this.template({
-          model: this.model.toJSON()
-      }));
+                return this;
 
-        return this;
+            }
 
-      }
+        });
 
-    });
+        return PaymentMethodsView;
 
-    return PaymentMethodsView;
-
-  }
-  );
+    }
+);

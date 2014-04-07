@@ -26,7 +26,7 @@
           $("#create_agreement").removeAttr('href');
           toastr.info("Please verify your email");
           this.notVerified();
-        } else {
+        } else if(window.production) {
           $("#create_agreement").click( function(event) {
             analytics.track('Clicked Create Agreement');   
           });

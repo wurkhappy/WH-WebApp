@@ -14,8 +14,39 @@
 	margin-left: 20px;
 }
 
-.create_milestone_container {
-  padding-bottom:0;
+.include_items_container{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 60px;
+}
+.include_items_container > ul{
+  list-style: none;
+  width: 390px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(150,150,150);
+  height: 233px;
+  overflow-y:scroll;
+}
+.new_deliverable_container{
+  display: inline-block;
+}
+.preview_container{
+  display: inline-block;
+  vertical-align: top;
+}
+.service_preview_item{
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(225,225,225);
+  min-height: 50px;
+  padding: 10px;
+  margin-bottom:10px;
+  ul {
+    list-style: none;
+  }
 }
 
 .edit_helper {
@@ -48,10 +79,6 @@
   padding: 10px 0;
 }
 
-.review_container {
-  padding: 20px;
-}
-
 .deposit_container {
   margin-bottom:20px;
 }
@@ -60,19 +87,18 @@
   display:inline;
 }
 
-.progress_section {
-  overflow:hidden;
-  min-height: 100px;
-}
-
 .message_editor_container {
   width: 620px;
 }
 
 .progress_area {
   position: relative;
-  float:right;
-  width: 600px;
-  margin-top:40px;
+  width: 687px;
+  margin: 0 auto;
+  overflow:hidden;
 
+}
+#schedule_templates{
+  vertical-align: top;
+  padding-left: 10px;
 }

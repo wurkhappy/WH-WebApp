@@ -1,43 +1,261 @@
-{{define "content"}}
-  <div id="intro" class="clear intro">
-    <div class="column-three-fourth">
-      <h1>Simple Pricing</h1>
+{{define "header"}}
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
+
+
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+{{if .production}}
+  <link rel="Shortcut Icon" type="images/ico" href="https://d3kq8dzp7eezz0.cloudfront.net/favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/landing.css" media="all" />
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/analytics.min.js"></script>
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/jquery.js"></script>
+  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/app/plugins/better_browser/public/javascripts/abetterbrowser.js"></script>
+{{else}}
+  <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
+  <link rel="stylesheet" type="text/css" href="/css/landing.css" media="all" />
+
+  <!-- Font Awesome -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+
+  <script src="/js/lib/jquery/jquery.js"></script>
+  <script src="/js/lib/skrollr/dist/skrollr.min.js"></script>
+  <script type="text/javascript"> 
+      var $buoop = {}; 
+      $buoop.ol = window.onload; 
+      window.onload=function(){ 
+       try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+       var e = document.createElement("script"); 
+       e.setAttribute("type", "text/javascript"); 
+       e.setAttribute("src", "//browser-update.org/update.js"); 
+       document.body.appendChild(e); 
+      } 
+    </script> 
+{{end}}
+  <noscript>
+    <style>
+      .dim {opacity: .5;}
+      #logindiv {display:none}
+    </style>
+    <div class="noscriptmsg">
+      <p>Wurk Happy requires javascript to function properly. <a href="http://www.enable-javascript.com/" target="_blank">Please enable javascript</a> in your web browser.</p>
     </div>
-  </div>
+  </noscript>
 
 
-  <div id="content" class="clear white_background home_container">
 
-      <h2>Wurk Happy Service Fee</h2>
-      <p>Free to sign up. No commitment necessary. Only pay a small fee when you get paid.</p>
-      <p>The Wurk Happy Service Fee is 1% up to a cap of $10 per transaction. Below are some examples:</p>
-      <div class="price_level_container">
-      <div class="price_level">
-        <h2><span class="receive_text">Earn</span> $100</h2>
-        <h2><span class="pay_text">Pay</span> $1</h2>
-      </div>
-      <div class="price_level">
-        <h2><span class="receive_text">Earn</span> $500</h2>
-        <h2><span class="pay_text">Pay</span> $5</h2>
-      </div>
-      <div class="price_level">
-        <h2><span class="receive_text">Earn</span> $5000</h2>
-        <h2><span class="pay_text">Pay</span> $10</h2>
-      </div>
+
+
+  <script type="text/javascript">
+	  if (production){
+	  	analytics.initialize({
+	      'Google Analytics' : 'UA-24101674-3',
+	      'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
+	      'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+	      'CrazyEgg'		 : '00197985'
+	    });
+	    analytics.track('Hit Pricing Page');
+	  }
+  </script>
+
+
+
+{{end}}
+
+{{define "body"}}
+
+    <div class="clear navigation">
+		<div class="landing_logo_container">
+    		<a class="logo" href="/">Wurk Happy</a>
+		</div>
+		<div class="landing_admin_container">
+			<ul class="admin_nav">
+    			<li id="log_in">
+    				<a class="landing_navigation_links login_button" id="login" href="#login">Log In</a>
+    			</li>
+				<li id="log_out" class="hide">
+					<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+<div class="fade2">
+	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;height:1000px;">
+			<div id="benefits_container" class="hide benefits_container">
+			    <div class="clear headline_container">
+			  		<!-- <h1 class="logo_white">Wurk Happy</h1> -->
+			    	<h1 style="font-size:46px;font-weight:500;" class="headline">
+			    		Simple Pricing</h1>
+			    	<h2 style="font-family: museo_sans;margin-top:10px;text-align:center;color:white;">Make working easier for you and your client.</h2>
+			  	</div>
+
+			  	<div>
+			  		<div class="pricing_benefits_box" style="display:none;">
+  				  		<ul>
+  				  			<li>Save time billing</li>
+  				  			<li>Reduce Communication</li>
+  				  			<li>Get Paid Faster</li>
+  				  		</ul>
+  				  	</div>
+  				  	<div class="pricing_box">
+  				  		<div class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $100</h2>
+						        <h2><span class="pay_text">Pay</span> $1.50</h2>
+						    </div>
+  					  		<h3>1.5% up to $15</h3>
+  					  		<h3>Per Transaction*</h3>
+  					  		<h4>Only pay when you get paid</h4>
+  				  		</div>
+  				  		<div class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $500</h2>
+						        <h2><span class="pay_text">Pay</span> $7.50</h2>
+						    </div>
+  				  			<h3>1.5% up to $15</h3>
+  					  		<h3>Per Transaction*</h3>
+  					  		<h4>Only pay when you get paid</h4>
+  				  		</div>
+  				  		<div class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $5000</h2>
+						        <h2><span class="pay_text">Pay</span> $15</h2>
+						    </div>
+  				  			<h3>1.5% up to $15</h3>
+  					  		<h3>Per Transaction*</h3>
+  					  		<h4>Only pay when you get paid</h4>
+  				  		</div>
+  				  	</div>
+  				  </div>
+
+  				  <p style="text-align:center;">*Credit Card Payment Processing charged at 2.9% +55 cents per transaction.</p>
+
+			  	<div class="price_level_container" style="overflow:hidden;display:none;">
+			      <div class="price_level">
+			        <h2><span class="receive_text">Earn</span> $100</h2>
+			        <h2><span class="pay_text">Pay</span> $1 + processing</h2>
+			      </div>
+			      <div class="price_level">
+			        <h2><span class="receive_text">Earn</span> $500</h2>
+			        <h2><span class="pay_text">Pay</span> $5 + processing</h2>
+			      </div>
+			      <div class="price_level">
+			        <h2><span class="receive_text">Earn</span> $5000</h2>
+			        <h2><span class="pay_text">Pay</span> $10 + <span style="text-transform:lowercase;font-size:14px;">payment fees</span></h2>
+			      </div>
+			    </div>
+			    <div class="clear"></div>
+			  	<div class="processing_container" style="overflow:hidden;position:relative;top:40px;display:none;">
+			      <div class="processing_description">
+			        <h2 style="color:white;">Payment Processing Fees</h2>
+			        <p>Wurk Happy offers payment processing at what it costs us.</p>
+			      </div>
+			      <div class="processing_costs">
+			        <p style="font-weight:100;"><span class="payment_cost">2.9% + 55 cents</span> for <span class="payment_method">credit cards</span><br><span class="helper_text" style="color:white;"> Funds clear the next business day.</span></p>
+			        <p style="font-weight:100;"><span class="payment_cost">1% + 55 cents, $5 cap</span> for <span class="payment_method">ach debits</span><br><span class="helper_text" style="color:white;"> Funds clear in 2-4 business days.</span></p>
+			      </div>
+			    </div>
+
+			  	<ul class="pricing_start">
+					<!-- <li id="create_account" class="create_account explore_button_container">
+						<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
+					</li> -->
+					<li id="create_account">
+						<a style="width: 260px;margin: 0 auto;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;" id="signup" class="button action_button" href="#new-account">Start Now</a>
+					</li>					
+				</ul>
+			  	<!-- <div class="clear">
+				  	<div id="communication" class="benefit_container">
+				    	<h3 class="benefit_title">Organize Communication</h3>
+				    	<p class="benefit_description">Create agreements in minutes.<br> Organize your important conversations.</p>
+				  	</div>
+				  	<div id="billing" class="benefit_container">
+				    	<h3 class="benefit_title">Automate Billing</h3>
+				    	<p class="benefit_description">Stop Invoicing.<br> We do it for you.</p>
+				  	</div>
+				  	<div id="payment" class="benefit_container">
+				    	<h3 class="benefit_title">Simplify Payment</h3>
+							<p class="benefit_description">Securely accept payment online.<br> Your clients will love paying you.</p>
+				  	</div>
+			    </div> -->
+	</div>
+	</div>
+</div> <!-- class fade2 -->
+<script>
+	// non-jquery fade function takes ('in' or 'out' as type), duration in miliseconds, element, and flag to designate if I.E. 8 is supported
+	//fading in the benefits section on window load adds a nice effect and makes everything appear at the same time.
+	function fade(type, ms, el, IE) {
+	    var isIn = type === 'in',
+	        opacity = isIn ? 0 : 1,
+	        interval = 50,
+	        gap = interval / ms;
+	        
+	    if(isIn) {
+	         el.style.display = 'block';
+	         el.style.opacity = opacity;
+	         if(IE) {
+	            el.style.filter = 'alpha(opacity=' + opacity + ')';
+	            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity + ')';
+	        }
+	    }
+	    
+	    function func() {
+	        opacity = isIn ? opacity + gap : opacity - gap; 
+	        el.style.opacity = opacity;
+	        if(IE) {
+	            el.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
+	            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity * 100 + ')';
+	        }
+	        
+	        if(opacity <= 0 || opacity >= 1) window.clearInterval(fading);
+	        if(opacity <= 0) el.style.display = 'none';
+	    }
+	    
+	    var fading = window.setInterval(func, interval);
+	}
+
+	window.onload = function() {
+		var benefits_container = document.getElementById('benefits_container');
+		var communication = document.getElementById('communication');
+		var billing = document.getElementById('billing');
+		var payment = document.getElementById('payment');
+		fade('in', 500, benefits_container, true);
+		fade('in', 1000, communication, true);
+		fade('in', 1000, billing, true);
+		fade('in', 1000, payment, true);
+	}
+</script>
+
+<script>
+	var s = skrollr.init();
+</script>
+
+<!-- landing footer-->
+	 <div id="footer" class="landing_footer" style="position:static;float:left;" style="">
+    	<div>
+    		<div class="landing_footer_column">
+		        <h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
+		    </div>
+		    <div class="landing_footer_column">
+		      <h3 class="footer_title"><a id="about" href="/about">About</a></h3>
+		    </div>
+	        <div class="landing_footer_column">
+	        	<h3 class="footer_title"><a id="blog" href="http://wurkhappy.tumblr.com/">Blog</a></h3>
+	        </div>
+
+	        <div class="landing_footer_column">
+	        	<h3 class="footer_title"><a style="border-right:none;" id="legal" href="/legal">Legal</a></h3>
+	        </div>
+	    </div>
     </div>
-    <div class="processing_container clear">
-      <div class="processing_description">
-        <h2>Payment Processing Fees</h2>
-        <p>Payment processing fees are separate from the Wurk Happy Service Fee. Wurk Happy offers payment processing at cost. We do this so we'll always be able to pass on savings to our customers.</p>
-      </div>
-      <div class="processing_costs">
-        <p><strong>2.9% + 55 cents</strong> for credit cards<br><span class="helper_text"> Funds clear the next business day.</span></p>
-        <p><strong>1% + 55 cents, $5 cap</strong> for ach debits<br><span class="helper_text"> Funds clear in 2-4 business days.</span></p>
-      </div>
-      <div class="signup_button_container">
-        <a class="button action_button" href="/#new-account">Signup Free</a>    
-      </div>
-    </div>
+<div class="copyright pricing_copyright clear" style="position: static;float:left;">
+	<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
+</div>
+ </div>  
+</div>
 
-  </div>
 {{end}}

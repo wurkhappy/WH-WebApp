@@ -1,0 +1,15 @@
+<div class="service_preview_item">
+	<h3>{{title}}</h3>
+	{{#if dateExpected}}
+	<span class="helper_text">Due on {{dateFormat dateExpected}}</span>
+	{{/if}}
+	
+	{{#if scopeItems}}
+		<h4>Service Tasks</h4>
+		<ul>
+			{{#each scopeItems}}
+			<li class="italic_text">{{title}}</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+</div>

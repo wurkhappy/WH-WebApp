@@ -44,7 +44,6 @@
 
   <script src="/js/lib/analytics/analytics.js"></script>
   <script src="/js/lib/jquery/jquery.js"></script>
-  {{end}}
   <script type="text/javascript" async>
 
     analytics.initialize({
@@ -69,12 +68,7 @@
         }
     });
   </script>
-
-  <script type="text/javascript">
-  analytics.track('Page viewed', {
-    date: new Date()
-  });
-</script>
+  {{end}}
 
   <script type="text/javascript">
   var CKEDITOR_BASEPATH = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
@@ -87,7 +81,7 @@
     <div id="navigation" class="clear navigation">
       <div class="column-one-half">
         <div class="main_top_padding">
-            <a class="logo" href="/">Wurk Happy</a>
+            <a class="logo" href="/home">Wurk Happy</a>
         </div>
       </div>
     </div>
@@ -159,16 +153,20 @@
 
   <script>
     $( document ).ready(function() {
-        var createAgreement = $('.button');
-        var tracks = analytics.trackLink(createAgreement, 'Clicked Create Agreement Button', {
-          plan : 'Enterprise'
-        });
-
-        analytics.track('On Home Page', {
-        revenue        : 39.95,
-        shippingMethod : '2-day'
-        });
-    });
+       if (production) {
+            var pricing = $('#pricing');
+            var about = $('#about');
+            var blog = $('#blog');
+            var legal = $('#legal');
+            var signup = $('#signup');
+            var explore = $('#explore');
+            var tracks = analytics.trackLink(pricing, 'Clicked Pricing Link');
+            var tracks = analytics.trackLink(about, 'Clicked About Link');
+            var tracks = analytics.trackLink(blog, 'Clicked Blog Link');
+            var tracks = analytics.trackLink(legal, 'Clicked Legal Link');
+             var tracks = analytics.trackLink(signup, 'Clicked Signup Link');
+            var tracks = analytics.trackLink(explore, 'Clicked Explore Link');
+        }
   </script>
 
 </body>

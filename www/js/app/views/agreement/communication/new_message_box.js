@@ -43,14 +43,14 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'jquery-ui', 'cked
                 CKEDITOR.basePath = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
                 this.editor = this.$('#message_editor').ckeditor({
                     toolbar: [{
-                        items: ['Bold', '-', 'Italic', '-', 'Underline', 'BulletedList']
+                        items: ['Bold', '-', 'Italic', '-', 'Underline','NumberedList', 'BulletedList', 'Link', 'Unlink']
                     }],
                     disableNativeSpellChecker: false,
                     language: 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/en.js',
                     skin: 'wurkhappy,https://d3kq8dzp7eezz0.cloudfront.net/css-1/wurkhappy/',
                     customConfig: 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/config.js'
                 }).ckeditorGet();
-                CKEDITOR.config.contentsCss = 'https://d3kq8dzp7eezz0.cloudfront.net/css-1/contents.css';
+                CKEDITOR.config.contentsCss = 'https://d3kq8dzp7eezz0.cloudfront.net/css/contents.css';
                 CKEDITOR.config.stylesSet = 'my_styles:https://d3kq8dzp7eezz0.cloudfront.net/css-1/styles.js';
                 var commentTagsView = new CommentTagsView({
                     collection: this.model.get("tags"),
@@ -90,7 +90,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'jquery-ui', 'cked
 
                     this.editor.setData('');
                     toastr.success('Message Sent');
-                    analytics.track('New Message Sent');
+                    if (window.production) {
+                        analytics.track('New Message Sent');
+                    }
                     this.trigger("commentSaved");
 
                     _.defer(function() {

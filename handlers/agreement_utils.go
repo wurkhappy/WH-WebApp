@@ -1,13 +1,10 @@
 package handlers
 
 type Status struct {
-	Action          string `json:"action,omitempty"`
+	Name            string `json:"name,omitempty"`
 	Message         string `json:"message,omitempty"`
-	AgreementID     string `json:"agreementID,omitempty"`
-	PaymentID       string `json:"paymentID,omitempty"`
 	UserID          string `json:"userID,omitempty"`
 	CreditSourceURI string `json:"creditSourceID,omitempty"`
 	DebitSourceURI  string `json:"debitSourceID,omitempty"`
 	PaymentType     string `json:"paymentType,omitempty"`
-	IPAddress       string `json:"ipAddress,omitempty"`
 }

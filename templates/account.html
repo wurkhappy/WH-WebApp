@@ -3,19 +3,11 @@
 var thisUser = {{.user}};
 var cards = {{.cards}}
 </script>
-<script type="text/javascript" src="https://js.balancedpayments.com/v1/balanced.js"></script>
-<script type="text/javascript">
-{{if .production}}
-  balanced.init('/v1/marketplaces/MP1Rag3V8FGZNsrQ0v9SYyuY');
-    // balanced.init('/v1/marketplaces/TEST-MP1f775iSL82BucxjmR83cOk');
-{{else}}
-  balanced.init('/v1/marketplaces/TEST-MP1f775iSL82BucxjmR83cOk');
-  {{end}}
-</script>
+<script type="text/javascript" src="https://js.balancedpayments.com/1.1/balanced.js"></script>
 <div id="mainContainer"> <!-- div for main container -->
   <!-- Title Header -->
-  <div class="clear intro">
-    <div class="column-three-fourth">
+  <div class="clear header">
+    <div class="col-1-2">
       <h1>Account</h1>
     </div>
   </div>
@@ -46,7 +38,7 @@ var cards = {{.cards}}
 
   <!-- Main Content -->
   <div id="contentWrapper"> <!-- div for content -->
-    <div id="content" class="clear white_background">
+    <div id="content" class="clear white_background layout_container">
       <h2>Profile Preview</h2>
       <div class="data-table">
         <table border="0" cellspacing="0" cellpadding="0">

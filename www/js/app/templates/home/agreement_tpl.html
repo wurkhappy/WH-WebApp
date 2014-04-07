@@ -1,6 +1,6 @@
-            <td class="meta">
+            <!-- <td class="meta">
               <span><img src="{{otherUser.avatarURL}}"></span>
-            </td>
+            </td> -->
             <td>
               {{#with model}}
               {{#if version}}
@@ -10,7 +10,7 @@
               {{/if}}
               {{/with}}
               {{#with statusInfo}}
-              <p>{{lastAction}}</p>
+              <p class="last_action capitalize"><span class="sub_text">Last Action: </span><span class="green">{{lastAction}}</span></p>
               {{/with}}
             </td>
             <td class="progress">
@@ -20,6 +20,6 @@
                   <span style="width:{{percentComplete}}%" ></span>
                 </div>
               </progress>
-              <p>{{statusInfo.currentState}}</p>
+              <p class="last_action home_agreement_status"><span class="sub_text">status: </span><span class="orange capitalize">{{statusInfo.currentState}}</span></p>
               
             </td>

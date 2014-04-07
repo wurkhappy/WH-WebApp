@@ -19,13 +19,14 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                 this.message = "Please take a moment to look over the details of the services provided and the payment schedule. Let me know if you'd like to suggest any changes. When you're ready, just accept the agreement and we'll get started.";
                 this.user = options.user;
                 this.otherUser = options.otherUser;
+                this.payments = options.payments;
                 this.render();
             },
             render: function() {
-                this.deposit = this.model.get("workItems").at(0);
+                this.deposit = this.payments.findDeposit();
                 this.hasDeposit;
 
-                if (this.deposit && this.deposit.get("required") && this.deposit.get("amountDue") > 0 && this.user.id === this.model.get("freelancerID")) {
+                if (this.deposit && this.user.id === this.model.get("freelancerID")) {
                     this.hasDeposit = true;
                 }
                 var otherUserEmail = (this.otherUser) ? this.otherUser.get("email") : null;
@@ -45,12 +46,8 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                 this.sendAgreement();
             },
             sendAgreement: _.debounce(function(event) {
-
-                if (!this.isUserVerified()) {
-                    return;
-                }
                 //return if there isn't a valid email
-                var isValid = $('#create_agreement_send_email').parsley('validate');
+                var isValid = this.$('#create_agreement_send_email').parsley('validate');
                 if (!isValid) {
                     return;
                 }
@@ -89,9 +86,6 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
             requestDeposit: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-                if (!this.isUserVerified()) {
-                    return;
-                }
 
                 //return if there isn't a valid email
                 var isValid = $('#create_agreement_send_email').parsley('validate');
@@ -112,8 +106,8 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                     success: function(model, response) {
                         var view = new DepositRequestModal({
                             model: that.deposit,
-                            collection: that.model.get("workItems"),
-                            payments: that.model.get("payments"),
+                            collection: that.payments,
+                            payments: that.payments,
                             cards: that.user.get("cards"),
                             bankAccounts: that.user.get("bank_accounts"),
                             acceptsBankTransfer: that.model.get("acceptsBankTransfer"),
@@ -124,7 +118,9 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                         });
                         that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
                         that.modal.show();
-                        analytics.track('Agreement Sent');
+                        if (window.production) {
+                            analytics.track('Agreement Sent');
+                        }
                     }
                 });
             },
@@ -132,20 +128,6 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                 this.model.submit(this.message, function() {
                     window.location = "/home";
                 });
-            },
-            isUserVerified: function() {
-                if (!this.user.get("isProcessorVerified")) {
-                    var view = new VerifyUserView({
-                        model: this.user
-                    });
-                    this.modal = new Modal({
-                        view: view
-                    });
-                    this.modal.show();
-                    this.listenTo(view, "userVerified", this.userVerified);
-                    return false
-                }
-                return true;
             },
             userVerified: function() {
                 this.modal.hide();

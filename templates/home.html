@@ -4,17 +4,17 @@ var agreements = {{.agreements}};
 var currentUser = {{.thisUser}};
 var otherUsers = {{.otherUsers}};
 </script>
-  <div id="intro" class="clear intro">
+  <div id="intro" class="clear header home_header">
 
-    <div class="column-three-fourth">
+    <div class="col-1-2">
 
       <h1>{{.agreementCount}} Agreement(s)</h1>
 
     </div>
-    <div class="column-one-fourth">
+    <div class="col-1-2">
 
       <ul class="action_button_container">
-        <li><a id="create_agreement" href="/agreements/new" class="button action_button">Create Agreement</a></li>
+        <li><a style="margin-top:5px;" id="create_agreement" href="/agreements/new" class="button action_button">Create Agreement</a></li>
       </ul>
 
     </div>
@@ -22,7 +22,7 @@ var otherUsers = {{.otherUsers}};
   </div>
 
 
-  <div id="content" class="clear white_background home_container">
+  <div id="content" class="clear white_background layout_container">
 
     <div class="clear">
       <div id="waitingSection"></div>
