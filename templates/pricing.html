@@ -90,7 +90,7 @@
 			  		<!-- <h1 class="logo_white">Wurk Happy</h1> -->
 			    	<h1 style="font-size:46px;font-weight:500;" class="headline">
 			    		Simple Pricing</h1>
-			    	<h2 style="font-family: museo_sans;margin-top:10px;text-align:center;color:white;">Make working easier for you and your client.</h2>
+			    	<h2 style="font-family: museo_sans;margin-top:10px;text-align:center;color:white;">Only pay when you get paid.</h2>
 			  	</div>
 
 			  	<div>
@@ -101,38 +101,66 @@
   				  			<li>Get Paid Faster</li>
   				  		</ul>
   				  	</div>
-  				  	<div class="pricing_box">
+  				  	<div id="bank_transfer" class="pricing_box pricing_method">
+  				  		<h2 style="color:white;">Bank Transfer Pricing</h2>
   				  		<div class="pricing_box_inside">
   				  			<div class="price_level">
-						        <h2><span class="receive_text">Earn</span> $100</h2>
-						        <h2><span class="pay_text">Pay</span> $1.50</h2>
+						        <h2><span class="receive_text">Earn</span> $100.00</h2>
+						        <h2><span class="pay_text">Pay</span> $2.00</h2>
 						    </div>
-  					  		<h3>1.5% up to $15</h3>
-  					  		<h3>Per Transaction*</h3>
-  					  		<h4>Only pay when you get paid</h4>
   				  		</div>
   				  		<div class="pricing_box_inside">
   				  			<div class="price_level">
-						        <h2><span class="receive_text">Earn</span> $500</h2>
-						        <h2><span class="pay_text">Pay</span> $7.50</h2>
+						        <h2><span class="receive_text">Earn</span> $500.00</h2>
+						        <h2><span class="pay_text">Pay</span> $10.00</h2>
 						    </div>
-  				  			<h3>1.5% up to $15</h3>
-  					  		<h3>Per Transaction*</h3>
-  					  		<h4>Only pay when you get paid</h4>
   				  		</div>
   				  		<div class="pricing_box_inside">
   				  			<div class="price_level">
-						        <h2><span class="receive_text">Earn</span> $5000</h2>
-						        <h2><span class="pay_text">Pay</span> $15</h2>
+						        <h2><span class="receive_text">Earn</span> $5000.00</h2>
+						        <h2><span class="pay_text">Pay</span> $15.00</h2>
 						    </div>
-  				  			<h3>1.5% up to $15</h3>
-  					  		<h3>Per Transaction*</h3>
-  					  		<h4>Only pay when you get paid</h4>
+  				  		</div>
+  				  	</div>
+
+  				  	<div style="display:none;" id="credit_card" class="pricing_box pricing_method">
+  				  		<h2 style="color:white;">Credit Card Pricing</h2>
+  				  		<div class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $100.00</h2>
+						        <h2><span class="pay_text">Pay</span> $3.45</h2>
+						    </div>
+  				  		</div>
+  				  		<div class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $500.00</h2>
+						        <h2><span class="pay_text">Pay</span> $15.05</h2>
+						    </div>
+  				  		</div>
+  				  		<div class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $5000.00</h2>
+						        <h2><span class="pay_text">Pay</span> $145.55</h2>
+						    </div>
   				  		</div>
   				  	</div>
   				  </div>
+  				  <div style="width:833px;margin:0 auto;">
+			  		<a style="color: hsl(0, 0%, 0%);font-weight: 900;float:left;margin-right:20px;" class="pricing_toggle" style="color:white;" href="#bank_transfer">Bank Transfer</a>
+			  		<a style="color:white;"class="pricing_toggle" style="float:left;" href="#credit_card">Credit Card</a>
+			  		<script>
+				  		$('.pricing_toggle').click( function(event) {
+				  			event.preventDefault();
+				  			var $this = $(this);
+				  			var method= $this.attr('href');
+				  			$('.pricing_method').hide();
+				  			$(method).fadeIn();
+				  		});
+			  		</script>
+			  		<i style="margin-left: 20px;font-size: 20px;top: 1px;position: relative;" class="fa fa-question-circle"></i>
+			  	</div>
 
-  				  <p style="text-align:center;">*Credit Card Payment Processing charged at 2.9% +55 cents per transaction.</p>
+  				  <!-- <p style="text-align:center;">*Credit Card Payment Processing charged at 2.9% +55 cents per transaction.</p> -->
 
 			  	<div class="price_level_container" style="overflow:hidden;display:none;">
 			      <div class="price_level">
