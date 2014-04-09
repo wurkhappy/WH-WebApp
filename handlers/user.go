@@ -14,7 +14,7 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
 
-	resp, statusCode := sendServiceRequest("POST", config.UserService, "/user", buf.Bytes(), session.Values["id"].(string))
+	resp, statusCode := sendServiceRequest("POST", config.UserService, "/user", buf.Bytes(), "")
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
