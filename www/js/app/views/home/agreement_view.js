@@ -41,7 +41,7 @@ define(['backbone', 'handlebars', 'underscore',
                 return this;
             },
             createStatusInfo: function() {
-                if (this.model.get("lastAction").get("name") === "created") {
+                if (this.model.get("lastAction") && this.model.get("lastAction").get("name") === "created") {
                     return {
                         lastAction: "Draft Saved",
                         currentState: "Waiting to be submitted"
