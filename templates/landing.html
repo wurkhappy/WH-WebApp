@@ -219,7 +219,11 @@
 </script>
 
 <script>
-	var s = skrollr.init();
+	//only initiate skrollr if screen is
+	if (screen.width >= 760) {
+		var s = skrollr.init();
+	}
+
 </script>
 
 <!-- landing footer-->

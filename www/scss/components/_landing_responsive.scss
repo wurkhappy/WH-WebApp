@@ -99,6 +99,11 @@
 }
 
 @media all and (max-width: 760px) {
+  body {
+    width:auto !important;
+  }
+
+
   .left_background {
     display:none;
   }
@@ -107,6 +112,7 @@
   }
   .landing_fixed_container {
     position:relative;
+    width:auto;
   }
 
   .landing_container {
