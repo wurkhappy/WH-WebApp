@@ -1262,28 +1262,33 @@ td {
 
 /* line 286, ../scss/components/_landing.scss */
 .legal_tab {
-  margin: 0 auto;
-  width: 235px;
+  width: 250px;
 }
 
-/* line 291, ../scss/components/_landing.scss */
+/* line 290, ../scss/components/_landing.scss */
 .legal_menu {
   float: left;
 }
 
-/* line 295, ../scss/components/_landing.scss */
+/* line 294, ../scss/components/_landing.scss */
 .legal_menu:first-child {
   margin-right: 20px;
 }
 
-/* line 299, ../scss/components/_landing.scss */
+/* line 298, ../scss/components/_landing.scss */
+.legal_page_title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* line 303, ../scss/components/_landing.scss */
 .faqnav {
   background: whitesmoke;
   padding: 20px;
   width: 283px;
 }
 
-/* line 305, ../scss/components/_landing.scss */
+/* line 309, ../scss/components/_landing.scss */
 .title {
   font-size: 24px;
   font-family: museo;
@@ -1292,7 +1297,7 @@ td {
   color: #ffa200;
 }
 
-/* line 313, ../scss/components/_landing.scss */
+/* line 317, ../scss/components/_landing.scss */
 .column-one-fourth {
   clear: left;
   margin-top: 30px;

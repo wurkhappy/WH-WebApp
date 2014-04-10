@@ -284,8 +284,7 @@
 }
 
 .legal_tab {
-  margin: 0 auto;
-  width: 235px;
+  width: 250px;
 }
 
 .legal_menu {
@@ -294,6 +293,11 @@
 
 .legal_menu:first-child {
   margin-right:20px;
+}
+
+.legal_page_title {
+  text-align:center;
+  margin-bottom: 20px;
 }
 
 .faqnav {
