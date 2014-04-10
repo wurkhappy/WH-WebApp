@@ -2374,36 +2374,53 @@ label {
     top: 251px;
     left: 190px;
   }
+
+  /* line 525, ../scss/components/_landing_responsive.scss */
+  .headline_container h2 {
+    position: relative;
+    top: -15px;
+  }
+
+  /* line 530, ../scss/components/_landing_responsive.scss */
+  .feature1, .feature2, .feature3 {
+    font-size: 30px;
+    margin-bottom: -40px;
+  }
+
+  /* line 535, ../scss/components/_landing_responsive.scss */
+  .learn_more {
+    bottom: 50px !important;
+  }
 }
 @media all and (min-width: 761px) and (max-height: 629px) {
-  /* line 529, ../scss/components/_landing_responsive.scss */
+  /* line 543, ../scss/components/_landing_responsive.scss */
   .headline_container h2 {
     display: none;
   }
 
-  /* line 533, ../scss/components/_landing_responsive.scss */
+  /* line 547, ../scss/components/_landing_responsive.scss */
   .learn_more {
     bottom: 41px !important;
   }
 }
 @media all and (max-width: 515px) {
-  /* line 542, ../scss/components/_landing_responsive.scss */
+  /* line 556, ../scss/components/_landing_responsive.scss */
   .pricing_navigation {
     padding: 15px;
   }
 }
 @media all and (max-width: 900px) {
-  /* line 549, ../scss/components/_landing_responsive.scss */
+  /* line 563, ../scss/components/_landing_responsive.scss */
   .pricing_landing_container {
     height: 900px;
   }
 
-  /* line 553, ../scss/components/_landing_responsive.scss */
+  /* line 567, ../scss/components/_landing_responsive.scss */
   #pricing_toggle_container {
     max-width: 426px;
   }
 
-  /* line 557, ../scss/components/_landing_responsive.scss */
+  /* line 571, ../scss/components/_landing_responsive.scss */
   .pricing_box {
     margin: 0 auto;
     float: none;
@@ -2411,90 +2428,90 @@ label {
     padding: 0;
   }
 
-  /* line 564, ../scss/components/_landing_responsive.scss */
+  /* line 578, ../scss/components/_landing_responsive.scss */
   .pricing_benefits_box {
     margin: 0 auto;
     float: none;
     width: 550px;
   }
 
-  /* line 570, ../scss/components/_landing_responsive.scss */
+  /* line 584, ../scss/components/_landing_responsive.scss */
   .pricing_landing_container {
     height: 835px;
   }
 
-  /* line 574, ../scss/components/_landing_responsive.scss */
+  /* line 588, ../scss/components/_landing_responsive.scss */
   .pricing_start {
     margin-top: 40px;
     padding: 0;
   }
 
-  /* line 579, ../scss/components/_landing_responsive.scss */
+  /* line 593, ../scss/components/_landing_responsive.scss */
   .pricing_copyright {
     bottom: -100px;
   }
 
-  /* line 583, ../scss/components/_landing_responsive.scss */
+  /* line 597, ../scss/components/_landing_responsive.scss */
   .processing_description {
     width: 100%;
     margin-bottom: 40px;
   }
-  /* line 586, ../scss/components/_landing_responsive.scss */
+  /* line 600, ../scss/components/_landing_responsive.scss */
   .processing_description p {
     margin: 0 auto;
   }
-  /* line 589, ../scss/components/_landing_responsive.scss */
+  /* line 603, ../scss/components/_landing_responsive.scss */
   .processing_description h2 {
     text-align: center;
   }
 
-  /* line 594, ../scss/components/_landing_responsive.scss */
+  /* line 608, ../scss/components/_landing_responsive.scss */
   .processing_costs {
     margin: 0 auto;
     width: 310px;
     float: none;
   }
-  /* line 598, ../scss/components/_landing_responsive.scss */
+  /* line 612, ../scss/components/_landing_responsive.scss */
   .processing_costs .helper_text {
     text-align: center;
   }
-  /* line 601, ../scss/components/_landing_responsive.scss */
+  /* line 615, ../scss/components/_landing_responsive.scss */
   .processing_costs p {
     text-align: center;
   }
 }
 @media all and (min-width: 901px) and (max-width: 1290px) {
-  /* line 609, ../scss/components/_landing_responsive.scss */
+  /* line 623, ../scss/components/_landing_responsive.scss */
   .pricing_box {
     width: 901px;
   }
 
-  /* line 613, ../scss/components/_landing_responsive.scss */
+  /* line 627, ../scss/components/_landing_responsive.scss */
   #pricing_info_container {
     min-height: 435px;
   }
 
-  /* line 617, ../scss/components/_landing_responsive.scss */
+  /* line 631, ../scss/components/_landing_responsive.scss */
   .pricing_box_inside {
     width: 270px;
   }
-  /* line 619, ../scss/components/_landing_responsive.scss */
+  /* line 633, ../scss/components/_landing_responsive.scss */
   .pricing_box_inside h2 {
     text-align: center;
     font-size: 44px;
   }
 
-  /* line 627, ../scss/components/_landing_responsive.scss */
+  /* line 641, ../scss/components/_landing_responsive.scss */
   .price_level {
     width: 264px;
   }
 
-  /* line 631, ../scss/components/_landing_responsive.scss */
+  /* line 645, ../scss/components/_landing_responsive.scss */
   #pricing_toggle_container {
     max-width: 900px;
   }
 
-  /* line 635, ../scss/components/_landing_responsive.scss */
+  /* line 649, ../scss/components/_landing_responsive.scss */
   .pricing_start {
     margin-top: 50px;
   }
