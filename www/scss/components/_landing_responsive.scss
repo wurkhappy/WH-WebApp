@@ -251,7 +251,7 @@
     height: 620px;
   }
 
-  .footer_title {
+  .landing_footer  .footer_title {
     padding:0 30px;
     a {
       padding:0px 50% 0 35%;
@@ -331,7 +331,7 @@
     height: 300px;
   }
 
-  .footer_title {
+  .landing_footer  .footer_title {
     padding:0 30px;
     a {
       padding:0px 50% 0 35%;
@@ -537,16 +537,27 @@
 }
 
 // Pricing Page
+
+@media all and (max-width: 515px) {
+  .pricing_navigation {
+    padding:15px;
+  }
+}
+
 @media all and (max-width: 900px) {
 
   .pricing_landing_container {
     height: 900px;
   }
 
+  #pricing_toggle_container {
+    max-width: 426px;
+  }
+
   .pricing_box {
     margin:0 auto;
     float:none;
-    width:412px;
+    width:377px;
     padding:0;
   }
 
@@ -599,18 +610,29 @@
     width: 901px;
   }
 
+  #pricing_info_container {
+    min-height: 435px;
+  }
+
   .pricing_box_inside {
     width:270px;
     h2 {
-      text-align:left;
+      text-align:center;
       font-size: 44px;
     }
-    
+  }
+
+  
+
+  .price_level {
+    width:264px;
+  }
+
+  #pricing_toggle_container {
+    max-width:900px;
+  }
+
+  .pricing_start {
+    margin-top:50px;
   }
 }
-
-//@media all and (min-width: 1151px) and (max-width: 1289px)  {
-  //.pricing_box_inside {
-    //width:400px;
-//  }
-//}

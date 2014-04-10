@@ -1239,46 +1239,51 @@ td {
   padding: 15px;
 }
 
+/* line 268, ../scss/components/_landing.scss */
+.pricing_navigation {
+  padding: 30px;
+}
+
 /* Legal Page */
-/* line 270, ../scss/components/_landing.scss */
+/* line 274, ../scss/components/_landing.scss */
 .faqcontent {
   padding: 23px 40px;
   width: 630px;
   float: right;
 }
-/* line 274, ../scss/components/_landing.scss */
+/* line 278, ../scss/components/_landing.scss */
 .faqcontent p {
   color: black;
 }
-/* line 277, ../scss/components/_landing.scss */
+/* line 281, ../scss/components/_landing.scss */
 .faqcontent ul li {
   color: black;
 }
 
-/* line 282, ../scss/components/_landing.scss */
+/* line 286, ../scss/components/_landing.scss */
 .legal_tab {
   margin: 0 auto;
   width: 235px;
 }
 
-/* line 287, ../scss/components/_landing.scss */
+/* line 291, ../scss/components/_landing.scss */
 .legal_menu {
   float: left;
 }
 
-/* line 291, ../scss/components/_landing.scss */
+/* line 295, ../scss/components/_landing.scss */
 .legal_menu:first-child {
   margin-right: 20px;
 }
 
-/* line 295, ../scss/components/_landing.scss */
+/* line 299, ../scss/components/_landing.scss */
 .faqnav {
   background: whitesmoke;
   padding: 20px;
   width: 283px;
 }
 
-/* line 301, ../scss/components/_landing.scss */
+/* line 305, ../scss/components/_landing.scss */
 .title {
   font-size: 24px;
   font-family: museo;
@@ -1287,7 +1292,7 @@ td {
   color: #ffa200;
 }
 
-/* line 309, ../scss/components/_landing.scss */
+/* line 313, ../scss/components/_landing.scss */
 .column-one-fourth {
   clear: left;
   margin-top: 30px;
@@ -1307,11 +1312,9 @@ td {
 
 /* line 11, ../scss/components/_pricing.scss */
 .price_level {
-  width: 300px;
+  width: 360px;
   float: left;
-  margin: 5px;
   text-align: left;
-  padding: 5px;
 }
 /* line 12, ../scss/components/_pricing.scss */
 .price_level h2 {
@@ -1324,42 +1327,42 @@ td {
   margin: 0;
 }
 
-/* line 29, ../scss/components/_pricing.scss */
+/* line 26, ../scss/components/_pricing.scss */
 .receive_text {
   font-size: 16px;
   color: #87cf54;
   font-weight: normal;
 }
 
-/* line 35, ../scss/components/_pricing.scss */
+/* line 32, ../scss/components/_pricing.scss */
 .pay_text {
   font-size: 16px;
   color: #ffa200;
   font-weight: normal;
 }
 
-/* line 41, ../scss/components/_pricing.scss */
+/* line 38, ../scss/components/_pricing.scss */
 .processing_container {
   max-width: 850px;
   margin: 0 auto;
 }
-/* line 44, ../scss/components/_pricing.scss */
+/* line 41, ../scss/components/_pricing.scss */
 .processing_container p {
   margin-bottom: 10px;
   max-width: 430px;
 }
 
-/* line 50, ../scss/components/_pricing.scss */
+/* line 47, ../scss/components/_pricing.scss */
 .processing_description {
   float: left;
 }
 
-/* line 54, ../scss/components/_pricing.scss */
+/* line 51, ../scss/components/_pricing.scss */
 .processing_costs {
   float: right;
 }
 
-/* line 58, ../scss/components/_pricing.scss */
+/* line 55, ../scss/components/_pricing.scss */
 .payment_method {
   text-transform: uppercase;
   font-size: 12px;
@@ -1367,49 +1370,49 @@ td {
   letter-spacing: .5px;
 }
 
-/* line 65, ../scss/components/_pricing.scss */
+/* line 62, ../scss/components/_pricing.scss */
 .payment_cost {
   font-weight: 700;
   color: #ffa200;
   font-size: 20px;
 }
 
-/* line 71, ../scss/components/_pricing.scss */
+/* line 68, ../scss/components/_pricing.scss */
 .signup_button_container {
   float: left;
   margin: 20px;
   clear: both;
 }
 
-/* line 77, ../scss/components/_pricing.scss */
+/* line 74, ../scss/components/_pricing.scss */
 .pricing_start {
   margin-top: 75px;
   padding: 0;
 }
 
-/* line 82, ../scss/components/_pricing.scss */
+/* line 79, ../scss/components/_pricing.scss */
 .processing_description p {
   color: white;
 }
 
-/* line 86, ../scss/components/_pricing.scss */
+/* line 83, ../scss/components/_pricing.scss */
 .pricing_box {
   overflow: hidden;
-  width: 1290px;
+  max-width: 1198px;
   padding: 30px;
   margin: 0 auto;
   padding-top: 10px;
+  padding-bottom: 15px;
 }
 
-/* line 94, ../scss/components/_pricing.scss */
+/* line 92, ../scss/components/_pricing.scss */
 .pricing_box_inside {
   padding: 30px 0;
   border: 3px solid white;
-  width: 400px;
   float: left;
   margin: 5px;
 }
-/* line 100, ../scss/components/_pricing.scss */
+/* line 97, ../scss/components/_pricing.scss */
 .pricing_box_inside h1 {
   color: white;
   text-align: center;
@@ -1417,19 +1420,19 @@ td {
   line-height: 70px;
   margin-bottom: 15px;
 }
-/* line 107, ../scss/components/_pricing.scss */
+/* line 104, ../scss/components/_pricing.scss */
 .pricing_box_inside h2 {
   font-size: 60px;
   line-height: 70px;
   text-align: center;
 }
-/* line 112, ../scss/components/_pricing.scss */
+/* line 109, ../scss/components/_pricing.scss */
 .pricing_box_inside h3 {
   color: white;
   text-align: center;
   font-family: museo_sans;
 }
-/* line 117, ../scss/components/_pricing.scss */
+/* line 114, ../scss/components/_pricing.scss */
 .pricing_box_inside h4 {
   color: white;
   text-align: center;
@@ -1440,7 +1443,7 @@ td {
   font-weight: 200;
 }
 
-/* line 128, ../scss/components/_pricing.scss */
+/* line 125, ../scss/components/_pricing.scss */
 .pricing_benefits_box {
   float: left;
   font-size: 33px;
@@ -1449,6 +1452,48 @@ td {
   padding-top: 70px;
   text-transform: uppercase;
   font-weight: 100;
+}
+
+/* line 135, ../scss/components/_pricing.scss */
+.fa-question-circle {
+  cursor: pointer;
+}
+
+/* line 139, ../scss/components/_pricing.scss */
+#pricing_detail {
+  display: none;
+  border: 2px solid white;
+  padding: 30px;
+  max-width: 500px;
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
+  background: #008bc7;
+  padding-bottom: 10px;
+}
+
+/* line 151, ../scss/components/_pricing.scss */
+a.pricing_toggle {
+  color: white;
+  float: left;
+}
+
+/* line 156, ../scss/components/_pricing.scss */
+a.active {
+  color: #ffa200;
+  font-weight: 900;
+}
+
+/* line 161, ../scss/components/_pricing.scss */
+#pricing_toggle_container {
+  max-width: 1198px;
+  margin: 0 auto;
+  padding-left: 29px;
+}
+
+/* line 167, ../scss/components/_pricing.scss */
+#pricing_info_container {
+  min-height: 470px;
 }
 
 /* Sub- Navigation 
@@ -1649,6 +1694,12 @@ label {
 }
 
 /* line 14, ../scss/components/_footer.scss */
+.landing_page_footer {
+  background: #404040;
+  width: 100%;
+}
+
+/* line 19, ../scss/components/_footer.scss */
 .footer_title {
   text-align: center;
   font-weight: 300;
@@ -1657,7 +1708,7 @@ label {
   font-family: museo;
   padding: 30px;
 }
-/* line 21, ../scss/components/_footer.scss */
+/* line 26, ../scss/components/_footer.scss */
 .footer_title a {
   text-decoration: none;
   color: #dcdfe4;
@@ -1666,22 +1717,22 @@ label {
   letter-spacing: 1px;
 }
 
-/* line 30, ../scss/components/_footer.scss */
+/* line 35, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 32, ../scss/components/_footer.scss */
+/* line 37, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 37, ../scss/components/_footer.scss */
+/* line 42, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 42, ../scss/components/_footer.scss */
+/* line 47, ../scss/components/_footer.scss */
 .landing_footer {
   position: absolute;
   bottom: -89px;
@@ -1689,18 +1740,18 @@ label {
   width: 100%;
 }
 
-/* line 48, ../scss/components/_footer.scss */
+/* line 53, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 52, ../scss/components/_footer.scss */
+/* line 57, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 57, ../scss/components/_footer.scss */
+/* line 62, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;
@@ -1992,11 +2043,11 @@ label {
   }
 
   /* line 254, ../scss/components/_landing_responsive.scss */
-  .footer_title {
+  .landing_footer .footer_title {
     padding: 0 30px;
   }
   /* line 256, ../scss/components/_landing_responsive.scss */
-  .footer_title a {
+  .landing_footer .footer_title a {
     padding: 0px 50% 0 35%;
   }
 
@@ -2085,11 +2136,11 @@ label {
   }
 
   /* line 334, ../scss/components/_landing_responsive.scss */
-  .footer_title {
+  .landing_footer .footer_title {
     padding: 0 30px;
   }
   /* line 336, ../scss/components/_landing_responsive.scss */
-  .footer_title a {
+  .landing_footer .footer_title a {
     padding: 0px 50% 0 35%;
   }
 
@@ -2313,86 +2364,117 @@ label {
     bottom: 41px !important;
   }
 }
-@media all and (max-width: 900px) {
+@media all and (max-width: 515px) {
   /* line 542, ../scss/components/_landing_responsive.scss */
+  .pricing_navigation {
+    padding: 15px;
+  }
+}
+@media all and (max-width: 900px) {
+  /* line 549, ../scss/components/_landing_responsive.scss */
   .pricing_landing_container {
     height: 900px;
   }
 
-  /* line 546, ../scss/components/_landing_responsive.scss */
+  /* line 553, ../scss/components/_landing_responsive.scss */
+  #pricing_toggle_container {
+    max-width: 426px;
+  }
+
+  /* line 557, ../scss/components/_landing_responsive.scss */
   .pricing_box {
     margin: 0 auto;
     float: none;
-    width: 412px;
+    width: 377px;
     padding: 0;
   }
 
-  /* line 553, ../scss/components/_landing_responsive.scss */
+  /* line 564, ../scss/components/_landing_responsive.scss */
   .pricing_benefits_box {
     margin: 0 auto;
     float: none;
     width: 550px;
   }
 
-  /* line 559, ../scss/components/_landing_responsive.scss */
+  /* line 570, ../scss/components/_landing_responsive.scss */
   .pricing_landing_container {
     height: 835px;
   }
 
-  /* line 563, ../scss/components/_landing_responsive.scss */
+  /* line 574, ../scss/components/_landing_responsive.scss */
   .pricing_start {
     margin-top: 40px;
     padding: 0;
   }
 
-  /* line 568, ../scss/components/_landing_responsive.scss */
+  /* line 579, ../scss/components/_landing_responsive.scss */
   .pricing_copyright {
     bottom: -100px;
   }
 
-  /* line 572, ../scss/components/_landing_responsive.scss */
+  /* line 583, ../scss/components/_landing_responsive.scss */
   .processing_description {
     width: 100%;
     margin-bottom: 40px;
   }
-  /* line 575, ../scss/components/_landing_responsive.scss */
+  /* line 586, ../scss/components/_landing_responsive.scss */
   .processing_description p {
     margin: 0 auto;
   }
-  /* line 578, ../scss/components/_landing_responsive.scss */
+  /* line 589, ../scss/components/_landing_responsive.scss */
   .processing_description h2 {
     text-align: center;
   }
 
-  /* line 583, ../scss/components/_landing_responsive.scss */
+  /* line 594, ../scss/components/_landing_responsive.scss */
   .processing_costs {
     margin: 0 auto;
     width: 310px;
     float: none;
   }
-  /* line 587, ../scss/components/_landing_responsive.scss */
+  /* line 598, ../scss/components/_landing_responsive.scss */
   .processing_costs .helper_text {
     text-align: center;
   }
-  /* line 590, ../scss/components/_landing_responsive.scss */
+  /* line 601, ../scss/components/_landing_responsive.scss */
   .processing_costs p {
     text-align: center;
   }
 }
 @media all and (min-width: 901px) and (max-width: 1290px) {
-  /* line 598, ../scss/components/_landing_responsive.scss */
+  /* line 609, ../scss/components/_landing_responsive.scss */
   .pricing_box {
     width: 901px;
   }
 
-  /* line 602, ../scss/components/_landing_responsive.scss */
+  /* line 613, ../scss/components/_landing_responsive.scss */
+  #pricing_info_container {
+    min-height: 435px;
+  }
+
+  /* line 617, ../scss/components/_landing_responsive.scss */
   .pricing_box_inside {
     width: 270px;
   }
-  /* line 604, ../scss/components/_landing_responsive.scss */
+  /* line 619, ../scss/components/_landing_responsive.scss */
   .pricing_box_inside h2 {
-    text-align: left;
+    text-align: center;
     font-size: 44px;
+  }
+
+  /* line 627, ../scss/components/_landing_responsive.scss */
+  .price_level {
+    width: 264px;
+  }
+
+  /* line 631, ../scss/components/_landing_responsive.scss */
+  #pricing_toggle_container {
+    max-width: 900px;
+  }
+
+  /* line 635, ../scss/components/_landing_responsive.scss */
+  .pricing_start {
+    margin-top: 50px;
   }
 }
 /* line 8, ../scss/layouts/_layout.scss */
