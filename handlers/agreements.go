@@ -389,16 +389,3 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 
 	w.Write(resp)
 }
-
-func ShowSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	m := map[string]interface{}{
-		"production": Production,
-		"JSversion":  JSversion,
-		"CSSversion": CSSversion,
-	}
-	var index = template.Must(template.ParseFiles(
-		"templates/_baseApp.html",
-		"templates/sample.html",
-	))
-	index.Execute(w, m)
-}

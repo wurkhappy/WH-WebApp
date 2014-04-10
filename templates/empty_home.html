@@ -1,12 +1,7 @@
 {{define "content"}}
 <script>
 var currentUser = {{.thisUser}};
-function removeCover () {
-  document.getElementById("cover").removeAttribute("style");
-  document.getElementById("content").removeAttribute("style");
-}
 </script>
-<div id="cover" onclick="removeCover()" style="position:absolute; top:0; bottom:0; right:0; left:0; background-color:rgba(0,0,0,0.5);"></div>
 <div id="intro" class="clear header home_header">
 
   <div class="col-1-2">
@@ -20,11 +15,8 @@ function removeCover () {
 
 </div>
 
-
-<div onclick="removeCover()" id="content" class="clear white_background" style="background-color:rgb(150,150,150);padding:10px; ">
-  <div class="empty_home" style="background-color:#FFF; padding:5px; border-radius:5px;">
-    <h2>Welcome To Wurk Happy!</h2>
-    <p>You don't have any live agreements right now. Feel free to click that big green button up top and get started. If this is your first time, feel free to check out our <a href="/agreement/v/sample">tutorial</a>.</p>
+  <div class="empty_home layout_container">
+    <h2 style="text-align:center;margin-bottom: 10px;">Welcome To Wurk Happy!</h2>
+    <p>You don't have any live agreements right now. To get started click that big green button up top.</p>
   </div>
-</div>
 {{end}}

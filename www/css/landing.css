@@ -1689,22 +1689,39 @@ label {
 ================================================================================ */
 /* line 4, ../scss/components/_footer.scss */
 .footer {
-  background: gray;
+  background: #404040;
   border-top: 1px solid #bababa;
   padding-bottom: 10px;
-  padding: 15px;
   overflow: hidden;
   width: 960px;
   margin: 0 auto;
 }
+/* line 11, ../scss/components/_footer.scss */
+.footer .footer_title {
+  text-align: center;
+  font-weight: 300;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: museo;
+  padding: 10px;
+  border-right: 1px solid #4d4d4d;
+}
+/* line 19, ../scss/components/_footer.scss */
+.footer .footer_title a {
+  text-decoration: none;
+  color: #dcdfe4;
+  padding: 0;
+  letter-spacing: 1px;
+  border: none;
+}
 
-/* line 14, ../scss/components/_footer.scss */
+/* line 29, ../scss/components/_footer.scss */
 .landing_page_footer {
   background: #404040;
   width: 100%;
 }
 
-/* line 19, ../scss/components/_footer.scss */
+/* line 34, ../scss/components/_footer.scss */
 .footer_title {
   text-align: center;
   font-weight: 300;
@@ -1713,7 +1730,7 @@ label {
   font-family: museo;
   padding: 30px;
 }
-/* line 26, ../scss/components/_footer.scss */
+/* line 41, ../scss/components/_footer.scss */
 .footer_title a {
   text-decoration: none;
   color: #dcdfe4;
@@ -1722,22 +1739,22 @@ label {
   letter-spacing: 1px;
 }
 
-/* line 35, ../scss/components/_footer.scss */
+/* line 50, ../scss/components/_footer.scss */
 .footer_link {
   color: white;
 }
-/* line 37, ../scss/components/_footer.scss */
+/* line 52, ../scss/components/_footer.scss */
 .footer_link:visited, .footer_link:active {
   color: white;
 }
 
-/* line 42, ../scss/components/_footer.scss */
+/* line 57, ../scss/components/_footer.scss */
 .footer_link_container {
   margin-left: 0;
   list-style-type: none;
 }
 
-/* line 47, ../scss/components/_footer.scss */
+/* line 62, ../scss/components/_footer.scss */
 .landing_footer {
   position: absolute;
   bottom: -89px;
@@ -1745,18 +1762,18 @@ label {
   width: 100%;
 }
 
-/* line 53, ../scss/components/_footer.scss */
+/* line 68, ../scss/components/_footer.scss */
 .landing_footer_login {
   bottom: 80px;
 }
 
-/* line 57, ../scss/components/_footer.scss */
+/* line 72, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 62, ../scss/components/_footer.scss */
+/* line 77, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;

@@ -31,7 +31,7 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
             },
 
             AllAgreements: function() {
-                //need to to views
+                //need to views
                 //same view with different title and different models
                 var sortedAgreements = this.collection.sortByStatus();
 
