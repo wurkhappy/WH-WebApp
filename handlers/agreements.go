@@ -47,6 +47,10 @@ func init() {
 func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	userID := session.Values["id"]
 
+	if userID == "" {
+		http.Redirect(w, req, "/home/sample", http.StatusFound)
+	}
+
 	agreementsData := getCurrentAgreements(userID.(string))
 
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
@@ -65,12 +69,30 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	}
 
 	var tpl *template.Template
-	if len(agreementsData) > 0 {
-		tpl = homeTpl
-	} else {
+	tpl = homeTpl
+	if len(agreementsData) == 0 {
 		tpl = emptyHomeTpl
 	}
 
+	tpl.Execute(w, m)
+}
+
+func GetHomeSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	var agreementsData []map[string]interface{}
+	json.Unmarshal([]byte(`[{"acceptsBankTransfer":true,"acceptsCreditCard":true,"agreementID":"ed356d73-70b7-485c-7cac-c1e42b49ca86","archived":false,"clientID":"096d76ac-ac5c-489c-60ca-d0bde5aac605","freelancerID":"5275dc12-2429-42ad-536d-ccfdba2fc91c","lastAction":{"date":"2014-04-11T14:21:46.867388667-04:00","name":"accepted","userID":"5275dc12-2429-42ad-536d-ccfdba2fc91c"},"lastModified":"2014-04-11T14:21:46.867389586-04:00","lastSubAction":{"date":"2014-04-13T14:21:46.867388667-04:00","name":"accepted","userID":"5275dc12-2429-42ad-536d-ccfdba2fc91c", "type":"payment"},"proposedServices":"<p>Create a blog</p>\n","title":"Sample Agreement","version":1,"versionID":"../sample"}]`), &agreementsData)
+	m := map[string]interface{}{
+		"appName":    "mainhome",
+		"agreements": agreementsData,
+		// "otherUsers":     requestedUsers,
+		// "thisUser":       thisUser,
+		"agreementCount": len(agreementsData),
+		"production":     Production,
+		"JSversion":      JSversion,
+		"CSSversion":     CSSversion,
+	}
+
+	var tpl *template.Template
+	tpl = homeTpl
 	tpl.Execute(w, m)
 }
 
@@ -388,4 +410,37 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 	}
 
 	w.Write(resp)
+}
+
+func GetSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+
+	var agrmntData map[string]interface{}
+	json.Unmarshal([]byte(`{"acceptsBankTransfer":true,"acceptsCreditCard":true,"agreementID":"ed356d73-70b7-485c-7cac-c1e42b49ca86","archived":false,"clientID":"096d76ac-ac5c-489c-60ca-d0bde5aac605","freelancerID":"5275dc12-2429-42ad-536d-ccfdba2fc91c","lastAction":{"date":"2014-04-11T14:21:46.867388667-04:00","name":"accepted","userID":"5275dc12-2429-42ad-536d-ccfdba2fc91c"},"lastModified":"2014-04-11T14:21:46.867389586-04:00","lastSubAction":null,"proposedServices":"<p>Create a blog</p>\n","title":"Sample Agreement","version":1,"versionID":"ed356d73-70b7-485c-7cac-c1e42b49ca86"}`), &agrmntData)
+	var paymentsData []map[string]interface{}
+	json.Unmarshal([]byte(`[{"amountDue":1000,"amountPaid":1000,"dateExpected":"0001-01-01T00:00:00Z","id":"dd44897f-0760-41b9-4405-3fa1fa29c989","isDeposit":true,"lastAction":{"date":"2014-04-11T14:21:46.838297751-04:00","name":"accepted","userID":"5275dc12-2429-42ad-536d-ccfdba2fc91c"},"paymentItems":[{"amountDue":1000,"hours":0,"rate":0,"subtaskID":"","taskID":"","title":"Deposit"}],"title":"Deposit","versionID":"ed356d73-70b7-485c-7cac-c1e42b49ca86"},{"amountDue":2000,"amountPaid":0,"dateExpected":"2014-04-18T04:00:00Z","id":"c1ac7d37-91ee-46ee-6493-c6c00774a47b","isDeposit":false,"lastAction":null,"paymentItems":[],"title":"Halfway Payment","versionID":"ed356d73-70b7-485c-7cac-c1e42b49ca86"},{"amountDue":2000,"amountPaid":0,"dateExpected":"2014-04-25T04:00:00Z","id":"995b2162-5f51-416b-79c8-a0d85fb59da2","isDeposit":false,"lastAction":null,"paymentItems":[],"title":"Final Payment","versionID":"ed356d73-70b7-485c-7cac-c1e42b49ca86"}]`), &paymentsData)
+	var tasksData []map[string]interface{}
+	json.Unmarshal([]byte(`[{ "sample":true, "dateExpected": "2014-04-11T04:00:00Z", "hours": 0, "id": "77d3ea52-c969-4b98-42b7-c2938d616b36", "isPaid": false, "lastAction": { "name": "completed"}, "subTasks": [ { "dateExpected": "0001-01-01T00:00:00Z", "hours": 0, "id": "7da4396b-69b8-4505-56b3-b22aa34cf158", "isPaid": false, "lastAction": { "name": "completed"}, "subTasks": null, "title": "Ideation", "versionID": ""}, { "dateExpected": "0001-01-01T00:00:00Z", "hours": 0, "id": "e40c49a3-f4b1-4ca3-470a-8b80819bcdbc", "isPaid": false, "lastAction": { "name": "completed"}, "subTasks": null, "title": "Wireframes", "versionID": ""}, { "dateExpected": "0001-01-01T00:00:00Z", "hours": 0, "id": "6ceb4dd8-d586-4136-605d-a4e2b85ccb13", "isPaid": false, "lastAction": { "name": "completed"}, "subTasks": null, "title": "Review", "versionID": "" }], "title": "Design", "versionID": "ed356d73-70b7-485c-7cac-c1e42b49ca86"}, { "sample":true, "dateExpected": "2014-04-18T04:00:00Z", "hours": 0, "id": "98f79d60-8fe1-4f35-4f55-f6d0bf8caa47", "isPaid": false, "lastAction": null, "subTasks": [ { "dateExpected": "0001-01-01T00:00:00Z", "hours": 0, "id": "11a0bd22-4dd0-4ade-6dd4-54ba5ff49f99", "isPaid": false, "lastAction": null, "subTasks": null, "title": "Prototype in HTML/CSS", "versionID": ""}, { "dateExpected": "0001-01-01T00:00:00Z", "hours": 0, "id": "fe421c0d-80a9-4487-6158-cf35528ebb17", "isPaid": false, "lastAction": null, "subTasks": null, "title": "Review", "versionID": "" }], "title": "Mockup", "versionID": "ed356d73-70b7-485c-7cac-c1e42b49ca86"}, { "sample":true, "dateExpected": "2014-04-18T04:00:00Z", "hours": 0, "id": "0b47680f-40ca-483b-7803-4e5258bac5bf", "isPaid": false, "lastAction": null, "subTasks": [ { "dateExpected": "0001-01-01T00:00:00Z", "hours": 0, "id": "46786360-8c22-4f0d-7570-5e6042c5ae9f", "isPaid": false, "lastAction": null, "subTasks": null, "title": "Finish coding blog", "versionID": ""}, { "dateExpected": "0001-01-01T00:00:00Z", "hours": 0, "id": "18960288-3cc8-4855-4fb1-758da517c95c", "isPaid": false, "lastAction": null, "subTasks": null, "title": "Move to production", "versionID": ""}, { "dateExpected": "0001-01-01T00:00:00Z", "hours": 0, "id": "e5ebc27b-8a13-441a-7869-28e237f6ee62", "isPaid": false, "lastAction": null, "subTasks": null, "title": "Review", "versionID": "" }], "title": "Final Product", "versionID": "ed356d73-70b7-485c-7cac-c1e42b49ca86" }]`), &tasksData)
+	var thisUser map[string]interface{}
+	json.Unmarshal([]byte(`{"isRegistered":true, "firstName":"Matt", "lastName":"Parker"}`), &thisUser)
+	var otherUser map[string]interface{}
+	json.Unmarshal([]byte(`{"isRegistered":true, "firstName":"Marcus", "lastName":"Ellison"}`), &otherUser)
+
+	m := map[string]interface{}{
+		"appName":    "mainagreement",
+		"agreement":  agrmntData,
+		"payments":   paymentsData,
+		"tasks":      tasksData,
+		"otherUser":  otherUser,
+		"thisUser":   thisUser,
+		"production": Production,
+		"JSversion":  JSversion,
+		"CSSversion": CSSversion,
+	}
+
+	tpl, _ := template.New("_baseApp.html").Funcs(template.FuncMap{"unescape": unescaped}).ParseFiles(
+		"templates/_baseApp.html",
+		"templates/freelancer_perspective_agreement.html",
+	)
+
+	tpl.Execute(w, m)
 }

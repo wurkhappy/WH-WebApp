@@ -29,6 +29,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user/{id}/password", userHandler(handlers.SetNewPassword)).Methods("PUT")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
+	r.Handle("/home/sample", loginHandler(handlers.GetHomeSample)).Methods("GET")
 	r.Handle("/archive", baseHandler(handlers.GetArchives)).Methods("GET")
 	r.HandleFunc("/about", about).Methods("GET")
 	r.HandleFunc("/pricing", pricing).Methods("GET")
@@ -45,6 +46,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/agreements/v/{versionID}/tasks", versionHandler(handlers.CreateTasks)).Methods("POST")
 	r.Handle("/agreements/v/{versionID}/payments", versionHandler(handlers.CreatePayments)).Methods("POST")
 	r.Handle("/agreement/v/{versionID}/status", versionHandler(handlers.CreateAgreementStatus)).Methods("POST")
+	r.Handle("/agreement/sample", loginHandler(handlers.GetSample)).Methods("GET")
 
 	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
 	r.Handle("/agreement/v", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
