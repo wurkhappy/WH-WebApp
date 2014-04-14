@@ -83,7 +83,7 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
             },
             getCompleted: function() {
                 var models = this.filter(function(model) {
-                    return model.get("lastAction") && model.get("lastAction").get("name") === "completed";
+                    return model.get("lastAction") && (model.get("lastAction").get("name") === "completed" || model.get("lastAction").get("name") === "paid");
                 });
                 return new Collection(models);
             },

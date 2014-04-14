@@ -18,7 +18,7 @@ define(['backbone', 'models/agreement'],
                 var inProgressAgrmnts = new Collection();
                 var draftAgrmnts = new Collection();
                 this.each(function(model) {
-                    if (model.get("lastAction").get("name") === "created") {
+                    if (!model.get("lastAction") || (model.get("lastAction") && model.get("lastAction").get("name") === "created")) {
                         draftAgrmnts.add(model);
                         return;
                     }

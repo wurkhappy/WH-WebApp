@@ -11,7 +11,8 @@
     var LegalRouter = Backbone.Router.extend({
 
       routes: {
-        '': 'terms',
+        "": 'terms',
+        'terms': 'terms',
         'privacy':"privacy"
       },
 

@@ -53,7 +53,7 @@ define(['backbone', 'handlebars', 'underscore',
                 if (paymentStatus && paymentStatus.get("date").valueOf() > status.get("date").valueOf()) {
                     status = paymentStatus;
                 }
-                var prefix = (status.get("type") === "payment") ? "Payment" : "Agreement";
+                var prefix = (status && status.get("type") === "payment") ? "Payment" : "Agreement";
                 var lastAction = prefix + " " + status.get("name") + " on " + status.get("date").format('MMM D, YYYY');
                 switch (status.get("name")) {
                     case status.StatusSubmitted:

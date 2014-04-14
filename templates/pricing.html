@@ -84,104 +84,102 @@
 	</div>
 
 <div class="fade2">
-	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;height:1000px;">
+	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;height:auto;">
 			<div id="benefits_container" class="hide benefits_container">
 			    <div class="clear headline_container">
 			  		<!-- <h1 class="logo_white">Wurk Happy</h1> -->
 			    	<h1 style="font-size:46px;font-weight:500;" class="headline">
 			    		Simple Pricing</h1>
-			    	<h2 style="font-family: museo_sans;margin-top:10px;text-align:center;color:white;">Make working easier for you and your client.</h2>
+			    	<h2 style="font-family: museo_sans;margin-top:10px;text-align:center;color:white;">Only pay when you get paid.</h2>
 			  	</div>
 
-			  	<div>
-			  		<div class="pricing_benefits_box" style="display:none;">
-  				  		<ul>
-  				  			<li>Save time billing</li>
-  				  			<li>Reduce Communication</li>
-  				  			<li>Get Paid Faster</li>
-  				  		</ul>
+			  	<div id="pricing_info_container">
+  				  	<div id="bank_transfer" class="pricing_box pricing_method">
+  				  		<h2 style="color:white;">Bank Transfer Pricing</h2>
+  				  		<div style="margin-left:0;" class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $100.00</h2>
+						        <h2><span class="pay_text">Pay</span> $2.00</h2>
+						    </div>
+  				  		</div>
+  				  		<div class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $500.00</h2>
+						        <h2><span class="pay_text">Pay</span> $10.00</h2>
+						    </div>
+  				  		</div>
+  				  		<div style="margin-right:0;" class="pricing_box_inside">
+  				  			<div class="price_level">
+						        <h2><span class="receive_text">Earn</span> $5000.00</h2>
+						        <h2><span class="pay_text">Pay</span> $15.00</h2>
+						    </div>
+  				  		</div>
   				  	</div>
-  				  	<div class="pricing_box">
-  				  		<div class="pricing_box_inside">
+
+  				  	<div style="display:none;" id="credit_card" class="pricing_box pricing_method">
+  				  		<h2 style="color:white;">Credit Card Pricing</h2>
+  				  		<div style="margin-left:0;" class="pricing_box_inside">
   				  			<div class="price_level">
-						        <h2><span class="receive_text">Earn</span> $100</h2>
-						        <h2><span class="pay_text">Pay</span> $1.50</h2>
+						        <h2><span class="receive_text">Earn</span> $100.00</h2>
+						        <h2><span class="pay_text">Pay</span> $3.45</h2>
 						    </div>
-  					  		<h3>1.5% up to $15</h3>
-  					  		<h3>Per Transaction*</h3>
-  					  		<h4>Only pay when you get paid</h4>
   				  		</div>
   				  		<div class="pricing_box_inside">
   				  			<div class="price_level">
-						        <h2><span class="receive_text">Earn</span> $500</h2>
-						        <h2><span class="pay_text">Pay</span> $7.50</h2>
+						        <h2><span class="receive_text">Earn</span> $500.00</h2>
+						        <h2><span class="pay_text">Pay</span> $15.05</h2>
 						    </div>
-  				  			<h3>1.5% up to $15</h3>
-  					  		<h3>Per Transaction*</h3>
-  					  		<h4>Only pay when you get paid</h4>
   				  		</div>
-  				  		<div class="pricing_box_inside">
+  				  		<div style="margin-right:0;" class="pricing_box_inside">
   				  			<div class="price_level">
-						        <h2><span class="receive_text">Earn</span> $5000</h2>
-						        <h2><span class="pay_text">Pay</span> $15</h2>
+						        <h2><span class="receive_text">Earn</span> $5000.00</h2>
+						        <h2><span class="pay_text">Pay</span> $145.55</h2>
 						    </div>
-  				  			<h3>1.5% up to $15</h3>
-  					  		<h3>Per Transaction*</h3>
-  					  		<h4>Only pay when you get paid</h4>
   				  		</div>
   				  	</div>
   				  </div>
+  				  <div id="pricing_toggle_container">
+				  		<a style="margin-right:20px;" class="pricing_toggle active" href="#bank_transfer">Bank Transfer</a>
+				  		<a class="pricing_toggle" style="float:left;" href="#credit_card">Credit Card</a>
+				  		<script>
+					  		$('.pricing_toggle').click( function(event) {
+					  			event.preventDefault();
+					  			var $this = $(this);
 
-  				  <p style="text-align:center;">*Credit Card Payment Processing charged at 2.9% +55 cents per transaction.</p>
+					  			$('.pricing_toggle').removeClass('active');
+					  			$this.addClass('active');
+					  			var method= $this.attr('href');
+					  			$('.pricing_method').hide();
+					  			$(method).fadeIn();
+					  		});
+				  		</script>
+				  		<i style="margin-left: 20px;font-size: 20px;top: 1px;position: relative;" class="fa fa-question-circle"></i>
+				  		<div id="pricing_detail">
+				  			<h3 style="color:white;margin-bottom:10px;">Processing Fees</h3>
+				  			<p><span style="font-weight:500;text-transform:uppercase;">Bank transfers</span> cost 1% + 55 cents with a $5 cap. Funds take 4-5 business days to appear in the recipient's bank account.</p>
 
-			  	<div class="price_level_container" style="overflow:hidden;display:none;">
-			      <div class="price_level">
-			        <h2><span class="receive_text">Earn</span> $100</h2>
-			        <h2><span class="pay_text">Pay</span> $1 + processing</h2>
-			      </div>
-			      <div class="price_level">
-			        <h2><span class="receive_text">Earn</span> $500</h2>
-			        <h2><span class="pay_text">Pay</span> $5 + processing</h2>
-			      </div>
-			      <div class="price_level">
-			        <h2><span class="receive_text">Earn</span> $5000</h2>
-			        <h2><span class="pay_text">Pay</span> $10 + <span style="text-transform:lowercase;font-size:14px;">payment fees</span></h2>
-			      </div>
-			    </div>
+				  			<p><span style="font-weight:500;text-transform:uppercase;">Credit Cards</span> cost 2.9% + 55 cents. Funds will appear in the recipient's bank account the next day.</p> 
+
+				  			<p><span style="font-weight:500;text-transform:uppercase;">Wurk Happy's Fee</span> is 1% up to a cap of $10. Payment processing fees will always be offered at cost.</p>
+				  		</div>
+				  		<script>
+				  			$('.fa-question-circle').hover(function() {
+				  				$(this).css('color', 'hsl(0,0%,56%)');
+				  				$('#pricing_detail').fadeIn();
+
+				  			}, function() {
+				  				$(this).css('color', 'white');
+				  				$('#pricing_detail').fadeOut('slow');
+				  			});
+				  		</script>
+				  	</div>
 			    <div class="clear"></div>
-			  	<div class="processing_container" style="overflow:hidden;position:relative;top:40px;display:none;">
-			      <div class="processing_description">
-			        <h2 style="color:white;">Payment Processing Fees</h2>
-			        <p>Wurk Happy offers payment processing at what it costs us.</p>
-			      </div>
-			      <div class="processing_costs">
-			        <p style="font-weight:100;"><span class="payment_cost">2.9% + 55 cents</span> for <span class="payment_method">credit cards</span><br><span class="helper_text" style="color:white;"> Funds clear the next business day.</span></p>
-			        <p style="font-weight:100;"><span class="payment_cost">1% + 55 cents, $5 cap</span> for <span class="payment_method">ach debits</span><br><span class="helper_text" style="color:white;"> Funds clear in 2-4 business days.</span></p>
-			      </div>
-			    </div>
 
 			  	<ul class="pricing_start">
-					<!-- <li id="create_account" class="create_account explore_button_container">
-						<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
-					</li> -->
 					<li id="create_account">
-						<a style="width: 260px;margin: 0 auto;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;" id="signup" class="button action_button" href="#new-account">Start Now</a>
+						<a style="width: 260px;margin: 0 auto;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;margin-bottom: 40px;" id="signup" class="button action_button" href="#new-account">Start Now</a>
 					</li>					
 				</ul>
-			  	<!-- <div class="clear">
-				  	<div id="communication" class="benefit_container">
-				    	<h3 class="benefit_title">Organize Communication</h3>
-				    	<p class="benefit_description">Create agreements in minutes.<br> Organize your important conversations.</p>
-				  	</div>
-				  	<div id="billing" class="benefit_container">
-				    	<h3 class="benefit_title">Automate Billing</h3>
-				    	<p class="benefit_description">Stop Invoicing.<br> We do it for you.</p>
-				  	</div>
-				  	<div id="payment" class="benefit_container">
-				    	<h3 class="benefit_title">Simplify Payment</h3>
-							<p class="benefit_description">Securely accept payment online.<br> Your clients will love paying you.</p>
-				  	</div>
-			    </div> -->
 	</div>
 	</div>
 </div> <!-- class fade2 -->
@@ -230,12 +228,8 @@
 	}
 </script>
 
-<script>
-	var s = skrollr.init();
-</script>
-
 <!-- landing footer-->
-	 <div id="footer" class="landing_footer" style="position:static;float:left;" style="">
+	 <div id="footer" class="landing_page_footer" style="position:static;float:left;">
     	<div>
     		<div class="landing_footer_column">
 		        <h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
@@ -252,7 +246,7 @@
 	        </div>
 	    </div>
     </div>
-<div class="copyright pricing_copyright clear" style="position: static;float:left;">
+<div class="copyright pricing_copyright clear" style="position: static;float:left;margin-top: 20px;">
 	<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
 </div>
  </div>  

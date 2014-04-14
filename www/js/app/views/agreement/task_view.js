@@ -21,7 +21,7 @@ define(['backbone', 'marionette', 'handlebars', 'hbs!templates/agreement/task_tp
             },
 
             render: function() {
-                var completed = (this.model.get("lastAction")) ? this.model.get("lastAction").get("name") === "completed" : false;
+                var completed = (this.model.get("lastAction")) ? this.model.get("lastAction").get("name") === "completed" || this.model.get("lastAction").get("name") === "paid" : false;
                 this.$el.html(this.template(_.extend(this.model.toJSON(), {
                     completed: completed
                 })));
