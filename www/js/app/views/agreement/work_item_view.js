@@ -106,6 +106,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.$('.paymentStatus').html('<span class="payment_status">Payment Made</span>');
             },
             taskStatusChange: _.debounce(function() {
+                if (this.model.get("sample")) {
+                    return;
+                }
                 this.model.save();
             }, 1000)
         });

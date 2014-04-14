@@ -13,7 +13,6 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/invoice', 'views/agre
             initialize: function(options) {
                 this.payment = options.payment;
                 this.tasks = options.tasks;
-                console.log(this.tasks.getNonPartiallyPaid());
                 this.workItems = this.tasks.getNonPartiallyPaid().getCompleted();
                 this.tasks = this.tasks.getTasks().getUnpaid().getCompleted();
                 this.tasks.remove(this.workItems.getTasks().models);
