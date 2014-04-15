@@ -6067,10 +6067,9 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 62, ../scss/components/_footer.scss */
 .landing_footer {
-  position: absolute;
-  bottom: -89px;
   background: #404040;
   width: 100%;
+  float: left;
 }
 
 /* line 68, ../scss/components/_footer.scss */
