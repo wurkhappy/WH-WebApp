@@ -84,7 +84,8 @@
 
 .landing_container {
   padding-top: 66px;
-  height: 980px;
+  /*height: 980px;*/
+  min-height:980px;
 }
 
 .explore_button_container {
