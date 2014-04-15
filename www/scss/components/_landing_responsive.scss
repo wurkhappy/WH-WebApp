@@ -82,11 +82,6 @@
 }
 
 @media all and (max-width: 970px) {
-  .headline_container {
-    h1, h2 {
-      width:80%;
-      margin:0 auto;
-    }
     h1 {
       font-size: 38px;
     }
@@ -94,13 +89,15 @@
     h2 {
       font-size: 20px;
     }
-    
-  }
 }
 
 @media all and (max-width: 760px) {
   body {
     width:auto !important;
+  }
+
+  #agreement-progress-bar {
+    display:none;
   }
 
 
@@ -129,9 +126,6 @@
     display:none;
   }
 
-  .copyright {
-    bottom: -170px;
-  }
 }
 
 @media all and (min-width: 761px) and (max-width: 1000px) {
@@ -243,27 +237,7 @@
 
 @media all and (min-width: 761px) and (max-width:1000px) and (max-height: 1090px) {
   .navigation {
-    padding: 15px;
-  }
-
-  .landing_container {
-    padding-top:40px;
-    height: 620px;
-  }
-
-  .landing_footer  .footer_title {
-    padding:0 30px;
-    a {
-      padding:0px 50% 0 35%;
-    }
-  }
-  .landing_footer {
-    bottom: -29px;
-  }
-
-  .copyright {
-    bottom: -78px;
-    padding:0;
+    padding: 30px;
   }
 
   .feature1, .feature2, .feature3 {
@@ -326,26 +300,6 @@
 // Dealing screen is really wide and height is really short
 
 @media all and (min-width: 761px) and (max-height: 950px) {
-  .landing_container {
-    padding-top: 15px;
-    height: 300px;
-  }
-
-  .landing_footer  .footer_title {
-    padding:0 30px;
-    a {
-      padding:0px 50% 0 35%;
-    }
-  }
-
-  .landing_footer {
-    bottom: -29px;
-  }
-
-  .copyright {
-    bottom: -126px;
-    padding:0;
-  }
 
   .fr_scene_01 {
     width: 300px;
@@ -459,10 +413,6 @@
 }
 
 @media all and (min-width: 761px) and (min-height: 630px) and (max-height: 950px) {
-  .landing_container {
-    height: 500px;
-    padding-top: 25px;
-  }
 
   .feature1, .feature2, .feature3 {
     font-size:40px;
@@ -522,11 +472,6 @@
     left: 190px;
   }
 
-  .headline_container h2 {
-    position: relative;
-    top: -15px;
-  }
-
   .feature1, .feature2, .feature3 {
     font-size: 30px;
     margin-bottom: -40px;
@@ -539,10 +484,6 @@
 }
 
 @media all and (min-width: 761px) and (max-height: 629px) {
-
-  .headline_container h2 {
-    display:none;
-  }
 
   .learn_more {
     bottom: 41px !important;
@@ -635,8 +576,6 @@
       font-size: 44px;
     }
   }
-
-  
 
   .price_level {
     width:264px;

@@ -995,18 +995,12 @@ td {
 }
 
 /* line 51, ../scss/components/_landing.scss */
-.benefit_container {
-  width: 33%;
-  float: left;
-}
-
-/* line 56, ../scss/components/_landing.scss */
 .benefit_description {
   text-align: center;
   font-weight: 300;
 }
 
-/* line 61, ../scss/components/_landing.scss */
+/* line 56, ../scss/components/_landing.scss */
 .benefit_title {
   font-size: 22px;
   font-weight: 100;
@@ -1014,25 +1008,19 @@ td {
   font-family: museo_sans;
 }
 
-/* line 68, ../scss/components/_landing.scss */
-.benefits_container {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* line 73, ../scss/components/_landing.scss */
+/* line 63, ../scss/components/_landing.scss */
 .signup_button_container {
   width: 300px;
   margin: 0 auto;
   list-style-type: none;
   margin-top: 50px;
 }
-/* line 77, ../scss/components/_landing.scss */
+/* line 67, ../scss/components/_landing.scss */
 .signup_button_container li {
   display: inline;
 }
 
-/* line 83, ../scss/components/_landing.scss */
+/* line 73, ../scss/components/_landing.scss */
 .login_button {
   padding: 8px 60px;
   border: 3px solid #007db3;
@@ -1041,24 +1029,25 @@ td {
   line-height: 24px;
   text-transform: capitalize;
 }
-/* line 90, ../scss/components/_landing.scss */
+/* line 80, ../scss/components/_landing.scss */
 .login_button:hover {
   border: 3px solid #ffa200;
 }
 
-/* line 95, ../scss/components/_landing.scss */
+/* line 85, ../scss/components/_landing.scss */
 .landing_container {
   padding-top: 66px;
-  height: 840px;
+  /*height: 980px;*/
+  min-height: 980px;
 }
 
-/* line 100, ../scss/components/_landing.scss */
+/* line 91, ../scss/components/_landing.scss */
 .explore_button_container {
   margin-left: 20px;
   width: 120px;
 }
 
-/* line 105, ../scss/components/_landing.scss */
+/* line 96, ../scss/components/_landing.scss */
 .landing_logo_container {
   float: left;
   width: 42%;
@@ -1066,13 +1055,13 @@ td {
   padding: 5px 0;
 }
 
-/* line 112, ../scss/components/_landing.scss */
+/* line 103, ../scss/components/_landing.scss */
 .landing_admin_container {
   width: 50%;
   float: left;
 }
 
-/* line 117, ../scss/components/_landing.scss */
+/* line 108, ../scss/components/_landing.scss */
 .logo_white {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   color: white;
@@ -1083,33 +1072,29 @@ td {
   margin: 0 auto;
 }
 
-/* line 127, ../scss/components/_landing.scss */
+/* line 118, ../scss/components/_landing.scss */
 .headline_container {
   margin-bottom: 40px;
 }
 
-/* line 131, ../scss/components/_landing.scss */
+/* line 122, ../scss/components/_landing.scss */
 .left_background {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #008fcc;
+  background: rgba(0, 0, 0, 0);
+  margin: 0 auto;
+  z-index: 1;
+  overflow: hidden;
+  width: 970px;
+  margin-top: 60px;
 }
 
-/* line 140, ../scss/components/_landing.scss */
+/* line 131, ../scss/components/_landing.scss */
 .right_background {
-  position: absolute;
   width: 50%;
-  height: 100%;
-  top: 0;
-  right: 0;
   background: #1a97d1;
 }
 
 /* Landing Images */
-/* line 151, ../scss/components/_landing.scss */
+/* line 142, ../scss/components/_landing.scss */
 .fr_scene_01 {
   width: 550px;
   position: absolute;
@@ -1117,7 +1102,7 @@ td {
   right: 50px;
 }
 
-/* line 158, ../scss/components/_landing.scss */
+/* line 149, ../scss/components/_landing.scss */
 .fr_01_agreement {
   width: 147px;
   position: absolute;
@@ -1126,7 +1111,7 @@ td {
   z-index: 2;
 }
 
-/* line 166, ../scss/components/_landing.scss */
+/* line 157, ../scss/components/_landing.scss */
 .fr_2_track {
   width: 236px;
   position: absolute;
@@ -1135,7 +1120,7 @@ td {
   z-index: 2;
 }
 
-/* line 174, ../scss/components/_landing.scss */
+/* line 165, ../scss/components/_landing.scss */
 .fr_3_invoice {
   width: 236px;
   position: absolute;
@@ -1144,7 +1129,7 @@ td {
   z-index: 2;
 }
 
-/* line 183, ../scss/components/_landing.scss */
+/* line 174, ../scss/components/_landing.scss */
 .invoice_connect {
   width: 398px;
   position: absolute;
@@ -1153,7 +1138,7 @@ td {
   z-index: 1;
 }
 
-/* line 191, ../scss/components/_landing.scss */
+/* line 182, ../scss/components/_landing.scss */
 .cl_1_agreement {
   width: 250px;
   position: absolute;
@@ -1161,7 +1146,7 @@ td {
   left: 242px;
 }
 
-/* line 198, ../scss/components/_landing.scss */
+/* line 189, ../scss/components/_landing.scss */
 .cl_2_track {
   width: 110px;
   position: absolute;
@@ -1169,7 +1154,7 @@ td {
   left: 242px;
 }
 
-/* line 205, ../scss/components/_landing.scss */
+/* line 196, ../scss/components/_landing.scss */
 .cl_3_invoice {
   width: 250px;
   position: absolute;
@@ -1177,7 +1162,7 @@ td {
   left: 242px;
 }
 
-/* line 212, ../scss/components/_landing.scss */
+/* line 203, ../scss/components/_landing.scss */
 .feature1 {
   font-size: 40px;
   font-family: museo;
@@ -1191,7 +1176,7 @@ td {
   margin-bottom: 63px;
 }
 
-/* line 225, ../scss/components/_landing.scss */
+/* line 216, ../scss/components/_landing.scss */
 .feature2 {
   font-size: 40px;
   font-family: museo;
@@ -1205,7 +1190,7 @@ td {
   margin-bottom: 63px;
 }
 
-/* line 238, ../scss/components/_landing.scss */
+/* line 229, ../scss/components/_landing.scss */
 .feature3 {
   font-size: 40px;
   font-family: museo;
@@ -1219,7 +1204,7 @@ td {
   margin-bottom: 63px;
 }
 
-/* line 251, ../scss/components/_landing.scss */
+/* line 242, ../scss/components/_landing.scss */
 .learn_more {
   font-size: 40px;
   font-family: museo;
@@ -1234,61 +1219,61 @@ td {
   margin-bottom: 30px;
 }
 
-/* line 264, ../scss/components/_landing.scss */
+/* line 255, ../scss/components/_landing.scss */
 .navigation {
-  padding: 15px;
+  padding: 30px;
 }
 
-/* line 268, ../scss/components/_landing.scss */
+/* line 259, ../scss/components/_landing.scss */
 .pricing_navigation {
   padding: 30px;
 }
 
 /* Legal Page */
-/* line 274, ../scss/components/_landing.scss */
+/* line 265, ../scss/components/_landing.scss */
 .faqcontent {
   padding: 23px 40px;
   width: 630px;
   float: right;
 }
-/* line 278, ../scss/components/_landing.scss */
+/* line 269, ../scss/components/_landing.scss */
 .faqcontent p {
   color: black;
 }
-/* line 281, ../scss/components/_landing.scss */
+/* line 272, ../scss/components/_landing.scss */
 .faqcontent ul li {
   color: black;
 }
 
-/* line 286, ../scss/components/_landing.scss */
+/* line 277, ../scss/components/_landing.scss */
 .legal_tab {
   width: 250px;
 }
 
-/* line 290, ../scss/components/_landing.scss */
+/* line 281, ../scss/components/_landing.scss */
 .legal_menu {
   float: left;
 }
 
-/* line 294, ../scss/components/_landing.scss */
+/* line 285, ../scss/components/_landing.scss */
 .legal_menu:first-child {
   margin-right: 20px;
 }
 
-/* line 298, ../scss/components/_landing.scss */
+/* line 289, ../scss/components/_landing.scss */
 .legal_page_title {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* line 303, ../scss/components/_landing.scss */
+/* line 294, ../scss/components/_landing.scss */
 .faqnav {
   background: whitesmoke;
   padding: 20px;
   width: 283px;
 }
 
-/* line 309, ../scss/components/_landing.scss */
+/* line 300, ../scss/components/_landing.scss */
 .title {
   font-size: 24px;
   font-family: museo;
@@ -1297,10 +1282,77 @@ td {
   color: #ffa200;
 }
 
-/* line 317, ../scss/components/_landing.scss */
+/* line 308, ../scss/components/_landing.scss */
 .column-one-fourth {
   clear: left;
   margin-top: 30px;
+}
+
+/* New Landing 4/14/14 */
+/*
+#benefits_image_container {
+  background:
+    url('../img/landing/fr_scene_01.png') no-repeat,
+    url('../img/landing/fr_1_agreement.png') no-repeat,
+    url('../img/landing/fr_2_track.png') no-repeat,
+    url('../img/landing/fr_3_invoice.png') no-repeat,
+    url('../img/landing/fr_scene_01.png') no-repeat;
+  background-size:50px;
+}
+*/
+/* line 327, ../scss/components/_landing.scss */
+#create, #update, #invoice, #process, #receive {
+  display: none;
+  border: 2px solid white;
+  padding: 30px;
+  max-width: 500px;
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
+  background: #008bc7;
+  padding-bottom: 10px;
+  margin-top: 40px;
+}
+
+/* line 340, ../scss/components/_landing.scss */
+.on {
+  border-bottom-color: #87cf54 !important;
+}
+/* line 342, ../scss/components/_landing.scss */
+.on:after {
+  border-top-color: #87cf54 !important;
+}
+
+/* line 347, ../scss/components/_landing.scss */
+.workflow_hover_heading {
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: museo_sans;
+}
+
+/* line 354, ../scss/components/_landing.scss */
+.timeline_label {
+  font-size: 18px;
+  font-weight: 400;
+  color: inherit;
+  font-family: museo;
+  font-style: italic;
+  position: absolute;
+  font-size: 25px;
+  width: 310px;
+  text-transform: capitalize;
+}
+
+/* line 366, ../scss/components/_landing.scss */
+.benefit_container {
+  background: white;
+  float: left;
+  width: 180px;
+  padding: 2px;
+  position: relative;
+  left: -48px;
+  top: -193px;
 }
 
 /* line 1, ../scss/components/_pricing.scss */
@@ -1499,6 +1551,398 @@ a.active {
 /* line 167, ../scss/components/_pricing.scss */
 #pricing_info_container {
   min-height: 470px;
+}
+
+/* line 1, ../scss/components/_progress_bars.scss */
+.progress-large {
+  margin: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+/* line 7, ../scss/components/_progress_bars.scss */
+.create_agreement_progress {
+  margin: 20px;
+  padding: 10px;
+  position: relative;
+}
+
+/* line 13, ../scss/components/_progress_bars.scss */
+.agreement_progress progress[value] {
+  width: 800px;
+}
+
+/* line 17, ../scss/components/_progress_bars.scss */
+progress[value] {
+  /* Get rid of the default appearance */
+  appearance: none;
+  /* This unfortunately leaves a trail of border behind in Firefox and Opera. We can remove that by setting the border to none. */
+  border: none;
+  width: 100%;
+  height: 2px;
+  /* Although firefox doesn't provide any additional pseudo class to style the progress element container, any style applied here works on the container. */
+  background-color: #bababa;
+  /* Of all IE, only IE10 supports progress element that too partially. It only allows to change the background-color of the progress value using the 'color' attribute. */
+  color: royalblue;
+  position: relative;
+  margin: 5px 0;
+}
+
+/* line 32, ../scss/components/_progress_bars.scss */
+progress[value]::-webkit-progress-bar {
+  background-color: #bababa;
+}
+
+/* line 36, ../scss/components/_progress_bars.scss */
+progress[value]::-webkit-progress-value {
+  position: relative;
+}
+
+/* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
+/* line 43, ../scss/components/_progress_bars.scss */
+progress[value]::-moz-progress-bar {
+  background: #87cf54;
+}
+
+/* line 47, ../scss/components/_progress_bars.scss */
+progress::-webkit-progress-value, progress.yellow_progress {
+  background: #87cf54;
+}
+
+/* Fallback technique styles */
+/* line 53, ../scss/components/_progress_bars.scss */
+.progress-bar {
+  background-color: #87cf54;
+  /* Dimensions should be similar to the parent progress element. */
+  width: 100%;
+  height: 2px;
+}
+
+/* line 61, ../scss/components/_progress_bars.scss */
+.progress-bar span {
+  background-color: #bababa;
+  display: block;
+  text-indent: -9999px;
+}
+
+/* line 69, ../scss/components/_progress_bars.scss */
+.agreement_progress[value] {
+  height: 4px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* line 75, ../scss/components/_progress_bars.scss */
+.agreement_progress[value]::-webkit-progress-bar {
+  height: 4px;
+}
+
+/* line 79, ../scss/components/_progress_bars.scss */
+.agreement_progress[value]::-moz-progress-bar {
+  height: 4px;
+  background: #87cf54;
+}
+
+/* line 84, ../scss/components/_progress_bars.scss */
+.agreement_progress::-webkit-progress-value, .agreement_progress[value].yellow_progress {
+  background: -webkit-linear-gradient(left, #cec150);
+}
+
+/* line 89, ../scss/components/_progress_bars.scss */
+.agreement_progress[value]::-webkit-progress-value {
+  position: relative;
+}
+
+/* line 95, ../scss/components/_progress_bars.scss */
+.agreement_progress_bar {
+  background-color: #87cf54;
+  /* Dimensions should be similar to the parent progress element. */
+  width: 100%;
+  height: 4px;
+  position: absolute;
+}
+
+/* line 107, ../scss/components/_progress_bars.scss */
+.progress_icon.green_progress {
+  border-bottom-color: #87cf54;
+}
+
+/* line 111, ../scss/components/_progress_bars.scss */
+.progress_icon.green_progress:after {
+  border-top-color: #87cf54;
+}
+
+/* line 115, ../scss/components/_progress_bars.scss */
+.yellow_progress {
+  background: #cec150;
+}
+
+/* line 119, ../scss/components/_progress_bars.scss */
+.green_progress_tick {
+  background: #87cf54;
+}
+
+/* line 123, ../scss/components/_progress_bars.scss */
+.grey_progress_tick {
+  background: #bababa;
+}
+
+/* line 127, ../scss/components/_progress_bars.scss */
+.red_progress {
+  background: #ce5058;
+}
+
+/* line 131, ../scss/components/_progress_bars.scss */
+.progress_icon.grey_progress {
+  border-bottom-color: gray;
+}
+
+/* line 134, ../scss/components/_progress_bars.scss */
+.progress_icon.grey_progress:after {
+  border-top-color: gray;
+}
+
+/* line 138, ../scss/components/_progress_bars.scss */
+.icon_container {
+  position: relative;
+  top: 10.5px;
+  z-index: 1;
+  left: 40px;
+}
+
+/* line 145, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link {
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  width: 110px;
+}
+/* line 150, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link:hover {
+  text-decoration: none;
+}
+/* line 152, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link:hover h3 {
+  color: #ffa200;
+}
+
+/* line 158, ../scss/components/_progress_bars.scss */
+.overview_link {
+  left: 0px;
+}
+
+/* line 162, ../scss/components/_progress_bars.scss */
+.payment_schedule_link {
+  left: 150px;
+}
+
+/* line 166, ../scss/components/_progress_bars.scss */
+.payment_link {
+  left: 300px;
+}
+
+/* line 170, ../scss/components/_progress_bars.scss */
+.review_link {
+  left: 450px;
+}
+
+/* line 174, ../scss/components/_progress_bars.scss */
+.send_link {
+  left: 600px;
+}
+
+/* line 178, ../scss/components/_progress_bars.scss */
+.create_agreement_icon_container {
+  position: absolute;
+  z-index: 5;
+  margin-top: 4px;
+}
+
+/* line 184, ../scss/components/_progress_bars.scss */
+.progress_icon {
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  position: absolute;
+  top: -93px;
+  display: inline-block;
+  margin-left: 10px;
+}
+/* line 192, ../scss/components/_progress_bars.scss */
+.progress_icon:after {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+}
+
+/* line 203, ../scss/components/_progress_bars.scss */
+.create_agreement_progress_icon {
+  top: -2px;
+  display: inline-block;
+  margin-left: 0;
+  border-bottom-color: gray;
+  position: relative;
+}
+/* line 209, ../scss/components/_progress_bars.scss */
+.create_agreement_progress_icon:after {
+  border-top-color: gray;
+}
+
+/* line 214, ../scss/components/_progress_bars.scss */
+.create_agreement_progress {
+  width: 617px;
+  float: right;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+
+/* line 221, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  background-color: #dfe3e7;
+  color: #636363;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* line 236, ../scss/components/_progress_bars.scss */
+.create_agreement_navigation_link_hover {
+  background: #a9b3bc;
+}
+
+/* line 240, ../scss/components/_progress_bars.scss */
+.create_agreement_title {
+  float: left;
+}
+
+/* line 244, ../scss/components/_progress_bars.scss */
+.create_agreement_label_first {
+  padding-top: 5px;
+}
+
+/* line 248, ../scss/components/_progress_bars.scss */
+.green_icon {
+  color: #87cf54;
+}
+
+/* line 252, ../scss/components/_progress_bars.scss */
+.tooltip {
+  background: #fff;
+  background: white;
+  border-radius: 5px;
+  border-color: gray;
+  border-width: 1px;
+  border-style: solid;
+  padding: 15px 15px;
+  top: 35px;
+  position: absolute;
+  z-index: 98;
+  width: 220px;
+  -moz-box-shadow: 0px 1px 3px 1px #ccc;
+  -webkit-box-shadow: 0px 1px 3px 1px #ccc;
+  box-shadow: 0px 1px 3px 1px #ccc;
+  font-size: 14px;
+  color: #646464;
+}
+
+/* line 270, ../scss/components/_progress_bars.scss */
+.tooltip > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 275, ../scss/components/_progress_bars.scss */
+.tooltip:after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: -6px;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-color: #969696;
+  border-width: 0;
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-style: solid;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* line 296, ../scss/components/_progress_bars.scss */
+.small_progress_bar {
+  background: #dce0e4;
+  /* Dimensions should be similar to the parent progress element. */
+  width: 100%;
+  border-radius: 10px;
+  height: 2px;
+}
+/* line 302, ../scss/components/_progress_bars.scss */
+.small_progress_bar span {
+  display: block;
+  margin: 14px 0 13px 0;
+  background-color: #87cf54;
+  height: 2px;
+  width: 0;
+}
+
+/* line 311, ../scss/components/_progress_bars.scss */
+.small_progress_bar_fallback {
+  top: 0;
+  height: 2px;
+  position: absolute;
+}
+
+/* line 317, ../scss/components/_progress_bars.scss */
+.create_agreement_progress_bar_fallback {
+  top: 0;
+  position: absolute;
+}
+
+/* line 322, ../scss/components/_progress_bars.scss */
+.progress_bar > .ui-progressbar-value {
+  background: #87cf54;
+  border: none;
+  margin: 0;
+  border-radius: 0px;
+}
+
+/* line 328, ../scss/components/_progress_bars.scss */
+.progress_bar.ui-progressbar {
+  height: 4px;
+  border-radius: 0px;
+  width: 800px;
+  margin: 60px;
+  margin-top: 80px;
+}
+
+/* line 336, ../scss/components/_progress_bars.scss */
+#payment_progress.progress_bar {
+  height: 2px;
+  border-radius: 0px;
+  margin: 30px 22px;
+  width: auto;
+  background: #bababa;
+}
+
+/* line 345, ../scss/components/_progress_bars.scss */
+.agreement_progress_tick:last-child {
+  display: none;
 }
 
 /* Sub- Navigation 
@@ -1756,10 +2200,9 @@ label {
 
 /* line 62, ../scss/components/_footer.scss */
 .landing_footer {
-  position: absolute;
-  bottom: -89px;
   background: #404040;
   width: 100%;
+  float: left;
 }
 
 /* line 68, ../scss/components/_footer.scss */
@@ -1881,114 +2324,110 @@ label {
   }
 }
 @media all and (max-width: 970px) {
-  /* line 86, ../scss/components/_landing_responsive.scss */
-  .headline_container h1, .headline_container h2 {
-    width: 80%;
-    margin: 0 auto;
-  }
-  /* line 90, ../scss/components/_landing_responsive.scss */
-  .headline_container h1 {
+  /* line 85, ../scss/components/_landing_responsive.scss */
+  h1 {
     font-size: 38px;
   }
-  /* line 94, ../scss/components/_landing_responsive.scss */
-  .headline_container h2 {
+
+  /* line 89, ../scss/components/_landing_responsive.scss */
+  h2 {
     font-size: 20px;
   }
 }
 @media all and (max-width: 760px) {
-  /* line 102, ../scss/components/_landing_responsive.scss */
+  /* line 95, ../scss/components/_landing_responsive.scss */
   body {
     width: auto !important;
   }
 
-  /* line 107, ../scss/components/_landing_responsive.scss */
+  /* line 99, ../scss/components/_landing_responsive.scss */
+  #agreement-progress-bar {
+    display: none;
+  }
+
+  /* line 104, ../scss/components/_landing_responsive.scss */
   .left_background {
     display: none;
   }
 
-  /* line 110, ../scss/components/_landing_responsive.scss */
+  /* line 107, ../scss/components/_landing_responsive.scss */
   .right_background {
     display: none;
   }
 
-  /* line 113, ../scss/components/_landing_responsive.scss */
+  /* line 110, ../scss/components/_landing_responsive.scss */
   .landing_fixed_container {
     position: relative;
     width: auto;
   }
 
-  /* line 118, ../scss/components/_landing_responsive.scss */
+  /* line 115, ../scss/components/_landing_responsive.scss */
   .landing_container {
     height: 960px;
   }
 
-  /* line 122, ../scss/components/_landing_responsive.scss */
+  /* line 119, ../scss/components/_landing_responsive.scss */
   body {
     height: 925px !important;
   }
 }
 @media all and (min-width: 761px) {
-  /* line 128, ../scss/components/_landing_responsive.scss */
+  /* line 125, ../scss/components/_landing_responsive.scss */
   .mobile_landing_image {
     display: none;
   }
-
-  /* line 132, ../scss/components/_landing_responsive.scss */
-  .copyright {
-    bottom: -170px;
-  }
 }
 @media all and (min-width: 761px) and (max-width: 1000px) {
-  /* line 141, ../scss/components/_landing_responsive.scss */
+  /* line 135, ../scss/components/_landing_responsive.scss */
   .fr_scene_01 {
     width: 300px;
     top: 270px;
     right: 70px;
   }
 
-  /* line 147, ../scss/components/_landing_responsive.scss */
+  /* line 141, ../scss/components/_landing_responsive.scss */
   .fr_01_agreement {
     width: 75px;
     top: 374px;
     right: 160px;
   }
 
-  /* line 153, ../scss/components/_landing_responsive.scss */
+  /* line 147, ../scss/components/_landing_responsive.scss */
   .cl_1_agreement {
     width: 200px;
     top: 346px;
     left: 132px;
   }
 
-  /* line 159, ../scss/components/_landing_responsive.scss */
+  /* line 153, ../scss/components/_landing_responsive.scss */
   .fr_2_track {
     width: 140px;
     top: 388px;
     right: 125px;
   }
 
-  /* line 165, ../scss/components/_landing_responsive.scss */
+  /* line 159, ../scss/components/_landing_responsive.scss */
   .cl_2_track {
     width: 77px;
     top: 354px;
     left: 198px;
   }
 
-  /* line 171, ../scss/components/_landing_responsive.scss */
+  /* line 165, ../scss/components/_landing_responsive.scss */
   .fr_3_invoice {
     width: 147px;
     top: 388px;
     right: 128px;
   }
 
-  /* line 177, ../scss/components/_landing_responsive.scss */
+  /* line 171, ../scss/components/_landing_responsive.scss */
   .cl_3_invoice {
     width: 190px;
     top: 400px;
     left: 180px;
   }
 
-  /* line 183, ../scss/components/_landing_responsive.scss */
+  /* line 177, ../scss/components/_landing_responsive.scss */
   .invoice_connect {
     width: 260px;
     top: 440px;
@@ -1996,56 +2435,56 @@ label {
   }
 }
 @media all and (min-width: 1001px) and (max-width: 1200px) {
-  /* line 192, ../scss/components/_landing_responsive.scss */
+  /* line 186, ../scss/components/_landing_responsive.scss */
   .fr_scene_01 {
     width: 400px;
     top: 234px;
     right: 50px;
   }
 
-  /* line 198, ../scss/components/_landing_responsive.scss */
+  /* line 192, ../scss/components/_landing_responsive.scss */
   .fr_01_agreement {
     width: 100px;
     top: 374px;
     right: 167px;
   }
 
-  /* line 204, ../scss/components/_landing_responsive.scss */
+  /* line 198, ../scss/components/_landing_responsive.scss */
   .cl_1_agreement {
     width: 250px;
     top: 346px;
     left: 132px;
   }
 
-  /* line 210, ../scss/components/_landing_responsive.scss */
+  /* line 204, ../scss/components/_landing_responsive.scss */
   .fr_2_track {
     width: 171px;
     top: 388px;
     right: 133px;
   }
 
-  /* line 216, ../scss/components/_landing_responsive.scss */
+  /* line 210, ../scss/components/_landing_responsive.scss */
   .cl_2_track {
     width: 100px;
     top: 354px;
     left: 198px;
   }
 
-  /* line 222, ../scss/components/_landing_responsive.scss */
+  /* line 216, ../scss/components/_landing_responsive.scss */
   .fr_3_invoice {
     width: 186px;
     top: 396px;
     right: 132px;
   }
 
-  /* line 228, ../scss/components/_landing_responsive.scss */
+  /* line 222, ../scss/components/_landing_responsive.scss */
   .invoice_connect {
     width: 293px;
     top: 457px;
     right: -166px;
   }
 
-  /* line 234, ../scss/components/_landing_responsive.scss */
+  /* line 228, ../scss/components/_landing_responsive.scss */
   .cl_3_invoice {
     width: 215px;
     top: 410px;
@@ -2053,138 +2492,86 @@ label {
   }
 }
 @media all and (min-width: 761px) and (max-width: 1000px) and (max-height: 1090px) {
-  /* line 245, ../scss/components/_landing_responsive.scss */
+  /* line 239, ../scss/components/_landing_responsive.scss */
   .navigation {
-    padding: 15px;
+    padding: 30px;
   }
 
-  /* line 249, ../scss/components/_landing_responsive.scss */
-  .landing_container {
-    padding-top: 40px;
-    height: 620px;
-  }
-
-  /* line 254, ../scss/components/_landing_responsive.scss */
-  .landing_footer .footer_title {
-    padding: 0 30px;
-  }
-  /* line 256, ../scss/components/_landing_responsive.scss */
-  .landing_footer .footer_title a {
-    padding: 0px 50% 0 35%;
-  }
-
-  /* line 260, ../scss/components/_landing_responsive.scss */
-  .landing_footer {
-    bottom: -29px;
-  }
-
-  /* line 264, ../scss/components/_landing_responsive.scss */
-  .copyright {
-    bottom: -78px;
-    padding: 0;
-  }
-
-  /* line 269, ../scss/components/_landing_responsive.scss */
+  /* line 243, ../scss/components/_landing_responsive.scss */
   .feature1, .feature2, .feature3 {
     margin-bottom: 0;
   }
 
-  /* line 273, ../scss/components/_landing_responsive.scss */
+  /* line 247, ../scss/components/_landing_responsive.scss */
   .learn_more {
     margin-bottom: -20px;
   }
 
-  /* line 277, ../scss/components/_landing_responsive.scss */
+  /* line 251, ../scss/components/_landing_responsive.scss */
   .fr_scene_01 {
     top: 170px;
   }
 
-  /* line 281, ../scss/components/_landing_responsive.scss */
+  /* line 255, ../scss/components/_landing_responsive.scss */
   .fr_01_agreement {
     top: 274px;
   }
 
-  /* line 285, ../scss/components/_landing_responsive.scss */
+  /* line 259, ../scss/components/_landing_responsive.scss */
   .cl_1_agreement {
     top: 282px;
   }
 
-  /* line 289, ../scss/components/_landing_responsive.scss */
+  /* line 263, ../scss/components/_landing_responsive.scss */
   .fr_2_track {
     top: 286px;
   }
 
-  /* line 293, ../scss/components/_landing_responsive.scss */
+  /* line 267, ../scss/components/_landing_responsive.scss */
   .cl_2_track {
     top: 290px;
   }
 
-  /* line 297, ../scss/components/_landing_responsive.scss */
+  /* line 271, ../scss/components/_landing_responsive.scss */
   .fr_3_invoice {
     top: 289px;
   }
 
-  /* line 301, ../scss/components/_landing_responsive.scss */
+  /* line 275, ../scss/components/_landing_responsive.scss */
   .cl_3_invoice {
     top: 336px;
   }
 
-  /* line 305, ../scss/components/_landing_responsive.scss */
+  /* line 279, ../scss/components/_landing_responsive.scss */
   .invoice_connect {
     top: 376px;
   }
 }
 @media all and (min-width: 1001px) and (max-width: 1200px) and (max-height: 1090px) {
-  /* line 311, ../scss/components/_landing_responsive.scss */
+  /* line 285, ../scss/components/_landing_responsive.scss */
   .fr_01_agreement {
     top: 374px;
   }
 
-  /* line 315, ../scss/components/_landing_responsive.scss */
+  /* line 289, ../scss/components/_landing_responsive.scss */
   .fr_2_track {
     top: 389px;
   }
 
-  /* line 319, ../scss/components/_landing_responsive.scss */
+  /* line 293, ../scss/components/_landing_responsive.scss */
   .fr_3_invoice {
     top: 394px;
   }
 }
 @media all and (min-width: 761px) and (max-height: 950px) {
-  /* line 329, ../scss/components/_landing_responsive.scss */
-  .landing_container {
-    padding-top: 15px;
-    height: 300px;
-  }
-
-  /* line 334, ../scss/components/_landing_responsive.scss */
-  .landing_footer .footer_title {
-    padding: 0 30px;
-  }
-  /* line 336, ../scss/components/_landing_responsive.scss */
-  .landing_footer .footer_title a {
-    padding: 0px 50% 0 35%;
-  }
-
-  /* line 341, ../scss/components/_landing_responsive.scss */
-  .landing_footer {
-    bottom: -29px;
-  }
-
-  /* line 345, ../scss/components/_landing_responsive.scss */
-  .copyright {
-    bottom: -126px;
-    padding: 0;
-  }
-
-  /* line 350, ../scss/components/_landing_responsive.scss */
+  /* line 304, ../scss/components/_landing_responsive.scss */
   .fr_scene_01 {
     width: 300px;
     top: 0px;
     right: 132px;
   }
 
-  /* line 356, ../scss/components/_landing_responsive.scss */
+  /* line 310, ../scss/components/_landing_responsive.scss */
   .fr_01_agreement {
     width: 73px;
     top: 107px;
@@ -2192,7 +2579,7 @@ label {
     z-index: 2;
   }
 
-  /* line 363, ../scss/components/_landing_responsive.scss */
+  /* line 317, ../scss/components/_landing_responsive.scss */
   .fr_2_track {
     width: 138px;
     position: absolute;
@@ -2201,7 +2588,7 @@ label {
     z-index: 2;
   }
 
-  /* line 371, ../scss/components/_landing_responsive.scss */
+  /* line 325, ../scss/components/_landing_responsive.scss */
   .fr_3_invoice {
     width: 137px;
     position: absolute;
@@ -2210,14 +2597,14 @@ label {
     z-index: 2;
   }
 
-  /* line 379, ../scss/components/_landing_responsive.scss */
+  /* line 333, ../scss/components/_landing_responsive.scss */
   .cl_1_agreement {
     width: 200px;
     top: 85px;
     left: 205px;
   }
 
-  /* line 385, ../scss/components/_landing_responsive.scss */
+  /* line 339, ../scss/components/_landing_responsive.scss */
   .cl_2_track {
     width: 86px;
     position: absolute;
@@ -2225,7 +2612,7 @@ label {
     left: 200px;
   }
 
-  /* line 392, ../scss/components/_landing_responsive.scss */
+  /* line 346, ../scss/components/_landing_responsive.scss */
   .cl_3_invoice {
     width: 160px;
     position: absolute;
@@ -2233,7 +2620,7 @@ label {
     left: 190px;
   }
 
-  /* line 399, ../scss/components/_landing_responsive.scss */
+  /* line 353, ../scss/components/_landing_responsive.scss */
   .feature1 {
     font-size: 30px;
     font-family: museo;
@@ -2244,7 +2631,7 @@ label {
     margin-bottom: -50px;
   }
 
-  /* line 409, ../scss/components/_landing_responsive.scss */
+  /* line 363, ../scss/components/_landing_responsive.scss */
   .feature2 {
     font-size: 30px;
     font-family: museo;
@@ -2258,7 +2645,7 @@ label {
     margin-bottom: -58px;
   }
 
-  /* line 422, ../scss/components/_landing_responsive.scss */
+  /* line 376, ../scss/components/_landing_responsive.scss */
   .feature3 {
     font-size: 30px;
     font-family: museo;
@@ -2272,17 +2659,17 @@ label {
     margin-bottom: -85px;
   }
 
-  /* line 435, ../scss/components/_landing_responsive.scss */
+  /* line 389, ../scss/components/_landing_responsive.scss */
   .learn_more {
     margin-bottom: -40px;
   }
-  /* line 437, ../scss/components/_landing_responsive.scss */
+  /* line 391, ../scss/components/_landing_responsive.scss */
   .learn_more h2 {
     font-size: 20px;
     line-height: 15px;
   }
 
-  /* line 443, ../scss/components/_landing_responsive.scss */
+  /* line 397, ../scss/components/_landing_responsive.scss */
   .invoice_connect {
     width: 280px;
     position: absolute;
@@ -2291,42 +2678,36 @@ label {
     z-index: 1;
   }
 
-  /* line 451, ../scss/components/_landing_responsive.scss */
+  /* line 405, ../scss/components/_landing_responsive.scss */
   .headline_container ul {
     margin-top: 15px !important;
   }
 
-  /* line 455, ../scss/components/_landing_responsive.scss */
+  /* line 409, ../scss/components/_landing_responsive.scss */
   .headline_container h1 {
     font-size: 39px !important;
   }
 }
 @media all and (min-width: 761px) and (min-height: 630px) and (max-height: 950px) {
-  /* line 462, ../scss/components/_landing_responsive.scss */
-  .landing_container {
-    height: 500px;
-    padding-top: 25px;
-  }
-
-  /* line 467, ../scss/components/_landing_responsive.scss */
+  /* line 417, ../scss/components/_landing_responsive.scss */
   .feature1, .feature2, .feature3 {
     font-size: 40px;
     margin-bottom: 0;
   }
 
-  /* line 472, ../scss/components/_landing_responsive.scss */
+  /* line 422, ../scss/components/_landing_responsive.scss */
   .learn_more {
     bottom: 70px !important;
   }
 
-  /* line 476, ../scss/components/_landing_responsive.scss */
+  /* line 426, ../scss/components/_landing_responsive.scss */
   .fr_scene_01 {
     width: 300px;
     top: 70px;
     right: 132px;
   }
 
-  /* line 482, ../scss/components/_landing_responsive.scss */
+  /* line 432, ../scss/components/_landing_responsive.scss */
   .fr_01_agreement {
     width: 73px;
     top: 177px;
@@ -2334,7 +2715,7 @@ label {
     z-index: 2;
   }
 
-  /* line 489, ../scss/components/_landing_responsive.scss */
+  /* line 439, ../scss/components/_landing_responsive.scss */
   .fr_2_track {
     width: 138px;
     position: absolute;
@@ -2343,7 +2724,7 @@ label {
     z-index: 2;
   }
 
-  /* line 497, ../scss/components/_landing_responsive.scss */
+  /* line 447, ../scss/components/_landing_responsive.scss */
   .fr_3_invoice {
     width: 137px;
     position: absolute;
@@ -2352,14 +2733,14 @@ label {
     z-index: 2;
   }
 
-  /* line 505, ../scss/components/_landing_responsive.scss */
+  /* line 455, ../scss/components/_landing_responsive.scss */
   .cl_1_agreement {
     width: 200px;
     top: 155px;
     left: 205px;
   }
 
-  /* line 511, ../scss/components/_landing_responsive.scss */
+  /* line 461, ../scss/components/_landing_responsive.scss */
   .cl_2_track {
     width: 86px;
     position: absolute;
@@ -2367,7 +2748,7 @@ label {
     left: 200px;
   }
 
-  /* line 518, ../scss/components/_landing_responsive.scss */
+  /* line 468, ../scss/components/_landing_responsive.scss */
   .cl_3_invoice {
     width: 160px;
     position: absolute;
@@ -2375,52 +2756,41 @@ label {
     left: 190px;
   }
 
-  /* line 525, ../scss/components/_landing_responsive.scss */
-  .headline_container h2 {
-    position: relative;
-    top: -15px;
-  }
-
-  /* line 530, ../scss/components/_landing_responsive.scss */
+  /* line 475, ../scss/components/_landing_responsive.scss */
   .feature1, .feature2, .feature3 {
     font-size: 30px;
     margin-bottom: -40px;
   }
 
-  /* line 535, ../scss/components/_landing_responsive.scss */
+  /* line 480, ../scss/components/_landing_responsive.scss */
   .learn_more {
     bottom: 50px !important;
   }
 }
 @media all and (min-width: 761px) and (max-height: 629px) {
-  /* line 543, ../scss/components/_landing_responsive.scss */
-  .headline_container h2 {
-    display: none;
-  }
-
-  /* line 547, ../scss/components/_landing_responsive.scss */
+  /* line 488, ../scss/components/_landing_responsive.scss */
   .learn_more {
     bottom: 41px !important;
   }
 }
 @media all and (max-width: 515px) {
-  /* line 556, ../scss/components/_landing_responsive.scss */
+  /* line 497, ../scss/components/_landing_responsive.scss */
   .pricing_navigation {
     padding: 15px;
   }
 }
 @media all and (max-width: 900px) {
-  /* line 563, ../scss/components/_landing_responsive.scss */
+  /* line 504, ../scss/components/_landing_responsive.scss */
   .pricing_landing_container {
     height: 900px;
   }
 
-  /* line 567, ../scss/components/_landing_responsive.scss */
+  /* line 508, ../scss/components/_landing_responsive.scss */
   #pricing_toggle_container {
     max-width: 426px;
   }
 
-  /* line 571, ../scss/components/_landing_responsive.scss */
+  /* line 512, ../scss/components/_landing_responsive.scss */
   .pricing_box {
     margin: 0 auto;
     float: none;
@@ -2428,90 +2798,90 @@ label {
     padding: 0;
   }
 
-  /* line 578, ../scss/components/_landing_responsive.scss */
+  /* line 519, ../scss/components/_landing_responsive.scss */
   .pricing_benefits_box {
     margin: 0 auto;
     float: none;
     width: 550px;
   }
 
-  /* line 584, ../scss/components/_landing_responsive.scss */
+  /* line 525, ../scss/components/_landing_responsive.scss */
   .pricing_landing_container {
     height: 835px;
   }
 
-  /* line 588, ../scss/components/_landing_responsive.scss */
+  /* line 529, ../scss/components/_landing_responsive.scss */
   .pricing_start {
     margin-top: 40px;
     padding: 0;
   }
 
-  /* line 593, ../scss/components/_landing_responsive.scss */
+  /* line 534, ../scss/components/_landing_responsive.scss */
   .pricing_copyright {
     bottom: -100px;
   }
 
-  /* line 597, ../scss/components/_landing_responsive.scss */
+  /* line 538, ../scss/components/_landing_responsive.scss */
   .processing_description {
     width: 100%;
     margin-bottom: 40px;
   }
-  /* line 600, ../scss/components/_landing_responsive.scss */
+  /* line 541, ../scss/components/_landing_responsive.scss */
   .processing_description p {
     margin: 0 auto;
   }
-  /* line 603, ../scss/components/_landing_responsive.scss */
+  /* line 544, ../scss/components/_landing_responsive.scss */
   .processing_description h2 {
     text-align: center;
   }
 
-  /* line 608, ../scss/components/_landing_responsive.scss */
+  /* line 549, ../scss/components/_landing_responsive.scss */
   .processing_costs {
     margin: 0 auto;
     width: 310px;
     float: none;
   }
-  /* line 612, ../scss/components/_landing_responsive.scss */
+  /* line 553, ../scss/components/_landing_responsive.scss */
   .processing_costs .helper_text {
     text-align: center;
   }
-  /* line 615, ../scss/components/_landing_responsive.scss */
+  /* line 556, ../scss/components/_landing_responsive.scss */
   .processing_costs p {
     text-align: center;
   }
 }
 @media all and (min-width: 901px) and (max-width: 1290px) {
-  /* line 623, ../scss/components/_landing_responsive.scss */
+  /* line 564, ../scss/components/_landing_responsive.scss */
   .pricing_box {
     width: 901px;
   }
 
-  /* line 627, ../scss/components/_landing_responsive.scss */
+  /* line 568, ../scss/components/_landing_responsive.scss */
   #pricing_info_container {
     min-height: 435px;
   }
 
-  /* line 631, ../scss/components/_landing_responsive.scss */
+  /* line 572, ../scss/components/_landing_responsive.scss */
   .pricing_box_inside {
     width: 270px;
   }
-  /* line 633, ../scss/components/_landing_responsive.scss */
+  /* line 574, ../scss/components/_landing_responsive.scss */
   .pricing_box_inside h2 {
     text-align: center;
     font-size: 44px;
   }
 
-  /* line 641, ../scss/components/_landing_responsive.scss */
+  /* line 580, ../scss/components/_landing_responsive.scss */
   .price_level {
     width: 264px;
   }
 
-  /* line 645, ../scss/components/_landing_responsive.scss */
+  /* line 584, ../scss/components/_landing_responsive.scss */
   #pricing_toggle_container {
     max-width: 900px;
   }
 
-  /* line 649, ../scss/components/_landing_responsive.scss */
+  /* line 588, ../scss/components/_landing_responsive.scss */
   .pricing_start {
     margin-top: 50px;
   }

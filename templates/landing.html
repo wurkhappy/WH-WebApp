@@ -14,7 +14,9 @@
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/analytics.min.js"></script>
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/jquery.js"></script>
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/app/plugins/better_browser/public/javascripts/abetterbrowser.js"></script>
-  <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/skrollr.min.js"></script>
+
+    <!-- Font Awesome -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 {{else}}
   <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
   <link rel="stylesheet" type="text/css" href="/css/landing.css" media="all" />
@@ -68,8 +70,6 @@
 
 {{define "body"}}
 
-<div class="landing_fixed_container">
-
     <div class="clear navigation">
 		<div class="landing_logo_container">
     		<a class="logo" href="/">Wurk Happy</a>
@@ -88,20 +88,9 @@
 
 <div class="fade2">
 	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;">
-		<div class="left_background">
-			<img class="fr_scene_01" src="../img/landing/fr_scene_01.png">
 
-			<img class="fr_01_agreement" src="../img/landing/fr_1_agreement.png" data-0="opacity:1;" data-600="opacity:0">
-
-			<img class="fr_2_track" src="../img/landing/fr_2_track.png" data-900="opacity:0;" data-1200="opacity:1" data-1800="opacity:1;" data-2100="opacity:0;">
-
-			<img class="fr_3_invoice" src="../img/landing/fr_3_invoice.png" data-2400="opacity:0;" data-2700="opacity:1">
-
-			<img class="invoice_connect" src="../img/landing/invoice_connect.png" data-2400="opacity:0;" data-2700="opacity:1">
-		</div>
-
-		<div class="right_background">
-			<img class="cl_1_agreement" src="../img/landing/cl_1_agreement.png" data-0="opacity:1;" data-600="opacity:0">
+		<div>
+			<!-- <img class="cl_1_agreement" src="../img/landing/cl_1_agreement.png" data-0="opacity:1;" data-600="opacity:0">
 
 			<img class="cl_2_track" src="../img/landing/cl_2_track.png" data-1200="opacity:0;" data-1500="opacity:1" data-1800="opacity:1" data-2100="opacity:0" >
 
@@ -120,22 +109,61 @@
 
 			<p class="feature3"data-2100="position:absolute;bottom:80px;opacity:0;" data-2400="opacity:1">
 				3. Securely pay and invoice online
-			</p>
+			</p> -->
 
-			<div class="learn_more" data-0="position:absolute;bottom:30px;opacity:1;" data-600="opacity:0">
+			<!-- <div class="learn_more" data-0="position:absolute;bottom:30px;opacity:1;" data-600="opacity:0">
 				<h2 style="color:white;text-align:center;">Scroll Down to Learn More...</h2>
 				<h2 style="color:white;text-align:center;"><i class="fa fa-arrow-down"></i></h2>
-			</div>
+			</div> -->
 
 		</div>
 
-		<div style="position:absolute; width:100%;height:100%">
-			<div id="benefits_container" class="hide benefits_container" style="z-index:10;">
+		<div id="benefits_image_container">
+			<div id="benefits_container" class="hide benefits_container">
 			    <div class="clear headline_container">
 			  		<!-- <h1 class="logo_white">Wurk Happy</h1> -->
-			    	<h1 style="font-size:46px;font-weight:500;" class="headline">
-			    		Save time with Smart Freelance Agreements</h1>
-			    	<h2 class="headline" style="font-family: museo_sans;margin-top:10px;"> Easily keep track of work, invoice automatically, and deposit funds securely into your bank account</h2>
+			    	<h1 style="font-size:46px;font-weight:500;padding: 30px;" class="headline">
+			    		Wurk Happy Simplifies Your Workflow To Get You Paid.</h1>
+			    	<!-- <h2 class="headline" style="font-family: museo_sans;margin-top:10px;">A simpler workflow to get you paid.</h2> -->
+
+			    	<ul style="margin: 0 auto;width: 488px;overflow: hidden;margin-top: 65px;">
+						<!-- <li id="create_account" class="create_account explore_button_container">
+							<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
+						</li> -->
+						<li id="create_account" style="float:left;">
+							<a id="start_now" style="width: 200px;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;" id="signup" class="button action_button" href="#new-account">Start Now</a>
+						</li>
+
+						<script>
+							$('#start_now').click( function() {
+								analytics.track('Start Now');
+							});
+						</script>
+
+						<li id="create_account" style="float:left;">
+							<a id="sample_page" style="font-size: 16px;font-weight: 500;line-height: 28px;padding: 20px;background:none;text-decoration: underline;" id="signup" class="button action_button" href="/agreement/sample">View Sample Agreement</a>
+						</li>
+
+						<script>
+							$('#sample_page').click( function() {
+								analytics.track('Clicked Sample Page');
+							});
+						</script>						
+					</ul>
+
+					<div class="left_background">
+						<!-- <img class="fr_scene_01" src="../img/landing/fr_scene_01.png"> -->
+
+						<!-- <div style="width: 108px;left: 45px;" class="benefit_container">
+							<img src="../img/landing/fr_1_agreement.png" data-0="opacity:1;" data-600="opacity:0">
+						</div> -->
+
+						<!-- <div class="benefit_container" style="top: 30px;left: 286px;"><img src="../img/landing/fr_2_track.png" data-900="opacity:0;" data-1200="opacity:1" data-1800="opacity:1;" data-2100="opacity:0;"></div>
+
+						<div style="top: 30px;left: 500px;" class="benefit_container"><img src="../img/landing/fr_3_invoice.png" data-2400="opacity:0;" data-2700="opacity:1"></div> -->
+
+						<!-- <img class="invoice_connect" src="../img/landing/invoice_connect.png" data-2400="opacity:0;" data-2700="opacity:1"> -->
+					</div>
 
 			    	<div class="mobile_landing_image">
 						<figure style="text-align:center;">
@@ -144,14 +172,106 @@
 					</div>
 
 
-					<ul style="margin-top:45px;">
-						<!-- <li id="create_account" class="create_account explore_button_container">
-							<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
-						</li> -->
+
+					<div id="agreement-progress-bar" style="overflow: hidden;background: hsl(198, 100%, 44%);width: 1040px;margin: 0 auto;margin-top: 20px;padding-top: 145px;">
+						<div style="position:relative;margin:0 auto;width:900px;">
+							<div class="progress_bar ui-progressbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+								<div style="width:800px;text-align:center;position:absolute;top: -70px;left: 61px">
+									<!-- <h2 class="timeline_label" style="left: 153px;">Update Client</h2> -->
+									<!-- <h2 class="timeline_label" style="left: 520px;width: 160px;">Process Payment</h2> -->
+								</div>
+								<div class="ui-progressbar-value" style="width: 100%; overflow: hidden;">
+									<div style="width: 800px; height: 100%; display: block;">
+										<span id="green_progess" style="width: 0%; height: 4px; display: block; background-color: rgb(157, 213, 115); float: left; background-position: initial initial; background-repeat: initial initial;"></span>
+										<span style="width: 100%; height: 4px; display: block; background-color: rgb(186, 186, 186); float: left; background-position: initial initial; background-repeat: initial initial;"></span>
+									</div>
+								</div>
+							</div>
+							<div class="icon_container">
+								<a href="#create" class="progress_icon grey_progress">
+									<div style="width: 108px;" class="benefit_container">
+										<img src="../img/landing/fr_1_agreement.png">
+									</div>
+									<h2 class="timeline_label" style="left: -110px;top: -63px;">1.Create Agreement</h2>
+								</a>
+
+								<a href="#update" class="progress_icon grey_progress" style="left:400px;">
+									<div class="benefit_container" style="top: -159px;left: -94px;">
+										<img src="../img/landing/fr_2_track.png">
+									</div>
+									<h2 class="timeline_label" style="left: -156px;
+top: -63px;">2.Keep all parties updated</h2>
+								</a>
+								
+								<a href="#process" class="progress_icon grey_progress" style="left:800px;">
+									<div class="benefit_container" style="left: -100px;top: -145px;">
+										<img src="../img/landing/fr_3_invoice.png">
+									</div>
+									<h2 class="timeline_label" style="left: -65px;
+top: -63px;">3.Get Paid</h2>
+								</a>
+							</div>
+							<div style="width:800px;height:4px;background:none;position:absolute;top:0;left:0px"></div>
+						</div>
+					</div>
+					<!-- <h2 style="text-align:center;color:white;text-transform:uppercase;font-size:14px;font-family:museo_sans;">Wurk Happy agreements simplify your workflow</h2> -->
+
+					<div id="create">
+			  			<h3 class="workflow_hover_heading">create and send agreements in minutes.</h3>
+			  			<p>Our agreements are simple - just the scope of work and payment schedule so you and your client can focus on doing great work together.</p>
+			  			<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
+			  		</div>
+
+			  		<div id="update">
+			  			<h3 class="workflow_hover_heading">Keep both parties on track.</h3>
+			  			<p>We update your client when you mark tasks complete.</p>
+			  			<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
+			  			<p>You can also easily amend the agreement to adapt to changes in scope.</p>
+			  		</div>
+
+			  		<div id="invoice">
+			  			<h3 class="workflow_hover_heading">Invoice Automatically.</h3>
+			  			<p>When you request payment, we generate the invoice from the tasks you marked complete.</p>
+			  			<p>You click a button. Your client receives a beautiful PDF invoice.</p>
+			  		</div>
+
+			  		<div id="process">
+			  			<h3 class="workflow_hover_heading">Get Paid.</h3>
+			  			<p>When you click 'request payment'. Your client receives a beautiful PDF invoice, automatically generated by the tasks you've marked complete.</p>
+
+			  			<p>When it's time for your client to pay, securely accept credits cards and bank transfers right through your agreement online.</p>
+			  			<p>This simplifies your process for getting paid while also making your client's life easier.</p>
+			  		</div>
+
+			  		<div id="receive">
+			  			<h3 class="workflow_hover_heading">Funds are deposited directly into your bank account. Automatically.</h3>
+			  			<p>When your client pays by credit card, funds will automatically appear in your bank account within 2 business days from the time they initiate payment.</p>
+			  			<p>When your client pays by bank transfer, funds will automatically appear in your bank account within 4-5 business days.</p>
+			  		</div>
+				  		<script>
+				  			$('.progress_icon').hover(function() {
+				  				var $this = $(this);
+				  				var $thisAfter= $(this)
+				  				$this.addClass('on');
+				  				var id = $this.attr('href');
+				  				console.log(id);
+				  				$(id).show();
+
+				  			}, function() {
+				  				var $this = $(this);
+				  				$this.removeClass('on');
+				  				var id = $this.attr('href');
+				  				$(id).hide();
+				  			});
+				  		</script>
+
+
+
+					<!-- <ul style="margin-top:45px;">
 						<li id="create_account">
-							<a style="width: 200px;margin: 0 auto;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;" id="signup" class="button action_button" href="/home/sample">View Demo</a>
+							<a style="width: 200px;margin: 0 auto;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;" id="signup" class="button action_button" href="/home/sample">View Sample Agreement</a>
 						</li>					
-					</ul>
+					</ul> -->
 			  	</div>
 			  	<!-- <div class="clear">
 				  	<div id="communication" class="benefit_container">
@@ -222,15 +342,19 @@
 <script>
 	//only initiate skrollr if screen is
 	if (screen.width >= 760) {
-		var s = skrollr.init();
+		/*var s = skrollr.init();*/
 	}
-
 </script>
 
+</div> <!-- End benefits container -->
+
+ 
+</div> <!-- End fade 2 -->
+
 <!-- landing footer-->
-	 <div id="footer" class="landing_footer" style="">
-    	<div>
-    		<div class="landing_footer_column">
+	 <div id="footer" class="landing_footer">
+		<div>
+			<div class="landing_footer_column">
 		        <h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
 		    </div>
 		    <div class="landing_footer_column">
@@ -244,13 +368,9 @@
 	        	<h3 class="footer_title"><a style="border-right:none;border-bottom:none;" id="legal" href="/legal">Legal</a></h3>
 	        </div>
 	    </div>
-    </div>
-<div class="copyright clear" style="position: absolute;">
-	<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
-</div>
- </div>  
-</div>
-
-</div>
+	</div>
+	<div class="copyright clear">
+		<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
+	</div> 
 
 {{end}}
