@@ -65,7 +65,7 @@ func home(w http.ResponseWriter, req *http.Request) {
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseLanding.html",
-		"templates/landing.html",
+		"templates/landing5.html",
 	))
 	index.Execute(w, m)
 }
