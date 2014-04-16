@@ -4,7 +4,9 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/wurkhappy/WH-WebApp/handlers"
 	"html/template"
+	"math/rand"
 	"net/http"
+	"time"
 )
 
 func initRoutes(r *mux.Router) {
@@ -55,6 +57,12 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.DeleteAgreement)).Methods("DELETE")
 	r.Handle("/agreement/v/{versionID}/archive", versionHandler(handlers.ArchiveAgreement)).Methods("POST")
 }
+var landingsPages = []string{"landing1", "landing2", "landing3", "landing4", "landing5"}
+
+func random(min, max int) int {
+	rand.Seed(time.Now().Unix())
+	return rand.Intn(max-min) + min
+}
 func home(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"appName":    "mainlanding",
@@ -62,9 +70,10 @@ func home(w http.ResponseWriter, req *http.Request) {
 		"JSversion":  handlers.JSversion,
 		"CSSversion": handlers.CSSversion,
 	}
+
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseLanding.html",
-		"templates/landing5.html",
+		"templates/"+landingsPages[random(0, 5)]+".html",
 	))
 	index.Execute(w, m)
 }
