@@ -498,6 +498,11 @@ module.exports = function(grunt) {
                     src: ['www-built/css/main_app.css'],
                     dest: 'js-gz',
                     ext: '.css'
+                }, {
+                    expand: true,
+                    src: ['www-built/css/pdf.css'],
+                    dest: 'js-gz',
+                    ext: '.css'
                 }]
             }
         }
