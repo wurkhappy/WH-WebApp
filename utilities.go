@@ -87,6 +87,11 @@ func getSession(req *http.Request) *sessions.Session {
 	if err != nil {
 	}
 	session.Options.MaxAge = 24 * 60 * 60
+	if _, ok := session.Values["id"]; ok {
+		session.Values["signedIn"] = true
+	} else {
+		session.Values["signedIn"] = false
+	}
 	return session
 }
 

@@ -3,13 +3,13 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
         'views/agreement/edit/user_edit_view', 'views/agreement/edit/header_edit_view', 'views/agreement/edit/work_items_edit_view',
         'views/agreement/read/header_view', 'views/agreement/communication/communication_layout', 'views/agreement/payment_methods_view', 'models/user', 'views/agreement/progress_bar_view',
         'views/ui-modules/modal', 'views/landing/new_account', 'views/agreement/payment_schedule', 'views/agreement/edit/payments_edit',
-        'collections/payments', 'collections/tasks'
+        'collections/payments', 'collections/tasks', 'views/landing/loginview'
     ],
 
     function(Backbone, FlyingFocus, AgreementModel, LayoutView, WorkItemsReadView, UserView,
         UserEditView, HeaderEditView, DeliverablesEditView, HeaderView, CommunicationLayout, PaymentMethodsView,
         UserModel, ProgressBarView, Modal, NewAccountView, PaymentSchedule, PaymentsEditSchedule, PaymentCollection,
-        TaskCollection) {
+        TaskCollection, LogInView) {
 
         'use strict';
 
@@ -39,6 +39,8 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 FlyingFocus();
                 if (!this.user.get("isRegistered")) {
                     this.newAccount();
+                } else if (!window.signedIn) {
+                    this.signIn();
                 }
             },
             readAgreement: function() {
@@ -105,6 +107,23 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 this.listenTo(view, 'saveSuccess', function() {
                     modal.hide();
                     window.location.hash = "";
+                });
+            },
+            signIn: function() {
+                this.readAgreement();
+                var view = new LogInView({
+                    model: new UserModel(),
+                    hideHaveAccount: true
+                });
+                view.render();
+                var modal = new Modal({
+                    view: view,
+                    hideClose: true,
+                });
+                modal.show();
+                this.listenTo(view, 'saveSuccess', function(response) {
+                    modal.hide();
+                    window.location = window.location.origin + window.location.pathname;
                 });
             }
 

@@ -1,23 +1,23 @@
 {{define "header"}}
 
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-  <title>Wurk Happy | Simple Agreement Billing and Payment</title>
+<title>Wurk Happy | Simple Agreement Billing and Payment</title>
 
 
   <!--[if IE]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-{{if .production}}
+  {{if .production}}
   <link rel="Shortcut Icon" type="images/ico" href="https://d3kq8dzp7eezz0.cloudfront.net/favicon.ico" />
   <link rel="stylesheet" type="text/css" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/landing.css" media="all" />
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/analytics.min.js"></script>
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/jquery.js"></script>
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/app/plugins/better_browser/public/javascripts/abetterbrowser.js"></script>
 
-    <!-- Font Awesome -->
+  <!-- Font Awesome -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-{{else}}
+  {{else}}
   <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
   <link rel="stylesheet" type="text/css" href="/css/landing.css" media="all" />
 
@@ -26,26 +26,15 @@
 
   <script src="/js/lib/jquery/jquery.js"></script>
   <script src="/js/lib/skrollr/dist/skrollr.min.js"></script>
-  <script type="text/javascript"> 
-      var $buoop = {}; 
-      $buoop.ol = window.onload; 
-      window.onload=function(){
-       try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-       var e = document.createElement("script"); 
-       e.setAttribute("type", "text/javascript"); 
-       e.setAttribute("src", "//browser-update.org/update.js"); 
-       document.body.appendChild(e); 
-      } 
-    </script> 
-{{end}}
+  {{end}}
   <noscript>
-    <style>
-      .dim {opacity: .5;}
-      #logindiv {display:none}
-    </style>
-    <div class="noscriptmsg">
-      <p>Wurk Happy requires javascript to function properly. <a href="http://www.enable-javascript.com/" target="_blank">Please enable javascript</a> in your web browser.</p>
-    </div>
+  	<style>
+  	.dim {opacity: .5;}
+  	#logindiv {display:none}
+  	</style>
+  	<div class="noscriptmsg">
+  		<p>Wurk Happy requires javascript to function properly. <a href="http://www.enable-javascript.com/" target="_blank">Please enable javascript</a> in your web browser.</p>
+  	</div>
   </noscript>
 
 
@@ -53,43 +42,43 @@
 
 
   <script type="text/javascript">
-	  if (production){
-	  	analytics.initialize({
-	      'Google Analytics' : 'UA-24101674-3',
-	      'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
-	      'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
-	      'CrazyEgg'		 : '00197985'
-	    });
-	    analytics.track('Hit 1 Landing Page');
-	  }
+  if (production){
+  	analytics.initialize({
+  		'Google Analytics' : 'UA-24101674-3',
+  		'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
+  		'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+  		'CrazyEgg'		 : '00197985'
+  	});
+  	analytics.track('Hit 1 Landing Page');
+  }
   </script>
 
 
 
-{{end}}
+  {{end}}
 
-{{define "body"}}
+  {{define "body"}}
 
-    <div class="clear navigation">
-		<div class="landing_logo_container">
-    		<a class="logo" href="/">Wurk Happy</a>
-		</div>
-		<div class="landing_admin_container">
-			<ul class="admin_nav">
-    			<li id="log_in">
-    				<a class="landing_navigation_links login_button" id="login" href="#login">Log In</a>
-    			</li>
-				<li id="log_out" class="hide">
-					<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+  <div class="clear navigation">
+  	<div class="landing_logo_container">
+  		<a class="logo" href="/">Wurk Happy</a>
+  	</div>
+  	<div class="landing_admin_container">
+  		<ul class="admin_nav">
+  			<li id="log_in">
+  				<a class="landing_navigation_links login_button" id="login" href="#login">Log In</a>
+  			</li>
+  			<li id="log_out" class="hide">
+  				<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
+  			</li>
+  		</ul>
+  	</div>
+  </div>
 
-<div class="fade2">
-	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;">
+  <div class="fade2">
+  	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;">
 
-		<div>
+  		<div>
 			<!-- <img class="cl_1_agreement" src="../img/landing/cl_1_agreement.png" data-0="opacity:1;" data-600="opacity:0">
 
 			<img class="cl_2_track" src="../img/landing/cl_2_track.png" data-1200="opacity:0;" data-1500="opacity:1" data-1800="opacity:1" data-2100="opacity:0" >
@@ -120,13 +109,13 @@
 
 		<div id="benefits_image_container">
 			<div id="benefits_container" class="hide benefits_container">
-			    <div class="clear headline_container">
-			  		<!-- <h1 class="logo_white">Wurk Happy</h1> -->
-			    	<h1 style="font-size:46px;font-weight:500;padding: 30px;text-transform:capitalize;" class="headline">
-			    		Stop spending time that doesn't make you money. </h1>
-			    	<h2 class="headline" style="font-family: museo_sans;margin-top:10px;">Let Wurk Happy handle client communications.</h2>
+				<div class="clear headline_container">
+					<!-- <h1 class="logo_white">Wurk Happy</h1> -->
+					<h1 style="font-size:46px;font-weight:500;padding: 30px;text-transform:capitalize;" class="headline">
+						Stop spending time that doesn't make you money. </h1>
+						<h2 class="headline" style="font-family: museo_sans;margin-top:10px;">Let Wurk Happy handle client communications.</h2>
 
-			    	<ul style="margin: 0 auto;width: 488px;overflow: hidden;margin-top: 65px;">
+						<ul style="margin: 0 auto;width: 488px;overflow: hidden;margin-top: 65px;">
 						<!-- <li id="create_account" class="create_account explore_button_container">
 							<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
 						</li> -->
@@ -135,9 +124,9 @@
 						</li>
 
 						<script>
-							$('#start_now').click( function() {
-								analytics.track('Start Now');
-							});
+						$('#start_now').click( function() {
+							analytics.track('Start Now');
+						});
 						</script>
 
 						<li id="create_account" style="float:left;">
@@ -145,9 +134,9 @@
 						</li>
 
 						<script>
-							$('#sample_page').click( function() {
-								analytics.track('Clicked Sample Page');
-							});
+						$('#sample_page').click( function() {
+							analytics.track('Clicked Sample Page');
+						});
 						</script>						
 					</ul>
 
@@ -165,7 +154,7 @@
 						<!-- <img class="invoice_connect" src="../img/landing/invoice_connect.png" data-2400="opacity:0;" data-2700="opacity:1"> -->
 					</div>
 
-			    	<div class="mobile_landing_image">
+					<div class="mobile_landing_image">
 						<figure style="text-align:center;">
 							<img style="width:400px;" src="../img/landing/fr_scene_02_agreement.png">
 						</figure>
@@ -200,7 +189,7 @@
 										<img src="../img/landing/fr_2_track.png">
 									</div>
 									<h2 class="timeline_label" style="left: -156px;
-top: -63px;">2.Keep all parties updated</h2>
+									top: -63px;">2.Keep all parties updated</h2>
 								</a>
 								
 								<a href="#process" class="progress_icon grey_progress" style="left:800px;">
@@ -208,7 +197,7 @@ top: -63px;">2.Keep all parties updated</h2>
 										<img src="../img/landing/fr_3_invoice.png">
 									</div>
 									<h2 class="timeline_label" style="left: -65px;
-top: -63px;">3.Get Paid</h2>
+									top: -63px;">3.Get Paid</h2>
 								</a>
 							</div>
 							<div style="width:800px;height:4px;background:none;position:absolute;top:0;left:0px"></div>
@@ -217,53 +206,53 @@ top: -63px;">3.Get Paid</h2>
 					<!-- <h2 style="text-align:center;color:white;text-transform:uppercase;font-size:14px;font-family:museo_sans;">Wurk Happy agreements simplify your workflow</h2> -->
 
 					<div id="create">
-			  			<h3 class="workflow_hover_heading">create and send agreements in minutes.</h3>
-			  			<p>Our agreements are simple - just the scope of work and payment schedule so you and your client can focus on doing great work together.</p>
-			  			<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
-			  		</div>
+						<h3 class="workflow_hover_heading">create and send agreements in minutes.</h3>
+						<p>Our agreements are simple - just the scope of work and payment schedule so you and your client can focus on doing great work together.</p>
+						<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
+					</div>
 
-			  		<div id="update">
-			  			<h3 class="workflow_hover_heading">Keep both parties on track.</h3>
-			  			<p>We update your client when you mark tasks complete.</p>
-			  			<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
-			  			<p>You can also easily amend the agreement to adapt to changes in scope.</p>
-			  		</div>
+					<div id="update">
+						<h3 class="workflow_hover_heading">Keep both parties on track.</h3>
+						<p>We update your client when you mark tasks complete.</p>
+						<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
+						<p>You can also easily amend the agreement to adapt to changes in scope.</p>
+					</div>
 
-			  		<div id="invoice">
-			  			<h3 class="workflow_hover_heading">Invoice Automatically.</h3>
-			  			<p>When you request payment, we generate the invoice from the tasks you marked complete.</p>
-			  			<p>You click a button. Your client receives a beautiful PDF invoice.</p>
-			  		</div>
+					<div id="invoice">
+						<h3 class="workflow_hover_heading">Invoice Automatically.</h3>
+						<p>When you request payment, we generate the invoice from the tasks you marked complete.</p>
+						<p>You click a button. Your client receives a beautiful PDF invoice.</p>
+					</div>
 
-			  		<div id="process">
-			  			<h3 class="workflow_hover_heading">Get Paid.</h3>
-			  			<p>When you click 'request payment'. Your client receives a beautiful PDF invoice, automatically generated by the tasks you've marked complete.</p>
+					<div id="process">
+						<h3 class="workflow_hover_heading">Get Paid.</h3>
+						<p>When you click 'request payment'. Your client receives a beautiful PDF invoice, automatically generated by the tasks you've marked complete.</p>
 
-			  			<p>When it's time for your client to pay, securely accept credit cards and bank transfers right through your agreement online.</p>
-			  			<p>This simplifies your process for getting paid while also making your client's life easier.</p>
-			  		</div>
+						<p>When it's time for your client to pay, securely accept credit cards and bank transfers right through your agreement online.</p>
+						<p>This simplifies your process for getting paid while also making your client's life easier.</p>
+					</div>
 
-			  		<div id="receive">
-			  			<h3 class="workflow_hover_heading">Funds are deposited directly into your bank account. Automatically.</h3>
-			  			<p>When your client pays by credit card, funds will automatically appear in your bank account within 2 business days from the time they initiate payment.</p>
-			  			<p>When your client pays by bank transfer, funds will automatically appear in your bank account within 4-5 business days.</p>
-			  		</div>
-				  		<script>
-				  			$('.progress_icon').hover(function() {
-				  				var $this = $(this);
-				  				var $thisAfter= $(this)
-				  				$this.addClass('on');
-				  				var id = $this.attr('href');
-				  				console.log(id);
-				  				$(id).show();
+					<div id="receive">
+						<h3 class="workflow_hover_heading">Funds are deposited directly into your bank account. Automatically.</h3>
+						<p>When your client pays by credit card, funds will automatically appear in your bank account within 2 business days from the time they initiate payment.</p>
+						<p>When your client pays by bank transfer, funds will automatically appear in your bank account within 4-5 business days.</p>
+					</div>
+					<script>
+					$('.progress_icon').hover(function() {
+						var $this = $(this);
+						var $thisAfter= $(this)
+						$this.addClass('on');
+						var id = $this.attr('href');
+						console.log(id);
+						$(id).show();
 
-				  			}, function() {
-				  				var $this = $(this);
-				  				$this.removeClass('on');
-				  				var id = $this.attr('href');
-				  				$(id).hide();
-				  			});
-				  		</script>
+					}, function() {
+						var $this = $(this);
+						$this.removeClass('on');
+						var id = $this.attr('href');
+						$(id).hide();
+					});
+					</script>
 
 
 
@@ -272,7 +261,7 @@ top: -63px;">3.Get Paid</h2>
 							<a style="width: 200px;margin: 0 auto;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;" id="signup" class="button action_button" href="/home/sample">View Sample Agreement</a>
 						</li>					
 					</ul> -->
-			  	</div>
+				</div>
 			  	<!-- <div class="clear">
 				  	<div id="communication" class="benefit_container">
 				    	<h3 class="benefit_title">Organize Communication</h3>
@@ -286,47 +275,51 @@ top: -63px;">3.Get Paid</h2>
 				    	<h3 class="benefit_title">Simplify Payment</h3>
 							<p class="benefit_description">Securely accept payment online.<br> Your clients will love paying you.</p>
 				  	</div>
-			    </div> -->
-			    <div>
-			    <div>
-			</div>
-		</div>
+				  </div> -->
+				  <div>
+				  	<div>
+				  	</div>
+				  </div>
 
-	</div>
-</div> <!-- class fade2 -->
-<script>
+				</div>
+			</div> <!-- class fade2 -->
+			<script>
 	// non-jquery fade function takes ('in' or 'out' as type), duration in miliseconds, element, and flag to designate if I.E. 8 is supported
 	//fading in the benefits section on window load adds a nice effect and makes everything appear at the same time.
 	function fade(type, ms, el, IE) {
-	    var isIn = type === 'in',
-	        opacity = isIn ? 0 : 1,
-	        interval = 50,
-	        gap = interval / ms;
-	        
-	    if(isIn) {
-	         el.style.display = 'block';
-	         el.style.opacity = opacity;
-	         if(IE) {
-	            el.style.filter = 'alpha(opacity=' + opacity + ')';
-	            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity + ')';
-	        }
-	    }
-	    
-	    function func() {
-	        opacity = isIn ? opacity + gap : opacity - gap; 
-	        el.style.opacity = opacity;
-	        if(IE) {
-	            el.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
-	            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity * 100 + ')';
-	        }
-	        
-	        if(opacity <= 0 || opacity >= 1) window.clearInterval(fading);
-	        if(opacity <= 0) el.style.display = 'none';
-	    }
-	    
-	    var fading = window.setInterval(func, interval);
+		var isIn = type === 'in',
+		opacity = isIn ? 0 : 1,
+		interval = 50,
+		gap = interval / ms;
+
+		if(isIn) {
+			if (el.style) {
+				el.style.display = 'block';
+			}
+			el.style.opacity = opacity;
+			if(IE) {
+				el.style.filter = 'alpha(opacity=' + opacity + ')';
+				el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity + ')';
+			}
+		}
+
+		function func() {
+			opacity = isIn ? opacity + gap : opacity - gap; 
+			el.style.opacity = opacity;
+			if(IE) {
+				el.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
+				el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity * 100 + ')';
+			}
+
+			if(opacity <= 0 || opacity >= 1) window.clearInterval(fading);
+			if(opacity <= 0) el.style.display = 'none';
+		}
+
+		var fading = window.setInterval(func, interval);
 	}
 
+	var $buoop = {}; 
+	$buoop.ol = window.onload; 
 	window.onload = function() {
 		var benefits_container = document.getElementById('benefits_container');
 		var communication = document.getElementById('communication');
@@ -336,41 +329,47 @@ top: -63px;">3.Get Paid</h2>
 		fade('in', 1000, communication, true);
 		fade('in', 1000, billing, true);
 		fade('in', 1000, payment, true);
-	}
-</script>
 
-<script>
+		try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+		var e = document.createElement("script"); 
+		e.setAttribute("type", "text/javascript"); 
+		e.setAttribute("src", "//browser-update.org/update.js"); 
+		document.body.appendChild(e); 
+	}
+	</script>
+
+	<script>
 	//only initiate skrollr if screen is
 	if (screen.width >= 760) {
 		/*var s = skrollr.init();*/
 	}
-</script>
+	</script>
 
 </div> <!-- End benefits container -->
 
- 
+
 </div> <!-- End fade 2 -->
 
 <!-- landing footer-->
-	 <div id="footer" class="landing_footer">
-		<div>
-			<div class="landing_footer_column">
-		        <h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
-		    </div>
-		    <div class="landing_footer_column">
-		      <h3 class="footer_title"><a id="about" href="/about">About</a></h3>
-		    </div>
-	        <div class="landing_footer_column">
-	        	<h3 class="footer_title"><a id="blog" href="http://wurkhappy.tumblr.com/">Blog</a></h3>
-	        </div>
+<div id="footer" class="landing_footer">
+	<div>
+		<div class="landing_footer_column">
+			<h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
+		</div>
+		<div class="landing_footer_column">
+			<h3 class="footer_title"><a id="about" href="/about">About</a></h3>
+		</div>
+		<div class="landing_footer_column">
+			<h3 class="footer_title"><a id="blog" href="http://wurkhappy.tumblr.com/">Blog</a></h3>
+		</div>
 
-	        <div class="landing_footer_column">
-	        	<h3 class="footer_title"><a style="border-right:none;border-bottom:none;" id="legal" href="/legal">Legal</a></h3>
-	        </div>
-	    </div>
+		<div class="landing_footer_column">
+			<h3 class="footer_title"><a style="border-right:none;border-bottom:none;" id="legal" href="/legal">Legal</a></h3>
+		</div>
 	</div>
-	<div class="copyright clear">
-		<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
-	</div> 
+</div>
+<div class="copyright clear">
+	<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
+</div> 
 
 {{end}}
