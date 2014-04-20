@@ -414,6 +414,7 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 }
 
 func AgreementReview(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	fmt.Println("review")
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
 	resp, statusCode := sendServiceRequest("GET", config.PDFTemplatesService, "/template/agreement", buf.Bytes(), session.Values["id"].(string))
