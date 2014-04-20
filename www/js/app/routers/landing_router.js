@@ -35,6 +35,8 @@ define(['backbone', 'parsley', 'flying-focus', 'views/landing/landingview', 'vie
             },
             login: function() {
                 var view = new LoginView();
+                this.listenTo(view, 'saveSuccess', this.createAccountSuccess);
+                this.listenTo(view, 'saveError', this.logInError);
                 this.showForm(view);
             },
             newAccount: function() {
@@ -81,6 +83,11 @@ define(['backbone', 'parsley', 'flying-focus', 'views/landing/landingview', 'vie
             },
             createAccountSuccess: function() {
                 window.location = "/home";
+            },
+            logInError: function(response) {
+                $('#password').addClass('parsley-error');
+                $('#email').addClass('parsley-error');
+                $('#server_error').html('<ul class="parsley-error-list" style="display: block;"><li class="type" style="display: list-item;">' + response.responseText + '.</li></ul>');
             }
 
         });

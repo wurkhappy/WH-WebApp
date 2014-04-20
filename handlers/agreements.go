@@ -364,6 +364,7 @@ func GetAgreementDetails(w http.ResponseWriter, req *http.Request, session *sess
 		"production": Production,
 		"JSversion":  JSversion,
 		"CSSversion": CSSversion,
+		"signedIn":   session.Values["signedIn"],
 	}
 
 	format := func(date string) string {
@@ -402,6 +403,20 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
 	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v/"+vars["versionID"]+"/archive", buf.Bytes(), session.Values["id"].(string))
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+
+	w.Write(resp)
+}
+
+func AgreementReview(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+	resp, statusCode := sendServiceRequest("GET", config.PDFTemplatesService, "/template/agreement", buf.Bytes(), session.Values["id"].(string))
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
