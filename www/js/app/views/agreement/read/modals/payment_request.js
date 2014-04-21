@@ -79,7 +79,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 _.defer(_.bind(this.updateMilestone, this));
             },
             calculatePayment: function() {
-                var milestonePayment = this.model.getTotalAmount();
+                var milestonePayment = this.model.getTotalAmount() || this.model.get("amountDue");
                 var wurkHappyFee = this.wurkHappyFee(milestonePayment);
                 var bankTransferFee = (milestonePayment * .01) + .55;
                 if (bankTransferFee > 5) {
@@ -122,6 +122,8 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                 this.updateMilestone();
             },
             updateMilestone: function() {
+                var amount = this.model.getTotalAmount() || this.model.get("amountDue");
+                this.model.set("amountDue", amount);
                 this.$('#paymentBreakout').html(this.breakoutTpl(_.extend({
                     acceptsCreditCard: this.acceptsCreditCard,
                     acceptsBankTransfer: this.acceptsBankTransfer,
@@ -133,6 +135,11 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
 
                 if (this.bankAccounts.length < 1) {
                     toastr.error('Please add a bank account to receive payment');
+                    return;
+                }
+
+                if (this.model.getTotalAmount()) {
+                    toastr.error('Please add amounts for the invoice items');
                     return;
                 }
 
