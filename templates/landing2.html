@@ -26,17 +26,6 @@
 
   <script src="/js/lib/jquery/jquery.js"></script>
   <script src="/js/lib/skrollr/dist/skrollr.min.js"></script>
-  <script type="text/javascript"> 
-      var $buoop = {}; 
-      $buoop.ol = window.onload; 
-      window.onload=function(){
-       try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-       var e = document.createElement("script"); 
-       e.setAttribute("type", "text/javascript"); 
-       e.setAttribute("src", "//browser-update.org/update.js"); 
-       document.body.appendChild(e); 
-      } 
-    </script> 
 {{end}}
   <noscript>
     <style>
@@ -328,6 +317,8 @@ top: -63px;">3.Get Paid</h2>
 	    var fading = window.setInterval(func, interval);
 	}
 
+	var $buoop = {}; 
+	$buoop.ol = window.onload; 
 	window.onload = function() {
 		var benefits_container = document.getElementById('benefits_container');
 		var communication = document.getElementById('communication');
@@ -337,6 +328,12 @@ top: -63px;">3.Get Paid</h2>
 		fade('in', 1000, communication, true);
 		fade('in', 1000, billing, true);
 		fade('in', 1000, payment, true);
+
+		try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+		var e = document.createElement("script"); 
+		e.setAttribute("type", "text/javascript"); 
+		e.setAttribute("src", "//browser-update.org/update.js"); 
+		document.body.appendChild(e); 
 	}
 </script>
 

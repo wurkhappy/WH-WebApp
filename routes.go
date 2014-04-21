@@ -56,6 +56,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.GetAgreementDetails)).Methods("GET")
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.DeleteAgreement)).Methods("DELETE")
 	r.Handle("/agreement/v/{versionID}/archive", versionHandler(handlers.ArchiveAgreement)).Methods("POST")
+	r.Handle("/agreement/v/{versionID}/review", versionHandler(handlers.AgreementReview)).Methods("POST")
 }
 
 var landingsPages = []string{"landing1", "landing2", "landing3", "landing4", "landing5"}

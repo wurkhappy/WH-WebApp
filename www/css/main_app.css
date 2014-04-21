@@ -5348,92 +5348,91 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 12, ../scss/components/_review_agreement.scss */
 .review_agreement_container {
-  border: 1px solid #c7e0e4;
-  width: 660px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }
-/* line 17, ../scss/components/_review_agreement.scss */
+/* line 16, ../scss/components/_review_agreement.scss */
 .review_agreement_container .agreement_title {
   font-family: museo_sans;
   font-weight: 300;
   font-size: 24px;
   margin: 10px 0;
 }
-/* line 22, ../scss/components/_review_agreement.scss */
+/* line 21, ../scss/components/_review_agreement.scss */
 .review_agreement_container .agreement_title span {
   display: none;
 }
-/* line 27, ../scss/components/_review_agreement.scss */
+/* line 26, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_methods_title {
   margin-top: 20px;
   margin-left: -20px;
 }
-/* line 32, ../scss/components/_review_agreement.scss */
+/* line 31, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_milestone_container:nth-child(n+2n) {
   background: #972b46;
 }
-/* line 35, ../scss/components/_review_agreement.scss */
+/* line 34, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_milestone {
   color: #333333;
 }
 
-/* line 40, ../scss/components/_review_agreement.scss */
+/* line 39, ../scss/components/_review_agreement.scss */
 .review_agreement_total {
   border-top: 2px solid #008fd1;
   padding-top: 10px;
   position: relative;
 }
 
-/* line 46, ../scss/components/_review_agreement.scss */
+/* line 45, ../scss/components/_review_agreement.scss */
 .review_continue {
   padding-top: 20px;
   margin-top: 20px;
 }
 
-/* line 51, ../scss/components/_review_agreement.scss */
+/* line 50, ../scss/components/_review_agreement.scss */
 .review_continue_button {
   padding: 0 20px;
 }
 
-/* line 55, ../scss/components/_review_agreement.scss */
+/* line 54, ../scss/components/_review_agreement.scss */
 .edit_summary {
   width: 100%;
 }
 
-/* line 59, ../scss/components/_review_agreement.scss */
+/* line 58, ../scss/components/_review_agreement.scss */
 .edit_title {
   line-height: 40px;
 }
 
-/* line 63, ../scss/components/_review_agreement.scss */
+/* line 62, ../scss/components/_review_agreement.scss */
 .payment_method_review_container {
   margin-top: 10px;
   margin-bottom: 20px;
   color: #86ce50;
 }
-/* line 67, ../scss/components/_review_agreement.scss */
+/* line 66, ../scss/components/_review_agreement.scss */
 .payment_method_review_container span {
   color: #636363;
   font-family: museo_sans;
 }
 
-/* line 73, ../scss/components/_review_agreement.scss */
+/* line 72, ../scss/components/_review_agreement.scss */
 .bank_account_method_review {
   margin-left: 15px;
 }
 
-/* line 77, ../scss/components/_review_agreement.scss */
+/* line 76, ../scss/components/_review_agreement.scss */
 .ca_payment_list {
   padding-right: 0px;
 }
 
-/* line 80, ../scss/components/_review_agreement.scss */
+/* line 79, ../scss/components/_review_agreement.scss */
 .ca_payment_list > li {
   position: relative;
 }
 
-/* line 83, ../scss/components/_review_agreement.scss */
+/* line 82, ../scss/components/_review_agreement.scss */
 .ca_payment_amount {
   float: right;
   font-weight: 500;
