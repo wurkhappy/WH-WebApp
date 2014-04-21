@@ -65,6 +65,7 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
 
                     } else {
                         console.log(response);
+                        track(JSON.stringify(response));
                     }
                 });
             }, 500, true)
