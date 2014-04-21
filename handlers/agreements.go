@@ -235,8 +235,8 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 
 func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	var agrmntData map[string]interface{}
-	var paymentsData map[string]interface{}
-	var tasksData map[string]interface{}
+	var paymentsData []map[string]interface{}
+	var tasksData []map[string]interface{}
 	var otherUser map[string]interface{}
 	if id := req.URL.Query().Get("versionID"); id != "" {
 		var wg sync.WaitGroup
