@@ -146,6 +146,12 @@
 
 .orange_button {
   background: $orange;
+  &:hover {
+    background: hsl(38, 100%, 40%);
+  }
+  &:active {
+    background: $orange;
+  }
 }
 
 .green_button {

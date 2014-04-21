@@ -42,15 +42,16 @@
 
 
   <script type="text/javascript">
-  if (production){
-  	analytics.initialize({
-  		'Google Analytics' : 'UA-24101674-3',
-  		'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
-  		'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
-  		'CrazyEgg'		 : '00197985'
-  	});
-  	analytics.track('Hit 1 Landing Page');
-  }
+	  if (production){
+	  	analytics.initialize({
+	      'Google Analytics' : 'UA-24101674-3',
+	      'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
+	      'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+	      'CrazyEgg'		 : '00197985'
+	    });
+	    analytics.track('Hit 1 Landing Page');
+	    analytics.track('Hit Landing Page');
+	  }
   </script>
 
 
