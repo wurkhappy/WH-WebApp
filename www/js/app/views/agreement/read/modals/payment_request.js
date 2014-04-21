@@ -138,7 +138,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/agreement/pay_request
                     return;
                 }
 
-                if (this.model.getTotalAmount()) {
+                if (this.model.getTotalAmount() === 0) {
                     toastr.error('Please add amounts for the invoice items');
                     return;
                 }
