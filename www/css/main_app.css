@@ -3616,8 +3616,16 @@ div.faqcontent h2 {
 .orange_button {
   background: #ffa200;
 }
+/* line 149, ../scss/components/_buttons.scss */
+.orange_button:hover {
+  background: #cc8100;
+}
+/* line 152, ../scss/components/_buttons.scss */
+.orange_button:active {
+  background: #ffa200;
+}
 
-/* line 151, ../scss/components/_buttons.scss */
+/* line 157, ../scss/components/_buttons.scss */
 .green_button {
   background: #87cf54;
 }
@@ -5927,12 +5935,6 @@ progress::-webkit-progress-value, progress.yellow_progress {
   background: url(https://d3kq8dzp7eezz0.cloudfront.net/img/check_image.png) no-repeat 470px 184px;
 }
 
-/* line 5, ../scss/components/_account.scss */
-.account_secure {
-  padding-left: 20px;
-  width: 150px;
-}
-
 /* line 10, ../scss/components/_account.scss */
 .stored_payment_methods {
   float: right;
@@ -5941,13 +5943,10 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 14, ../scss/components/_account.scss */
 .credit_card_images {
   padding-left: 20px;
-  position: absolute;
-  top: 16px;
-  right: 55px;
   width: 200px;
 }
 
-/* line 22, ../scss/components/_account.scss */
+/* line 19, ../scss/components/_account.scss */
 .account_personal_form {
   width: 100%;
   padding-right: 0;
@@ -5955,14 +5954,14 @@ progress::-webkit-progress-value, progress.yellow_progress {
   vertical-align: top;
 }
 
-/* line 29, ../scss/components/_account.scss */
+/* line 26, ../scss/components/_account.scss */
 .account_personal_form h2 {
   margin: 0px;
   margin-top: 10px;
   padding: 0px;
 }
 
-/* line 35, ../scss/components/_account.scss */
+/* line 32, ../scss/components/_account.scss */
 .account_verification_form {
   width: 100%;
   display: inline-block;
@@ -5973,25 +5972,19 @@ progress::-webkit-progress-value, progress.yellow_progress {
   padding-left: 40px;
   margin-bottom: 20px;
 }
-/* line 44, ../scss/components/_account.scss */
+/* line 41, ../scss/components/_account.scss */
 .account_verification_form .helper_text {
   margin: 0;
 }
 
-/* line 49, ../scss/components/_account.scss */
+/* line 46, ../scss/components/_account.scss */
 .account_verification_form h2 {
   margin: 0px;
   margin-top: 10px;
   padding: 0px;
 }
 
-/* line 55, ../scss/components/_account.scss */
-.account_save {
-  border-top: 1px solid #c8e1e4;
-  padding-top: 20px;
-  margin-top: 20px;
-}
-/* line 59, ../scss/components/_account.scss */
+/* line 56, ../scss/components/_account.scss */
 .account_save a {
   width: 250px;
 }
