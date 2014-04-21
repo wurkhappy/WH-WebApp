@@ -39,7 +39,8 @@ define(['backbone', 'flying-focus', 'models/agreement',
                     this.agreement = new AgreementModel(window.agreement)
                     this.tasks.versionID = this.agreement.id;
                 }
-
+                this.tasks.versionID = this.agreement.id;
+                this.payments.versionID = this.agreement.id;
                 this.listenTo(this.agreement, "change:versionID", function() {
                     this.tasks.versionID = this.agreement.id;
                     this.payments.versionID = this.agreement.id;
