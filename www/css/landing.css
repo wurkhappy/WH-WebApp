@@ -1363,6 +1363,24 @@ td {
   top: -193px;
 }
 
+/* line 376, ../scss/components/_landing.scss */
+.case_study_description_container {
+  position: relative;
+  margin-top: -275px;
+  top: 300px;
+}
+
+/* line 382, ../scss/components/_landing.scss */
+.case_study_description {
+  text-align: center;
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: museo;
+  font-size: 29px;
+  line-height: 34px;
+}
+
 /* line 1, ../scss/components/_pricing.scss */
 .price_level_container {
   clear: both;
