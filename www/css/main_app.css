@@ -3630,6 +3630,11 @@ div.faqcontent h2 {
   background: #87cf54;
 }
 
+/* line 161, ../scss/components/_buttons.scss */
+.blue_button {
+  background: #008bc7;
+}
+
 /* Sub- Navigation 
 ================================================================================ */
 /* line 5, ../scss/components/_sub_navigation.scss */
