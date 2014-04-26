@@ -16,13 +16,13 @@
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/app/plugins/better_browser/public/javascripts/abetterbrowser.js"></script>
 
   <!-- Font Awesome -->
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   {{else}}
   <link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
   <link rel="stylesheet" type="text/css" href="/css/landing.css" media="all" />
 
   <!-- Font Awesome -->
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
   <script src="/js/lib/jquery/jquery.js"></script>
   {{end}}
@@ -61,12 +61,12 @@
 
   <div class="clear navigation" style="background:hsl(95, 56%, 57%);">
   	<div class="landing_logo_container">
-  		<a class="logo" href="/">Wurk Happy</a>
+  		<a class="landing_logo" style="color:white;" href="/">Wurk Happy</a>
   	</div>
   	<div class="landing_admin_container">
   		<ul class="admin_nav">
   			<li id="log_in">
-  				<a style="border:3px solid white;color:white;" class="landing_navigation_links login_button" id="login" href="#login">Log In</a>
+  				<a class="landing_navigation_links login_button white_login" id="login" href="#login">Log In</a>
   			</li>
   			<li id="log_out" class="hide">
   				<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
@@ -80,7 +80,7 @@
 
 		<div id="benefits_image_container">
 			<div id="benefits_container" class="hide benefits_container">
-				<div class="clear headline_container" style="background: hsl(95, 56%, 57%);padding-bottom:150px;padding-top:50px;margin-bottom:0;">
+				<div class="clear headline_container" style="background: hsl(95, 56%, 57%);padding-bottom:110px;padding-top:25px;margin-bottom:0;">
 					<!-- <h1 class="logo_white">Wurk Happy</h1> -->
 					<h1 style="font-size:46px;font-weight:500;padding: 30px;color:black;" class="headline">
 						Wurk Happy Makes Freelancing Easier</h1>
@@ -111,11 +111,12 @@
 						</script>						
 					</ul>
 
-					<div class="mobile_landing_image">
+					<!-- <div class="mobile_landing_image">
 						<figure style="text-align:center;">
 							<img style="width:400px;" src="../img/landing/fr_scene_02_agreement.png">
 						</figure>
-					</div>
+					</div> -->
+
 				</div>
 
 					
@@ -127,7 +128,8 @@
 				  	<div class="benefit_container">
 				  		<div class="benefit">
   					    	<h3 class="benefit_title">Save Time</h3>
-  					    	<p class="benefit_description">Create agreements in minutes. Generate invoices in one click. Mak it easy for you client to deposit funds securely into your bank account online.</p>
+  					    	<p class="benefit_hook">Automate the unnecessary.</p>
+  					    	<p class="benefit_description">Create smart and professional agreements <span class="benefit_emphasis">fast</span>. Generate invoices automatically with one click.Get paid securely through your agreement directly into your bank account.</p>
   					  	</div>
   					  	<figure class="benefit_image_container">
   					  		<img src="../img/landing/create_agreement.png">
@@ -137,30 +139,32 @@
 				  	<div class="benefit_divider"></div>
 
 				  	<div class="benefit_container">
-				  		<div class="benefit" style="float:right;">
+				  		<div class="benefit">
   					    	<h3 class="benefit_title">Improve Working Relationships</h3>
-  					    	<p class="benefit_description">You client will enjoy beautiful PDF agreements and invoices. Your client will always feel up to date. As work conditions change, just update the agreement.</p>
+  					    	<p class="benefit_hook">Your Clients Will Love You.</p>
+  					    	<p class="benefit_description">We automatically generate <span class="benefit_emphasis">beautiful</span> PDF agreements and Invoices for you client. As work conditions change, update your agreement, and your client will be updated. No emails necessary.</p>
   					  	</div>
   					  	<figure class="benefit_image_container">
-  					  		<img src="../img/landing/agreement_home.png">
+  					  		<img src="../img/landing/agreement.png">
   					  	</figure>
   					</div>
 
   					<div class="benefit_divider"></div>
 
 				  	<div class="benefit_container">
-				  		<div class="benefit">
+				  		<div class="benefit" style="margin-top:10px;">
   					    	<h3 class="benefit_title">Simplify Your Workflow</h3>
-  								<p class="benefit_description">Instead of using different applications for agreements, keeping tracking of work, invoicing, and payment process, just use Wurk Happy. We're everything you need to make you freelance life easier in one simple, convenient application.</p>
+				    		<p class="benefit_hook">Understand Everything at a Glance.</p>
+							<p class="benefit_description">See your workflow <span class="benefit_emphasis">visually</span>. Know where you left off with your client, and where you are in the payment schedule. Stay on top of everythin simply.</p>
   					  	</div>
   					  	<figure class="benefit_image_container">
-  					  		<img src="../img/landing/home_screen.png">
+  					  		<img src="../img/landing/home.png">
   					  	</figure>
   					</div>
 				</div>
 
 				<div class="clear">
-					<h2 class="section_headline" style="color:white;">Freelance Stories</h2>
+					<h2 class="section_headline" style="color:white;">User Stories</h2>
 				</div>
 
 			  	<div class="clear"> <!-- Case Studies -->
@@ -169,12 +173,12 @@
   					  	</div>
   					  	<figure style="width: 100%;text-align: center;margin:0">
   					  		<div class="case_study_description_container">
-  					  			<h3 class="benefit_title">Easily Start a freelance working relationship</h3>
-	  					  		<p class="case_study_description">"From the depths of my solitude I create an agreement unlike any other agreement. And to my chagrin it takes only moments for me to realize the my endeavored creation. Alas! The future and the world feels bright as the dawn in Spring!"</p>
+  					  			<h3 class="benefit_title">Starting a freelance work relationship</h3>
+	  					  		<p class="case_study_description">"It takes only moments to create a good-looking agreement. Simply Famous. There are no blurred lines between friendly advice and time I should get paid for. My work is made just formal enough to provide the professionalism I need."</p>
 	  					  		<h4 class="case_study_name">Jason Aston</h4>
 	  					  		<h5 class="case_study_title">Digital Storyteller</h5>
   					  		</div>
-  					  		<img src="../img/landing/jason_space.jpg">
+  					  		<img src="../img/landing/jason_space.png">
   					  	</figure>
 				  	</div>
 
@@ -183,10 +187,10 @@
   					  	</div>
   					  	<figure style="width: 100%;text-align: center;margin:0">
   					  		<div class="case_study_description_container">
-  					  			<h3 class="benefit_title">Effortlessly update your client</h3>
-	  					  		<p class="case_study_description">"Even though I (mostly) love my clients, I hate communication. I just want to work, execute, make something beautiful. If my client wants to know what happening they can just log into Wurk Happy. Ez-er than Basecamp!"</p>
-	  					  		<h4 class="case_study_name">Alan Shaffer</h4>
-	  					  		<h5 class="case_study_title">Curmudgeon Developer</h5>
+  					  			<h3 class="benefit_title">Updating clients</h3>
+	  					  		<p class="case_study_description">"Even though I (mostly) love my clients, I hate communicating. I just want to work, execute, make something beautiful. Wurk Happy updates my client for me. When she wants to know the status she just logs into Wurk Happy. Easy."</p>
+	  					  		<h4 class="case_study_name">Alan Schaffer</h4>
+	  					  		<h5 class="case_study_title">Developer</h5>
   					  		</div>
   					  		<img src="../img/landing/jason_face.jpg">
   					  	</figure>
@@ -197,33 +201,62 @@
   					  	</div>
   					  	<figure style="width: 100%;text-align: center;margin:0">
   					  		<div class="case_study_description_container" style="margin-top: -235px;top: 450px;">
-  					  			<h3 class="benefit_title">Getting Paid Takes Less Work</h3>
-  					  			<p class="case_study_description">"Wurk Happy makes my invoices for me. That's pretty awesome. My clients don't really have an excuse not to pay me. Before Wurk Happy I had to go through a different payment system with each new client. I just go through Wurk Happy now and there is no confusion. My client just clicks a buttons a funds magically show up in my bank account. Pretty sweet."" </p>
+  					  			<h3 class="benefit_title">Getting Paid</h3>
+  					  			<p class="case_study_description">"Wurk Happy makes my invoices for me. That's pretty awesome. Because my entire work system is connected, nothing gets lost in the mail. There are no surprises. Before Wurk Happy I had to go through a different payment system with each new client. Now I just go through Wurk Happy. My client just clicks a button and funds magically show up in my bank account. Pretty sweet."</p>
 	  					  		<h4 class="case_study_name">Frank Saulter</h4>
 	  					  		<h5 class="case_study_title">The Future of Creativity</h5>
 	  					  	</div>
-  					  		<img src="../img/landing/frank_face.jpg">
+  					  		<img src="../img/landing/frank_face.png">
   					  	</figure>
   					</div>
 				</div>
 
-			  	<h2 class="section_headline" style="color:white;">How to Use Wurk Happy</h2>
+			  	<h2 id="how_to_headline" class="section_headline" style="color:white;">How to Use Wurk Happy</h2>
 
-			  	<h3 class="benefit_title" style="text-align:center;color:white;position: relative;top: 90px;clear: both;">Simple Workflow</h3>
+			  	<h3 id="simple_workflow_title" class="benefit_title">Simple Workflow</h3>
 
-				<div id="agreement-progress-bar" style="overflow: hidden;background: hsl(198, 100%, 44%);width: 1040px;margin: 210px auto;padding-top: 145px;margin-bottom: 70px;">
-					<div style="position:relative;margin:0 auto;width:900px;">
-						<div class="progress_bar ui-progressbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
-							<div style="width:800px;text-align:center;position:absolute;top: -70px;left: 61px">
-							</div>
+
+			  	<!-- How to workflow on smaller screens -->
+
+			  	<div class="small_workflow_container">
+				  	<div class="small_workflow">
+				  		<h3 class="workflow_hover_heading">1. Create and send agreements in minutes</h3>
+						<img src="../img/landing/fr_1_agreement.png">
+						<p>Our agreements are simple - just the scope of work and payment schedule so you and your client can focus on doing great work together.</p>
+						<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
+					</div>
+					<div class="small_workflow">
+						<h3 class="workflow_hover_heading">2. Keep both parties on track</h3>
+						<img src="../img/landing/fr_2_track.png" style="padding: 15px;background: hsl(0, 100%, 100%);">
+						<p>We update your client when you mark tasks complete.</p>
+						<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
+						<p>You can also easily amend the agreement to adapt to changes in scope.</p>
+					</div>
+					<div class="small_workflow">
+						<h3 class="workflow_hover_heading">3. Get Paid</h3>
+						<img src="../img/landing/fr_3_invoice.png" style="padding: 15px;background: hsl(0, 100%, 100%);">
+						<p>When you click 'request payment'. Your client receives a beautiful PDF invoice, automatically generated by the tasks you've marked complete.</p>
+
+						<p>When it's time for your client to pay, securely accept credit cards and bank transfers right through your agreement online.</p>
+					</div>
+				</div>
+
+				<!-- End small screen how to workflow -->
+
+				<div id="agreement-progress-bar" style="overflow: hidden;background: hsl(198, 100%, 44%);width:80%;max-width: 1040px;margin: 210px auto;padding:125px;padding-top: 145px;margin-bottom: 70px;">
+
+					<div>
+						<div class="progress_bar ui-progressbar" style="width:auto;margin-left: 0%;margin-right: 0%;">
+							<!-- <div style="max-width:800px;text-align:center;position:absolute;top: -70px;left: 61px">
+							</div> -->
 							<div class="ui-progressbar-value" style="width: 100%; overflow: hidden;">
-								<div style="width: 800px; height: 100%; display: block;">
+								<div style="height: 100%; display: block;">
 									<span id="green_progess" style="width: 0%; height: 4px; display: block; background-color: rgb(157, 213, 115); float: left; background-position: initial initial; background-repeat: initial initial;"></span>
 									<span style="width: 100%; height: 4px; display: block; background-color: rgb(186, 186, 186); float: left; background-position: initial initial; background-repeat: initial initial;"></span>
 								</div>
 							</div>
 						</div>
-						<div class="icon_container">
+						<div class="icon_container" style="left:-2%;">
 							<a href="#create" class="progress_icon grey_progress">
 								<div style="width: 108px;" class="workflow_step">
 									<img src="../img/landing/fr_1_agreement.png">
@@ -231,7 +264,7 @@
 								<h2 class="timeline_label" style="left: -110px;top: -63px;">1.Create Agreement</h2>
 							</a>
 
-							<a href="#update" class="progress_icon grey_progress" style="left:400px;">
+							<a href="#update" class="progress_icon grey_progress" style="left:54%;margin-left:0;">
 								<div class="workflow_step" style="top: -159px;left: -94px;">
 									<img src="../img/landing/fr_2_track.png">
 								</div>
@@ -239,7 +272,7 @@
 								top: -63px;">2.Keep all parties updated</h2>
 							</a>
 							
-							<a href="#process" class="progress_icon grey_progress" style="left:800px;">
+							<a href="#process" class="progress_icon grey_progress" style="left:99%;">
 								<div class="workflow_step" style="left: -100px;top: -145px;">
 									<img src="../img/landing/fr_3_invoice.png">
 								</div>
@@ -247,57 +280,59 @@
 								top: -63px;">3.Get Paid</h2>
 							</a>
 						</div>
-						<div style="width:800px;height:4px;background:none;position:absolute;top:0;left:0px"></div>
+						<!-- <div style="max-width:800px;height:4px;background:none;position:absolute;top:0;left:0px"></div> -->
 					</div>
 				</div>
 
-				<div id="create">
-					<h3 class="workflow_hover_heading">create and send agreements in minutes.</h3>
-					<p>Our agreements are simple - just the scope of work and payment schedule so you and your client can focus on doing great work together.</p>
-					<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
+				<div id="workflow_description">
+					<div id="create">
+						<h3 class="workflow_hover_heading">create and send agreements in minutes.</h3>
+						<p>Our agreements are simple - just the scope of work and payment schedule so you and your client can focus on doing great work together.</p>
+						<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
+					</div>
+
+					<div id="update">
+						<h3 class="workflow_hover_heading">Keep both parties on track.</h3>
+						<p>We update your client when you mark tasks complete.</p>
+						<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
+						<p>You can also easily amend the agreement to adapt to changes in scope.</p>
+					</div>
+
+					<div id="invoice">
+						<h3 class="workflow_hover_heading">Invoice Automatically.</h3>
+						<p>When you request payment, we generate the invoice from the tasks you marked complete.</p>
+						<p>You click a button. Your client receives a beautiful PDF invoice.</p>
+					</div>
+
+					<div id="process">
+						<h3 class="workflow_hover_heading">Get Paid.</h3>
+						<p>When you click 'request payment'. Your client receives a beautiful PDF invoice, automatically generated by the tasks you've marked complete.</p>
+
+						<p>When it's time for your client to pay, securely accept credit cards and bank transfers right through your agreement online.</p>
+					</div>
+
+					<div id="receive">
+						<h3 class="workflow_hover_heading">Funds are deposited directly into your bank account. Automatically.</h3>
+						<p>When your client pays by credit card, funds will automatically appear in your bank account within 2 business days from the time they initiate payment.</p>
+						<p>When your client pays by bank transfer, funds will automatically appear in your bank account within 4-5 business days.</p>
+					</div>
+					<script>
+						$('.progress_icon').hover(function() {
+							var $this = $(this);
+							var $thisAfter= $(this)
+							$this.addClass('on');
+							var id = $this.attr('href');
+							console.log(id);
+							$(id).show();
+
+						}, function() {
+							var $this = $(this);
+							$this.removeClass('on');
+							var id = $this.attr('href');
+							$(id).hide();
+						});
+					</script>
 				</div>
-
-				<div id="update">
-					<h3 class="workflow_hover_heading">Keep both parties on track.</h3>
-					<p>We update your client when you mark tasks complete.</p>
-					<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
-					<p>You can also easily amend the agreement to adapt to changes in scope.</p>
-				</div>
-
-				<div id="invoice">
-					<h3 class="workflow_hover_heading">Invoice Automatically.</h3>
-					<p>When you request payment, we generate the invoice from the tasks you marked complete.</p>
-					<p>You click a button. Your client receives a beautiful PDF invoice.</p>
-				</div>
-
-				<div id="process">
-					<h3 class="workflow_hover_heading">Get Paid.</h3>
-					<p>When you click 'request payment'. Your client receives a beautiful PDF invoice, automatically generated by the tasks you've marked complete.</p>
-
-					<p>When it's time for your client to pay, securely accept credit cards and bank transfers right through your agreement online.</p>
-				</div>
-
-				<div id="receive">
-					<h3 class="workflow_hover_heading">Funds are deposited directly into your bank account. Automatically.</h3>
-					<p>When your client pays by credit card, funds will automatically appear in your bank account within 2 business days from the time they initiate payment.</p>
-					<p>When your client pays by bank transfer, funds will automatically appear in your bank account within 4-5 business days.</p>
-				</div>
-				<script>
-					$('.progress_icon').hover(function() {
-						var $this = $(this);
-						var $thisAfter= $(this)
-						$this.addClass('on');
-						var id = $this.attr('href');
-						console.log(id);
-						$(id).show();
-
-					}, function() {
-						var $this = $(this);
-						$this.removeClass('on');
-						var id = $this.attr('href');
-						$(id).hide();
-					});
-				</script>
 				<h2 class="section_headline" style="color:white;margin-top: 0;
 ">Full Platform Feature List</h2>
 				<div style="background:hsl(218, 13%, 88%);"> <!-- Feature Section -->
@@ -307,14 +342,14 @@
 						<div class="feature">
 							<h4 class="feature_type">Agreement</h4>
 							<dl>
-								<dt class="feature_title">Create and Send Simple Agreements</dt>
+								<dt class="feature_title"><i class="fa fa-pencil-square-o"></i> Create and Send Simple Agreements</dt>
 								<dd class="feature_description">Create a beautiful, smart agreement in minutes. Our agreements organize the payment schedule and scope of work so you can focus on getting things done.</dd>
-								<dt class="feature_title">PDF & Online Access</dt>
+								<dt class="feature_title"><i class="fa fa-cloud"></i> PDF & Online Access</dt>
 								<dd class="feature_description">When you create an agreement we send you and your client a PDF version. Agreements are managed through Wurkhappy.com so you can access and update your agreement from anywhere.</dd>
-								<dt class="feature_title">Edit agreements in progress</dt>
+								<dt class="feature_title"><i class="fa fa-pencil"></i> Edit agreements in progress</dt>
 								<dd class="feature_description">Ever been annoyed that you can't amend agreements to reflect changing business circumstances? Through Wurk Happy you can adjust the scope of work and payment terms with the approval of the other party - so the agreement always reflects the latest business requirements.</dd>
 
-								<dt class="feature_title">Freelancer or Client Flexibility</dt>
+								<dt class="feature_title"><i class="fa fa-user"></i> Freelancer or Client Flexibility</dt>
 								<dd class="feature_description">Through Wurk Happy you can create agreements as both the freelancer and the client. Need a little extra help on a project you got hired for. No problem. Manage it all through Wurk Happy.</dd>
 
 							</dl>
@@ -322,32 +357,32 @@
 						<div class="feature">
 							<h4 class="feature_type">Communication</h4>
 							<dl>
-								<dt class="feature_title">Automatically Generated Invoices</dt>
+								<dt class="feature_title"><i class="fa fa-gears"></i> Automatically Generated Invoices</dt>
 								<dd class="feature_description">Yep. Never create an invoice again. We pre-populate your invoices based on tasks and subtasks you made when creating the agreement. Invoices can be hourly or fixed. Don't worry though, you can change an agreement at any time.</dd>	
-								<dt class="feature_title">Work Phases/milestones</dt>
+								<dt class="feature_title"><i class="fa fa-calendar"></i> Work Phases/milestones</dt>
 								<dd class="feature_description">When you create your agreement, you can group tasks into milestones or phases by adding subtasks. We do this automatically behind the scenes.</dd>
 
-								<dt class="feature_title">Real time status at a glance</dt>
+								<dt class="feature_title"><i class="fa fa-bar-chart-o"></i> Real time status at a glance</dt>
 								<dd class="feature_description">We created a beautiful and simple status bar that reflects what work has been done and what payments have been made. All you need is a few seconds to know where everything stands.</dd>
 
-								<dt class="feature_title">Automatic Client Updates</dt>
-							<dd class="feature_description">Use Wurk Happy to check off work as you complete it. Make tasks as general or specific as you want.</dd>
+								<dt class="feature_title"><i class="fa fa-comments-o"></i> Automatic Client Updates</dt>
+								<dd class="feature_description">Use Wurk Happy to check off work as you complete it. Make tasks as general or specific as you want.</dd>
 
 							</dl>
 						</div>
 						<div class="feature">
 							<h4 class="feature_type">Payment</h4>
 							<dl>
-								<dt class="feature_title">Securely Process Credit Cards and Bank Transfers</dt>
+								<dt class="feature_title"><i class="fa fa-money"></i> Securely Process Credit Cards and Bank Transfers</dt>
 								<dd class="feature_description">When you accept your first payment through Wurk Happy, you create a merchant account through us that allows you to process credit cards and bank transfers directly into your bank account. We charge these payment methods at cost. Bank Tranfers: 1% up to $5 + 55 cents. Credit cards: 2.9% + 55 cents. When you receive payment we charge you 1% up to $10. Check out our pricing page for a clear overview. </dd>
 
-								<dt class="feature_title">Payment Schedules</dt>
+								<dt class="feature_title"><i class="fa fa-road"></i> Payment Schedules</dt>
 								<dd class="feature_description">Create payment schedules that let you and your client know the payment history and what payments need to be made next. Easily create schedules reflect the schedule of work or function completely independently</dd>
 
-								<dt class="feature_title">Payment upon agreement acceptance</dt>
+								<dt class="feature_title"><i class="fa fa-dollar"></i> Payment upon agreement acceptance</dt>
 								<dd class="feature_description">Not sure about this new client? Require a deposit upon the acceptance of the agreement to protect yourself.</dd>
 
-								<dt class="feature_title">One Click Payment</dt>
+								<dt class="feature_title"><i class="fa fa-bolt"></i> One Click Payment</dt>
 								<dd class="feature_description">When you receive or make a payment through Wurk Happy, you and your client's payment creditials are automatically remembered in our system so every future payment takes only one click.</dd>
 
 							</dl>
