@@ -235,16 +235,46 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 
 func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	var agrmntData map[string]interface{}
+	var paymentsData []map[string]interface{}
+	var tasksData []map[string]interface{}
 	var otherUser map[string]interface{}
 	if id := req.URL.Query().Get("versionID"); id != "" {
-		resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/agreements/v/"+id, nil, session.Values["id"].(string))
-		if statusCode >= 400 {
-			var rError *responseError
-			json.Unmarshal(resp, &rError)
-			http.Error(w, rError.Description, statusCode)
-			return
-		}
-		json.Unmarshal(resp, &agrmntData)
+		var wg sync.WaitGroup
+		wg.Add(3)
+		go func() {
+			resp, statusCode := sendServiceRequest("GET", config.AgreementsService, "/agreements/v/"+id, nil, session.Values["id"].(string))
+			if statusCode >= 400 {
+				var rError *responseError
+				json.Unmarshal(resp, &rError)
+				http.Error(w, rError.Description, statusCode)
+				return
+			}
+			json.Unmarshal(resp, &agrmntData)
+			wg.Done()
+		}()
+		go func() {
+			resp, statusCode := sendServiceRequest("GET", config.PaymentsService, "/agreements/v/"+id+"/payments", nil, session.Values["id"].(string))
+			if statusCode >= 400 {
+				var rError *responseError
+				json.Unmarshal(resp, &rError)
+				http.Error(w, rError.Description, statusCode)
+				return
+			}
+			json.Unmarshal(resp, &paymentsData)
+			wg.Done()
+		}()
+		go func() {
+			resp, statusCode := sendServiceRequest("GET", config.TasksService, "/agreements/v/"+id+"/tasks", nil, session.Values["id"].(string))
+			if statusCode >= 400 {
+				var rError *responseError
+				json.Unmarshal(resp, &rError)
+				http.Error(w, rError.Description, statusCode)
+				return
+			}
+			json.Unmarshal(resp, &tasksData)
+			wg.Done()
+		}()
+		wg.Wait()
 
 		var userID string
 		if session.Values["id"] == agrmntData["freelancerID"].(string) {
@@ -273,6 +303,8 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		"JSversion":  JSversion,
 		"CSSversion": CSSversion,
 		"agreement":  agrmntData,
+		"tasks":      tasksData,
+		"payments":   paymentsData,
 		"otherUser":  otherUser,
 		"user":       user,
 	}
