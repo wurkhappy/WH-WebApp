@@ -78,6 +78,9 @@
   padding: 0;
   margin: 0;
   background: transparent url(../img/white_logo.png) no-repeat left;
+  &:visited {
+    color:white;
+  }
   color: white;
   display: block;
   padding-left: 70px;
@@ -542,4 +545,19 @@
   position:relative;
   top:90px;
   clear:both
+}
+
+.login_screens {
+  background: hsl(218, 13%, 88%) !important;
+  .landing_logo {
+    background: hsla(0, 0%, 0%, 0) url(../img/logo.png) no-repeat left;
+    color:black;
+    &:visited {
+      color:black;
+    }
+  }
+
+  .landing_navigation_links {
+    padding-top: 8px;
+  }
 }
