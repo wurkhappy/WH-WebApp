@@ -3,7 +3,7 @@
 
 
 .intro_container {
-  background: hsl(218, 13%, 88%);
+  background: $blue_background;
   padding: 20px 0 20px 0;
   color: white;
 }
@@ -23,27 +23,10 @@
   font-weight: 100;
 }
 
-.headline_container{
-  background: $blue_text_dark;
-  padding-bottom:110px;
-  padding-top:25px;
-  margin-bottom:0;
-  color: white;
-}
-
-.headline, .subline{
-  text-align: center;
-  color: white;
-}
-
+.headline, .subline,
 .benefit_title {
   text-align: center;
-  color: inherit;
-}
-
-.case_study_heading {
-  text-align: center;
-  color: inherit;
+  color: white;
 }
 
 .subline {
@@ -131,6 +114,10 @@
   padding-top:10px;
   width: 300px;
   margin: 0 auto;
+}
+
+.headline_container {
+  margin-bottom: 40px;
 }
 
 .left_background {
@@ -387,7 +374,6 @@
   margin-top: -195px;
   top: 390px;
   z-index: 1;
-  color: white;
 }
 
 .case_study_description {
@@ -434,7 +420,6 @@
   max-width:900px;
   margin:40px auto;
   float:none;
-  color: $blue_text_dark;
 }
 
 .section_headline {
@@ -442,7 +427,7 @@
   background:hsl(0,0%,0%);
   color:hsl(0,0%,60%);
   padding:20px;
-  margin: 0 0 80px 0;
+  margin: 80px 0;
   float: left;
   width: 100%;
 }
