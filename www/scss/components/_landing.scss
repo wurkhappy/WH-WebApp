@@ -19,18 +19,6 @@
   width:100%
 }
 
-.benefit {
-  border: 5px solid white;
-  border-radius: 200px;
-  width: 250px;
-  height: 250px;
-  display: block;
-  margin: 20px 0 0 0;
-  overflow: hidden;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .headline {
   font-weight: 100;
 }
@@ -38,7 +26,7 @@
 .headline, .subline,
 .benefit_title {
   text-align: center;
-  color: rgb(255,255,255);
+  color: white;
 }
 
 .subline {
@@ -51,13 +39,6 @@
 .benefit_description {
   text-align: center;
   font-weight: 300;
-}
-
-.benefit_title {
-  font-size: 22px;
-  font-weight: 100;
-  margin: 20px 0 8px 0;
-  font-family: museo_sans;
 }
 
 .signup_button_container {
@@ -88,6 +69,26 @@
   min-height:980px;
 }
 
+.landing_logo {
+  font-family: museo;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 38px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  background: transparent url(../img/white_logo.png) no-repeat left;
+  &:visited {
+    color:white;
+  }
+  color: white;
+  display: block;
+  padding-left: 70px;
+  text-decoration: none;
+  width: 210px;
+  text-transform: capitalize;
+}
+
 .explore_button_container {
   margin-left: 20px;
   width: 120px;
@@ -101,7 +102,7 @@
 }
 
 .landing_admin_container {
-  width: 50%;
+  width: 49%;
   float: left;
 }
 
@@ -253,11 +254,11 @@
 }
 
 .navigation{
-  padding: 30px;
+  padding: 60px;
 }
 
 .pricing_navigation {
-  padding:30px;
+  padding: 60px;
 }
 
 /* Legal Page */
@@ -312,18 +313,6 @@
 
 /* New Landing 4/14/14 */
 
-/*
-#benefits_image_container {
-  background:
-    url('../img/landing/fr_scene_01.png') no-repeat,
-    url('../img/landing/fr_1_agreement.png') no-repeat,
-    url('../img/landing/fr_2_track.png') no-repeat,
-    url('../img/landing/fr_3_invoice.png') no-repeat,
-    url('../img/landing/fr_scene_01.png') no-repeat;
-  background-size:50px;
-}
-*/
-
 #create, #update, #invoice, #process, #receive {
   display:none;
   border: 2px solid hsl(0, 100%, 100%);
@@ -334,13 +323,16 @@
   margin-left: -250px;
   background: hsl(198, 100%, 39%);
   padding-bottom:10px;
-  margin-top:40px;
+  margin-top: -760px;
 }
 
 .on {
   border-bottom-color: hsl(95, 56%, 57%) !important;
   &:after {
     border-top-color: hsl(95, 56%, 57%) !important;
+  }
+  h2 {
+    color:$orange;
   }
 }
 
@@ -349,21 +341,19 @@
   margin-bottom:10px;
   text-align:center;
   font-family:museo_sans;
+  z-index:10;
 }
 
 .timeline_label {
-  font-size:18px;
-  font-weight:400;
-  color: white;
-  font-family:museo;
-  font-style:italic;
+  color: hsl(0, 100%, 100%);
+  font-family: museo;
   position: absolute;
   font-size: 25px;
   width: 310px;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 
-.benefit_container {
+.workflow_step {
   background: hsl(0, 100%, 100%);
   float: left;
   width: 180px;
@@ -371,4 +361,203 @@
   position: relative;
   left: -48px;
   top: -193px;
+}
+
+.case_study img {
+  opacity: .7;
+  max-width:900px;
+  border: 2px solid hsl(199, 96%, 35%);
+}
+
+.case_study_description_container {
+  position: relative;
+  margin-top: -195px;
+  top: 390px;
+  z-index: 1;
+}
+
+.case_study_description {
+  max-width: 500px;
+  margin: 0 auto;
+  font-style:italic;
+}
+
+.case_study_name {
+  color:$orange;
+  font-size:18px;
+  font-weight: 100;
+  margin-top: 20px;
+}
+
+.case_study_title {
+  font-size: 14px;
+}
+
+.benefit_image_container {
+  width: 100%;
+  text-align: center;
+  margin:0;
+  img {
+    width: 500px;
+    border: 2px solid hsl(199, 96%, 35%);
+  }
+}
+
+.benefit {
+  width:35%;
+  float:left;
+  margin-top:100px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#right_benefit {
+  float:right;
+  margin-top: 130px;
+}
+
+.benefit_container {
+  max-width:900px;
+  margin:40px auto;
+  float:none;
+}
+
+.section_headline {
+  text-align:center;
+  background:hsl(0,0%,0%);
+  color:hsl(0,0%,60%);
+  padding:20px;
+  margin: 80px 0;
+  float: left;
+  width: 100%;
+}
+
+.benefit_title {
+  font-weight: 100;
+  margin: 20px 0 30px 0;
+  font-family: museo_sans;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size:24px;
+  line-height: 32px;
+}
+
+.benefit_divider {
+  width:100%;
+  height:4px;
+  background:hsl(199, 96%, 35%);
+  margin:80px 0;
+}
+
+.features_container {
+  max-width:900px;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+.feature {
+  width:30%;
+  float:left;
+  margin:10px;
+}
+
+.feature_type {
+  font-weight:900;
+  text-align:center;
+  letter-spacing:1px;
+}
+
+.feature_title {
+  margin-bottom:10px;
+  text-align: center;
+  color: hsl(38, 100%, 50%);
+  margin-top: 20px;
+  font-family: museo_sans;
+}
+
+.feature_description {
+  text-align:center;
+  color: $blue;
+}
+
+.about_section {
+  font-family: museo_sans;
+  margin: 40px 0;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 32px;
+  color: hsl(0, 100%, 100%);
+}
+
+.about_half {
+  width: 45%;
+  float:left;
+  margin:20px;
+  img {
+    border: 2px solid hsl(199, 96%, 35%);
+  }
+}
+
+.about_link {
+  color: hsl(38, 100%, 50%);
+  text-transform:lowercase;
+}
+
+.benefit_hook {
+  text-transform:uppercase;
+  font-size:14px;
+  font-weight:100;
+  text-align:center;
+}
+
+.benefit_emphasis {
+  font-style: italic;
+}
+
+.white_login, .white_login:visited {
+  border:3px solid white;
+  color:white;
+  &:hover {
+    color: $blue;
+    border:3px solid $blue;
+  }
+}
+
+.small_workflow_container {
+  display: none;
+}
+
+.small_workflow {
+  margin: 0 auto;
+  margin-bottom:60px;
+  width: 43%;
+  img {
+    border: 2px solid hsl(199, 96%, 35%);
+  }
+  p {
+    text-align:center;
+  }
+}
+
+#simple_workflow_title {
+  text-align:center;
+  color:white;
+  position:relative;
+  top:90px;
+  clear:both
+}
+
+.login_screens {
+  background: hsl(218, 13%, 88%) !important;
+  .landing_logo {
+    background: hsla(0, 0%, 0%, 0) url(../img/logo.png) no-repeat left;
+    color:black;
+    &:visited {
+      color:black;
+    }
+  }
+
+  .landing_navigation_links {
+    padding-top: 8px;
+  }
 }
