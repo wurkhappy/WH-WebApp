@@ -12,11 +12,11 @@ import (
 func initRoutes(r *mux.Router) {
 	r.HandleFunc("/", home).Methods("GET")
 
-	r.Handle("/password/forgot", loginHandler(handlers.ForgotPassword)).Methods("POST")
-	r.Handle("/user/login", loginHandler(handlers.PostLogin)).Methods("POST")
-	r.Handle("/user/logout", loginHandler(handlers.Logout)).Methods("GET")
-	r.Handle("/user", loginHandler(handlers.CreateUser)).Methods("POST")
-	r.Handle("/users", loginHandler(handlers.SearchUsers)).Methods("GET")
+	r.Handle("/password/forgot", noAuth(handlers.ForgotPassword)).Methods("POST")
+	r.Handle("/user/login", noAuth(handlers.PostLogin)).Methods("POST")
+	r.Handle("/user/logout", noAuth(handlers.Logout)).Methods("GET")
+	r.Handle("/user", noAuth(handlers.CreateUser)).Methods("POST")
+	r.Handle("/users", noAuth(handlers.SearchUsers)).Methods("GET")
 
 	r.Handle("/user/new-password", baseHandler(handlers.GetNewPasswordPage)).Methods("GET")
 	r.Handle("/user/{id}", userHandler(handlers.UpdateUser)).Methods("PUT")
@@ -31,7 +31,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/user/{id}/password", userHandler(handlers.SetNewPassword)).Methods("PUT")
 
 	r.Handle("/home", baseHandler(handlers.GetHome)).Methods("GET")
-	r.Handle("/home/sample", loginHandler(handlers.GetHomeSample)).Methods("GET")
+	r.Handle("/home/sample", noAuth(handlers.GetHomeSample)).Methods("GET")
 	r.Handle("/archive", baseHandler(handlers.GetArchives)).Methods("GET")
 	r.HandleFunc("/about", about).Methods("GET")
 	r.HandleFunc("/pricing", pricing).Methods("GET")
@@ -39,7 +39,7 @@ func initRoutes(r *mux.Router) {
 
 	r.Handle("/account", baseHandler(handlers.GetAccount)).Methods("GET")
 
-	r.Handle("/signup", loginHandler(handlers.GetSignup)).Methods("GET")
+	r.Handle("/signup", noAuth(handlers.GetSignup)).Methods("GET")
 
 	r.Handle("/payments/{paymentID}/action", baseHandler(handlers.CreatePaymentAction)).Methods("POST")
 	r.Handle("/payments/{paymentID}", baseHandler(handlers.UpdatePayment)).Methods("PUT")
@@ -48,10 +48,10 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/agreements/v/{versionID}/tasks", versionHandler(handlers.CreateTasks)).Methods("POST")
 	r.Handle("/agreements/v/{versionID}/payments", versionHandler(handlers.CreatePayments)).Methods("POST")
 	r.Handle("/agreement/v/{versionID}/status", versionHandler(handlers.CreateAgreementStatus)).Methods("POST")
-	r.Handle("/agreement/sample", loginHandler(handlers.GetSample)).Methods("GET")
+	r.Handle("/agreement/sample", noAuth(handlers.GetSample)).Methods("GET")
 
-	r.Handle("/agreements/new", baseHandler(handlers.GetCreateAgreement)).Methods("GET")
-	r.Handle("/agreement/v", baseHandler(handlers.PostFreelanceAgrmt)).Methods("POST")
+	r.Handle("/agreements/new", noAuth(handlers.GetCreateAgreement)).Methods("GET")
+	r.Handle("/agreement/v", noAuth(handlers.PostFreelanceAgrmt)).Methods("POST")
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.PutFreelanceAgrmt)).Methods("PUT")
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.GetAgreementDetails)).Methods("GET")
 	r.Handle("/agreement/v/{versionID}", versionHandler(handlers.DeleteAgreement)).Methods("DELETE")

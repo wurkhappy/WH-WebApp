@@ -36,6 +36,7 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
                 // Update el with the cached template.
                 $(this.el).html(this.template({
                     showHaveAccount: !this.hideHaveAccount,
+                    model: this.model.toJSON(),
                 }));
 
                 return this;
@@ -69,10 +70,11 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
 
                 this.model.save({}, {
                     success: function(model, response) {
-                        that.trigger('saveSuccess');
-                        if ( window.production) {
+                        if (window.production) {
                             analytics.track('New Sign Up');
                         }
+                        console.log("triggered");
+                        that.trigger('saveSuccess');
                     },
                     error: function(model, response) {
                         /*if (!that.modal){
