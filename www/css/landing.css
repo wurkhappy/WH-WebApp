@@ -956,7 +956,7 @@ td {
 ================================================================================ */
 /* line 5, ../scss/components/_landing.scss */
 .intro_container {
-  background: #008bc7;
+  background: #dcdfe4;
   padding: 20px 0 20px 0;
   color: white;
 }
@@ -979,14 +979,34 @@ td {
   font-weight: 100;
 }
 
-/* line 27, ../scss/components/_landing.scss */
-.headline, .subline,
-.benefit_title {
+/* line 26, ../scss/components/_landing.scss */
+.headline_container {
+  background: #008bc7;
+  padding-bottom: 110px;
+  padding-top: 25px;
+  margin-bottom: 0;
+  color: white;
+}
+
+/* line 34, ../scss/components/_landing.scss */
+.headline, .subline {
   text-align: center;
   color: white;
 }
 
-/* line 32, ../scss/components/_landing.scss */
+/* line 39, ../scss/components/_landing.scss */
+.benefit_title {
+  text-align: center;
+  color: inherit;
+}
+
+/* line 44, ../scss/components/_landing.scss */
+.case_study_heading {
+  text-align: center;
+  color: inherit;
+}
+
+/* line 49, ../scss/components/_landing.scss */
 .subline {
   font-family: museo_sans;
   font-weight: 100;
@@ -994,25 +1014,25 @@ td {
   font-size: 20px;
 }
 
-/* line 39, ../scss/components/_landing.scss */
+/* line 56, ../scss/components/_landing.scss */
 .benefit_description {
   text-align: center;
   font-weight: 300;
 }
 
-/* line 44, ../scss/components/_landing.scss */
+/* line 61, ../scss/components/_landing.scss */
 .signup_button_container {
   width: 300px;
   margin: 0 auto;
   list-style-type: none;
   margin-top: 50px;
 }
-/* line 48, ../scss/components/_landing.scss */
+/* line 65, ../scss/components/_landing.scss */
 .signup_button_container li {
   display: inline;
 }
 
-/* line 54, ../scss/components/_landing.scss */
+/* line 71, ../scss/components/_landing.scss */
 .login_button {
   padding: 8px 60px;
   border: 3px solid #007db3;
@@ -1021,19 +1041,19 @@ td {
   line-height: 24px;
   text-transform: capitalize;
 }
-/* line 61, ../scss/components/_landing.scss */
+/* line 78, ../scss/components/_landing.scss */
 .login_button:hover {
   border: 3px solid #ffa200;
 }
 
-/* line 66, ../scss/components/_landing.scss */
+/* line 83, ../scss/components/_landing.scss */
 .landing_container {
   padding-top: 66px;
   /*height: 980px;*/
   min-height: 980px;
 }
 
-/* line 72, ../scss/components/_landing.scss */
+/* line 89, ../scss/components/_landing.scss */
 .landing_logo {
   font-family: museo;
   font-size: 24px;
@@ -1050,18 +1070,18 @@ td {
   width: 210px;
   text-transform: capitalize;
 }
-/* line 81, ../scss/components/_landing.scss */
+/* line 98, ../scss/components/_landing.scss */
 .landing_logo:visited {
   color: white;
 }
 
-/* line 92, ../scss/components/_landing.scss */
+/* line 109, ../scss/components/_landing.scss */
 .explore_button_container {
   margin-left: 20px;
   width: 120px;
 }
 
-/* line 97, ../scss/components/_landing.scss */
+/* line 114, ../scss/components/_landing.scss */
 .landing_logo_container {
   float: left;
   width: 42%;
@@ -1069,13 +1089,13 @@ td {
   padding: 5px 0;
 }
 
-/* line 104, ../scss/components/_landing.scss */
+/* line 121, ../scss/components/_landing.scss */
 .landing_admin_container {
   width: 49%;
   float: left;
 }
 
-/* line 109, ../scss/components/_landing.scss */
+/* line 126, ../scss/components/_landing.scss */
 .logo_white {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
   color: white;
@@ -1086,12 +1106,7 @@ td {
   margin: 0 auto;
 }
 
-/* line 119, ../scss/components/_landing.scss */
-.headline_container {
-  margin-bottom: 40px;
-}
-
-/* line 123, ../scss/components/_landing.scss */
+/* line 136, ../scss/components/_landing.scss */
 .left_background {
   background: rgba(0, 0, 0, 0);
   margin: 0 auto;
@@ -1101,14 +1116,14 @@ td {
   margin-top: 60px;
 }
 
-/* line 132, ../scss/components/_landing.scss */
+/* line 145, ../scss/components/_landing.scss */
 .right_background {
   width: 50%;
   background: #1a97d1;
 }
 
 /* Landing Images */
-/* line 143, ../scss/components/_landing.scss */
+/* line 156, ../scss/components/_landing.scss */
 .fr_scene_01 {
   width: 550px;
   position: absolute;
@@ -1116,7 +1131,7 @@ td {
   right: 50px;
 }
 
-/* line 150, ../scss/components/_landing.scss */
+/* line 163, ../scss/components/_landing.scss */
 .fr_01_agreement {
   width: 147px;
   position: absolute;
@@ -1125,7 +1140,7 @@ td {
   z-index: 2;
 }
 
-/* line 158, ../scss/components/_landing.scss */
+/* line 171, ../scss/components/_landing.scss */
 .fr_2_track {
   width: 236px;
   position: absolute;
@@ -1134,7 +1149,7 @@ td {
   z-index: 2;
 }
 
-/* line 166, ../scss/components/_landing.scss */
+/* line 179, ../scss/components/_landing.scss */
 .fr_3_invoice {
   width: 236px;
   position: absolute;
@@ -1143,7 +1158,7 @@ td {
   z-index: 2;
 }
 
-/* line 175, ../scss/components/_landing.scss */
+/* line 188, ../scss/components/_landing.scss */
 .invoice_connect {
   width: 398px;
   position: absolute;
@@ -1152,7 +1167,7 @@ td {
   z-index: 1;
 }
 
-/* line 183, ../scss/components/_landing.scss */
+/* line 196, ../scss/components/_landing.scss */
 .cl_1_agreement {
   width: 250px;
   position: absolute;
@@ -1160,7 +1175,7 @@ td {
   left: 242px;
 }
 
-/* line 190, ../scss/components/_landing.scss */
+/* line 203, ../scss/components/_landing.scss */
 .cl_2_track {
   width: 110px;
   position: absolute;
@@ -1168,7 +1183,7 @@ td {
   left: 242px;
 }
 
-/* line 197, ../scss/components/_landing.scss */
+/* line 210, ../scss/components/_landing.scss */
 .cl_3_invoice {
   width: 250px;
   position: absolute;
@@ -1176,7 +1191,7 @@ td {
   left: 242px;
 }
 
-/* line 204, ../scss/components/_landing.scss */
+/* line 217, ../scss/components/_landing.scss */
 .feature1 {
   font-size: 40px;
   font-family: museo;
@@ -1190,7 +1205,7 @@ td {
   margin-bottom: 63px;
 }
 
-/* line 217, ../scss/components/_landing.scss */
+/* line 230, ../scss/components/_landing.scss */
 .feature2 {
   font-size: 40px;
   font-family: museo;
@@ -1204,7 +1219,7 @@ td {
   margin-bottom: 63px;
 }
 
-/* line 230, ../scss/components/_landing.scss */
+/* line 243, ../scss/components/_landing.scss */
 .feature3 {
   font-size: 40px;
   font-family: museo;
@@ -1218,7 +1233,7 @@ td {
   margin-bottom: 63px;
 }
 
-/* line 243, ../scss/components/_landing.scss */
+/* line 256, ../scss/components/_landing.scss */
 .learn_more {
   font-size: 40px;
   font-family: museo;
@@ -1233,61 +1248,61 @@ td {
   margin-bottom: 30px;
 }
 
-/* line 256, ../scss/components/_landing.scss */
+/* line 269, ../scss/components/_landing.scss */
 .navigation {
   padding: 60px;
 }
 
-/* line 260, ../scss/components/_landing.scss */
+/* line 273, ../scss/components/_landing.scss */
 .pricing_navigation {
   padding: 60px;
 }
 
 /* Legal Page */
-/* line 266, ../scss/components/_landing.scss */
+/* line 279, ../scss/components/_landing.scss */
 .faqcontent {
   padding: 23px 40px;
   width: 630px;
   float: right;
 }
-/* line 270, ../scss/components/_landing.scss */
+/* line 283, ../scss/components/_landing.scss */
 .faqcontent p {
   color: black;
 }
-/* line 273, ../scss/components/_landing.scss */
+/* line 286, ../scss/components/_landing.scss */
 .faqcontent ul li {
   color: black;
 }
 
-/* line 278, ../scss/components/_landing.scss */
+/* line 291, ../scss/components/_landing.scss */
 .legal_tab {
   width: 250px;
 }
 
-/* line 282, ../scss/components/_landing.scss */
+/* line 295, ../scss/components/_landing.scss */
 .legal_menu {
   float: left;
 }
 
-/* line 286, ../scss/components/_landing.scss */
+/* line 299, ../scss/components/_landing.scss */
 .legal_menu:first-child {
   margin-right: 20px;
 }
 
-/* line 290, ../scss/components/_landing.scss */
+/* line 303, ../scss/components/_landing.scss */
 .legal_page_title {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* line 295, ../scss/components/_landing.scss */
+/* line 308, ../scss/components/_landing.scss */
 .faqnav {
   background: whitesmoke;
   padding: 20px;
   width: 283px;
 }
 
-/* line 301, ../scss/components/_landing.scss */
+/* line 314, ../scss/components/_landing.scss */
 .title {
   font-size: 24px;
   font-family: museo;
@@ -1296,14 +1311,14 @@ td {
   color: #ffa200;
 }
 
-/* line 309, ../scss/components/_landing.scss */
+/* line 322, ../scss/components/_landing.scss */
 .column-one-fourth {
   clear: left;
   margin-top: 30px;
 }
 
 /* New Landing 4/14/14 */
-/* line 316, ../scss/components/_landing.scss */
+/* line 329, ../scss/components/_landing.scss */
 #create, #update, #invoice, #process, #receive {
   display: none;
   border: 2px solid white;
@@ -1317,20 +1332,20 @@ td {
   margin-top: -760px;
 }
 
-/* line 329, ../scss/components/_landing.scss */
+/* line 342, ../scss/components/_landing.scss */
 .on {
   border-bottom-color: #87cf54 !important;
 }
-/* line 331, ../scss/components/_landing.scss */
+/* line 344, ../scss/components/_landing.scss */
 .on:after {
   border-top-color: #87cf54 !important;
 }
-/* line 334, ../scss/components/_landing.scss */
+/* line 347, ../scss/components/_landing.scss */
 .on h2 {
   color: #ffa200;
 }
 
-/* line 339, ../scss/components/_landing.scss */
+/* line 352, ../scss/components/_landing.scss */
 .workflow_hover_heading {
   color: white;
   margin-bottom: 10px;
@@ -1339,7 +1354,7 @@ td {
   z-index: 10;
 }
 
-/* line 347, ../scss/components/_landing.scss */
+/* line 360, ../scss/components/_landing.scss */
 .timeline_label {
   color: white;
   font-family: museo;
@@ -1349,7 +1364,7 @@ td {
   text-transform: capitalize;
 }
 
-/* line 356, ../scss/components/_landing.scss */
+/* line 369, ../scss/components/_landing.scss */
 .workflow_step {
   background: white;
   float: left;
@@ -1360,29 +1375,30 @@ td {
   top: -193px;
 }
 
-/* line 366, ../scss/components/_landing.scss */
+/* line 379, ../scss/components/_landing.scss */
 .case_study img {
   opacity: .7;
   max-width: 900px;
   border: 2px solid #0479af;
 }
 
-/* line 372, ../scss/components/_landing.scss */
+/* line 385, ../scss/components/_landing.scss */
 .case_study_description_container {
   position: relative;
   margin-top: -195px;
   top: 390px;
   z-index: 1;
+  color: white;
 }
 
-/* line 379, ../scss/components/_landing.scss */
+/* line 393, ../scss/components/_landing.scss */
 .case_study_description {
   max-width: 500px;
   margin: 0 auto;
   font-style: italic;
 }
 
-/* line 385, ../scss/components/_landing.scss */
+/* line 399, ../scss/components/_landing.scss */
 .case_study_name {
   color: #ffa200;
   font-size: 18px;
@@ -1390,24 +1406,24 @@ td {
   margin-top: 20px;
 }
 
-/* line 392, ../scss/components/_landing.scss */
+/* line 406, ../scss/components/_landing.scss */
 .case_study_title {
   font-size: 14px;
 }
 
-/* line 396, ../scss/components/_landing.scss */
+/* line 410, ../scss/components/_landing.scss */
 .benefit_image_container {
   width: 100%;
   text-align: center;
   margin: 0;
 }
-/* line 400, ../scss/components/_landing.scss */
+/* line 414, ../scss/components/_landing.scss */
 .benefit_image_container img {
   width: 500px;
   border: 2px solid #0479af;
 }
 
-/* line 406, ../scss/components/_landing.scss */
+/* line 420, ../scss/components/_landing.scss */
 .benefit {
   width: 35%;
   float: left;
@@ -1416,31 +1432,32 @@ td {
   margin-right: 20px;
 }
 
-/* line 414, ../scss/components/_landing.scss */
+/* line 428, ../scss/components/_landing.scss */
 #right_benefit {
   float: right;
   margin-top: 130px;
 }
 
-/* line 419, ../scss/components/_landing.scss */
+/* line 433, ../scss/components/_landing.scss */
 .benefit_container {
   max-width: 900px;
   margin: 40px auto;
   float: none;
+  color: #008bc7;
 }
 
-/* line 425, ../scss/components/_landing.scss */
+/* line 440, ../scss/components/_landing.scss */
 .section_headline {
   text-align: center;
   background: black;
   color: #999999;
   padding: 20px;
-  margin: 80px 0;
+  margin: 0 0 80px 0;
   float: left;
   width: 100%;
 }
 
-/* line 435, ../scss/components/_landing.scss */
+/* line 450, ../scss/components/_landing.scss */
 .benefit_title {
   font-weight: 100;
   margin: 20px 0 30px 0;
@@ -1451,7 +1468,7 @@ td {
   line-height: 32px;
 }
 
-/* line 445, ../scss/components/_landing.scss */
+/* line 460, ../scss/components/_landing.scss */
 .benefit_divider {
   width: 100%;
   height: 4px;
@@ -1459,28 +1476,28 @@ td {
   margin: 80px 0;
 }
 
-/* line 452, ../scss/components/_landing.scss */
+/* line 467, ../scss/components/_landing.scss */
 .features_container {
   max-width: 900px;
   margin: 0 auto;
   overflow: hidden;
 }
 
-/* line 458, ../scss/components/_landing.scss */
+/* line 473, ../scss/components/_landing.scss */
 .feature {
   width: 30%;
   float: left;
   margin: 10px;
 }
 
-/* line 464, ../scss/components/_landing.scss */
+/* line 479, ../scss/components/_landing.scss */
 .feature_type {
   font-weight: 900;
   text-align: center;
   letter-spacing: 1px;
 }
 
-/* line 470, ../scss/components/_landing.scss */
+/* line 485, ../scss/components/_landing.scss */
 .feature_title {
   margin-bottom: 10px;
   text-align: center;
@@ -1489,13 +1506,13 @@ td {
   font-family: museo_sans;
 }
 
-/* line 478, ../scss/components/_landing.scss */
+/* line 493, ../scss/components/_landing.scss */
 .feature_description {
   text-align: center;
   color: #007db3;
 }
 
-/* line 483, ../scss/components/_landing.scss */
+/* line 498, ../scss/components/_landing.scss */
 .about_section {
   font-family: museo_sans;
   margin: 40px 0;
@@ -1505,24 +1522,24 @@ td {
   color: white;
 }
 
-/* line 492, ../scss/components/_landing.scss */
+/* line 507, ../scss/components/_landing.scss */
 .about_half {
   width: 45%;
   float: left;
   margin: 20px;
 }
-/* line 496, ../scss/components/_landing.scss */
+/* line 511, ../scss/components/_landing.scss */
 .about_half img {
   border: 2px solid #0479af;
 }
 
-/* line 501, ../scss/components/_landing.scss */
+/* line 516, ../scss/components/_landing.scss */
 .about_link {
   color: #ffa200;
   text-transform: lowercase;
 }
 
-/* line 506, ../scss/components/_landing.scss */
+/* line 521, ../scss/components/_landing.scss */
 .benefit_hook {
   text-transform: uppercase;
   font-size: 14px;
@@ -1530,43 +1547,43 @@ td {
   text-align: center;
 }
 
-/* line 513, ../scss/components/_landing.scss */
+/* line 528, ../scss/components/_landing.scss */
 .benefit_emphasis {
   font-style: italic;
 }
 
-/* line 517, ../scss/components/_landing.scss */
+/* line 532, ../scss/components/_landing.scss */
 .white_login, .white_login:visited {
   border: 3px solid white;
   color: white;
 }
-/* line 520, ../scss/components/_landing.scss */
+/* line 535, ../scss/components/_landing.scss */
 .white_login:hover, .white_login:visited:hover {
   color: #007db3;
   border: 3px solid #007db3;
 }
 
-/* line 526, ../scss/components/_landing.scss */
+/* line 541, ../scss/components/_landing.scss */
 .small_workflow_container {
   display: none;
 }
 
-/* line 530, ../scss/components/_landing.scss */
+/* line 545, ../scss/components/_landing.scss */
 .small_workflow {
   margin: 0 auto;
   margin-bottom: 60px;
   width: 43%;
 }
-/* line 534, ../scss/components/_landing.scss */
+/* line 549, ../scss/components/_landing.scss */
 .small_workflow img {
   border: 2px solid #0479af;
 }
-/* line 537, ../scss/components/_landing.scss */
+/* line 552, ../scss/components/_landing.scss */
 .small_workflow p {
   text-align: center;
 }
 
-/* line 542, ../scss/components/_landing.scss */
+/* line 557, ../scss/components/_landing.scss */
 #simple_workflow_title {
   text-align: center;
   color: white;
@@ -1575,20 +1592,20 @@ td {
   clear: both;
 }
 
-/* line 550, ../scss/components/_landing.scss */
+/* line 565, ../scss/components/_landing.scss */
 .login_screens {
   background: #dcdfe4 !important;
 }
-/* line 552, ../scss/components/_landing.scss */
+/* line 567, ../scss/components/_landing.scss */
 .login_screens .landing_logo {
   background: rgba(0, 0, 0, 0) url(../img/logo.png) no-repeat left;
   color: black;
 }
-/* line 555, ../scss/components/_landing.scss */
+/* line 570, ../scss/components/_landing.scss */
 .login_screens .landing_logo:visited {
   color: black;
 }
-/* line 560, ../scss/components/_landing.scss */
+/* line 575, ../scss/components/_landing.scss */
 .login_screens .landing_navigation_links {
   padding-top: 8px;
 }

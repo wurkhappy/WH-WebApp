@@ -66,6 +66,11 @@ func random(min, max int) int {
 	return rand.Intn(max-min) + min
 }
 
+var homeTpl = template.Must(template.ParseFiles(
+	"templates/_baseLanding.html",
+	"templates/landing5.html",
+))
+
 func home(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"appName":    "mainlanding",
@@ -74,12 +79,7 @@ func home(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 	}
 
-	var index = template.Must(template.ParseFiles(
-		"templates/_baseLanding.html",
-		/*"templates/"+landingsPages[random(0, 5)]+".html",*/
-		"templates/landing5.html",
-	))
-	index.Execute(w, m)
+	homeTpl.Execute(w, m)
 }
 
 func pricing(w http.ResponseWriter, req *http.Request) {
