@@ -6,15 +6,15 @@
           <div class="server_error" id="server_error"></div>
           <label class="clear" id="firstName-label" for="firstName">First Name: </label>
           <div class="input-box">
-            <input data-required="true" data-trigger="change" name="firstName"  class="text-field input" required >
+            <input data-required="true" data-trigger="change" name="firstName"  class="text-field input" required value="{{model.firstName}}">
           </div>
           <label class="clear" id="lastName-label" for="lastName">Last Name:</label>
           <div class="input-box">
-            <input data-required="true" data-trigger="change" name="lastName" class="text-field input" required >
+            <input data-required="true" data-trigger="change" name="lastName" class="text-field input" required value="{{model.lastName}}">
           </div>
           <label class="clear" id="email-label" for="email">Email: <span class="validation" id="email-validation"></span></label>
           <div class="input-box">
-            <input data-type="email" data-required="true" data-trigger="change" type="email" name="email"  id="target" class="text-field input" placeholder="name@website.com" required >
+            <input data-type="email" data-required="true" data-trigger="change" type="email" name="email"  id="target" class="text-field input" placeholder="name@website.com" required value="{{model.email}}">
           </div>
           <label for="password">Choose a password:</label>
           <input data-required="true" data-trigger="change" type="password" name="password" value="" id="password" class="text-field" required id="password-validation" />

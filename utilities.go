@@ -130,15 +130,13 @@ func checkOwner(agreementid, userid, path string) bool {
 		if _, err := c.Do("EXPIRE", agreementid, 7*24*60*60); err != nil {
 			log.Panic(err)
 		}
-		if owners.ClientID == userid || owners.FreelancerID == userid {
-			return true
-		}
 
-	} else {
-		//we found the agreement in the cache so let's check if the request is good
-		if owners.ClientID == userid || owners.FreelancerID == userid {
-			return true
-		}
+	}
+
+	//if either the client or the freelancer match then allow
+	//also allow if there is no owner
+	if (owners.ClientID == userid || owners.FreelancerID == userid) || (owners.ClientID == "" && owners.FreelancerID == "") {
+		return true
 	}
 
 	return false

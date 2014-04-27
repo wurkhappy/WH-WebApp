@@ -78,9 +78,9 @@ func serveSingle(pattern string, filename string) {
 	})
 }
 
-type loginHandler func(http.ResponseWriter, *http.Request, *sessions.Session)
+type noAuth func(http.ResponseWriter, *http.Request, *sessions.Session)
 
-func (h loginHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+func (h noAuth) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 	// Get a session.
 	session, err := store.Get(req, "WebAppSessions")
@@ -160,6 +160,10 @@ func (h versionHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		}
 		h(w, req, session)
 	} else {
+		if checkVersionOwner(vars["versionID"], " ") {
+			h(w, req, session)
+			return
+		}
 		http.Redirect(w, req, "/#login", http.StatusFound)
 	}
 }

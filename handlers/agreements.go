@@ -178,7 +178,11 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v", buf.Bytes(), session.Values["id"].(string))
+	var userID string
+	if uID, ok := session.Values["id"]; ok {
+		userID = uID.(string)
+	}
+	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v", buf.Bytes(), userID)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -287,15 +291,18 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		}
 	}
 
-	userResp, userStatusCode := sendServiceRequest("GET", config.UserService, "/user/"+session.Values["id"].(string)+"/details", nil, session.Values["id"].(string))
-	if userStatusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(userResp, &rError)
-		http.Error(w, rError.Description, userStatusCode)
-		return
-	}
 	var user map[string]interface{}
-	json.Unmarshal(userResp, &user)
+
+	if userID, ok := session.Values["id"]; ok {
+		userResp, userStatusCode := sendServiceRequest("GET", config.UserService, "/user/"+userID.(string)+"/details", nil, userID.(string))
+		if userStatusCode >= 400 {
+			var rError *responseError
+			json.Unmarshal(userResp, &rError)
+			http.Error(w, rError.Description, userStatusCode)
+			return
+		}
+		json.Unmarshal(userResp, &user)
+	}
 
 	m := map[string]interface{}{
 		"appName":    "maincreateagreement",
@@ -448,7 +455,13 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 func AgreementReview(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("GET", config.PDFTemplatesService, "/template/agreement", buf.Bytes(), session.Values["id"].(string))
+
+	var userID string
+	if uID, ok := session.Values["id"]; ok {
+		userID = uID.(string)
+	}
+
+	resp, statusCode := sendServiceRequest("GET", config.PDFTemplatesService, "/template/agreement", buf.Bytes(), userID)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)

@@ -3,8 +3,19 @@
   </div>
 <form parsely-validate action="" method="get" accept-charset="utf-8" id="create_agreement_send_email">
   <fieldset>
-    <label for="">Email Address</label>
-    <input data-required="true" data-trigger="change" parsley-type="email" name="clientEmail" placeholder="Please enter recipient's email" id="" size="50" value="{{otherUserEmail}}">
+{{#if thisUser.id}}
+{{else}}
+    <label for="">Your First Name</label>
+    <input data-required="true" data-trigger="change" parsley-type="email" name="firstName" placeholder="Jane" id="" size="50" class="user-info">
+    <label for="">Your Last Name</label>
+    <input data-required="true" data-trigger="change" parsley-type="email" name="lastName" placeholder="Smith" id="" size="50" class="user-info">
+    <label for="">Your Email Address</label>
+    <input data-required="true" data-trigger="change" parsley-type="email" name="email" placeholder="Please enter your email" id="" size="50" class="user-info">
+<br>
+<br>
+{{/if}}
+    <label for=""> Recipient Email Address</label>
+    <input data-required="true" data-trigger="change" parsley-type="email" name="clientEmail" placeholder="Please enter recipient's email" id="client-email" size="50" value="{{otherUserEmail}}">
     <label for="">Email Message</label>
     <textarea name="message" rows="5" cols="100">{{message}}</textarea>
   </fieldset>
@@ -13,7 +24,7 @@
   
   {{#if deposit}}
     <div class="request_payment_button_container" style="margin-top:20px;">
-    	<a id="requestDeposit" href="" class="button action_button">Send Agreement and Request Deposit</a>
+    	<a id="sendAgreement" href="" class="button action_button">Send Agreement and Request Deposit</a>
 	{{else}}
     <div class="send_button_container" style="margin-top:20px;">
 		  <a id="sendAgreement" href="" class="button action_button">Send Agreement</a>
