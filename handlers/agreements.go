@@ -3,7 +3,6 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
@@ -212,7 +211,6 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 			http.Error(w, rError.Description, statusCode)
 			return
 		}
-		fmt.Println(string(resp))
 
 		var users []map[string]interface{}
 		json.Unmarshal(resp, &users)

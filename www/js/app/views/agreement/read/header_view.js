@@ -143,6 +143,7 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                         });
                         break;
                     case status.StatusAccepted:
+                    case status.StatusUpdated:
                         if (this.payments.getTotalDue() === this.payments.getTotalPaid()) {
                             this.state = new FinishedState({
                                 model: this.model,

@@ -14,7 +14,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'kalendae',
             itemViewContainer: '.scope_items_container',
 
             initialize: function() {
-                this.collection = this.model.get("scopeItems");
+                this.collection = this.model.get("subTasks");
             },
             events: {
                 "blur .amount": "updateAmount",
