@@ -1365,7 +1365,7 @@ td {
 
 /* line 369, ../scss/components/_landing.scss */
 .case_study img {
-  opacity: .7;
+  opacity: .5;
   max-width: 900px;
   border: 2px solid #0479af;
 }
