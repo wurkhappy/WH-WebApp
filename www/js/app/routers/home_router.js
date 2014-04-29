@@ -21,18 +21,17 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                 this.otherUsers = new UserCollection(window.otherUsers);
                 this.currentUser = new UserModel(window.currentUser);
                 FlyingFocus();
-            if (window.production) {
-                $("#create_agreement").click(function(event) {
-                    analytics.track('Clicked Create Agreement');
-                });
-            }
+                if (window.production) {
+                    $("#create_agreement").click(function(event) {
+                        analytics.track('Clicked Create Agreement');
+                    });
+                }
             },
 
             AllAgreements: function() {
                 //need to views
                 //same view with different title and different models
                 var sortedAgreements = this.collection.sortByStatus();
-                console.log(sortedAgreements);
 
                 if (sortedAgreements.waitingOnRespAgrmnts.length > 0) {
                     var waitingView = new SectionView({

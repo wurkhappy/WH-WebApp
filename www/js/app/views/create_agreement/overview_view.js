@@ -19,7 +19,6 @@ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor',
 
             initialize: function(options) {
                 this.userID = options.userID;
-                this.render();
             },
 
             render: function() {
