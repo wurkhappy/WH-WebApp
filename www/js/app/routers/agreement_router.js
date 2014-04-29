@@ -54,9 +54,9 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     model: this.model,
                     tasks: this.tasks,
                 }));
-                this.layout.paymentMethods.show(new PaymentMethodsView({
-                    model: this.model
-                }));
+            this.layout.paymentMethods.show(new PaymentMethodsView({
+                model: this.model
+            }));
                 this.layout.deliverables.show(new WorkItemsReadView({
                     collection: this.tasks,
                     user: this.user,

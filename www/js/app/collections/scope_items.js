@@ -44,7 +44,7 @@ define(['backbone', 'models/scope_item'],
             },
             getCompleted: function() {
                 var models = this.filter(function(model) {
-                    return model.get("lastAction") && (model.get("lastAction").get("name") === "completed" || model.get("lastAction").get("name") === "paid");
+                    return model.isComplete();
                 });
                 return new Collection(models);
             }

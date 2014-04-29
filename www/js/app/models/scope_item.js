@@ -23,6 +23,9 @@ define(['backbone', 'backbone-relational', 'models/status', 'collections/status'
                     "userID": userID,
                     "date": moment()
                 });
+            },
+            isComplete: function() {
+                return this.get("lastAction") && (this.get("lastAction").get("name") === "completed" || this.get("lastAction").get("name") === "paid");
             }
         });
 

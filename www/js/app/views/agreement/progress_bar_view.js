@@ -23,7 +23,7 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                 this.listenTo(this.deliverables, "change:lastAction", this.render);
                 this.listenTo(this.deliverables, "add", this.updateCollections);
                 this.deliverables.each(_.bind(function(model) {
-                    this.listenTo(model.get("subTasks"), "change:lastAction", this.render);
+                    // this.listenTo(model.get("subTasks"), "change:lastAction", this.onRender);
                 }, this));
             },
 
@@ -84,9 +84,10 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                 var that = this;
                 this.$('.progress-large').progressbar({
                     value: 100,
-                    create: function(event, ui) {
+                    change: function(event, ui) {
                         var progress = $(this);
                         var progressvalue = progress.children(".ui-progressbar-value");
+                        progressvalue.empty();
                         progressvalue.css("overflow", "hidden");
                         var wrapper = $("<div>");
                         var wrapperWidth = "800";
@@ -104,8 +105,8 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                             var itemsTotal = model.get("subTasks").length;
                             var seg = $("<span>");
                             var fractionCompleted = (itemsCompleted / itemsTotal);
-                            if (model.get("completed")) fractionCompleted = 1;
-                            if (itemsTotal === 0 && !model.get("completed")) fractionCompleted = 0;
+                            if (model.isComplete()) fractionCompleted = 1;
+                            if (itemsTotal === 0 && !model.isComplete()) fractionCompleted = 0;
 
                             seg.css({
                                 "width": fractionCompleted * modelSection + "%",
@@ -128,6 +129,17 @@ define(['jquery', 'backbone', 'handlebars', 'underscore', 'marionette', 'jquery-
                     }
 
                 });
+
+                this.updateProgressbar();
+            },
+            updateProgressbar: function() {
+                var val = this.$('.progress-large').progressbar("value");
+                if (val === 100) {
+                    val = 99;
+                } else {
+                    val = 100;
+                }
+                this.$('.progress-large').progressbar("value", val);
             },
             updateCollections: function() {
                 this.render();
