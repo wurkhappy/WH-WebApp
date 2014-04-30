@@ -451,7 +451,6 @@ func ArchiveAgreement(w http.ResponseWriter, req *http.Request, session *session
 }
 
 func AgreementReview(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
-	fmt.Println("review")
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
 

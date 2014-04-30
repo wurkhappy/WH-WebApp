@@ -7,7 +7,6 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
 	"net/http"
-	"log"
 )
 
 func CreateTasks(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
