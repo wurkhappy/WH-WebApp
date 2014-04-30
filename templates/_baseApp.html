@@ -26,12 +26,12 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 
   <script>
-    var production = {{.production}};
+  var production = {{.production}};
   </script>
 
   <!-- Wurk Happy CSS -->
   {{if .production}}
-    <link rel="stylesheet" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/main_app.css">
+  <link rel="stylesheet" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/main_app.css">
 
   <link rel="Shortcut Icon" type="image/x-icon" href="https://d3kq8dzp7eezz0.cloudfront.net/favicon.ico" />
 
@@ -39,31 +39,31 @@
 
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/analytics.min.js"></script>
   <script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/jquery.js"></script>
-    <script type="text/javascript"> 
-      var $buoop = {}; 
-      $buoop.ol = window.onload; 
-      window.onload=function(){ 
-       try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-       var e = document.createElement("script"); 
-       e.setAttribute("type", "text/javascript"); 
-       e.setAttribute("src", "//browser-update.org/update.js"); 
-       document.body.appendChild(e); 
-      } 
-    </script> 
-  <script type="text/javascript" src="//dl1d2m8ri9v3j.cloudfront.net/releases/1.2.5/tracker.js" data-customer="b77f88524ef642658ab677103359b5e8"></script>
-  {{else}}
-  <link rel="stylesheet" href="/css/main_app.css">
+  <script type="text/javascript"> 
+  var $buoop = {}; 
+  $buoop.ol = window.onload; 
+  window.onload=function(){ 
+   try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+   var e = document.createElement("script"); 
+   e.setAttribute("type", "text/javascript"); 
+   e.setAttribute("src", "//browser-update.org/update.js"); 
+   document.body.appendChild(e); 
+ } 
+ </script> 
+ <script type="text/javascript" src="//dl1d2m8ri9v3j.cloudfront.net/releases/1.2.5/tracker.js" data-customer="b77f88524ef642658ab677103359b5e8"></script>
+ {{else}}
+ <link rel="stylesheet" href="/css/main_app.css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+ <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 
-  <script type="text/javascript">var actions=[];</script>
-  <script src="/js/lib/jquery/jquery.js"></script>
-  {{end}}
+ <script type="text/javascript">var actions=[];</script>
+ <script src="/js/lib/jquery/jquery.js"></script>
+ {{end}}
 
 
-  <script type="text/javascript">
-  var CKEDITOR_BASEPATH = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
-</script>
+ <script type="text/javascript">
+ var CKEDITOR_BASEPATH = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
+ </script>
 
 </head>
 <body>
@@ -72,7 +72,7 @@
     <div id="navigation" class="navigation">
       <div class="column-one-half">
         <div class="main_top_padding">
-            <a class="logo" href="/home">Wurk Happy</a>
+          <a class="logo" href="/home">Wurk Happy</a>
         </div>
       </div>
       <div class="column-one-half">
@@ -84,43 +84,43 @@
       </div>
     </div>
     <div class="main_content_container">
-    {{ template "content" .}}
-  
+      {{ template "content" .}}
 
 
 
-  <!-- main app footer-->
 
-    <div id="footer" class="footer" style="padding:30px;">
-      <div style="width:33%;float:left;">
-        <h3 class="footer_title"><a href="/archive">Agreement Archives</a></h3>
+      <!-- main app footer-->
+
+      <div id="footer" class="footer" style="padding:30px;">
+        <div style="width:33%;float:left;">
+          <h3 class="footer_title"><a href="/archive">Agreement Archives</a></h3>
+        </div>
+
+        <div style="width:22%;float:left;">
+          <h3 class="footer_title"><a href="/about">About</a></h3>
+        </div>
+
+        <div style="width:22%;float:left;">
+          <h3 class="footer_title"><a href="http://wurkhappy.tumblr.com/">Blog</a></h3>
+        </div>
+
+        <div style="width:22%;float:left;">
+          <h3 style="border-right:none;" class="footer_title"><a href="/legal">Legal</a></h3>
+        </div>
+
       </div>
-
-      <div style="width:22%;float:left;">
-        <h3 class="footer_title"><a href="/about">About</a></h3>
-      </div>
-
-      <div style="width:22%;float:left;">
-        <h3 class="footer_title"><a href="http://wurkhappy.tumblr.com/">Blog</a></h3>
-      </div>
-
-      <div style="width:22%;float:left;">
-        <h3 style="border-right:none;" class="footer_title"><a href="/legal">Legal</a></h3>
-      </div>
-
+    </div> <!-- closing the main_content_container -->
+    <div class="copyright clear">
+      <p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
     </div>
-  </div> <!-- closing the main_content_container -->
-  <div class="copyright clear">
-    <p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
-  </div>
 
 
     {{if .production}}
-        <script data-main="https://d3kq8dzp7eezz0.cloudfront.net/js-{{.JSversion}}/config" src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/requirejs/require.js"></script>
+    <script data-main="https://d3kq8dzp7eezz0.cloudfront.net/js-{{.JSversion}}/config" src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/requirejs/require.js"></script>
     {{else}}
     <script data-main="/js/config" src="/js/lib/requirejs/require.js"></script>
     {{end}}
-  <script>
+    <script>
   // Load common code that includes config, then load the app logic for
   // this page. Do the require calls here instead of a separate file
   // so after a build there are only 2 HTTP requests instead of three.
@@ -130,44 +130,51 @@
   });
   </script>
   <script type="text/javascript" async>
-    if (production) {
-      setTimeout(function(){
-        analytics.initialize({
-            'Google Analytics': {
-              trackingId: 'UA-24101674-3'
-            },
-            'Mixpanel': {
-              token: '4333aa84dfd94220eef310c77eab7372',
-              nameTag : true,
-              people  : false
-            },
-            'LiveChat':{
-              license: '3602861'
-            },
-            'Intercom': {
-              appId: '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
-              activator : '#IntercomDefaultWidget',
-              counter   : true
-            },
-            'CrazyEgg': {
-              accountNumber: '00197985'
-            }
-        });
-    
-        {{if .thisUser}}
-          analytics.identify({{.user.id}}, {
-            {{with .thisUser}}
-            email            : {{.email}},
-            created          : {{.dateCreated}},
+  if (production) {
+    setTimeout(function(){
+      analytics.initialize({
+        'Google Analytics': {
+          trackingId: 'UA-24101674-3'
+        },
+        'Mixpanel': {
+          token: '4333aa84dfd94220eef310c77eab7372',
+          nameTag : true,
+          people  : false
+        },
+        'Intercom': {
+          appId: '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+          activator : '#IntercomDefaultWidget',
+          counter   : true
+        },
+        'CrazyEgg': {
+          accountNumber: '00197985'
+        }
+      });
+
+      {{if .thisUser}}
+      analytics.identify({{.user.id}}, {
+        {{with .thisUser}}
+        email            : {{.email}},
+        created          : {{.dateCreated}},
             //name             : {{.firstName}} {{.lastName}},
             //phoneNumber      : {{.phone}},
             {{end}}
             agreementCount   : {{.agreementCount}}
           });
-        {{end}}
-      }, 2000);
-    }
+      {{end}}
+    }, 2000);
+
+    var __lc = {};
+    __lc.license = 3602861;
+
+    (function() {
+      var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+      lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+    })();
+  }
   </script>
+
 </body>
 </html>
 

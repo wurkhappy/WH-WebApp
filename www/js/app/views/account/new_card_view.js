@@ -15,6 +15,7 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
                 "blur input": "updateFields",
                 "click #save-button": "debounceSaveCard",
                 "change select": "updateFields",
+                "blur select": "updateFields",
                 "blur #postal_code": "updatePostalCode"
             },
 

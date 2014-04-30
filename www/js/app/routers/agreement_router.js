@@ -18,9 +18,9 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
             routes: {
                 '': 'readAgreement',
                 'edit': 'editAgreement',
-                'new-account': 'newAccount'
+                'new-account': 'newAccount',
+                'login': 'signIn'
             },
-
             initialize: function() {
                 this.model = new AgreementModel(window.agreement, {
                     userID: window.thisUser.id,
@@ -39,7 +39,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 FlyingFocus();
                 if (!this.user.get("isRegistered")) {
                     this.newAccount();
-                } else if (!window.signedIn) {
+                } else if (!window.signedIn && !window.Sample) {
                     this.signIn();
                 }
             },
@@ -81,10 +81,16 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 this.originalModelData = this.model.toJSON();
                 this.layout.header.show(new HeaderEditView({
                     model: this.model,
-                    user: this.user
+                    user: this.user,
+                    tasks: this.tasks,
+                    payments: this.payments
+                }));
+                this.layout.agreementProgressBar.show(new ProgressBarView({
+                    model: this.model,
+                    tasks: this.tasks,
                 }));
                 this.layout.deliverables.show(new DeliverablesEditView({
-                    model: this.model
+                    collection: this.tasks
                 }));
                 this.layout.paymentSchedule.show(new PaymentsEditSchedule({
                     collection: this.payments,

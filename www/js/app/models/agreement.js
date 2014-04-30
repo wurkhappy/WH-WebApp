@@ -40,6 +40,9 @@ define(['backbone', 'backbone-relational', 'moment', 'models/status', ],
             submit: function(message, successCallback) {
                 this.updateStatus("submitted", message, successCallback);
             },
+            update: function(message, successCallback) {
+                this.updateStatus("updated", message, successCallback);
+            },
             accept: function(message, successCallback) {
                 this.updateStatus("accepted", message, successCallback);
             },

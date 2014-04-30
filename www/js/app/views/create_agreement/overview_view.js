@@ -19,7 +19,6 @@ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor',
 
             initialize: function(options) {
                 this.userID = options.userID;
-                this.render();
             },
 
             render: function() {
@@ -36,7 +35,7 @@ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor',
                 "click #save_continue": "debounceSaveAndContinue",
             },
             onRender: function() {
-                if (this.userID === this.model.get("clientID")) this.$('input[name=role][value=clientID]').prop("checked", true);
+                if ((this.userID && this.userID === this.model.get("clientID"))) this.$('input[name=role][value=clientID]').prop("checked", true);
 
                 CKEDITOR.basePath = 'https://d3kq8dzp7eezz0.cloudfront.net/css/ckeditor/';
                 CKEDITOR.replace('message_editor', {
@@ -59,6 +58,11 @@ define(['backbone', 'handlebars', 'underscore', 'moment', 'parsley', 'ckeditor',
                 this.model.set("clientID", "");
                 this.model.set("freelancerID", "");
                 this.model.set(event.target.value, this.userID);
+                if (event.target.value === "clientID") {
+                    this.model.isClient = true;
+                } else {
+                    this.model.isClient = false;
+                }
             },
             updateClauses: function(event) {
                 var $element = $(event.target);

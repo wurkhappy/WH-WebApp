@@ -9,6 +9,7 @@ var comments = {{.comments}};
 var tags = {{.tags}};
 var cards = {{.cards}};
 var signedIn = {{.signedIn}}
+var Sample = {{.sample}}
 </script>
 <script type="text/javascript" src="https://js.balancedpayments.com/1.1/balanced.js"></script>
 
@@ -24,36 +25,10 @@ var signedIn = {{.signedIn}}
         <ul class="action_button_container" style="float:right;margin:0;">
           
         </ul>
-        <h2 style="margin-right:30px;text-align:right;width:222px;padding:0;float:right;margin:0;line-height:20px;color:white;font-family:museo_sans;font-size:16px;font-weight:300;margin-right:30px;">Freelancer<br><span class="sub_text">last completed</span><br><span style="text-transform:uppercase;font-style:italic;font-weight:100;font-size:18px;"> task 1</span></h2>
+        <h2 style="margin-right:30px;text-align:right;width:222px;padding:0;float:right;margin:0;line-height:20px;color:white;font-family:museo_sans;font-size:16px;font-weight:300;margin-right:30px;">Freelancer<br><span class="sub_text"><!-- last completed --></span><br><span style="text-transform:uppercase;font-style:italic;font-weight:100;font-size:18px;"> <!-- task 1 --></span></h2>
       </div>
     </div>
   </div>
-
-  <!-- <div id="agreement-profile" class="data-table agreement_profile">
-
-    <table border="0" cellspacing="0" cellpadding="0">
-      {{if .otherUser}}
-      {{with .otherUser}}
-      <tr>
-        <td class="meta">
-          <span><img src="{{.avatarURL}}"></span>
-        </td>
-        <td>
-          <h3><a href="detail.html">{{.firstName}} {{.lastName}}</a></h3>
-          <p>{{.email}} {{if .phoneNumber}}&mdash; {{.phoneNumber}}{{end}}</p>
-        </td>
-      </tr>
-      {{end}}
-      {{else}}
-      Has not been sent to client yet
-      {{end}}
-    </table>
-
-  </div> -->
-
-  <div id="agreement-progress-bar"></div>
-  <div class="divider"></div>
-  <div id="payment-methods"></div>
 
   <div class="grid" style="padding-top:20px;">
     <div class="col-2-3 ">
@@ -70,7 +45,6 @@ var signedIn = {{.signedIn}}
          <div class="proposed_services_container">{{.agreement.proposedServices | unescape}}</div>
        </div>
        <div>
-         <!-- <h2 class="agreement_title">Payment</h2> -->
          <div id="accepted_methods_container" class="ag_section">
          </div>
          <div id="payment_schedule_container" class="ag_section">
@@ -79,40 +53,6 @@ var signedIn = {{.signedIn}}
      </div>
    </div>
  </div>
-
-  <!-- <div id="payment-schedule" class="clear payment_schedule">
-    <div class="progress-large">
-      <span style="background-position: -900px 0px;"></span>
-    </div>
-    <h2>Payment Milestones for</h2>
-    <ul class="payment_milestone_container">
-      {{range .agreement.workItems}}
-      <li class="payment_milestone"><strong>${{.amountDue}}</strong> &mdash; {{.title}} </li>
-      {{end}}
-    </ul>
-  </div>
-
-  <div class="column-one-half">
-    <h2>Proposed Services</h2>
-    <p>{{.agreement.proposedServices | unescape}}</p>
-  </div>
-
-  <div class="column-one-half">
-    <h2>Refund Policies</h2>
-    <p>{{.agreement.refundPolicy}}</p>
-  </div>
-
-  <div id="discussion" class="clear">
-    <h2>Discuss</h2>
-  </div>
-
-  <div id="agreement-history" class="clear agreement_history">
-    <h2>Agreement History</h2>
-  </div> -->
-
-  <!-- <div class="divider" style="margin-top:20px;"></div> -->
-
-  <!-- <div id="discussion" class="messages_container"></div> -->
 
  <div class="payment"></div>
 </div>

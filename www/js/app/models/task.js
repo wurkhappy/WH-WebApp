@@ -43,7 +43,7 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
                 return this;
             },
             isComplete: function() {
-                if (this.get("subTasks").length === 0) return this.get("completed");
+                if (this.get("subTasks").length === 0) return (this.get("lastAction") && this.get("lastAction").get("name") === "completed");
                 return this.get("subTasks").getCompleted().length === this.get("subTasks").length;
             },
             isPaid: function() {

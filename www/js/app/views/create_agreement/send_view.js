@@ -1,8 +1,8 @@
 define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agreement/send_tpl',
-        'views/agreement/read/modals/payment_request', 'views/ui-modules/modal', 'views/create_agreement/verify_user'
+        'views/agreement/read/modals/payment_request', 'views/ui-modules/modal', 'views/create_agreement/verify_user', 'views/landing/new_account'
     ],
 
-    function(Backbone, Handlebars, toastr, parsley, tpl, DepositRequestModal, Modal, VerifyUserView) {
+    function(Backbone, Handlebars, toastr, parsley, tpl, DepositRequestModal, Modal, VerifyUserView, NewAccountView) {
 
         'use strict';
 
@@ -10,10 +10,10 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
             template: tpl,
             className: 'clear white_background',
             events: {
-                "click #sendAgreement": "debounceSendAgreement",
+                "click #sendAgreement": "clickedSend",
                 "blur textarea": "addMessage",
-                "blur input": "addRecipient",
-                "click #requestDeposit": "requestDeposit"
+                "blur #client-email": "addRecipient",
+                "blur .user-info": "updateUserInfo",
             },
             initialize: function(options) {
                 this.message = "Please take a moment to look over the details of the services provided and the payment schedule. Let me know if you'd like to suggest any changes. When you're ready, just accept the agreement and we'll get started.";
@@ -31,6 +31,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                 }
                 var otherUserEmail = (this.otherUser) ? this.otherUser.get("email") : null;
                 this.$el.html(this.template({
+                    thisUser: this.user.toJSON(),
                     message: this.message,
                     deposit: this.hasDeposit,
                     otherUserEmail: otherUserEmail,
@@ -39,27 +40,34 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
 
                 return this;
             },
-
-            debounceSendAgreement: function(event) {
+            addRecipient: function(event) {
+                this.model.set("clientEmail", event.target.value);
+            },
+            addMessage: function(event) {
+                this.message = event.target.value
+            },
+            clickedSend: _.debounce(function(event) {
                 event.preventDefault();
                 event.stopPropagation();
+                if (!this.user.id) {
+                    this.newAccount();
+                    return;
+                }
                 this.sendAgreement();
+
+            }, 500, true),
+            sendAgreement: function() {
+                if (!this.validate()) {
+                    return;
+                }
+                if (this.payments.findDeposit()) {
+                    this.requestDeposit();
+                    return;
+                }
+
+                this.submitAgreement();
             },
-            sendAgreement: _.debounce(function(event) {
-                //return if there isn't a valid email
-                var isValid = this.$('#create_agreement_send_email').parsley('validate');
-                if (!isValid) {
-                    return;
-                }
-
-                if (!this.model.get("clientID") && !this.model.get("clientEmail")) {
-                    return;
-                }
-
-                if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
-                    toastr.error("Please select a payment method in the Payment Section");
-                    return;
-                }
+            submitAgreement: function() {
 
                 var that = this;
 
@@ -76,29 +84,11 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                         that.model.submit(that.message, submitSuccess);
                     }
                 });
-            }, 500, true),
-            addRecipient: function(event) {
-                this.model.set("clientEmail", event.target.value);
             },
-            addMessage: function(event) {
-                this.message = event.target.value
-            },
-            requestDeposit: function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-
-                //return if there isn't a valid email
-                var isValid = $('#create_agreement_send_email').parsley('validate');
-                if (!isValid) {
+            requestDeposit: function() {
+                if (!this.validate()) {
                     return;
                 }
-
-                if (!this.model.get("acceptsBankTransfer") && !this.model.get("acceptsCreditCard")) {
-                    toastr.error("Please select a payment method in the Payment Section");
-                    return;
-                }
-
-                if (!this.model.get("clientID") && !this.model.get("clientEmail")) return;
 
                 var that = this;
 
@@ -124,18 +114,43 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                     }
                 });
             },
+            validate: function() {
+                //return if there isn't a valid email
+                var isValid = $('#create_agreement_send_email').parsley('validate');
+                if (!isValid) {
+                    return false;
+                }
+
+                if (!this.model.get("clientID") && !this.model.get("clientEmail")) return false;
+
+                return true;
+            },
             depositRequested: function() {
                 this.model.submit(this.message, function() {
                     window.location = "/home";
                 });
             },
-            userVerified: function() {
-                this.modal.hide();
-                if (this.hasDeposit) {
-                    this.requestDeposit();
-                    return;
-                }
-                this.sendAgreement();
+            updateUserInfo: function(event) {
+                this.user.set(event.target.name, event.target.value);
+                console.log(this.user);
+            },
+            newAccount: function() {
+                var view = new NewAccountView({
+                    model: this.user
+                });
+                this.modal = new Modal({
+                    view: view
+                });
+                this.listenTo(view, "saveSuccess", function() {
+                    if (this.model.isClient) {
+                        this.model.set("clientID", this.user.id);
+                    } else {
+                        this.model.set("freelancerID", this.user.id);
+                    }
+                    this.modal.hide();
+                    this.sendAgreement();
+                });
+                this.modal.show();
             }
         });
 

@@ -18,8 +18,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.collection = this.model.get("subTasks");
                 this.userIsClient = options.userIsClient;
                 this.listenTo(this.model, 'change', this.checkStatus);
-                this.listenTo(this.collection, 'change', this.render);
-                this.user = options.user;
+            this.listenTo(this.collection, 'change', this.render);
+            this.user = options.user;
                 this.otherUser = options.otherUser;
                 this.messages = options.messages;
                 this.tags = options.tags;
@@ -27,6 +27,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             },
 
             renderModel: function() {
+                console.log("renderModel");
                 var data = this.model.toJSON();
                 data.numberOfTasks = this.collection.length;
                 data.tasksCompleted = this.collection.getCompleted().length;

@@ -65,6 +65,7 @@ define(['backbone', 'parsley', 'flying-focus', 'views/landing/landingview', 'vie
                 $('#create_account').hide();
                 $('.copyright').addClass('copyright_login');
                 $('.landing_footer').addClass('landing_footer_login');
+                $('.navigation').addClass('login_screens');
             },
             hideForm: function() {
                 if (!this.formView) return;
@@ -73,6 +74,7 @@ define(['backbone', 'parsley', 'flying-focus', 'views/landing/landingview', 'vie
                 this.$mainSection.fadeIn('fast');
                 $('.copyright').removeClass('copyright_login');
                 $('.landing_footer').removeClass('landing_footer_login');
+                $('.navigation').removeClass('login_screens');
 
                 $('#log_out').hide();
                 $('#log_in').show();

@@ -27,7 +27,7 @@
 
 // New Responsive 3/29
 
-@media all and (max-width: 515px) {
+@media all and (max-width: 590px) {
   .landing_admin_container {
     width: 100%;
     float:none;
@@ -68,7 +68,7 @@
   }
 }
 
-@media all and (min-width: 516px) and (max-width: 559px) {
+/*@media all and (min-width: 516px) and (max-width: 559px) {
   .landing_admin_container {
     width: 100%;
     float:none;
@@ -79,7 +79,7 @@
   .copyright {
     bottom: -230px;
   }
-}
+} */
 
 @media all and (max-width: 970px) {
     h1 {
@@ -91,7 +91,7 @@
     }
 }
 
-@media all and (max-width: 760px) {
+/*@media all and (max-width: 760px) {
   body {
     width:auto !important;
   }
@@ -119,15 +119,80 @@
   body {
     height: 925px !important;
   }
-}
+} */
 
-@media all and (min-width: 761px) {
+/*@media all and (min-width: 761px) {
   .mobile_landing_image {
     display:none;
   }
 
+}*/
+
+@media all and (max-width: 775px) {
+    .feature {
+      width: 100%;
+    }
+
+    .small_workflow {
+      width: 333px;
+    }
+
+    .case_study_description_container {
+      top:275px;
+    }
 }
 
+@media all and (max-width: 837px) {
+  .benefit {
+    width: 90%;
+    float: none;
+    margin: 0 auto;
+  }
+
+  #right_benefit {
+    margin: 0 auto;
+    float:none;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  #agreement-progress-bar {
+    display:none;
+  }
+
+  #workflow_description {
+    display: none;
+  }
+
+  .small_workflow_container {
+    display:block;
+  }
+
+  #how_to_headline {
+    margin-bottom:40px;
+  }
+
+  #simple_workflow_title {
+    clear: none;
+    position:inherit;
+    margin-bottom: 30px;
+    float: left;
+    width: 100%;
+    font-family:museo;
+  }
+
+  .features_container {
+    width:80%;
+  }
+
+  .case_study img {
+    width: 100%;
+  }
+
+}
+
+
+/*
 @media all and (min-width: 761px) and (max-width: 1000px) {
 
 
@@ -236,9 +301,6 @@
 // Dealing with the situation where the screen is wide and short (but still allowing fixed functionality)
 
 @media all and (min-width: 761px) and (max-width:1000px) and (max-height: 1090px) {
-  .navigation {
-    padding: 30px;
-  }
 
   .feature1, .feature2, .feature3 {
     margin-bottom:0;
@@ -402,10 +464,6 @@
     z-index: 1;
   }
 
-  .headline_container ul {
-    margin-top:15px !important;
-  }
-
   .headline_container h1 {
     font-size:39px !important;
   }
@@ -489,7 +547,7 @@
     bottom: 41px !important;
   }
 
-}
+} */
 
 // Pricing Page
 
@@ -587,5 +645,15 @@
 
   .pricing_start {
     margin-top:50px;
+  }
+}
+
+// about page
+
+@media all and (max-width: 930px) {
+  .about_half {
+    width: 100%;
+    margin: 20px auto;
+    float: none;
   }
 }

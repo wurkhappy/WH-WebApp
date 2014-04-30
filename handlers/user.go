@@ -29,7 +29,7 @@ func CreateUser(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 	session.Values["isVerified"] = requestData["isVerified"].(bool)
 	session.Save(req, w)
 
-	w.Write([]byte(`{"redirectURL":"/home"}`))
+	w.Write(resp)
 }
 
 func UpdateUser(w http.ResponseWriter, req *http.Request, session *sessions.Session) {

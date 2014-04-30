@@ -1,5 +1,5 @@
 define(['backbone', 'handlebars', 'underscore', 'marionette',
-        'hbs!templates/agreement/edit/work_item_edit_tpl', 'views/agreement/edit/work_item_view',
+        'hbs!templates/agreement/edit/work_item_edit_tpl', 'views/create_agreement/services/work_item_view',
         'views/agreement/work_item_view'
     ],
 
@@ -14,9 +14,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             itemView: WorkItemView,
             itemViewContainer: 'ul',
 
-            initialize: function() {
-                this.collection = this.model.get("workItems");
-            },
+            initialize: function() {},
             events: {
                 "click #addMoreButton": "addMilestone"
             },

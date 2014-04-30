@@ -3,7 +3,6 @@ package handlers
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
@@ -178,7 +177,11 @@ func buildOtherUsersRequest(agreements []map[string]interface{}, userID string) 
 func PostFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v", buf.Bytes(), session.Values["id"].(string))
+	var userID string
+	if uID, ok := session.Values["id"]; ok {
+		userID = uID.(string)
+	}
+	resp, statusCode := sendServiceRequest("POST", config.AgreementsService, "/agreements/v", buf.Bytes(), userID)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -208,7 +211,6 @@ func PutFreelanceAgrmt(w http.ResponseWriter, req *http.Request, session *sessio
 			http.Error(w, rError.Description, statusCode)
 			return
 		}
-		fmt.Println(string(resp))
 
 		var users []map[string]interface{}
 		json.Unmarshal(resp, &users)
@@ -287,15 +289,18 @@ func GetCreateAgreement(w http.ResponseWriter, req *http.Request, session *sessi
 		}
 	}
 
-	userResp, userStatusCode := sendServiceRequest("GET", config.UserService, "/user/"+session.Values["id"].(string)+"/details", nil, session.Values["id"].(string))
-	if userStatusCode >= 400 {
-		var rError *responseError
-		json.Unmarshal(userResp, &rError)
-		http.Error(w, rError.Description, userStatusCode)
-		return
-	}
 	var user map[string]interface{}
-	json.Unmarshal(userResp, &user)
+
+	if userID, ok := session.Values["id"]; ok {
+		userResp, userStatusCode := sendServiceRequest("GET", config.UserService, "/user/"+userID.(string)+"/details", nil, userID.(string))
+		if userStatusCode >= 400 {
+			var rError *responseError
+			json.Unmarshal(userResp, &rError)
+			http.Error(w, rError.Description, userStatusCode)
+			return
+		}
+		json.Unmarshal(userResp, &user)
+	}
 
 	m := map[string]interface{}{
 		"appName":    "maincreateagreement",
@@ -449,7 +454,13 @@ func AgreementReview(w http.ResponseWriter, req *http.Request, session *sessions
 	fmt.Println("review")
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(req.Body)
-	resp, statusCode := sendServiceRequest("GET", config.PDFTemplatesService, "/template/agreement", buf.Bytes(), session.Values["id"].(string))
+
+	var userID string
+	if uID, ok := session.Values["id"]; ok {
+		userID = uID.(string)
+	}
+
+	resp, statusCode := sendServiceRequest("GET", config.PDFTemplatesService, "/template/agreement", buf.Bytes(), userID)
 	if statusCode >= 400 {
 		var rError *responseError
 		json.Unmarshal(resp, &rError)
@@ -480,6 +491,8 @@ func GetSample(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 		"tasks":      tasksData,
 		"otherUser":  otherUser,
 		"thisUser":   thisUser,
+		"signedIn":   session.Values["signedIn"],
+		"sample":     true,
 		"production": Production,
 		"JSversion":  JSversion,
 		"CSSversion": CSSversion,
