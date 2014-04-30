@@ -490,6 +490,8 @@ func GetSample(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 		"tasks":      tasksData,
 		"otherUser":  otherUser,
 		"thisUser":   thisUser,
+		"signedIn":   session.Values["signedIn"],
+		"sample":     true,
 		"production": Production,
 		"JSversion":  JSversion,
 		"CSSversion": CSSversion,

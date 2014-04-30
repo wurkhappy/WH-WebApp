@@ -18,7 +18,8 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
             routes: {
                 '': 'readAgreement',
                 'edit': 'editAgreement',
-                'new-account': 'newAccount'
+                'new-account': 'newAccount',
+                'login': 'signIn'
             },
             initialize: function() {
                 this.model = new AgreementModel(window.agreement, {
@@ -38,7 +39,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 FlyingFocus();
                 if (!this.user.get("isRegistered")) {
                     this.newAccount();
-                } else if (!window.signedIn) {
+                } else if (!window.signedIn && !window.Sample) {
                     this.signIn();
                 }
             },
@@ -54,9 +55,9 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     model: this.model,
                     tasks: this.tasks,
                 }));
-            this.layout.paymentMethods.show(new PaymentMethodsView({
-                model: this.model
-            }));
+                this.layout.paymentMethods.show(new PaymentMethodsView({
+                    model: this.model
+                }));
                 this.layout.deliverables.show(new WorkItemsReadView({
                     collection: this.tasks,
                     user: this.user,
