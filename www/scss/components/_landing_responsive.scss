@@ -44,12 +44,12 @@
   .footer_title a {
     border-right:none;
     border-bottom: 1px solid hsl(0, 0%, 30%);
-    padding: 30px 115px;
+    padding: 30px 10%;
 
   }
 
   .landing_logo_container {
-    width:200px;
+    width: 200px;
     float:none;
     margin:0 auto;
   }
@@ -66,20 +66,21 @@
     width: 192px;
     float:none;
   }
-}
 
-/*@media all and (min-width: 516px) and (max-width: 559px) {
-  .landing_admin_container {
-    width: 100%;
-    float:none;
+  .case_study_description {
+    font-size: 14px;
   }
-}
 
-@media all and (min-width: 516px) {
-  .copyright {
-    bottom: -230px;
+  .case_study_description_container {
+    margin-top:-100px;
+    top:200px;
   }
-} */
+
+  #last_case_study {
+    top: 275px;
+  }
+
+}
 
 @media all and (max-width: 970px) {
     h1 {
@@ -91,55 +92,24 @@
     }
 }
 
-/*@media all and (max-width: 760px) {
-  body {
-    width:auto !important;
-  }
-
-  #agreement-progress-bar {
-    display:none;
-  }
-
-
-  .left_background {
-    display:none;
-  }
-  .right_background {
-    display:none;
-  }
-  .landing_fixed_container {
-    position:relative;
-    width:auto;
-  }
-
-  .landing_container {
-    height:960px;
-  }
-
-  body {
-    height: 925px !important;
-  }
-} */
-
-/*@media all and (min-width: 761px) {
-  .mobile_landing_image {
-    display:none;
-  }
-
-}*/
-
 @media all and (max-width: 775px) {
     .feature {
       width: 100%;
     }
 
     .small_workflow {
-      width: 333px;
+      width: 290px;
     }
+}
 
-    .case_study_description_container {
+@media all and (min-width: 591px) and (max-width: 775px) {
+  .case_study_description_container {
       top:275px;
     }
+
+  #last_case_study {
+    top: 320px;
+  }
 }
 
 @media all and (max-width: 837px) {
@@ -190,364 +160,6 @@
   }
 
 }
-
-
-/*
-@media all and (min-width: 761px) and (max-width: 1000px) {
-
-
-
-  .fr_scene_01 {
-    width: 300px;
-    top: 270px;
-    right: 70px;
-  }
-
-  .fr_01_agreement {
-    width: 75px;
-    top: 374px;
-    right: 160px;
-  }
-
-  .cl_1_agreement {
-    width: 200px;
-    top: 346px;
-    left: 132px;
-  }
-
-  .fr_2_track {
-    width: 140px;
-    top: 388px;
-    right: 125px;
-  }
-
-  .cl_2_track {
-    width: 77px;
-    top: 354px;
-    left: 198px;
-  }
-
-  .fr_3_invoice {
-    width: 147px;
-    top: 388px;
-    right: 128px;
-  }
-
-  .cl_3_invoice {
-    width: 190px;
-    top: 400px;
-    left: 180px;
-  }
-
-  .invoice_connect {
-    width: 260px;
-    top: 440px;
-    right: -147px;
-  }
-
-}
-
-@media all and (min-width: 1001px) and (max-width: 1200px) {
-  .fr_scene_01 {
-    width: 400px;
-    top: 234px;
-    right: 50px;
-  }
-
-  .fr_01_agreement {
-    width: 100px;
-    top: 374px;
-    right: 167px;
-  }
-
-  .cl_1_agreement {
-    width: 250px;
-    top: 346px;
-    left: 132px;
-  }
-
-  .fr_2_track {
-    width: 171px;
-    top: 388px;
-    right: 133px;
-  }
-
-  .cl_2_track {
-    width: 100px;
-    top: 354px;
-    left: 198px;
-  }
-
-  .fr_3_invoice {
-    width: 186px;
-    top: 396px;
-    right: 132px;
-  }
-
-  .invoice_connect {
-    width: 293px;
-    top: 457px;
-    right: -166px;
-  }
-
-  .cl_3_invoice {
-    width: 215px;
-    top: 410px;
-    left: 215px;
-  }
-}
-
-
-// Dealing with the situation where the screen is wide and short (but still allowing fixed functionality)
-
-@media all and (min-width: 761px) and (max-width:1000px) and (max-height: 1090px) {
-
-  .feature1, .feature2, .feature3 {
-    margin-bottom:0;
-  }
-
-  .learn_more {
-    margin-bottom:-20px;
-  }
-
-  .fr_scene_01 {
-    top: 170px;
-  }
-
-  .fr_01_agreement {
-    top: 274px;
-  }
-
-  .cl_1_agreement {
-    top: 282px;
-  }
-
-  .fr_2_track {
-    top: 286px;
-  }
-
-  .cl_2_track {
-    top: 290px;
-  }
-
-  .fr_3_invoice {
-    top: 289px;
-  }
-
-  .cl_3_invoice {
-    top: 336px;
-  }
-
-  .invoice_connect {
-    top: 376px;
-  }
-}
-
-@media all and (min-width: 1001px) and (max-width: 1200px) and (max-height: 1090px) {
-  .fr_01_agreement {
-    top: 374px;
-  }
-
-  .fr_2_track {
-    top: 389px;
-  }
-
-  .fr_3_invoice {
-    top: 394px;
-  }
-
-}
-
-
-// Dealing screen is really wide and height is really short
-
-@media all and (min-width: 761px) and (max-height: 950px) {
-
-  .fr_scene_01 {
-    width: 300px;
-    top: 0px;
-    right: 132px;
-  }
-
-  .fr_01_agreement {
-    width: 73px;
-    top: 107px;
-    right: 226px;
-    z-index: 2;
-  }
-
-  .fr_2_track {
-    width: 138px;
-    position: absolute;
-    top: 120px;
-    right: 189px;
-    z-index: 2;
-  }
-
-  .fr_3_invoice {
-    width: 137px;
-    position: absolute;
-    top: 126px;
-    right: 195px;
-    z-index: 2;
-  }
-
-  .cl_1_agreement {
-    width: 200px;
-    top: 85px;
-    left: 205px;
-  }
-
-  .cl_2_track {
-    width: 86px;
-    position: absolute;
-    top: 94px;
-    left: 200px;
-  }
-
-  .cl_3_invoice {
-    width: 160px;
-    position: absolute;
-    top: 181px;
-    left: 190px;
-  }
-
-  .feature1 {
-    font-size: 30px;
-    font-family: museo;
-    color: hsl(0, 100%, 100%);
-    line-height: 64px;
-    width: 900px;
-    margin-left: -304px;
-    margin-bottom: -50px;
-  }
-
-  .feature2 {
-    font-size: 30px;
-    font-family: museo;
-    color: hsl(0, 100%, 100%);
-    line-height: 64px;
-    width: 900px;
-    position: absolute;
-    bottom: 30px;
-    opacity: 1;
-    margin-left: -180px;
-    margin-bottom: -58px;
-  }
-
-  .feature3 {
-    font-size: 30px;
-    font-family: museo;
-    color: hsl(0, 100%, 100%);
-    line-height: 64px;
-    width: 900px;
-    position: absolute;
-    bottom: 30px;
-    opacity: 1;
-    margin-left: -237px;
-    margin-bottom: -85px;
-  }
-
-  .learn_more  {
-    margin-bottom:-40px;
-    h2 {
-      font-size: 20px;
-      line-height: 15px;
-    }
-  }
-
-  .invoice_connect {
-    width: 280px;
-    position: absolute;
-    top: 248px;
-    right: -158px;
-    z-index: 1;
-  }
-
-  .headline_container h1 {
-    font-size:39px !important;
-  }
-
-}
-
-@media all and (min-width: 761px) and (min-height: 630px) and (max-height: 950px) {
-
-  .feature1, .feature2, .feature3 {
-    font-size:40px;
-    margin-bottom:0;
-  }
-
-  .learn_more {
-    bottom: 70px !important;
-  }
-
-    .fr_scene_01 {
-    width: 300px;
-    top: 70px;
-    right: 132px;
-  }
-
-  .fr_01_agreement {
-    width: 73px;
-    top: 177px;
-    right: 226px;
-    z-index: 2;
-  }
-
-  .fr_2_track {
-    width: 138px;
-    position: absolute;
-    top: 190px;
-    right: 189px;
-    z-index: 2;
-  }
-
-  .fr_3_invoice {
-    width: 137px;
-    position: absolute;
-    top: 196px;
-    right: 195px;
-    z-index: 2;
-  }
-
-  .cl_1_agreement {
-    width: 200px;
-    top: 155px;
-    left: 205px;
-  }
-
-  .cl_2_track {
-    width: 86px;
-    position: absolute;
-    top: 164px;
-    left: 200px;
-  }
-
-  .cl_3_invoice {
-    width: 160px;
-    position: absolute;
-    top: 251px;
-    left: 190px;
-  }
-
-  .feature1, .feature2, .feature3 {
-    font-size: 30px;
-    margin-bottom: -40px;
-  }
-
-  .learn_more {
-    bottom: 50px !important;
-  }
-
-}
-
-@media all and (min-width: 761px) and (max-height: 629px) {
-
-  .learn_more {
-    bottom: 41px !important;
-  }
-
-} */
 
 // Pricing Page
 
