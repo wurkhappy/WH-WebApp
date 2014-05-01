@@ -10,7 +10,7 @@ import (
 )
 
 func initRoutes(r *mux.Router) {
-	r.HandleFunc("/", home).Methods("GET")
+	r.HandleFunc("/", landing).Methods("GET")
 
 	r.Handle("/password/forgot", noAuth(handlers.ForgotPassword)).Methods("POST")
 	r.Handle("/user/login", noAuth(handlers.PostLogin)).Methods("POST")
@@ -59,14 +59,17 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/agreement/v/{versionID}/review", versionHandler(handlers.AgreementReview)).Methods("POST")
 }
 
-var landingsPages = []string{"landing1", "landing2", "landing3", "landing4", "landing5"}
+var landingTpl = template.Must(template.ParseFiles(
+	"templates/_baseLanding.html",
+	"templates/landing5.html",
+))
 
 func random(min, max int) int {
 	rand.Seed(time.Now().Unix())
 	return rand.Intn(max-min) + min
 }
 
-func home(w http.ResponseWriter, req *http.Request) {
+func landing(w http.ResponseWriter, req *http.Request) {
 	m := map[string]interface{}{
 		"appName":    "mainlanding",
 		"production": handlers.Production,
@@ -74,12 +77,7 @@ func home(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 	}
 
-	var index = template.Must(template.ParseFiles(
-		"templates/_baseLanding.html",
-		/*"templates/"+landingsPages[random(0, 5)]+".html",*/
-		"templates/landing5.html",
-	))
-	index.Execute(w, m)
+	landingTpl.Execute(w, m)
 }
 
 func pricing(w http.ResponseWriter, req *http.Request) {
