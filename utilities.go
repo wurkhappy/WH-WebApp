@@ -117,7 +117,6 @@ func checkOwner(agreementid, userid, path string) bool {
 	if err != nil || len(v) == 0 || owners.ClientID == "" || owners.FreelancerID == "" {
 		//if we can't find the agreement then let's ask the agreement service for the owners
 		resp, statusCode := sendServiceRequest("GET", config.AgreementsService, path, []byte(""))
-		log.Println("owners are", string(resp))
 		if statusCode >= 400 {
 			return false
 		}
