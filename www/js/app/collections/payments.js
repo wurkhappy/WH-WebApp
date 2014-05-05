@@ -13,7 +13,7 @@ define(['backbone', 'models/payment'],
             // Reference to this collection's model.
             model: Model,
             comparator: function(model) {
-                return (model.get("dateCreated")) ? model.get("dateCreated").valueOf() : 0;
+                return (model.get("number")) ? model.get("number").valueOf() : 0;
             },
             findDeposit: function() {
                 var models = this.filter(function(model) {
