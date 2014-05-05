@@ -63,9 +63,10 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
                         title: "Deposit",
                         amountDue: formattedAmount,
                         isDeposit: true,
+                        number: 1,
                         paymentItems: [{
                             amountDue: formattedAmount,
-                            title: "Deposit",
+                            title: "",
                         }]
                     });
                     this.payments.unshift(this.deposit);

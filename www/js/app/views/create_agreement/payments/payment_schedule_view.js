@@ -23,7 +23,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                 this.bankAccounts = options.user.get("bank_accounts");
                 this.creditCards = options.user.get("cards");
                 if (this.collection.length === 0) {
-                    this.collection.add({})
+                    this.collection.add({});
                 }
             },
             events: {
