@@ -18,13 +18,13 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/invoice', 'views/agre
                 this.tasks.remove(this.workItems.getTasks().models);
                 var workItemsJSON = this.workItems.toJSON();
                 _.each(workItemsJSON, function(item) {
-                    item.workItemID = item.id;
+                    item.taskID = item.id;
                 });
                 var tasks = [];
                 this.tasks.each(function(model) {
                     var json = model.toJSON();
-                    json.taskID = model.id;
-                    json.workItemID = model.getWorkItemID();
+                    json.subTaskID = model.id;
+                    json.taskID = model.getWorkItemID();
                     tasks.push(json);
                 })
                 this.payment.get("paymentItems").set(workItemsJSON.concat(tasks));
