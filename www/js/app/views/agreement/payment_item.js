@@ -12,6 +12,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'hbs!templates/agr
 
                 data = this.model.toJSON();
                 data.paid = this.model.get("amountPaid") === this.model.get("amountDue");
+                if (!this.model.collection.models[0].get("isDeposit")) {
+                    data.number += 1;
+                }
 
                 return data;
             },
