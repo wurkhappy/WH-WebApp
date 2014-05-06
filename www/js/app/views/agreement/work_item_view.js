@@ -12,27 +12,31 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             itemView: TaskItem,
             itemViewContainer: ".tasks_container",
             events: {
-                "click .deliverable_header": "showWorkItem"
+                "click .deliverable_header": "showWorkItem",
+                "click .checkbox": "toggleCheckbox"
             },
             initialize: function(options) {
                 this.collection = this.model.get("subTasks");
                 this.userIsClient = options.userIsClient;
                 this.listenTo(this.model, 'change', this.checkStatus);
-            this.listenTo(this.collection, 'change', this.render);
-            this.user = options.user;
+                this.listenTo(this.model, 'change:lastAction', this.render);
+                this.listenTo(this.collection, 'change', this.render);
+                this.user = options.user;
                 this.otherUser = options.otherUser;
                 this.messages = options.messages;
                 this.tags = options.tags;
                 this.listenTo(this.collection, "completed", this.taskStatusChange);
+                this.hasSubTasks = this.collection.length > 0;
             },
 
             renderModel: function() {
-                console.log("renderModel");
                 var data = this.model.toJSON();
                 data.numberOfTasks = this.collection.length;
                 data.tasksCompleted = this.collection.getCompleted().length;
+                data.hasSubTasks = this.hasSubTasks;
+                data.completed = this.model.isComplete()
 
-                if (this.model.isComplete()) {
+                if (data.completed) {
                     data.color = 'green';
                 } else {
                     data.color = 'orange';
@@ -61,6 +65,11 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
             },
             showWorkItem: function(event) {
+                if (!this.hasSubTasks) {
+                    return;
+                }
+                console.log("show");
+
                 this.showingItem = !this.showingItem;
 
                 if (this.showingItem) {
@@ -84,6 +93,13 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 }, 100);
                 this.$('.show_details_button').text('Show Details');
                 this.showingItem = true;
+            },
+            toggleCheckbox: function(event) {
+                if (this.model.isComplete()) {
+                    this.model.noAction();
+                } else {
+                    this.model.completed({});
+                }
             },
             checkStatus: function() {
                 var status = this.model.get("lastAction");

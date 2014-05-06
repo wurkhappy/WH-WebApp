@@ -51,7 +51,28 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
             },
             isPartiallyPaid: function() {
                 return this.get("subTasks").getPaid().length > 0;
-            }
+            },
+            completed: function(data, successCallback) {
+                this.updateStatus(_.extend(data, {
+                    "name": "completed"
+                }), successCallback);
+            },
+            noAction: function(data, successCallback) {
+                this.updateStatus(null, successCallback);
+            },
+            updateStatus: function(reqData, successCallback) {
+                $.ajax({
+                    type: "POST",
+                    url: "/tasks/" + this.id + "/action",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(reqData),
+                    success: _.bind(function(response) {
+                        this.set("lastAction", response);
+                        if (_.isFunction(successCallback)) successCallback();
+                    }, this)
+                });
+            },
         });
 
         return WorkItem;
