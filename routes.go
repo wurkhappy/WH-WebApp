@@ -44,6 +44,7 @@ func initRoutes(r *mux.Router) {
 	r.Handle("/payments/{paymentID}/action", baseHandler(handlers.CreatePaymentAction)).Methods("POST")
 	r.Handle("/payments/{paymentID}", baseHandler(handlers.UpdatePayment)).Methods("PUT")
 	r.Handle("/tasks/{taskID}", baseHandler(handlers.UpdateTask)).Methods("PUT")
+	r.Handle("/tasks/{taskID}/action", baseHandler(handlers.CreateTaskAction)).Methods("POST")
 
 	r.Handle("/agreements/v/{versionID}/tasks", versionHandler(handlers.CreateTasks)).Methods("POST")
 	r.Handle("/agreements/v/{versionID}/payments", versionHandler(handlers.CreatePayments)).Methods("POST")

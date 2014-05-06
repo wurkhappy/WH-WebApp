@@ -77,7 +77,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 event.preventDefault();
                 event.stopPropagation();
                 _.clone(this.payments).each(_.bind(function(model) {
-                    if (!model.get("title")) {
+                    if (!model.get("amountDue")) {
                         this.payments.remove(model);
                     };
                 }, this));

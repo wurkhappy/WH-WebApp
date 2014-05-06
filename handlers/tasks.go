@@ -45,3 +45,20 @@ func UpdateTask(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 
 	w.Write(resp)
 }
+
+func CreateTaskAction(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	vars := mux.Vars(req)
+	taskID := vars["taskID"]
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(req.Body)
+
+	resp, statusCode := sendServiceRequest("POST", config.TasksService, "/tasks/"+taskID+"/action", buf.Bytes(), session.Values["id"].(string))
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+	w.Write(resp)
+}
