@@ -77,6 +77,9 @@ define(['backbone', 'models/payment'],
                 return this.parent.id;
             },
             save: function(data, options) {
+                this.each(function(model) {
+                    model.set("number", model.collection.indexOf(model));
+                });
                 $.ajax({
                     type: "POST",
                     url: "/agreements/v/" + this.versionID + "/payments",
