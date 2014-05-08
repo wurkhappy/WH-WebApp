@@ -4372,7 +4372,7 @@ td.progress {
 /* line 22, ../scss/components/_modals.scss */
 .panel {
   width: 550px;
-  margin: 20px auto;
+  margin: 20% auto;
   background: #dedede;
   padding: 35px;
   background: #fafafa;
