@@ -29,6 +29,7 @@ func GetAccount(w http.ResponseWriter, req *http.Request, session *sessions.Sess
 		"production": Production,
 		"JSversion":  JSversion,
 		"CSSversion": CSSversion,
+		"returnURL":  CSSversion,
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseApp.html",
