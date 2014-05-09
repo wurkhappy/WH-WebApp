@@ -1,5 +1,5 @@
 <div class="service_preview_item">
-	<h3>{{title}}</h3>
+	<h3>{{#if isDeposit}}Deposit{{else}}{{number}}{{numberSuffix number}} Payment{{/if}}</h3>
 	{{#if dateExpected}}
 		{{#unless isDeposit}}
 			<span class="helper_text">Due on {{dateFormat dateExpected}}</span>

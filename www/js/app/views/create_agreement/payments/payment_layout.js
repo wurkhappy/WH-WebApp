@@ -70,7 +70,10 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
             addPayment: function(event) {
                 event.preventDefault();
-                this.payments.add({});
+                console.log(this.payments.length);
+                this.payments.add({}, {
+                    at: this.payments.length
+                });
             },
 
             debounceSaveAndContinue: function(event) {

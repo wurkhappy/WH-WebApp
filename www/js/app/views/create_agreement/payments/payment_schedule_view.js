@@ -22,6 +22,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                 this.deposit = this.collection.findDeposit();
                 this.bankAccounts = options.user.get("bank_accounts");
                 this.creditCards = options.user.get("cards");
+                this.listenTo(this.collection, "add", this.updateModelNumbers);
+                this.listenTo(this.collection, "remove", this.updateModelNumbers);
                 if (this.collection.length === 0) {
                     this.collection.add({});
                 }
@@ -69,6 +71,12 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                     vMin: '0',
                     vMax: '100000'
                 });
+            },
+            updateModelNumbers: function() {
+                this.collection.each(function(model) {
+                    model.set("number", model.collection.indexOf(model));
+                });
+                console.log(this.collection);
             }
         });
 

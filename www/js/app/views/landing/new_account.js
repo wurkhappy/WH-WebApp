@@ -67,27 +67,16 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
             submitModel: _.debounce(function(event) {
 
                 var that = this;
-
-                this.model.save({}, {
+                this.model.createAccount({}, {
                     success: function(model, response) {
                         if (window.production) {
                             analytics.track('New Sign Up');
                         }
-                        console.log("triggered");
                         that.trigger('saveSuccess');
                     },
                     error: function(model, response) {
-                        /*if (!that.modal){
-                var view = new EmailModal();
-                that.modal = new Modal({view:view});
-              } 
-              that.modal.show();*/
-
                         $('#login_form').html(that.emailTemplate());
                         $('.email_signup').fadeIn("slow");
-                        //$('#mc-embedded-subscribe-form').ajaxChimp();
-
-
 
                     }
                 })
