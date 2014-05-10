@@ -40,8 +40,6 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/account/password'],
             },
 
             save: _.debounce(function(event) {
-                console.log("save");
-                console.log(this.passwords);
                 if (this.passwords["new-pw"] === this.passwords["confirm-new-pw"]) {
                     var data = {
                         "newPassword": this.passwords["new-pw"],
