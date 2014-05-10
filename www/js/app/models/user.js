@@ -63,6 +63,22 @@ define(['backbone', 'collections/cards', 'models/card', 'collections/bank_accoun
                     }, this)
                 });
             },
+            changePassword: function(data, options) {
+                $.ajax({
+                    type: "PUT",
+                    url: "/user/" + this.id + "/password",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(data),
+                    success: _.bind(function(response) {
+                        this.set(response);
+                        if (_.isFunction(options["success"])) options.success(this, response);
+                    }, this),
+                    error: _.bind(function(response) {
+                        if (_.isFunction(options["error"])) options.error(this, response);
+                    }, this)
+                });
+            }
         });
 
         return User;
