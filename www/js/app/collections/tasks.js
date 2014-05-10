@@ -60,12 +60,18 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
                 return models.length;
             },
             getPercentComplete: function() {
-                var numberAccepted = this.getAccepted().length;
+                var completed = 0;
+                var total = 0;
+                this.each(function(model) {
+                    var info = model.getCompletedInfo();
+                    completed += info["completed"];
+                    total += info["total"];
+                })
 
-                if (numberAccepted === 0) {
+                if (completed === 0) {
                     return 0;
                 } else {
-                    return (numberAccepted / this.length) * 100;
+                    return (completed / total) * 100;
                 }
             },
             getTasks: function() {

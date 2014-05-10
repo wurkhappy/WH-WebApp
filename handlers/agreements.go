@@ -52,6 +52,21 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 
 	agreementsData := getCurrentAgreements(userID.(string))
 
+	var agreementIDList string
+	for _, agreement := range agreementsData {
+		agreementIDList += "versionID=" + agreement["versionID"].(string) + "&"
+	}
+
+	var tasksData []map[string]interface{}
+	resp, statusCode := sendServiceRequest("GET", config.TasksService, "/tasks?"+agreementIDList, nil, session.Values["id"].(string))
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+	json.Unmarshal(resp, &tasksData)
+
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
 
 	thisUser := getUserInfo(userID.(string))
@@ -59,6 +74,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	m := map[string]interface{}{
 		"appName":        "mainhome",
 		"agreements":     agreementsData,
+		"tasks":          tasksData,
 		"otherUsers":     requestedUsers,
 		"thisUser":       thisUser,
 		"agreementCount": len(agreementsData),

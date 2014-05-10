@@ -59,15 +59,32 @@ define(['backbone', 'flying-focus', 'models/agreement',
                 this.layout.switchToOverview();
             },
             services: function() {
+                console.log(this.agreement.id)
+                if (!this.agreement.id) {
+                    window.location.hash = "";
+                    return;
+                }
                 this.layout.switchToServices();
             },
             payment: function() {
+                if (!this.agreement.id) {
+                    window.location.hash = "";
+                    return;
+                }
                 this.layout.switchToPayment();
             },
             review: function() {
+                if (!this.agreement.id) {
+                    window.location.hash = "";
+                    return;
+                }
                 this.layout.switchToReview();
             },
             send: function() {
+                if (!this.agreement.id) {
+                    window.location.hash = "";
+                    return;
+                }
                 this.layout.switchToSend();
             }
         });

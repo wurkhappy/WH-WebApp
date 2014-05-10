@@ -60,6 +60,13 @@ define(['backbone', 'backbone-relational', 'models/scope_item', 'collections/sco
             noAction: function(data, successCallback) {
                 this.updateStatus(null, successCallback);
             },
+            getCompletedInfo: function() {
+                var subTasks = this.get("subTasks").getCompleted();
+                return {
+                    "completed": this.get("subTasks").getCompleted().length,
+                    "total": this.get("subTasks").length
+                };
+            },
             updateStatus: function(reqData, successCallback) {
                 $.ajax({
                     type: "POST",
