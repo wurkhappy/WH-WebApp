@@ -402,6 +402,16 @@ td {
   position: relative;
 }
 
+/* line 341, ../scss/bases/_common.scss */
+.default_link {
+  color: #007db3;
+}
+
+/* line 345, ../scss/bases/_common.scss */
+.active_link {
+  color: #ffa200;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("/css/fonts/museo100-italic-webfont.eot");
@@ -3853,19 +3863,20 @@ td.progress {
 /* line 82, ../scss/components/_create_agreement.scss */
 .deposit_container {
   margin-bottom: 20px;
+  float: left;
 }
 
-/* line 86, ../scss/components/_create_agreement.scss */
+/* line 87, ../scss/components/_create_agreement.scss */
 .require_deposit_text {
   display: inline;
 }
 
-/* line 90, ../scss/components/_create_agreement.scss */
+/* line 91, ../scss/components/_create_agreement.scss */
 .message_editor_container {
   width: 620px;
 }
 
-/* line 94, ../scss/components/_create_agreement.scss */
+/* line 95, ../scss/components/_create_agreement.scss */
 .progress_area {
   position: relative;
   width: 687px;
@@ -3873,20 +3884,25 @@ td.progress {
   overflow: hidden;
 }
 
-/* line 101, ../scss/components/_create_agreement.scss */
+/* line 102, ../scss/components/_create_agreement.scss */
 #schedule_templates {
   vertical-align: top;
   padding-left: 10px;
 }
 
-/* line 106, ../scss/components/_create_agreement.scss */
+/* line 107, ../scss/components/_create_agreement.scss */
 #create_agreement_new_account_modal {
   width: 350px;
   margin: 0 auto;
 }
-/* line 109, ../scss/components/_create_agreement.scss */
+/* line 110, ../scss/components/_create_agreement.scss */
 #create_agreement_new_account_modal input {
   width: 400px;
+}
+
+/* line 115, ../scss/components/_create_agreement.scss */
+#depositInputContainer {
+  display: none;
 }
 
 /* line 2, ../scss/components/_agreement.scss */
@@ -5130,13 +5146,13 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 124, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-month:hover,
 .kalendae .k-btn-next-month:hover {
-  color: #7EA0E2;
+  color: #ffa200;
 }
 
 /* line 127, ../scss/components/_kalendae.scss */
 .kalendae .k-btn-previous-year:hover,
 .kalendae .k-btn-next-year:hover {
-  color: #6FDF81;
+  color: #ffa200;
 }
 
 /** Remove extra buttons when calendar shows multiple months **/
@@ -5387,9 +5403,10 @@ progress::-webkit-progress-value, progress.yellow_progress {
 /* line 21, ../scss/components/_create_estimate.scss */
 .payment_methods_container {
   margin-bottom: 10px;
+  float: right;
 }
 
-/* line 25, ../scss/components/_create_estimate.scss */
+/* line 26, ../scss/components/_create_estimate.scss */
 .payment_method_title {
   color: black;
 }
@@ -5411,88 +5428,89 @@ progress::-webkit-progress-value, progress.yellow_progress {
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  border: 2px solid #007db3;
 }
-/* line 16, ../scss/components/_review_agreement.scss */
+/* line 17, ../scss/components/_review_agreement.scss */
 .review_agreement_container .agreement_title {
   font-family: museo_sans;
   font-weight: 300;
   font-size: 24px;
   margin: 10px 0;
 }
-/* line 21, ../scss/components/_review_agreement.scss */
+/* line 22, ../scss/components/_review_agreement.scss */
 .review_agreement_container .agreement_title span {
   display: none;
 }
-/* line 26, ../scss/components/_review_agreement.scss */
+/* line 27, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_methods_title {
   margin-top: 20px;
   margin-left: -20px;
 }
-/* line 31, ../scss/components/_review_agreement.scss */
+/* line 32, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_milestone_container:nth-child(n+2n) {
   background: #972b46;
 }
-/* line 34, ../scss/components/_review_agreement.scss */
+/* line 35, ../scss/components/_review_agreement.scss */
 .review_agreement_container .payment_milestone {
   color: #333333;
 }
 
-/* line 39, ../scss/components/_review_agreement.scss */
+/* line 40, ../scss/components/_review_agreement.scss */
 .review_agreement_total {
   border-top: 2px solid #008fd1;
   padding-top: 10px;
   position: relative;
 }
 
-/* line 45, ../scss/components/_review_agreement.scss */
+/* line 46, ../scss/components/_review_agreement.scss */
 .review_continue {
   padding-top: 20px;
   margin-top: 20px;
 }
 
-/* line 50, ../scss/components/_review_agreement.scss */
+/* line 51, ../scss/components/_review_agreement.scss */
 .review_continue_button {
   padding: 0 20px;
 }
 
-/* line 54, ../scss/components/_review_agreement.scss */
+/* line 55, ../scss/components/_review_agreement.scss */
 .edit_summary {
   width: 100%;
 }
 
-/* line 58, ../scss/components/_review_agreement.scss */
+/* line 59, ../scss/components/_review_agreement.scss */
 .edit_title {
   line-height: 40px;
 }
 
-/* line 62, ../scss/components/_review_agreement.scss */
+/* line 63, ../scss/components/_review_agreement.scss */
 .payment_method_review_container {
   margin-top: 10px;
   margin-bottom: 20px;
   color: #86ce50;
 }
-/* line 66, ../scss/components/_review_agreement.scss */
+/* line 67, ../scss/components/_review_agreement.scss */
 .payment_method_review_container span {
   color: #636363;
   font-family: museo_sans;
 }
 
-/* line 72, ../scss/components/_review_agreement.scss */
+/* line 73, ../scss/components/_review_agreement.scss */
 .bank_account_method_review {
   margin-left: 15px;
 }
 
-/* line 76, ../scss/components/_review_agreement.scss */
+/* line 77, ../scss/components/_review_agreement.scss */
 .ca_payment_list {
   padding-right: 0px;
 }
 
-/* line 79, ../scss/components/_review_agreement.scss */
+/* line 80, ../scss/components/_review_agreement.scss */
 .ca_payment_list > li {
   position: relative;
 }
 
-/* line 82, ../scss/components/_review_agreement.scss */
+/* line 83, ../scss/components/_review_agreement.scss */
 .ca_payment_amount {
   float: right;
   font-weight: 500;

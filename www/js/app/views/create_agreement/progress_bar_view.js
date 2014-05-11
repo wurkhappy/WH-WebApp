@@ -17,6 +17,42 @@
         this.title = options.title;
         this.value = (options.value/4)*100;
 
+        // Change active link color...
+        if (options.value === 0 ) {
+          this.link_title_color0 = 'active_link';
+          this.link_title_color1 = 'default_link';
+          this.link_title_color2 = 'default_link';
+          this.link_title_color3 = 'default_link';
+          this.link_title_color4 = 'default_link';
+        } else if (options.value === 1) {
+          this.link_title_color0 = 'default_link';
+          this.link_title_color1 = 'active_link';
+          this.link_title_color2 = 'default_link';
+          this.link_title_color3 = 'default_link';
+          this.link_title_color4 = 'default_link';
+
+        } else if (options.value === 2) {
+          this.link_title_color0 = 'default_link';
+          this.link_title_color1 = 'default_link';
+          this.link_title_color2 = 'active_link';
+          this.link_title_color3 = 'default_link';
+          this.link_title_color4 = 'default_link';
+          
+        } else if (options.value === 3) {
+          this.link_title_color0 = 'default_link';
+          this.link_title_color1 = 'default_link';
+          this.link_title_color2 = 'default_link';
+          this.link_title_color3 = 'active_link';
+          this.link_title_color4 = 'default_link';
+          
+        } else if (options.value === 4) {
+          this.link_title_color0 = 'default_link';
+          this.link_title_color1 = 'default_link';
+          this.link_title_color2 = 'default_link';
+          this.link_title_color3 = 'default_link';
+          this.link_title_color4 = 'active_link';  
+        }
+
         // assign values for the progress bar icons.
         if (options.value === 1 ){
           this.icon_color1 = 'green_progress';
@@ -44,7 +80,12 @@
           icon_color1: this.icon_color1,
           icon_color2: this.icon_color2,
           icon_color3: this.icon_color3,
-          icon_color4: this.icon_color4
+          icon_color4: this.icon_color,
+          link_title_color0: this.link_title_color0,
+          link_title_color1: this.link_title_color1,
+          link_title_color2: this.link_title_color2,
+          link_title_color3: this.link_title_color3,
+          link_title_color4: this.link_title_color4
         }));
         return this;
       },

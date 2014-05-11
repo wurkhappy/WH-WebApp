@@ -77,6 +77,7 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/create_
                         that.trigger('saveSuccess');
                     },
                     error: function(model, response) {
+                        console.log(response);
                         /*if (!that.modal){
                 var view = new EmailModal();
                 that.modal = new Modal({view:view});

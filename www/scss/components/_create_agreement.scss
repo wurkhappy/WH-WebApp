@@ -81,6 +81,7 @@
 
 .deposit_container {
   margin-bottom:20px;
+  float:left;
 }
 
 .require_deposit_text {
@@ -109,4 +110,9 @@
   input {
     width: 400px;
   }
+}
+
+#depositInputContainer {
+  display: none;
+
 }
