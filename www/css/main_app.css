@@ -3879,6 +3879,16 @@ td.progress {
   padding-left: 10px;
 }
 
+/* line 106, ../scss/components/_create_agreement.scss */
+#create_agreement_new_account_modal {
+  width: 350px;
+  margin: 0 auto;
+}
+/* line 109, ../scss/components/_create_agreement.scss */
+#create_agreement_new_account_modal input {
+  width: 400px;
+}
+
 /* line 2, ../scss/components/_agreement.scss */
 .meta {
   padding-bottom: 20px;

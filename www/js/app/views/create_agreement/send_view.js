@@ -1,5 +1,5 @@
 define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agreement/send_tpl',
-        'views/agreement/read/modals/payment_request', 'views/ui-modules/modal', 'views/create_agreement/verify_user', 'views/landing/new_account'
+        'views/agreement/read/modals/payment_request', 'views/ui-modules/modal', 'views/create_agreement/verify_user', 'views/create_agreement/new_account'
     ],
 
     function(Backbone, Handlebars, toastr, parsley, tpl, DepositRequestModal, Modal, VerifyUserView, NewAccountView) {
