@@ -121,10 +121,10 @@
 .kalendae .k-btn-next-year:after {content:"\00BB";}
 
 .kalendae .k-btn-previous-month:hover,
-.kalendae .k-btn-next-month:hover {color:#7EA0E2;}
+.kalendae .k-btn-next-month:hover {color:$orange;}
 
 .kalendae .k-btn-previous-year:hover,
-.kalendae .k-btn-next-year:hover {color:#6FDF81;}
+.kalendae .k-btn-next-year:hover {color:$orange;}
 
 /** Remove extra buttons when calendar shows multiple months **/
 .kalendae .k-first-month .k-btn-next-month,

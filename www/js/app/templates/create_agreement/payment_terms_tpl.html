@@ -1,4 +1,21 @@
-<div class="payment_methods_container" style="float: right;">
+
+
+<div class="deposit_container">
+  <label>Agreement Deposit</label>
+  <input id="showDeposit" type="checkbox" name="showDeposit" value="true" class="payment_method" >
+  <span class="helper_text" style="display:inline;">Do you want a deposit required when the agreement is accepted?</span>
+  <div id="depositInputContainer">
+    <input 
+      data-minamount="3"
+      data-minlength="6"
+      type="text" id="deposit" class="currency_format" name="amountDue" 
+      value="{{depositAmount}}" 
+      placeholder="$0.00">
+  </div>
+</div>
+
+
+<div class="payment_methods_container">
   <label>Accepted Methods of Payment</label>
     <div style="padding-left:20px;">
       <input type="checkbox" name="acceptsBankTransfer" value="true" class="payment_method"
@@ -14,15 +31,4 @@
         >
         <i class="fa fa-credit-card">  <span>Credit Card</span></i>
     </div>
-</div>
-
-<div class="deposit_container" style="float:left;">
-  <label>Agreement Deposit</label>
-  <span class="helper_text">Enter an amount here to require payment upon acceptance of this agreement</span>
-  <input 
-    data-minamount="3"
-    data-minlength="6"
-    type="text" id="deposit" class="currency_format" name="amountDue" 
-    value="{{depositAmount}}" 
-    placeholder="$0.00">
 </div>

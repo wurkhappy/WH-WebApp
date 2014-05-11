@@ -35,7 +35,8 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
             },
             events: {
                 "blur #deposit": "updateDeposit",
-                'focus .currency_format': 'triggerCurrencyFormat'
+                'focus .currency_format': 'triggerCurrencyFormat',
+                'click #showDeposit': 'showDeposit'
             },
             triggerCurrencyFormat: function() {
                 $('.currency_format').autoNumeric('init', {
@@ -44,6 +45,10 @@ define(['backbone', 'handlebars', 'underscore', 'hbs!templates/create_agreement/
                     vMin: '0',
                     vMax: '100000'
                 });
+            },
+
+            showDeposit: function(event) {
+                $('#depositInputContainer').toggle();
             },
 
             updateDeposit: function(event) {

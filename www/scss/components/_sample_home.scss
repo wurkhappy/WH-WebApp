@@ -1,0 +1,40 @@
+#getting_started_progress_container {
+	position: absolute;
+	top: 5px;
+	left: 54%;
+	margin-left: -7%;
+	background: hsl(0, 100%, 100%);
+	padding: 10px 20px;
+	border: 2px solid hsl(198, 100%, 35%);
+	h1 {
+		text-align: center;
+		color: hsl(198, 100%, 35%);
+		font-size: 20px;
+		line-height: 16px;
+		margin-bottom: 10px;
+	}
+	h2 {
+		text-align: center;
+		color: hsl(38, 100%, 50%);
+		font-size: 15px;
+		line-height: 7px;
+		font-style: italic;
+		font-size: 13px;
+		font-weight: 500;
+	}
+}
+
+#getting_started_container {
+	position: fixed;
+	top: 0;
+	background: hsl(0, 100%, 100%);
+	left: 50%;
+	width: 360px;
+	margin-left: -200px;
+	z-index: 1;
+	padding: 15px;
+	margin-top: 20px;
+	border: 1px solid hsl(0, 0%, 96%);
+	box-shadow: 0px 0px 1px 1px hsl(0, 0%, 50%);
+	display:none;
+}

@@ -401,6 +401,16 @@ td {
   position: relative;
 }
 
+/* line 341, ../scss/bases/_common.scss */
+.default_link {
+  color: #007db3;
+}
+
+/* line 345, ../scss/bases/_common.scss */
+.active_link {
+  color: #ffa200;
+}
+
 @font-face {
   font-family: 'museo';
   src: url("/css/fonts/museo100-italic-webfont.eot");
