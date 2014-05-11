@@ -27,12 +27,9 @@
         this.currentUser = options.currentUser;
         this.render();
       },
-      onRender:function(){
+      onRender: function(){
         this.$('h2').text(this.title);
-      },
-       events: {
-        "click a": "isEmailVerified"
-       }
+      }
 
     });
 

@@ -1,5 +1,5 @@
 
-define(['backbone', 'handlebars', 'toastr', 'hbs!templates/sample_home/welcome'],
+define(['backbone', 'handlebars', 'toastr', 'hbs!templates/sample_home/welcome_tpl'],
 
   function (Backbone, Handlebars, toastr, tpl) {
 
@@ -19,7 +19,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/sample_home/welcome']
         this.$el.html(this.template());        
       },
       events: {
-        "click #void-button": "void",
+        "click #void-button": "void"
       },
       void: function(event) {
         event.preventDefault();

@@ -3705,6 +3705,51 @@ td.progress {
   padding: 0;
 }
 
+/* line 1, ../scss/components/_sample_home.scss */
+#getting_started_progress_container {
+  position: absolute;
+  top: 5px;
+  left: 54%;
+  margin-left: -7%;
+  background: white;
+  padding: 10px 20px;
+  border: 2px solid #007db3;
+}
+/* line 9, ../scss/components/_sample_home.scss */
+#getting_started_progress_container h1 {
+  text-align: center;
+  color: #007db3;
+  font-size: 20px;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+/* line 16, ../scss/components/_sample_home.scss */
+#getting_started_progress_container h2 {
+  text-align: center;
+  color: #ffa200;
+  font-size: 15px;
+  line-height: 7px;
+  font-style: italic;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* line 27, ../scss/components/_sample_home.scss */
+#getting_started_container {
+  position: fixed;
+  top: 0;
+  background: white;
+  left: 50%;
+  width: 360px;
+  margin-left: -200px;
+  z-index: 1;
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid whitesmoke;
+  box-shadow: 0px 0px 1px 1px gray;
+  display: none;
+}
+
 /* line 1, ../scss/components/_create_agreement.scss */
 .steps {
   background-color: #eef0f2;
@@ -4372,7 +4417,7 @@ td.progress {
 /* line 22, ../scss/components/_modals.scss */
 .panel {
   width: 550px;
-  margin: 20% auto;
+  margin: 16% auto;
   background: #dedede;
   padding: 35px;
   background: #fafafa;

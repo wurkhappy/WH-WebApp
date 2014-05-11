@@ -13,6 +13,19 @@
 
       template: introductionProgressTemplate,
 
+      events: {
+      	"mouseenter #getting_started_progress_container": "showProgressDetails",
+      	"mouseleave #getting_started_container": "hideProgressDetails"
+      },
+
+      showProgressDetails: function() {
+      	$('#getting_started_container').fadeIn();
+      },
+
+      hideProgressDetails: function () {
+      	$('#getting_started_container').fadeOut();
+      }
+ 
     });
 
     return IntroductionProgressView;
