@@ -45,6 +45,20 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
                 event.stopPropagation();
                 this.saveCard();
             },
+            returnToURL: function() {
+                _.delay(function() {
+                    var paramsString = window.location.search.substr(1);
+                    var params = paramsString.split("&");
+                    var map = {};
+                    for (var i = 0; i < params.length; i++) {
+                        var param = params[i].split("=")
+                        map[param[0]] = param[1];
+                    }
+                    if (map["returnURL"]) {
+                        window.location = map["returnURL"];
+                    }
+                }, 1200);
+            },
             saveCard: _.debounce(function(event) {
                 var that = this;
                 balanced.card.create(this.card, function(response) {
@@ -63,7 +77,7 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
                         });
                         $('input').val('');
                         toastr.success('Credit Card Saved!');
-
+                        that.returnToURL();
                     } else {
                         console.log(response);
                         track(JSON.stringify(response));

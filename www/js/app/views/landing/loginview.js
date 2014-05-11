@@ -56,7 +56,7 @@ define(['backbone', 'handlebars', 'parsley', 'hbs!templates/landing/login', 'mod
                     alert('Please enter an email');
                 }
                 var that = this;
-                this.model.save({}, {
+                this.model.login({}, {
                     success: function(model, response) {
                         that.trigger("saveSuccess", response);
                     },

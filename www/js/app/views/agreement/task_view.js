@@ -21,7 +21,7 @@ define(['backbone', 'marionette', 'handlebars', 'hbs!templates/agreement/task_tp
             },
 
             render: function() {
-                var completed = (this.model.get("lastAction")) ? this.model.get("lastAction").get("name") === "completed" || this.model.get("lastAction").get("name") === "paid" : false;
+                var completed = this.model.isComplete() || this.model.isPaid();
                 this.$el.html(this.template(_.extend(this.model.toJSON(), {
                     completed: completed
                 })));
@@ -31,7 +31,7 @@ define(['backbone', 'marionette', 'handlebars', 'hbs!templates/agreement/task_tp
             },
             toggleCheckbox: function(event) {
                 event.stopPropagation();
-                if (this.model.get("isPaid")) {
+                if (this.model.isPaid()) {
                     return;
                 }
                 var $checkbox = $(event.target),
