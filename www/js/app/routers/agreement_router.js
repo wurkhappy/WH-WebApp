@@ -101,7 +101,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
             newAccount: function() {
                 this.readAgreement();
                 var view = new NewAccountView({
-                    model: new UserModel(),
+                    model: this.user,
                     hideHaveAccount: true
                 });
                 view.render();
@@ -118,7 +118,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
             signIn: function() {
                 this.readAgreement();
                 var view = new LogInView({
-                    model: new UserModel(),
+                    model: this.user,
                     hideHaveAccount: true
                 });
                 view.render();

@@ -5,6 +5,7 @@
   <fieldset>
 {{#if thisUser.id}}
 {{else}}
+    <h2>From:</h2>
     <label for="">Your First Name</label>
     <input data-required="true" data-trigger="change" parsley-type="email" name="firstName" placeholder="Jane" id="" size="50" class="user-info">
     <label for="">Your Last Name</label>
@@ -14,6 +15,7 @@
 <br>
 <br>
 {{/if}}
+    <h2>To:</h2>
     <label for=""> Recipient Email Address</label>
     <input data-required="true" data-trigger="change" parsley-type="email" name="clientEmail" placeholder="Please enter recipient's email" id="client-email" size="50" value="{{otherUserEmail}}">
     <label for="">Email Message</label>

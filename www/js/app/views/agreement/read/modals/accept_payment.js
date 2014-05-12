@@ -60,7 +60,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                     bankAccounts: bankAccounts.toJSON(),
                     acceptsCreditCard: acceptsCreditCard,
                     acceptsBankTransfer: acceptsBankTransfer,
-                    hasCreditCards: hasCreditCards,
+                    hasCreditCards: false,
                     hasBankAccounts: hasBankAccounts
                 }));
 
@@ -131,14 +131,15 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
             addCreditCard: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
+            window.location = "/account?returnURL=" + window.location.pathname + "#creditcard";
 
-                var view = new NewCardView({
-                    user: this.user
-                });
-                this.listenTo(view, 'cardSaved', this.backToMain);
-                this.$('#addView').append(view.el);
+                // var view = new NewCardView({
+                //     user: this.user
+                // });
+                // this.listenTo(view, 'cardSaved', this.backToMain);
+                // this.$('#addView').append(view.el);
 
-                this.addPaymentMethodAnimate(610);
+                // this.addPaymentMethodAnimate(610);
             },
             addBankAccount: function(event) {
                 event.preventDefault();

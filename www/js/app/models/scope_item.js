@@ -14,9 +14,6 @@ define(['backbone', 'backbone-relational', 'models/status', 'collections/status'
             getWorkItemID: function() {
                 return this.collection.getWorkItemID();
             },
-            isPaid: function() {
-                return !!this.get("isPaid");
-            },
             setAsCompleteForUser: function(userID) {
                 this.set("lastAction", {
                     "name": "completed",
@@ -26,6 +23,9 @@ define(['backbone', 'backbone-relational', 'models/status', 'collections/status'
             },
             isComplete: function() {
                 return this.get("lastAction") && (this.get("lastAction").get("name") === "completed" || this.get("lastAction").get("name") === "paid");
+            },
+            isPaid: function() {
+                return (this.get("lastAction") && this.get("lastAction").get("name") === "paid");
             }
         });
 

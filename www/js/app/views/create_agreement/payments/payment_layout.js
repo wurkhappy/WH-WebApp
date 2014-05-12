@@ -70,7 +70,10 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
 
             addPayment: function(event) {
                 event.preventDefault();
-                this.payments.add({});
+                console.log(this.payments.length);
+                this.payments.add({}, {
+                    at: this.payments.length
+                });
             },
 
             debounceSaveAndContinue: function(event) {
@@ -81,9 +84,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                         this.payments.remove(model);
                     };
                 }, this));
-                this.payments.each(function(model) {
-                    model.set("number", model.collection.indexOf(model) + 1);
-                })
                 this.saveAndContinue();
             },
 

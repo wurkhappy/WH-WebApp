@@ -337,3 +337,11 @@ td {
 .checkmark_holder{
   position: relative;
 }
+
+.default_link {
+  color:$blue;
+}
+
+.active_link {
+  color:$orange;
+}

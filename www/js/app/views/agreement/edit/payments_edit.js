@@ -33,8 +33,9 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             addPayment: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-
-                this.collection.add({});
+                this.collection.add({
+                    "number": this.collection.length
+                });
             },
 
         });

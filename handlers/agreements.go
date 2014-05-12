@@ -13,6 +13,7 @@ import (
 )
 
 var homeTpl *template.Template
+var sampleHomeTpl *template.Template
 var emptyHomeTpl *template.Template
 var archivesTpl *template.Template
 var emptyArchivesTpl *template.Template
@@ -26,6 +27,11 @@ func init() {
 	homeTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
 		"templates/_baseApp.html",
 		"templates/home.html",
+	)
+
+	sampleHomeTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
+		"templates/_baseApp.html",
+		"templates/sample_home.html",
 	)
 
 	emptyHomeTpl, _ = template.New("_baseApp.html").Funcs(template.FuncMap{"format": format}).ParseFiles(
@@ -52,6 +58,21 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 
 	agreementsData := getCurrentAgreements(userID.(string))
 
+	var agreementIDList string
+	for _, agreement := range agreementsData {
+		agreementIDList += "versionID=" + agreement["versionID"].(string) + "&"
+	}
+
+	var tasksData []map[string]interface{}
+	resp, statusCode := sendServiceRequest("GET", config.TasksService, "/tasks?"+agreementIDList, nil, session.Values["id"].(string))
+	if statusCode >= 400 {
+		var rError *responseError
+		json.Unmarshal(resp, &rError)
+		http.Error(w, rError.Description, statusCode)
+		return
+	}
+	json.Unmarshal(resp, &tasksData)
+
 	requestedUsers := getOtherUsers(agreementsData, userID.(string))
 
 	thisUser := getUserInfo(userID.(string))
@@ -59,6 +80,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	m := map[string]interface{}{
 		"appName":        "mainhome",
 		"agreements":     agreementsData,
+		"tasks":          tasksData,
 		"otherUsers":     requestedUsers,
 		"thisUser":       thisUser,
 		"agreementCount": len(agreementsData),
@@ -68,7 +90,7 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	}
 
 	var tpl *template.Template
-	tpl = homeTpl
+	tpl = sampleHomeTpl
 	if len(agreementsData) == 0 {
 		tpl = emptyHomeTpl
 	}
@@ -80,7 +102,7 @@ func GetHomeSample(w http.ResponseWriter, req *http.Request, session *sessions.S
 	var agreementsData []map[string]interface{}
 	json.Unmarshal([]byte(`[{"acceptsBankTransfer":true,"acceptsCreditCard":true,"agreementID":"ed356d73-70b7-485c-7cac-c1e42b49ca86","archived":false,"clientID":"096d76ac-ac5c-489c-60ca-d0bde5aac605","freelancerID":"5275dc12-2429-42ad-536d-ccfdba2fc91c","lastAction":{"date":"2014-04-11T14:21:46.867388667-04:00","name":"accepted","userID":"5275dc12-2429-42ad-536d-ccfdba2fc91c"},"lastModified":"2014-04-11T14:21:46.867389586-04:00","lastSubAction":{"date":"2014-04-13T14:21:46.867388667-04:00","name":"accepted","userID":"5275dc12-2429-42ad-536d-ccfdba2fc91c", "type":"payment"},"proposedServices":"<p>Create a blog</p>\n","title":"Sample Agreement","version":1,"versionID":"../sample"}]`), &agreementsData)
 	m := map[string]interface{}{
-		"appName":    "mainhome",
+		"appName":    "mainsamplehome",
 		"agreements": agreementsData,
 		// "otherUsers":     requestedUsers,
 		// "thisUser":       thisUser,
@@ -91,7 +113,7 @@ func GetHomeSample(w http.ResponseWriter, req *http.Request, session *sessions.S
 	}
 
 	var tpl *template.Template
-	tpl = homeTpl
+	tpl = sampleHomeTpl
 	tpl.Execute(w, m)
 }
 

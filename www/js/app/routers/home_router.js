@@ -2,9 +2,11 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collections/users', 'models/user', 'views/home/home_section_view', 'moment'],
+define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collections/users', 'models/user',
+        'views/home/home_section_view', 'moment', 'collections/tasks'
+    ],
 
-    function(Backbone, FlyingFocus, toastr, AgreementCollection, UserCollection, UserModel, SectionView, moment) {
+    function(Backbone, FlyingFocus, toastr, AgreementCollection, UserCollection, UserModel, SectionView, moment, TaskCollection) {
 
         'use strict';
 
@@ -20,6 +22,10 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                 this.collection = new AgreementCollection(window.agreements);
                 this.otherUsers = new UserCollection(window.otherUsers);
                 this.currentUser = new UserModel(window.currentUser);
+                this.sortedTasks = _.groupBy(window.tasks, "versionID");
+                for (var key in this.sortedTasks) {
+                    this.sortedTasks[key] = new TaskCollection(this.sortedTasks[key]);
+                }
                 FlyingFocus();
                 if (window.production) {
                     $("#create_agreement").click(function(event) {
@@ -39,6 +45,7 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                         collection: sortedAgreements.waitingOnRespAgrmnts,
                         otherUsers: this.otherUsers,
                         currentUser: this.currentUser,
+                        tasks: this.sortedTasks,
                         el: '#waitingSection'
                     });
                 }
@@ -48,6 +55,7 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                         collection: sortedAgreements.inProgressAgrmnts,
                         otherUsers: this.otherUsers,
                         currentUser: this.currentUser,
+                        tasks: this.sortedTasks,
                         el: '#progressSection'
                     });
                 }
@@ -57,6 +65,7 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                         collection: sortedAgreements.draftAgrmnts,
                         otherUsers: this.otherUsers,
                         currentUser: this.currentUser,
+                        tasks: this.sortedTasks,
                         el: '#draftSection'
                     });
                 }

@@ -72,7 +72,10 @@ func getUserInfo(id string) map[string]interface{} {
 }
 
 func validateSignature(req *http.Request, session *sessions.Session) {
-	if ok, userID, _ := checkForValidSignature(req, redisPool.Get()); ok {
+	if ok, userID, err := checkForValidSignature(req, redisPool.Get()); ok {
+		if err != nil {
+			log.Println("validate sig error:", err)
+		}
 		//if it's a valid sig then let's check if the user is already logged in
 		//if they're not then we need some info about them for the handler
 		if _, ok := session.Values["id"]; !ok {

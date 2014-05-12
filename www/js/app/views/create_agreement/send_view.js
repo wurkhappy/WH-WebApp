@@ -1,5 +1,5 @@
 define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agreement/send_tpl',
-        'views/agreement/read/modals/payment_request', 'views/ui-modules/modal', 'views/create_agreement/verify_user', 'views/landing/new_account'
+        'views/agreement/read/modals/payment_request', 'views/ui-modules/modal', 'views/create_agreement/verify_user', 'views/create_agreement/new_account'
     ],
 
     function(Backbone, Handlebars, toastr, parsley, tpl, DepositRequestModal, Modal, VerifyUserView, NewAccountView) {
@@ -18,6 +18,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
             initialize: function(options) {
                 this.message = "Please take a moment to look over the details of the services provided and the payment schedule. Let me know if you'd like to suggest any changes. When you're ready, just accept the agreement and we'll get started.";
                 this.user = options.user;
+                this.user.get("bank_accounts").fetch();
                 this.otherUser = options.otherUser;
                 this.payments = options.payments;
                 this.render();
@@ -94,22 +95,28 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
 
                 this.model.save({}, {
                     success: function(model, response) {
-                        var view = new DepositRequestModal({
-                            model: that.deposit,
-                            collection: that.payments,
-                            payments: that.payments,
-                            cards: that.user.get("cards"),
-                            bankAccounts: that.user.get("bank_accounts"),
-                            acceptsBankTransfer: that.model.get("acceptsBankTransfer"),
-                            acceptsCreditCard: that.model.get("acceptsCreditCard")
-                        });
-                        that.modal = new Modal({
-                            view: view
-                        });
-                        that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
-                        that.modal.show();
-                        if (window.production) {
-                            analytics.track('Agreement Sent');
+                        if (that.user.get("bank_accounts").length > 0) {
+                            var view = new DepositRequestModal({
+                                model: that.deposit,
+                                collection: that.payments,
+                                payments: that.payments,
+                                cards: that.user.get("cards"),
+                                bankAccounts: that.user.get("bank_accounts"),
+                                acceptsBankTransfer: that.model.get("acceptsBankTransfer"),
+                                acceptsCreditCard: that.model.get("acceptsCreditCard")
+                            });
+                            that.modal = new Modal({
+                                view: view
+                            });
+                            that.listenTo(that.modal.view, "paymentRequested", that.depositRequested);
+                            that.modal.show();
+                        } else {
+                            that.deposit.submit({}, function() {
+                                if (window.production) {
+                                    analytics.track('Deposit Requested');
+                                }
+                                that.depositRequested();
+                            });
                         }
                     }
                 });
@@ -127,6 +134,9 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
             },
             depositRequested: function() {
                 this.model.submit(this.message, function() {
+                    if (window.production) {
+                        analytics.track('Agreement Sent');
+                    }
                     window.location = "/home";
                 });
             },
@@ -156,5 +166,4 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
 
         return SendView;
 
-    }
-);
+    });

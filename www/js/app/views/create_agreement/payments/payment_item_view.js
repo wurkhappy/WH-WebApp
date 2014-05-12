@@ -20,7 +20,6 @@ define(['backbone', 'handlebars', 'underscore', 'kalendae', 'autonumeric',
 
             initialize: function(options) {
                 this.router = options.router;
-                console.log(this.model);
                 this.render();
             },
 

@@ -38,9 +38,11 @@
       </ul>
     {{/if}}
   {{/if}}
+  {{#unless hasCreditCards}}
     <p style="margin-left:20px;" class="add-more">
       <a id="add_card" href="">Add A Credit Card</a>
     </p>
+  {{/unless}}
   {{#unless hasBankAccounts}}
     <p style="margin-left:20px;" class="add-more">
       <a id="add_account" href="">Add A Bank Account</a>
@@ -58,5 +60,5 @@
   </div>
   <a href="make_payment" id="accept-button" class="button action_button" style="margin-top: 20px;float: right;width: 250px;">Pay</a>
 </article>
-
-<div id="addView" style="background-color:white; margin-left: -20px;margin-top:50px; height: 600px; width:100%; position:absolute;"><a id="back-button" style="margin-left:20px;">Back</a></div>
+<!-- 
+<div id="addView" style="background-color:white; margin-left: -20px;margin-top:50px; height: 600px; width:100%; position:absolute;"><a id="back-button" style="margin-left:20px;">Back</a></div> -->

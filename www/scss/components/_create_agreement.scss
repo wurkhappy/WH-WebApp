@@ -81,6 +81,7 @@
 
 .deposit_container {
   margin-bottom:20px;
+  float:left;
 }
 
 .require_deposit_text {
@@ -101,4 +102,17 @@
 #schedule_templates{
   vertical-align: top;
   padding-left: 10px;
+}
+
+#create_agreement_new_account_modal {
+  width: 350px;
+  margin:0 auto;
+  input {
+    width: 400px;
+  }
+}
+
+#depositInputContainer {
+  display: none;
+
 }

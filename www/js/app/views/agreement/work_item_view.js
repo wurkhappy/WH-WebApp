@@ -27,6 +27,7 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 this.tags = options.tags;
                 this.listenTo(this.collection, "completed", this.taskStatusChange);
                 this.hasSubTasks = this.collection.length > 0;
+                this.delayedStatusChange = _.debounce(this.statusChange, 1000);
             },
 
             renderModel: function() {
@@ -68,8 +69,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
                 if (!this.hasSubTasks) {
                     return;
                 }
-                console.log("show");
-
                 this.showingItem = !this.showingItem;
 
                 if (this.showingItem) {
@@ -122,13 +121,15 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             acceptedState: function() {
                 this.$('.paymentStatus').html('<span class="payment_status">Payment Made</span>');
             },
-            taskStatusChange: _.debounce(function() {
+            taskStatusChange: function() {
+                this.delayedStatusChange();
+            },
+            statusChange: function() {
                 if (this.model.get("sample")) {
                     return;
                 }
                 this.model.save();
-            }, 1000)
+            },
         });
         return WorkItemView;
-    }
-);
+    });
