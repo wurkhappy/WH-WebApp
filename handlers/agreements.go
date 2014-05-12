@@ -91,13 +91,12 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 	}
 
 	var tpl *template.Template
-	tpl = sampleHomeTpl
+	tpl = homeTpl
 	if len(agreementsData) == 0 {
 		tpl = emptyHomeTpl
 	}
 
-	err := tpl.Execute(w, m)
-	log.Println(err)
+	tpl.Execute(w, m)
 }
 
 func GetHomeSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
