@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
 	"html/template"
+	"log"
 	"net/http"
 	"sync"
 	"time"
@@ -95,7 +96,8 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 		tpl = emptyHomeTpl
 	}
 
-	tpl.Execute(w, m)
+	err := tpl.Execute(w, m)
+	log.Println(err)
 }
 
 func GetHomeSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
