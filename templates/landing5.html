@@ -80,15 +80,11 @@
 
 			<div id="benefits_container" class="benefits_container">
 				<div class="clear headline_container" style="background:hsl(95, 56%, 57%);">
-					<!-- <h1 class="logo_white">Wurk Happy</h1> -->
 					<h1 style="font-size:46px;font-weight:500;padding: 30px;color:black;" class="headline">
 						Wurk Happy Makes Freelancing Easier</h1>
-						<h2 style="text-align:center;color:black;font-family:museo_sans;">Simplify your workflow to save time, improve working relationships, and get paid.</h2>
+						<h2 style="text-align:center;color:black;font-family:museo_sans; max-width: 600px;margin: 0 auto;">Use Wurk Happy to create online agreements that keep parties on track, invoice automatically, and deposit funds securely into your bank account.</h2>
 
 				<ul style="margin: 0 auto;width: 200px;overflow: hidden;margin-top: 45px;padding: 0;">
-					<!-- <li id="create_account" class="create_account explore_button_container">
-						<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
-					</li> -->
 					<li id="create_account" style="float:left;">
 						<a id="start_now" style="width: 200px;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;" id="signup" class="button blue_button" href="/home/sample">Start Now</a>
 					</li>
@@ -97,17 +93,7 @@
 					$('#start_now').click( function() {
 						analytics.track('Start Now');
 					});
-					</script>
-
-					<!-- <li id="create_account" style="float:left;">
-						<a id="sample_page" style="font-size: 16px;font-weight: 500;line-height: 28px;padding: 20px;text-decoration: underline;" id="signup" href="/agreement/sample"> or View Sample Agreement</a>
-					</li> -->
-
-					<script>
-					$('#sample_page').click( function() {
-						analytics.track('Clicked Sample Page');
-					});
-					</script>						
+					</script>					
 				</ul>
 
 			</div>
@@ -146,14 +132,16 @@
 
 			  	<div class="benefit_container">
 			  		<div class="benefit" style="margin-top:10px;">
-					    	<h3 class="benefit_title">Simplify Your Workflow</h3>
+					    <h3 class="benefit_title">Simplify Your Workflow</h3>
 			    		<p class="benefit_hook">Understand Everything at a Glance.</p>
 						<p class="benefit_description">See your workflow <span class="benefit_emphasis">visually</span>. Know where you left off with your client, and where you are in the payment schedule. Stay on top of everything simply.</p>
-					  	</div>
-					  	<figure class="benefit_image_container">
-					  		<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/home.png">
-					  	</figure>
 					</div>
+				  	<figure class="benefit_image_container">
+				  		<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/home.png">
+				  	</figure>
+				</div>
+				<div class="benefit_divider"></div>
+
 			</div>
 
 			<div class="clear">
@@ -161,6 +149,19 @@
 			</div>
 
 		  	<div class="clear"> <!-- Case Studies -->
+		  		<div class="clear case_study">
+			  		<div id="communication" style="width:33%;margin:0 auto;">
+					  	</div>
+					  	<figure style="width: 100%;text-align: center;margin:0">
+					  		<div class="case_study_description_container">
+					  			<h3 class="benefit_title">Easy Freelance Management</h3>
+  					  		<p class="case_study_description">"I have one platform for all my freelancers. Wurk Happy organizes my relationships, so I always know what's going on."</p>
+  					  		<a href="http://pinkriotfilms.com/"><h4 class="case_study_name">Elyse Sara</h4></a>
+  					  		<h5 class="case_study_title">Executive Producer, Pink Riot Films</h5>
+					  		</div>
+					  		<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/elyse.png">
+					  	</figure>
+			  	</div>
 			  	<div class="clear case_study">
 			  		<div id="communication" style="width:33%;margin:0 auto;">
 					  	</div>
@@ -204,133 +205,74 @@
 					</div>
 			</div>
 
-		  	<h2 id="how_to_headline" class="section_headline" style="color:white;">How to Use Wurk Happy</h2>
+		  	<h2 id="how_to_headline" class="section_headline" style="color:white;">How Wurk Happy Works</h2>
 
-		  	<h3 id="simple_workflow_title" class="benefit_title">Simple Workflow</h3>
+		   <h3 id="simple_workflow_title" class="benefit_title">Our Simple Workflow</h3>
 
 
 		  	<!-- How to workflow on smaller screens -->
 
 		  	<div class="small_workflow_container">
 			  	<div class="small_workflow">
-			  		<h3 class="workflow_hover_heading">1. Create and send agreements in minutes</h3>
+			  		<h3 class="workflow_hover_heading">1. Create and send an agreement in minutes.</h3>
 					<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_1_agreement.png">
 					<p>Our agreements are simple - just the scope of work and payment schedule so you and your client can focus on doing great work together.</p>
 					<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
 				</div>
 				<div class="small_workflow">
-					<h3 class="workflow_hover_heading">2. Keep both parties on track</h3>
+					<h3 class="workflow_hover_heading">2. Manage work through your online agreement.</h3>
 					<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_2_track.png" style="padding: 15px;background: hsl(0, 100%, 100%);">
-					<p>We update your client when you mark tasks complete.</p>
+					<p>We send your client a daily digest of the tasks you've marked complete. If the scope of work changes, you can easily edit the agreement.</p>
 					<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
-					<p>You can also easily amend the agreement to adapt to changes in scope.</p>
 				</div>
 				<div class="small_workflow">
-					<h3 class="workflow_hover_heading">3. Get Paid</h3>
+					<h3 class="workflow_hover_heading">3. Get paid or pay through your online agreement.</h3>
 					<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_3_invoice.png" style="padding: 15px;background: hsl(0, 100%, 100%);">
-					<p>When you click 'request payment'. Your client receives a beautiful PDF invoice, automatically generated by the tasks you've marked complete.</p>
+					<p>When you request payment, we generate and send a PDF invoice to your client based on the tasks you have already marked complete</p>
 
-					<p>When it's time for your client to pay, securely accept credit cards and bank transfers right through your agreement online.</p>
+					<p>Because Wurk Happy provides you with your own merchant account, your client can pay you by credit card or bank account right through your online agreement.</p>
 				</div>
 			</div>
 
 			<!-- End small screen how to workflow -->
 
-			<div id="agreement-progress-bar" style="overflow: hidden;background: hsl(198, 100%, 44%);width:80%;max-width: 1040px;margin: 210px auto;padding:125px;padding-top: 145px;margin-bottom: 70px;">
-
-				<div>
-					<div class="progress_bar ui-progressbar" style="width:auto;margin-left: 0%;margin-right: 0%;">
-						<!-- <div style="max-width:800px;text-align:center;position:absolute;top: -70px;left: 61px">
-						</div> -->
-						<div class="ui-progressbar-value" style="width: 100%; overflow: hidden;">
-							<div style="height: 100%; display: block;">
-								<span id="green_progess" style="width: 0%; height: 4px; display: block; background-color: rgb(157, 213, 115); float: left; background-position: initial initial; background-repeat: initial initial;"></span>
-								<span style="width: 100%; height: 4px; display: block; background-color: rgb(186, 186, 186); float: left; background-position: initial initial; background-repeat: initial initial;"></span>
-							</div>
-						</div>
-					</div>
-					<div class="icon_container" style="left:-2%;">
-						<a href="#create" class="progress_icon grey_progress">
-							<div style="width: 108px;" class="workflow_step">
-								<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_1_agreement.png">
-							</div>
-							<h2 class="timeline_label" style="left: -110px;top: -63px;">1.Create Agreement</h2>
-						</a>
-
-						<a href="#update" class="progress_icon grey_progress" style="left:54%;margin-left:0;">
-							<div class="workflow_step" style="top: -159px;left: -94px;">
-								<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_2_track.png">
-							</div>
-							<h2 class="timeline_label" style="left: -156px;
-							top: -63px;">2.Keep all parties updated</h2>
-						</a>
-						
-						<a href="#process" class="progress_icon grey_progress" style="left:99%;">
-							<div class="workflow_step" style="left: -100px;top: -145px;">
-								<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_3_invoice.png">
-							</div>
-							<h2 class="timeline_label" style="left: -65px;
-							top: -63px;">3.Get Paid</h2>
-						</a>
-					</div>
-					<!-- <div style="max-width:800px;height:4px;background:none;position:absolute;top:0;left:0px"></div> -->
-				</div>
-			</div>
-
 			<div id="workflow_description">
-				<div id="create">
-					<h3 class="workflow_hover_heading">create and send agreements in minutes.</h3>
-					<p>Our agreements are simple - just the scope of work and payment schedule so you and your client can focus on doing great work together.</p>
+				<div class="step_container">
+					<div class="workflow_step">
+						<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_1_agreement.png">
+					</div>
+					<h3 class="workflow_hover_heading">1. Create and send an agreement in minutes.</h3>
+					<p>Our agreements are simple - just the scope of work and payment schedule - so you and your client can focus on doing great work together.</p>
 					<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
 				</div>
 
-				<div id="update">
-					<h3 class="workflow_hover_heading">Keep both parties on track.</h3>
-					<p>We update your client when you mark tasks complete.</p>
+				<div class="step_container">
+					<div class="workflow_step" style="margin-top: 93px;
+margin-bottom: 60px;">
+						<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_2_track.png">
+					</div>
+					<h3 class="workflow_hover_heading">2. Manage work through your online agreement.</h3>
+					<p>We send your client a daily digest of the tasks you've marked complete. If the scope of work changes, you can easily edit the agreement.</p>
 					<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
-					<p>You can also easily amend the agreement to adapt to changes in scope.</p>
 				</div>
 
-				<div id="invoice">
-					<h3 class="workflow_hover_heading">Invoice Automatically.</h3>
-					<p>When you request payment, we generate the invoice from the tasks you marked complete.</p>
-					<p>You click a button. Your client receives a beautiful PDF invoice.</p>
+				<div class="step_container">
+					<div class="workflow_step" style="margin-top: 93px;
+margin-bottom: 60px;">
+						<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/fr_3_invoice.png">
+					</div>
+					<h3 class="workflow_hover_heading">3. Get paid or pay through your online agreement.</h3>
+					<p>When you request payment, we generate and send a PDF invoice to your client based on the tasks you have already marked complete</p>
+
+					<p>Because Wurk Happy provides you with your own merchant account, your client can pay you by credit card or bank account right through your online agreement.</p>
 				</div>
 
-				<div id="process">
-					<h3 class="workflow_hover_heading">Get Paid.</h3>
-					<p>When you click 'request payment'. Your client receives a beautiful PDF invoice, automatically generated by the tasks you've marked complete.</p>
-
-					<p>When it's time for your client to pay, securely accept credit cards and bank transfers right through your agreement online.</p>
-				</div>
-
-				<div id="receive">
-					<h3 class="workflow_hover_heading">Funds are deposited directly into your bank account. Automatically.</h3>
-					<p>When your client pays by credit card, funds will automatically appear in your bank account within 2 business days from the time they initiate payment.</p>
-					<p>When your client pays by bank transfer, funds will automatically appear in your bank account within 4-5 business days.</p>
-				</div>
-				<script>
-					$('.progress_icon').hover(function() {
-						var $this = $(this);
-						var $thisAfter= $(this)
-						$this.addClass('on');
-						var id = $this.attr('href');
-						console.log(id);
-						$(id).show();
-
-					}, function() {
-						var $this = $(this);
-						$this.removeClass('on');
-						var id = $this.attr('href');
-						$(id).hide();
-					});
-				</script>
 			</div>
-			<h2 class="section_headline" style="color:white;margin-top: 0;
+			<h2 class="section_headline" style="color:hsl(0, 0%, 100%);margin-top: 0;
 ">Full Feature List</h2>
-			<div style="background:hsl(218, 13%, 88%);"> <!-- Feature Section -->
+			<div style="background:hsl(0, 0%, 100%);"> <!-- Feature Section -->
 
-				<h3 class="benefit_title" style="color:hsl(198, 100%, 35%);">We make all this flexibility easy. Promise.</h3>
+				<h3 class="benefit_title" style="color:hsl(198, 100%, 35%);">We make all this functionality easy. Promise.</h3>
 				<div class="features_container">
 					<div class="feature">
 						<h4 class="feature_type">Agreement</h4>
@@ -383,9 +325,6 @@
 				</div> <!-- End Feature Container -->
 
 				<ul style="margin: 0 auto;width: 200px;overflow: hidden;margin-top: 45px;padding: 0;padding-bottom: 120px;">
-					<!-- <li id="create_account" class="create_account explore_button_container">
-						<a id="explore" class="button action_button" href="/agreement/v/sample">Explore</a>
-					</li> -->
 					<li id="create_account" style="float:left;">
 						<a id="start_now" style="width: 200px;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px;" id="signup" class="button action_button" href="/home/sample">Start Now</a>
 					</li>
@@ -394,75 +333,12 @@
 					$('#start_now').click( function() {
 						analytics.track('Start Now');
 					});
-					</script>
-
-					<!-- <li id="create_account" style="float:left;">
-						<a id="sample_page" style="font-size: 16px;font-weight: 500;line-height: 28px;padding: 20px;text-decoration: underline;" id="signup" href="/agreement/sample"> or View Sample Agreement</a>
-					</li> -->
-
-					<script>
-					$('#sample_page').click( function() {
-						analytics.track('Clicked Sample Page');
-					});
-					</script>						
+					</script>					
 				</ul>
 
 			</div> <!-- End Feature Section -->
 
 		</div> 
-
-			<script>
-
-	// non-jquery fade function takes ('in' or 'out' as type), duration in miliseconds, element, and flag to designate if I.E. 8 is supported
-	//fading in the benefits section on window load adds a nice effect and makes everything appear at the same time.
-	/*function fade(type, ms, el, IE) {
-		var isIn = type === 'in',
-		opacity = isIn ? 0 : 1,
-		interval = 50,
-		gap = interval / ms;
-		
-		if(isIn) {
-			el.style.display = 'block';
-			el.style.opacity = opacity;
-			if(IE) {
-				el.style.filter = 'alpha(opacity=' + opacity + ')';
-				el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity + ')';
-			}
-		}
-		
-		function func() {
-			opacity = isIn ? opacity + gap : opacity - gap; 
-			el.style.opacity = opacity;
-			if(IE) {
-				el.style.filter = 'alpha(opacity=' + opacity * 100 + ')';
-				el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity * 100 + ')';
-			}
-			
-			if(opacity <= 0 || opacity >= 1) window.clearInterval(fading);
-			if(opacity <= 0) el.style.display = 'none';
-		}
-		
-		var fading = window.setInterval(func, interval);
-	}
-	var $buoop = {}; 
-	$buoop.ol = window.onload; 
-	window.onload = function() {
-		var benefits_container = document.getElementById('benefits_container');
-		var communication = document.getElementById('communication');
-		var billing = document.getElementById('billing');
-		var payment = document.getElementById('payment');
-		fade('in', 500, benefits_container, true);
-		fade('in', 1000, communication, true);
-		fade('in', 1000, billing, true);
-		fade('in', 1000, payment, true);
-
-		try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-		var e = document.createElement("script"); 
-		e.setAttribute("type", "text/javascript"); 
-		e.setAttribute("src", "//browser-update.org/update.js"); 
-		document.body.appendChild(e);
-	}
-	</script>
 
 </div> <!-- End Intro -->
 

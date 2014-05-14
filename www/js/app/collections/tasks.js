@@ -12,6 +12,12 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
 
             // Reference to this collection's model.
             model: Model,
+            comparator: function(model) {
+                if (!model.get("dateExpected")) {
+                    return 10000000000000000; //some ridiculously high number so new tasks are sorted to the back
+                }
+                return model.get("dateExpected").valueOf();
+            },
             getTotalAmount: function() {
                 return this.reduce(function(memo, value) {
                     return memo + value.get("amountDue")
@@ -83,7 +89,7 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
             },
             getUnpaid: function() {
                 var models = this.filter(function(model) {
-                    return !model.get("isPaid");
+                    return !model.isPaid();
                 });
                 return new Collection(models);
             },

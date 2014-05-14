@@ -2,7 +2,7 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collections/users', 'models/user', 'views/home/home_section_view', 'moment', 'views/ui-modules/modal', 'views/sample_home/welcome', 'views/sample_home/introduction_progress_view'],
+define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collections/users', 'models/user', 'views/sample_home/home_section_view', 'moment', 'views/ui-modules/modal', 'views/sample_home/welcome', 'views/sample_home/introduction_progress_view'],
 
     function(Backbone, FlyingFocus, toastr, AgreementCollection, UserCollection, UserModel, SectionView, moment, Modal, WelcomeModal, IntroductionProgressView) {
 

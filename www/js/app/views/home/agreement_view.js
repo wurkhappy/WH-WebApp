@@ -1,5 +1,5 @@
 /*
- * Scope of Work - Create Agreement View.
+ * Home - Agreement View.
  */
 
 define(['backbone', 'handlebars', 'underscore',

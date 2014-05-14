@@ -1,5 +1,5 @@
 /*
- * Scope of Work - Create Agreement View.
+ * Sample Home - Agreement View.
  */
 
 define(['backbone', 'handlebars', 'underscore',
@@ -20,14 +20,11 @@ define(['backbone', 'handlebars', 'underscore',
                 this.userIsClient = this.model.get("clientID") === this.currentUser.id;
                 var otherUserID = (this.userIsClient) ? this.model.get("freelancerID") : this.model.get("clientID");
                 this.otherUser = options.otherUsers.get(otherUserID);
-                // this.percentComplete = this.model.percentComplete();
+                //this.tasks = options.tasks[this.model.id];
             },
 
             render: function() {
                 var status = this.model.get("lastAction");
-                // var workItems = this.model.get("workItems");
-
-                // var percentComplete = this.percentComplete;
 
                 var otherUser = (this.otherUser) ? this.otherUser.toJSON() : null;
                 var statusInfo = this.createStatusInfo();
@@ -36,7 +33,8 @@ define(['backbone', 'handlebars', 'underscore',
                     statusInfo: statusInfo,
                     client: this.userIsClient,
                     otherUser: otherUser,
-                    // percentComplete: percentComplete
+                    //percentComplete: this.tasks.getPercentComplete()
+                    percentComplete: 33
                 }));
                 return this;
             },

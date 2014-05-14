@@ -3,7 +3,7 @@
  */
 
  define(['backbone', 'handlebars','underscore', 'marionette',
-  'hbs!templates/home/section_tpl', 'views/home/agreement_view'],
+  'hbs!templates/home/section_tpl', 'views/sample_home/agreement_view'],
 
   function (Backbone, Handlebars, _, Marionette, sectionTemplate, AgreementView) {
 
