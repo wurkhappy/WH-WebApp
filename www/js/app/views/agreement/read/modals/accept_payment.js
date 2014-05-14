@@ -60,7 +60,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                     bankAccounts: bankAccounts.toJSON(),
                     acceptsCreditCard: acceptsCreditCard,
                     acceptsBankTransfer: acceptsBankTransfer,
-                    hasCreditCards: false,
+                    hasCreditCards: hasCreditCards,
                     hasBankAccounts: hasBankAccounts
                 }));
 
@@ -97,11 +97,6 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
                 event.preventDefault();
                 event.stopPropagation();
 
-                if (this.acceptsCreditCard && this.creditCards.length < 1) {
-                    toastr.error('Please add a credit card to your account to make payment');
-                    return;
-                }
-
                 var bankAccount = $(".select_bank_account:checked").val();
                 var canDebit = $(".select_bank_account:checked").attr('data-debit');
                 var creditCard = $(".select_credit_card:checked").val()
@@ -136,7 +131,7 @@ define(['backbone', 'handlebars', 'toastr', 'views/agreement/read/header_states/
             addCreditCard: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-            window.location = "/account?returnURL=" + window.location.pathname + "#creditcard";
+                window.location = "/account?returnURL=" + window.location.pathname + "#creditcard";
 
                 // var view = new NewCardView({
                 //     user: this.user

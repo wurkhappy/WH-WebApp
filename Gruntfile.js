@@ -309,7 +309,7 @@ module.exports = function(grunt) {
                     dir: '<%= config.dist %>', // The CSS and JS output dir, relative to this file.
                     mainConfigFile: '<%= config.webroot %>/js/config.js', // Include the main configuration file (paths, shim). Relative to this file.
                     optimize: 'uglify', // (default) uses UglifyJS to minify the code.
-                    skipDirOptimize: false, // Set to true, to skip optimizing other non-build layer JS files (speeds up builds).
+                    skipDirOptimize: true, // Set to true, to skip optimizing other non-build layer JS files (speeds up builds).
                     optimizeCss: 'standard', // @import inlining, comment removal and line returns.
                     fileExclusionRegExp: /^\.|\.((json))|scss$/, // If the regexp matches, it means the file/directory will be excluded.
 

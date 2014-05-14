@@ -32,13 +32,13 @@ define(['backbone', 'models/scope_item'],
             },
             getUnpaid: function() {
                 var models = this.filter(function(model) {
-                    return !model.get("isPaid");
+                    return !model.isPaid();
                 });
                 return new Collection(models);
             },
             getPaid: function() {
                 var models = this.filter(function(model) {
-                    return model.get("isPaid");
+                    return model.isPaid();
                 });
                 return new Collection(models);
             },

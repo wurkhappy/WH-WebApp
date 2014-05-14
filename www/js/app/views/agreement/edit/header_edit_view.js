@@ -38,10 +38,12 @@ define(['backbone', 'handlebars', 'underscore', 'toastr', 'hbs!templates/agreeme
                                 that.tasks.versionID = that.model.id;
                                 that.tasks.save();
                                 that.payments.versionID = that.model.id;
-                                that.payments.save();
+                                that.payments.save({}, {
+                                    success: function() {
+                                        window.location = '/agreement/v/' + model.id;
+                                    }
+                                });
                                 toastr.success("Agreement saved")
-
-                                window.location = '/agreement/v/' + model.id;
                             })
                         }
                     });
