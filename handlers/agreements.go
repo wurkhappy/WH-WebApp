@@ -7,7 +7,6 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/wurkhappy/WH-Config"
 	"html/template"
-	"log"
 	"net/http"
 	"strconv"
 	"sync"
