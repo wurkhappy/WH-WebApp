@@ -373,6 +373,9 @@ module.exports = function(grunt) {
                         }, {
                             name: 'app/mainlegal',
                             exclude: ['config']
+                        }, {
+                            name: 'app/mainsamplehome',
+                            exclude: ['config']
                         }
                     ]
                 }
@@ -486,6 +489,11 @@ module.exports = function(grunt) {
                 }, {
                     expand: true,
                     src: ['www-built/js/app/mainnewpassword.js'],
+                    dest: 'js-gz',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    src: ['www-built/js/app/mainsamplehome.js'],
                     dest: 'js-gz',
                     ext: '.js'
                 }, {
