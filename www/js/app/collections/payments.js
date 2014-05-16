@@ -48,7 +48,7 @@ define(['backbone', 'models/payment'],
             },
             findAllOutstanding: function() {
                 var paymentArray = this.filter(function(model) {
-                    return !model.get("lastAction") || model.get("lastAction").get("name") === 'rejected';
+                    return !model.get("lastAction") || model.get("lastAction").get("name") === 'rejected' || model.get("lastAction").get("name") === 'cancelled';
                 });
                 return new Collection(paymentArray);
             },

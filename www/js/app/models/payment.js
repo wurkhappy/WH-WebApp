@@ -56,6 +56,12 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
                     "message": message
                 });
             },
+            cancel: function(message) {
+                this.updateStatus({
+                    "name": "cancelled",
+                    "message": message
+                });
+            },
             updateStatus: function(reqData, successCallback) {
                 $.ajax({
                     type: "POST",
