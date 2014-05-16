@@ -1,0 +1,38 @@
+{{define "topNav"}}
+
+{{if .signedIn}}
+<div id="navigation" class="navigation">
+	<div class="column-one-half">
+		<div class="main_top_padding">
+			<a class="logo" href="/home">Wurk Happy</a>
+		</div>
+	</div>
+	<div class="column-one-half">
+		<ul id="admin" class="clear admin_nav navigation_links">
+			<li><a href="/user/logout">Log Out</a></li>
+			<li> <a href="/account">Account</a></li>
+			<li> <a href="/home">Home</a></li>
+		</ul>
+	</div>
+</div>
+
+{{else}}
+
+<div class="clear navigation">
+	<div class="landing_logo_container">
+		<a class="logo" href="/">Wurk Happy</a>
+	</div>
+	<div class="landing_admin_container">
+		<ul class="admin_nav">
+			<li id="log_in">
+				<a class="landing_navigation_links login_button" id="login" href="/#login">Log In</a>
+			</li>
+			<li id="log_out" class="hide">
+				<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+{{end}}
+{{end}}
