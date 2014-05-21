@@ -37,6 +37,9 @@ define(['backbone', 'backbone-relational', 'moment', 'models/status', ],
             urlRoot: function() {
                 return "/agreement/v";
             },
+            isLive: function() {
+                return !this.get("archived");
+            },
             submit: function(message, successCallback) {
                 this.updateStatus("submitted", message, successCallback);
             },

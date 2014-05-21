@@ -4,16 +4,15 @@
             <td>
               {{#with model}}
               {{#if version}}
-              <h3><a href="/agreement/v/{{versionID}}">{{title}}</a></h3>
+              <h3><a id="sampleAgreement" class="clickable" href="/agreement/v/{{versionID}}">{{title}}</a></h3>
               {{else}}
-              <h3><a href="/agreements/new?versionID={{versionID}}">{{title}}</a></h3>
+              <h3><a id="sampleAgreement" class="clickable" href="/agreements/new?versionID={{versionID}}">{{title}}</a></h3>
               {{/if}}
               {{/with}}
               {{#with statusInfo}}
               <p class="last_action capitalize"><span class="sub_text">Last Action: </span><span class="green">{{lastAction}}</span></p>
               {{/with}}
             </td>
-            {{#if isLive}}
             <td class="progress">
               <progress max="100" value="{{percentComplete}}">
                 <!-- Browsers that support HTML5 progress element will ignore the html inside `progress` element. Whereas older browsers will ignore the `progress` element and instead render the html inside it. -->
@@ -22,6 +21,5 @@
                 </div>
               </progress>
               <p class="last_action home_agreement_status"><span class="sub_text">status: </span><span class="orange capitalize">{{statusInfo.currentState}}</span></p>
-              {{/if}}
               
             </td>

@@ -3,7 +3,7 @@
  */
 
 define(['backbone', 'handlebars', 'underscore',
-        'hbs!templates/home/agreement_tpl'
+        'hbs!templates/sample_home/agreement_tpl'
     ],
 
     function(Backbone, Handlebars, _, agreementTpl) {
@@ -37,6 +37,16 @@ define(['backbone', 'handlebars', 'underscore',
                     percentComplete: 33
                 }));
                 return this;
+            },
+
+            events: {
+                "click #sampleAgreement": "trackSample"
+
+            },
+
+            trackSample: function(event) {
+                analytics.track('Clicked Sample Agreement');
+
             },
             createStatusInfo: function() {
                 if (this.model.get("lastAction") && this.model.get("lastAction").get("name") === "created") {

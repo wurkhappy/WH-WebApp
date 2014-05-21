@@ -14,8 +14,8 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
 
             initialize: function(options) {
                 BaseState.prototype.initialize.apply(this, [options]);
-                this.button1Title = (!this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response";
-                this.button2Title = (!this.userIsStateCreator) ? "Reject " + this.statusType : null;
+                this.button1Title = (!this.userIsStateCreator) ? "Accept " + this.statusType : null;
+                this.button2Title = (!this.userIsStateCreator) ? "Reject " + this.statusType : ((this.statusType === "payment") ? "Cancel " + this.statusType : null);
                 this.user = options.user;
                 this.otherUser = options.otherUser;
             },
@@ -59,14 +59,18 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
             },
             button2: function(event) {
                 var model = (this.statusType === 'payment') ? this.payments.findSubmittedPayment() : this.model;
-                var view = new RejectModal({
-                    model: model,
-                    otherUser: this.otherUser
-                });
-                this.rejectModal = new Modal({
-                    view: view
-                });
-                this.rejectModal.show();
+                if (this.userIsClient) {
+                    var view = new RejectModal({
+                        model: model,
+                        otherUser: this.otherUser
+                    });
+                    this.rejectModal = new Modal({
+                        view: view
+                    });
+                    this.rejectModal.show();
+                } else {
+                    model.cancel();
+                }
 
             },
             acceptModel: function() {

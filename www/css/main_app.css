@@ -1,12 +1,12 @@
 @charset "UTF-8";
-/* line 36, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
+/* line 36, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_box-sizing.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 4, ../../../../../../../.rvm/gems/ruby-1.9.3-p327@rails3tutorial2ndEd/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
+/* line 4, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/toolkit-1.3.7/stylesheets/toolkit/_fluid-media.scss */
 img, video {
   max-width: 100%;
   height: auto;
@@ -3172,6 +3172,16 @@ button.toast-close-button {
   border: none;
 }
 
+/* line 34, ../scss/components/_forms.scss */
+#welcome_signup {
+  width: 225px;
+  margin: 0 auto;
+}
+/* line 37, ../scss/components/_forms.scss */
+#welcome_signup input {
+  width: 225px;
+}
+
 /* line 1, ../scss/components/_form_feedback.scss */
 .server_error {
   color: red;
@@ -4443,7 +4453,7 @@ td.progress {
 /* line 22, ../scss/components/_modals.scss */
 .panel {
   width: 550px;
-  margin: 16% auto;
+  margin: 13% auto;
   background: #dedede;
   padding: 35px;
   background: #fafafa;
@@ -6072,7 +6082,7 @@ progress::-webkit-progress-value, progress.yellow_progress {
 .footer {
   background: #404040;
   border-top: 1px solid #bababa;
-  padding-bottom: 10px;
+  padding-bottom: 0;
   overflow: hidden;
   width: 960px;
   margin: 0 auto;

@@ -83,6 +83,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                         var submitSuccess = _.debounce(changeWindow, 800); //delay the change in window until after success notification
 
                         that.model.submit(that.message, submitSuccess);
+                        analytics.track('Agreement Sent');
                     }
                 });
             },
@@ -159,6 +160,7 @@ define(['backbone', 'handlebars', 'toastr', 'parsley', 'hbs!templates/create_agr
                     }
                     this.modal.hide();
                     this.sendAgreement();
+                    analytics.track('New User by Create Agreement');
                 });
                 this.modal.show();
             }

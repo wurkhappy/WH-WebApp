@@ -1,0 +1,37 @@
+<header>
+	<h1 style="color:hsl(198, 100%, 35%);">Welcome back to Wurk Happy!</h1>
+	<p>We've run into each other a few times now. To continue exploring Wurk Happy, please create an account.</p>
+</header>
+
+<article id="welcome_signup">
+  <form action="/account/create" method="POST" accept-charset="utf-8" id="login_form" class="js-form login_form create_account_form">
+    <fieldset>
+      <div class="server_error" id="server_error"></div>
+      <label class="clear" id="firstName-label" for="firstName">First Name: </label>
+      <div class="input-box">
+        <input data-required="true" data-trigger="change" name="firstName"  class="text-field input" required value="{{model.firstName}}">
+      </div>
+      <label class="clear" id="lastName-label" for="lastName">Last Name:</label>
+      <div class="input-box">
+        <input data-required="true" data-trigger="change" name="lastName" class="text-field input" required value="{{model.lastName}}">
+      </div>
+      <label class="clear" id="email-label" for="email">Email: <span class="validation" id="email-validation"></span></label>
+      <div class="input-box">
+        <input data-type="email" data-required="true" data-trigger="change" type="email" name="email"  id="target" class="text-field input" placeholder="name@website.com" required value="{{model.email}}">
+      </div>
+      <label for="password">Choose a password:</label>
+      <input data-required="true" data-trigger="change" type="password" name="password" value="" id="password" class="text-field" required id="password-validation" />
+    </fieldset>
+    {{#if showHaveAccount}}
+    <span class="helper_text">Already have an account? <a href="#login" title="login">Login</a>.</span>
+    {{/if}}
+    <div>
+      <input type="submit"
+      {{#unless showHaveAccount}}
+      style="float:left;"
+      {{/unless}}
+       value="Create Free Account" class="button action_button create_account_button" style="padding:0;width:225px;float:right;border:none;border-radius:0;">
+    </div>
+    <div style="clear:both;"></div>
+  </form>
+</article>

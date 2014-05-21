@@ -71,38 +71,54 @@ func random(min, max int) int {
 }
 
 func landing(w http.ResponseWriter, req *http.Request) {
+	session := getSession(req)
+
 	m := map[string]interface{}{
 		"appName":    "mainlanding",
 		"production": handlers.Production,
 		"JSversion":  handlers.JSversion,
 		"CSSversion": handlers.CSSversion,
+		"signedIn":   session.Values["signedIn"],
 	}
+
+	// var landingTpl = template.Must(template.ParseFiles(
+	// 	"templates/_baseLanding.html",
+	// 	"templates/landing6.html",
+	// ))
 
 	landingTpl.Execute(w, m)
 }
 
 func pricing(w http.ResponseWriter, req *http.Request) {
+	session := getSession(req)
+
 	m := map[string]interface{}{
 		"appName":    "mainlanding",
 		"production": handlers.Production,
 		"JSversion":  handlers.JSversion,
 		"CSSversion": handlers.CSSversion,
+		"signedIn":   session.Values["signedIn"],
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseLanding.html",
+		"templates/top_nav.html",
 		"templates/pricing.html",
 	))
 	index.Execute(w, m)
 }
 
 func about(w http.ResponseWriter, req *http.Request) {
+	session := getSession(req)
+
 	m := map[string]interface{}{
 		"production": handlers.Production,
 		"JSversion":  handlers.JSversion,
 		"CSSversion": handlers.CSSversion,
+		"signedIn":   session.Values["signedIn"],
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseLanding.html",
+		"templates/top_nav.html",
 		"templates/about.html",
 	))
 	index.Execute(w, m)
@@ -122,14 +138,18 @@ func about(w http.ResponseWriter, req *http.Request) {
 }*/
 
 func legal(w http.ResponseWriter, req *http.Request) {
+	session := getSession(req)
+
 	m := map[string]interface{}{
 		"appName":    "mainlegal",
 		"production": handlers.Production,
 		"JSversion":  handlers.JSversion,
 		"CSSversion": handlers.CSSversion,
+		"signedIn":   session.Values["signedIn"],
 	}
 	var index = template.Must(template.ParseFiles(
 		"templates/_baseLanding.html",
+		"templates/top_nav.html",
 		"templates/legal.html",
 	))
 	index.Execute(w, m)

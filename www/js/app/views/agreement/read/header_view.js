@@ -60,12 +60,6 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                         archived = false;
                         newAgreement = true;
                     }
-                } else if (lastAction !== null && this.state.button1Title === lastAction.StatusWaiting) {
-                    waiting = true;
-                    button1Title = false;
-                    button2Title = false;
-                    newAgreement = false;
-                    archived = false;
                 } else {
                     waiting = false;
                     button1Title = this.state.button1Title;
@@ -168,6 +162,15 @@ define(['backbone', 'handlebars', 'hbs!templates/agreement/read/header_tpl',
                             user: this.user,
                             otherUser: this.otherUser,
                             payments: this.payments,
+                            status: status
+                        });
+                        break;
+                    case status.StatusCancelled:
+                        this.state = new AcceptedState({
+                            model: this.model,
+                            user: this.user,
+                            payments: this.payments,
+                            tasks: this.tasks,
                             status: status
                         });
                         break;

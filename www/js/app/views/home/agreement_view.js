@@ -20,11 +20,14 @@ define(['backbone', 'handlebars', 'underscore',
                 this.userIsClient = this.model.get("clientID") === this.currentUser.id;
                 var otherUserID = (this.userIsClient) ? this.model.get("freelancerID") : this.model.get("clientID");
                 this.otherUser = options.otherUsers.get(otherUserID);
-                this.tasks = options.tasks[this.model.id];
+                if (this.model.isLive()) {
+                    this.tasks = options.tasks[this.model.id];
+                }
             },
 
             render: function() {
                 var status = this.model.get("lastAction");
+                var percentComplete = (this.model.isLive() && this.tasks) ? this.tasks.getPercentComplete() : 0;
 
                 var otherUser = (this.otherUser) ? this.otherUser.toJSON() : null;
                 var statusInfo = this.createStatusInfo();
@@ -33,7 +36,8 @@ define(['backbone', 'handlebars', 'underscore',
                     statusInfo: statusInfo,
                     client: this.userIsClient,
                     otherUser: otherUser,
-                    percentComplete: this.tasks.getPercentComplete()
+                    isLive: this.model.isLive(),
+                    percentComplete: percentComplete
                 }));
                 return this;
             },

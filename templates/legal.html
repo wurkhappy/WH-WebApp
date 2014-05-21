@@ -66,21 +66,8 @@
 
 {{define "body"}}
 
-    <div class="clear navigation">
-		<div class="landing_logo_container">
-    		<a class="logo" href="/">Wurk Happy</a>
-		</div>
-		<div class="landing_admin_container">
-			<ul class="admin_nav">
-    			<li id="log_in">
-    				<a class="landing_navigation_links login_button" id="login" href="#login">Log In</a>
-    			</li>
-				<li id="log_out" class="hide">
-					<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+        {{template "topNav" .}}
+
 
 <div class="fade2">
 	<div id="intro" class="clear intro_container landing_container fade" style="position:relative;height:auto;min-width:960px;">
