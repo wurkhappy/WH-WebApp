@@ -1,0 +1,178 @@
+{{define "header"}}
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<title>Wurk Happy | Simple Agreement Billing and Payment</title>
+
+
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+{{if .production}}
+<link rel="Shortcut Icon" type="images/ico" href="https://d3kq8dzp7eezz0.cloudfront.net/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="https://d3kq8dzp7eezz0.cloudfront.net/css-{{.CSSversion}}/landing.css" media="all" />
+<script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/analytics.min.js"></script>
+<script src="https://d3kq8dzp7eezz0.cloudfront.net/js/lib/jquery.js"></script>
+<script src="https://d3kq8dzp7eezz0.cloudfront.net/js/app/plugins/better_browser/public/javascripts/abetterbrowser.js"></script>
+
+<!-- Font Awesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+{{else}}
+<link rel="Shortcut Icon" type="images/ico" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/landing.css" media="all" />
+
+<!-- Font Awesome -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<script src="/js/lib/jquery/jquery.js"></script>
+{{end}}
+<noscript>
+	<style>
+	.dim {opacity: .5;}
+	#logindiv {display:none}
+	</style>
+	<div class="noscriptmsg">
+		<p>Wurk Happy requires javascript to function properly. <a href="http://www.enable-javascript.com/" target="_blank">Please enable javascript</a> in your web browser.</p>
+	</div>
+</noscript>
+
+
+
+
+
+<script type="text/javascript">
+if (production){
+	analytics.initialize({
+		'Google Analytics' : 'UA-24101674-3',
+		'Mixpanel'         : '4333aa84dfd94220eef310c77eab7372',
+		'Intercom'         : '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+		'CrazyEgg'		 : '00197985'
+	});
+	analytics.track('Hit 5 Landing Page');
+	analytics.track('Hit Landing Page');
+}
+$(function() {
+	console.log("invoked");
+
+	var arr = ['Make Films', 'Write', 'Design', 'Create Art', 'Program'];
+
+	$('.rotator')
+	.data('intervalLink', window.setInterval(function() {
+		var i = arguments.callee.i ? arguments.callee.i : 0,
+		message = arr[i];
+		$('.rotator').animate({
+			opacity: 0
+		}, 500, function() {
+			$(this).html(message);
+		}).animate({
+			opacity: 1
+		}, 500);
+		arguments.callee.i = (i++ == (arr.length - 1)) ? 0 : i++;
+	}, 2000));
+});
+</script>
+
+
+
+{{end}}
+
+{{define "body"}}
+
+<div class="clear navigation" style="background:#008bc7;">
+	<div class="landing_logo_container">
+		<a class="landing_logo" href="/">Wurk Happy</a>
+	</div>
+	<div class="landing_admin_container">
+		<ul class="admin_nav">
+			<li id="log_in">
+				<a class="landing_navigation_links login_button white_login" id="login" href="#login">Log In</a>
+			</li>
+			<li id="log_out" class="hide">
+				<a  class="landing_navigation_links" id="cancel" href="">Cancel</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="above_fold" style="background-color:#008bc7; padding:30px;">
+	<h1 style="font-size:46px;font-weight:500;padding: 10px;color:white;" class="headline">
+		<span class="rotator">Program</span> 
+		With Wurk Happy
+	</h1>
+	<h2 style="text-align:center;color:white;font-family:museo_sans; max-width: 600px;margin: 0 auto; padding-bottom:20px;">Freelancing made simple</h2>
+	<h3 style="text-align:center;color:white;font-family:museo_sans; max-width: 600px;margin: 0 auto;"> Create online agreements that keep parties on track, invoice automatically, and deposit funds securely into your bank account all in one place.</h3>
+	<ul style="margin: 0 auto;width: 200px;overflow: hidden;margin-top: 45px;padding: 0;">
+		<li id="create_account" style="float:left;">
+			<a id="start_now" style="width: 200px;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px; z-index:100;" id="signup" class="button green_button" href="/home/sample">Start Now</a>
+		</li>
+
+		<script>
+		$('#start_now').click( function() {
+			analytics.track('Start Now');
+		});
+		</script>					
+	</ul>
+
+
+</div>
+
+<div>
+	<h2 style="color:white;margin:0;background-color:rgb(186, 186, 186);text-align:center; padding:20px;">Why Use Wurk Happy?</h2>
+</div>
+<div style="padding:20px;">
+	<h2  style="text-align:center;font-family:museo_sans; max-width: 600px;margin: 0 auto;">We asked freelancers and clients "What do you hate most about freelance work?"</h2>
+	<table width="60%" cellpadding="0" cellspacing="10" border="0" style="margin: 0 auto;">
+		<tr style="text-align:center;">
+			<td width="50%" valign="top">
+				<p>Freelancers:</p>
+			</td>
+			<td width="50%" valign="top">
+				<p>Clients:</p>
+			</td>
+		</tr>
+		<tr style="border:0px">
+			<td width="50%" valign="top">
+				<ul style="list-style:circle;">
+					<li style="margin-top:10px;">"Lack of clarity, sometimes my clients aren't even sure about what they want"</li>
+					<li style="margin-top:10px;">"Invoices, I hate generating invoices. It's always the last piece that stands between me and getting paid."</li>
+					<li style="margin-top:10px;">"Honestly, status updates. I know clients really appreciate them but after finishing up some work the last thing I want to do is figure out how to word an email"</li>
+				</ul>
+			</td>
+			<td width="50%" valign="top">
+				<ul style="list-style:circle;">
+					<li style="margin-top:10px;">"Keeping track of status"</li>
+					<li style="margin-top:10px;">"Getting payment set up for the freelancer. We work with several freelancers and each one uses different payment methods. Gathering the right information can also need some back and forth and delays us getting started"</li>
+					<li style="margin-top:10px;">"Taxes overall but 1099s are a pain point"</li>
+					<li style="margin-top:10px;">"Managing the gazillion different tools. One for invoices, one for payments, one for tracking tasks. I don't even need half of the funtionality"</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	<h2  style="text-align:center;font-family:museo_sans; max-width: 600px;margin: 0 auto; padding:30px;">Wurk Happy Solves All Of These Problems And More...</h2>
+</div>
+
+
+
+<!-- landing footer-->
+<div id="footer" class="landing_footer">
+	<div>
+		<div class="landing_footer_column">
+			<h3 class="footer_title"><a id="pricing" href="/pricing">Pricing</a></h3>
+		</div>
+		<div class="landing_footer_column">
+			<h3 class="footer_title"><a id="about" href="/about">About</a></h3>
+		</div>
+		<div class="landing_footer_column">
+			<h3 class="footer_title"><a id="blog" href="http://blog.wurkhappy.com/">Blog</a></h3>
+		</div>
+
+		<div class="landing_footer_column">
+			<h3 class="footer_title"><a style="border-right:none;border-bottom:none;" id="legal" href="/legal">Legal</a></h3>
+		</div>
+	</div>
+</div>
+<div class="copyright clear">
+	<p>Powered by Wurk Happy &mdash; Copyright &#169; 2014 Wurk Happy &mdash; All Rights Reserved</p>
+</div> 
+
+{{end}}
