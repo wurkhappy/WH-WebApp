@@ -62,7 +62,7 @@ func initRoutes(r *mux.Router) {
 
 var landingTpl = template.Must(template.ParseFiles(
 	"templates/_baseLanding.html",
-	"templates/landing6.html",
+	"templates/landing5.html",
 ))
 
 func random(min, max int) int {
