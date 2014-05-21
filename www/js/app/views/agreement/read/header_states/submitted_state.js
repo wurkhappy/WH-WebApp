@@ -13,8 +13,8 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
             payTemplate: payTemplate,
 
             initialize: function(options) {
-            BaseState.prototype.initialize.apply(this, [options]);
-            this.button1Title = (!this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response";
+                BaseState.prototype.initialize.apply(this, [options]);
+                this.button1Title = (!this.userIsStateCreator) ? "Accept " + this.statusType : "Waiting for Response";
                 this.button2Title = (!this.userIsStateCreator) ? "Reject " + this.statusType : null;
                 this.user = options.user;
                 this.otherUser = options.otherUser;
@@ -47,6 +47,7 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
                         acceptsBankTransfer: this.model.get("acceptsBankTransfer"),
                         acceptsCreditCard: this.model.get("acceptsCreditCard")
                     });
+                    this.listenTo(view, "success", this.acceptModel);
                     this.depositModal = new Modal({
                         view: view
                     });
@@ -67,6 +68,9 @@ define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state
                 });
                 this.rejectModal.show();
 
+            },
+            acceptModel: function() {
+                this.model.accept();
             }
 
         });

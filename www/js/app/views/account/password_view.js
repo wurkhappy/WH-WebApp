@@ -45,7 +45,7 @@ define(['backbone', 'handlebars', 'toastr', 'hbs!templates/account/password'],
                         "newPassword": this.passwords["new-pw"],
                         "currentPassword": this.passwords["current-pw"]
                     };
-                    this.model.changePassword(data, {
+                    this.model.save(data, {
                         success: _.bind(function(model, response) {
                             this.$('input').val('');
                             toastr.success('Password Updated!');

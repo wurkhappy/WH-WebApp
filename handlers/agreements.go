@@ -8,6 +8,7 @@ import (
 	"github.com/wurkhappy/WH-Config"
 	"html/template"
 	"net/http"
+	"strconv"
 	"sync"
 	"time"
 )
@@ -99,6 +100,18 @@ func GetHome(w http.ResponseWriter, req *http.Request, session *sessions.Session
 }
 
 func GetHomeSample(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
+	visitsCookie, err := req.Cookie("WH_visits")
+	var visitsString string
+	if err == nil {
+		visitsString = visitsCookie.Value
+	}
+	var visitsNumber int
+	if visitsString != "" {
+		visitsNumber, _ = strconv.Atoi(visitsString)
+	}
+	visitsNumber += 1
+	visitsString = strconv.Itoa(visitsNumber)
+	http.SetCookie(w, &http.Cookie{Name: "WH_visits", Value: visitsString})
 	var agreementsData []map[string]interface{}
 	json.Unmarshal([]byte(`[{"acceptsBankTransfer":true,"acceptsCreditCard":true,"agreementID":"ed356d73-70b7-485c-7cac-c1e42b49ca86","archived":false,"clientID":"096d76ac-ac5c-489c-60ca-d0bde5aac605","freelancerID":"5275dc12-2429-42ad-536d-ccfdba2fc91c","lastAction":{"date":"2014-04-11T14:21:46.867388667-04:00","name":"accepted","userID":"5275dc12-2429-42ad-536d-ccfdba2fc91c"},"lastModified":"2014-04-11T14:21:46.867389586-04:00","lastSubAction":{"date":"2014-04-13T14:21:46.867388667-04:00","name":"accepted","userID":"5275dc12-2429-42ad-536d-ccfdba2fc91c", "type":"payment"},"proposedServices":"<p>Create a blog</p>\n","title":"Sample Agreement","version":1,"versionID":"../sample"}]`), &agreementsData)
 	m := map[string]interface{}{
@@ -106,10 +119,11 @@ func GetHomeSample(w http.ResponseWriter, req *http.Request, session *sessions.S
 		"agreements": agreementsData,
 		// "otherUsers":     requestedUsers,
 		// "thisUser":       thisUser,
-		"agreementCount": len(agreementsData),
-		"production":     Production,
-		"JSversion":      JSversion,
-		"CSSversion":     CSSversion,
+		"numberOfTimesVisited": visitsNumber,
+		"agreementCount":       len(agreementsData),
+		"production":           Production,
+		"JSversion":            JSversion,
+		"CSSversion":           CSSversion,
 	}
 
 	var tpl *template.Template
