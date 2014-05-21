@@ -62,7 +62,7 @@ func initRoutes(r *mux.Router) {
 
 var landingTpl = template.Must(template.ParseFiles(
 	"templates/_baseLanding.html",
-	"templates/landing5.html",
+	"templates/landing6.html",
 ))
 
 func random(min, max int) int {
@@ -80,6 +80,11 @@ func landing(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 		"signedIn":   session.Values["signedIn"],
 	}
+
+	// var landingTpl = template.Must(template.ParseFiles(
+	// 	"templates/_baseLanding.html",
+	// 	"templates/landing6.html",
+	// ))
 
 	landingTpl.Execute(w, m)
 }
