@@ -32,7 +32,11 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
                 this.$el.html(this.template());
                 return this;
             },
+            onRender: function() {
+                this.$('select').on('change', _.bind(this.updateFields, this));
+            },
             updateFields: function(event) {
+                console.log("update card");
                 this.card[event.target.name] = event.target.value;
             },
             updatePostalCode: function(event) {
@@ -60,6 +64,8 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
                 }, 1200);
             },
             saveCard: _.debounce(function(event) {
+                this.$('select').trigger('blur');
+
                 var that = this;
                 balanced.card.create(this.card, function(response) {
                     if (response.status_code === 201) {
@@ -73,13 +79,12 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
                                 model.set("expiration_month", that.card["expiration_month"]);
                                 model.set("expiration_year", that.card["expiration_year"]);
                                 model.set("last_four", that.card["number"].substr(that.card["number"].length - 4));
+                                toastr.success('Credit Card Saved!');
+                                that.returnToURL();
                             }
                         });
                         $('input').val('');
-                        toastr.success('Credit Card Saved!');
-                        that.returnToURL();
                     } else {
-                        console.log(response);
                         track(JSON.stringify(response));
                     }
                 });

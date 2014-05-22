@@ -78,7 +78,7 @@ func random(min, max int) int {
 }
 
 func landing(w http.ResponseWriter, req *http.Request) {
-
+	w.Header().Set("Access-Control-Allow-Origin", "https://d3kq8dzp7eezz0.cloudfront.net")
 	// pageNumberCookie, err := req.Cookie("WH_landing")
 	// var pageNumber string
 	// if err == nil {
