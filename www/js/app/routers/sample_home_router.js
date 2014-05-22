@@ -2,7 +2,7 @@
  * Router. Initializes the root-level View(s), and calls the render() method on Sub-View(s).
  */
 
-define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collections/users', 'models/user', 'views/sample_home/home_section_view', 'moment', 'views/ui-modules/modal', 'views/sample_home/welcome', 'views/sample_home/introduction_progress_view','views/sample_home/signup'],
+define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collections/users', 'models/user', 'views/sample_home/home_section_view', 'moment', 'views/ui-modules/modal', 'views/sample_home/welcome', 'views/sample_home/introduction_progress_view', 'views/sample_home/signup'],
 
     function(Backbone, FlyingFocus, toastr, AgreementCollection, UserCollection, UserModel, SectionView, moment, Modal, WelcomeModal, IntroductionProgressView, SignupModal) {
 
@@ -27,10 +27,10 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                         analytics.track('Potential Client Create Agreement');
                     });
                 }
-                $('a:not(.clickable)').click( function(event) {
+                $('a:not(.clickable)').click(function(event) {
                     event.preventDefault();
                     toastr.error('Please create an account for full access');
-                });                
+                });
             },
 
             AllAgreements: function() {
@@ -79,8 +79,9 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                         view: view
                     });
                     this.modal.show();
+                    this.listenTo(view, 'saveSuccess', this.createAccountSuccess);
                 }
-                
+
 
                 // The progress bar boom!
                 new IntroductionProgressView({
@@ -88,7 +89,9 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                 }).render();
 
             },
-
+            createAccountSuccess: function() {
+                window.location = "/home";
+            },
             FreelancerAgreements: function() {
 
             },
