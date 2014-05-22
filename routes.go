@@ -65,7 +65,7 @@ var landingTpl5 = template.Must(template.ParseFiles(
 	"templates/landing5.html",
 ))
 
-var landingTpl6 = template.Must(template.ParseFiles(
+var landingTpl = template.Must(template.ParseFiles(
 	"templates/_baseLanding.html",
 	"templates/landing6.html",
 ))
@@ -79,20 +79,20 @@ func random(min, max int) int {
 
 func landing(w http.ResponseWriter, req *http.Request) {
 
-	pageNumberCookie, err := req.Cookie("WH_landing")
-	var pageNumber string
-	if err == nil {
-		pageNumber = pageNumberCookie.Value
-	} else {
-		pageNumber = landingsPages[random(0, 2)]
-		http.SetCookie(w, &http.Cookie{Name: "WH_landing", Value: pageNumber})
-	}
-	var landingTpl *template.Template
-	if pageNumber == "5" || pageNumber == "" {
-		landingTpl = landingTpl5
-	} else if pageNumber == "6" {
-		landingTpl = landingTpl6
-	}
+	// pageNumberCookie, err := req.Cookie("WH_landing")
+	// var pageNumber string
+	// if err == nil {
+	// 	pageNumber = pageNumberCookie.Value
+	// } else {
+	// 	pageNumber = landingsPages[random(0, 2)]
+	// 	http.SetCookie(w, &http.Cookie{Name: "WH_landing", Value: pageNumber})
+	// }
+	// var landingTpl *template.Template
+	// if pageNumber == "5" || pageNumber == "" {
+	// 	landingTpl = landingTpl5
+	// } else if pageNumber == "6" {
+	// 	landingTpl = landingTpl6
+	// }
 
 	session := getSession(req)
 
