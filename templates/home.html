@@ -5,6 +5,15 @@ var tasks = {{.tasks}};
 var currentUser = {{.thisUser}};
 var otherUsers = {{.otherUsers}};
 </script>
+
+{{if .production}}
+<script>
+  $( document ).ready(function() {
+    analytics.page('Home');
+  });
+</script>
+{{end}}
+
   <div id="intro" class="clear header home_header">
 
     <div class="col-1-2">

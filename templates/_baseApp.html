@@ -1,5 +1,3 @@
-<!-- This is the header for the styleguide-->
-
 <!DOCTYPE html>
 
 <!--[if IEMobile 7]>                     <html class="no-js iem7 oldie"  lang="en" dir="ltr"><![endif]-->
@@ -49,9 +47,13 @@
    e.setAttribute("src", "//browser-update.org/update.js"); 
    document.body.appendChild(e); 
  } 
- </script> 
+ </script>
+
  <script type="text/javascript" src="//dl1d2m8ri9v3j.cloudfront.net/releases/1.2.5/tracker.js" data-customer="b77f88524ef642658ab677103359b5e8"></script>
+
  {{else}}
+
+ <script src="../js/lib/analytics/analytics.js"></script>
  <link rel="stylesheet" href="/css/main_app.css">
 
  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -130,8 +132,7 @@
   });
   </script>
   <script type="text/javascript" async>
-  if (production) {
-    setTimeout(function(){
+    if (production) {
       analytics.initialize({
         'Google Analytics': {
           trackingId: 'UA-24101674-3'
@@ -143,36 +144,36 @@
         },
         'Intercom': {
           appId: '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
-          activator : '#IntercomDefaultWidget',
-          counter   : true
+          activator : '#IntercomDefaultWidget'
         },
         'CrazyEgg': {
           accountNumber: '00197985'
         }
       });
 
-      {{if .thisUser}}
-      analytics.identify({{.user.id}}, {
-        {{with .thisUser}}
-        email            : {{.email}},
-        created          : {{.dateCreated}},
-            //name             : {{.firstName}} {{.lastName}},
-            //phoneNumber      : {{.phone}},
-            {{end}}
+      $( document ).ready(function() {
+        {{if .thisUser}}
+          var thisUser = {{.thisUser}};
+          var name = thisUser.firstName +' '+ thisUser.lastName;
+          analytics.identify(thisUser.id, {
+            email            : thisUser.email,
+            created          : thisUser.dateCreated,
+            name             : name,
             agreementCount   : {{.agreementCount}}
-          });
-      {{end}}
-    }, 2000);
+            });
+        {{end}}
+      });
 
-    var __lc = {};
-    __lc.license = 3602861;
+      var __lc = {};
+      __lc.license = 3602861;
 
-    (function() {
-      var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-      lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-    })();
-  }
+      (function() {
+        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+      })();
+
+    }
   </script>
 
 </body>

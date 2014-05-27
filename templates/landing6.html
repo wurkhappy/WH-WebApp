@@ -72,6 +72,15 @@ $(function() {
 });
 </script>
 
+<script>
+	if (production){
+		$( document ).ready(function() {
+			analytics.page('Landing');
+	  		analytics.page('Landing6');
+		});
+	}
+</script>
+
 
 
 {{end}}
