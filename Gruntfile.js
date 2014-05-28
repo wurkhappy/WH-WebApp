@@ -555,8 +555,8 @@ module.exports = function(grunt) {
         //'karma:continuous', // Run the tests specified in the continuous target using the already running karma server.
         'requirejs',
         //'yuidoc',
-    // 'imagemin',
-    'concat',
+        // 'imagemin',
+        'concat',
         'compress'
     ]);
 
