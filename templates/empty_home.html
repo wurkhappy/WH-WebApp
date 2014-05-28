@@ -2,6 +2,14 @@
 <script>
 var currentUser = {{.thisUser}};
 </script>
+{{if .production}}
+<script>
+    $( document ).ready(function() {
+       analytics.page('Empty Home');
+    });
+  </script>
+{{end}}
+
 <div id="intro" class="clear header home_header">
 
   <div class="col-1-2">

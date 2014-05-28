@@ -6,6 +6,13 @@ var agreement = {{.agreement}};
 var tasks = {{.tasks}};
 var payments = {{.payments}};
 </script>
+{{if .production}}
+<script>
+    $( document ).ready(function() {
+       analytics.page('Create Agreement');
+    });
+  </script>
+{{end}}
 <div id="mainContainer"> <!-- div for main container -->
 	<div id="header-section">
 		<div class="clear header">

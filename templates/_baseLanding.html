@@ -63,23 +63,34 @@
     </script>
 
   <script>
-    $( document ).ready(function() {
-        if (production) {
-            var pricing = $('#pricing');
-            var about = $('#about');
-            var blog = $('#blog');
-            var legal = $('#legal');
-            var signup = $('#signup');
-            var explore = $('#explore');
-            var tracks = analytics.trackLink(pricing, 'Clicked Pricing Link');
-            var tracks = analytics.trackLink(about, 'Clicked About Link');
-            var tracks = analytics.trackLink(blog, 'Clicked Blog Link');
-            var tracks = analytics.trackLink(legal, 'Clicked Legal Link');
-            var tracks = analytics.trackLink(signup, 'Clicked Signup Link');
-            var tracks = analytics.trackLink(explore, 'Clicked Explore Link');
-        }
-        
-    });
+    if (production) {
+        $( document ).ready(function() {
+            
+                var pricing = $('#pricing');
+                var about = $('#about');
+                var blog = $('#blog');
+                var legal = $('#legal');
+                var signup = $('#signup');
+                var explore = $('#explore');
+                var tracks = analytics.trackLink(pricing, 'Pricing Link');
+                var tracks = analytics.trackLink(about, 'About Link');
+                var tracks = analytics.trackLink(blog, 'Blog Link');
+                var tracks = analytics.trackLink(legal, 'Legal Link');
+                var tracks = analytics.trackLink(signup, 'Signup Link');
+                var tracks = analytics.trackLink(explore, 'Explore Link');
+        });
+
+        var __lc = {};
+        __lc.license = 3602861;
+
+        (function() {
+          var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+          lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+        })();
+    }
+
+    
   </script>
 </body>
 </html>

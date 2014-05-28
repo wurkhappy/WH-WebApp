@@ -1,4 +1,11 @@
 {{define "content"}}
+{{if .production}}
+<script>
+    $( document ).ready(function() {
+       analytics.page('FAQ');
+    });
+  </script>
+{{end}}
 <div id="intro" class="clear">
   <div class="column-three-fouth">
     <h1>Frequently Asked Questions</h1>
