@@ -72,6 +72,15 @@ $(function() {
 });
 </script>
 
+<script>
+	if (production){
+		$( document ).ready(function() {
+			analytics.page('Landing');
+	  		analytics.page('Landing6');
+		});
+	}
+</script>
+
 
 
 {{end}}
@@ -93,7 +102,7 @@ $(function() {
 		</ul>
 	</div>
 </div>
-
+<div class="fade2">
 <div class="above_fold" style="background-color:#008bc7; padding:30px;">
 	<h1 style="font-size:46px;font-weight:500;padding: 10px;color:white;" class="headline">
 		<span class="rotator">Program</span> 
@@ -150,6 +159,54 @@ $(function() {
 	</table>
 	<h2  style="text-align:center;font-family:museo_sans; max-width: 600px;margin: 0 auto; padding:30px;">Wurk Happy Solves All Of These Problems And More...</h2>
 </div>
+
+<div>
+	<h2 style="color:white;margin:0;background-color:rgb(186, 186, 186);text-align:center; padding:20px;">How Wurk Happy Works</h2>
+</div>
+<div id="workflow_description" style="background-color:#008bc7;color:white; margin:0;">
+	<div style="padding:2%; width:33%;padding-bottom:10px; float:left;">
+		<div class="workflow_step" style="width:100%;">
+			<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/create_agreement.png" style="width:100%;height:auto;">
+		</div>
+		<h3 class="workflow_hover_heading">1. Create and send an agreement in minutes.</h3>
+		<p>Our agreements are simple - just the scope of work and payment schedule - so you and your client can focus on doing great work together.</p>
+		<p>When you create an agreement on Wurk Happy, we send you and your client a pdf version of the agreement.</p>
+	</div>
+
+	<div style="padding:2%; width:33%;padding-bottom:10px; float:left;">
+		<div class="workflow_step" style="width:100%;">
+			<img src="https://d3kq8dzp7eezz0.cloudfront.net/img/landing/agreement.png">
+		</div>
+		<h3 class="workflow_hover_heading">2. Manage work through your online agreement.</h3>
+		<p>We send your client a daily digest of the tasks you've marked complete. If the scope of work changes, you can easily edit the agreement.</p>
+		<p>Regular client updates make the working relationship smoother, decreasing misunderstandings.</p>
+	</div>
+
+	<div style="padding:2%; width:33%;padding-bottom:10px; float:left;">
+		<div class="workflow_step" style="width:100%;">
+			<img src="/img/landing/invoice.png">
+		</div>
+		<h3 class="workflow_hover_heading">3. Get paid or pay through your online agreement.</h3>
+		<p>When you request payment, we generate and send a PDF invoice to your client based on the tasks you have already marked complete</p>
+
+		<p>Because Wurk Happy provides you with your own merchant account, your client can pay you by credit card or bank account right through your online agreement.</p>
+	</div>
+<div style="clear:both;"></div>
+</div>	
+<div class="above_fold" style="background-color:#008bc7; padding:30px;">
+		<ul style="margin: 0 auto;width: 200px;overflow: hidden;margin-top: 45px;padding: 0;">
+		<li id="create_account" style="float:left;">
+			<a id="start_now" style="width: 200px;font-size: 22px;font-weight: 500;line-height: 27px;padding: 20px; z-index:100;" id="signup" class="button green_button" href="/home/sample">Start Now</a>
+		</li>
+
+		<script>
+		$('#start_now').click( function() {
+			analytics.track('Start Now');
+		});
+		</script>					
+	</ul>
+</div>	
+</div> 		
 
 
 

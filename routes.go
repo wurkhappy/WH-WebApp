@@ -65,12 +65,35 @@ var landingTpl = template.Must(template.ParseFiles(
 	"templates/landing5.html",
 ))
 
+var landingTpl6 = template.Must(template.ParseFiles(
+	"templates/_baseLanding.html",
+	"templates/landing6.html",
+))
+
+var landingsPages = []string{"5", "6"}
+
 func random(min, max int) int {
 	rand.Seed(time.Now().Unix())
 	return rand.Intn(max-min) + min
 }
 
 func landing(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "https://d3kq8dzp7eezz0.cloudfront.net")
+	// pageNumberCookie, err := req.Cookie("WH_landing")
+	// var pageNumber string
+	// if err == nil {
+	// 	pageNumber = pageNumberCookie.Value
+	// } else {
+	// 	pageNumber = landingsPages[random(0, 2)]
+	// 	http.SetCookie(w, &http.Cookie{Name: "WH_landing", Value: pageNumber})
+	// }
+	// var landingTpl *template.Template
+	// if pageNumber == "5" || pageNumber == "" {
+	// 	landingTpl = landingTpl5
+	// } else if pageNumber == "6" {
+	// 	landingTpl = landingTpl6
+	// }
+
 	session := getSession(req)
 
 	m := map[string]interface{}{
@@ -80,11 +103,6 @@ func landing(w http.ResponseWriter, req *http.Request) {
 		"CSSversion": handlers.CSSversion,
 		"signedIn":   session.Values["signedIn"],
 	}
-
-	// var landingTpl = template.Must(template.ParseFiles(
-	// 	"templates/_baseLanding.html",
-	// 	"templates/landing6.html",
-	// ))
 
 	landingTpl.Execute(w, m)
 }

@@ -5,6 +5,15 @@ var cards = {{.cards}}
 var returnURL = {{.returnURL}}
 </script>
 <script type="text/javascript" src="https://js.balancedpayments.com/1.1/balanced.js"></script>
+
+{{if .production}}
+<script>
+    $( document ).ready(function() {
+       analytics.page('Account');
+    });
+  </script>
+{{end}}
+
 <div id="mainContainer"> <!-- div for main container -->
   <!-- Title Header -->
   <div class="clear header">

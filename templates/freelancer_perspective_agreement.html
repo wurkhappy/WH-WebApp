@@ -11,6 +11,13 @@ var cards = {{.cards}};
 var signedIn = {{.signedIn}}
 var Sample = {{.sample}}
 </script>
+{{if .production}}
+<script>
+    $( document ).ready(function() {
+       analytics.page('Agreement');
+    });
+  </script>
+{{end}}
 <script type="text/javascript" src="https://js.balancedpayments.com/1.1/balanced.js"></script>
 
 <div id="content" class="content" style="min-height:500px;">
