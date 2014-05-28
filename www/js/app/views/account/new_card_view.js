@@ -36,7 +36,6 @@ define(['jquery', 'backbone', 'handlebars', 'toastr', 'hbs!templates/account/new
                 this.$('select').on('change', _.bind(this.updateFields, this));
             },
             updateFields: function(event) {
-                console.log("update card");
                 this.card[event.target.name] = event.target.value;
             },
             updatePostalCode: function(event) {
