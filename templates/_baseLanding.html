@@ -64,6 +64,25 @@
 
   <script>
     if (production) {
+        analytics.initialize({
+            'Google Analytics': {
+              trackingId: 'UA-24101674-3'
+            },
+            'Mixpanel': {
+              token: '4333aa84dfd94220eef310c77eab7372',
+              nameTag : true,
+              people  : false
+            },
+            'Intercom': {
+              appId: '76f9a1ae4cd19d1eb4555da098e1240d1d10905d',
+              activator : '#IntercomDefaultWidget'
+            },
+            'CrazyEgg': {
+              accountNumber: '00197985'
+            }
+          });
+
+        
         $( document ).ready(function() {
             
                 var pricing = $('#pricing');
