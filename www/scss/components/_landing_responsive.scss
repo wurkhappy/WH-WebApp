@@ -1,32 +1,3 @@
-/*@media all and (max-width: 515px) {
-  .landing_admin_container {
-  	width: 40%;
-  }
-  .create_account {
-  	display: none;
-  }
-
-  .benefit_container {
-    width: 100%;
-    float:left;
-  }
-}
-
-@media all and (min-width: 1160px) {
-	.benefits_container {
-		width: 1160px;
-		margin: 0 auto;
-	}
-
-  .benefit_container {
-    width: 320px;
-    float:left;
-  }
-}*/
-
-
-// New Responsive 3/29
-
 @media all and (max-width: 590px) {
   .landing_admin_container {
     width: 100%;
@@ -124,6 +95,12 @@
     margin: 0 auto;
     float:none;
   }
+
+  .benefit_image_container img {
+    width: 70%;
+  }
+  
+
 }
 
 @media all and (max-width: 1000px) {
@@ -174,6 +151,14 @@
 
   .pricing_landing_container {
     height: 900px;
+  }
+
+  #pricing_info_container {
+    min-height: 783px;
+  }
+
+  .pricing_box_inside {
+    margin-left: 0;
   }
 
   #pricing_toggle_container {
@@ -234,10 +219,6 @@
 
   .pricing_box {
     width: 901px;
-  }
-
-  #pricing_info_container {
-    min-height: 435px;
   }
 
   .pricing_box_inside {
