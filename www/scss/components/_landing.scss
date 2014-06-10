@@ -60,6 +60,26 @@
   text-transform: capitalize;
   &:hover {
     border: 3px solid $orange;
+    color: $orange;
+  }
+}
+
+.signup_button {
+  padding: 8px 15px;
+  border: 3px solid $green;
+  color: $green;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 24px;
+  text-transform: capitalize;
+  margin-right: 195px;
+  width: 200px;
+  &:visited {
+    color: $green;
+  }
+  &:hover {
+    border: 3px solid $orange;
+    color: $orange;
   }
 }
 
@@ -350,7 +370,7 @@
 }
 
 .workflow_hover_heading {
-  color:white;
+  color: white;
   margin-bottom:10px;
   text-align:center;
   font-family:museo_sans;
