@@ -22,11 +22,15 @@ define(['backbone', 'flying-focus', 'toastr', 'collections/agreements', 'collect
                 this.currentUser = new UserModel(window.currentUser);
                 this.numberOfTimesVisited = window.numberOfTimesVisited;
                 FlyingFocus();
+                $('#sampleCreateAccountLink').show();
+                $('#logOut').hide();
+
                 if (window.production) {
                     $("#create_agreement").click(function(event) {
                         analytics.track('Potential Client Create Agreement');
                     });
                 }
+
                 $('a:not(.clickable)').click(function(event) {
                     event.preventDefault();
                     toastr.error('Please create an account for full access');

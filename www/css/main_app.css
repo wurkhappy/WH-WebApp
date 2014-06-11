@@ -3727,7 +3727,7 @@ td.progress {
 #getting_started_progress_container {
   position: absolute;
   top: 5px;
-  left: 54%;
+  left: 52%;
   margin-left: -7%;
   background: white;
   padding: 10px 20px;
@@ -3765,6 +3765,11 @@ td.progress {
   margin-top: 20px;
   border: 1px solid whitesmoke;
   box-shadow: 0px 0px 1px 1px gray;
+  display: none;
+}
+
+/* line 42, ../scss/components/_sample_home.scss */
+#sampleCreateAccountLink {
   display: none;
 }
 
