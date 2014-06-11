@@ -88,9 +88,6 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
 
                 }
 
-
-                
-
             }, 1000, true)
 
         });

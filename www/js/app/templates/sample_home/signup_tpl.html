@@ -4,7 +4,7 @@
 </header>
 
 <article id="welcome_signup">
-  <form action="/account/create" method="POST" accept-charset="utf-8" id="login_form" class="js-form login_form create_account_form">
+  <form parsley-validate action="/account/create" method="POST" accept-charset="utf-8" id="login_form" class="js-form login_form create_account_form">
     <fieldset>
       <div class="server_error" id="server_error"></div>
       <label class="clear" id="firstName-label" for="firstName">First Name: </label>
@@ -23,7 +23,7 @@
       <input data-required="true" data-trigger="change" type="password" name="password" value="" id="password" class="text-field" required id="password-validation" />
     </fieldset>
     {{#if showHaveAccount}}
-    <span class="helper_text">Already have an account? <a href="#login" title="login">Login</a>.</span>
+    <span class="helper_text">Already have an account? <a href="/#login" title="login">Login</a>.</span>
     {{/if}}
     <div>
       <input type="submit"
