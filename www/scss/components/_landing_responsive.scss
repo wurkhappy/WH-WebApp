@@ -29,7 +29,13 @@
     width: 200px;
     padding: 8px 15px;
     margin-right:0;
-    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .landing_signup_button_container {
+    clear:both;
+    width: 200px;
+    margin: 0;
   }
 
   .landing_footer {
@@ -59,6 +65,18 @@
     margin-top: -180px;
   } */
 
+}
+
+@media all and (min-width: 591px) and (max-width: 958px) {
+  .signup_button {
+    margin-top:20px;
+    margin-right: 20px;
+  }
+  .landing_signup_button_container {
+    clear:both;
+    width: 200px;
+    margin: 0;
+  }
 }
 
 @media all and (max-width: 970px) {

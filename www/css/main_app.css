@@ -3562,8 +3562,6 @@ div.faqcontent h2 {
 .login_button {
   margin-top: 0;
   width: 200px;
-  left: 50%;
-  margin-left: -150px;
 }
 
 /* line 90, ../scss/components/_buttons.scss */
