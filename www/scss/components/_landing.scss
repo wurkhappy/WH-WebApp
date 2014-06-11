@@ -9,6 +9,14 @@
   color: $blue;
 }
 
+.about_section_container {
+  background:$blue;
+  padding: 20px 0 20px 0;
+  color: white;
+  position:relative;
+  padding:60px;
+}
+
 .about_container {
   max-width: 900px;
   overflow: hidden;
@@ -493,7 +501,6 @@
 .features_container {
   max-width:900px;
   margin:0 auto;
-  overflow:hidden;
 }
 
 .feature {
