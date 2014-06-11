@@ -2650,7 +2650,7 @@ label {
 @media all and (max-width: 775px) {
   /* line 93, ../scss/components/_landing_responsive.scss */
   .feature {
-    width: 100%;
+    width: 95%;
   }
 
   /* line 97, ../scss/components/_landing_responsive.scss */
