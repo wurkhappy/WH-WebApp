@@ -25,6 +25,13 @@
     margin:0 auto;
   }
 
+  .signup_button {
+    width: 200px;
+    padding: 8px 15px;
+    margin-right:0;
+    margin-bottom: 20px;
+  }
+
   .landing_footer {
     bottom: -356px;
   }
@@ -42,7 +49,7 @@
     font-size: 14px;
   }
 
-  .case_study_description_container {
+ /* .case_study_description_container {
     margin-top:-100px;
     top:200px;
   }
@@ -50,7 +57,7 @@
   #last_case_study {
     top: 275px;
     margin-top: -180px;
-  }
+  } */
 
 }
 
@@ -135,6 +142,10 @@
 
   .case_study img {
     width: 100%;
+  }
+
+  .workflow_hover_heading {
+    color: hsl(38, 100%, 50%);
   }
 
 }
