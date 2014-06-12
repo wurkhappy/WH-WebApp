@@ -3562,8 +3562,6 @@ div.faqcontent h2 {
 .login_button {
   margin-top: 0;
   width: 200px;
-  left: 50%;
-  margin-left: -150px;
 }
 
 /* line 90, ../scss/components/_buttons.scss */
@@ -3729,7 +3727,7 @@ td.progress {
 #getting_started_progress_container {
   position: absolute;
   top: 5px;
-  left: 54%;
+  left: 52%;
   margin-left: -7%;
   background: white;
   padding: 10px 20px;
@@ -3767,6 +3765,11 @@ td.progress {
   margin-top: 20px;
   border: 1px solid whitesmoke;
   box-shadow: 0px 0px 1px 1px gray;
+  display: none;
+}
+
+/* line 42, ../scss/components/_sample_home.scss */
+#sampleCreateAccountLink {
   display: none;
 }
 
@@ -6155,16 +6158,17 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 69, ../scss/components/_footer.scss */
 .landing_footer_login {
-  bottom: 80px;
+  position: absolute;
+  bottom: 60px;
 }
 
-/* line 73, ../scss/components/_footer.scss */
+/* line 74, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 78, ../scss/components/_footer.scss */
+/* line 79, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;
@@ -6183,7 +6187,8 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 15, ../scss/components/_copyright.scss */
 .copyright_login {
-  bottom: 0;
+  bottom: -28px;
+  position: absolute;
 }
 
 /* line 1, ../scss/components/_pricing.scss */
@@ -6358,28 +6363,29 @@ progress::-webkit-progress-value, progress.yellow_progress {
   margin-left: -250px;
   background: #008bc7;
   padding-bottom: 10px;
+  color: white;
 }
 
-/* line 151, ../scss/components/_pricing.scss */
+/* line 152, ../scss/components/_pricing.scss */
 a.pricing_toggle {
   color: white;
   float: left;
 }
 
-/* line 156, ../scss/components/_pricing.scss */
+/* line 157, ../scss/components/_pricing.scss */
 a.active {
   color: #ffa200;
   font-weight: 900;
 }
 
-/* line 161, ../scss/components/_pricing.scss */
+/* line 162, ../scss/components/_pricing.scss */
 #pricing_toggle_container {
   max-width: 1198px;
   margin: 0 auto;
   padding-left: 29px;
 }
 
-/* line 167, ../scss/components/_pricing.scss */
+/* line 168, ../scss/components/_pricing.scss */
 #pricing_info_container {
   min-height: 310px;
 }

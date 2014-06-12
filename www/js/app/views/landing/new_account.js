@@ -3,10 +3,10 @@
  */
 
 define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing/new_account', 'models/user',
-        'views/ui-modules/modal', 'views/agreement/read/modals/email_subscribe', 'hbs!templates/landing/email'
+        'views/ui-modules/modal', 'views/agreement/read/modals/email_subscribe', 'hbs!templates/landing/signup_error'
     ],
 
-    function(Backbone, Handlebars, parsley, ajaxChimp, newAccountTemplate, UserModel, Modal, EmailModal, emailTemplate) {
+    function(Backbone, Handlebars, parsley, ajaxChimp, newAccountTemplate, UserModel, Modal, EmailModal, errorTemplate) {
 
         'use strict';
 
@@ -15,7 +15,7 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
             // Compile our footer template.
             template: newAccountTemplate,
             model: new UserModel(),
-            emailTemplate: emailTemplate,
+            errorTemplate: errorTemplate,
 
             events: {
                 "blur input": "updateModel",
@@ -67,19 +67,26 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
             submitModel: _.debounce(function(event) {
 
                 var that = this;
-                this.model.createAccount({}, {
-                    success: function(model, response) {
-                        if (window.production) {
-                            analytics.track('New Sign Up');
-                        }
-                        that.trigger('saveSuccess');
-                    },
-                    error: function(model, response) {
-                        $('#login_form').html(that.emailTemplate());
-                        $('.email_signup').fadeIn("slow");
 
-                    }
-                })
+                $('.login_form').parsley('validate');
+                var isValid = $('.proposal_form').parsley('isValid');
+
+                if (isValid) {
+                    this.model.createAccount({}, {
+                        success: function(model, response) {
+                            if (window.production) {
+                                analytics.track('New Sign Up');
+                            }
+                            that.trigger('saveSuccess');
+                        },
+                        error: function(model, response) {
+                            $('#login_form').html(that.errorTemplate());
+                            $('.email_signup').fadeIn("slow");
+
+                        }
+                    })
+
+                }
 
             }, 1000, true)
 
