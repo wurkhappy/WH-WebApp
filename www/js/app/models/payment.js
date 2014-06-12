@@ -26,12 +26,23 @@ define(['backbone', 'backbone-relational', 'underscore', 'models/payment_item', 
                         key["amountDue"] = parseFloat(key["amountDue"]);
                     }
                     if (_.has(key, "dateExpected")) {
-                        key["dateExpected"] = moment(key["dateExpected"]);
+                        if (!key["dateExpected"] || key["dateExpected"] === "0001-01-01T00:00:00Z") {
+                            delete key["dateExpected"];
+                            delete this.attributes["dateExpected"];
+                        } else {
+                            key["dateExpected"] = moment(key["dateExpected"]);
+                        }
                     }
                 } else if (key === 'amountDue') {
                     value = parseFloat(value);
                 } else if (key === 'dateExpected') {
-                    value = (typeof value === "string") ? moment(value) : value;
+                    if (!value || value === "0001-01-01T00:00:00Z") {
+                        key = null;
+                        value = null;
+                        delete this.attributes["dateExpected"];
+                    } else {
+                        value = (typeof value === "string") ? moment(value) : value;
+                    }
                 }
 
                 Backbone.RelationalModel.prototype.set.apply(this, [key, value, options]);
