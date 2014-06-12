@@ -9,6 +9,14 @@
   color: $blue;
 }
 
+.about_section_container {
+  background:$blue;
+  padding: 20px 0 20px 0;
+  color: white;
+  position:relative;
+  padding:60px;
+}
+
 .about_container {
   max-width: 900px;
   overflow: hidden;
@@ -72,7 +80,7 @@
   font-size: 21px;
   line-height: 24px;
   text-transform: capitalize;
-  margin-right: 195px;
+  margin-right: 20px;
   width: 200px;
   &:visited {
     color: $green;
@@ -140,7 +148,7 @@
 .headline_container {
   margin-bottom: 40px;
   padding-bottom: 80px;
-  padding-top: 40px;
+  padding-top: 80px;
   margin-bottom:0;
 }
 
@@ -493,7 +501,6 @@
 .features_container {
   max-width:900px;
   margin:0 auto;
-  overflow:hidden;
 }
 
 .feature {

@@ -67,19 +67,26 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/sample_
             submitModel: _.debounce(function(event) {
 
                 var that = this;
-                this.model.createAccount({}, {
-                    success: function(model, response) {
-                        if (window.production) {
-                            analytics.track('Welcome - Sign Up');
-                        }
-                        that.trigger('saveSuccess');
-                    },
-                    error: function(model, response) {
-                        $('#login_form').html(that.emailTemplate());
-                        $('.email_signup').fadeIn("slow");
+                
+                $('.login_form').parsley('validate');
+                var isValid = $('.proposal_form').parsley('isValid');
 
-                    }
-                })
+                if (isValid) {
+                    this.model.createAccount({}, {
+                        success: function(model, response) {
+                            if (window.production) {
+                                analytics.track('New Sign Up');
+                            }
+                            that.trigger('saveSuccess');
+                        },
+                        error: function(model, response) {
+                            $('#login_form').html(that.errorTemplate());
+                            $('.email_signup').fadeIn("slow");
+
+                        }
+                    })
+
+                }
 
             }, 1000, true)
 
