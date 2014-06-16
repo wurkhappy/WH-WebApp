@@ -68,6 +68,7 @@ $legacy-support-for-mozilla: false !default;
 @import "components/create_estimate";
 @import "components/review_agreement";
 @import "components/create_work_item";
+@import "components/invoice";
 @import "components/messages";
 @import "components/agreement_history";
 @import "components/account";
