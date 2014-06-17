@@ -6177,17 +6177,16 @@ progress::-webkit-progress-value, progress.yellow_progress {
 
 /* line 69, ../scss/components/_footer.scss */
 .landing_footer_login {
-  position: absolute;
-  bottom: 60px;
+  margin-top: 100px;
 }
 
-/* line 74, ../scss/components/_footer.scss */
+/* line 75, ../scss/components/_footer.scss */
 .landing_footer_column_container {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 79, ../scss/components/_footer.scss */
+/* line 80, ../scss/components/_footer.scss */
 .landing_footer_column {
   width: 25%;
   float: left;
@@ -6202,12 +6201,6 @@ progress::-webkit-progress-value, progress.yellow_progress {
   font-size: 13px;
   color: #545a60;
   text-align: center;
-}
-
-/* line 15, ../scss/components/_copyright.scss */
-.copyright_login {
-  bottom: -28px;
-  position: absolute;
 }
 
 /* line 1, ../scss/components/_pricing.scss */
