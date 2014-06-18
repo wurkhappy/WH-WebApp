@@ -24,10 +24,8 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                 this.model = options.agreement;
                 this.collection = options.tasks;
 
-                this.router = options.router;
-                this.deposit = this.collection.findDeposit();
-                this.bankAccounts = options.user.get("bank_accounts");
-                this.creditCards = options.user.get("cards");
+                this.listenTo(this.collection, "add", this.updateModelsIndex);
+                this.listenTo(this.collection, "remove", this.updateModelsIndex);
                 if (this.collection.length === 0) {
                     this.collection.add({})
                 };
@@ -43,7 +41,6 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
             },
             renderModel: function() {
                 var data = {};
-                if (this.deposit) data = this.deposit.toJSON();
 
                 //if credit card & bank transfer payment methods are set by default, add them to data object to be rendered
                 // in estimate template
@@ -65,6 +62,11 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                     return;
                 }
                 itemView.$el.insertBefore(collectionView.$('#bottomDiv'));
+            },
+            updateModelsIndex: function() {
+                this.collection.each(function(model) {
+                    model.set("index", model.collection.indexOf(model));
+                });
             }
         });
 

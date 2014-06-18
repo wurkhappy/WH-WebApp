@@ -57,7 +57,11 @@ define(['backbone', 'handlebars', 'underscore', 'marionette',
             },
             addService: function(event) {
                 event.preventDefault();
-                this.tasks.add({});
+                this.tasks.add({
+                    "index": this.tasks.length
+                }, {
+                    at: this.tasks.length,
+                });
             },
             debounceSaveAndContinue: function(event) {
                 event.preventDefault();
