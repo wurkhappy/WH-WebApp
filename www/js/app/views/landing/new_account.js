@@ -69,7 +69,7 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
                 var that = this;
 
                 $('.login_form').parsley('validate');
-                var isValid = $('.proposal_form').parsley('isValid');
+                var isValid = $('.login_form').parsley('isValid');
 
                 if (isValid) {
                     this.model.createAccount({}, {
