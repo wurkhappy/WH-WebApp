@@ -38,7 +38,11 @@ func main() {
 	handlers.CSSversion = *csssversion
 	handlers.Production = *production
 
-	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
+	store, er := redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
+	if er != nil {
+		panic(er)
+	}
+
 	defer store.Close()
 	redisPool = store.Pool
 
