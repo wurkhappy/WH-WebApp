@@ -72,12 +72,11 @@ define(['backbone', 'handlebars', 'underscore', 'marionette', 'toastr', 'parsley
                     vMax: '100000'
                 });
             },
-            updateModelNumbers: function() {
-                this.collection.each(function(model) {
-                    model.set("number", model.collection.indexOf(model));
-                });
-                console.log(this.collection);
-            }
+        updateModelNumbers: function() {
+            this.collection.each(function(model) {
+                model.set("number", model.collection.indexOf(model));
+            });
+        }
         });
 
         return PaymentView;

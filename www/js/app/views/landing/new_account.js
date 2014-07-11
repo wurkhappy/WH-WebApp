@@ -2,11 +2,11 @@
  * Login View.
  */
 
-define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing/new_account', 'models/user',
+define(['backbone', 'handlebars', 'parsley', 'hbs!templates/landing/new_account', 'models/user',
         'views/ui-modules/modal', 'views/agreement/read/modals/email_subscribe', 'hbs!templates/landing/signup_error'
     ],
 
-    function(Backbone, Handlebars, parsley, ajaxChimp, newAccountTemplate, UserModel, Modal, EmailModal, errorTemplate) {
+    function(Backbone, Handlebars, parsley, newAccountTemplate, UserModel, Modal, EmailModal, errorTemplate) {
 
         'use strict';
 
@@ -54,41 +54,36 @@ define(['backbone', 'handlebars', 'parsley', 'ajaxchimp', 'hbs!templates/landing
                 this.submitModel(event);
             },
 
-            registerEmail: function(event) {
-                //$('#mc-embedded-subscribe-form').ajaxChimp();
-            },
-
             debounceSubmitModel: function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-                this.submitModel();
+                _.debounce(this.submitModel(), 1000, true);
             },
 
-            submitModel: _.debounce(function(event) {
+            submitModel: function(event) {
 
                 var that = this;
 
-                $('.login_form').parsley('validate');
-                var isValid = $('.proposal_form').parsley('isValid');
+                this.$('.login_form').parsley('validate');
+                var isValid = this.$('.login_form').parsley('isValid');
+                if (!isValid) return false;
 
-                if (isValid) {
-                    this.model.createAccount({}, {
-                        success: function(model, response) {
-                            if (window.production) {
-                                analytics.track('New Sign Up');
-                            }
-                            that.trigger('saveSuccess');
-                        },
-                        error: function(model, response) {
-                            $('#login_form').html(that.errorTemplate());
-                            $('.email_signup').fadeIn("slow");
-
+                this.model.createAccount({}, {
+                    success: function(model, response) {
+                        if (window.production) {
+                            analytics.track('New Sign Up');
                         }
-                    })
+                        that.trigger('saveSuccess');
+                    },
+                    error: function(model, response) {
+                        that.$('#login_form').html(that.errorTemplate());
+                        that.$('.email_signup').fadeIn("slow");
 
-                }
+                    }
+                })
+                return true;
 
-            }, 1000, true)
+            },
 
         });
 

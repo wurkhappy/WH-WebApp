@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state', 'views/agreement/read/modals/payment_request', 'views/ui-modules/modal'],
+define(['backbone', 'handlebars', 'views/agreement/read/header_states/base_state', 'views/agreement/read/modals/payment_request', 'views/ui-modules/invoice_modal'],
 
     function(Backbone, Handlebars, BaseState, PaymentRequestModal, Modal) {
 
