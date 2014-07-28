@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
     'use strict';
 
-    // Configurable paths and other variables. 
+    // Configurable paths and other variables.
     var config = {
         webroot: 'www',
         dist: 'www-built',
@@ -186,8 +186,8 @@ module.exports = function(grunt) {
                         },
 
 
-                        // NOTE: If you're building a Single Page Application, you can combine the shim 
-                        // config with your page logic, resulting in only one http request (plus requirejs itself), 
+                        // NOTE: If you're building a Single Page Application, you can combine the shim
+                        // config with your page logic, resulting in only one http request (plus requirejs itself),
                         // like so:
 
                         // Otherwise if you have multiple pages, do the following:
@@ -266,7 +266,7 @@ module.exports = function(grunt) {
                     src: [ // Actual pattern(s) to match.
                         'css/*.css', // Process only main css files in CSS root.
                         'js/app/*.js', // Process only main js files in JS app root.
-                        'js/config.js' // Process also the common layer. 
+                        'js/config.js' // Process also the common layer.
                     ],
                     dest: '<%= config.dist %>/', // Destination path prefix.
                     nonull: false // Set nonull to true if you want the concat task to warn if a given file is missing or invalid.
@@ -386,7 +386,7 @@ module.exports = function(grunt) {
         //'csslint',
         //'jshint',
         'connect',
-        'karma:unit', // On change, run the tests specified in the unit target using the already running karma server.
+        //'karma:unit', // On change, run the tests specified in the unit target using the already running karma server.
         'watch'
     ]);
 

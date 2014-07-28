@@ -25,7 +25,7 @@
         "analytics": "1.5.2",
         "noty": "2.1.0",
         "intro.js": "0.5.0",
-        "ckeditor": "#stable/standard",
+        "ckeditor": "~4.4.3",
         "jquery-autogrow": "latest",
         "hbs": "0.4.0",
         "toastr": "2.0.1",
