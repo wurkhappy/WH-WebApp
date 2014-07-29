@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
     'use strict';
 
-    // Configurable paths and other variables. 
+    // Configurable paths and other variables.
     var config = {
         webroot: 'www',
         dist: 'www-built',
@@ -80,30 +80,12 @@ module.exports = function(grunt) {
                 // Reload assets live in the browser.
                 livereload: 35729 // Default livereload listening port.
             },
-
-            //html: {
-            //    files: ['<%= config.webroot %>/html/**/*.html'],
-            //    tasks: [
-            //        'includereplace'
-            //    ]
-            //},
             css: {
                 files: ['<%= config.webroot %>/scss/**/*.scss'],
                 tasks: [
                     'compass',
                     //'csslint'
                 ]
-            },
-            //js: {
-            //    files: ['<%= config.webroot %>/js/app/**/*.js'],
-            //    tasks: [
-            //        'jshint'
-            //    ]
-            //},
-            // Run unit tests with karma (server needs to be already running).
-            karma: {
-                files: ['<%= config.testroot %>/spec/*Spec.js'],
-                tasks: ['karma:unit:run'] //NOTE the :run flag
             }
         },
 
@@ -169,136 +151,6 @@ module.exports = function(grunt) {
 
 
         /*
-         * Compile YUIDoc Documentation.
-         */
-        yuidoc: {
-            compile: {
-                options: {
-                    paths: ['<%= config.webroot %>/js/app/'],
-                    outdir: '<%= config.dist %>/docs/'
-                },
-                name: '<%= pkg.name %>',
-                description: '<%= pkg.description %>',
-                version: '<%= pkg.version %>'
-            }
-        },
-
-
-        /*
-         * Grunt task to include files and replace variables. Allows for parameterized includes.
-         */
-        includereplace: {
-            dist: {
-                options: {
-                    // Global variables available in all files.
-                    globals: {
-                        tstamp: '<%= config.tstamp %>'
-                    },
-                    // Optional variable prefix & suffix.
-                    prefix: '<!-- @',
-                    suffix: ' -->'
-                },
-                // Source-destination file mappings where the property name is the 
-                // destination directory, and its value is the source file to 
-                // perform replacements and includes with.
-                files: [{
-                    '<%= config.webroot %>/landing/': '<%= config.webroot %>/html/landing/landing.html'
-                }, {
-                    '<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/privacy.html'
-                }, {
-                    '<%= config.webroot %>/legal': '<%= config.webroot %>/html/legal/terms.html'
-                }, {
-                    '<%= config.webroot %>/help': '<%= config.webroot %>/html/help/faq.html'
-                }, {
-                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/styleguide.html'
-                }, {
-                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/components.html'
-                }, {
-                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/colors.html'
-                }, {
-                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/elements.html'
-                }, {
-                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/style-tile.html'
-                }, {
-                    '<%= config.webroot %>/styleguide': '<%= config.webroot %>/html/styleguide/typography.html'
-                }, {
-                    '<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/signup.html'
-                }, {
-                    '<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/personal.html'
-                }, {
-                    '<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/password.html'
-                }, {
-                    '<%= config.webroot %>/signup': '<%= config.webroot %>/html/app/signup/payment.html'
-                }, {
-                    '<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/bankaccount.html'
-                }, {
-                    '<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/creditcard.html'
-                }, {
-                    '<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/password.html'
-                }, {
-                    '<%= config.webroot %>/account': '<%= config.webroot %>/html/app/account/personal.html'
-                }, {
-                    '<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/client_home.html'
-                }, {
-                    '<%= config.webroot %>/home': '<%= config.webroot %>/html/app/home/freelancer_home.html'
-                }, {
-                    '<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/client_perspective.html'
-                }, {
-                    '<%= config.webroot %>/active_agreement': '<%= config.webroot %>/html/app/active_agreement/freelancer_perspective.html'
-                }, {
-                    '<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/scopeofwork.html'
-                }, {
-                    '<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/paymentschedule.html'
-                }, {
-                    '<%= config.webroot %>/create_agreement': '<%= config.webroot %>/html/app/create_agreement/recipientdetails.html'
-                }]
-            }
-        },
-
-
-        /*
-         * A mystical CSS icon solution.
-         * See http://filamentgroup.com/lab/grunticon/.
-         */
-        grunticon: {
-            makeicons: {
-                options: {
-
-                    // Required config.
-                    src: '<%= config.webroot %>/img/icons',
-                    dest: '<%= config.webroot %>/css/components/modules/icons',
-
-                    // Optional grunticon config properties:
-
-                    // CSS filenames.
-                    datasvgcss: 'icons.data.svg.css',
-                    datapngcss: 'icons.data.png.css',
-                    urlpngcss: 'icons.fallback.css',
-
-                    // Preview HTML filename.
-                    previewhtml: 'preview.html',
-
-                    // Grunticon loader code snippet filename.
-                    loadersnippet: 'grunticon.loader.txt',
-
-                    // Folder name (within dest) for png output.
-                    pngfolder: 'png/',
-
-                    // Prefix for CSS classnames.
-                    cssprefix: 'icon-',
-
-                    // CSS file path prefix - this defaults to "/" and will be 
-                    // placed before the "dest" path when stylesheets are loaded.
-                    // This allows root-relative referencing of the CSS. If you 
-                    // don't want a prefix path, set to to "".
-                    cssbasepath: '/'
-
-                }
-            }
-        },
-
-
-        /*
          * Optimize RequireJS projects using r.js.
          */
         requirejs: {
@@ -334,8 +186,8 @@ module.exports = function(grunt) {
                         },
 
 
-                        // NOTE: If you're building a Single Page Application, you can combine the shim 
-                        // config with your page logic, resulting in only one http request (plus requirejs itself), 
+                        // NOTE: If you're building a Single Page Application, you can combine the shim
+                        // config with your page logic, resulting in only one http request (plus requirejs itself),
                         // like so:
 
                         // Otherwise if you have multiple pages, do the following:
@@ -382,25 +234,6 @@ module.exports = function(grunt) {
             }
         },
 
-
-        /*
-         * Grunt plugin for karma test runner.
-         */
-        karma: {
-            unit: {
-                configFile: 'karma.conf.js',
-                background: true // Don't block subsequent grunt tasks.
-            },
-            // Continuous integration mode: run tests once in PhantomJS browser.
-            // Run this with `grunt karma:continuous`
-            continuous: {
-                configFile: 'karma.conf.js',
-                singleRun: true,
-                browsers: ['PhantomJS']
-            }
-        },
-
-
         /*
          * Minify PNG and JPEG images using OptiPNG and jpegtran.
          */
@@ -433,7 +266,7 @@ module.exports = function(grunt) {
                     src: [ // Actual pattern(s) to match.
                         'css/*.css', // Process only main css files in CSS root.
                         'js/app/*.js', // Process only main js files in JS app root.
-                        'js/config.js' // Process also the common layer. 
+                        'js/config.js' // Process also the common layer.
                     ],
                     dest: '<%= config.dist %>/', // Destination path prefix.
                     nonull: false // Set nonull to true if you want the concat task to warn if a given file is missing or invalid.
@@ -513,6 +346,21 @@ module.exports = function(grunt) {
                     ext: '.css'
                 }]
             }
+        },
+        jasmine: {
+            dist: {
+                options: {
+                    specs: 'www/js/spec/**/*Spec.js',
+                    helpers: ['www/js/lib/jasmine-ajax/lib/mock-ajax.js'],
+                    template: require('grunt-template-jasmine-requirejs'),
+                    templateOptions: {
+                        requireConfigFile: ['www/js/config.js'],
+                        requireConfig: {
+                            baseUrl: 'www/js'
+                        }
+                    }
+                }
+            }
         }
 
     });
@@ -525,14 +373,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-yuidoc');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-include-replace');
-    grunt.loadNpmTasks('grunt-grunticon');
-    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
 
     // The default (DEV) task can be run just by typing "grunt" on the command line.
     grunt.registerTask('default', [
@@ -541,7 +386,7 @@ module.exports = function(grunt) {
         //'csslint',
         //'jshint',
         'connect',
-        'karma:unit', // On change, run the tests specified in the unit target using the already running karma server.
+        //'karma:unit', // On change, run the tests specified in the unit target using the already running karma server.
         'watch'
     ]);
 
@@ -552,22 +397,9 @@ module.exports = function(grunt) {
         'csslint',
         //'jshint',
         'connect',
-        //'karma:continuous', // Run the tests specified in the continuous target using the already running karma server.
         'requirejs',
-        //'yuidoc',
-        // 'imagemin',
         'concat',
         'compress'
-    ]);
-
-    grunt.registerTask('rjs', [
-        'requirejs',
-    ]);
-
-
-    // The icons generator would be run by typing "grunt icons" on the command line.
-    grunt.registerTask('icons', [
-        'grunticon'
     ]);
 
 };

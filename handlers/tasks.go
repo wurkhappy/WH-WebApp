@@ -11,7 +11,7 @@ import (
 
 func CreateTasks(w http.ResponseWriter, req *http.Request, session *sessions.Session) {
 	vars := mux.Vars(req)
-
+	
 	var userID string
 	if uID, ok := session.Values["id"]; ok {
 		userID = uID.(string)

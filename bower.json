@@ -3,9 +3,9 @@
     "version": "0.0.1",
     "main": "",
     "ignore": [
-    "**/.*",
-    "**/*.txt",
-    "node_modules"
+        "**/.*",
+        "**/*.txt",
+        "node_modules"
     ],
     "dependencies": {
         "backbone": "~1.1.0",
@@ -25,7 +25,7 @@
         "analytics": "1.5.2",
         "noty": "2.1.0",
         "intro.js": "0.5.0",
-        "ckeditor": "#stable/standard",
+        "ckeditor": "~4.4.3",
         "jquery-autogrow": "latest",
         "hbs": "0.4.0",
         "toastr": "2.0.1",
@@ -35,6 +35,7 @@
         "chai": "~1.8.1",
         "mocha": "~1.15.1",
         "sinonjs": "~1.7.3",
+        "jasmine-ajax": "v2.0.0.rc2",
         "skrollr": "~0.6.21"
     }
 }

@@ -13,10 +13,13 @@ define(['backbone', 'underscore', 'models/task', 'collections/scope_items'],
             // Reference to this collection's model.
             model: Model,
             comparator: function(model) {
-                if (!model.get("dateExpected")) {
-                    return 10000000000000000; //some ridiculously high number so new tasks are sorted to the back
+                if (!model.get("index") && model.get("index") !== 0) {
+                    if (!model.get("dateExpected")) {
+                        return 10000000000000000; //some ridiculously high number so new tasks are sorted to the back
+                    }
+                    return model.get("dateExpected").valueOf();
                 }
-                return model.get("dateExpected").valueOf();
+                return model.get("index");
             },
             getTotalAmount: function() {
                 return this.reduce(function(memo, value) {

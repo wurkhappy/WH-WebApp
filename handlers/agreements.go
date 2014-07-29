@@ -540,3 +540,4 @@ func GetSample(w http.ResponseWriter, req *http.Request, session *sessions.Sessi
 
 	tpl.Execute(w, m)
 }
+
