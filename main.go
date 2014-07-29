@@ -39,12 +39,12 @@ func main() {
 	handlers.CSSversion = *csssversion
 	handlers.Production = *production
 
-	var er error
-	store, er = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
-	if er != nil {
+	//var er error
+	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
+	/*if er != nil {
 		log.Println("error!", er)
 		panic(er)
-	}
+	}*/
 
 	//defer store.Close()
 	redisPool = store.Pool
