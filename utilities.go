@@ -11,8 +11,6 @@ import (
 	"log"
 	"net/http"
 	"time"
-
-	//"github.com/davecgh/go-spew/spew"
 )
 
 func checkForValidSignature(req *http.Request, c redis.Conn) (valid bool, userID string, err error) {

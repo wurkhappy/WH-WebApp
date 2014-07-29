@@ -9,8 +9,6 @@ import (
 	"html/template"
 	"net/http"
 	"time"
-
-	// /"github.com/davecgh/go-spew/spew"
 )
 
 var UserService string = config.UserService
@@ -85,12 +83,8 @@ func sendServiceRequestWithTimeout(method, service, path string, body []byte, ti
 		"Path":   path,
 		"Body":   body,
 	}
-	req, err := json.Marshal(m)
-	if err != nil {
-		fmt.Printf("Error : %s", err)
-	}
+	req, _ := json.Marshal(m)
 	request := [][]byte{req, []byte(userID)}
-
 	reply := client.Send([]byte(service), request)
 	if len(reply) == 0 {
 		return nil, 404

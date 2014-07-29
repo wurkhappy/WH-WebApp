@@ -3,7 +3,7 @@ package main
 import (
 	// "bytes"
 	// "encoding/json"
-	//"fmt"
+	// "fmt"
 	"github.com/boj/redistore"
 	"github.com/garyburd/redigo/redis"
 	"github.com/gorilla/mux"
@@ -16,7 +16,6 @@ import (
 	"flag"
 	"log"
 	"strings"
-	//"github.com/davecgh/go-spew/spew"
 )
 
 //for hashing cookies
@@ -39,14 +38,8 @@ func main() {
 	handlers.CSSversion = *csssversion
 	handlers.Production = *production
 
-	//var er error
 	store = redistore.NewRediStore(10, "tcp", config.WebAppRedis, "", []byte(secretKey))
-	/*if er != nil {
-		log.Println("error!", er)
-		panic(er)
-	}*/
-
-	//defer store.Close()
+	defer store.Close()
 	redisPool = store.Pool
 
 	r := mux.NewRouter()
