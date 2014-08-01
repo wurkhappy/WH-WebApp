@@ -19,6 +19,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                 '': 'readAgreement',
                 'edit': 'editAgreement',
                 'new-account': 'newAccount',
+                'forgot-password': "forgotPassword",
                 'login': 'signIn'
             },
             initialize: function() {
@@ -105,6 +106,7 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     hideHaveAccount: true
                 });
                 view.render();
+
                 var modal = new Modal({
                     view: view,
                     hideClose: true,
@@ -127,10 +129,18 @@ define(['backbone', 'flying-focus', 'models/agreement', 'views/agreement/layout_
                     hideClose: true,
                 });
                 modal.show();
+                //Allows router trigger of save response from view
                 this.listenTo(view, 'saveSuccess', function(response) {
                     modal.hide();
                     window.location = window.location.origin + window.location.pathname;
                 });
+                //Allows router trigger of error response from view
+                this.listenTo(view, 'saveError', this.logInError);
+            },
+            logInError: function(response) {
+                $('#password').addClass('parsley-error');
+                $('#email').addClass('parsley-error');
+                $('#server_error').html('<ul class="parsley-error-list" style="display: block;"><li class="type" style="display: list-item;">' + response.responseText + '.</li></ul>');
             }
 
         });
