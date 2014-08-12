@@ -203,7 +203,6 @@ module.exports = function(grunt) {
                         {
                             name: 'app/mainaccount',
                             exclude: ['config'],
-
                         }, {
                             name: 'app/mainagreement',
                             exclude: ['config']
@@ -386,7 +385,7 @@ module.exports = function(grunt) {
         //'csslint',
         //'jshint',
         'connect',
-        'karma:unit', // On change, run the tests specified in the unit target using the already running karma server.
+        //'karma:unit', On change, run the tests specified in the unit target using the already running karma server.
         'watch'
     ]);
 
